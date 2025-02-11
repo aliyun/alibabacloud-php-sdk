@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\EditQualityRuleTagRequest\analysisTypes;
-use AlibabaCloud\Tea\Model;
 
 class EditQualityRuleTagRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var analysisTypes[]
      */
     public $analysisTypes;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceId;
@@ -29,20 +24,25 @@ class EditQualityRuleTagRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->analysisTypes)) {
+            Model::validateArray($this->analysisTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analysisTypes) {
-            $res['AnalysisTypes'] = [];
-            if (null !== $this->analysisTypes && \is_array($this->analysisTypes)) {
-                $n = 0;
-                foreach ($this->analysisTypes as $item) {
-                    $res['AnalysisTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->analysisTypes)) {
+                $res['AnalysisTypes'] = [];
+                $n1                   = 0;
+                foreach ($this->analysisTypes as $item1) {
+                    $res['AnalysisTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -50,23 +50,24 @@ class EditQualityRuleTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EditQualityRuleTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnalysisTypes'])) {
             if (!empty($map['AnalysisTypes'])) {
                 $model->analysisTypes = [];
-                $n                    = 0;
-                foreach ($map['AnalysisTypes'] as $item) {
-                    $model->analysisTypes[$n++] = null !== $item ? analysisTypes::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['AnalysisTypes'] as $item1) {
+                    $model->analysisTypes[$n1++] = analysisTypes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

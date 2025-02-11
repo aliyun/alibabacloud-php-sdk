@@ -4,32 +4,23 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetSeatInformationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
-
     /**
-     * @example 2000
-     *
      * @var int
      */
     public $pageSize;
-
     /**
      * @var string
      */
     public $rowr;
-
     /**
-     * @example 4
-     *
      * @var int
      */
     public $totalNum;
@@ -42,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->rowr) {
             $res['Rowr'] = $this->rowr;
         }
+
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
@@ -63,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Rowr'])) {
             $model->rowr = $map['Rowr'];
         }
+
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }

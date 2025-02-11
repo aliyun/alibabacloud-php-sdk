@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetRecordUrlResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 1001067****
-     *
      * @var string
      */
     public $acid;
-
     /**
-     * @example http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/10010679716-12-01-56.wav?***
-     *
      * @var string
      */
     public $ossLink;
@@ -28,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acid) {
             $res['Acid'] = $this->acid;
         }
+
         if (null !== $this->ossLink) {
             $res['OssLink'] = $this->ossLink;
         }
@@ -43,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Acid'])) {
             $model->acid = $map['Acid'];
         }
+
         if (isset($map['OssLink'])) {
             $model->ossLink = $map['OssLink'];
         }

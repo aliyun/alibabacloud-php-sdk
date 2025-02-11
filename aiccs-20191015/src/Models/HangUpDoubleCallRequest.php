@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class HangUpDoubleCallRequest extends Model
 {
     /**
-     * @example 68255155****
-     *
      * @var string
      */
     public $acid;
-
     /**
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
@@ -28,14 +23,16 @@ class HangUpDoubleCallRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acid) {
             $res['Acid'] = $this->acid;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -43,17 +40,18 @@ class HangUpDoubleCallRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HangUpDoubleCallRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Acid'])) {
             $model->acid = $map['Acid'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

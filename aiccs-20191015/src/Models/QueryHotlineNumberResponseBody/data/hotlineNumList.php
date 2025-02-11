@@ -4,82 +4,52 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineNumberResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\QueryHotlineNumberResponseBody\data\hotlineNumList\calloutRangeList;
-use AlibabaCloud\Tea\Model;
 
 class hotlineNumList extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $calloutAllDepartment;
-
     /**
      * @var calloutRangeList[]
      */
     public $calloutRangeList;
-
     /**
-     * @example 测试
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $evaluationStatus;
-
     /**
-     * @example 12
-     *
      * @var int
      */
     public $flowId;
-
     /**
-     * @example 测试流程
-     *
      * @var string
      */
     public $flowName;
-
     /**
-     * @example 0571****2211
-     *
      * @var string
      */
     public $hotlineNumber;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $inBoundEnabled;
-
     /**
-     * @example 浙江杭州
-     *
      * @var string
      */
     public $location;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $outboundEnabled;
-
     /**
-     * @example 电信
-     *
      * @var string
      */
     public $sp;
@@ -99,47 +69,61 @@ class hotlineNumList extends Model
 
     public function validate()
     {
+        if (\is_array($this->calloutRangeList)) {
+            Model::validateArray($this->calloutRangeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->calloutAllDepartment) {
             $res['CalloutAllDepartment'] = $this->calloutAllDepartment;
         }
+
         if (null !== $this->calloutRangeList) {
-            $res['CalloutRangeList'] = [];
-            if (null !== $this->calloutRangeList && \is_array($this->calloutRangeList)) {
-                $n = 0;
-                foreach ($this->calloutRangeList as $item) {
-                    $res['CalloutRangeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->calloutRangeList)) {
+                $res['CalloutRangeList'] = [];
+                $n1                      = 0;
+                foreach ($this->calloutRangeList as $item1) {
+                    $res['CalloutRangeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->evaluationStatus) {
             $res['EvaluationStatus'] = $this->evaluationStatus;
         }
+
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
+
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
+
         if (null !== $this->hotlineNumber) {
             $res['HotlineNumber'] = $this->hotlineNumber;
         }
+
         if (null !== $this->inBoundEnabled) {
             $res['InBoundEnabled'] = $this->inBoundEnabled;
         }
+
         if (null !== $this->location) {
             $res['Location'] = $this->location;
         }
+
         if (null !== $this->outboundEnabled) {
             $res['OutboundEnabled'] = $this->outboundEnabled;
         }
+
         if (null !== $this->sp) {
             $res['Sp'] = $this->sp;
         }
@@ -147,50 +131,60 @@ class hotlineNumList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hotlineNumList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CalloutAllDepartment'])) {
             $model->calloutAllDepartment = $map['CalloutAllDepartment'];
         }
+
         if (isset($map['CalloutRangeList'])) {
             if (!empty($map['CalloutRangeList'])) {
                 $model->calloutRangeList = [];
-                $n                       = 0;
-                foreach ($map['CalloutRangeList'] as $item) {
-                    $model->calloutRangeList[$n++] = null !== $item ? calloutRangeList::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['CalloutRangeList'] as $item1) {
+                    $model->calloutRangeList[$n1++] = calloutRangeList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EvaluationStatus'])) {
             $model->evaluationStatus = $map['EvaluationStatus'];
         }
+
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }
+
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
+
         if (isset($map['HotlineNumber'])) {
             $model->hotlineNumber = $map['HotlineNumber'];
         }
+
         if (isset($map['InBoundEnabled'])) {
             $model->inBoundEnabled = $map['InBoundEnabled'];
         }
+
         if (isset($map['Location'])) {
             $model->location = $map['Location'];
         }
+
         if (isset($map['OutboundEnabled'])) {
             $model->outboundEnabled = $map['OutboundEnabled'];
         }
+
         if (isset($map['Sp'])) {
             $model->sp = $map['Sp'];
         }

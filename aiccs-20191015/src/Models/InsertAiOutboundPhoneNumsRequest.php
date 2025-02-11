@@ -4,39 +4,24 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\InsertAiOutboundPhoneNumsRequest\details;
-use AlibabaCloud\Tea\Model;
 
 class InsertAiOutboundPhoneNumsRequest extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $batchVersion;
-
     /**
-     * @description This parameter is required.
-     *
      * @var details[]
      */
     public $details;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example agent_***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $taskId;
@@ -49,26 +34,33 @@ class InsertAiOutboundPhoneNumsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->details)) {
+            Model::validateArray($this->details);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchVersion) {
             $res['BatchVersion'] = $this->batchVersion;
         }
+
         if (null !== $this->details) {
-            $res['Details'] = [];
-            if (null !== $this->details && \is_array($this->details)) {
-                $n = 0;
-                foreach ($this->details as $item) {
-                    $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->details)) {
+                $res['Details'] = [];
+                $n1             = 0;
+                foreach ($this->details as $item1) {
+                    $res['Details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -76,29 +68,32 @@ class InsertAiOutboundPhoneNumsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InsertAiOutboundPhoneNumsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchVersion'])) {
             $model->batchVersion = $map['BatchVersion'];
         }
+
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
-                foreach ($map['Details'] as $item) {
-                    $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Details'] as $item1) {
+                    $model->details[$n1++] = details::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

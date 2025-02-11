@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAgentIndexRealTimeRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
      * @var int[]
      */
     public $depIds;
-
     /**
      * @var int[]
      */
     public $groupIds;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -50,23 +38,46 @@ class GetAgentIndexRealTimeRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->depIds)) {
+            Model::validateArray($this->depIds);
+        }
+        if (\is_array($this->groupIds)) {
+            Model::validateArray($this->groupIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->depIds) {
-            $res['DepIds'] = $this->depIds;
+            if (\is_array($this->depIds)) {
+                $res['DepIds'] = [];
+                $n1            = 0;
+                foreach ($this->depIds as $item1) {
+                    $res['DepIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->groupIds) {
-            $res['GroupIds'] = $this->groupIds;
+            if (\is_array($this->groupIds)) {
+                $res['GroupIds'] = [];
+                $n1              = 0;
+                foreach ($this->groupIds as $item1) {
+                    $res['GroupIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -74,30 +85,42 @@ class GetAgentIndexRealTimeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAgentIndexRealTimeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['DepIds'])) {
             if (!empty($map['DepIds'])) {
-                $model->depIds = $map['DepIds'];
+                $model->depIds = [];
+                $n1            = 0;
+                foreach ($map['DepIds'] as $item1) {
+                    $model->depIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
-                $model->groupIds = $map['GroupIds'];
+                $model->groupIds = [];
+                $n1              = 0;
+                foreach ($map['GroupIds'] as $item1) {
+                    $model->groupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

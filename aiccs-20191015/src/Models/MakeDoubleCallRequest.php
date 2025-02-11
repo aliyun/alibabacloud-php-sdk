@@ -4,56 +4,31 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MakeDoubleCallRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 12345
-     *
      * @var string
      */
     public $accountName;
-
     /**
-     * @example {"bizId": 123456}
-     *
      * @var string
      */
     public $bizData;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example agent_***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1502123****
-     *
      * @var string
      */
     public $memberPhone;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 0571000****
-     *
      * @var string
      */
     public $outboundCallNumber;
-
     /**
-     * @example 150****1234
-     *
      * @var string
      */
     public $servicerPhone;
@@ -68,26 +43,32 @@ class MakeDoubleCallRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->bizData) {
             $res['BizData'] = $this->bizData;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->memberPhone) {
             $res['MemberPhone'] = $this->memberPhone;
         }
+
         if (null !== $this->outboundCallNumber) {
             $res['OutboundCallNumber'] = $this->outboundCallNumber;
         }
+
         if (null !== $this->servicerPhone) {
             $res['ServicerPhone'] = $this->servicerPhone;
         }
@@ -95,29 +76,34 @@ class MakeDoubleCallRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MakeDoubleCallRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['BizData'])) {
             $model->bizData = $map['BizData'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['MemberPhone'])) {
             $model->memberPhone = $map['MemberPhone'];
         }
+
         if (isset($map['OutboundCallNumber'])) {
             $model->outboundCallNumber = $map['OutboundCallNumber'];
         }
+
         if (isset($map['ServicerPhone'])) {
             $model->servicerPhone = $map['ServicerPhone'];
         }

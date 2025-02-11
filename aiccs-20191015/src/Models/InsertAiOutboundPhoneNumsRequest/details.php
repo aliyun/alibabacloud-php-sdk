@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\InsertAiOutboundPhoneNumsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class details extends Model
 {
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $bizData;
-
     /**
-     * @example 150****0000
-     *
      * @var string
      */
     public $phoneNum;
@@ -28,14 +23,16 @@ class details extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizData) {
             $res['BizData'] = $this->bizData;
         }
+
         if (null !== $this->phoneNum) {
             $res['PhoneNum'] = $this->phoneNum;
         }
@@ -43,17 +40,18 @@ class details extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return details
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizData'])) {
             $model->bizData = $map['BizData'];
         }
+
         if (isset($map['PhoneNum'])) {
             $model->phoneNum = $map['PhoneNum'];
         }

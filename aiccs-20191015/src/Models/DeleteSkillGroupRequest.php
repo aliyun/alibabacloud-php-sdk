@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSkillGroupRequest extends Model
 {
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $outerGroupId;
-
     /**
-     * @example 2
-     *
      * @var string
      */
     public $outerGroupType;
@@ -28,14 +23,16 @@ class DeleteSkillGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outerGroupId) {
             $res['OuterGroupId'] = $this->outerGroupId;
         }
+
         if (null !== $this->outerGroupType) {
             $res['OuterGroupType'] = $this->outerGroupType;
         }
@@ -43,17 +40,18 @@ class DeleteSkillGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSkillGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OuterGroupId'])) {
             $model->outerGroupId = $map['OuterGroupId'];
         }
+
         if (isset($map['OuterGroupType'])) {
             $model->outerGroupType = $map['OuterGroupType'];
         }

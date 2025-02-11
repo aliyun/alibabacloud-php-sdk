@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InsertAiOutboundPhoneNumsShrinkRequest extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $batchVersion;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $detailsShrink;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example agent_***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $taskId;
@@ -48,20 +33,24 @@ class InsertAiOutboundPhoneNumsShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchVersion) {
             $res['BatchVersion'] = $this->batchVersion;
         }
+
         if (null !== $this->detailsShrink) {
             $res['Details'] = $this->detailsShrink;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -69,23 +58,26 @@ class InsertAiOutboundPhoneNumsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InsertAiOutboundPhoneNumsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchVersion'])) {
             $model->batchVersion = $map['BatchVersion'];
         }
+
         if (isset($map['Details'])) {
             $model->detailsShrink = $map['Details'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

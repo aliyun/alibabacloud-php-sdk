@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetAgentServiceStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
-
     /**
-     * @example 2000
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example {"online_40s_transfer_ready_cnt":81,"minute_id":"-1","online_unsatis_cnt":0,"online_simple_cnt":0,"average_queue_time":-1,"service_pickup":"2086","total_waiting_time":"981","online_service_time_len":58208,"online_direct_give_up_len":0,"break_ratio":"2%"}
-     *
      * @var string
      */
     public $rows;
-
     /**
-     * @example 4
-     *
      * @var int
      */
     public $totalNum;
@@ -44,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->rows) {
             $res['Rows'] = $this->rows;
         }
+
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
@@ -65,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Rows'])) {
             $model->rows = $map['Rows'];
         }
+
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }

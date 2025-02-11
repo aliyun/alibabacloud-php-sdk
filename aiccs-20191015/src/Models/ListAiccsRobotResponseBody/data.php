@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\ListAiccsRobotResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,27 +12,19 @@ class data extends Model
      * @var string
      */
     public $atProfession;
-
     /**
      * @var string
      */
     public $atSence;
-
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $id;
-
     /**
      * @var string
      */
     public $robotName;
-
     /**
-     * @example CUSTOM
-     *
      * @var string
      */
     public $robotType;
@@ -46,23 +38,28 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->atProfession) {
             $res['AtProfession'] = $this->atProfession;
         }
+
         if (null !== $this->atSence) {
             $res['AtSence'] = $this->atSence;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->robotName) {
             $res['RobotName'] = $this->robotName;
         }
+
         if (null !== $this->robotType) {
             $res['RobotType'] = $this->robotType;
         }
@@ -70,26 +67,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AtProfession'])) {
             $model->atProfession = $map['AtProfession'];
         }
+
         if (isset($map['AtSence'])) {
             $model->atSence = $map['AtSence'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RobotName'])) {
             $model->robotName = $map['RobotName'];
         }
+
         if (isset($map['RobotType'])) {
             $model->robotType = $map['RobotType'];
         }

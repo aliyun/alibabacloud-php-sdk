@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAiOutboundTaskBizDataRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $channelId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example agent_***
-     *
      * @var string
      */
     public $instanceId;
@@ -32,14 +23,16 @@ class GetAiOutboundTaskBizDataRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,17 +40,18 @@ class GetAiOutboundTaskBizDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAiOutboundTaskBizDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

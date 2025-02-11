@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetQualityRuleListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetQualityRuleListResponseBody\data\qualityRuleList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,17 +13,14 @@ class data extends Model
      * @var int
      */
     public $pageNo;
-
     /**
      * @var int
      */
     public $pageSize;
-
     /**
      * @var qualityRuleList[]
      */
     public $qualityRuleList;
-
     /**
      * @var int
      */
@@ -37,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->qualityRuleList)) {
+            Model::validateArray($this->qualityRuleList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->qualityRuleList) {
-            $res['QualityRuleList'] = [];
-            if (null !== $this->qualityRuleList && \is_array($this->qualityRuleList)) {
-                $n = 0;
-                foreach ($this->qualityRuleList as $item) {
-                    $res['QualityRuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qualityRuleList)) {
+                $res['QualityRuleList'] = [];
+                $n1                     = 0;
+                foreach ($this->qualityRuleList as $item1) {
+                    $res['QualityRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -64,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['QualityRuleList'])) {
             if (!empty($map['QualityRuleList'])) {
                 $model->qualityRuleList = [];
-                $n                      = 0;
-                foreach ($map['QualityRuleList'] as $item) {
-                    $model->qualityRuleList[$n++] = null !== $item ? qualityRuleList::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['QualityRuleList'] as $item1) {
+                    $model->qualityRuleList[$n1++] = qualityRuleList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

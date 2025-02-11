@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\AddHotlineNumberRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class outboundRangeList extends Model
 {
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $departmentId;
-
     /**
      * @var int[]
      */
@@ -26,35 +23,51 @@ class outboundRangeList extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupIdList)) {
+            Model::validateArray($this->groupIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
+
         if (null !== $this->groupIdList) {
-            $res['GroupIdList'] = $this->groupIdList;
+            if (\is_array($this->groupIdList)) {
+                $res['GroupIdList'] = [];
+                $n1                 = 0;
+                foreach ($this->groupIdList as $item1) {
+                    $res['GroupIdList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outboundRangeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
+
         if (isset($map['GroupIdList'])) {
             if (!empty($map['GroupIdList'])) {
-                $model->groupIdList = $map['GroupIdList'];
+                $model->groupIdList = [];
+                $n1                 = 0;
+                foreach ($map['GroupIdList'] as $item1) {
+                    $model->groupIdList[$n1++] = $item1;
+                }
             }
         }
 

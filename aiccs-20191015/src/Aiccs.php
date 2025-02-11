@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddHotlineNumberRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddHotlineNumberResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddHotlineNumberShrinkRequest;
@@ -208,6 +207,8 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\HangupCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HangupCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HangUpDoubleCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HangUpDoubleCallResponse;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\HangupOperateRequest;
+use AlibabaCloud\SDK\Aiccs\V20191015\Models\HangupOperateResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HangupThirdCallRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HangupThirdCallResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\HoldCallRequest;
@@ -327,12 +328,10 @@ use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateOuterAccountRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateOuterAccountResponse;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateSkillGroupRequest;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\UpdateSkillGroupResponse;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Aiccs extends OpenApiClient
 {
@@ -357,68 +356,85 @@ class Aiccs extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 新增热线号码
-     *  *
-     * @param AddHotlineNumberRequest $tmpReq  AddHotlineNumberRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 新增热线号码
      *
-     * @return AddHotlineNumberResponse AddHotlineNumberResponse
+     * @param tmpReq - AddHotlineNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddHotlineNumberResponse
+     *
+     * @param AddHotlineNumberRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AddHotlineNumberResponse
      */
     public function addHotlineNumberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddHotlineNumberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->outboundRangeList)) {
-            $request->outboundRangeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outboundRangeList, 'OutboundRangeList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->outboundRangeList) {
+            $request->outboundRangeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outboundRangeList, 'OutboundRangeList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enableInbound)) {
-            $body['EnableInbound'] = $request->enableInbound;
+
+        if (null !== $request->enableInbound) {
+            @$body['EnableInbound'] = $request->enableInbound;
         }
-        if (!Utils::isUnset($request->enableInboundEvaluation)) {
-            $body['EnableInboundEvaluation'] = $request->enableInboundEvaluation;
+
+        if (null !== $request->enableInboundEvaluation) {
+            @$body['EnableInboundEvaluation'] = $request->enableInboundEvaluation;
         }
-        if (!Utils::isUnset($request->enableOutbound)) {
-            $body['EnableOutbound'] = $request->enableOutbound;
+
+        if (null !== $request->enableOutbound) {
+            @$body['EnableOutbound'] = $request->enableOutbound;
         }
-        if (!Utils::isUnset($request->enableOutboundEvaluation)) {
-            $body['EnableOutboundEvaluation'] = $request->enableOutboundEvaluation;
+
+        if (null !== $request->enableOutboundEvaluation) {
+            @$body['EnableOutboundEvaluation'] = $request->enableOutboundEvaluation;
         }
-        if (!Utils::isUnset($request->evaluationLevel)) {
-            $body['EvaluationLevel'] = $request->evaluationLevel;
+
+        if (null !== $request->evaluationLevel) {
+            @$body['EvaluationLevel'] = $request->evaluationLevel;
         }
-        if (!Utils::isUnset($request->hotlineNumber)) {
-            $body['HotlineNumber'] = $request->hotlineNumber;
+
+        if (null !== $request->hotlineNumber) {
+            @$body['HotlineNumber'] = $request->hotlineNumber;
         }
-        if (!Utils::isUnset($request->inboundFlowId)) {
-            $body['InboundFlowId'] = $request->inboundFlowId;
+
+        if (null !== $request->inboundFlowId) {
+            @$body['InboundFlowId'] = $request->inboundFlowId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->outboundAllDepart)) {
-            $body['OutboundAllDepart'] = $request->outboundAllDepart;
+
+        if (null !== $request->outboundAllDepart) {
+            @$body['OutboundAllDepart'] = $request->outboundAllDepart;
         }
-        if (!Utils::isUnset($request->outboundRangeListShrink)) {
-            $body['OutboundRangeList'] = $request->outboundRangeListShrink;
+
+        if (null !== $request->outboundRangeListShrink) {
+            @$body['OutboundRangeList'] = $request->outboundRangeListShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddHotlineNumber',
@@ -431,16 +447,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddHotlineNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 新增热线号码
-     *  *
-     * @param AddHotlineNumberRequest $request AddHotlineNumberRequest
+     * 新增热线号码
      *
-     * @return AddHotlineNumberResponse AddHotlineNumberResponse
+     * @param request - AddHotlineNumberRequest
+     * @returns AddHotlineNumberResponse
+     *
+     * @param AddHotlineNumberRequest $request
+     *
+     * @return AddHotlineNumberResponse
      */
     public function addHotlineNumber($request)
     {
@@ -450,17 +472,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AddOuterAccountRequest $request AddOuterAccountRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - AddOuterAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddOuterAccountResponse
      *
-     * @return AddOuterAccountResponse AddOuterAccountResponse
+     * @param AddOuterAccountRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddOuterAccountResponse
      */
     public function addOuterAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddOuterAccount',
@@ -473,14 +499,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddOuterAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AddOuterAccountRequest $request AddOuterAccountRequest
+     * @param request - AddOuterAccountRequest
+     * @returns AddOuterAccountResponse
      *
-     * @return AddOuterAccountResponse AddOuterAccountResponse
+     * @param AddOuterAccountRequest $request
+     *
+     * @return AddOuterAccountResponse
      */
     public function addOuterAccount($request)
     {
@@ -490,17 +522,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AddSkillGroupRequest $request AddSkillGroupRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - AddSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddSkillGroupResponse
      *
-     * @return AddSkillGroupResponse AddSkillGroupResponse
+     * @param AddSkillGroupRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddSkillGroupResponse
      */
     public function addSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddSkillGroup',
@@ -513,14 +549,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AddSkillGroupRequest $request AddSkillGroupRequest
+     * @param request - AddSkillGroupRequest
+     * @returns AddSkillGroupResponse
      *
-     * @return AddSkillGroupResponse AddSkillGroupResponse
+     * @param AddSkillGroupRequest $request
+     *
+     * @return AddSkillGroupResponse
      */
     public function addSkillGroup($request)
     {
@@ -530,113 +572,149 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AiccsSmartCallRequest $request AiccsSmartCallRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - AiccsSmartCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AiccsSmartCallResponse
      *
-     * @return AiccsSmartCallResponse AiccsSmartCallResponse
+     * @param AiccsSmartCallRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AiccsSmartCallResponse
      */
     public function aiccsSmartCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionCodeBreak)) {
-            $query['ActionCodeBreak'] = $request->actionCodeBreak;
+        if (null !== $request->actionCodeBreak) {
+            @$query['ActionCodeBreak'] = $request->actionCodeBreak;
         }
-        if (!Utils::isUnset($request->actionCodeTimeBreak)) {
-            $query['ActionCodeTimeBreak'] = $request->actionCodeTimeBreak;
+
+        if (null !== $request->actionCodeTimeBreak) {
+            @$query['ActionCodeTimeBreak'] = $request->actionCodeTimeBreak;
         }
-        if (!Utils::isUnset($request->asrAlsAmId)) {
-            $query['AsrAlsAmId'] = $request->asrAlsAmId;
+
+        if (null !== $request->asrAlsAmId) {
+            @$query['AsrAlsAmId'] = $request->asrAlsAmId;
         }
-        if (!Utils::isUnset($request->asrBaseId)) {
-            $query['AsrBaseId'] = $request->asrBaseId;
+
+        if (null !== $request->asrBaseId) {
+            @$query['AsrBaseId'] = $request->asrBaseId;
         }
-        if (!Utils::isUnset($request->asrModelId)) {
-            $query['AsrModelId'] = $request->asrModelId;
+
+        if (null !== $request->asrModelId) {
+            @$query['AsrModelId'] = $request->asrModelId;
         }
-        if (!Utils::isUnset($request->asrVocabularyId)) {
-            $query['AsrVocabularyId'] = $request->asrVocabularyId;
+
+        if (null !== $request->asrVocabularyId) {
+            @$query['AsrVocabularyId'] = $request->asrVocabularyId;
         }
-        if (!Utils::isUnset($request->backgroundFileCode)) {
-            $query['BackgroundFileCode'] = $request->backgroundFileCode;
+
+        if (null !== $request->backgroundFileCode) {
+            @$query['BackgroundFileCode'] = $request->backgroundFileCode;
         }
-        if (!Utils::isUnset($request->backgroundSpeed)) {
-            $query['BackgroundSpeed'] = $request->backgroundSpeed;
+
+        if (null !== $request->backgroundSpeed) {
+            @$query['BackgroundSpeed'] = $request->backgroundSpeed;
         }
-        if (!Utils::isUnset($request->backgroundVolume)) {
-            $query['BackgroundVolume'] = $request->backgroundVolume;
+
+        if (null !== $request->backgroundVolume) {
+            @$query['BackgroundVolume'] = $request->backgroundVolume;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
+
+        if (null !== $request->calledShowNumber) {
+            @$query['CalledShowNumber'] = $request->calledShowNumber;
         }
-        if (!Utils::isUnset($request->dynamicId)) {
-            $query['DynamicId'] = $request->dynamicId;
+
+        if (null !== $request->dynamicId) {
+            @$query['DynamicId'] = $request->dynamicId;
         }
-        if (!Utils::isUnset($request->earlyMediaAsr)) {
-            $query['EarlyMediaAsr'] = $request->earlyMediaAsr;
+
+        if (null !== $request->earlyMediaAsr) {
+            @$query['EarlyMediaAsr'] = $request->earlyMediaAsr;
         }
-        if (!Utils::isUnset($request->enableITN)) {
-            $query['EnableITN'] = $request->enableITN;
+
+        if (null !== $request->enableITN) {
+            @$query['EnableITN'] = $request->enableITN;
         }
-        if (!Utils::isUnset($request->muteTime)) {
-            $query['MuteTime'] = $request->muteTime;
+
+        if (null !== $request->muteTime) {
+            @$query['MuteTime'] = $request->muteTime;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pauseTime)) {
-            $query['PauseTime'] = $request->pauseTime;
+
+        if (null !== $request->pauseTime) {
+            @$query['PauseTime'] = $request->pauseTime;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->recordFlag)) {
-            $query['RecordFlag'] = $request->recordFlag;
+
+        if (null !== $request->recordFlag) {
+            @$query['RecordFlag'] = $request->recordFlag;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sessionTimeout)) {
-            $query['SessionTimeout'] = $request->sessionTimeout;
+
+        if (null !== $request->sessionTimeout) {
+            @$query['SessionTimeout'] = $request->sessionTimeout;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->ttsConf)) {
-            $query['TtsConf'] = $request->ttsConf;
+
+        if (null !== $request->ttsConf) {
+            @$query['TtsConf'] = $request->ttsConf;
         }
-        if (!Utils::isUnset($request->ttsSpeed)) {
-            $query['TtsSpeed'] = $request->ttsSpeed;
+
+        if (null !== $request->ttsSpeed) {
+            @$query['TtsSpeed'] = $request->ttsSpeed;
         }
-        if (!Utils::isUnset($request->ttsStyle)) {
-            $query['TtsStyle'] = $request->ttsStyle;
+
+        if (null !== $request->ttsStyle) {
+            @$query['TtsStyle'] = $request->ttsStyle;
         }
-        if (!Utils::isUnset($request->ttsVolume)) {
-            $query['TtsVolume'] = $request->ttsVolume;
+
+        if (null !== $request->ttsVolume) {
+            @$query['TtsVolume'] = $request->ttsVolume;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->voiceCodeParam)) {
-            $query['VoiceCodeParam'] = $request->voiceCodeParam;
+
+        if (null !== $request->voiceCodeParam) {
+            @$query['VoiceCodeParam'] = $request->voiceCodeParam;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AiccsSmartCall',
@@ -649,14 +727,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AiccsSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AiccsSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AiccsSmartCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AiccsSmartCallRequest $request AiccsSmartCallRequest
+     * @param request - AiccsSmartCallRequest
+     * @returns AiccsSmartCallResponse
      *
-     * @return AiccsSmartCallResponse AiccsSmartCallResponse
+     * @param AiccsSmartCallRequest $request
+     *
+     * @return AiccsSmartCallResponse
      */
     public function aiccsSmartCall($request)
     {
@@ -666,38 +750,49 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AiccsSmartCallOperateRequest $request AiccsSmartCallOperateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - AiccsSmartCallOperateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AiccsSmartCallOperateResponse
      *
-     * @return AiccsSmartCallOperateResponse AiccsSmartCallOperateResponse
+     * @param AiccsSmartCallOperateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AiccsSmartCallOperateResponse
      */
     public function aiccsSmartCallOperateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->command)) {
-            $query['Command'] = $request->command;
+
+        if (null !== $request->command) {
+            @$query['Command'] = $request->command;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AiccsSmartCallOperate',
@@ -710,14 +805,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AiccsSmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AiccsSmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AiccsSmartCallOperateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AiccsSmartCallOperateRequest $request AiccsSmartCallOperateRequest
+     * @param request - AiccsSmartCallOperateRequest
+     * @returns AiccsSmartCallOperateResponse
      *
-     * @return AiccsSmartCallOperateResponse AiccsSmartCallOperateResponse
+     * @param AiccsSmartCallOperateRequest $request
+     *
+     * @return AiccsSmartCallOperateResponse
      */
     public function aiccsSmartCallOperate($request)
     {
@@ -727,35 +828,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param AnswerCallRequest $request AnswerCallRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - AnswerCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AnswerCallResponse
      *
-     * @return AnswerCallResponse AnswerCallResponse
+     * @param AnswerCallRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AnswerCallResponse
      */
     public function answerCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $body['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$body['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionId)) {
-            $body['ConnectionId'] = $request->connectionId;
+
+        if (null !== $request->connectionId) {
+            @$body['ConnectionId'] = $request->connectionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AnswerCall',
@@ -768,14 +879,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AnswerCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AnswerCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AnswerCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AnswerCallRequest $request AnswerCallRequest
+     * @param request - AnswerCallRequest
+     * @returns AnswerCallResponse
      *
-     * @return AnswerCallResponse AnswerCallResponse
+     * @param AnswerCallRequest $request
+     *
+     * @return AnswerCallResponse
      */
     public function answerCall($request)
     {
@@ -785,34 +902,43 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 追加任务明细
-     *  *
-     * @param AttachTaskRequest $request AttachTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 追加任务明细.
      *
-     * @return AttachTaskResponse AttachTaskResponse
+     * @param request - AttachTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachTaskResponse
+     *
+     * @param AttachTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AttachTaskResponse
      */
     public function attachTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callString)) {
-            $query['CallString'] = $request->callString;
+        if (null !== $request->callString) {
+            @$query['CallString'] = $request->callString;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachTask',
@@ -825,16 +951,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 追加任务明细
-     *  *
-     * @param AttachTaskRequest $request AttachTaskRequest
+     * 追加任务明细.
      *
-     * @return AttachTaskResponse AttachTaskResponse
+     * @param request - AttachTaskRequest
+     * @returns AttachTaskResponse
+     *
+     * @param AttachTaskRequest $request
+     *
+     * @return AttachTaskResponse
      */
     public function attachTask($request)
     {
@@ -844,38 +976,49 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param BatchCreateQualityProjectsRequest $request BatchCreateQualityProjectsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - BatchCreateQualityProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchCreateQualityProjectsResponse
      *
-     * @return BatchCreateQualityProjectsResponse BatchCreateQualityProjectsResponse
+     * @param BatchCreateQualityProjectsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return BatchCreateQualityProjectsResponse
      */
     public function batchCreateQualityProjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->analysisIds)) {
-            $query['AnalysisIds'] = $request->analysisIds;
+        if (null !== $request->analysisIds) {
+            @$query['AnalysisIds'] = $request->analysisIds;
         }
-        if (!Utils::isUnset($request->channelTouchType)) {
-            $query['ChannelTouchType'] = $request->channelTouchType;
+
+        if (null !== $request->channelTouchType) {
+            @$query['ChannelTouchType'] = $request->channelTouchType;
         }
-        if (!Utils::isUnset($request->checkFreqType)) {
-            $query['CheckFreqType'] = $request->checkFreqType;
+
+        if (null !== $request->checkFreqType) {
+            @$query['CheckFreqType'] = $request->checkFreqType;
         }
-        if (!Utils::isUnset($request->instanceList)) {
-            $query['InstanceList'] = $request->instanceList;
+
+        if (null !== $request->instanceList) {
+            @$query['InstanceList'] = $request->instanceList;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->timeRangeEnd)) {
-            $query['TimeRangeEnd'] = $request->timeRangeEnd;
+
+        if (null !== $request->timeRangeEnd) {
+            @$query['TimeRangeEnd'] = $request->timeRangeEnd;
         }
-        if (!Utils::isUnset($request->timeRangeStart)) {
-            $query['TimeRangeStart'] = $request->timeRangeStart;
+
+        if (null !== $request->timeRangeStart) {
+            @$query['TimeRangeStart'] = $request->timeRangeStart;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchCreateQualityProjects',
@@ -888,14 +1031,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchCreateQualityProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchCreateQualityProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchCreateQualityProjectsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param BatchCreateQualityProjectsRequest $request BatchCreateQualityProjectsRequest
+     * @param request - BatchCreateQualityProjectsRequest
+     * @returns BatchCreateQualityProjectsResponse
      *
-     * @return BatchCreateQualityProjectsResponse BatchCreateQualityProjectsResponse
+     * @param BatchCreateQualityProjectsRequest $request
+     *
+     * @return BatchCreateQualityProjectsResponse
      */
     public function batchCreateQualityProjects($request)
     {
@@ -905,31 +1054,39 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 删除智能外呼任务
-     *  *
-     * @param CancelTaskRequest $request CancelTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 删除智能外呼任务
      *
-     * @return CancelTaskResponse CancelTaskResponse
+     * @param request - CancelTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelTaskResponse
+     *
+     * @param CancelTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CancelTaskResponse
      */
     public function cancelTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelTask',
@@ -942,16 +1099,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除智能外呼任务
-     *  *
-     * @param CancelTaskRequest $request CancelTaskRequest
+     * 删除智能外呼任务
      *
-     * @return CancelTaskResponse CancelTaskResponse
+     * @param request - CancelTaskRequest
+     * @returns CancelTaskResponse
+     *
+     * @param CancelTaskRequest $request
+     *
+     * @return CancelTaskResponse
      */
     public function cancelTask($request)
     {
@@ -961,31 +1124,39 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 修改在线客服状态
-     *  *
-     * @param ChangeChatAgentStatusRequest $request ChangeChatAgentStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 修改在线客服状态
      *
-     * @return ChangeChatAgentStatusResponse ChangeChatAgentStatusResponse
+     * @param request - ChangeChatAgentStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeChatAgentStatusResponse
+     *
+     * @param ChangeChatAgentStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ChangeChatAgentStatusResponse
      */
     public function changeChatAgentStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->method)) {
-            $body['Method'] = $request->method;
+
+        if (null !== $request->method) {
+            @$body['Method'] = $request->method;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ChangeChatAgentStatus',
@@ -998,16 +1169,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeChatAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeChatAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeChatAgentStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改在线客服状态
-     *  *
-     * @param ChangeChatAgentStatusRequest $request ChangeChatAgentStatusRequest
+     * 修改在线客服状态
      *
-     * @return ChangeChatAgentStatusResponse ChangeChatAgentStatusResponse
+     * @param request - ChangeChatAgentStatusRequest
+     * @returns ChangeChatAgentStatusResponse
+     *
+     * @param ChangeChatAgentStatusRequest $request
+     *
+     * @return ChangeChatAgentStatusResponse
      */
     public function changeChatAgentStatus($request)
     {
@@ -1017,26 +1194,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param ChangeQualityProjectStatusRequest $request ChangeQualityProjectStatusRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - ChangeQualityProjectStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeQualityProjectStatusResponse
      *
-     * @return ChangeQualityProjectStatusResponse ChangeQualityProjectStatusResponse
+     * @param ChangeQualityProjectStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ChangeQualityProjectStatusResponse
      */
     public function changeQualityProjectStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeQualityProjectStatus',
@@ -1049,14 +1233,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeQualityProjectStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeQualityProjectStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeQualityProjectStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ChangeQualityProjectStatusRequest $request ChangeQualityProjectStatusRequest
+     * @param request - ChangeQualityProjectStatusRequest
+     * @returns ChangeQualityProjectStatusResponse
      *
-     * @return ChangeQualityProjectStatusResponse ChangeQualityProjectStatusResponse
+     * @param ChangeQualityProjectStatusRequest $request
+     *
+     * @return ChangeQualityProjectStatusResponse
      */
     public function changeQualityProjectStatus($request)
     {
@@ -1066,37 +1256,48 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param CreateAgentRequest $request CreateAgentRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAgentResponse
      *
-     * @return CreateAgentResponse CreateAgentResponse
+     * @param CreateAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateAgentResponse
      */
     public function createAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->skillGroupId)) {
-            $bodyFlat['SkillGroupId'] = $request->skillGroupId;
+        if (null !== $request->skillGroupId) {
+            @$bodyFlat['SkillGroupId'] = $request->skillGroupId;
         }
-        if (!Utils::isUnset($request->skillGroupIdList)) {
-            $bodyFlat['SkillGroupIdList'] = $request->skillGroupIdList;
+
+        if (null !== $request->skillGroupIdList) {
+            @$bodyFlat['SkillGroupIdList'] = $request->skillGroupIdList;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAgent',
@@ -1109,14 +1310,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateAgentRequest $request CreateAgentRequest
+     * @param request - CreateAgentRequest
+     * @returns CreateAgentResponse
      *
-     * @return CreateAgentResponse CreateAgentResponse
+     * @param CreateAgentRequest $request
+     *
+     * @return CreateAgentResponse
      */
     public function createAgent($request)
     {
@@ -1126,60 +1333,77 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 创建智能外呼任务（预测式外呼、自动外呼）
-     *  *
-     * @param CreateAiOutboundTaskRequest $tmpReq  CreateAiOutboundTaskRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 创建智能外呼任务（预测式外呼、自动外呼）.
      *
-     * @return CreateAiOutboundTaskResponse CreateAiOutboundTaskResponse
+     * @param tmpReq - CreateAiOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAiOutboundTaskResponse
+     *
+     * @param CreateAiOutboundTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateAiOutboundTaskResponse
      */
     public function createAiOutboundTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateAiOutboundTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->outboundNums)) {
-            $request->outboundNumsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outboundNums, 'OutboundNums', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->outboundNums) {
+            $request->outboundNumsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outboundNums, 'OutboundNums', 'json');
         }
-        if (!Utils::isUnset($tmpReq->recallRule)) {
-            $request->recallRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recallRule, 'RecallRule', 'json');
+
+        if (null !== $tmpReq->recallRule) {
+            $request->recallRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recallRule, 'RecallRule', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->concurrentRate)) {
-            $query['ConcurrentRate'] = $request->concurrentRate;
+        if (null !== $request->concurrentRate) {
+            @$query['ConcurrentRate'] = $request->concurrentRate;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->executionTime)) {
-            $query['ExecutionTime'] = $request->executionTime;
+
+        if (null !== $request->executionTime) {
+            @$query['ExecutionTime'] = $request->executionTime;
         }
-        if (!Utils::isUnset($request->forecastCallRate)) {
-            $query['ForecastCallRate'] = $request->forecastCallRate;
+
+        if (null !== $request->forecastCallRate) {
+            @$query['ForecastCallRate'] = $request->forecastCallRate;
         }
-        if (!Utils::isUnset($request->handlerId)) {
-            $query['HandlerId'] = $request->handlerId;
+
+        if (null !== $request->handlerId) {
+            @$query['HandlerId'] = $request->handlerId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->numRepeated)) {
-            $query['NumRepeated'] = $request->numRepeated;
+
+        if (null !== $request->numRepeated) {
+            @$query['NumRepeated'] = $request->numRepeated;
         }
-        if (!Utils::isUnset($request->outboundNumsShrink)) {
-            $query['OutboundNums'] = $request->outboundNumsShrink;
+
+        if (null !== $request->outboundNumsShrink) {
+            @$query['OutboundNums'] = $request->outboundNumsShrink;
         }
-        if (!Utils::isUnset($request->recallRuleShrink)) {
-            $query['RecallRule'] = $request->recallRuleShrink;
+
+        if (null !== $request->recallRuleShrink) {
+            @$query['RecallRule'] = $request->recallRuleShrink;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAiOutboundTask',
@@ -1192,16 +1416,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建智能外呼任务（预测式外呼、自动外呼）
-     *  *
-     * @param CreateAiOutboundTaskRequest $request CreateAiOutboundTaskRequest
+     * 创建智能外呼任务（预测式外呼、自动外呼）.
      *
-     * @return CreateAiOutboundTaskResponse CreateAiOutboundTaskResponse
+     * @param request - CreateAiOutboundTaskRequest
+     * @returns CreateAiOutboundTaskResponse
+     *
+     * @param CreateAiOutboundTaskRequest $request
+     *
+     * @return CreateAiOutboundTaskResponse
      */
     public function createAiOutboundTask($request)
     {
@@ -1211,25 +1441,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 创建智能外呼任务批次
-     *  *
-     * @param CreateAiOutboundTaskBatchRequest $request CreateAiOutboundTaskBatchRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 创建智能外呼任务批次
      *
-     * @return CreateAiOutboundTaskBatchResponse CreateAiOutboundTaskBatchResponse
+     * @param request - CreateAiOutboundTaskBatchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAiOutboundTaskBatchResponse
+     *
+     * @param CreateAiOutboundTaskBatchRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateAiOutboundTaskBatchResponse
      */
     public function createAiOutboundTaskBatchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAiOutboundTaskBatch',
@@ -1242,16 +1478,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAiOutboundTaskBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAiOutboundTaskBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAiOutboundTaskBatchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建智能外呼任务批次
-     *  *
-     * @param CreateAiOutboundTaskBatchRequest $request CreateAiOutboundTaskBatchRequest
+     * 创建智能外呼任务批次
      *
-     * @return CreateAiOutboundTaskBatchResponse CreateAiOutboundTaskBatchResponse
+     * @param request - CreateAiOutboundTaskBatchRequest
+     * @returns CreateAiOutboundTaskBatchResponse
+     *
+     * @param CreateAiOutboundTaskBatchRequest $request
+     *
+     * @return CreateAiOutboundTaskBatchResponse
      */
     public function createAiOutboundTaskBatch($request)
     {
@@ -1261,25 +1503,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 创建部门信息
-     *  *
-     * @param CreateDepartmentRequest $request CreateDepartmentRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建部门信息.
      *
-     * @return CreateDepartmentResponse CreateDepartmentResponse
+     * @param request - CreateDepartmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDepartmentResponse
+     *
+     * @param CreateDepartmentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDepartmentResponse
      */
     public function createDepartmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->departmentName)) {
-            $query['DepartmentName'] = $request->departmentName;
+        if (null !== $request->departmentName) {
+            @$query['DepartmentName'] = $request->departmentName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDepartment',
@@ -1292,16 +1540,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建部门信息
-     *  *
-     * @param CreateDepartmentRequest $request CreateDepartmentRequest
+     * 创建部门信息.
      *
-     * @return CreateDepartmentResponse CreateDepartmentResponse
+     * @param request - CreateDepartmentRequest
+     * @returns CreateDepartmentResponse
+     *
+     * @param CreateDepartmentRequest $request
+     *
+     * @return CreateDepartmentResponse
      */
     public function createDepartment($request)
     {
@@ -1311,68 +1565,89 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param CreateOutboundTaskRequest $request CreateOutboundTaskRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOutboundTaskResponse
      *
-     * @return CreateOutboundTaskResponse CreateOutboundTaskResponse
+     * @param CreateOutboundTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateOutboundTaskResponse
      */
     public function createOutboundTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ani)) {
-            $query['Ani'] = $request->ani;
+        if (null !== $request->ani) {
+            @$query['Ani'] = $request->ani;
         }
-        if (!Utils::isUnset($request->callInfos)) {
-            $query['CallInfos'] = $request->callInfos;
+
+        if (null !== $request->callInfos) {
+            @$query['CallInfos'] = $request->callInfos;
         }
-        if (!Utils::isUnset($request->departmentId)) {
-            $query['DepartmentId'] = $request->departmentId;
+
+        if (null !== $request->departmentId) {
+            @$query['DepartmentId'] = $request->departmentId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->extAttrs)) {
-            $query['ExtAttrs'] = $request->extAttrs;
+
+        if (null !== $request->extAttrs) {
+            @$query['ExtAttrs'] = $request->extAttrs;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->model)) {
-            $query['Model'] = $request->model;
+
+        if (null !== $request->model) {
+            @$query['Model'] = $request->model;
         }
-        if (!Utils::isUnset($request->retryInterval)) {
-            $query['RetryInterval'] = $request->retryInterval;
+
+        if (null !== $request->retryInterval) {
+            @$query['RetryInterval'] = $request->retryInterval;
         }
-        if (!Utils::isUnset($request->retryTime)) {
-            $query['RetryTime'] = $request->retryTime;
+
+        if (null !== $request->retryTime) {
+            @$query['RetryTime'] = $request->retryTime;
         }
-        if (!Utils::isUnset($request->skillGroup)) {
-            $query['SkillGroup'] = $request->skillGroup;
+
+        if (null !== $request->skillGroup) {
+            @$query['SkillGroup'] = $request->skillGroup;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateOutboundTask',
@@ -1385,14 +1660,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateOutboundTaskRequest $request CreateOutboundTaskRequest
+     * @param request - CreateOutboundTaskRequest
+     * @returns CreateOutboundTaskResponse
      *
-     * @return CreateOutboundTaskResponse CreateOutboundTaskResponse
+     * @param CreateOutboundTaskRequest $request
+     *
+     * @return CreateOutboundTaskResponse
      */
     public function createOutboundTask($request)
     {
@@ -1402,50 +1683,65 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityProjectRequest $request CreateQualityProjectRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateQualityProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateQualityProjectResponse
      *
-     * @return CreateQualityProjectResponse CreateQualityProjectResponse
+     * @param CreateQualityProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateQualityProjectResponse
      */
     public function createQualityProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->analysisIds)) {
-            $body['AnalysisIds'] = $request->analysisIds;
+        if (null !== $request->analysisIds) {
+            @$body['AnalysisIds'] = $request->analysisIds;
         }
-        if (!Utils::isUnset($request->channelTouchType)) {
-            $body['ChannelTouchType'] = $request->channelTouchType;
+
+        if (null !== $request->channelTouchType) {
+            @$body['ChannelTouchType'] = $request->channelTouchType;
         }
-        if (!Utils::isUnset($request->checkFreqType)) {
-            $body['CheckFreqType'] = $request->checkFreqType;
+
+        if (null !== $request->checkFreqType) {
+            @$body['CheckFreqType'] = $request->checkFreqType;
         }
-        if (!Utils::isUnset($request->depList)) {
-            $body['DepList'] = $request->depList;
+
+        if (null !== $request->depList) {
+            @$body['DepList'] = $request->depList;
         }
-        if (!Utils::isUnset($request->groupList)) {
-            $body['GroupList'] = $request->groupList;
+
+        if (null !== $request->groupList) {
+            @$body['GroupList'] = $request->groupList;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->scopeType)) {
-            $body['ScopeType'] = $request->scopeType;
+
+        if (null !== $request->scopeType) {
+            @$body['ScopeType'] = $request->scopeType;
         }
-        if (!Utils::isUnset($request->servicerList)) {
-            $body['ServicerList'] = $request->servicerList;
+
+        if (null !== $request->servicerList) {
+            @$body['ServicerList'] = $request->servicerList;
         }
-        if (!Utils::isUnset($request->timeRangeEnd)) {
-            $body['TimeRangeEnd'] = $request->timeRangeEnd;
+
+        if (null !== $request->timeRangeEnd) {
+            @$body['TimeRangeEnd'] = $request->timeRangeEnd;
         }
-        if (!Utils::isUnset($request->timeRangeStart)) {
-            $body['TimeRangeStart'] = $request->timeRangeStart;
+
+        if (null !== $request->timeRangeStart) {
+            @$body['TimeRangeStart'] = $request->timeRangeStart;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateQualityProject',
@@ -1458,14 +1754,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateQualityProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateQualityProjectRequest $request CreateQualityProjectRequest
+     * @param request - CreateQualityProjectRequest
+     * @returns CreateQualityProjectResponse
      *
-     * @return CreateQualityProjectResponse CreateQualityProjectResponse
+     * @param CreateQualityProjectRequest $request
+     *
+     * @return CreateQualityProjectResponse
      */
     public function createQualityProject($request)
     {
@@ -1475,32 +1777,41 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param CreateQualityRuleRequest $request CreateQualityRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateQualityRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateQualityRuleResponse
      *
-     * @return CreateQualityRuleResponse CreateQualityRuleResponse
+     * @param CreateQualityRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateQualityRuleResponse
      */
     public function createQualityRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->keyWords)) {
-            $body['KeyWords'] = $request->keyWords;
+
+        if (null !== $request->keyWords) {
+            @$body['KeyWords'] = $request->keyWords;
         }
-        if (!Utils::isUnset($request->matchType)) {
-            $body['MatchType'] = $request->matchType;
+
+        if (null !== $request->matchType) {
+            @$body['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->ruleTag)) {
-            $body['RuleTag'] = $request->ruleTag;
+
+        if (null !== $request->ruleTag) {
+            @$body['RuleTag'] = $request->ruleTag;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateQualityRule',
@@ -1513,14 +1824,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateQualityRuleRequest $request CreateQualityRuleRequest
+     * @param request - CreateQualityRuleRequest
+     * @returns CreateQualityRuleResponse
      *
-     * @return CreateQualityRuleResponse CreateQualityRuleResponse
+     * @param CreateQualityRuleRequest $request
+     *
+     * @return CreateQualityRuleResponse
      */
     public function createQualityRule($request)
     {
@@ -1530,38 +1847,49 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param CreateSkillGroupRequest $request CreateSkillGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSkillGroupResponse
      *
-     * @return CreateSkillGroupResponse CreateSkillGroupResponse
+     * @param CreateSkillGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSkillGroupResponse
      */
     public function createSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->channelType)) {
-            $body['ChannelType'] = $request->channelType;
+        if (null !== $request->channelType) {
+            @$body['ChannelType'] = $request->channelType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->departmentId)) {
-            $body['DepartmentId'] = $request->departmentId;
+
+        if (null !== $request->departmentId) {
+            @$body['DepartmentId'] = $request->departmentId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->skillGroupName)) {
-            $body['SkillGroupName'] = $request->skillGroupName;
+
+        if (null !== $request->skillGroupName) {
+            @$body['SkillGroupName'] = $request->skillGroupName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateSkillGroup',
@@ -1574,14 +1902,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateSkillGroupRequest $request CreateSkillGroupRequest
+     * @param request - CreateSkillGroupRequest
+     * @returns CreateSkillGroupResponse
      *
-     * @return CreateSkillGroupResponse CreateSkillGroupResponse
+     * @param CreateSkillGroupRequest $request
+     *
+     * @return CreateSkillGroupResponse
      */
     public function createSkillGroup($request)
     {
@@ -1591,67 +1925,87 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 创建外呼任务
-     *  *
-     * @param CreateTaskRequest $request CreateTaskRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 创建外呼任务
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @param request - CreateTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTaskResponse
+     *
+     * @param CreateTaskRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateTaskResponse
      */
     public function createTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callString)) {
-            $query['CallString'] = $request->callString;
+        if (null !== $request->callString) {
+            @$query['CallString'] = $request->callString;
         }
-        if (!Utils::isUnset($request->callStringType)) {
-            $query['CallStringType'] = $request->callStringType;
+
+        if (null !== $request->callStringType) {
+            @$query['CallStringType'] = $request->callStringType;
         }
-        if (!Utils::isUnset($request->caller)) {
-            $query['Caller'] = $request->caller;
+
+        if (null !== $request->caller) {
+            @$query['Caller'] = $request->caller;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->retryCount)) {
-            $query['RetryCount'] = $request->retryCount;
+
+        if (null !== $request->retryCount) {
+            @$query['RetryCount'] = $request->retryCount;
         }
-        if (!Utils::isUnset($request->retryFlag)) {
-            $query['RetryFlag'] = $request->retryFlag;
+
+        if (null !== $request->retryFlag) {
+            @$query['RetryFlag'] = $request->retryFlag;
         }
-        if (!Utils::isUnset($request->retryInterval)) {
-            $query['RetryInterval'] = $request->retryInterval;
+
+        if (null !== $request->retryInterval) {
+            @$query['RetryInterval'] = $request->retryInterval;
         }
-        if (!Utils::isUnset($request->retryStatusCode)) {
-            $query['RetryStatusCode'] = $request->retryStatusCode;
+
+        if (null !== $request->retryStatusCode) {
+            @$query['RetryStatusCode'] = $request->retryStatusCode;
         }
-        if (!Utils::isUnset($request->robotId)) {
-            $query['RobotId'] = $request->robotId;
+
+        if (null !== $request->robotId) {
+            @$query['RobotId'] = $request->robotId;
         }
-        if (!Utils::isUnset($request->seatCount)) {
-            $query['SeatCount'] = $request->seatCount;
+
+        if (null !== $request->seatCount) {
+            @$query['SeatCount'] = $request->seatCount;
         }
-        if (!Utils::isUnset($request->startNow)) {
-            $query['StartNow'] = $request->startNow;
+
+        if (null !== $request->startNow) {
+            @$query['StartNow'] = $request->startNow;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->workDay)) {
-            $query['WorkDay'] = $request->workDay;
+
+        if (null !== $request->workDay) {
+            @$query['WorkDay'] = $request->workDay;
         }
-        if (!Utils::isUnset($request->workTimeList)) {
-            $query['WorkTimeList'] = $request->workTimeList;
+
+        if (null !== $request->workTimeList) {
+            @$query['WorkTimeList'] = $request->workTimeList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateTask',
@@ -1664,16 +2018,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建外呼任务
-     *  *
-     * @param CreateTaskRequest $request CreateTaskRequest
+     * 创建外呼任务
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @param request - CreateTaskRequest
+     * @returns CreateTaskResponse
+     *
+     * @param CreateTaskRequest $request
+     *
+     * @return CreateTaskResponse
      */
     public function createTask($request)
     {
@@ -1683,45 +2043,58 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 创建坐席并开通sso登录能力
-     *  *
-     * @param CreateThirdSsoAgentRequest $request CreateThirdSsoAgentRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 创建坐席并开通sso登录能力.
      *
-     * @return CreateThirdSsoAgentResponse CreateThirdSsoAgentResponse
+     * @param request - CreateThirdSsoAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateThirdSsoAgentResponse
+     *
+     * @param CreateThirdSsoAgentRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateThirdSsoAgentResponse
      */
     public function createThirdSsoAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $bodyFlat = [];
-        if (!Utils::isUnset($request->roleIds)) {
-            $bodyFlat['RoleIds'] = $request->roleIds;
+        if (null !== $request->roleIds) {
+            @$bodyFlat['RoleIds'] = $request->roleIds;
         }
-        if (!Utils::isUnset($request->skillGroupIds)) {
-            $bodyFlat['SkillGroupIds'] = $request->skillGroupIds;
+
+        if (null !== $request->skillGroupIds) {
+            @$bodyFlat['SkillGroupIds'] = $request->skillGroupIds;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateThirdSsoAgent',
@@ -1734,16 +2107,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateThirdSsoAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateThirdSsoAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateThirdSsoAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建坐席并开通sso登录能力
-     *  *
-     * @param CreateThirdSsoAgentRequest $request CreateThirdSsoAgentRequest
+     * 创建坐席并开通sso登录能力.
      *
-     * @return CreateThirdSsoAgentResponse CreateThirdSsoAgentResponse
+     * @param request - CreateThirdSsoAgentRequest
+     * @returns CreateThirdSsoAgentResponse
+     *
+     * @param CreateThirdSsoAgentRequest $request
+     *
+     * @return CreateThirdSsoAgentResponse
      */
     public function createThirdSsoAgent($request)
     {
@@ -1753,28 +2132,35 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 删除坐席账号
-     *  *
-     * @param DeleteAgentRequest $request DeleteAgentRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 删除坐席账号.
      *
-     * @return DeleteAgentResponse DeleteAgentResponse
+     * @param request - DeleteAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteAgentResponse
      */
     public function deleteAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAgent',
@@ -1787,16 +2173,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除坐席账号
-     *  *
-     * @param DeleteAgentRequest $request DeleteAgentRequest
+     * 删除坐席账号.
      *
-     * @return DeleteAgentResponse DeleteAgentResponse
+     * @param request - DeleteAgentRequest
+     * @returns DeleteAgentResponse
+     *
+     * @param DeleteAgentRequest $request
+     *
+     * @return DeleteAgentResponse
      */
     public function deleteAgent($request)
     {
@@ -1806,25 +2198,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 删除智能外呼任务
-     *  *
-     * @param DeleteAiOutboundTaskRequest $request DeleteAiOutboundTaskRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 删除智能外呼任务
      *
-     * @return DeleteAiOutboundTaskResponse DeleteAiOutboundTaskResponse
+     * @param request - DeleteAiOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAiOutboundTaskResponse
+     *
+     * @param DeleteAiOutboundTaskRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteAiOutboundTaskResponse
      */
     public function deleteAiOutboundTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAiOutboundTask',
@@ -1837,16 +2235,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除智能外呼任务
-     *  *
-     * @param DeleteAiOutboundTaskRequest $request DeleteAiOutboundTaskRequest
+     * 删除智能外呼任务
      *
-     * @return DeleteAiOutboundTaskResponse DeleteAiOutboundTaskResponse
+     * @param request - DeleteAiOutboundTaskRequest
+     * @returns DeleteAiOutboundTaskResponse
+     *
+     * @param DeleteAiOutboundTaskRequest $request
+     *
+     * @return DeleteAiOutboundTaskResponse
      */
     public function deleteAiOutboundTask($request)
     {
@@ -1856,25 +2260,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 删除部门信息
-     *  *
-     * @param DeleteDepartmentRequest $request DeleteDepartmentRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除部门信息.
      *
-     * @return DeleteDepartmentResponse DeleteDepartmentResponse
+     * @param request - DeleteDepartmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDepartmentResponse
+     *
+     * @param DeleteDepartmentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDepartmentResponse
      */
     public function deleteDepartmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->departmentId)) {
-            $query['DepartmentId'] = $request->departmentId;
+        if (null !== $request->departmentId) {
+            @$query['DepartmentId'] = $request->departmentId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDepartment',
@@ -1887,16 +2297,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除部门信息
-     *  *
-     * @param DeleteDepartmentRequest $request DeleteDepartmentRequest
+     * 删除部门信息.
      *
-     * @return DeleteDepartmentResponse DeleteDepartmentResponse
+     * @param request - DeleteDepartmentRequest
+     * @returns DeleteDepartmentResponse
+     *
+     * @param DeleteDepartmentRequest $request
+     *
+     * @return DeleteDepartmentResponse
      */
     public function deleteDepartment($request)
     {
@@ -1906,25 +2322,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 删除热线号码
-     *  *
-     * @param DeleteHotlineNumberRequest $request DeleteHotlineNumberRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 删除热线号码
      *
-     * @return DeleteHotlineNumberResponse DeleteHotlineNumberResponse
+     * @param request - DeleteHotlineNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteHotlineNumberResponse
+     *
+     * @param DeleteHotlineNumberRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteHotlineNumberResponse
      */
     public function deleteHotlineNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->hotlineNumber)) {
-            $body['HotlineNumber'] = $request->hotlineNumber;
+        if (null !== $request->hotlineNumber) {
+            @$body['HotlineNumber'] = $request->hotlineNumber;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteHotlineNumber',
@@ -1937,16 +2359,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteHotlineNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除热线号码
-     *  *
-     * @param DeleteHotlineNumberRequest $request DeleteHotlineNumberRequest
+     * 删除热线号码
      *
-     * @return DeleteHotlineNumberResponse DeleteHotlineNumberResponse
+     * @param request - DeleteHotlineNumberRequest
+     * @returns DeleteHotlineNumberResponse
+     *
+     * @param DeleteHotlineNumberRequest $request
+     *
+     * @return DeleteHotlineNumberResponse
      */
     public function deleteHotlineNumber($request)
     {
@@ -1956,23 +2384,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param DeleteOutboundTaskRequest $request DeleteOutboundTaskRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteOutboundTaskResponse
      *
-     * @return DeleteOutboundTaskResponse DeleteOutboundTaskResponse
+     * @param DeleteOutboundTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteOutboundTaskResponse
      */
     public function deleteOutboundTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->outboundTaskId)) {
-            $query['OutboundTaskId'] = $request->outboundTaskId;
+
+        if (null !== $request->outboundTaskId) {
+            @$query['OutboundTaskId'] = $request->outboundTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteOutboundTask',
@@ -1985,14 +2419,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteOutboundTaskRequest $request DeleteOutboundTaskRequest
+     * @param request - DeleteOutboundTaskRequest
+     * @returns DeleteOutboundTaskResponse
      *
-     * @return DeleteOutboundTaskResponse DeleteOutboundTaskResponse
+     * @param DeleteOutboundTaskRequest $request
+     *
+     * @return DeleteOutboundTaskResponse
      */
     public function deleteOutboundTask($request)
     {
@@ -2002,17 +2442,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param DeleteOuterAccountRequest $request DeleteOuterAccountRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteOuterAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteOuterAccountResponse
      *
-     * @return DeleteOuterAccountResponse DeleteOuterAccountResponse
+     * @param DeleteOuterAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteOuterAccountResponse
      */
     public function deleteOuterAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteOuterAccount',
@@ -2025,14 +2469,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteOuterAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteOuterAccountRequest $request DeleteOuterAccountRequest
+     * @param request - DeleteOuterAccountRequest
+     * @returns DeleteOuterAccountResponse
      *
-     * @return DeleteOuterAccountResponse DeleteOuterAccountResponse
+     * @param DeleteOuterAccountRequest $request
+     *
+     * @return DeleteOuterAccountResponse
      */
     public function deleteOuterAccount($request)
     {
@@ -2042,23 +2492,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityProjectRequest $request DeleteQualityProjectRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteQualityProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteQualityProjectResponse
      *
-     * @return DeleteQualityProjectResponse DeleteQualityProjectResponse
+     * @param DeleteQualityProjectRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteQualityProjectResponse
      */
     public function deleteQualityProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteQualityProject',
@@ -2071,14 +2527,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteQualityProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteQualityProjectRequest $request DeleteQualityProjectRequest
+     * @param request - DeleteQualityProjectRequest
+     * @returns DeleteQualityProjectResponse
      *
-     * @return DeleteQualityProjectResponse DeleteQualityProjectResponse
+     * @param DeleteQualityProjectRequest $request
+     *
+     * @return DeleteQualityProjectResponse
      */
     public function deleteQualityProject($request)
     {
@@ -2088,23 +2550,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param DeleteQualityRuleRequest $request DeleteQualityRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteQualityRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteQualityRuleResponse
      *
-     * @return DeleteQualityRuleResponse DeleteQualityRuleResponse
+     * @param DeleteQualityRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteQualityRuleResponse
      */
     public function deleteQualityRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteQualityRule',
@@ -2117,14 +2585,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteQualityRuleRequest $request DeleteQualityRuleRequest
+     * @param request - DeleteQualityRuleRequest
+     * @returns DeleteQualityRuleResponse
      *
-     * @return DeleteQualityRuleResponse DeleteQualityRuleResponse
+     * @param DeleteQualityRuleRequest $request
+     *
+     * @return DeleteQualityRuleResponse
      */
     public function deleteQualityRule($request)
     {
@@ -2134,17 +2608,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param DeleteSkillGroupRequest $request DeleteSkillGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSkillGroupResponse
      *
-     * @return DeleteSkillGroupResponse DeleteSkillGroupResponse
+     * @param DeleteSkillGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteSkillGroupResponse
      */
     public function deleteSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSkillGroup',
@@ -2157,14 +2635,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteSkillGroupRequest $request DeleteSkillGroupRequest
+     * @param request - DeleteSkillGroupRequest
+     * @returns DeleteSkillGroupResponse
      *
-     * @return DeleteSkillGroupResponse DeleteSkillGroupResponse
+     * @param DeleteSkillGroupRequest $request
+     *
+     * @return DeleteSkillGroupResponse
      */
     public function deleteSkillGroup($request)
     {
@@ -2174,41 +2658,53 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordDataRequest $request DescribeRecordDataRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRecordDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRecordDataResponse
      *
-     * @return DescribeRecordDataResponse DescribeRecordDataResponse
+     * @param DescribeRecordDataRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeRecordDataResponse
      */
     public function describeRecordDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->accountType)) {
-            $query['AccountType'] = $request->accountType;
+
+        if (null !== $request->accountType) {
+            @$query['AccountType'] = $request->accountType;
         }
-        if (!Utils::isUnset($request->acid)) {
-            $query['Acid'] = $request->acid;
+
+        if (null !== $request->acid) {
+            @$query['Acid'] = $request->acid;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->secLevel)) {
-            $query['SecLevel'] = $request->secLevel;
+
+        if (null !== $request->secLevel) {
+            @$query['SecLevel'] = $request->secLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRecordData',
@@ -2221,14 +2717,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRecordDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRecordDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRecordDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRecordDataRequest $request DescribeRecordDataRequest
+     * @param request - DescribeRecordDataRequest
+     * @returns DescribeRecordDataResponse
      *
-     * @return DescribeRecordDataResponse DescribeRecordDataResponse
+     * @param DescribeRecordDataRequest $request
+     *
+     * @return DescribeRecordDataResponse
      */
     public function describeRecordData($request)
     {
@@ -2238,58 +2740,75 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param EditQualityProjectRequest $request EditQualityProjectRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - EditQualityProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EditQualityProjectResponse
      *
-     * @return EditQualityProjectResponse EditQualityProjectResponse
+     * @param EditQualityProjectRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EditQualityProjectResponse
      */
     public function editQualityProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->analysisIds)) {
-            $query['AnalysisIds'] = $request->analysisIds;
+        if (null !== $request->analysisIds) {
+            @$query['AnalysisIds'] = $request->analysisIds;
         }
-        if (!Utils::isUnset($request->channelTouchType)) {
-            $query['ChannelTouchType'] = $request->channelTouchType;
+
+        if (null !== $request->channelTouchType) {
+            @$query['ChannelTouchType'] = $request->channelTouchType;
         }
-        if (!Utils::isUnset($request->checkFreqType)) {
-            $query['CheckFreqType'] = $request->checkFreqType;
+
+        if (null !== $request->checkFreqType) {
+            @$query['CheckFreqType'] = $request->checkFreqType;
         }
-        if (!Utils::isUnset($request->depList)) {
-            $query['DepList'] = $request->depList;
+
+        if (null !== $request->depList) {
+            @$query['DepList'] = $request->depList;
         }
-        if (!Utils::isUnset($request->groupList)) {
-            $query['GroupList'] = $request->groupList;
+
+        if (null !== $request->groupList) {
+            @$query['GroupList'] = $request->groupList;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->projectVersion)) {
-            $query['ProjectVersion'] = $request->projectVersion;
+
+        if (null !== $request->projectVersion) {
+            @$query['ProjectVersion'] = $request->projectVersion;
         }
-        if (!Utils::isUnset($request->scopeType)) {
-            $query['ScopeType'] = $request->scopeType;
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
         }
-        if (!Utils::isUnset($request->servicerList)) {
-            $query['ServicerList'] = $request->servicerList;
+
+        if (null !== $request->servicerList) {
+            @$query['ServicerList'] = $request->servicerList;
         }
-        if (!Utils::isUnset($request->timeRangeEnd)) {
-            $query['TimeRangeEnd'] = $request->timeRangeEnd;
+
+        if (null !== $request->timeRangeEnd) {
+            @$query['TimeRangeEnd'] = $request->timeRangeEnd;
         }
-        if (!Utils::isUnset($request->timeRangeStart)) {
-            $query['TimeRangeStart'] = $request->timeRangeStart;
+
+        if (null !== $request->timeRangeStart) {
+            @$query['TimeRangeStart'] = $request->timeRangeStart;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->projectName)) {
-            $body['ProjectName'] = $request->projectName;
+        if (null !== $request->projectName) {
+            @$body['ProjectName'] = $request->projectName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EditQualityProject',
@@ -2302,14 +2821,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EditQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EditQualityProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EditQualityProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EditQualityProjectRequest $request EditQualityProjectRequest
+     * @param request - EditQualityProjectRequest
+     * @returns EditQualityProjectResponse
      *
-     * @return EditQualityProjectResponse EditQualityProjectResponse
+     * @param EditQualityProjectRequest $request
+     *
+     * @return EditQualityProjectResponse
      */
     public function editQualityProject($request)
     {
@@ -2319,35 +2844,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param EditQualityRuleRequest $request EditQualityRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - EditQualityRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EditQualityRuleResponse
      *
-     * @return EditQualityRuleResponse EditQualityRuleResponse
+     * @param EditQualityRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EditQualityRuleResponse
      */
     public function editQualityRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->keyWords)) {
-            $body['KeyWords'] = $request->keyWords;
+
+        if (null !== $request->keyWords) {
+            @$body['KeyWords'] = $request->keyWords;
         }
-        if (!Utils::isUnset($request->matchType)) {
-            $body['MatchType'] = $request->matchType;
+
+        if (null !== $request->matchType) {
+            @$body['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->qualityRuleId)) {
-            $body['QualityRuleId'] = $request->qualityRuleId;
+
+        if (null !== $request->qualityRuleId) {
+            @$body['QualityRuleId'] = $request->qualityRuleId;
         }
-        if (!Utils::isUnset($request->ruleTag)) {
-            $body['RuleTag'] = $request->ruleTag;
+
+        if (null !== $request->ruleTag) {
+            @$body['RuleTag'] = $request->ruleTag;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EditQualityRule',
@@ -2360,14 +2895,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EditQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EditQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EditQualityRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EditQualityRuleRequest $request EditQualityRuleRequest
+     * @param request - EditQualityRuleRequest
+     * @returns EditQualityRuleResponse
      *
-     * @return EditQualityRuleResponse EditQualityRuleResponse
+     * @param EditQualityRuleRequest $request
+     *
+     * @return EditQualityRuleResponse
      */
     public function editQualityRule($request)
     {
@@ -2377,23 +2918,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param EditQualityRuleTagRequest $request EditQualityRuleTagRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - EditQualityRuleTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EditQualityRuleTagResponse
      *
-     * @return EditQualityRuleTagResponse EditQualityRuleTagResponse
+     * @param EditQualityRuleTagRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EditQualityRuleTagResponse
      */
     public function editQualityRuleTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->analysisTypes)) {
-            $query['AnalysisTypes'] = $request->analysisTypes;
+        if (null !== $request->analysisTypes) {
+            @$query['AnalysisTypes'] = $request->analysisTypes;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EditQualityRuleTag',
@@ -2406,14 +2953,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EditQualityRuleTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EditQualityRuleTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EditQualityRuleTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EditQualityRuleTagRequest $request EditQualityRuleTagRequest
+     * @param request - EditQualityRuleTagRequest
+     * @returns EditQualityRuleTagResponse
      *
-     * @return EditQualityRuleTagResponse EditQualityRuleTagResponse
+     * @param EditQualityRuleTagRequest $request
+     *
+     * @return EditQualityRuleTagResponse
      */
     public function editQualityRuleTag($request)
     {
@@ -2423,19 +2976,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 热线号码加密
-     *  *
-     * @param EncryptPhoneNumRequest $request EncryptPhoneNumRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 热线号码加密.
      *
-     * @return EncryptPhoneNumResponse EncryptPhoneNumResponse
+     * @param request - EncryptPhoneNumRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EncryptPhoneNumResponse
+     *
+     * @param EncryptPhoneNumRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EncryptPhoneNumResponse
      */
     public function encryptPhoneNumWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EncryptPhoneNum',
@@ -2448,16 +3005,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EncryptPhoneNumResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EncryptPhoneNumResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EncryptPhoneNumResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 热线号码加密
-     *  *
-     * @param EncryptPhoneNumRequest $request EncryptPhoneNumRequest
+     * 热线号码加密.
      *
-     * @return EncryptPhoneNumResponse EncryptPhoneNumResponse
+     * @param request - EncryptPhoneNumRequest
+     * @returns EncryptPhoneNumResponse
+     *
+     * @param EncryptPhoneNumRequest $request
+     *
+     * @return EncryptPhoneNumResponse
      */
     public function encryptPhoneNum($request)
     {
@@ -2467,38 +3030,49 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param FetchCallRequest $request FetchCallRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - FetchCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns FetchCallResponse
      *
-     * @return FetchCallResponse FetchCallResponse
+     * @param FetchCallRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return FetchCallResponse
      */
     public function fetchCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $body['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$body['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionId)) {
-            $body['ConnectionId'] = $request->connectionId;
+
+        if (null !== $request->connectionId) {
+            @$body['ConnectionId'] = $request->connectionId;
         }
-        if (!Utils::isUnset($request->holdConnectionId)) {
-            $body['HoldConnectionId'] = $request->holdConnectionId;
+
+        if (null !== $request->holdConnectionId) {
+            @$body['HoldConnectionId'] = $request->holdConnectionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'FetchCall',
@@ -2511,14 +3085,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FetchCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return FetchCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FetchCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param FetchCallRequest $request FetchCallRequest
+     * @param request - FetchCallRequest
+     * @returns FetchCallResponse
      *
-     * @return FetchCallResponse FetchCallResponse
+     * @param FetchCallRequest $request
+     *
+     * @return FetchCallResponse
      */
     public function fetchCall($request)
     {
@@ -2528,26 +3108,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param FinishHotlineServiceRequest $request FinishHotlineServiceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - FinishHotlineServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns FinishHotlineServiceResponse
      *
-     * @return FinishHotlineServiceResponse FinishHotlineServiceResponse
+     * @param FinishHotlineServiceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return FinishHotlineServiceResponse
      */
     public function finishHotlineServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'FinishHotlineService',
@@ -2560,14 +3147,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FinishHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return FinishHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FinishHotlineServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param FinishHotlineServiceRequest $request FinishHotlineServiceRequest
+     * @param request - FinishHotlineServiceRequest
+     * @returns FinishHotlineServiceResponse
      *
-     * @return FinishHotlineServiceResponse FinishHotlineServiceResponse
+     * @param FinishHotlineServiceRequest $request
+     *
+     * @return FinishHotlineServiceResponse
      */
     public function finishHotlineService($request)
     {
@@ -2577,26 +3170,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GenerateWebSocketSignRequest $request GenerateWebSocketSignRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GenerateWebSocketSignRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateWebSocketSignResponse
      *
-     * @return GenerateWebSocketSignResponse GenerateWebSocketSignResponse
+     * @param GenerateWebSocketSignRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GenerateWebSocketSignResponse
      */
     public function generateWebSocketSignWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenerateWebSocketSign',
@@ -2609,14 +3209,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateWebSocketSignResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateWebSocketSignResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateWebSocketSignResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GenerateWebSocketSignRequest $request GenerateWebSocketSignRequest
+     * @param request - GenerateWebSocketSignRequest
+     * @returns GenerateWebSocketSignResponse
      *
-     * @return GenerateWebSocketSignResponse GenerateWebSocketSignResponse
+     * @param GenerateWebSocketSignRequest $request
+     *
+     * @return GenerateWebSocketSignResponse
      */
     public function generateWebSocketSign($request)
     {
@@ -2626,17 +3232,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetAgentRequest $request GetAgentRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAgentResponse
      *
-     * @return GetAgentResponse GetAgentResponse
+     * @param GetAgentRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetAgentResponse
      */
     public function getAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAgent',
@@ -2649,14 +3259,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetAgentRequest $request GetAgentRequest
+     * @param request - GetAgentRequest
+     * @returns GetAgentResponse
      *
-     * @return GetAgentResponse GetAgentResponse
+     * @param GetAgentRequest $request
+     *
+     * @return GetAgentResponse
      */
     public function getAgent($request)
     {
@@ -2666,27 +3282,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 坐席纬度基础状态量
-     *  *
-     * @param GetAgentBasisStatusRequest $tmpReq  GetAgentBasisStatusRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 坐席纬度基础状态量.
      *
-     * @return GetAgentBasisStatusResponse GetAgentBasisStatusResponse
+     * @param tmpReq - GetAgentBasisStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAgentBasisStatusResponse
+     *
+     * @param GetAgentBasisStatusRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetAgentBasisStatusResponse
      */
     public function getAgentBasisStatusWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetAgentBasisStatusShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAgentBasisStatus',
@@ -2699,16 +3321,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAgentBasisStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAgentBasisStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAgentBasisStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 坐席纬度基础状态量
-     *  *
-     * @param GetAgentBasisStatusRequest $request GetAgentBasisStatusRequest
+     * 坐席纬度基础状态量.
      *
-     * @return GetAgentBasisStatusResponse GetAgentBasisStatusResponse
+     * @param request - GetAgentBasisStatusRequest
+     * @returns GetAgentBasisStatusResponse
+     *
+     * @param GetAgentBasisStatusRequest $request
+     *
+     * @return GetAgentBasisStatusResponse
      */
     public function getAgentBasisStatus($request)
     {
@@ -2718,23 +3346,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetAgentByIdRequest $request GetAgentByIdRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAgentByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAgentByIdResponse
      *
-     * @return GetAgentByIdResponse GetAgentByIdResponse
+     * @param GetAgentByIdRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAgentByIdResponse
      */
     public function getAgentByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $body['AgentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$body['AgentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetAgentById',
@@ -2747,14 +3381,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAgentByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAgentByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAgentByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetAgentByIdRequest $request GetAgentByIdRequest
+     * @param request - GetAgentByIdRequest
+     * @returns GetAgentByIdResponse
      *
-     * @return GetAgentByIdResponse GetAgentByIdResponse
+     * @param GetAgentByIdRequest $request
+     *
+     * @return GetAgentByIdResponse
      */
     public function getAgentById($request)
     {
@@ -2764,27 +3404,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 热线坐席纬度详情汇总
-     *  *
-     * @param GetAgentDetailReportRequest $tmpReq  GetAgentDetailReportRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 热线坐席纬度详情汇总.
      *
-     * @return GetAgentDetailReportResponse GetAgentDetailReportResponse
+     * @param tmpReq - GetAgentDetailReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAgentDetailReportResponse
+     *
+     * @param GetAgentDetailReportRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAgentDetailReportResponse
      */
     public function getAgentDetailReportWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetAgentDetailReportShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAgentDetailReport',
@@ -2797,16 +3443,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAgentDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAgentDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAgentDetailReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 热线坐席纬度详情汇总
-     *  *
-     * @param GetAgentDetailReportRequest $request GetAgentDetailReportRequest
+     * 热线坐席纬度详情汇总.
      *
-     * @return GetAgentDetailReportResponse GetAgentDetailReportResponse
+     * @param request - GetAgentDetailReportRequest
+     * @returns GetAgentDetailReportResponse
+     *
+     * @param GetAgentDetailReportRequest $request
+     *
+     * @return GetAgentDetailReportResponse
      */
     public function getAgentDetailReport($request)
     {
@@ -2816,32 +3468,41 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetAgentIndexRealTimeRequest $request GetAgentIndexRealTimeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAgentIndexRealTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAgentIndexRealTimeResponse
      *
-     * @return GetAgentIndexRealTimeResponse GetAgentIndexRealTimeResponse
+     * @param GetAgentIndexRealTimeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAgentIndexRealTimeResponse
      */
     public function getAgentIndexRealTimeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->depIds)) {
-            $query['DepIds'] = $request->depIds;
+
+        if (null !== $request->depIds) {
+            @$query['DepIds'] = $request->depIds;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAgentIndexRealTime',
@@ -2854,14 +3515,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAgentIndexRealTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAgentIndexRealTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAgentIndexRealTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetAgentIndexRealTimeRequest $request GetAgentIndexRealTimeRequest
+     * @param request - GetAgentIndexRealTimeRequest
+     * @returns GetAgentIndexRealTimeResponse
      *
-     * @return GetAgentIndexRealTimeResponse GetAgentIndexRealTimeResponse
+     * @param GetAgentIndexRealTimeRequest $request
+     *
+     * @return GetAgentIndexRealTimeResponse
      */
     public function getAgentIndexRealTime($request)
     {
@@ -2871,27 +3538,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 坐席服务状态量
-     *  *
-     * @param GetAgentServiceStatusRequest $tmpReq  GetAgentServiceStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 坐席服务状态量.
      *
-     * @return GetAgentServiceStatusResponse GetAgentServiceStatusResponse
+     * @param tmpReq - GetAgentServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAgentServiceStatusResponse
+     *
+     * @param GetAgentServiceStatusRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAgentServiceStatusResponse
      */
     public function getAgentServiceStatusWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetAgentServiceStatusShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAgentServiceStatus',
@@ -2904,16 +3577,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAgentServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAgentServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAgentServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 坐席服务状态量
-     *  *
-     * @param GetAgentServiceStatusRequest $request GetAgentServiceStatusRequest
+     * 坐席服务状态量.
      *
-     * @return GetAgentServiceStatusResponse GetAgentServiceStatusResponse
+     * @param request - GetAgentServiceStatusRequest
+     * @returns GetAgentServiceStatusResponse
+     *
+     * @param GetAgentServiceStatusRequest $request
+     *
+     * @return GetAgentServiceStatusResponse
      */
     public function getAgentServiceStatus($request)
     {
@@ -2923,27 +3602,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 坐席纬度统计量
-     *  *
-     * @param GetAgentStatisticsRequest $tmpReq  GetAgentStatisticsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 坐席纬度统计量.
      *
-     * @return GetAgentStatisticsResponse GetAgentStatisticsResponse
+     * @param tmpReq - GetAgentStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAgentStatisticsResponse
+     *
+     * @param GetAgentStatisticsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAgentStatisticsResponse
      */
     public function getAgentStatisticsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetAgentStatisticsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAgentStatistics',
@@ -2956,16 +3641,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAgentStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAgentStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAgentStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 坐席纬度统计量
-     *  *
-     * @param GetAgentStatisticsRequest $request GetAgentStatisticsRequest
+     * 坐席纬度统计量.
      *
-     * @return GetAgentStatisticsResponse GetAgentStatisticsResponse
+     * @param request - GetAgentStatisticsRequest
+     * @returns GetAgentStatisticsResponse
+     *
+     * @param GetAgentStatisticsRequest $request
+     *
+     * @return GetAgentStatisticsResponse
      */
     public function getAgentStatistics($request)
     {
@@ -2975,19 +3666,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取智能外呼任务业务自定义信息
-     *  *
-     * @param GetAiOutboundTaskBizDataRequest $request GetAiOutboundTaskBizDataRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取智能外呼任务业务自定义信息.
      *
-     * @return GetAiOutboundTaskBizDataResponse GetAiOutboundTaskBizDataResponse
+     * @param request - GetAiOutboundTaskBizDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAiOutboundTaskBizDataResponse
+     *
+     * @param GetAiOutboundTaskBizDataRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetAiOutboundTaskBizDataResponse
      */
     public function getAiOutboundTaskBizDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAiOutboundTaskBizData',
@@ -3000,16 +3695,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAiOutboundTaskBizDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAiOutboundTaskBizDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAiOutboundTaskBizDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取智能外呼任务业务自定义信息
-     *  *
-     * @param GetAiOutboundTaskBizDataRequest $request GetAiOutboundTaskBizDataRequest
+     * 获取智能外呼任务业务自定义信息.
      *
-     * @return GetAiOutboundTaskBizDataResponse GetAiOutboundTaskBizDataResponse
+     * @param request - GetAiOutboundTaskBizDataRequest
+     * @returns GetAiOutboundTaskBizDataResponse
+     *
+     * @param GetAiOutboundTaskBizDataRequest $request
+     *
+     * @return GetAiOutboundTaskBizDataResponse
      */
     public function getAiOutboundTaskBizData($request)
     {
@@ -3019,19 +3720,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 智能外呼任务配置详情查询
-     *  *
-     * @param GetAiOutboundTaskDetailRequest $request GetAiOutboundTaskDetailRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 智能外呼任务配置详情查询.
      *
-     * @return GetAiOutboundTaskDetailResponse GetAiOutboundTaskDetailResponse
+     * @param request - GetAiOutboundTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAiOutboundTaskDetailResponse
+     *
+     * @param GetAiOutboundTaskDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetAiOutboundTaskDetailResponse
      */
     public function getAiOutboundTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAiOutboundTaskDetail',
@@ -3044,16 +3749,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAiOutboundTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAiOutboundTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAiOutboundTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 智能外呼任务配置详情查询
-     *  *
-     * @param GetAiOutboundTaskDetailRequest $request GetAiOutboundTaskDetailRequest
+     * 智能外呼任务配置详情查询.
      *
-     * @return GetAiOutboundTaskDetailResponse GetAiOutboundTaskDetailResponse
+     * @param request - GetAiOutboundTaskDetailRequest
+     * @returns GetAiOutboundTaskDetailResponse
+     *
+     * @param GetAiOutboundTaskDetailRequest $request
+     *
+     * @return GetAiOutboundTaskDetailResponse
      */
     public function getAiOutboundTaskDetail($request)
     {
@@ -3063,19 +3774,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 智能外呼任务执行详情
-     *  *
-     * @param GetAiOutboundTaskExecDetailRequest $request GetAiOutboundTaskExecDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 智能外呼任务执行详情.
      *
-     * @return GetAiOutboundTaskExecDetailResponse GetAiOutboundTaskExecDetailResponse
+     * @param request - GetAiOutboundTaskExecDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAiOutboundTaskExecDetailResponse
+     *
+     * @param GetAiOutboundTaskExecDetailRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetAiOutboundTaskExecDetailResponse
      */
     public function getAiOutboundTaskExecDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAiOutboundTaskExecDetail',
@@ -3088,16 +3803,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAiOutboundTaskExecDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAiOutboundTaskExecDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAiOutboundTaskExecDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 智能外呼任务执行详情
-     *  *
-     * @param GetAiOutboundTaskExecDetailRequest $request GetAiOutboundTaskExecDetailRequest
+     * 智能外呼任务执行详情.
      *
-     * @return GetAiOutboundTaskExecDetailResponse GetAiOutboundTaskExecDetailResponse
+     * @param request - GetAiOutboundTaskExecDetailRequest
+     * @returns GetAiOutboundTaskExecDetailResponse
+     *
+     * @param GetAiOutboundTaskExecDetailRequest $request
+     *
+     * @return GetAiOutboundTaskExecDetailResponse
      */
     public function getAiOutboundTaskExecDetail($request)
     {
@@ -3107,19 +3828,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 智能外呼任务列表查询
-     *  *
-     * @param GetAiOutboundTaskListRequest $request GetAiOutboundTaskListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 智能外呼任务列表查询.
      *
-     * @return GetAiOutboundTaskListResponse GetAiOutboundTaskListResponse
+     * @param request - GetAiOutboundTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAiOutboundTaskListResponse
+     *
+     * @param GetAiOutboundTaskListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAiOutboundTaskListResponse
      */
     public function getAiOutboundTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAiOutboundTaskList',
@@ -3132,16 +3857,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAiOutboundTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAiOutboundTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAiOutboundTaskListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 智能外呼任务列表查询
-     *  *
-     * @param GetAiOutboundTaskListRequest $request GetAiOutboundTaskListRequest
+     * 智能外呼任务列表查询.
      *
-     * @return GetAiOutboundTaskListResponse GetAiOutboundTaskListResponse
+     * @param request - GetAiOutboundTaskListRequest
+     * @returns GetAiOutboundTaskListResponse
+     *
+     * @param GetAiOutboundTaskListRequest $request
+     *
+     * @return GetAiOutboundTaskListResponse
      */
     public function getAiOutboundTaskList($request)
     {
@@ -3151,19 +3882,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 智能外呼任务执行进度
-     *  *
-     * @param GetAiOutboundTaskProgressRequest $request GetAiOutboundTaskProgressRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 智能外呼任务执行进度.
      *
-     * @return GetAiOutboundTaskProgressResponse GetAiOutboundTaskProgressResponse
+     * @param request - GetAiOutboundTaskProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAiOutboundTaskProgressResponse
+     *
+     * @param GetAiOutboundTaskProgressRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetAiOutboundTaskProgressResponse
      */
     public function getAiOutboundTaskProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAiOutboundTaskProgress',
@@ -3176,16 +3911,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAiOutboundTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAiOutboundTaskProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAiOutboundTaskProgressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 智能外呼任务执行进度
-     *  *
-     * @param GetAiOutboundTaskProgressRequest $request GetAiOutboundTaskProgressRequest
+     * 智能外呼任务执行进度.
      *
-     * @return GetAiOutboundTaskProgressResponse GetAiOutboundTaskProgressResponse
+     * @param request - GetAiOutboundTaskProgressRequest
+     * @returns GetAiOutboundTaskProgressResponse
+     *
+     * @param GetAiOutboundTaskProgressRequest $request
+     *
+     * @return GetAiOutboundTaskProgressResponse
      */
     public function getAiOutboundTaskProgress($request)
     {
@@ -3195,19 +3936,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary getAllDepartment
-     *  *
-     * @param GetAllDepartmentRequest $request GetAllDepartmentRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * getAllDepartment.
      *
-     * @return GetAllDepartmentResponse GetAllDepartmentResponse
+     * @param request - GetAllDepartmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAllDepartmentResponse
+     *
+     * @param GetAllDepartmentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAllDepartmentResponse
      */
     public function getAllDepartmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAllDepartment',
@@ -3220,16 +3965,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAllDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAllDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAllDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary getAllDepartment
-     *  *
-     * @param GetAllDepartmentRequest $request GetAllDepartmentRequest
+     * getAllDepartment.
      *
-     * @return GetAllDepartmentResponse GetAllDepartmentResponse
+     * @param request - GetAllDepartmentRequest
+     * @returns GetAllDepartmentResponse
+     *
+     * @param GetAllDepartmentRequest $request
+     *
+     * @return GetAllDepartmentResponse
      */
     public function getAllDepartment($request)
     {
@@ -3239,34 +3990,43 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取通话录音文件
-     *  *
-     * @param GetCallSoundRecordRequest $request GetCallSoundRecordRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 获取通话录音文件.
      *
-     * @return GetCallSoundRecordResponse GetCallSoundRecordResponse
+     * @param request - GetCallSoundRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCallSoundRecordResponse
+     *
+     * @param GetCallSoundRecordRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetCallSoundRecordResponse
      */
     public function getCallSoundRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->createTime)) {
-            $query['CreateTime'] = $request->createTime;
+
+        if (null !== $request->createTime) {
+            @$query['CreateTime'] = $request->createTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCallSoundRecord',
@@ -3279,16 +4039,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCallSoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCallSoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCallSoundRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取通话录音文件
-     *  *
-     * @param GetCallSoundRecordRequest $request GetCallSoundRecordRequest
+     * 获取通话录音文件.
      *
-     * @return GetCallSoundRecordResponse GetCallSoundRecordResponse
+     * @param request - GetCallSoundRecordRequest
+     * @returns GetCallSoundRecordResponse
+     *
+     * @param GetCallSoundRecordRequest $request
+     *
+     * @return GetCallSoundRecordResponse
      */
     public function getCallSoundRecord($request)
     {
@@ -3298,19 +4064,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取热线配置号码列表
-     *  *
-     * @param GetConfigNumListRequest $request GetConfigNumListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取热线配置号码列表.
      *
-     * @return GetConfigNumListResponse GetConfigNumListResponse
+     * @param request - GetConfigNumListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetConfigNumListResponse
+     *
+     * @param GetConfigNumListRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetConfigNumListResponse
      */
     public function getConfigNumListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetConfigNumList',
@@ -3323,16 +4093,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetConfigNumListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConfigNumListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConfigNumListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取热线配置号码列表
-     *  *
-     * @param GetConfigNumListRequest $request GetConfigNumListRequest
+     * 获取热线配置号码列表.
      *
-     * @return GetConfigNumListResponse GetConfigNumListResponse
+     * @param request - GetConfigNumListRequest
+     * @returns GetConfigNumListResponse
+     *
+     * @param GetConfigNumListRequest $request
+     *
+     * @return GetConfigNumListResponse
      */
     public function getConfigNumList($request)
     {
@@ -3342,19 +4118,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取会员信息
-     *  *
-     * @param GetCustomerInfoRequest $request GetCustomerInfoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取会员信息.
      *
-     * @return GetCustomerInfoResponse GetCustomerInfoResponse
+     * @param request - GetCustomerInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCustomerInfoResponse
+     *
+     * @param GetCustomerInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetCustomerInfoResponse
      */
     public function getCustomerInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCustomerInfo',
@@ -3367,16 +4147,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCustomerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCustomerInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCustomerInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取会员信息
-     *  *
-     * @param GetCustomerInfoRequest $request GetCustomerInfoRequest
+     * 获取会员信息.
      *
-     * @return GetCustomerInfoResponse GetCustomerInfoResponse
+     * @param request - GetCustomerInfoRequest
+     * @returns GetCustomerInfoResponse
+     *
+     * @param GetCustomerInfoRequest $request
+     *
+     * @return GetCustomerInfoResponse
      */
     public function getCustomerInfo($request)
     {
@@ -3386,19 +4172,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取技能组分组
-     *  *
-     * @param GetDepGroupTreeDataRequest $request GetDepGroupTreeDataRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取技能组分组.
      *
-     * @return GetDepGroupTreeDataResponse GetDepGroupTreeDataResponse
+     * @param request - GetDepGroupTreeDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDepGroupTreeDataResponse
+     *
+     * @param GetDepGroupTreeDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetDepGroupTreeDataResponse
      */
     public function getDepGroupTreeDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDepGroupTreeData',
@@ -3411,16 +4201,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDepGroupTreeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDepGroupTreeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDepGroupTreeDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取技能组分组
-     *  *
-     * @param GetDepGroupTreeDataRequest $request GetDepGroupTreeDataRequest
+     * 获取技能组分组.
      *
-     * @return GetDepGroupTreeDataResponse GetDepGroupTreeDataResponse
+     * @param request - GetDepGroupTreeDataRequest
+     * @returns GetDepGroupTreeDataResponse
+     *
+     * @param GetDepGroupTreeDataRequest $request
+     *
+     * @return GetDepGroupTreeDataResponse
      */
     public function getDepGroupTreeData($request)
     {
@@ -3430,24 +4226,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 部门纬度坐席状态量
-     *  *
-     * @param GetDepartmentalLatitudeAgentStatusRequest $tmpReq  GetDepartmentalLatitudeAgentStatusRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 部门纬度坐席状态量.
      *
-     * @return GetDepartmentalLatitudeAgentStatusResponse GetDepartmentalLatitudeAgentStatusResponse
+     * @param tmpReq - GetDepartmentalLatitudeAgentStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDepartmentalLatitudeAgentStatusResponse
+     *
+     * @param GetDepartmentalLatitudeAgentStatusRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetDepartmentalLatitudeAgentStatusResponse
      */
     public function getDepartmentalLatitudeAgentStatusWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetDepartmentalLatitudeAgentStatusShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDepartmentalLatitudeAgentStatus',
@@ -3460,16 +4261,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDepartmentalLatitudeAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDepartmentalLatitudeAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDepartmentalLatitudeAgentStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 部门纬度坐席状态量
-     *  *
-     * @param GetDepartmentalLatitudeAgentStatusRequest $request GetDepartmentalLatitudeAgentStatusRequest
+     * 部门纬度坐席状态量.
      *
-     * @return GetDepartmentalLatitudeAgentStatusResponse GetDepartmentalLatitudeAgentStatusResponse
+     * @param request - GetDepartmentalLatitudeAgentStatusRequest
+     * @returns GetDepartmentalLatitudeAgentStatusResponse
+     *
+     * @param GetDepartmentalLatitudeAgentStatusRequest $request
+     *
+     * @return GetDepartmentalLatitudeAgentStatusResponse
      */
     public function getDepartmentalLatitudeAgentStatus($request)
     {
@@ -3479,17 +4286,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetHotlineAgentDetailRequest $request GetHotlineAgentDetailRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GetHotlineAgentDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotlineAgentDetailResponse
      *
-     * @return GetHotlineAgentDetailResponse GetHotlineAgentDetailResponse
+     * @param GetHotlineAgentDetailRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetHotlineAgentDetailResponse
      */
     public function getHotlineAgentDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineAgentDetail',
@@ -3502,14 +4313,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotlineAgentDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotlineAgentDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotlineAgentDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetHotlineAgentDetailRequest $request GetHotlineAgentDetailRequest
+     * @param request - GetHotlineAgentDetailRequest
+     * @returns GetHotlineAgentDetailResponse
      *
-     * @return GetHotlineAgentDetailResponse GetHotlineAgentDetailResponse
+     * @param GetHotlineAgentDetailRequest $request
+     *
+     * @return GetHotlineAgentDetailResponse
      */
     public function getHotlineAgentDetail($request)
     {
@@ -3519,38 +4336,49 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetHotlineAgentDetailReportRequest $request GetHotlineAgentDetailReportRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - GetHotlineAgentDetailReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotlineAgentDetailReportResponse
      *
-     * @return GetHotlineAgentDetailReportResponse GetHotlineAgentDetailReportResponse
+     * @param GetHotlineAgentDetailReportRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetHotlineAgentDetailReportResponse
      */
     public function getHotlineAgentDetailReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->depIds)) {
-            $query['DepIds'] = $request->depIds;
+
+        if (null !== $request->depIds) {
+            @$query['DepIds'] = $request->depIds;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineAgentDetailReport',
@@ -3563,14 +4391,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotlineAgentDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotlineAgentDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotlineAgentDetailReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetHotlineAgentDetailReportRequest $request GetHotlineAgentDetailReportRequest
+     * @param request - GetHotlineAgentDetailReportRequest
+     * @returns GetHotlineAgentDetailReportResponse
      *
-     * @return GetHotlineAgentDetailReportResponse GetHotlineAgentDetailReportResponse
+     * @param GetHotlineAgentDetailReportRequest $request
+     *
+     * @return GetHotlineAgentDetailReportResponse
      */
     public function getHotlineAgentDetailReport($request)
     {
@@ -3580,23 +4414,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetHotlineAgentStatusRequest $request GetHotlineAgentStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GetHotlineAgentStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotlineAgentStatusResponse
      *
-     * @return GetHotlineAgentStatusResponse GetHotlineAgentStatusResponse
+     * @param GetHotlineAgentStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetHotlineAgentStatusResponse
      */
     public function getHotlineAgentStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineAgentStatus',
@@ -3609,14 +4449,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotlineAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotlineAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotlineAgentStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetHotlineAgentStatusRequest $request GetHotlineAgentStatusRequest
+     * @param request - GetHotlineAgentStatusRequest
+     * @returns GetHotlineAgentStatusResponse
      *
-     * @return GetHotlineAgentStatusResponse GetHotlineAgentStatusResponse
+     * @param GetHotlineAgentStatusRequest $request
+     *
+     * @return GetHotlineAgentStatusResponse
      */
     public function getHotlineAgentStatus($request)
     {
@@ -3626,40 +4472,51 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查询话务动作结果数据
-     *  *
-     * @param GetHotlineCallActionRequest $request GetHotlineCallActionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询话务动作结果数据.
      *
-     * @return GetHotlineCallActionResponse GetHotlineCallActionResponse
+     * @param request - GetHotlineCallActionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotlineCallActionResponse
+     *
+     * @param GetHotlineCallActionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetHotlineCallActionResponse
      */
     public function getHotlineCallActionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->acc)) {
-            $body['Acc'] = $request->acc;
+        if (null !== $request->acc) {
+            @$body['Acc'] = $request->acc;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->act)) {
-            $body['Act'] = $request->act;
+
+        if (null !== $request->act) {
+            @$body['Act'] = $request->act;
         }
-        if (!Utils::isUnset($request->biz)) {
-            $body['Biz'] = $request->biz;
+
+        if (null !== $request->biz) {
+            @$body['Biz'] = $request->biz;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->fromSource)) {
-            $body['FromSource'] = $request->fromSource;
+
+        if (null !== $request->fromSource) {
+            @$body['FromSource'] = $request->fromSource;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineCallAction',
@@ -3672,16 +4529,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotlineCallActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotlineCallActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotlineCallActionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询话务动作结果数据
-     *  *
-     * @param GetHotlineCallActionRequest $request GetHotlineCallActionRequest
+     * 查询话务动作结果数据.
      *
-     * @return GetHotlineCallActionResponse GetHotlineCallActionResponse
+     * @param request - GetHotlineCallActionRequest
+     * @returns GetHotlineCallActionResponse
+     *
+     * @param GetHotlineCallActionRequest $request
+     *
+     * @return GetHotlineCallActionResponse
      */
     public function getHotlineCallAction($request)
     {
@@ -3691,38 +4554,49 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetHotlineGroupDetailReportRequest $request GetHotlineGroupDetailReportRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - GetHotlineGroupDetailReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotlineGroupDetailReportResponse
      *
-     * @return GetHotlineGroupDetailReportResponse GetHotlineGroupDetailReportResponse
+     * @param GetHotlineGroupDetailReportRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetHotlineGroupDetailReportResponse
      */
     public function getHotlineGroupDetailReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->depIds)) {
-            $query['DepIds'] = $request->depIds;
+
+        if (null !== $request->depIds) {
+            @$query['DepIds'] = $request->depIds;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineGroupDetailReport',
@@ -3735,14 +4609,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotlineGroupDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotlineGroupDetailReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotlineGroupDetailReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetHotlineGroupDetailReportRequest $request GetHotlineGroupDetailReportRequest
+     * @param request - GetHotlineGroupDetailReportRequest
+     * @returns GetHotlineGroupDetailReportResponse
      *
-     * @return GetHotlineGroupDetailReportResponse GetHotlineGroupDetailReportResponse
+     * @param GetHotlineGroupDetailReportRequest $request
+     *
+     * @return GetHotlineGroupDetailReportResponse
      */
     public function getHotlineGroupDetailReport($request)
     {
@@ -3752,19 +4632,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取热线聊天记录
-     *  *
-     * @param GetHotlineMessageLogRequest $request GetHotlineMessageLogRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取热线聊天记录.
      *
-     * @return GetHotlineMessageLogResponse GetHotlineMessageLogResponse
+     * @param request - GetHotlineMessageLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotlineMessageLogResponse
+     *
+     * @param GetHotlineMessageLogRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetHotlineMessageLogResponse
      */
     public function getHotlineMessageLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineMessageLog',
@@ -3777,16 +4661,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotlineMessageLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotlineMessageLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotlineMessageLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取热线聊天记录
-     *  *
-     * @param GetHotlineMessageLogRequest $request GetHotlineMessageLogRequest
+     * 获取热线聊天记录.
      *
-     * @return GetHotlineMessageLogResponse GetHotlineMessageLogResponse
+     * @param request - GetHotlineMessageLogRequest
+     * @returns GetHotlineMessageLogResponse
+     *
+     * @param GetHotlineMessageLogRequest $request
+     *
+     * @return GetHotlineMessageLogResponse
      */
     public function getHotlineMessageLog($request)
     {
@@ -3796,19 +4686,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取热线当前信息
-     *  *
-     * @param GetHotlineRuntimeInfoRequest $request GetHotlineRuntimeInfoRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 获取热线当前信息.
      *
-     * @return GetHotlineRuntimeInfoResponse GetHotlineRuntimeInfoResponse
+     * @param request - GetHotlineRuntimeInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotlineRuntimeInfoResponse
+     *
+     * @param GetHotlineRuntimeInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetHotlineRuntimeInfoResponse
      */
     public function getHotlineRuntimeInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineRuntimeInfo',
@@ -3821,16 +4715,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotlineRuntimeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotlineRuntimeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotlineRuntimeInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取热线当前信息
-     *  *
-     * @param GetHotlineRuntimeInfoRequest $request GetHotlineRuntimeInfoRequest
+     * 获取热线当前信息.
      *
-     * @return GetHotlineRuntimeInfoResponse GetHotlineRuntimeInfoResponse
+     * @param request - GetHotlineRuntimeInfoRequest
+     * @returns GetHotlineRuntimeInfoResponse
+     *
+     * @param GetHotlineRuntimeInfoRequest $request
+     *
+     * @return GetHotlineRuntimeInfoResponse
      */
     public function getHotlineRuntimeInfo($request)
     {
@@ -3840,30 +4740,37 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 服务统计量数据
-     *  *
-     * @param GetHotlineServiceStatisticsRequest $tmpReq  GetHotlineServiceStatisticsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 服务统计量数据.
      *
-     * @return GetHotlineServiceStatisticsResponse GetHotlineServiceStatisticsResponse
+     * @param tmpReq - GetHotlineServiceStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotlineServiceStatisticsResponse
+     *
+     * @param GetHotlineServiceStatisticsRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetHotlineServiceStatisticsResponse
      */
     public function getHotlineServiceStatisticsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetHotlineServiceStatisticsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineServiceStatistics',
@@ -3876,16 +4783,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotlineServiceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotlineServiceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotlineServiceStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 服务统计量数据
-     *  *
-     * @param GetHotlineServiceStatisticsRequest $request GetHotlineServiceStatisticsRequest
+     * 服务统计量数据.
      *
-     * @return GetHotlineServiceStatisticsResponse GetHotlineServiceStatisticsResponse
+     * @param request - GetHotlineServiceStatisticsRequest
+     * @returns GetHotlineServiceStatisticsResponse
+     *
+     * @param GetHotlineServiceStatisticsRequest $request
+     *
+     * @return GetHotlineServiceStatisticsResponse
      */
     public function getHotlineServiceStatistics($request)
     {
@@ -3895,17 +4808,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetHotlineWaitingNumberRequest $request GetHotlineWaitingNumberRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - GetHotlineWaitingNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHotlineWaitingNumberResponse
      *
-     * @return GetHotlineWaitingNumberResponse GetHotlineWaitingNumberResponse
+     * @param GetHotlineWaitingNumberRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetHotlineWaitingNumberResponse
      */
     public function getHotlineWaitingNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetHotlineWaitingNumber',
@@ -3918,14 +4835,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHotlineWaitingNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHotlineWaitingNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHotlineWaitingNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetHotlineWaitingNumberRequest $request GetHotlineWaitingNumberRequest
+     * @param request - GetHotlineWaitingNumberRequest
+     * @returns GetHotlineWaitingNumberResponse
      *
-     * @return GetHotlineWaitingNumberResponse GetHotlineWaitingNumberResponse
+     * @param GetHotlineWaitingNumberRequest $request
+     *
+     * @return GetHotlineWaitingNumberResponse
      */
     public function getHotlineWaitingNumber($request)
     {
@@ -3935,26 +4858,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetIndexCurrentValueRequest $request GetIndexCurrentValueRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - GetIndexCurrentValueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetIndexCurrentValueResponse
      *
-     * @return GetIndexCurrentValueResponse GetIndexCurrentValueResponse
+     * @param GetIndexCurrentValueRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetIndexCurrentValueResponse
      */
     public function getIndexCurrentValueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->depIds)) {
-            $query['DepIds'] = $request->depIds;
+        if (null !== $request->depIds) {
+            @$query['DepIds'] = $request->depIds;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetIndexCurrentValue',
@@ -3967,14 +4897,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetIndexCurrentValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIndexCurrentValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIndexCurrentValueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetIndexCurrentValueRequest $request GetIndexCurrentValueRequest
+     * @param request - GetIndexCurrentValueRequest
+     * @returns GetIndexCurrentValueResponse
      *
-     * @return GetIndexCurrentValueResponse GetIndexCurrentValueResponse
+     * @param GetIndexCurrentValueRequest $request
+     *
+     * @return GetIndexCurrentValueResponse
      */
     public function getIndexCurrentValue($request)
     {
@@ -3984,26 +4920,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceListRequest $request GetInstanceListRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - GetInstanceListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetInstanceListResponse
      *
-     * @return GetInstanceListResponse GetInstanceListResponse
+     * @param GetInstanceListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetInstanceListResponse
      */
     public function getInstanceListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceList',
@@ -4016,14 +4959,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetInstanceListRequest $request GetInstanceListRequest
+     * @param request - GetInstanceListRequest
+     * @returns GetInstanceListResponse
      *
-     * @return GetInstanceListResponse GetInstanceListResponse
+     * @param GetInstanceListRequest $request
+     *
+     * @return GetInstanceListResponse
      */
     public function getInstanceList($request)
     {
@@ -4033,19 +4982,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 热线检测获取mcu ip地址
-     *  *
-     * @param GetMcuLvsIpRequest $request GetMcuLvsIpRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 热线检测获取mcu ip地址
      *
-     * @return GetMcuLvsIpResponse GetMcuLvsIpResponse
+     * @param request - GetMcuLvsIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMcuLvsIpResponse
+     *
+     * @param GetMcuLvsIpRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetMcuLvsIpResponse
      */
     public function getMcuLvsIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMcuLvsIp',
@@ -4058,16 +5011,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMcuLvsIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMcuLvsIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMcuLvsIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 热线检测获取mcu ip地址
-     *  *
-     * @param GetMcuLvsIpRequest $request GetMcuLvsIpRequest
+     * 热线检测获取mcu ip地址
      *
-     * @return GetMcuLvsIpResponse GetMcuLvsIpResponse
+     * @param request - GetMcuLvsIpRequest
+     * @returns GetMcuLvsIpResponse
+     *
+     * @param GetMcuLvsIpRequest $request
+     *
+     * @return GetMcuLvsIpResponse
      */
     public function getMcuLvsIp($request)
     {
@@ -4077,17 +5036,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetNumLocationRequest $request GetNumLocationRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - GetNumLocationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetNumLocationResponse
      *
-     * @return GetNumLocationResponse GetNumLocationResponse
+     * @param GetNumLocationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetNumLocationResponse
      */
     public function getNumLocationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetNumLocation',
@@ -4100,14 +5063,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetNumLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNumLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNumLocationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetNumLocationRequest $request GetNumLocationRequest
+     * @param request - GetNumLocationRequest
+     * @returns GetNumLocationResponse
      *
-     * @return GetNumLocationResponse GetNumLocationResponse
+     * @param GetNumLocationRequest $request
+     *
+     * @return GetNumLocationResponse
      */
     public function getNumLocation($request)
     {
@@ -4117,27 +5086,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 在线坐席信息
-     *  *
-     * @param GetOnlineSeatInformationRequest $tmpReq  GetOnlineSeatInformationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 在线坐席信息.
      *
-     * @return GetOnlineSeatInformationResponse GetOnlineSeatInformationResponse
+     * @param tmpReq - GetOnlineSeatInformationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOnlineSeatInformationResponse
+     *
+     * @param GetOnlineSeatInformationRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetOnlineSeatInformationResponse
      */
     public function getOnlineSeatInformationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetOnlineSeatInformationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOnlineSeatInformation',
@@ -4150,16 +5125,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOnlineSeatInformationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOnlineSeatInformationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOnlineSeatInformationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 在线坐席信息
-     *  *
-     * @param GetOnlineSeatInformationRequest $request GetOnlineSeatInformationRequest
+     * 在线坐席信息.
      *
-     * @return GetOnlineSeatInformationResponse GetOnlineSeatInformationResponse
+     * @param request - GetOnlineSeatInformationRequest
+     * @returns GetOnlineSeatInformationResponse
+     *
+     * @param GetOnlineSeatInformationRequest $request
+     *
+     * @return GetOnlineSeatInformationResponse
      */
     public function getOnlineSeatInformation($request)
     {
@@ -4169,30 +5150,37 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 在线服务总量
-     *  *
-     * @param GetOnlineServiceVolumeRequest $tmpReq  GetOnlineServiceVolumeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 在线服务总量.
      *
-     * @return GetOnlineServiceVolumeResponse GetOnlineServiceVolumeResponse
+     * @param tmpReq - GetOnlineServiceVolumeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOnlineServiceVolumeResponse
+     *
+     * @param GetOnlineServiceVolumeRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetOnlineServiceVolumeResponse
      */
     public function getOnlineServiceVolumeWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetOnlineServiceVolumeShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOnlineServiceVolume',
@@ -4205,16 +5193,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOnlineServiceVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOnlineServiceVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOnlineServiceVolumeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 在线服务总量
-     *  *
-     * @param GetOnlineServiceVolumeRequest $request GetOnlineServiceVolumeRequest
+     * 在线服务总量.
      *
-     * @return GetOnlineServiceVolumeResponse GetOnlineServiceVolumeResponse
+     * @param request - GetOnlineServiceVolumeRequest
+     * @returns GetOnlineServiceVolumeResponse
+     *
+     * @param GetOnlineServiceVolumeRequest $request
+     *
+     * @return GetOnlineServiceVolumeResponse
      */
     public function getOnlineServiceVolume($request)
     {
@@ -4224,26 +5218,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetOutbounNumListRequest $request GetOutbounNumListRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - GetOutbounNumListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOutbounNumListResponse
      *
-     * @return GetOutbounNumListResponse GetOutbounNumListResponse
+     * @param GetOutbounNumListRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetOutbounNumListResponse
      */
     public function getOutbounNumListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetOutbounNumList',
@@ -4256,14 +5257,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOutbounNumListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOutbounNumListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOutbounNumListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetOutbounNumListRequest $request GetOutbounNumListRequest
+     * @param request - GetOutbounNumListRequest
+     * @returns GetOutbounNumListResponse
      *
-     * @return GetOutbounNumListResponse GetOutbounNumListResponse
+     * @param GetOutbounNumListRequest $request
+     *
+     * @return GetOutbounNumListResponse
      */
     public function getOutbounNumList($request)
     {
@@ -4273,23 +5280,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetQualityProjectDetailRequest $request GetQualityProjectDetailRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - GetQualityProjectDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQualityProjectDetailResponse
      *
-     * @return GetQualityProjectDetailResponse GetQualityProjectDetailResponse
+     * @param GetQualityProjectDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetQualityProjectDetailResponse
      */
     public function getQualityProjectDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQualityProjectDetail',
@@ -4302,14 +5315,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQualityProjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQualityProjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQualityProjectDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetQualityProjectDetailRequest $request GetQualityProjectDetailRequest
+     * @param request - GetQualityProjectDetailRequest
+     * @returns GetQualityProjectDetailResponse
      *
-     * @return GetQualityProjectDetailResponse GetQualityProjectDetailResponse
+     * @param GetQualityProjectDetailRequest $request
+     *
+     * @return GetQualityProjectDetailResponse
      */
     public function getQualityProjectDetail($request)
     {
@@ -4319,38 +5338,49 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetQualityProjectListRequest $request GetQualityProjectListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GetQualityProjectListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQualityProjectListResponse
      *
-     * @return GetQualityProjectListResponse GetQualityProjectListResponse
+     * @param GetQualityProjectListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetQualityProjectListResponse
      */
     public function getQualityProjectListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->checkFreqType)) {
-            $query['checkFreqType'] = $request->checkFreqType;
+
+        if (null !== $request->checkFreqType) {
+            @$query['checkFreqType'] = $request->checkFreqType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQualityProjectList',
@@ -4363,14 +5393,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQualityProjectListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQualityProjectListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQualityProjectListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetQualityProjectListRequest $request GetQualityProjectListRequest
+     * @param request - GetQualityProjectListRequest
+     * @returns GetQualityProjectListResponse
      *
-     * @return GetQualityProjectListResponse GetQualityProjectListResponse
+     * @param GetQualityProjectListRequest $request
+     *
+     * @return GetQualityProjectListResponse
      */
     public function getQualityProjectList($request)
     {
@@ -4380,23 +5416,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetQualityProjectLogRequest $request GetQualityProjectLogRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - GetQualityProjectLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQualityProjectLogResponse
      *
-     * @return GetQualityProjectLogResponse GetQualityProjectLogResponse
+     * @param GetQualityProjectLogRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetQualityProjectLogResponse
      */
     public function getQualityProjectLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['ProjectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['ProjectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQualityProjectLog',
@@ -4409,14 +5451,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQualityProjectLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQualityProjectLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQualityProjectLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetQualityProjectLogRequest $request GetQualityProjectLogRequest
+     * @param request - GetQualityProjectLogRequest
+     * @returns GetQualityProjectLogResponse
      *
-     * @return GetQualityProjectLogResponse GetQualityProjectLogResponse
+     * @param GetQualityProjectLogRequest $request
+     *
+     * @return GetQualityProjectLogResponse
      */
     public function getQualityProjectLog($request)
     {
@@ -4426,47 +5474,61 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetQualityResultRequest $request GetQualityResultRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - GetQualityResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQualityResultResponse
      *
-     * @return GetQualityResultResponse GetQualityResultResponse
+     * @param GetQualityResultRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetQualityResultResponse
      */
     public function getQualityResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->channelType)) {
-            $query['ChannelType'] = $request->channelType;
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->hitStatus)) {
-            $query['HitStatus'] = $request->hitStatus;
+
+        if (null !== $request->hitStatus) {
+            @$query['HitStatus'] = $request->hitStatus;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectIds)) {
-            $query['ProjectIds'] = $request->projectIds;
+
+        if (null !== $request->projectIds) {
+            @$query['ProjectIds'] = $request->projectIds;
         }
-        if (!Utils::isUnset($request->qualityRuleIds)) {
-            $query['QualityRuleIds'] = $request->qualityRuleIds;
+
+        if (null !== $request->qualityRuleIds) {
+            @$query['QualityRuleIds'] = $request->qualityRuleIds;
         }
-        if (!Utils::isUnset($request->touchEndTime)) {
-            $query['TouchEndTime'] = $request->touchEndTime;
+
+        if (null !== $request->touchEndTime) {
+            @$query['TouchEndTime'] = $request->touchEndTime;
         }
-        if (!Utils::isUnset($request->touchStartTime)) {
-            $query['TouchStartTime'] = $request->touchStartTime;
+
+        if (null !== $request->touchStartTime) {
+            @$query['TouchStartTime'] = $request->touchStartTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQualityResult',
@@ -4479,14 +5541,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQualityResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQualityResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQualityResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetQualityResultRequest $request GetQualityResultRequest
+     * @param request - GetQualityResultRequest
+     * @returns GetQualityResultResponse
      *
-     * @return GetQualityResultResponse GetQualityResultResponse
+     * @param GetQualityResultRequest $request
+     *
+     * @return GetQualityResultResponse
      */
     public function getQualityResult($request)
     {
@@ -4496,23 +5564,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetQualityRuleDetailRequest $request GetQualityRuleDetailRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - GetQualityRuleDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQualityRuleDetailResponse
      *
-     * @return GetQualityRuleDetailResponse GetQualityRuleDetailResponse
+     * @param GetQualityRuleDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetQualityRuleDetailResponse
      */
     public function getQualityRuleDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->qualityRuleId)) {
-            $query['QualityRuleId'] = $request->qualityRuleId;
+
+        if (null !== $request->qualityRuleId) {
+            @$query['QualityRuleId'] = $request->qualityRuleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQualityRuleDetail',
@@ -4525,14 +5599,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQualityRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQualityRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQualityRuleDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetQualityRuleDetailRequest $request GetQualityRuleDetailRequest
+     * @param request - GetQualityRuleDetailRequest
+     * @returns GetQualityRuleDetailResponse
      *
-     * @return GetQualityRuleDetailResponse GetQualityRuleDetailResponse
+     * @param GetQualityRuleDetailRequest $request
+     *
+     * @return GetQualityRuleDetailResponse
      */
     public function getQualityRuleDetail($request)
     {
@@ -4542,26 +5622,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetQualityRuleListRequest $request GetQualityRuleListRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - GetQualityRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQualityRuleListResponse
      *
-     * @return GetQualityRuleListResponse GetQualityRuleListResponse
+     * @param GetQualityRuleListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetQualityRuleListResponse
      */
     public function getQualityRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQualityRuleList',
@@ -4574,14 +5661,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQualityRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQualityRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQualityRuleListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetQualityRuleListRequest $request GetQualityRuleListRequest
+     * @param request - GetQualityRuleListRequest
+     * @returns GetQualityRuleListResponse
      *
-     * @return GetQualityRuleListResponse GetQualityRuleListResponse
+     * @param GetQualityRuleListRequest $request
+     *
+     * @return GetQualityRuleListResponse
      */
     public function getQualityRuleList($request)
     {
@@ -4591,20 +5684,25 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetQualityRuleTagListRequest $request GetQualityRuleTagListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - GetQualityRuleTagListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQualityRuleTagListResponse
      *
-     * @return GetQualityRuleTagListResponse GetQualityRuleTagListResponse
+     * @param GetQualityRuleTagListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetQualityRuleTagListResponse
      */
     public function getQualityRuleTagListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQualityRuleTagList',
@@ -4617,14 +5715,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQualityRuleTagListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQualityRuleTagListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQualityRuleTagListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetQualityRuleTagListRequest $request GetQualityRuleTagListRequest
+     * @param request - GetQualityRuleTagListRequest
+     * @returns GetQualityRuleTagListResponse
      *
-     * @return GetQualityRuleTagListResponse GetQualityRuleTagListResponse
+     * @param GetQualityRuleTagListRequest $request
+     *
+     * @return GetQualityRuleTagListResponse
      */
     public function getQualityRuleTagList($request)
     {
@@ -4634,27 +5738,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 技能组纬度队列信息
-     *  *
-     * @param GetQueueInformationRequest $tmpReq  GetQueueInformationRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 技能组纬度队列信息.
      *
-     * @return GetQueueInformationResponse GetQueueInformationResponse
+     * @param tmpReq - GetQueueInformationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQueueInformationResponse
+     *
+     * @param GetQueueInformationRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetQueueInformationResponse
      */
     public function getQueueInformationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetQueueInformationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQueueInformation',
@@ -4667,16 +5777,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQueueInformationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQueueInformationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQueueInformationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 技能组纬度队列信息
-     *  *
-     * @param GetQueueInformationRequest $request GetQueueInformationRequest
+     * 技能组纬度队列信息.
      *
-     * @return GetQueueInformationResponse GetQueueInformationResponse
+     * @param request - GetQueueInformationRequest
+     * @returns GetQueueInformationResponse
+     *
+     * @param GetQueueInformationRequest $request
+     *
+     * @return GetQueueInformationResponse
      */
     public function getQueueInformation($request)
     {
@@ -4686,23 +5802,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param GetRecordDataRequest $request GetRecordDataRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - GetRecordDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRecordDataResponse
      *
-     * @return GetRecordDataResponse GetRecordDataResponse
+     * @param GetRecordDataRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetRecordDataResponse
      */
     public function getRecordDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acid)) {
-            $query['Acid'] = $request->acid;
+        if (null !== $request->acid) {
+            @$query['Acid'] = $request->acid;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRecordData',
@@ -4715,14 +5837,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRecordDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRecordDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRecordDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetRecordDataRequest $request GetRecordDataRequest
+     * @param request - GetRecordDataRequest
+     * @returns GetRecordDataResponse
      *
-     * @return GetRecordDataResponse GetRecordDataResponse
+     * @param GetRecordDataRequest $request
+     *
+     * @return GetRecordDataResponse
      */
     public function getRecordData($request)
     {
@@ -4732,19 +5860,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取录音链接
-     *  *
-     * @param GetRecordUrlRequest $request GetRecordUrlRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 获取录音链接.
      *
-     * @return GetRecordUrlResponse GetRecordUrlResponse
+     * @param request - GetRecordUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRecordUrlResponse
+     *
+     * @param GetRecordUrlRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetRecordUrlResponse
      */
     public function getRecordUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRecordUrl',
@@ -4757,16 +5889,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRecordUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRecordUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRecordUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取录音链接
-     *  *
-     * @param GetRecordUrlRequest $request GetRecordUrlRequest
+     * 获取录音链接.
      *
-     * @return GetRecordUrlResponse GetRecordUrlResponse
+     * @param request - GetRecordUrlRequest
+     * @returns GetRecordUrlResponse
+     *
+     * @param GetRecordUrlRequest $request
+     *
+     * @return GetRecordUrlResponse
      */
     public function getRecordUrl($request)
     {
@@ -4776,19 +5914,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取RtcToken
-     *  *
-     * @param GetRtcTokenRequest $request GetRtcTokenRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 获取RtcToken.
      *
-     * @return GetRtcTokenResponse GetRtcTokenResponse
+     * @param request - GetRtcTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRtcTokenResponse
+     *
+     * @param GetRtcTokenRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetRtcTokenResponse
      */
     public function getRtcTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRtcToken',
@@ -4801,16 +5943,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRtcTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRtcTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRtcTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取RtcToken
-     *  *
-     * @param GetRtcTokenRequest $request GetRtcTokenRequest
+     * 获取RtcToken.
      *
-     * @return GetRtcTokenResponse GetRtcTokenResponse
+     * @param request - GetRtcTokenRequest
+     * @returns GetRtcTokenResponse
+     *
+     * @param GetRtcTokenRequest $request
+     *
+     * @return GetRtcTokenResponse
      */
     public function getRtcToken($request)
     {
@@ -4820,24 +5968,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 部门纬度坐席信息数据
-     *  *
-     * @param GetSeatInformationRequest $tmpReq  GetSeatInformationRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 部门纬度坐席信息数据.
      *
-     * @return GetSeatInformationResponse GetSeatInformationResponse
+     * @param tmpReq - GetSeatInformationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSeatInformationResponse
+     *
+     * @param GetSeatInformationRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetSeatInformationResponse
      */
     public function getSeatInformationWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSeatInformationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'depIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'depIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSeatInformation',
@@ -4850,16 +6003,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSeatInformationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSeatInformationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSeatInformationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 部门纬度坐席信息数据
-     *  *
-     * @param GetSeatInformationRequest $request GetSeatInformationRequest
+     * 部门纬度坐席信息数据.
      *
-     * @return GetSeatInformationResponse GetSeatInformationResponse
+     * @param request - GetSeatInformationRequest
+     * @returns GetSeatInformationResponse
+     *
+     * @param GetSeatInformationRequest $request
+     *
+     * @return GetSeatInformationResponse
      */
     public function getSeatInformation($request)
     {
@@ -4869,27 +6028,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 技能组坐席状态详情
-     *  *
-     * @param GetSkillGroupAgentStatusDetailsRequest $tmpReq  GetSkillGroupAgentStatusDetailsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 技能组坐席状态详情.
      *
-     * @return GetSkillGroupAgentStatusDetailsResponse GetSkillGroupAgentStatusDetailsResponse
+     * @param tmpReq - GetSkillGroupAgentStatusDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSkillGroupAgentStatusDetailsResponse
+     *
+     * @param GetSkillGroupAgentStatusDetailsRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetSkillGroupAgentStatusDetailsResponse
      */
     public function getSkillGroupAgentStatusDetailsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSkillGroupAgentStatusDetailsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSkillGroupAgentStatusDetails',
@@ -4902,16 +6067,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSkillGroupAgentStatusDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSkillGroupAgentStatusDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSkillGroupAgentStatusDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 技能组坐席状态详情
-     *  *
-     * @param GetSkillGroupAgentStatusDetailsRequest $request GetSkillGroupAgentStatusDetailsRequest
+     * 技能组坐席状态详情.
      *
-     * @return GetSkillGroupAgentStatusDetailsResponse GetSkillGroupAgentStatusDetailsResponse
+     * @param request - GetSkillGroupAgentStatusDetailsRequest
+     * @returns GetSkillGroupAgentStatusDetailsResponse
+     *
+     * @param GetSkillGroupAgentStatusDetailsRequest $request
+     *
+     * @return GetSkillGroupAgentStatusDetailsResponse
      */
     public function getSkillGroupAgentStatusDetails($request)
     {
@@ -4921,27 +6092,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 技能组坐席汇总状态量
-     *  *
-     * @param GetSkillGroupAndAgentStatusSummaryRequest $tmpReq  GetSkillGroupAndAgentStatusSummaryRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * 技能组坐席汇总状态量.
      *
-     * @return GetSkillGroupAndAgentStatusSummaryResponse GetSkillGroupAndAgentStatusSummaryResponse
+     * @param tmpReq - GetSkillGroupAndAgentStatusSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSkillGroupAndAgentStatusSummaryResponse
+     *
+     * @param GetSkillGroupAndAgentStatusSummaryRequest $tmpReq
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetSkillGroupAndAgentStatusSummaryResponse
      */
     public function getSkillGroupAndAgentStatusSummaryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSkillGroupAndAgentStatusSummaryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSkillGroupAndAgentStatusSummary',
@@ -4954,16 +6131,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSkillGroupAndAgentStatusSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSkillGroupAndAgentStatusSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSkillGroupAndAgentStatusSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 技能组坐席汇总状态量
-     *  *
-     * @param GetSkillGroupAndAgentStatusSummaryRequest $request GetSkillGroupAndAgentStatusSummaryRequest
+     * 技能组坐席汇总状态量.
      *
-     * @return GetSkillGroupAndAgentStatusSummaryResponse GetSkillGroupAndAgentStatusSummaryResponse
+     * @param request - GetSkillGroupAndAgentStatusSummaryRequest
+     * @returns GetSkillGroupAndAgentStatusSummaryResponse
+     *
+     * @param GetSkillGroupAndAgentStatusSummaryRequest $request
+     *
+     * @return GetSkillGroupAndAgentStatusSummaryResponse
      */
     public function getSkillGroupAndAgentStatusSummary($request)
     {
@@ -4973,27 +6156,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 技能组纬度状态量
-     *  *
-     * @param GetSkillGroupLatitudeStateRequest $tmpReq  GetSkillGroupLatitudeStateRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 技能组纬度状态量.
      *
-     * @return GetSkillGroupLatitudeStateResponse GetSkillGroupLatitudeStateResponse
+     * @param tmpReq - GetSkillGroupLatitudeStateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSkillGroupLatitudeStateResponse
+     *
+     * @param GetSkillGroupLatitudeStateRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetSkillGroupLatitudeStateResponse
      */
     public function getSkillGroupLatitudeStateWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSkillGroupLatitudeStateShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSkillGroupLatitudeState',
@@ -5006,16 +6195,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSkillGroupLatitudeStateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSkillGroupLatitudeStateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSkillGroupLatitudeStateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 技能组纬度状态量
-     *  *
-     * @param GetSkillGroupLatitudeStateRequest $request GetSkillGroupLatitudeStateRequest
+     * 技能组纬度状态量.
      *
-     * @return GetSkillGroupLatitudeStateResponse GetSkillGroupLatitudeStateResponse
+     * @param request - GetSkillGroupLatitudeStateRequest
+     * @returns GetSkillGroupLatitudeStateResponse
+     *
+     * @param GetSkillGroupLatitudeStateRequest $request
+     *
+     * @return GetSkillGroupLatitudeStateResponse
      */
     public function getSkillGroupLatitudeState($request)
     {
@@ -5025,27 +6220,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 技能组纬度服务能力
-     *  *
-     * @param GetSkillGroupServiceCapabilityRequest $tmpReq  GetSkillGroupServiceCapabilityRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 技能组纬度服务能力.
      *
-     * @return GetSkillGroupServiceCapabilityResponse GetSkillGroupServiceCapabilityResponse
+     * @param tmpReq - GetSkillGroupServiceCapabilityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSkillGroupServiceCapabilityResponse
+     *
+     * @param GetSkillGroupServiceCapabilityRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetSkillGroupServiceCapabilityResponse
      */
     public function getSkillGroupServiceCapabilityWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSkillGroupServiceCapabilityShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSkillGroupServiceCapability',
@@ -5058,16 +6259,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSkillGroupServiceCapabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSkillGroupServiceCapabilityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSkillGroupServiceCapabilityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 技能组纬度服务能力
-     *  *
-     * @param GetSkillGroupServiceCapabilityRequest $request GetSkillGroupServiceCapabilityRequest
+     * 技能组纬度服务能力.
      *
-     * @return GetSkillGroupServiceCapabilityResponse GetSkillGroupServiceCapabilityResponse
+     * @param request - GetSkillGroupServiceCapabilityRequest
+     * @returns GetSkillGroupServiceCapabilityResponse
+     *
+     * @param GetSkillGroupServiceCapabilityRequest $request
+     *
+     * @return GetSkillGroupServiceCapabilityResponse
      */
     public function getSkillGroupServiceCapability($request)
     {
@@ -5077,30 +6284,37 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 技能组服务状态量
-     *  *
-     * @param GetSkillGroupServiceStatusRequest $tmpReq  GetSkillGroupServiceStatusRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 技能组服务状态量.
      *
-     * @return GetSkillGroupServiceStatusResponse GetSkillGroupServiceStatusResponse
+     * @param tmpReq - GetSkillGroupServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSkillGroupServiceStatusResponse
+     *
+     * @param GetSkillGroupServiceStatusRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetSkillGroupServiceStatusResponse
      */
     public function getSkillGroupServiceStatusWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSkillGroupServiceStatusShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSkillGroupServiceStatus',
@@ -5113,16 +6327,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSkillGroupServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSkillGroupServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSkillGroupServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 技能组服务状态量
-     *  *
-     * @param GetSkillGroupServiceStatusRequest $request GetSkillGroupServiceStatusRequest
+     * 技能组服务状态量.
      *
-     * @return GetSkillGroupServiceStatusResponse GetSkillGroupServiceStatusResponse
+     * @param request - GetSkillGroupServiceStatusRequest
+     * @returns GetSkillGroupServiceStatusResponse
+     *
+     * @param GetSkillGroupServiceStatusRequest $request
+     *
+     * @return GetSkillGroupServiceStatusResponse
      */
     public function getSkillGroupServiceStatus($request)
     {
@@ -5132,30 +6352,37 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 技能组状态总量
-     *  *
-     * @param GetSkillGroupStatusTotalRequest $tmpReq  GetSkillGroupStatusTotalRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 技能组状态总量.
      *
-     * @return GetSkillGroupStatusTotalResponse GetSkillGroupStatusTotalResponse
+     * @param tmpReq - GetSkillGroupStatusTotalRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSkillGroupStatusTotalResponse
+     *
+     * @param GetSkillGroupStatusTotalRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetSkillGroupStatusTotalResponse
      */
     public function getSkillGroupStatusTotalWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetSkillGroupStatusTotalShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->depIds)) {
-            $request->depIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
+
+        if (null !== $tmpReq->depIds) {
+            $request->depIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->depIds, 'DepIds', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
+
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'simple');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSkillGroupStatusTotal',
@@ -5168,16 +6395,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSkillGroupStatusTotalResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSkillGroupStatusTotalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSkillGroupStatusTotalResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 技能组状态总量
-     *  *
-     * @param GetSkillGroupStatusTotalRequest $request GetSkillGroupStatusTotalRequest
+     * 技能组状态总量.
      *
-     * @return GetSkillGroupStatusTotalResponse GetSkillGroupStatusTotalResponse
+     * @param request - GetSkillGroupStatusTotalRequest
+     * @returns GetSkillGroupStatusTotalResponse
+     *
+     * @param GetSkillGroupStatusTotalRequest $request
+     *
+     * @return GetSkillGroupStatusTotalResponse
      */
     public function getSkillGroupStatusTotal($request)
     {
@@ -5187,25 +6420,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 移动端呼叫挂断
-     *  *
-     * @param HangUpDoubleCallRequest $request HangUpDoubleCallRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 移动端呼叫挂断.
      *
-     * @return HangUpDoubleCallResponse HangUpDoubleCallResponse
+     * @param request - HangUpDoubleCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns HangUpDoubleCallResponse
+     *
+     * @param HangUpDoubleCallRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return HangUpDoubleCallResponse
      */
     public function hangUpDoubleCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acid)) {
-            $query['Acid'] = $request->acid;
+        if (null !== $request->acid) {
+            @$query['Acid'] = $request->acid;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'HangUpDoubleCall',
@@ -5218,16 +6457,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return HangUpDoubleCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return HangUpDoubleCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return HangUpDoubleCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 移动端呼叫挂断
-     *  *
-     * @param HangUpDoubleCallRequest $request HangUpDoubleCallRequest
+     * 移动端呼叫挂断.
      *
-     * @return HangUpDoubleCallResponse HangUpDoubleCallResponse
+     * @param request - HangUpDoubleCallRequest
+     * @returns HangUpDoubleCallResponse
+     *
+     * @param HangUpDoubleCallRequest $request
+     *
+     * @return HangUpDoubleCallResponse
      */
     public function hangUpDoubleCall($request)
     {
@@ -5237,35 +6482,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param HangupCallRequest $request HangupCallRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param request - HangupCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns HangupCallResponse
      *
-     * @return HangupCallResponse HangupCallResponse
+     * @param HangupCallRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return HangupCallResponse
      */
     public function hangupCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $body['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$body['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionId)) {
-            $body['ConnectionId'] = $request->connectionId;
+
+        if (null !== $request->connectionId) {
+            @$body['ConnectionId'] = $request->connectionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'HangupCall',
@@ -5278,14 +6533,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return HangupCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return HangupCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return HangupCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param HangupCallRequest $request HangupCallRequest
+     * @param request - HangupCallRequest
+     * @returns HangupCallResponse
      *
-     * @return HangupCallResponse HangupCallResponse
+     * @param HangupCallRequest $request
+     *
+     * @return HangupCallResponse
      */
     public function hangupCall($request)
     {
@@ -5295,35 +6556,107 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param HangupThirdCallRequest $request HangupThirdCallRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 通信智能引擎中主动挂断通话.
      *
-     * @return HangupThirdCallResponse HangupThirdCallResponse
+     * @param request - HangupOperateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns HangupOperateResponse
+     *
+     * @param HangupOperateRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return HangupOperateResponse
+     */
+    public function hangupOperateWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
+        }
+
+        if (null !== $request->immediateHangup) {
+            @$query['ImmediateHangup'] = $request->immediateHangup;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HangupOperate',
+            'version'     => '2019-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return HangupOperateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return HangupOperateResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 通信智能引擎中主动挂断通话.
+     *
+     * @param request - HangupOperateRequest
+     * @returns HangupOperateResponse
+     *
+     * @param HangupOperateRequest $request
+     *
+     * @return HangupOperateResponse
+     */
+    public function hangupOperate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->hangupOperateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - HangupThirdCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns HangupThirdCallResponse
+     *
+     * @param HangupThirdCallRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return HangupThirdCallResponse
      */
     public function hangupThirdCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $body['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$body['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionId)) {
-            $body['ConnectionId'] = $request->connectionId;
+
+        if (null !== $request->connectionId) {
+            @$body['ConnectionId'] = $request->connectionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'HangupThirdCall',
@@ -5336,14 +6669,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return HangupThirdCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return HangupThirdCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return HangupThirdCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param HangupThirdCallRequest $request HangupThirdCallRequest
+     * @param request - HangupThirdCallRequest
+     * @returns HangupThirdCallResponse
      *
-     * @return HangupThirdCallResponse HangupThirdCallResponse
+     * @param HangupThirdCallRequest $request
+     *
+     * @return HangupThirdCallResponse
      */
     public function hangupThirdCall($request)
     {
@@ -5353,35 +6692,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param HoldCallRequest $request HoldCallRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - HoldCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns HoldCallResponse
      *
-     * @return HoldCallResponse HoldCallResponse
+     * @param HoldCallRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return HoldCallResponse
      */
     public function holdCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $body['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$body['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionId)) {
-            $body['ConnectionId'] = $request->connectionId;
+
+        if (null !== $request->connectionId) {
+            @$body['ConnectionId'] = $request->connectionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'HoldCall',
@@ -5394,14 +6743,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return HoldCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return HoldCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return HoldCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param HoldCallRequest $request HoldCallRequest
+     * @param request - HoldCallRequest
+     * @returns HoldCallResponse
      *
-     * @return HoldCallResponse HoldCallResponse
+     * @param HoldCallRequest $request
+     *
+     * @return HoldCallResponse
      */
     public function holdCall($request)
     {
@@ -5411,98 +6766,129 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param HotlineSessionQueryRequest $request HotlineSessionQueryRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - HotlineSessionQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns HotlineSessionQueryResponse
      *
-     * @return HotlineSessionQueryResponse HotlineSessionQueryResponse
+     * @param HotlineSessionQueryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return HotlineSessionQueryResponse
      */
     public function hotlineSessionQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acid)) {
-            $query['Acid'] = $request->acid;
+        if (null !== $request->acid) {
+            @$query['Acid'] = $request->acid;
         }
-        if (!Utils::isUnset($request->acidList)) {
-            $query['AcidList'] = $request->acidList;
+
+        if (null !== $request->acidList) {
+            @$query['AcidList'] = $request->acidList;
         }
-        if (!Utils::isUnset($request->callResult)) {
-            $query['CallResult'] = $request->callResult;
+
+        if (null !== $request->callResult) {
+            @$query['CallResult'] = $request->callResult;
         }
-        if (!Utils::isUnset($request->callResultList)) {
-            $query['CallResultList'] = $request->callResultList;
+
+        if (null !== $request->callResultList) {
+            @$query['CallResultList'] = $request->callResultList;
         }
-        if (!Utils::isUnset($request->callType)) {
-            $query['CallType'] = $request->callType;
+
+        if (null !== $request->callType) {
+            @$query['CallType'] = $request->callType;
         }
-        if (!Utils::isUnset($request->callTypeList)) {
-            $query['CallTypeList'] = $request->callTypeList;
+
+        if (null !== $request->callTypeList) {
+            @$query['CallTypeList'] = $request->callTypeList;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledNumberList)) {
-            $query['CalledNumberList'] = $request->calledNumberList;
+
+        if (null !== $request->calledNumberList) {
+            @$query['CalledNumberList'] = $request->calledNumberList;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->callingNumberList)) {
-            $query['CallingNumberList'] = $request->callingNumberList;
+
+        if (null !== $request->callingNumberList) {
+            @$query['CallingNumberList'] = $request->callingNumberList;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupIdList)) {
-            $query['GroupIdList'] = $request->groupIdList;
+
+        if (null !== $request->groupIdList) {
+            @$query['GroupIdList'] = $request->groupIdList;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->memberId)) {
-            $query['MemberId'] = $request->memberId;
+
+        if (null !== $request->memberId) {
+            @$query['MemberId'] = $request->memberId;
         }
-        if (!Utils::isUnset($request->memberIdList)) {
-            $query['MemberIdList'] = $request->memberIdList;
+
+        if (null !== $request->memberIdList) {
+            @$query['MemberIdList'] = $request->memberIdList;
         }
-        if (!Utils::isUnset($request->memberName)) {
-            $query['MemberName'] = $request->memberName;
+
+        if (null !== $request->memberName) {
+            @$query['MemberName'] = $request->memberName;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->queryEndTime)) {
-            $query['QueryEndTime'] = $request->queryEndTime;
+
+        if (null !== $request->queryEndTime) {
+            @$query['QueryEndTime'] = $request->queryEndTime;
         }
-        if (!Utils::isUnset($request->queryStartTime)) {
-            $query['QueryStartTime'] = $request->queryStartTime;
+
+        if (null !== $request->queryStartTime) {
+            @$query['QueryStartTime'] = $request->queryStartTime;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $query['RequestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$query['RequestId'] = $request->requestId;
         }
-        if (!Utils::isUnset($request->servicerId)) {
-            $query['ServicerId'] = $request->servicerId;
+
+        if (null !== $request->servicerId) {
+            @$query['ServicerId'] = $request->servicerId;
         }
-        if (!Utils::isUnset($request->servicerIdList)) {
-            $query['ServicerIdList'] = $request->servicerIdList;
+
+        if (null !== $request->servicerIdList) {
+            @$query['ServicerIdList'] = $request->servicerIdList;
         }
-        if (!Utils::isUnset($request->servicerName)) {
-            $query['ServicerName'] = $request->servicerName;
+
+        if (null !== $request->servicerName) {
+            @$query['ServicerName'] = $request->servicerName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'HotlineSessionQuery',
@@ -5515,14 +6901,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return HotlineSessionQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return HotlineSessionQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return HotlineSessionQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param HotlineSessionQueryRequest $request HotlineSessionQueryRequest
+     * @param request - HotlineSessionQueryRequest
+     * @returns HotlineSessionQueryResponse
      *
-     * @return HotlineSessionQueryResponse HotlineSessionQueryResponse
+     * @param HotlineSessionQueryRequest $request
+     *
+     * @return HotlineSessionQueryResponse
      */
     public function hotlineSessionQuery($request)
     {
@@ -5532,36 +6924,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 智能外呼任务导入号码
-     *  *
-     * @param InsertAiOutboundPhoneNumsRequest $tmpReq  InsertAiOutboundPhoneNumsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 智能外呼任务导入号码
      *
-     * @return InsertAiOutboundPhoneNumsResponse InsertAiOutboundPhoneNumsResponse
+     * @param tmpReq - InsertAiOutboundPhoneNumsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InsertAiOutboundPhoneNumsResponse
+     *
+     * @param InsertAiOutboundPhoneNumsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return InsertAiOutboundPhoneNumsResponse
      */
     public function insertAiOutboundPhoneNumsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InsertAiOutboundPhoneNumsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->details)) {
-            $request->detailsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->details, 'Details', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->details) {
+            $request->detailsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->details, 'Details', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->batchVersion)) {
-            $query['BatchVersion'] = $request->batchVersion;
+        if (null !== $request->batchVersion) {
+            @$query['BatchVersion'] = $request->batchVersion;
         }
-        if (!Utils::isUnset($request->detailsShrink)) {
-            $query['Details'] = $request->detailsShrink;
+
+        if (null !== $request->detailsShrink) {
+            @$query['Details'] = $request->detailsShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InsertAiOutboundPhoneNums',
@@ -5574,16 +6975,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InsertAiOutboundPhoneNumsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InsertAiOutboundPhoneNumsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InsertAiOutboundPhoneNumsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 智能外呼任务导入号码
-     *  *
-     * @param InsertAiOutboundPhoneNumsRequest $request InsertAiOutboundPhoneNumsRequest
+     * 智能外呼任务导入号码
      *
-     * @return InsertAiOutboundPhoneNumsResponse InsertAiOutboundPhoneNumsResponse
+     * @param request - InsertAiOutboundPhoneNumsRequest
+     * @returns InsertAiOutboundPhoneNumsResponse
+     *
+     * @param InsertAiOutboundPhoneNumsRequest $request
+     *
+     * @return InsertAiOutboundPhoneNumsResponse
      */
     public function insertAiOutboundPhoneNums($request)
     {
@@ -5593,26 +7000,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param InsertTaskDetailRequest $request InsertTaskDetailRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - InsertTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InsertTaskDetailResponse
      *
-     * @return InsertTaskDetailResponse InsertTaskDetailResponse
+     * @param InsertTaskDetailRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return InsertTaskDetailResponse
      */
     public function insertTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callInfos)) {
-            $query['CallInfos'] = $request->callInfos;
+        if (null !== $request->callInfos) {
+            @$query['CallInfos'] = $request->callInfos;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->outboundTaskId)) {
-            $query['OutboundTaskId'] = $request->outboundTaskId;
+
+        if (null !== $request->outboundTaskId) {
+            @$query['OutboundTaskId'] = $request->outboundTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InsertTaskDetail',
@@ -5625,14 +7039,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InsertTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InsertTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InsertTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param InsertTaskDetailRequest $request InsertTaskDetailRequest
+     * @param request - InsertTaskDetailRequest
+     * @returns InsertTaskDetailResponse
      *
-     * @return InsertTaskDetailResponse InsertTaskDetailResponse
+     * @param InsertTaskDetailRequest $request
+     *
+     * @return InsertTaskDetailResponse
      */
     public function insertTaskDetail($request)
     {
@@ -5642,38 +7062,49 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param JoinThirdCallRequest $request JoinThirdCallRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - JoinThirdCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns JoinThirdCallResponse
      *
-     * @return JoinThirdCallResponse JoinThirdCallResponse
+     * @param JoinThirdCallRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return JoinThirdCallResponse
      */
     public function joinThirdCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $body['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$body['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionId)) {
-            $body['ConnectionId'] = $request->connectionId;
+
+        if (null !== $request->connectionId) {
+            @$body['ConnectionId'] = $request->connectionId;
         }
-        if (!Utils::isUnset($request->holdConnectionId)) {
-            $body['HoldConnectionId'] = $request->holdConnectionId;
+
+        if (null !== $request->holdConnectionId) {
+            @$body['HoldConnectionId'] = $request->holdConnectionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'JoinThirdCall',
@@ -5686,14 +7117,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return JoinThirdCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return JoinThirdCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return JoinThirdCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param JoinThirdCallRequest $request JoinThirdCallRequest
+     * @param request - JoinThirdCallRequest
+     * @returns JoinThirdCallResponse
      *
-     * @return JoinThirdCallResponse JoinThirdCallResponse
+     * @param JoinThirdCallRequest $request
+     *
+     * @return JoinThirdCallResponse
      */
     public function joinThirdCall($request)
     {
@@ -5703,17 +7140,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param ListAgentBySkillGroupIdRequest $request ListAgentBySkillGroupIdRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ListAgentBySkillGroupIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAgentBySkillGroupIdResponse
      *
-     * @return ListAgentBySkillGroupIdResponse ListAgentBySkillGroupIdResponse
+     * @param ListAgentBySkillGroupIdRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListAgentBySkillGroupIdResponse
      */
     public function listAgentBySkillGroupIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAgentBySkillGroupId',
@@ -5726,14 +7167,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAgentBySkillGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAgentBySkillGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAgentBySkillGroupIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListAgentBySkillGroupIdRequest $request ListAgentBySkillGroupIdRequest
+     * @param request - ListAgentBySkillGroupIdRequest
+     * @returns ListAgentBySkillGroupIdResponse
      *
-     * @return ListAgentBySkillGroupIdResponse ListAgentBySkillGroupIdResponse
+     * @param ListAgentBySkillGroupIdRequest $request
+     *
+     * @return ListAgentBySkillGroupIdResponse
      */
     public function listAgentBySkillGroupId($request)
     {
@@ -5743,31 +7190,39 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查询所有机器人列表
-     *  *
-     * @param ListAiccsRobotRequest $request ListAiccsRobotRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询所有机器人列表.
      *
-     * @return ListAiccsRobotResponse ListAiccsRobotResponse
+     * @param request - ListAiccsRobotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAiccsRobotResponse
+     *
+     * @param ListAiccsRobotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAiccsRobotResponse
      */
     public function listAiccsRobotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->robotName)) {
-            $query['RobotName'] = $request->robotName;
+
+        if (null !== $request->robotName) {
+            @$query['RobotName'] = $request->robotName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAiccsRobot',
@@ -5780,16 +7235,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAiccsRobotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAiccsRobotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAiccsRobotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询所有机器人列表
-     *  *
-     * @param ListAiccsRobotRequest $request ListAiccsRobotRequest
+     * 查询所有机器人列表.
      *
-     * @return ListAiccsRobotResponse ListAiccsRobotResponse
+     * @param request - ListAiccsRobotRequest
+     * @returns ListAiccsRobotResponse
+     *
+     * @param ListAiccsRobotRequest $request
+     *
+     * @return ListAiccsRobotResponse
      */
     public function listAiccsRobot($request)
     {
@@ -5799,19 +7260,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天
-     *  *
-     * @param ListChatRecordDetailRequest $request ListChatRecordDetailRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天.
      *
-     * @return ListChatRecordDetailResponse ListChatRecordDetailResponse
+     * @param request - ListChatRecordDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListChatRecordDetailResponse
+     *
+     * @param ListChatRecordDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListChatRecordDetailResponse
      */
     public function listChatRecordDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListChatRecordDetail',
@@ -5824,16 +7289,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChatRecordDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChatRecordDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChatRecordDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天
-     *  *
-     * @param ListChatRecordDetailRequest $request ListChatRecordDetailRequest
+     * 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天.
      *
-     * @return ListChatRecordDetailResponse ListChatRecordDetailResponse
+     * @param request - ListChatRecordDetailRequest
+     * @returns ListChatRecordDetailResponse
+     *
+     * @param ListChatRecordDetailRequest $request
+     *
+     * @return ListChatRecordDetailResponse
      */
     public function listChatRecordDetail($request)
     {
@@ -5843,34 +7314,43 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查看对话记录
-     *  *
-     * @param ListDialogRequest $request ListDialogRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 查看对话记录.
      *
-     * @return ListDialogResponse ListDialogResponse
+     * @param request - ListDialogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDialogResponse
+     *
+     * @param ListDialogRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListDialogResponse
      */
     public function listDialogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->called)) {
-            $query['Called'] = $request->called;
+        if (null !== $request->called) {
+            @$query['Called'] = $request->called;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDialog',
@@ -5883,16 +7363,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDialogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDialogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDialogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看对话记录
-     *  *
-     * @param ListDialogRequest $request ListDialogRequest
+     * 查看对话记录.
      *
-     * @return ListDialogResponse ListDialogResponse
+     * @param request - ListDialogRequest
+     * @returns ListDialogResponse
+     *
+     * @param ListDialogRequest $request
+     *
+     * @return ListDialogResponse
      */
     public function listDialog($request)
     {
@@ -5902,17 +7388,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param ListHotlineRecordRequest $request ListHotlineRecordRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListHotlineRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHotlineRecordResponse
      *
-     * @return ListHotlineRecordResponse ListHotlineRecordResponse
+     * @param ListHotlineRecordRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListHotlineRecordResponse
      */
     public function listHotlineRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListHotlineRecord',
@@ -5925,14 +7415,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHotlineRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHotlineRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHotlineRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListHotlineRecordRequest $request ListHotlineRecordRequest
+     * @param request - ListHotlineRecordRequest
+     * @returns ListHotlineRecordResponse
      *
-     * @return ListHotlineRecordResponse ListHotlineRecordResponse
+     * @param ListHotlineRecordRequest $request
+     *
+     * @return ListHotlineRecordResponse
      */
     public function listHotlineRecord($request)
     {
@@ -5942,19 +7438,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 根据时间段查询热线详情列表，包含热线通话信息，时间段范围最长不超过1天
-     *  *
-     * @param ListHotlineRecordDetailRequest $request ListHotlineRecordDetailRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 根据时间段查询热线详情列表，包含热线通话信息，时间段范围最长不超过1天.
      *
-     * @return ListHotlineRecordDetailResponse ListHotlineRecordDetailResponse
+     * @param request - ListHotlineRecordDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHotlineRecordDetailResponse
+     *
+     * @param ListHotlineRecordDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListHotlineRecordDetailResponse
      */
     public function listHotlineRecordDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListHotlineRecordDetail',
@@ -5967,16 +7467,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHotlineRecordDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHotlineRecordDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHotlineRecordDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据时间段查询热线详情列表，包含热线通话信息，时间段范围最长不超过1天
-     *  *
-     * @param ListHotlineRecordDetailRequest $request ListHotlineRecordDetailRequest
+     * 根据时间段查询热线详情列表，包含热线通话信息，时间段范围最长不超过1天.
      *
-     * @return ListHotlineRecordDetailResponse ListHotlineRecordDetailResponse
+     * @param request - ListHotlineRecordDetailRequest
+     * @returns ListHotlineRecordDetailResponse
+     *
+     * @param ListHotlineRecordDetailRequest $request
+     *
+     * @return ListHotlineRecordDetailResponse
      */
     public function listHotlineRecordDetail($request)
     {
@@ -5986,17 +7492,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param ListOutboundPhoneNumberRequest $request ListOutboundPhoneNumberRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ListOutboundPhoneNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOutboundPhoneNumberResponse
      *
-     * @return ListOutboundPhoneNumberResponse ListOutboundPhoneNumberResponse
+     * @param ListOutboundPhoneNumberRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListOutboundPhoneNumberResponse
      */
     public function listOutboundPhoneNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOutboundPhoneNumber',
@@ -6009,14 +7519,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOutboundPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOutboundPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOutboundPhoneNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListOutboundPhoneNumberRequest $request ListOutboundPhoneNumberRequest
+     * @param request - ListOutboundPhoneNumberRequest
+     * @returns ListOutboundPhoneNumberResponse
      *
-     * @return ListOutboundPhoneNumberResponse ListOutboundPhoneNumberResponse
+     * @param ListOutboundPhoneNumberRequest $request
+     *
+     * @return ListOutboundPhoneNumberResponse
      */
     public function listOutboundPhoneNumber($request)
     {
@@ -6026,34 +7542,43 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查看对话记录
-     *  *
-     * @param ListRobotCallDialogRequest $request ListRobotCallDialogRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查看对话记录.
      *
-     * @return ListRobotCallDialogResponse ListRobotCallDialogResponse
+     * @param request - ListRobotCallDialogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRobotCallDialogResponse
+     *
+     * @param ListRobotCallDialogRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListRobotCallDialogResponse
      */
     public function listRobotCallDialogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->createTime)) {
-            $query['CreateTime'] = $request->createTime;
+
+        if (null !== $request->createTime) {
+            @$query['CreateTime'] = $request->createTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRobotCallDialog',
@@ -6066,16 +7591,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRobotCallDialogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRobotCallDialogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRobotCallDialogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看对话记录
-     *  *
-     * @param ListRobotCallDialogRequest $request ListRobotCallDialogRequest
+     * 查看对话记录.
      *
-     * @return ListRobotCallDialogResponse ListRobotCallDialogResponse
+     * @param request - ListRobotCallDialogRequest
+     * @returns ListRobotCallDialogResponse
+     *
+     * @param ListRobotCallDialogRequest $request
+     *
+     * @return ListRobotCallDialogResponse
      */
     public function listRobotCallDialog($request)
     {
@@ -6085,31 +7616,39 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查询机器人输出列表
-     *  *
-     * @param ListRobotNodeRequest $request ListRobotNodeRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询机器人输出列表.
      *
-     * @return ListRobotNodeResponse ListRobotNodeResponse
+     * @param request - ListRobotNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRobotNodeResponse
+     *
+     * @param ListRobotNodeRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListRobotNodeResponse
      */
     public function listRobotNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->robotId)) {
-            $query['RobotId'] = $request->robotId;
+
+        if (null !== $request->robotId) {
+            @$query['RobotId'] = $request->robotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRobotNode',
@@ -6122,16 +7661,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRobotNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRobotNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRobotNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询机器人输出列表
-     *  *
-     * @param ListRobotNodeRequest $request ListRobotNodeRequest
+     * 查询机器人输出列表.
      *
-     * @return ListRobotNodeResponse ListRobotNodeResponse
+     * @param request - ListRobotNodeRequest
+     * @returns ListRobotNodeResponse
+     *
+     * @param ListRobotNodeRequest $request
+     *
+     * @return ListRobotNodeResponse
      */
     public function listRobotNode($request)
     {
@@ -6141,31 +7686,39 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查询参数列表
-     *  *
-     * @param ListRobotParamsRequest $request ListRobotParamsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询参数列表.
      *
-     * @return ListRobotParamsResponse ListRobotParamsResponse
+     * @param request - ListRobotParamsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRobotParamsResponse
+     *
+     * @param ListRobotParamsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListRobotParamsResponse
      */
     public function listRobotParamsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->robotId)) {
-            $query['RobotId'] = $request->robotId;
+
+        if (null !== $request->robotId) {
+            @$query['RobotId'] = $request->robotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRobotParams',
@@ -6178,16 +7731,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRobotParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRobotParamsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRobotParamsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询参数列表
-     *  *
-     * @param ListRobotParamsRequest $request ListRobotParamsRequest
+     * 查询参数列表.
      *
-     * @return ListRobotParamsResponse ListRobotParamsResponse
+     * @param request - ListRobotParamsRequest
+     * @returns ListRobotParamsResponse
+     *
+     * @param ListRobotParamsRequest $request
+     *
+     * @return ListRobotParamsResponse
      */
     public function listRobotParams($request)
     {
@@ -6197,19 +7756,23 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 获取租户下的所有角色
-     *  *
-     * @param ListRolesRequest $request ListRolesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 获取租户下的所有角色.
      *
-     * @return ListRolesResponse ListRolesResponse
+     * @param request - ListRolesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRolesResponse
+     *
+     * @param ListRolesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListRolesResponse
      */
     public function listRolesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRoles',
@@ -6222,16 +7785,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRolesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRolesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取租户下的所有角色
-     *  *
-     * @param ListRolesRequest $request ListRolesRequest
+     * 获取租户下的所有角色.
      *
-     * @return ListRolesResponse ListRolesResponse
+     * @param request - ListRolesRequest
+     * @returns ListRolesResponse
+     *
+     * @param ListRolesRequest $request
+     *
+     * @return ListRolesResponse
      */
     public function listRoles($request)
     {
@@ -6241,17 +7810,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param ListSkillGroupRequest $request ListSkillGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - ListSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSkillGroupResponse
      *
-     * @return ListSkillGroupResponse ListSkillGroupResponse
+     * @param ListSkillGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListSkillGroupResponse
      */
     public function listSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSkillGroup',
@@ -6264,14 +7837,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListSkillGroupRequest $request ListSkillGroupRequest
+     * @param request - ListSkillGroupRequest
+     * @returns ListSkillGroupResponse
      *
-     * @return ListSkillGroupResponse ListSkillGroupResponse
+     * @param ListSkillGroupRequest $request
+     *
+     * @return ListSkillGroupResponse
      */
     public function listSkillGroup($request)
     {
@@ -6281,46 +7860,59 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务列表
-     *  *
-     * @param ListTaskRequest $request ListTaskRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 查询任务列表.
      *
-     * @return ListTaskResponse ListTaskResponse
+     * @param request - ListTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskResponse
+     *
+     * @param ListTaskRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListTaskResponse
      */
     public function listTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->robotName)) {
-            $query['RobotName'] = $request->robotName;
+
+        if (null !== $request->robotName) {
+            @$query['RobotName'] = $request->robotName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTask',
@@ -6333,16 +7925,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询任务列表
-     *  *
-     * @param ListTaskRequest $request ListTaskRequest
+     * 查询任务列表.
      *
-     * @return ListTaskResponse ListTaskResponse
+     * @param request - ListTaskRequest
+     * @returns ListTaskResponse
+     *
+     * @param ListTaskRequest $request
+     *
+     * @return ListTaskResponse
      */
     public function listTask($request)
     {
@@ -6352,49 +7950,63 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 任务详情查看通话列表
-     *  *
-     * @param ListTaskDetailRequest $request ListTaskDetailRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 任务详情查看通话列表.
      *
-     * @return ListTaskDetailResponse ListTaskDetailResponse
+     * @param request - ListTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTaskDetailResponse
+     *
+     * @param ListTaskDetailRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListTaskDetailResponse
      */
     public function listTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->called)) {
-            $query['Called'] = $request->called;
+        if (null !== $request->called) {
+            @$query['Called'] = $request->called;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->statusCode)) {
-            $query['StatusCode'] = $request->statusCode;
+
+        if (null !== $request->statusCode) {
+            @$query['StatusCode'] = $request->statusCode;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTaskDetail',
@@ -6407,16 +8019,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 任务详情查看通话列表
-     *  *
-     * @param ListTaskDetailRequest $request ListTaskDetailRequest
+     * 任务详情查看通话列表.
      *
-     * @return ListTaskDetailResponse ListTaskDetailResponse
+     * @param request - ListTaskDetailRequest
+     * @returns ListTaskDetailResponse
+     *
+     * @param ListTaskDetailRequest $request
+     *
+     * @return ListTaskDetailResponse
      */
     public function listTaskDetail($request)
     {
@@ -6426,45 +8044,57 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 基于大模型的智能外呼
-     *  *
-     * @param LlmSmartCallRequest $tmpReq  LlmSmartCallRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 基于大模型的智能外呼
      *
-     * @return LlmSmartCallResponse LlmSmartCallResponse
+     * @param tmpReq - LlmSmartCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LlmSmartCallResponse
+     *
+     * @param LlmSmartCallRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return LlmSmartCallResponse
      */
     public function llmSmartCallWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new LlmSmartCallShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->promptParam)) {
-            $request->promptParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->promptParam, 'PromptParam', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->promptParam) {
+            $request->promptParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->promptParam, 'PromptParam', 'json');
         }
-        if (!Utils::isUnset($tmpReq->startWordParam)) {
-            $request->startWordParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->startWordParam, 'StartWordParam', 'json');
+
+        if (null !== $tmpReq->startWordParam) {
+            $request->startWordParamShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->startWordParam, 'StartWordParam', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->applicationCode)) {
-            $query['ApplicationCode'] = $request->applicationCode;
+        if (null !== $request->applicationCode) {
+            @$query['ApplicationCode'] = $request->applicationCode;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callerNumber)) {
-            $query['CallerNumber'] = $request->callerNumber;
+
+        if (null !== $request->callerNumber) {
+            @$query['CallerNumber'] = $request->callerNumber;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->promptParamShrink)) {
-            $query['PromptParam'] = $request->promptParamShrink;
+
+        if (null !== $request->promptParamShrink) {
+            @$query['PromptParam'] = $request->promptParamShrink;
         }
-        if (!Utils::isUnset($request->startWordParamShrink)) {
-            $query['StartWordParam'] = $request->startWordParamShrink;
+
+        if (null !== $request->startWordParamShrink) {
+            @$query['StartWordParam'] = $request->startWordParamShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'LlmSmartCall',
@@ -6477,16 +8107,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LlmSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LlmSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LlmSmartCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 基于大模型的智能外呼
-     *  *
-     * @param LlmSmartCallRequest $request LlmSmartCallRequest
+     * 基于大模型的智能外呼
      *
-     * @return LlmSmartCallResponse LlmSmartCallResponse
+     * @param request - LlmSmartCallRequest
+     * @returns LlmSmartCallResponse
+     *
+     * @param LlmSmartCallRequest $request
+     *
+     * @return LlmSmartCallResponse
      */
     public function llmSmartCall($request)
     {
@@ -6496,35 +8132,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param MakeCallRequest $request MakeCallRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - MakeCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MakeCallResponse
      *
-     * @return MakeCallResponse MakeCallResponse
+     * @param MakeCallRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return MakeCallResponse
      */
     public function makeCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->commandCode)) {
-            $query['CommandCode'] = $request->commandCode;
+
+        if (null !== $request->commandCode) {
+            @$query['CommandCode'] = $request->commandCode;
         }
-        if (!Utils::isUnset($request->extInfo)) {
-            $query['ExtInfo'] = $request->extInfo;
+
+        if (null !== $request->extInfo) {
+            @$query['ExtInfo'] = $request->extInfo;
         }
-        if (!Utils::isUnset($request->outerAccountId)) {
-            $query['OuterAccountId'] = $request->outerAccountId;
+
+        if (null !== $request->outerAccountId) {
+            @$query['OuterAccountId'] = $request->outerAccountId;
         }
-        if (!Utils::isUnset($request->outerAccountType)) {
-            $query['OuterAccountType'] = $request->outerAccountType;
+
+        if (null !== $request->outerAccountType) {
+            @$query['OuterAccountType'] = $request->outerAccountType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MakeCall',
@@ -6537,14 +8183,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MakeCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MakeCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MakeCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param MakeCallRequest $request MakeCallRequest
+     * @param request - MakeCallRequest
+     * @returns MakeCallResponse
      *
-     * @return MakeCallResponse MakeCallResponse
+     * @param MakeCallRequest $request
+     *
+     * @return MakeCallResponse
      */
     public function makeCall($request)
     {
@@ -6554,37 +8206,47 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 移动端发起呼叫
-     *  *
-     * @param MakeDoubleCallRequest $request MakeDoubleCallRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 移动端发起呼叫.
      *
-     * @return MakeDoubleCallResponse MakeDoubleCallResponse
+     * @param request - MakeDoubleCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MakeDoubleCallResponse
+     *
+     * @param MakeDoubleCallRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return MakeDoubleCallResponse
      */
     public function makeDoubleCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->bizData)) {
-            $query['BizData'] = $request->bizData;
+
+        if (null !== $request->bizData) {
+            @$query['BizData'] = $request->bizData;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->memberPhone)) {
-            $query['MemberPhone'] = $request->memberPhone;
+
+        if (null !== $request->memberPhone) {
+            @$query['MemberPhone'] = $request->memberPhone;
         }
-        if (!Utils::isUnset($request->outboundCallNumber)) {
-            $query['OutboundCallNumber'] = $request->outboundCallNumber;
+
+        if (null !== $request->outboundCallNumber) {
+            @$query['OutboundCallNumber'] = $request->outboundCallNumber;
         }
-        if (!Utils::isUnset($request->servicerPhone)) {
-            $query['ServicerPhone'] = $request->servicerPhone;
+
+        if (null !== $request->servicerPhone) {
+            @$query['ServicerPhone'] = $request->servicerPhone;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MakeDoubleCall',
@@ -6597,16 +8259,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MakeDoubleCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MakeDoubleCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MakeDoubleCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 移动端发起呼叫
-     *  *
-     * @param MakeDoubleCallRequest $request MakeDoubleCallRequest
+     * 移动端发起呼叫.
      *
-     * @return MakeDoubleCallResponse MakeDoubleCallResponse
+     * @param request - MakeDoubleCallRequest
+     * @returns MakeDoubleCallResponse
+     *
+     * @param MakeDoubleCallRequest $request
+     *
+     * @return MakeDoubleCallResponse
      */
     public function makeDoubleCall($request)
     {
@@ -6616,17 +8284,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param QueryHotlineInQueueRequest $request QueryHotlineInQueueRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryHotlineInQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryHotlineInQueueResponse
      *
-     * @return QueryHotlineInQueueResponse QueryHotlineInQueueResponse
+     * @param QueryHotlineInQueueRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryHotlineInQueueResponse
      */
     public function queryHotlineInQueueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryHotlineInQueue',
@@ -6639,14 +8311,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryHotlineInQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryHotlineInQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryHotlineInQueueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QueryHotlineInQueueRequest $request QueryHotlineInQueueRequest
+     * @param request - QueryHotlineInQueueRequest
+     * @returns QueryHotlineInQueueResponse
      *
-     * @return QueryHotlineInQueueResponse QueryHotlineInQueueResponse
+     * @param QueryHotlineInQueueRequest $request
+     *
+     * @return QueryHotlineInQueueResponse
      */
     public function queryHotlineInQueue($request)
     {
@@ -6656,24 +8334,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 查询热线号码配置
-     *  *
-     * @param QueryHotlineNumberRequest $tmpReq  QueryHotlineNumberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询热线号码配置.
      *
-     * @return QueryHotlineNumberResponse QueryHotlineNumberResponse
+     * @param tmpReq - QueryHotlineNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryHotlineNumberResponse
+     *
+     * @param QueryHotlineNumberRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryHotlineNumberResponse
      */
     public function queryHotlineNumberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryHotlineNumberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->groupIds)) {
-            $request->groupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->groupIds) {
+            $request->groupIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->groupIds, 'GroupIds', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryHotlineNumber',
@@ -6686,16 +8369,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryHotlineNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询热线号码配置
-     *  *
-     * @param QueryHotlineNumberRequest $request QueryHotlineNumberRequest
+     * 查询热线号码配置.
      *
-     * @return QueryHotlineNumberResponse QueryHotlineNumberResponse
+     * @param request - QueryHotlineNumberRequest
+     * @returns QueryHotlineNumberResponse
+     *
+     * @param QueryHotlineNumberRequest $request
+     *
+     * @return QueryHotlineNumberResponse
      */
     public function queryHotlineNumber($request)
     {
@@ -6705,62 +8394,81 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param QueryOutboundTaskRequest $request QueryOutboundTaskRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryOutboundTaskResponse
      *
-     * @return QueryOutboundTaskResponse QueryOutboundTaskResponse
+     * @param QueryOutboundTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryOutboundTaskResponse
      */
     public function queryOutboundTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ani)) {
-            $query['Ani'] = $request->ani;
+        if (null !== $request->ani) {
+            @$query['Ani'] = $request->ani;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->departmentId)) {
-            $query['DepartmentId'] = $request->departmentId;
+
+        if (null !== $request->departmentId) {
+            @$query['DepartmentId'] = $request->departmentId;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$query['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->skillGroup)) {
-            $query['SkillGroup'] = $request->skillGroup;
+
+        if (null !== $request->skillGroup) {
+            @$query['SkillGroup'] = $request->skillGroup;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$query['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryOutboundTask',
@@ -6773,14 +8481,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QueryOutboundTaskRequest $request QueryOutboundTaskRequest
+     * @param request - QueryOutboundTaskRequest
+     * @returns QueryOutboundTaskResponse
      *
-     * @return QueryOutboundTaskResponse QueryOutboundTaskResponse
+     * @param QueryOutboundTaskRequest $request
+     *
+     * @return QueryOutboundTaskResponse
      */
     public function queryOutboundTask($request)
     {
@@ -6790,35 +8504,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param QuerySkillGroupsRequest $request QuerySkillGroupsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - QuerySkillGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySkillGroupsResponse
      *
-     * @return QuerySkillGroupsResponse QuerySkillGroupsResponse
+     * @param QuerySkillGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySkillGroupsResponse
      */
     public function querySkillGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->channelType)) {
-            $query['ChannelType'] = $request->channelType;
+        if (null !== $request->channelType) {
+            @$query['ChannelType'] = $request->channelType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->departmentId)) {
-            $query['DepartmentId'] = $request->departmentId;
+
+        if (null !== $request->departmentId) {
+            @$query['DepartmentId'] = $request->departmentId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySkillGroups',
@@ -6831,14 +8555,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QuerySkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySkillGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySkillGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QuerySkillGroupsRequest $request QuerySkillGroupsRequest
+     * @param request - QuerySkillGroupsRequest
+     * @returns QuerySkillGroupsResponse
      *
-     * @return QuerySkillGroupsResponse QuerySkillGroupsResponse
+     * @param QuerySkillGroupsRequest $request
+     *
+     * @return QuerySkillGroupsResponse
      */
     public function querySkillGroups($request)
     {
@@ -6848,62 +8578,81 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param QueryTaskDetailRequest $request QueryTaskDetailRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryTaskDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryTaskDetailResponse
      *
-     * @return QueryTaskDetailResponse QueryTaskDetailResponse
+     * @param QueryTaskDetailRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryTaskDetailResponse
      */
     public function queryTaskDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ani)) {
-            $query['Ani'] = $request->ani;
+        if (null !== $request->ani) {
+            @$query['Ani'] = $request->ani;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->departmentIdList)) {
-            $query['DepartmentIdList'] = $request->departmentIdList;
+
+        if (null !== $request->departmentIdList) {
+            @$query['DepartmentIdList'] = $request->departmentIdList;
         }
-        if (!Utils::isUnset($request->dnis)) {
-            $query['Dnis'] = $request->dnis;
+
+        if (null !== $request->dnis) {
+            @$query['Dnis'] = $request->dnis;
         }
-        if (!Utils::isUnset($request->endReasonList)) {
-            $query['EndReasonList'] = $request->endReasonList;
+
+        if (null !== $request->endReasonList) {
+            @$query['EndReasonList'] = $request->endReasonList;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->outboundTaskId)) {
-            $query['OutboundTaskId'] = $request->outboundTaskId;
+
+        if (null !== $request->outboundTaskId) {
+            @$query['OutboundTaskId'] = $request->outboundTaskId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->priorityList)) {
-            $query['PriorityList'] = $request->priorityList;
+
+        if (null !== $request->priorityList) {
+            @$query['PriorityList'] = $request->priorityList;
         }
-        if (!Utils::isUnset($request->servicerId)) {
-            $query['ServicerId'] = $request->servicerId;
+
+        if (null !== $request->servicerId) {
+            @$query['ServicerId'] = $request->servicerId;
         }
-        if (!Utils::isUnset($request->servicerName)) {
-            $query['ServicerName'] = $request->servicerName;
+
+        if (null !== $request->servicerName) {
+            @$query['ServicerName'] = $request->servicerName;
         }
-        if (!Utils::isUnset($request->sid)) {
-            $query['Sid'] = $request->sid;
+
+        if (null !== $request->sid) {
+            @$query['Sid'] = $request->sid;
         }
-        if (!Utils::isUnset($request->skillGroup)) {
-            $query['SkillGroup'] = $request->skillGroup;
+
+        if (null !== $request->skillGroup) {
+            @$query['SkillGroup'] = $request->skillGroup;
         }
-        if (!Utils::isUnset($request->statusList)) {
-            $query['StatusList'] = $request->statusList;
+
+        if (null !== $request->statusList) {
+            @$query['StatusList'] = $request->statusList;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryTaskDetail',
@@ -6916,14 +8665,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTaskDetailRequest $request QueryTaskDetailRequest
+     * @param request - QueryTaskDetailRequest
+     * @returns QueryTaskDetailResponse
      *
-     * @return QueryTaskDetailResponse QueryTaskDetailResponse
+     * @param QueryTaskDetailRequest $request
+     *
+     * @return QueryTaskDetailResponse
      */
     public function queryTaskDetail($request)
     {
@@ -6933,61 +8688,79 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param QueryTicketsRequest $tmpReq  QueryTicketsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - QueryTicketsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryTicketsResponse
      *
-     * @return QueryTicketsResponse QueryTicketsResponse
+     * @param QueryTicketsRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return QueryTicketsResponse
      */
     public function queryTicketsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QueryTicketsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extra)) {
-            $request->extraShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'Extra', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extra) {
+            $request->extraShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extra, 'Extra', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->caseId)) {
-            $body['CaseId'] = $request->caseId;
+        if (null !== $request->caseId) {
+            @$body['CaseId'] = $request->caseId;
         }
-        if (!Utils::isUnset($request->caseStatus)) {
-            $body['CaseStatus'] = $request->caseStatus;
+
+        if (null !== $request->caseStatus) {
+            @$body['CaseStatus'] = $request->caseStatus;
         }
-        if (!Utils::isUnset($request->caseType)) {
-            $body['CaseType'] = $request->caseType;
+
+        if (null !== $request->caseType) {
+            @$body['CaseType'] = $request->caseType;
         }
-        if (!Utils::isUnset($request->channelId)) {
-            $body['ChannelId'] = $request->channelId;
+
+        if (null !== $request->channelId) {
+            @$body['ChannelId'] = $request->channelId;
         }
-        if (!Utils::isUnset($request->channelType)) {
-            $body['ChannelType'] = $request->channelType;
+
+        if (null !== $request->channelType) {
+            @$body['ChannelType'] = $request->channelType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->dealId)) {
-            $body['DealId'] = $request->dealId;
+
+        if (null !== $request->dealId) {
+            @$body['DealId'] = $request->dealId;
         }
-        if (!Utils::isUnset($request->extraShrink)) {
-            $body['Extra'] = $request->extraShrink;
+
+        if (null !== $request->extraShrink) {
+            @$body['Extra'] = $request->extraShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->srType)) {
-            $body['SrType'] = $request->srType;
+
+        if (null !== $request->srType) {
+            @$body['SrType'] = $request->srType;
         }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $body['TaskStatus'] = $request->taskStatus;
+
+        if (null !== $request->taskStatus) {
+            @$body['TaskStatus'] = $request->taskStatus;
         }
-        if (!Utils::isUnset($request->touchId)) {
-            $body['TouchId'] = $request->touchId;
+
+        if (null !== $request->touchId) {
+            @$body['TouchId'] = $request->touchId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryTickets',
@@ -7000,14 +8773,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryTicketsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTicketsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTicketsRequest $request QueryTicketsRequest
+     * @param request - QueryTicketsRequest
+     * @returns QueryTicketsResponse
      *
-     * @return QueryTicketsResponse QueryTicketsResponse
+     * @param QueryTicketsRequest $request
+     *
+     * @return QueryTicketsResponse
      */
     public function queryTickets($request)
     {
@@ -7017,74 +8796,97 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param QueryTouchListRequest $request QueryTouchListRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryTouchListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryTouchListResponse
      *
-     * @return QueryTouchListResponse QueryTouchListResponse
+     * @param QueryTouchListRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return QueryTouchListResponse
      */
     public function queryTouchListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->channelId)) {
-            $body['ChannelId'] = $request->channelId;
+        if (null !== $request->channelId) {
+            @$body['ChannelId'] = $request->channelId;
         }
-        if (!Utils::isUnset($request->channelType)) {
-            $body['ChannelType'] = $request->channelType;
+
+        if (null !== $request->channelType) {
+            @$body['ChannelType'] = $request->channelType;
         }
-        if (!Utils::isUnset($request->closeTimeEnd)) {
-            $body['CloseTimeEnd'] = $request->closeTimeEnd;
+
+        if (null !== $request->closeTimeEnd) {
+            @$body['CloseTimeEnd'] = $request->closeTimeEnd;
         }
-        if (!Utils::isUnset($request->closeTimeStart)) {
-            $body['CloseTimeStart'] = $request->closeTimeStart;
+
+        if (null !== $request->closeTimeStart) {
+            @$body['CloseTimeStart'] = $request->closeTimeStart;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->evaluationLevel)) {
-            $body['EvaluationLevel'] = $request->evaluationLevel;
+
+        if (null !== $request->evaluationLevel) {
+            @$body['EvaluationLevel'] = $request->evaluationLevel;
         }
-        if (!Utils::isUnset($request->evaluationScore)) {
-            $body['EvaluationScore'] = $request->evaluationScore;
+
+        if (null !== $request->evaluationScore) {
+            @$body['EvaluationScore'] = $request->evaluationScore;
         }
-        if (!Utils::isUnset($request->evaluationStatus)) {
-            $body['EvaluationStatus'] = $request->evaluationStatus;
+
+        if (null !== $request->evaluationStatus) {
+            @$body['EvaluationStatus'] = $request->evaluationStatus;
         }
-        if (!Utils::isUnset($request->firstTimeEnd)) {
-            $body['FirstTimeEnd'] = $request->firstTimeEnd;
+
+        if (null !== $request->firstTimeEnd) {
+            @$body['FirstTimeEnd'] = $request->firstTimeEnd;
         }
-        if (!Utils::isUnset($request->firstTimeStart)) {
-            $body['FirstTimeStart'] = $request->firstTimeStart;
+
+        if (null !== $request->firstTimeStart) {
+            @$body['FirstTimeStart'] = $request->firstTimeStart;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->memberId)) {
-            $body['MemberId'] = $request->memberId;
+
+        if (null !== $request->memberId) {
+            @$body['MemberId'] = $request->memberId;
         }
-        if (!Utils::isUnset($request->memberName)) {
-            $body['MemberName'] = $request->memberName;
+
+        if (null !== $request->memberName) {
+            @$body['MemberName'] = $request->memberName;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queueId)) {
-            $body['QueueId'] = $request->queueId;
+
+        if (null !== $request->queueId) {
+            @$body['QueueId'] = $request->queueId;
         }
-        if (!Utils::isUnset($request->servicerId)) {
-            $body['ServicerId'] = $request->servicerId;
+
+        if (null !== $request->servicerId) {
+            @$body['ServicerId'] = $request->servicerId;
         }
-        if (!Utils::isUnset($request->servicerName)) {
-            $body['ServicerName'] = $request->servicerName;
+
+        if (null !== $request->servicerName) {
+            @$body['ServicerName'] = $request->servicerName;
         }
-        if (!Utils::isUnset($request->touchId)) {
-            $body['TouchId'] = $request->touchId;
+
+        if (null !== $request->touchId) {
+            @$body['TouchId'] = $request->touchId;
         }
-        if (!Utils::isUnset($request->touchType)) {
-            $body['TouchType'] = $request->touchType;
+
+        if (null !== $request->touchType) {
+            @$body['TouchType'] = $request->touchType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryTouchList',
@@ -7097,14 +8899,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryTouchListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryTouchListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTouchListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QueryTouchListRequest $request QueryTouchListRequest
+     * @param request - QueryTouchListRequest
+     * @returns QueryTouchListResponse
      *
-     * @return QueryTouchListResponse QueryTouchListResponse
+     * @param QueryTouchListRequest $request
+     *
+     * @return QueryTouchListResponse
      */
     public function queryTouchList($request)
     {
@@ -7114,33 +8922,41 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 从技能组中移除坐席
-     *  *
-     * @param RemoveAgentFromSkillGroupRequest $tmpReq  RemoveAgentFromSkillGroupRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 从技能组中移除坐席.
      *
-     * @return RemoveAgentFromSkillGroupResponse RemoveAgentFromSkillGroupResponse
+     * @param tmpReq - RemoveAgentFromSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveAgentFromSkillGroupResponse
+     *
+     * @param RemoveAgentFromSkillGroupRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RemoveAgentFromSkillGroupResponse
      */
     public function removeAgentFromSkillGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RemoveAgentFromSkillGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->agentIds)) {
-            $request->agentIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->agentIds) {
+            $request->agentIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->agentIds, 'AgentIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->agentIdsShrink)) {
-            $query['AgentIds'] = $request->agentIdsShrink;
+        if (null !== $request->agentIdsShrink) {
+            @$query['AgentIds'] = $request->agentIdsShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->skillGroupId)) {
-            $query['SkillGroupId'] = $request->skillGroupId;
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveAgentFromSkillGroup',
@@ -7153,16 +8969,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveAgentFromSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveAgentFromSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveAgentFromSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 从技能组中移除坐席
-     *  *
-     * @param RemoveAgentFromSkillGroupRequest $request RemoveAgentFromSkillGroupRequest
+     * 从技能组中移除坐席.
      *
-     * @return RemoveAgentFromSkillGroupResponse RemoveAgentFromSkillGroupResponse
+     * @param request - RemoveAgentFromSkillGroupRequest
+     * @returns RemoveAgentFromSkillGroupResponse
+     *
+     * @param RemoveAgentFromSkillGroupRequest $request
+     *
+     * @return RemoveAgentFromSkillGroupResponse
      */
     public function removeAgentFromSkillGroup($request)
     {
@@ -7172,26 +8994,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param RemoveSkillGroupRequest $request RemoveSkillGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - RemoveSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveSkillGroupResponse
      *
-     * @return RemoveSkillGroupResponse RemoveSkillGroupResponse
+     * @param RemoveSkillGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemoveSkillGroupResponse
      */
     public function removeSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->skillGroupId)) {
-            $body['SkillGroupId'] = $request->skillGroupId;
+
+        if (null !== $request->skillGroupId) {
+            @$body['SkillGroupId'] = $request->skillGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RemoveSkillGroup',
@@ -7204,14 +9033,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param RemoveSkillGroupRequest $request RemoveSkillGroupRequest
+     * @param request - RemoveSkillGroupRequest
+     * @returns RemoveSkillGroupResponse
      *
-     * @return RemoveSkillGroupResponse RemoveSkillGroupResponse
+     * @param RemoveSkillGroupRequest $request
+     *
+     * @return RemoveSkillGroupResponse
      */
     public function removeSkillGroup($request)
     {
@@ -7221,57 +9056,73 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 重置热线号码
-     *  *
-     * @param ResetHotlineNumberRequest $tmpReq  ResetHotlineNumberRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 重置热线号码
      *
-     * @return ResetHotlineNumberResponse ResetHotlineNumberResponse
+     * @param tmpReq - ResetHotlineNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetHotlineNumberResponse
+     *
+     * @param ResetHotlineNumberRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ResetHotlineNumberResponse
      */
     public function resetHotlineNumberWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ResetHotlineNumberShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->outboundRangeList)) {
-            $request->outboundRangeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outboundRangeList, 'OutboundRangeList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->outboundRangeList) {
+            $request->outboundRangeListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outboundRangeList, 'OutboundRangeList', 'json');
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enableInbound)) {
-            $body['EnableInbound'] = $request->enableInbound;
+
+        if (null !== $request->enableInbound) {
+            @$body['EnableInbound'] = $request->enableInbound;
         }
-        if (!Utils::isUnset($request->enableInboundEvaluation)) {
-            $body['EnableInboundEvaluation'] = $request->enableInboundEvaluation;
+
+        if (null !== $request->enableInboundEvaluation) {
+            @$body['EnableInboundEvaluation'] = $request->enableInboundEvaluation;
         }
-        if (!Utils::isUnset($request->enableOutbound)) {
-            $body['EnableOutbound'] = $request->enableOutbound;
+
+        if (null !== $request->enableOutbound) {
+            @$body['EnableOutbound'] = $request->enableOutbound;
         }
-        if (!Utils::isUnset($request->enableOutboundEvaluation)) {
-            $body['EnableOutboundEvaluation'] = $request->enableOutboundEvaluation;
+
+        if (null !== $request->enableOutboundEvaluation) {
+            @$body['EnableOutboundEvaluation'] = $request->enableOutboundEvaluation;
         }
-        if (!Utils::isUnset($request->evaluationLevel)) {
-            $body['EvaluationLevel'] = $request->evaluationLevel;
+
+        if (null !== $request->evaluationLevel) {
+            @$body['EvaluationLevel'] = $request->evaluationLevel;
         }
-        if (!Utils::isUnset($request->hotlineNumber)) {
-            $body['HotlineNumber'] = $request->hotlineNumber;
+
+        if (null !== $request->hotlineNumber) {
+            @$body['HotlineNumber'] = $request->hotlineNumber;
         }
-        if (!Utils::isUnset($request->inboundFlowId)) {
-            $body['InboundFlowId'] = $request->inboundFlowId;
+
+        if (null !== $request->inboundFlowId) {
+            @$body['InboundFlowId'] = $request->inboundFlowId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->outboundAllDepart)) {
-            $body['OutboundAllDepart'] = $request->outboundAllDepart;
+
+        if (null !== $request->outboundAllDepart) {
+            @$body['OutboundAllDepart'] = $request->outboundAllDepart;
         }
-        if (!Utils::isUnset($request->outboundRangeListShrink)) {
-            $body['OutboundRangeList'] = $request->outboundRangeListShrink;
+
+        if (null !== $request->outboundRangeListShrink) {
+            @$body['OutboundRangeList'] = $request->outboundRangeListShrink;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ResetHotlineNumber',
@@ -7284,16 +9135,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetHotlineNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetHotlineNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 重置热线号码
-     *  *
-     * @param ResetHotlineNumberRequest $request ResetHotlineNumberRequest
+     * 重置热线号码
      *
-     * @return ResetHotlineNumberResponse ResetHotlineNumberResponse
+     * @param request - ResetHotlineNumberRequest
+     * @returns ResetHotlineNumberResponse
+     *
+     * @param ResetHotlineNumberRequest $request
+     *
+     * @return ResetHotlineNumberResponse
      */
     public function resetHotlineNumber($request)
     {
@@ -7303,23 +9160,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param RestartOutboundTaskRequest $request RestartOutboundTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - RestartOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestartOutboundTaskResponse
      *
-     * @return RestartOutboundTaskResponse RestartOutboundTaskResponse
+     * @param RestartOutboundTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RestartOutboundTaskResponse
      */
     public function restartOutboundTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->outboundTaskId)) {
-            $query['OutboundTaskId'] = $request->outboundTaskId;
+
+        if (null !== $request->outboundTaskId) {
+            @$query['OutboundTaskId'] = $request->outboundTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RestartOutboundTask',
@@ -7332,14 +9195,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RestartOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param RestartOutboundTaskRequest $request RestartOutboundTaskRequest
+     * @param request - RestartOutboundTaskRequest
+     * @returns RestartOutboundTaskResponse
      *
-     * @return RestartOutboundTaskResponse RestartOutboundTaskResponse
+     * @param RestartOutboundTaskRequest $request
+     *
+     * @return RestartOutboundTaskResponse
      */
     public function restartOutboundTask($request)
     {
@@ -7349,47 +9218,61 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param RobotCallRequest $request RobotCallRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - RobotCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RobotCallResponse
      *
-     * @return RobotCallResponse RobotCallResponse
+     * @param RobotCallRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return RobotCallResponse
      */
     public function robotCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
+
+        if (null !== $request->calledShowNumber) {
+            @$query['CalledShowNumber'] = $request->calledShowNumber;
         }
-        if (!Utils::isUnset($request->earlyMediaAsr)) {
-            $query['EarlyMediaAsr'] = $request->earlyMediaAsr;
+
+        if (null !== $request->earlyMediaAsr) {
+            @$query['EarlyMediaAsr'] = $request->earlyMediaAsr;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->params)) {
-            $query['Params'] = $request->params;
+
+        if (null !== $request->params) {
+            @$query['Params'] = $request->params;
         }
-        if (!Utils::isUnset($request->recordFlag)) {
-            $query['RecordFlag'] = $request->recordFlag;
+
+        if (null !== $request->recordFlag) {
+            @$query['RecordFlag'] = $request->recordFlag;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->robotId)) {
-            $query['RobotId'] = $request->robotId;
+
+        if (null !== $request->robotId) {
+            @$query['RobotId'] = $request->robotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RobotCall',
@@ -7402,14 +9285,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RobotCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RobotCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RobotCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param RobotCallRequest $request RobotCallRequest
+     * @param request - RobotCallRequest
+     * @returns RobotCallResponse
      *
-     * @return RobotCallResponse RobotCallResponse
+     * @param RobotCallRequest $request
+     *
+     * @return RobotCallResponse
      */
     public function robotCall($request)
     {
@@ -7419,113 +9308,149 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param SendCcoSmartCallRequest $request SendCcoSmartCallRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - SendCcoSmartCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendCcoSmartCallResponse
      *
-     * @return SendCcoSmartCallResponse SendCcoSmartCallResponse
+     * @param SendCcoSmartCallRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SendCcoSmartCallResponse
      */
     public function sendCcoSmartCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actionCodeBreak)) {
-            $query['ActionCodeBreak'] = $request->actionCodeBreak;
+        if (null !== $request->actionCodeBreak) {
+            @$query['ActionCodeBreak'] = $request->actionCodeBreak;
         }
-        if (!Utils::isUnset($request->actionCodeTimeBreak)) {
-            $query['ActionCodeTimeBreak'] = $request->actionCodeTimeBreak;
+
+        if (null !== $request->actionCodeTimeBreak) {
+            @$query['ActionCodeTimeBreak'] = $request->actionCodeTimeBreak;
         }
-        if (!Utils::isUnset($request->asrAlsAmId)) {
-            $query['AsrAlsAmId'] = $request->asrAlsAmId;
+
+        if (null !== $request->asrAlsAmId) {
+            @$query['AsrAlsAmId'] = $request->asrAlsAmId;
         }
-        if (!Utils::isUnset($request->asrBaseId)) {
-            $query['AsrBaseId'] = $request->asrBaseId;
+
+        if (null !== $request->asrBaseId) {
+            @$query['AsrBaseId'] = $request->asrBaseId;
         }
-        if (!Utils::isUnset($request->asrModelId)) {
-            $query['AsrModelId'] = $request->asrModelId;
+
+        if (null !== $request->asrModelId) {
+            @$query['AsrModelId'] = $request->asrModelId;
         }
-        if (!Utils::isUnset($request->asrVocabularyId)) {
-            $query['AsrVocabularyId'] = $request->asrVocabularyId;
+
+        if (null !== $request->asrVocabularyId) {
+            @$query['AsrVocabularyId'] = $request->asrVocabularyId;
         }
-        if (!Utils::isUnset($request->backgroundFileCode)) {
-            $query['BackgroundFileCode'] = $request->backgroundFileCode;
+
+        if (null !== $request->backgroundFileCode) {
+            @$query['BackgroundFileCode'] = $request->backgroundFileCode;
         }
-        if (!Utils::isUnset($request->backgroundSpeed)) {
-            $query['BackgroundSpeed'] = $request->backgroundSpeed;
+
+        if (null !== $request->backgroundSpeed) {
+            @$query['BackgroundSpeed'] = $request->backgroundSpeed;
         }
-        if (!Utils::isUnset($request->backgroundVolume)) {
-            $query['BackgroundVolume'] = $request->backgroundVolume;
+
+        if (null !== $request->backgroundVolume) {
+            @$query['BackgroundVolume'] = $request->backgroundVolume;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->calledShowNumber)) {
-            $query['CalledShowNumber'] = $request->calledShowNumber;
+
+        if (null !== $request->calledShowNumber) {
+            @$query['CalledShowNumber'] = $request->calledShowNumber;
         }
-        if (!Utils::isUnset($request->dynamicId)) {
-            $query['DynamicId'] = $request->dynamicId;
+
+        if (null !== $request->dynamicId) {
+            @$query['DynamicId'] = $request->dynamicId;
         }
-        if (!Utils::isUnset($request->earlyMediaAsr)) {
-            $query['EarlyMediaAsr'] = $request->earlyMediaAsr;
+
+        if (null !== $request->earlyMediaAsr) {
+            @$query['EarlyMediaAsr'] = $request->earlyMediaAsr;
         }
-        if (!Utils::isUnset($request->enableITN)) {
-            $query['EnableITN'] = $request->enableITN;
+
+        if (null !== $request->enableITN) {
+            @$query['EnableITN'] = $request->enableITN;
         }
-        if (!Utils::isUnset($request->muteTime)) {
-            $query['MuteTime'] = $request->muteTime;
+
+        if (null !== $request->muteTime) {
+            @$query['MuteTime'] = $request->muteTime;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pauseTime)) {
-            $query['PauseTime'] = $request->pauseTime;
+
+        if (null !== $request->pauseTime) {
+            @$query['PauseTime'] = $request->pauseTime;
         }
-        if (!Utils::isUnset($request->playTimes)) {
-            $query['PlayTimes'] = $request->playTimes;
+
+        if (null !== $request->playTimes) {
+            @$query['PlayTimes'] = $request->playTimes;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->recordFlag)) {
-            $query['RecordFlag'] = $request->recordFlag;
+
+        if (null !== $request->recordFlag) {
+            @$query['RecordFlag'] = $request->recordFlag;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sessionTimeout)) {
-            $query['SessionTimeout'] = $request->sessionTimeout;
+
+        if (null !== $request->sessionTimeout) {
+            @$query['SessionTimeout'] = $request->sessionTimeout;
         }
-        if (!Utils::isUnset($request->speed)) {
-            $query['Speed'] = $request->speed;
+
+        if (null !== $request->speed) {
+            @$query['Speed'] = $request->speed;
         }
-        if (!Utils::isUnset($request->ttsConf)) {
-            $query['TtsConf'] = $request->ttsConf;
+
+        if (null !== $request->ttsConf) {
+            @$query['TtsConf'] = $request->ttsConf;
         }
-        if (!Utils::isUnset($request->ttsSpeed)) {
-            $query['TtsSpeed'] = $request->ttsSpeed;
+
+        if (null !== $request->ttsSpeed) {
+            @$query['TtsSpeed'] = $request->ttsSpeed;
         }
-        if (!Utils::isUnset($request->ttsStyle)) {
-            $query['TtsStyle'] = $request->ttsStyle;
+
+        if (null !== $request->ttsStyle) {
+            @$query['TtsStyle'] = $request->ttsStyle;
         }
-        if (!Utils::isUnset($request->ttsVolume)) {
-            $query['TtsVolume'] = $request->ttsVolume;
+
+        if (null !== $request->ttsVolume) {
+            @$query['TtsVolume'] = $request->ttsVolume;
         }
-        if (!Utils::isUnset($request->voiceCode)) {
-            $query['VoiceCode'] = $request->voiceCode;
+
+        if (null !== $request->voiceCode) {
+            @$query['VoiceCode'] = $request->voiceCode;
         }
-        if (!Utils::isUnset($request->voiceCodeParam)) {
-            $query['VoiceCodeParam'] = $request->voiceCodeParam;
+
+        if (null !== $request->voiceCodeParam) {
+            @$query['VoiceCodeParam'] = $request->voiceCodeParam;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SendCcoSmartCall',
@@ -7538,14 +9463,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendCcoSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendCcoSmartCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendCcoSmartCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SendCcoSmartCallRequest $request SendCcoSmartCallRequest
+     * @param request - SendCcoSmartCallRequest
+     * @returns SendCcoSmartCallResponse
      *
-     * @return SendCcoSmartCallResponse SendCcoSmartCallResponse
+     * @param SendCcoSmartCallRequest $request
+     *
+     * @return SendCcoSmartCallResponse
      */
     public function sendCcoSmartCall($request)
     {
@@ -7555,38 +9486,49 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param SendCcoSmartCallOperateRequest $request SendCcoSmartCallOperateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - SendCcoSmartCallOperateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendCcoSmartCallOperateResponse
      *
-     * @return SendCcoSmartCallOperateResponse SendCcoSmartCallOperateResponse
+     * @param SendCcoSmartCallOperateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SendCcoSmartCallOperateResponse
      */
     public function sendCcoSmartCallOperateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->command)) {
-            $query['Command'] = $request->command;
+
+        if (null !== $request->command) {
+            @$query['Command'] = $request->command;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SendCcoSmartCallOperate',
@@ -7599,14 +9541,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendCcoSmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendCcoSmartCallOperateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendCcoSmartCallOperateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SendCcoSmartCallOperateRequest $request SendCcoSmartCallOperateRequest
+     * @param request - SendCcoSmartCallOperateRequest
+     * @returns SendCcoSmartCallOperateResponse
      *
-     * @return SendCcoSmartCallOperateResponse SendCcoSmartCallOperateResponse
+     * @param SendCcoSmartCallOperateRequest $request
+     *
+     * @return SendCcoSmartCallOperateResponse
      */
     public function sendCcoSmartCallOperate($request)
     {
@@ -7616,29 +9564,37 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param SendHotlineHeartBeatRequest $request SendHotlineHeartBeatRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - SendHotlineHeartBeatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendHotlineHeartBeatResponse
      *
-     * @return SendHotlineHeartBeatResponse SendHotlineHeartBeatResponse
+     * @param SendHotlineHeartBeatRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return SendHotlineHeartBeatResponse
      */
     public function sendHotlineHeartBeatWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->token)) {
-            $body['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$body['Token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendHotlineHeartBeat',
@@ -7651,14 +9607,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendHotlineHeartBeatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendHotlineHeartBeatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendHotlineHeartBeatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SendHotlineHeartBeatRequest $request SendHotlineHeartBeatRequest
+     * @param request - SendHotlineHeartBeatRequest
+     * @returns SendHotlineHeartBeatResponse
      *
-     * @return SendHotlineHeartBeatResponse SendHotlineHeartBeatResponse
+     * @param SendHotlineHeartBeatRequest $request
+     *
+     * @return SendHotlineHeartBeatResponse
      */
     public function sendHotlineHeartBeat($request)
     {
@@ -7668,25 +9630,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 启动智能外呼任务
-     *  *
-     * @param StartAiOutboundTaskRequest $request StartAiOutboundTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 启动智能外呼任务
      *
-     * @return StartAiOutboundTaskResponse StartAiOutboundTaskResponse
+     * @param request - StartAiOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartAiOutboundTaskResponse
+     *
+     * @param StartAiOutboundTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartAiOutboundTaskResponse
      */
     public function startAiOutboundTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartAiOutboundTask',
@@ -7699,16 +9667,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 启动智能外呼任务
-     *  *
-     * @param StartAiOutboundTaskRequest $request StartAiOutboundTaskRequest
+     * 启动智能外呼任务
      *
-     * @return StartAiOutboundTaskResponse StartAiOutboundTaskResponse
+     * @param request - StartAiOutboundTaskRequest
+     * @returns StartAiOutboundTaskResponse
+     *
+     * @param StartAiOutboundTaskRequest $request
+     *
+     * @return StartAiOutboundTaskResponse
      */
     public function startAiOutboundTask($request)
     {
@@ -7718,32 +9692,41 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param StartCallRequest $request StartCallRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param request - StartCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartCallResponse
      *
-     * @return StartCallResponse StartCallResponse
+     * @param StartCallRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return StartCallResponse
      */
     public function startCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->callee)) {
-            $body['Callee'] = $request->callee;
+
+        if (null !== $request->callee) {
+            @$body['Callee'] = $request->callee;
         }
-        if (!Utils::isUnset($request->caller)) {
-            $body['Caller'] = $request->caller;
+
+        if (null !== $request->caller) {
+            @$body['Caller'] = $request->caller;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartCall',
@@ -7756,14 +9739,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param StartCallRequest $request StartCallRequest
+     * @param request - StartCallRequest
+     * @returns StartCallResponse
      *
-     * @return StartCallResponse StartCallResponse
+     * @param StartCallRequest $request
+     *
+     * @return StartCallResponse
      */
     public function startCall($request)
     {
@@ -7773,35 +9762,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param StartCallV2Request $request StartCallV2Request
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - StartCallV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartCallV2Response
      *
-     * @return StartCallV2Response StartCallV2Response
+     * @param StartCallV2Request $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return StartCallV2Response
      */
     public function startCallV2WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->callee)) {
-            $body['Callee'] = $request->callee;
+
+        if (null !== $request->callee) {
+            @$body['Callee'] = $request->callee;
         }
-        if (!Utils::isUnset($request->caller)) {
-            $body['Caller'] = $request->caller;
+
+        if (null !== $request->caller) {
+            @$body['Caller'] = $request->caller;
         }
-        if (!Utils::isUnset($request->callerType)) {
-            $body['CallerType'] = $request->callerType;
+
+        if (null !== $request->callerType) {
+            @$body['CallerType'] = $request->callerType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartCallV2',
@@ -7814,14 +9813,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartCallV2Response::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartCallV2Response::fromMap($this->callApi($params, $req, $runtime));
+        return StartCallV2Response::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param StartCallV2Request $request StartCallV2Request
+     * @param request - StartCallV2Request
+     * @returns StartCallV2Response
      *
-     * @return StartCallV2Response StartCallV2Response
+     * @param StartCallV2Request $request
+     *
+     * @return StartCallV2Response
      */
     public function startCallV2($request)
     {
@@ -7831,25 +9836,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 修改在线客服为上班状态
-     *  *
-     * @param StartChatWorkRequest $request StartChatWorkRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 修改在线客服为上班状态
      *
-     * @return StartChatWorkResponse StartChatWorkResponse
+     * @param request - StartChatWorkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartChatWorkResponse
+     *
+     * @param StartChatWorkRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartChatWorkResponse
      */
     public function startChatWorkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartChatWork',
@@ -7862,16 +9873,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartChatWorkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartChatWorkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartChatWorkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改在线客服为上班状态
-     *  *
-     * @param StartChatWorkRequest $request StartChatWorkRequest
+     * 修改在线客服为上班状态
      *
-     * @return StartChatWorkResponse StartChatWorkResponse
+     * @param request - StartChatWorkRequest
+     * @returns StartChatWorkResponse
+     *
+     * @param StartChatWorkRequest $request
+     *
+     * @return StartChatWorkResponse
      */
     public function startChatWork($request)
     {
@@ -7881,26 +9898,33 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param StartHotlineServiceRequest $request StartHotlineServiceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - StartHotlineServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartHotlineServiceResponse
      *
-     * @return StartHotlineServiceResponse StartHotlineServiceResponse
+     * @param StartHotlineServiceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StartHotlineServiceResponse
      */
     public function startHotlineServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartHotlineService',
@@ -7913,14 +9937,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartHotlineServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param StartHotlineServiceRequest $request StartHotlineServiceRequest
+     * @param request - StartHotlineServiceRequest
+     * @returns StartHotlineServiceResponse
      *
-     * @return StartHotlineServiceResponse StartHotlineServiceResponse
+     * @param StartHotlineServiceRequest $request
+     *
+     * @return StartHotlineServiceResponse
      */
     public function startHotlineService($request)
     {
@@ -7930,50 +9960,65 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param StartMicroOutboundRequest $request StartMicroOutboundRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - StartMicroOutboundRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartMicroOutboundResponse
      *
-     * @return StartMicroOutboundResponse StartMicroOutboundResponse
+     * @param StartMicroOutboundRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StartMicroOutboundResponse
      */
     public function startMicroOutboundWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->accountType)) {
-            $query['AccountType'] = $request->accountType;
+
+        if (null !== $request->accountType) {
+            @$query['AccountType'] = $request->accountType;
         }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->commandCode)) {
-            $query['CommandCode'] = $request->commandCode;
+
+        if (null !== $request->commandCode) {
+            @$query['CommandCode'] = $request->commandCode;
         }
-        if (!Utils::isUnset($request->extInfo)) {
-            $query['ExtInfo'] = $request->extInfo;
+
+        if (null !== $request->extInfo) {
+            @$query['ExtInfo'] = $request->extInfo;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->prodCode)) {
-            $query['ProdCode'] = $request->prodCode;
+
+        if (null !== $request->prodCode) {
+            @$query['ProdCode'] = $request->prodCode;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartMicroOutbound',
@@ -7986,14 +10031,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartMicroOutboundResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartMicroOutboundResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartMicroOutboundResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param StartMicroOutboundRequest $request StartMicroOutboundRequest
+     * @param request - StartMicroOutboundRequest
+     * @returns StartMicroOutboundResponse
      *
-     * @return StartMicroOutboundResponse StartMicroOutboundResponse
+     * @param StartMicroOutboundRequest $request
+     *
+     * @return StartMicroOutboundResponse
      */
     public function startMicroOutbound($request)
     {
@@ -8003,34 +10054,43 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 立即或定时启动智能外呼任务
-     *  *
-     * @param StartTaskRequest $request StartTaskRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 立即或定时启动智能外呼任务
      *
-     * @return StartTaskResponse StartTaskResponse
+     * @param request - StartTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartTaskResponse
+     *
+     * @param StartTaskRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return StartTaskResponse
      */
     public function startTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startNow)) {
-            $query['StartNow'] = $request->startNow;
+
+        if (null !== $request->startNow) {
+            @$query['StartNow'] = $request->startNow;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartTask',
@@ -8043,16 +10103,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 立即或定时启动智能外呼任务
-     *  *
-     * @param StartTaskRequest $request StartTaskRequest
+     * 立即或定时启动智能外呼任务
      *
-     * @return StartTaskResponse StartTaskResponse
+     * @param request - StartTaskRequest
+     * @returns StartTaskResponse
+     *
+     * @param StartTaskRequest $request
+     *
+     * @return StartTaskResponse
      */
     public function startTask($request)
     {
@@ -8062,25 +10128,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 手动暂停智能外呼任务
-     *  *
-     * @param StopAiOutboundTaskRequest $request StopAiOutboundTaskRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 手动暂停智能外呼任务
      *
-     * @return StopAiOutboundTaskResponse StopAiOutboundTaskResponse
+     * @param request - StopAiOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopAiOutboundTaskResponse
+     *
+     * @param StopAiOutboundTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopAiOutboundTaskResponse
      */
     public function stopAiOutboundTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopAiOutboundTask',
@@ -8093,16 +10165,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 手动暂停智能外呼任务
-     *  *
-     * @param StopAiOutboundTaskRequest $request StopAiOutboundTaskRequest
+     * 手动暂停智能外呼任务
      *
-     * @return StopAiOutboundTaskResponse StopAiOutboundTaskResponse
+     * @param request - StopAiOutboundTaskRequest
+     * @returns StopAiOutboundTaskResponse
+     *
+     * @param StopAiOutboundTaskRequest $request
+     *
+     * @return StopAiOutboundTaskResponse
      */
     public function stopAiOutboundTask($request)
     {
@@ -8112,31 +10190,39 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 暂停外呼任务
-     *  *
-     * @param StopTaskRequest $request StopTaskRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 暂停外呼任务
      *
-     * @return StopTaskResponse StopTaskResponse
+     * @param request - StopTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopTaskResponse
+     *
+     * @param StopTaskRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return StopTaskResponse
      */
     public function stopTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopTask',
@@ -8149,16 +10235,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 暂停外呼任务
-     *  *
-     * @param StopTaskRequest $request StopTaskRequest
+     * 暂停外呼任务
      *
-     * @return StopTaskResponse StopTaskResponse
+     * @param request - StopTaskRequest
+     * @returns StopTaskResponse
+     *
+     * @param StopTaskRequest $request
+     *
+     * @return StopTaskResponse
      */
     public function stopTask($request)
     {
@@ -8168,29 +10260,37 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param SuspendHotlineServiceRequest $request SuspendHotlineServiceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - SuspendHotlineServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SuspendHotlineServiceResponse
      *
-     * @return SuspendHotlineServiceResponse SuspendHotlineServiceResponse
+     * @param SuspendHotlineServiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SuspendHotlineServiceResponse
      */
     public function suspendHotlineServiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SuspendHotlineService',
@@ -8203,14 +10303,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SuspendHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SuspendHotlineServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SuspendHotlineServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SuspendHotlineServiceRequest $request SuspendHotlineServiceRequest
+     * @param request - SuspendHotlineServiceRequest
+     * @returns SuspendHotlineServiceResponse
      *
-     * @return SuspendHotlineServiceResponse SuspendHotlineServiceResponse
+     * @param SuspendHotlineServiceRequest $request
+     *
+     * @return SuspendHotlineServiceResponse
      */
     public function suspendHotlineService($request)
     {
@@ -8220,23 +10326,29 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param SuspendOutboundTaskRequest $request SuspendOutboundTaskRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - SuspendOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SuspendOutboundTaskResponse
      *
-     * @return SuspendOutboundTaskResponse SuspendOutboundTaskResponse
+     * @param SuspendOutboundTaskRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SuspendOutboundTaskResponse
      */
     public function suspendOutboundTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->outboundTaskId)) {
-            $query['OutboundTaskId'] = $request->outboundTaskId;
+
+        if (null !== $request->outboundTaskId) {
+            @$query['OutboundTaskId'] = $request->outboundTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SuspendOutboundTask',
@@ -8249,14 +10361,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SuspendOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SuspendOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SuspendOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SuspendOutboundTaskRequest $request SuspendOutboundTaskRequest
+     * @param request - SuspendOutboundTaskRequest
+     * @returns SuspendOutboundTaskResponse
      *
-     * @return SuspendOutboundTaskResponse SuspendOutboundTaskResponse
+     * @param SuspendOutboundTaskRequest $request
+     *
+     * @return SuspendOutboundTaskResponse
      */
     public function suspendOutboundTask($request)
     {
@@ -8266,25 +10384,31 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 终止智能外呼任务
-     *  *
-     * @param TerminateAiOutboundTaskRequest $request TerminateAiOutboundTaskRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 终止智能外呼任务
      *
-     * @return TerminateAiOutboundTaskResponse TerminateAiOutboundTaskResponse
+     * @param request - TerminateAiOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TerminateAiOutboundTaskResponse
+     *
+     * @param TerminateAiOutboundTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return TerminateAiOutboundTaskResponse
      */
     public function terminateAiOutboundTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TerminateAiOutboundTask',
@@ -8297,16 +10421,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TerminateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TerminateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TerminateAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 终止智能外呼任务
-     *  *
-     * @param TerminateAiOutboundTaskRequest $request TerminateAiOutboundTaskRequest
+     * 终止智能外呼任务
      *
-     * @return TerminateAiOutboundTaskResponse TerminateAiOutboundTaskResponse
+     * @param request - TerminateAiOutboundTaskRequest
+     * @returns TerminateAiOutboundTaskResponse
+     *
+     * @param TerminateAiOutboundTaskRequest $request
+     *
+     * @return TerminateAiOutboundTaskResponse
      */
     public function terminateAiOutboundTask($request)
     {
@@ -8316,47 +10446,61 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param TransferCallToSkillGroupRequest $request TransferCallToSkillGroupRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - TransferCallToSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TransferCallToSkillGroupResponse
      *
-     * @return TransferCallToSkillGroupResponse TransferCallToSkillGroupResponse
+     * @param TransferCallToSkillGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return TransferCallToSkillGroupResponse
      */
     public function transferCallToSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->callId)) {
-            $body['CallId'] = $request->callId;
+
+        if (null !== $request->callId) {
+            @$body['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionId)) {
-            $body['ConnectionId'] = $request->connectionId;
+
+        if (null !== $request->connectionId) {
+            @$body['ConnectionId'] = $request->connectionId;
         }
-        if (!Utils::isUnset($request->holdConnectionId)) {
-            $body['HoldConnectionId'] = $request->holdConnectionId;
+
+        if (null !== $request->holdConnectionId) {
+            @$body['HoldConnectionId'] = $request->holdConnectionId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->isSingleTransfer)) {
-            $body['IsSingleTransfer'] = $request->isSingleTransfer;
+
+        if (null !== $request->isSingleTransfer) {
+            @$body['IsSingleTransfer'] = $request->isSingleTransfer;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$body['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->skillGroupId)) {
-            $body['SkillGroupId'] = $request->skillGroupId;
+
+        if (null !== $request->skillGroupId) {
+            @$body['SkillGroupId'] = $request->skillGroupId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'TransferCallToSkillGroup',
@@ -8369,14 +10513,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TransferCallToSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TransferCallToSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TransferCallToSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param TransferCallToSkillGroupRequest $request TransferCallToSkillGroupRequest
+     * @param request - TransferCallToSkillGroupRequest
+     * @returns TransferCallToSkillGroupResponse
      *
-     * @return TransferCallToSkillGroupResponse TransferCallToSkillGroupResponse
+     * @param TransferCallToSkillGroupRequest $request
+     *
+     * @return TransferCallToSkillGroupResponse
      */
     public function transferCallToSkillGroup($request)
     {
@@ -8386,35 +10536,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param UpdateAgentRequest $request UpdateAgentRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAgentResponse
      *
-     * @return UpdateAgentResponse UpdateAgentResponse
+     * @param UpdateAgentRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateAgentResponse
      */
     public function updateAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $body['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$body['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$body['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->skillGroupId)) {
-            $body['SkillGroupId'] = $request->skillGroupId;
+
+        if (null !== $request->skillGroupId) {
+            @$body['SkillGroupId'] = $request->skillGroupId;
         }
-        if (!Utils::isUnset($request->skillGroupIdList)) {
-            $body['SkillGroupIdList'] = $request->skillGroupIdList;
+
+        if (null !== $request->skillGroupIdList) {
+            @$body['SkillGroupIdList'] = $request->skillGroupIdList;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAgent',
@@ -8427,14 +10587,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateAgentRequest $request UpdateAgentRequest
+     * @param request - UpdateAgentRequest
+     * @returns UpdateAgentResponse
      *
-     * @return UpdateAgentResponse UpdateAgentResponse
+     * @param UpdateAgentRequest $request
+     *
+     * @return UpdateAgentResponse
      */
     public function updateAgent($request)
     {
@@ -8444,60 +10610,77 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 更新智能外呼任务（预测式外呼、自动外呼）
-     *  *
-     * @param UpdateAiOutboundTaskRequest $tmpReq  UpdateAiOutboundTaskRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 更新智能外呼任务（预测式外呼、自动外呼）.
      *
-     * @return UpdateAiOutboundTaskResponse UpdateAiOutboundTaskResponse
+     * @param tmpReq - UpdateAiOutboundTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAiOutboundTaskResponse
+     *
+     * @param UpdateAiOutboundTaskRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateAiOutboundTaskResponse
      */
     public function updateAiOutboundTaskWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateAiOutboundTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->outboundNums)) {
-            $request->outboundNumsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outboundNums, 'OutboundNums', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->outboundNums) {
+            $request->outboundNumsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->outboundNums, 'OutboundNums', 'json');
         }
-        if (!Utils::isUnset($tmpReq->recallRule)) {
-            $request->recallRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->recallRule, 'RecallRule', 'json');
+
+        if (null !== $tmpReq->recallRule) {
+            $request->recallRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->recallRule, 'RecallRule', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->concurrentRate)) {
-            $query['ConcurrentRate'] = $request->concurrentRate;
+        if (null !== $request->concurrentRate) {
+            @$query['ConcurrentRate'] = $request->concurrentRate;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->executionTime)) {
-            $query['ExecutionTime'] = $request->executionTime;
+
+        if (null !== $request->executionTime) {
+            @$query['ExecutionTime'] = $request->executionTime;
         }
-        if (!Utils::isUnset($request->forecastCallRate)) {
-            $query['ForecastCallRate'] = $request->forecastCallRate;
+
+        if (null !== $request->forecastCallRate) {
+            @$query['ForecastCallRate'] = $request->forecastCallRate;
         }
-        if (!Utils::isUnset($request->handlerId)) {
-            $query['HandlerId'] = $request->handlerId;
+
+        if (null !== $request->handlerId) {
+            @$query['HandlerId'] = $request->handlerId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->numRepeated)) {
-            $query['NumRepeated'] = $request->numRepeated;
+
+        if (null !== $request->numRepeated) {
+            @$query['NumRepeated'] = $request->numRepeated;
         }
-        if (!Utils::isUnset($request->outboundNumsShrink)) {
-            $query['OutboundNums'] = $request->outboundNumsShrink;
+
+        if (null !== $request->outboundNumsShrink) {
+            @$query['OutboundNums'] = $request->outboundNumsShrink;
         }
-        if (!Utils::isUnset($request->recallRuleShrink)) {
-            $query['RecallRule'] = $request->recallRuleShrink;
+
+        if (null !== $request->recallRuleShrink) {
+            @$query['RecallRule'] = $request->recallRuleShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAiOutboundTask',
@@ -8510,16 +10693,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAiOutboundTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAiOutboundTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新智能外呼任务（预测式外呼、自动外呼）
-     *  *
-     * @param UpdateAiOutboundTaskRequest $request UpdateAiOutboundTaskRequest
+     * 更新智能外呼任务（预测式外呼、自动外呼）.
      *
-     * @return UpdateAiOutboundTaskResponse UpdateAiOutboundTaskResponse
+     * @param request - UpdateAiOutboundTaskRequest
+     * @returns UpdateAiOutboundTaskResponse
+     *
+     * @param UpdateAiOutboundTaskRequest $request
+     *
+     * @return UpdateAiOutboundTaskResponse
      */
     public function updateAiOutboundTask($request)
     {
@@ -8529,28 +10718,35 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @summary 更新部门信息
-     *  *
-     * @param UpdateDepartmentRequest $request UpdateDepartmentRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 更新部门信息.
      *
-     * @return UpdateDepartmentResponse UpdateDepartmentResponse
+     * @param request - UpdateDepartmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDepartmentResponse
+     *
+     * @param UpdateDepartmentRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateDepartmentResponse
      */
     public function updateDepartmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->departmentId)) {
-            $query['DepartmentId'] = $request->departmentId;
+        if (null !== $request->departmentId) {
+            @$query['DepartmentId'] = $request->departmentId;
         }
-        if (!Utils::isUnset($request->departmentName)) {
-            $query['DepartmentName'] = $request->departmentName;
+
+        if (null !== $request->departmentName) {
+            @$query['DepartmentName'] = $request->departmentName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDepartment',
@@ -8563,16 +10759,22 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDepartmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDepartmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新部门信息
-     *  *
-     * @param UpdateDepartmentRequest $request UpdateDepartmentRequest
+     * 更新部门信息.
      *
-     * @return UpdateDepartmentResponse UpdateDepartmentResponse
+     * @param request - UpdateDepartmentRequest
+     * @returns UpdateDepartmentResponse
+     *
+     * @param UpdateDepartmentRequest $request
+     *
+     * @return UpdateDepartmentResponse
      */
     public function updateDepartment($request)
     {
@@ -8582,17 +10784,21 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param UpdateOuterAccountRequest $request UpdateOuterAccountRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateOuterAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateOuterAccountResponse
      *
-     * @return UpdateOuterAccountResponse UpdateOuterAccountResponse
+     * @param UpdateOuterAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateOuterAccountResponse
      */
     public function updateOuterAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateOuterAccount',
@@ -8605,14 +10811,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateOuterAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateOuterAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateOuterAccountRequest $request UpdateOuterAccountRequest
+     * @param request - UpdateOuterAccountRequest
+     * @returns UpdateOuterAccountResponse
      *
-     * @return UpdateOuterAccountResponse UpdateOuterAccountResponse
+     * @param UpdateOuterAccountRequest $request
+     *
+     * @return UpdateOuterAccountResponse
      */
     public function updateOuterAccount($request)
     {
@@ -8622,35 +10834,45 @@ class Aiccs extends OpenApiClient
     }
 
     /**
-     * @param UpdateSkillGroupRequest $request UpdateSkillGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateSkillGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSkillGroupResponse
      *
-     * @return UpdateSkillGroupResponse UpdateSkillGroupResponse
+     * @param UpdateSkillGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateSkillGroupResponse
      */
     public function updateSkillGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->skillGroupId)) {
-            $query['SkillGroupId'] = $request->skillGroupId;
+
+        if (null !== $request->skillGroupId) {
+            @$query['SkillGroupId'] = $request->skillGroupId;
         }
-        if (!Utils::isUnset($request->skillGroupName)) {
-            $query['SkillGroupName'] = $request->skillGroupName;
+
+        if (null !== $request->skillGroupName) {
+            @$query['SkillGroupName'] = $request->skillGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSkillGroup',
@@ -8663,14 +10885,20 @@ class Aiccs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSkillGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSkillGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateSkillGroupRequest $request UpdateSkillGroupRequest
+     * @param request - UpdateSkillGroupRequest
+     * @returns UpdateSkillGroupResponse
      *
-     * @return UpdateSkillGroupResponse UpdateSkillGroupResponse
+     * @param UpdateSkillGroupRequest $request
+     *
+     * @return UpdateSkillGroupResponse
      */
     public function updateSkillGroup($request)
     {

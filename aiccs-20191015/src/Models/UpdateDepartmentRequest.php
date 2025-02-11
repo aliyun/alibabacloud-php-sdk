@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDepartmentRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123456
-     *
      * @var int
      */
     public $departmentId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $departmentName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
@@ -40,17 +28,20 @@ class UpdateDepartmentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
+
         if (null !== $this->departmentName) {
             $res['DepartmentName'] = $this->departmentName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -58,20 +49,22 @@ class UpdateDepartmentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDepartmentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
+
         if (isset($map['DepartmentName'])) {
             $model->departmentName = $map['DepartmentName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

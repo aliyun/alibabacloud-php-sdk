@@ -4,96 +4,50 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddHotlineNumberShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example desc
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableInbound;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableInboundEvaluation;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableOutbound;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableOutboundEvaluation;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $evaluationLevel;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 05710000****
-     *
      * @var string
      */
     public $hotlineNumber;
-
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $inboundFlowId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $outboundAllDepart;
-
     /**
      * @var string
      */
@@ -114,41 +68,52 @@ class AddHotlineNumberShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->enableInbound) {
             $res['EnableInbound'] = $this->enableInbound;
         }
+
         if (null !== $this->enableInboundEvaluation) {
             $res['EnableInboundEvaluation'] = $this->enableInboundEvaluation;
         }
+
         if (null !== $this->enableOutbound) {
             $res['EnableOutbound'] = $this->enableOutbound;
         }
+
         if (null !== $this->enableOutboundEvaluation) {
             $res['EnableOutboundEvaluation'] = $this->enableOutboundEvaluation;
         }
+
         if (null !== $this->evaluationLevel) {
             $res['EvaluationLevel'] = $this->evaluationLevel;
         }
+
         if (null !== $this->hotlineNumber) {
             $res['HotlineNumber'] = $this->hotlineNumber;
         }
+
         if (null !== $this->inboundFlowId) {
             $res['InboundFlowId'] = $this->inboundFlowId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->outboundAllDepart) {
             $res['OutboundAllDepart'] = $this->outboundAllDepart;
         }
+
         if (null !== $this->outboundRangeListShrink) {
             $res['OutboundRangeList'] = $this->outboundRangeListShrink;
         }
@@ -156,44 +121,54 @@ class AddHotlineNumberShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddHotlineNumberShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EnableInbound'])) {
             $model->enableInbound = $map['EnableInbound'];
         }
+
         if (isset($map['EnableInboundEvaluation'])) {
             $model->enableInboundEvaluation = $map['EnableInboundEvaluation'];
         }
+
         if (isset($map['EnableOutbound'])) {
             $model->enableOutbound = $map['EnableOutbound'];
         }
+
         if (isset($map['EnableOutboundEvaluation'])) {
             $model->enableOutboundEvaluation = $map['EnableOutboundEvaluation'];
         }
+
         if (isset($map['EvaluationLevel'])) {
             $model->evaluationLevel = $map['EvaluationLevel'];
         }
+
         if (isset($map['HotlineNumber'])) {
             $model->hotlineNumber = $map['HotlineNumber'];
         }
+
         if (isset($map['InboundFlowId'])) {
             $model->inboundFlowId = $map['InboundFlowId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OutboundAllDepart'])) {
             $model->outboundAllDepart = $map['OutboundAllDepart'];
         }
+
         if (isset($map['OutboundRangeList'])) {
             $model->outboundRangeListShrink = $map['OutboundRangeList'];
         }

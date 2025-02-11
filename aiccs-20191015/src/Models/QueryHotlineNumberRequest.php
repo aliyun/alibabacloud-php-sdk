@@ -4,52 +4,31 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryHotlineNumberRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @example 2256****
-     *
      * @var int
      */
     public $departmentId;
-
     /**
      * @var int[]
      */
     public $groupIds;
-
     /**
-     * @example 0571****2211
-     *
      * @var string
      */
     public $hotlineNumber;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -64,26 +43,41 @@ class QueryHotlineNumberRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupIds)) {
+            Model::validateArray($this->groupIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
+
         if (null !== $this->groupIds) {
-            $res['GroupIds'] = $this->groupIds;
+            if (\is_array($this->groupIds)) {
+                $res['GroupIds'] = [];
+                $n1              = 0;
+                foreach ($this->groupIds as $item1) {
+                    $res['GroupIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->hotlineNumber) {
             $res['HotlineNumber'] = $this->hotlineNumber;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -91,31 +85,40 @@ class QueryHotlineNumberRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryHotlineNumberRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
+
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
-                $model->groupIds = $map['GroupIds'];
+                $model->groupIds = [];
+                $n1              = 0;
+                foreach ($map['GroupIds'] as $item1) {
+                    $model->groupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['HotlineNumber'])) {
             $model->hotlineNumber = $map['HotlineNumber'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

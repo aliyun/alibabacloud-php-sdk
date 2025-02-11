@@ -4,84 +4,47 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAiOutboundTaskExecDetailRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $batchVersion;
-
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $caseId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $caseStatus;
-
     /**
-     * @example 1632290119000
-     *
      * @var int
      */
     public $createTimeEnd;
-
     /**
-     * @example 1632289999000
-     *
      * @var int
      */
     public $createTimeStart;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example agent_***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 150****000
-     *
      * @var string
      */
     public $phoneNum;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 123456
-     *
      * @var int
      */
     public $taskId;
@@ -100,38 +63,48 @@ class GetAiOutboundTaskExecDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchVersion) {
             $res['BatchVersion'] = $this->batchVersion;
         }
+
         if (null !== $this->caseId) {
             $res['CaseId'] = $this->caseId;
         }
+
         if (null !== $this->caseStatus) {
             $res['CaseStatus'] = $this->caseStatus;
         }
+
         if (null !== $this->createTimeEnd) {
             $res['CreateTimeEnd'] = $this->createTimeEnd;
         }
+
         if (null !== $this->createTimeStart) {
             $res['CreateTimeStart'] = $this->createTimeStart;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->phoneNum) {
             $res['PhoneNum'] = $this->phoneNum;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -139,41 +112,50 @@ class GetAiOutboundTaskExecDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAiOutboundTaskExecDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchVersion'])) {
             $model->batchVersion = $map['BatchVersion'];
         }
+
         if (isset($map['CaseId'])) {
             $model->caseId = $map['CaseId'];
         }
+
         if (isset($map['CaseStatus'])) {
             $model->caseStatus = $map['CaseStatus'];
         }
+
         if (isset($map['CreateTimeEnd'])) {
             $model->createTimeEnd = $map['CreateTimeEnd'];
         }
+
         if (isset($map['CreateTimeStart'])) {
             $model->createTimeStart = $map['CreateTimeStart'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PhoneNum'])) {
             $model->phoneNum = $map['PhoneNum'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

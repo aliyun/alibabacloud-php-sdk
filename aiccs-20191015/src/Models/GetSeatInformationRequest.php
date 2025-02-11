@@ -4,55 +4,35 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSeatInformationRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
      * @var int[]
      */
     public $depIds;
-
     /**
-     * @example 1617761765000
-     *
      * @var int
      */
     public $endDate;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $existDepartmentGrouping;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 1615083365000
-     *
      * @var int
      */
     public $startDate;
@@ -68,29 +48,45 @@ class GetSeatInformationRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->depIds)) {
+            Model::validateArray($this->depIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
+
         if (null !== $this->depIds) {
-            $res['depIds'] = $this->depIds;
+            if (\is_array($this->depIds)) {
+                $res['depIds'] = [];
+                $n1            = 0;
+                foreach ($this->depIds as $item1) {
+                    $res['depIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
+
         if (null !== $this->existDepartmentGrouping) {
             $res['existDepartmentGrouping'] = $this->existDepartmentGrouping;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
+
         if (null !== $this->startDate) {
             $res['startDate'] = $this->startDate;
         }
@@ -98,34 +94,44 @@ class GetSeatInformationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSeatInformationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
+
         if (isset($map['depIds'])) {
             if (!empty($map['depIds'])) {
-                $model->depIds = $map['depIds'];
+                $model->depIds = [];
+                $n1            = 0;
+                foreach ($map['depIds'] as $item1) {
+                    $model->depIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
+
         if (isset($map['existDepartmentGrouping'])) {
             $model->existDepartmentGrouping = $map['existDepartmentGrouping'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
+
         if (isset($map['startDate'])) {
             $model->startDate = $map['startDate'];
         }

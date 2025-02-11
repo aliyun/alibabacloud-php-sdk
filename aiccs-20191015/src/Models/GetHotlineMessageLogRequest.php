@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetHotlineMessageLogRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 100****2077
-     *
      * @var string
      */
     public $acid;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
@@ -32,14 +23,16 @@ class GetHotlineMessageLogRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acid) {
             $res['Acid'] = $this->acid;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,17 +40,18 @@ class GetHotlineMessageLogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHotlineMessageLogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Acid'])) {
             $model->acid = $map['Acid'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

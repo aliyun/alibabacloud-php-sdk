@@ -4,38 +4,26 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRobotCallDialogRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 125165515022^11195613****
-     *
      * @var string
      */
     public $callId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 2021-05-20 00:00:00
-     *
      * @var string
      */
     public $createTime;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -50,23 +38,28 @@ class ListRobotCallDialogRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -74,26 +67,30 @@ class ListRobotCallDialogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRobotCallDialogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

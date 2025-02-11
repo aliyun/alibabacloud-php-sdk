@@ -4,97 +4,51 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\AddHotlineNumberRequest\outboundRangeList;
-use AlibabaCloud\Tea\Model;
 
 class AddHotlineNumberRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example desc
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableInbound;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableInboundEvaluation;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableOutbound;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableOutboundEvaluation;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $evaluationLevel;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 05710000****
-     *
      * @var string
      */
     public $hotlineNumber;
-
     /**
-     * @example 123456
-     *
      * @var int
      */
     public $inboundFlowId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $outboundAllDepart;
-
     /**
      * @var outboundRangeList[]
      */
@@ -115,47 +69,61 @@ class AddHotlineNumberRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->outboundRangeList)) {
+            Model::validateArray($this->outboundRangeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->enableInbound) {
             $res['EnableInbound'] = $this->enableInbound;
         }
+
         if (null !== $this->enableInboundEvaluation) {
             $res['EnableInboundEvaluation'] = $this->enableInboundEvaluation;
         }
+
         if (null !== $this->enableOutbound) {
             $res['EnableOutbound'] = $this->enableOutbound;
         }
+
         if (null !== $this->enableOutboundEvaluation) {
             $res['EnableOutboundEvaluation'] = $this->enableOutboundEvaluation;
         }
+
         if (null !== $this->evaluationLevel) {
             $res['EvaluationLevel'] = $this->evaluationLevel;
         }
+
         if (null !== $this->hotlineNumber) {
             $res['HotlineNumber'] = $this->hotlineNumber;
         }
+
         if (null !== $this->inboundFlowId) {
             $res['InboundFlowId'] = $this->inboundFlowId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->outboundAllDepart) {
             $res['OutboundAllDepart'] = $this->outboundAllDepart;
         }
+
         if (null !== $this->outboundRangeList) {
-            $res['OutboundRangeList'] = [];
-            if (null !== $this->outboundRangeList && \is_array($this->outboundRangeList)) {
-                $n = 0;
-                foreach ($this->outboundRangeList as $item) {
-                    $res['OutboundRangeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outboundRangeList)) {
+                $res['OutboundRangeList'] = [];
+                $n1                       = 0;
+                foreach ($this->outboundRangeList as $item1) {
+                    $res['OutboundRangeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -163,50 +131,60 @@ class AddHotlineNumberRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddHotlineNumberRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EnableInbound'])) {
             $model->enableInbound = $map['EnableInbound'];
         }
+
         if (isset($map['EnableInboundEvaluation'])) {
             $model->enableInboundEvaluation = $map['EnableInboundEvaluation'];
         }
+
         if (isset($map['EnableOutbound'])) {
             $model->enableOutbound = $map['EnableOutbound'];
         }
+
         if (isset($map['EnableOutboundEvaluation'])) {
             $model->enableOutboundEvaluation = $map['EnableOutboundEvaluation'];
         }
+
         if (isset($map['EvaluationLevel'])) {
             $model->evaluationLevel = $map['EvaluationLevel'];
         }
+
         if (isset($map['HotlineNumber'])) {
             $model->hotlineNumber = $map['HotlineNumber'];
         }
+
         if (isset($map['InboundFlowId'])) {
             $model->inboundFlowId = $map['InboundFlowId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OutboundAllDepart'])) {
             $model->outboundAllDepart = $map['OutboundAllDepart'];
         }
+
         if (isset($map['OutboundRangeList'])) {
             if (!empty($map['OutboundRangeList'])) {
                 $model->outboundRangeList = [];
-                $n                        = 0;
-                foreach ($map['OutboundRangeList'] as $item) {
-                    $model->outboundRangeList[$n++] = null !== $item ? outboundRangeList::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['OutboundRangeList'] as $item1) {
+                    $model->outboundRangeList[$n1++] = outboundRangeList::fromMap($item1);
                 }
             }
         }

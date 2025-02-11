@@ -4,33 +4,24 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetQualityProjectListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetQualityProjectListResponseBody\data\qualityProjectList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
      * @var qualityProjectList[]
      */
     public $qualityProjectList;
-
     /**
-     * @example 35
-     *
      * @var int
      */
     public $total;
@@ -43,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->qualityProjectList)) {
+            Model::validateArray($this->qualityProjectList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->qualityProjectList) {
-            $res['QualityProjectList'] = [];
-            if (null !== $this->qualityProjectList && \is_array($this->qualityProjectList)) {
-                $n = 0;
-                foreach ($this->qualityProjectList as $item) {
-                    $res['QualityProjectList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qualityProjectList)) {
+                $res['QualityProjectList'] = [];
+                $n1                        = 0;
+                foreach ($this->qualityProjectList as $item1) {
+                    $res['QualityProjectList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -70,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['QualityProjectList'])) {
             if (!empty($map['QualityProjectList'])) {
                 $model->qualityProjectList = [];
-                $n                         = 0;
-                foreach ($map['QualityProjectList'] as $item) {
-                    $model->qualityProjectList[$n++] = null !== $item ? qualityProjectList::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['QualityProjectList'] as $item1) {
+                    $model->qualityProjectList[$n1++] = qualityProjectList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

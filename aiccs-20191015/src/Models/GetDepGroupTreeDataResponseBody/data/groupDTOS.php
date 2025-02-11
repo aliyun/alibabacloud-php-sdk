@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetDepGroupTreeDataResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groupDTOS extends Model
 {
@@ -12,10 +12,7 @@ class groupDTOS extends Model
      * @var string
      */
     public $name;
-
     /**
-     * @example 555555
-     *
      * @var int
      */
     public $skillGroupId;
@@ -26,14 +23,16 @@ class groupDTOS extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
@@ -41,17 +40,18 @@ class groupDTOS extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupDTOS
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }

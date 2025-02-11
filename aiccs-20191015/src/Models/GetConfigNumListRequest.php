@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetConfigNumListRequest extends Model
 {
     /**
-     * @example 123@123.com
-     *
      * @var string
      */
     public $accountName;
-
     /**
-     * @example 12345
-     *
      * @var int
      */
     public $departmentId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
@@ -38,17 +28,20 @@ class GetConfigNumListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->departmentId) {
             $res['DepartmentId'] = $this->departmentId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -56,20 +49,22 @@ class GetConfigNumListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConfigNumListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DepartmentId'])) {
             $model->departmentId = $map['DepartmentId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

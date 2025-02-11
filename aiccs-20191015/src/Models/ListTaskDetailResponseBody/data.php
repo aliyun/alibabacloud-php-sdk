@@ -4,33 +4,24 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\ListTaskDetailResponseBody\data\record;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageNo;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageSize;
-
     /**
      * @var record[]
      */
     public $record;
-
     /**
-     * @example 50
-     *
      * @var int
      */
     public $total;
@@ -43,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->record)) {
+            Model::validateArray($this->record);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->record) {
-            $res['Record'] = [];
-            if (null !== $this->record && \is_array($this->record)) {
-                $n = 0;
-                foreach ($this->record as $item) {
-                    $res['Record'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->record)) {
+                $res['Record'] = [];
+                $n1            = 0;
+                foreach ($this->record as $item1) {
+                    $res['Record'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -70,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Record'])) {
             if (!empty($map['Record'])) {
                 $model->record = [];
-                $n             = 0;
-                foreach ($map['Record'] as $item) {
-                    $model->record[$n++] = null !== $item ? record::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Record'] as $item1) {
+                    $model->record[$n1++] = record::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

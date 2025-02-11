@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\ListRobotCallDialogResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,29 +12,19 @@ class data extends Model
      * @var string
      */
     public $content;
-
     /**
-     * @example normal
-     *
      * @var string
      */
     public $nodeType;
-
     /**
-     * @example robot
-     *
      * @var string
      */
     public $role;
-
     /**
      * @var string
      */
     public $tag;
-
     /**
-     * @example 1621483557000
-     *
      * @var string
      */
     public $time;
@@ -48,23 +38,28 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -72,26 +67,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

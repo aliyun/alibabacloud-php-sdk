@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetQualityProjectDetailRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 15977801
-     *
      * @var int
      */
     public $projectId;
@@ -32,14 +23,16 @@ class GetQualityProjectDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -47,17 +40,18 @@ class GetQualityProjectDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQualityProjectDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

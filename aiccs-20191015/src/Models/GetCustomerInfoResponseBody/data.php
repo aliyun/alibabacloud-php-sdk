@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetCustomerInfoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,34 +12,23 @@ class data extends Model
      * @var mixed[]
      */
     public $customizeFields;
-
     /**
      * @var string
      */
     public $nick;
-
     /**
-     * @example 6666666
-     *
      * @var string
      */
     public $outerId;
-
     /**
-     * @example https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSW7XPFlJDwVunXP8pr84TvltwtLlNqTlOVSFeM3bCgn57mAB4JuZZmvMW0qicqW0PyzyUdZpxiaFQ
-     *
      * @var string
      */
     public $photo;
-
     /**
      * @var string
      */
     public $realName;
-
     /**
-     * @example 823456789023
-     *
      * @var int
      */
     public $userId;
@@ -54,26 +43,40 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->customizeFields)) {
+            Model::validateArray($this->customizeFields);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customizeFields) {
-            $res['CustomizeFields'] = $this->customizeFields;
+            if (\is_array($this->customizeFields)) {
+                $res['CustomizeFields'] = [];
+                foreach ($this->customizeFields as $key1 => $value1) {
+                    $res['CustomizeFields'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->nick) {
             $res['Nick'] = $this->nick;
         }
+
         if (null !== $this->outerId) {
             $res['OuterId'] = $this->outerId;
         }
+
         if (null !== $this->photo) {
             $res['Photo'] = $this->photo;
         }
+
         if (null !== $this->realName) {
             $res['RealName'] = $this->realName;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -81,29 +84,39 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomizeFields'])) {
-            $model->customizeFields = $map['CustomizeFields'];
+            if (!empty($map['CustomizeFields'])) {
+                $model->customizeFields = [];
+                foreach ($map['CustomizeFields'] as $key1 => $value1) {
+                    $model->customizeFields[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Nick'])) {
             $model->nick = $map['Nick'];
         }
+
         if (isset($map['OuterId'])) {
             $model->outerId = $map['OuterId'];
         }
+
         if (isset($map['Photo'])) {
             $model->photo = $map['Photo'];
         }
+
         if (isset($map['RealName'])) {
             $model->realName = $map['RealName'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

@@ -4,52 +4,34 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendCcoSmartCallOperateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 116012854210^102814279****
-     *
      * @var string
      */
     public $callId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example parallelBridge
-     *
      * @var string
      */
     public $command;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @example Param
-     *
      * @var string
      */
     public $param;
-
     /**
-     * @example aiccs
-     *
      * @var string
      */
     public $prodCode;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -66,29 +48,36 @@ class SendCcoSmartCallOperateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callId) {
             $res['CallId'] = $this->callId;
         }
+
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->param) {
             $res['Param'] = $this->param;
         }
+
         if (null !== $this->prodCode) {
             $res['ProdCode'] = $this->prodCode;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -96,32 +85,38 @@ class SendCcoSmartCallOperateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendCcoSmartCallOperateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallId'])) {
             $model->callId = $map['CallId'];
         }
+
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Param'])) {
             $model->param = $map['Param'];
         }
+
         if (isset($map['ProdCode'])) {
             $model->prodCode = $map['ProdCode'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

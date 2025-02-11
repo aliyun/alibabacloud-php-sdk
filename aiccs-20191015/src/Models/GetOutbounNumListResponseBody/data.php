@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetOutbounNumListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetOutbounNumListResponseBody\data\num;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetOutbounNumListResponseBody\data\numGroup;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -14,7 +14,6 @@ class data extends Model
      * @var num[]
      */
     public $num;
-
     /**
      * @var numGroup[]
      */
@@ -26,26 +25,34 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->num)) {
+            Model::validateArray($this->num);
+        }
+        if (\is_array($this->numGroup)) {
+            Model::validateArray($this->numGroup);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->num) {
-            $res['Num'] = [];
-            if (null !== $this->num && \is_array($this->num)) {
-                $n = 0;
-                foreach ($this->num as $item) {
-                    $res['Num'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->num)) {
+                $res['Num'] = [];
+                $n1         = 0;
+                foreach ($this->num as $item1) {
+                    $res['Num'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->numGroup) {
-            $res['NumGroup'] = [];
-            if (null !== $this->numGroup && \is_array($this->numGroup)) {
-                $n = 0;
-                foreach ($this->numGroup as $item) {
-                    $res['NumGroup'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->numGroup)) {
+                $res['NumGroup'] = [];
+                $n1              = 0;
+                foreach ($this->numGroup as $item1) {
+                    $res['NumGroup'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -53,29 +60,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Num'])) {
             if (!empty($map['Num'])) {
                 $model->num = [];
-                $n          = 0;
-                foreach ($map['Num'] as $item) {
-                    $model->num[$n++] = null !== $item ? num::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Num'] as $item1) {
+                    $model->num[$n1++] = num::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NumGroup'])) {
             if (!empty($map['NumGroup'])) {
                 $model->numGroup = [];
-                $n               = 0;
-                foreach ($map['NumGroup'] as $item) {
-                    $model->numGroup[$n++] = null !== $item ? numGroup::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['NumGroup'] as $item1) {
+                    $model->numGroup[$n1++] = numGroup::fromMap($item1);
                 }
             }
         }

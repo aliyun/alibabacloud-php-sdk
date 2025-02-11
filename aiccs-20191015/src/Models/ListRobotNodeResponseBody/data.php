@@ -4,34 +4,26 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\ListRobotNodeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $isOutput;
-
     /**
      * @var string
      */
     public $modelName;
-
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $nodeIdentifier;
-
     /**
      * @var string
      */
     public $nodeName;
-
     /**
      * @var string
      */
@@ -46,23 +38,28 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isOutput) {
             $res['IsOutput'] = $this->isOutput;
         }
+
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
+
         if (null !== $this->nodeIdentifier) {
             $res['NodeIdentifier'] = $this->nodeIdentifier;
         }
+
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
+
         if (null !== $this->processName) {
             $res['ProcessName'] = $this->processName;
         }
@@ -70,26 +67,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsOutput'])) {
             $model->isOutput = $map['IsOutput'];
         }
+
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
+
         if (isset($map['NodeIdentifier'])) {
             $model->nodeIdentifier = $map['NodeIdentifier'];
         }
+
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
+
         if (isset($map['ProcessName'])) {
             $model->processName = $map['ProcessName'];
         }

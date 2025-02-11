@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ChangeChatAgentStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example account1
-     *
      * @var string
      */
     public $accountName;
-
     /**
-     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example requestLogout
-     *
      * @var string
      */
     public $method;
@@ -50,20 +33,24 @@ class ChangeChatAgentStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
@@ -71,23 +58,26 @@ class ChangeChatAgentStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeChatAgentStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }

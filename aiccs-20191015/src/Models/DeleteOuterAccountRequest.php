@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteOuterAccountRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $outerAccountId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example aliyun
-     *
      * @var string
      */
     public $outerAccountType;
@@ -32,14 +23,16 @@ class DeleteOuterAccountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outerAccountId) {
             $res['OuterAccountId'] = $this->outerAccountId;
         }
+
         if (null !== $this->outerAccountType) {
             $res['OuterAccountType'] = $this->outerAccountType;
         }
@@ -47,17 +40,18 @@ class DeleteOuterAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteOuterAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OuterAccountId'])) {
             $model->outerAccountId = $map['OuterAccountId'];
         }
+
         if (isset($map['OuterAccountType'])) {
             $model->outerAccountType = $map['OuterAccountType'];
         }

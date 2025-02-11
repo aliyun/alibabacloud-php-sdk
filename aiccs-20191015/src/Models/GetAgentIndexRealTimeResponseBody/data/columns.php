@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetAgentIndexRealTimeResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class columns extends Model
 {
@@ -12,10 +12,7 @@ class columns extends Model
      * @var string
      */
     public $key;
-
     /**
-     * @example servicerId
-     *
      * @var string
      */
     public $title;
@@ -26,14 +23,16 @@ class columns extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -41,17 +40,18 @@ class columns extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columns
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

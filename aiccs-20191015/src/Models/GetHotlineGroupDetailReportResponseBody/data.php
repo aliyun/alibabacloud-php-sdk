@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetHotlineGroupDetailReportResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aiccs\V20191015\Models\GetHotlineGroupDetailReportResponseBody\data\columns;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,29 +13,19 @@ class data extends Model
      * @var columns[]
      */
     public $columns;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $page;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
      * @var mixed[][]
      */
     public $rows;
-
     /**
-     * @example 9
-     *
      * @var int
      */
     public $total;
@@ -49,29 +39,51 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
+        }
+        if (\is_array($this->rows)) {
+            Model::validateArray($this->rows);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columns) {
-            $res['Columns'] = [];
-            if (null !== $this->columns && \is_array($this->columns)) {
-                $n = 0;
-                foreach ($this->columns as $item) {
-                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columns)) {
+                $res['Columns'] = [];
+                $n1             = 0;
+                foreach ($this->columns as $item1) {
+                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->rows) {
-            $res['Rows'] = $this->rows;
+            if (\is_array($this->rows)) {
+                $res['Rows'] = [];
+                $n1          = 0;
+                foreach ($this->rows as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Rows'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Rows'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -79,34 +91,47 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n              = 0;
-                foreach ($map['Columns'] as $item) {
-                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Columns'] as $item1) {
+                    $model->columns[$n1++] = columns::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Rows'])) {
             if (!empty($map['Rows'])) {
-                $model->rows = $map['Rows'];
+                $model->rows = [];
+                $n1          = 0;
+                foreach ($map['Rows'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->rows[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->rows[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

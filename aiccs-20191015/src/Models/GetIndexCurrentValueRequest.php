@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetIndexCurrentValueRequest extends Model
 {
     /**
-     * @example 2332****,2334****
-     *
      * @var string
      */
     public $depIds;
-
     /**
-     * @example 2323****,2324****
-     *
      * @var string
      */
     public $groupIds;
-
     /**
-     * @example ccc_xp_pre-cn-***
-     *
      * @var string
      */
     public $instanceId;
@@ -36,17 +28,20 @@ class GetIndexCurrentValueRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->depIds) {
             $res['DepIds'] = $this->depIds;
         }
+
         if (null !== $this->groupIds) {
             $res['GroupIds'] = $this->groupIds;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -54,20 +49,22 @@ class GetIndexCurrentValueRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIndexCurrentValueRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DepIds'])) {
             $model->depIds = $map['DepIds'];
         }
+
         if (isset($map['GroupIds'])) {
             $model->groupIds = $map['GroupIds'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

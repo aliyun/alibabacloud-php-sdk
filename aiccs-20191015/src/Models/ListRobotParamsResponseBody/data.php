@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\ListRobotParamsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $isEmpty;
-
     /**
-     * @example name
-     *
      * @var string
      */
     public $paramCode;
-
     /**
      * @var string
      */
@@ -34,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isEmpty) {
             $res['IsEmpty'] = $this->isEmpty;
         }
+
         if (null !== $this->paramCode) {
             $res['ParamCode'] = $this->paramCode;
         }
+
         if (null !== $this->paramName) {
             $res['ParamName'] = $this->paramName;
         }
@@ -52,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsEmpty'])) {
             $model->isEmpty = $map['IsEmpty'];
         }
+
         if (isset($map['ParamCode'])) {
             $model->paramCode = $map['ParamCode'];
         }
+
         if (isset($map['ParamName'])) {
             $model->paramName = $map['ParamName'];
         }

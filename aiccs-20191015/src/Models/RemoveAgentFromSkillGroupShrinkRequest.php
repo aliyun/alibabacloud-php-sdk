@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveAgentFromSkillGroupShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $agentIdsShrink;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example agent_***
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1146****
-     *
      * @var int
      */
     public $skillGroupId;
@@ -40,17 +28,20 @@ class RemoveAgentFromSkillGroupShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentIdsShrink) {
             $res['AgentIds'] = $this->agentIdsShrink;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->skillGroupId) {
             $res['SkillGroupId'] = $this->skillGroupId;
         }
@@ -58,20 +49,22 @@ class RemoveAgentFromSkillGroupShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveAgentFromSkillGroupShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentIds'])) {
             $model->agentIdsShrink = $map['AgentIds'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SkillGroupId'])) {
             $model->skillGroupId = $map['SkillGroupId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models\GetOutbounNumListResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class num extends Model
 {
@@ -12,17 +12,11 @@ class num extends Model
      * @var string
      */
     public $description;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
-
     /**
-     * @example 07512234****
-     *
      * @var string
      */
     public $value;
@@ -34,17 +28,20 @@ class num extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -52,20 +49,22 @@ class num extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return num
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

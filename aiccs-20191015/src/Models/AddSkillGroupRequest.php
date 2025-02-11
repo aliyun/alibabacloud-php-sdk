@@ -4,45 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddSkillGroupRequest extends Model
 {
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $outerDepartmentId;
-
     /**
-     * @example type_invalid
-     *
      * @var string
      */
     public $outerDepartmentType;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 123456
-     *
      * @var string
      */
     public $outerGroupId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $outerGroupName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example mybank
-     *
      * @var string
      */
     public $outerGroupType;
@@ -56,23 +38,28 @@ class AddSkillGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outerDepartmentId) {
             $res['OuterDepartmentId'] = $this->outerDepartmentId;
         }
+
         if (null !== $this->outerDepartmentType) {
             $res['OuterDepartmentType'] = $this->outerDepartmentType;
         }
+
         if (null !== $this->outerGroupId) {
             $res['OuterGroupId'] = $this->outerGroupId;
         }
+
         if (null !== $this->outerGroupName) {
             $res['OuterGroupName'] = $this->outerGroupName;
         }
+
         if (null !== $this->outerGroupType) {
             $res['OuterGroupType'] = $this->outerGroupType;
         }
@@ -80,26 +67,30 @@ class AddSkillGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddSkillGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OuterDepartmentId'])) {
             $model->outerDepartmentId = $map['OuterDepartmentId'];
         }
+
         if (isset($map['OuterDepartmentType'])) {
             $model->outerDepartmentType = $map['OuterDepartmentType'];
         }
+
         if (isset($map['OuterGroupId'])) {
             $model->outerGroupId = $map['OuterGroupId'];
         }
+
         if (isset($map['OuterGroupName'])) {
             $model->outerGroupName = $map['OuterGroupName'];
         }
+
         if (isset($map['OuterGroupType'])) {
             $model->outerGroupType = $map['OuterGroupType'];
         }
