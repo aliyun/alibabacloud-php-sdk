@@ -3785,6 +3785,10 @@ class Ecd extends OpenApiClient
             @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
 
+        if (null !== $request->savingPlanId) {
+            @$query['SavingPlanId'] = $request->savingPlanId;
+        }
+
         if (null !== $request->snapshotPolicyId) {
             @$query['SnapshotPolicyId'] = $request->snapshotPolicyId;
         }

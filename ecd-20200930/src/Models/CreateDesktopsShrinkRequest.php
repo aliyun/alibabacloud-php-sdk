@@ -108,6 +108,10 @@ class CreateDesktopsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $savingPlanId;
+    /**
+     * @var string
+     */
     public $snapshotPolicyId;
     /**
      * @var tag[]
@@ -165,6 +169,7 @@ class CreateDesktopsShrinkRequest extends Model
         'promotionId'             => 'PromotionId',
         'regionId'                => 'RegionId',
         'resourceGroupId'         => 'ResourceGroupId',
+        'savingPlanId'            => 'SavingPlanId',
         'snapshotPolicyId'        => 'SnapshotPolicyId',
         'tag'                     => 'Tag',
         'timerGroupId'            => 'TimerGroupId',
@@ -310,6 +315,10 @@ class CreateDesktopsShrinkRequest extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->savingPlanId) {
+            $res['SavingPlanId'] = $this->savingPlanId;
         }
 
         if (null !== $this->snapshotPolicyId) {
@@ -479,6 +488,10 @@ class CreateDesktopsShrinkRequest extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SavingPlanId'])) {
+            $model->savingPlanId = $map['SavingPlanId'];
         }
 
         if (isset($map['SnapshotPolicyId'])) {

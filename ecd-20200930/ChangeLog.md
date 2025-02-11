@@ -1,3 +1,7 @@
+2025-02-11 Version: 4.2.5
+- Update API CreateDesktops: add param SavingPlanId.
+
+
 2025-01-24 Version: 4.2.4
 - Update API CreateDesktopGroup: add param DataDiskCategory.
 - Update API CreateDesktopGroup: add param DataDiskPerLevel.
