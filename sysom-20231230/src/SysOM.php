@@ -49,6 +49,9 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\GetRangeScoreRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetRangeScoreResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetResourcesRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\GetResourcesResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\GetServiceFuncStatusShrinkRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InitialSysomRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InitialSysomResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\InstallAgentForClusterRequest;
@@ -89,6 +92,9 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\UninstallAgentResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateEventsAttentionShrinkRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\UpdateFuncSwitchRecordShrinkRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentForClusterRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentForClusterResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\UpgradeAgentRequest;
@@ -1709,6 +1715,82 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * 获取功能模块配置.
+     *
+     * @param tmpReq - GetServiceFuncStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetServiceFuncStatusResponse
+     *
+     * @param GetServiceFuncStatusRequest $tmpReq
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetServiceFuncStatusResponse
+     */
+    public function getServiceFuncStatusWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new GetServiceFuncStatusShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'params', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->channel) {
+            @$query['channel'] = $request->channel;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$query['params'] = $request->paramsShrink;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['service_name'] = $request->serviceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceFuncStatus',
+            'version'     => '2023-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/func-switch/get-service-func-status',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetServiceFuncStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetServiceFuncStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取功能模块配置.
+     *
+     * @param request - GetServiceFuncStatusRequest
+     * @returns GetServiceFuncStatusResponse
+     *
+     * @param GetServiceFuncStatusRequest $request
+     *
+     * @return GetServiceFuncStatusResponse
+     */
+    public function getServiceFuncStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getServiceFuncStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 初始化SysOM，确保角色存在.
      *
      * @param request - InitialSysomRequest
@@ -3200,6 +3282,82 @@ class SysOM extends OpenApiClient
         $headers = [];
 
         return $this->updateEventsAttentionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取功能模块配置.
+     *
+     * @param tmpReq - UpdateFuncSwitchRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateFuncSwitchRecordResponse
+     *
+     * @param UpdateFuncSwitchRecordRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateFuncSwitchRecordResponse
+     */
+    public function updateFuncSwitchRecordWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateFuncSwitchRecordShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->params) {
+            $request->paramsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->params, 'params', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->channel) {
+            @$query['channel'] = $request->channel;
+        }
+
+        if (null !== $request->paramsShrink) {
+            @$query['params'] = $request->paramsShrink;
+        }
+
+        if (null !== $request->serviceName) {
+            @$query['service_name'] = $request->serviceName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFuncSwitchRecord',
+            'version'     => '2023-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/func-switch/update-service-func-switch',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateFuncSwitchRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateFuncSwitchRecordResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取功能模块配置.
+     *
+     * @param request - UpdateFuncSwitchRecordRequest
+     * @returns UpdateFuncSwitchRecordResponse
+     *
+     * @param UpdateFuncSwitchRecordRequest $request
+     *
+     * @return UpdateFuncSwitchRecordResponse
+     */
+    public function updateFuncSwitchRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateFuncSwitchRecordWithOptions($request, $headers, $runtime);
     }
 
     /**

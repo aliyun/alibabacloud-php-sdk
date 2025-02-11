@@ -19,6 +19,10 @@ class data extends Model
     /**
      * @var string
      */
+    public $grayscaleConfig;
+    /**
+     * @var string
+     */
     public $pluginId;
     /**
      * @var string
@@ -29,11 +33,12 @@ class data extends Model
      */
     public $updatedAt;
     protected $_name = [
-        'clusterId'     => 'cluster_id',
-        'createdAt'     => 'created_at',
-        'pluginId'      => 'plugin_id',
-        'pluginVersion' => 'plugin_version',
-        'updatedAt'     => 'updated_at',
+        'clusterId'       => 'cluster_id',
+        'createdAt'       => 'created_at',
+        'grayscaleConfig' => 'grayscale_config',
+        'pluginId'        => 'plugin_id',
+        'pluginVersion'   => 'plugin_version',
+        'updatedAt'       => 'updated_at',
     ];
 
     public function validate()
@@ -50,6 +55,10 @@ class data extends Model
 
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
+        }
+
+        if (null !== $this->grayscaleConfig) {
+            $res['grayscale_config'] = $this->grayscaleConfig;
         }
 
         if (null !== $this->pluginId) {
@@ -81,6 +90,10 @@ class data extends Model
 
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
+        }
+
+        if (isset($map['grayscale_config'])) {
+            $model->grayscaleConfig = $map['grayscale_config'];
         }
 
         if (isset($map['plugin_id'])) {
