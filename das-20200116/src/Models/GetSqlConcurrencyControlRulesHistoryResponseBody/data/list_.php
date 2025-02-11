@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetSqlConcurrencyControlRulesHistoryResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetSqlConcurrencyControlRulesHistoryResponseBody\data\list_\rules;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,21 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->rules) {
-            $res['rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['rules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rules)) {
+                $res['rules'] = [];
+                $n1           = 0;
+                foreach ($this->rules as $item1) {
+                    $res['rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['rules'])) {
             if (!empty($map['rules'])) {
                 $model->rules = [];
-                $n            = 0;
-                foreach ($map['rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['rules'] as $item1) {
+                    $model->rules[$n1++] = rules::fromMap($item1);
                 }
             }
         }

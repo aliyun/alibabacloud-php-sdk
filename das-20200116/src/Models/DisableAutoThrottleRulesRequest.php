@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableAutoThrottleRulesRequest extends Model
 {
     /**
-     * @description The reserved parameter.
-     *
-     * @example None
-     *
      * @var string
      */
     public $consoleContext;
-
     /**
-     * @description The database instance IDs.
-     *
-     * This parameter is required.
-     * @example [\\"rm-2ze8g2am97624****\\",\\"rm-2ze9xrhze0709****\\"]
-     *
      * @var string
      */
     public $instanceIds;
@@ -33,14 +23,16 @@ class DisableAutoThrottleRulesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consoleContext) {
             $res['ConsoleContext'] = $this->consoleContext;
         }
+
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
@@ -48,17 +40,18 @@ class DisableAutoThrottleRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableAutoThrottleRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsoleContext'])) {
             $model->consoleContext = $map['ConsoleContext'];
         }
+
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }

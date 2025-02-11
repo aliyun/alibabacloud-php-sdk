@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetHDMLastAliyunResourceSyncResultResponseBody\data\subResults;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceSyncSubResult extends Model
 {
@@ -12,17 +12,14 @@ class resourceSyncSubResult extends Model
      * @var string
      */
     public $errMsg;
-
     /**
      * @var string
      */
     public $resourceType;
-
     /**
      * @var bool
      */
     public $success;
-
     /**
      * @var int
      */
@@ -36,20 +33,24 @@ class resourceSyncSubResult extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errMsg) {
             $res['ErrMsg'] = $this->errMsg;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->syncCount) {
             $res['SyncCount'] = $this->syncCount;
         }
@@ -57,23 +58,26 @@ class resourceSyncSubResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceSyncSubResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrMsg'])) {
             $model->errMsg = $map['ErrMsg'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['SyncCount'])) {
             $model->syncCount = $map['SyncCount'];
         }

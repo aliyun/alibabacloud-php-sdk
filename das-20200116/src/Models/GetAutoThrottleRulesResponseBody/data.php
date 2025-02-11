@@ -4,67 +4,37 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetAutoThrottleRulesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetAutoThrottleRulesResponseBody\data\enableAutoThrottleList;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetAutoThrottleRulesResponseBody\data\turnOffAutoThrottleList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of database instances for which the automatic SQL throttling feature is currently enabled.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $enableAutoThrottleCount;
-
     /**
-     * @description The database instances for which the automatic SQL throttling feature is currently enabled.
-     *
      * @var enableAutoThrottleList[]
      */
     public $enableAutoThrottleList;
-
     /**
-     * @description The number of database instances that do not exist or for which the automatic SQL throttling feature has never been enabled.
-     *
-     * >  If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
-     * @example 1
-     *
      * @var int
      */
     public $neverEnableAutoThrottleOrReleasedInstanceCount;
-
     /**
-     * @description The number of database instances that do not exist or for which the automatic SQL throttling feature has never been enabled.
-     *
-     * >  If a database instance does not exist, the instance has been released or the specified instance ID is invalid.
      * @var string[]
      */
     public $neverEnableAutoThrottleOrReleasedInstanceIdList;
-
     /**
-     * @description The number of databases for which the automatic SQL throttling feature has been enabled.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $totalAutoThrottleRulesCount;
-
     /**
-     * @description The number of database instances for which the automatic SQL throttling feature was once enabled but is currently disabled.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $turnOffAutoThrottleCount;
-
     /**
-     * @description The database instances for which the automatic SQL throttling feature was once enabled but is currently disabled.
-     *
      * @var turnOffAutoThrottleList[]
      */
     public $turnOffAutoThrottleList;
@@ -80,41 +50,63 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->enableAutoThrottleList)) {
+            Model::validateArray($this->enableAutoThrottleList);
+        }
+        if (\is_array($this->neverEnableAutoThrottleOrReleasedInstanceIdList)) {
+            Model::validateArray($this->neverEnableAutoThrottleOrReleasedInstanceIdList);
+        }
+        if (\is_array($this->turnOffAutoThrottleList)) {
+            Model::validateArray($this->turnOffAutoThrottleList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableAutoThrottleCount) {
             $res['EnableAutoThrottleCount'] = $this->enableAutoThrottleCount;
         }
+
         if (null !== $this->enableAutoThrottleList) {
-            $res['EnableAutoThrottleList'] = [];
-            if (null !== $this->enableAutoThrottleList && \is_array($this->enableAutoThrottleList)) {
-                $n = 0;
-                foreach ($this->enableAutoThrottleList as $item) {
-                    $res['EnableAutoThrottleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->enableAutoThrottleList)) {
+                $res['EnableAutoThrottleList'] = [];
+                $n1                            = 0;
+                foreach ($this->enableAutoThrottleList as $item1) {
+                    $res['EnableAutoThrottleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->neverEnableAutoThrottleOrReleasedInstanceCount) {
             $res['NeverEnableAutoThrottleOrReleasedInstanceCount'] = $this->neverEnableAutoThrottleOrReleasedInstanceCount;
         }
+
         if (null !== $this->neverEnableAutoThrottleOrReleasedInstanceIdList) {
-            $res['NeverEnableAutoThrottleOrReleasedInstanceIdList'] = $this->neverEnableAutoThrottleOrReleasedInstanceIdList;
+            if (\is_array($this->neverEnableAutoThrottleOrReleasedInstanceIdList)) {
+                $res['NeverEnableAutoThrottleOrReleasedInstanceIdList'] = [];
+                $n1                                                     = 0;
+                foreach ($this->neverEnableAutoThrottleOrReleasedInstanceIdList as $item1) {
+                    $res['NeverEnableAutoThrottleOrReleasedInstanceIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->totalAutoThrottleRulesCount) {
             $res['TotalAutoThrottleRulesCount'] = $this->totalAutoThrottleRulesCount;
         }
+
         if (null !== $this->turnOffAutoThrottleCount) {
             $res['TurnOffAutoThrottleCount'] = $this->turnOffAutoThrottleCount;
         }
+
         if (null !== $this->turnOffAutoThrottleList) {
-            $res['TurnOffAutoThrottleList'] = [];
-            if (null !== $this->turnOffAutoThrottleList && \is_array($this->turnOffAutoThrottleList)) {
-                $n = 0;
-                foreach ($this->turnOffAutoThrottleList as $item) {
-                    $res['TurnOffAutoThrottleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->turnOffAutoThrottleList)) {
+                $res['TurnOffAutoThrottleList'] = [];
+                $n1                             = 0;
+                foreach ($this->turnOffAutoThrottleList as $item1) {
+                    $res['TurnOffAutoThrottleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -122,46 +114,56 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableAutoThrottleCount'])) {
             $model->enableAutoThrottleCount = $map['EnableAutoThrottleCount'];
         }
+
         if (isset($map['EnableAutoThrottleList'])) {
             if (!empty($map['EnableAutoThrottleList'])) {
                 $model->enableAutoThrottleList = [];
-                $n                             = 0;
-                foreach ($map['EnableAutoThrottleList'] as $item) {
-                    $model->enableAutoThrottleList[$n++] = null !== $item ? enableAutoThrottleList::fromMap($item) : $item;
+                $n1                            = 0;
+                foreach ($map['EnableAutoThrottleList'] as $item1) {
+                    $model->enableAutoThrottleList[$n1++] = enableAutoThrottleList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NeverEnableAutoThrottleOrReleasedInstanceCount'])) {
             $model->neverEnableAutoThrottleOrReleasedInstanceCount = $map['NeverEnableAutoThrottleOrReleasedInstanceCount'];
         }
+
         if (isset($map['NeverEnableAutoThrottleOrReleasedInstanceIdList'])) {
             if (!empty($map['NeverEnableAutoThrottleOrReleasedInstanceIdList'])) {
-                $model->neverEnableAutoThrottleOrReleasedInstanceIdList = $map['NeverEnableAutoThrottleOrReleasedInstanceIdList'];
+                $model->neverEnableAutoThrottleOrReleasedInstanceIdList = [];
+                $n1                                                     = 0;
+                foreach ($map['NeverEnableAutoThrottleOrReleasedInstanceIdList'] as $item1) {
+                    $model->neverEnableAutoThrottleOrReleasedInstanceIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TotalAutoThrottleRulesCount'])) {
             $model->totalAutoThrottleRulesCount = $map['TotalAutoThrottleRulesCount'];
         }
+
         if (isset($map['TurnOffAutoThrottleCount'])) {
             $model->turnOffAutoThrottleCount = $map['TurnOffAutoThrottleCount'];
         }
+
         if (isset($map['TurnOffAutoThrottleList'])) {
             if (!empty($map['TurnOffAutoThrottleList'])) {
                 $model->turnOffAutoThrottleList = [];
-                $n                              = 0;
-                foreach ($map['TurnOffAutoThrottleList'] as $item) {
-                    $model->turnOffAutoThrottleList[$n++] = null !== $item ? turnOffAutoThrottleList::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['TurnOffAutoThrottleList'] as $item1) {
+                    $model->turnOffAutoThrottleList[$n1++] = turnOffAutoThrottleList::fromMap($item1);
                 }
             }
         }

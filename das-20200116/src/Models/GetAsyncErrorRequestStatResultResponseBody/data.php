@@ -4,81 +4,36 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetAsyncErrorRequestStatResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DataResultValue;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Indicates whether the asynchronous request was complete.
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $complete;
-
     /**
-     * @description Indicates whether the request failed. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $fail;
-
     /**
-     * @description Indicates whether the asynchronous request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isFinish;
-
     /**
-     * @description The returned data of the asynchronous request.
-     *
      * @var DataResultValue[]
      */
     public $result;
-
     /**
-     * @description The ID of the asynchronous request.
-     *
-     * @example async__61f45ee381b2fa4e8a6545e3bee9****
-     *
      * @var string
      */
     public $resultId;
-
     /**
-     * @description The state of the asynchronous request. Valid values:
-     *
-     *   **RUNNING**: The asynchronous request is running.
-     *   **SUCCESS**: The asynchronous request is successful.
-     *   **FAIL**: The asynchronous request fails.
-     *
-     * @example SUCCESS
-     *
      * @var string
      */
     public $state;
-
     /**
-     * @description The time when the asynchronous request was made. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1644558576717
-     *
      * @var int
      */
     public $timestamp;
@@ -94,34 +49,44 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->complete) {
             $res['complete'] = $this->complete;
         }
+
         if (null !== $this->fail) {
             $res['fail'] = $this->fail;
         }
+
         if (null !== $this->isFinish) {
             $res['isFinish'] = $this->isFinish;
         }
+
         if (null !== $this->result) {
-            $res['result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                foreach ($this->result as $key => $val) {
-                    $res['result'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->result)) {
+                $res['result'] = [];
+                foreach ($this->result as $key1 => $value1) {
+                    $res['result'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
+
         if (null !== $this->resultId) {
             $res['resultId'] = $this->resultId;
         }
+
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
+
         if (null !== $this->timestamp) {
             $res['timestamp'] = $this->timestamp;
         }
@@ -129,32 +94,43 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['complete'])) {
             $model->complete = $map['complete'];
         }
+
         if (isset($map['fail'])) {
             $model->fail = $map['fail'];
         }
+
         if (isset($map['isFinish'])) {
             $model->isFinish = $map['isFinish'];
         }
+
         if (isset($map['result'])) {
-            $model->result = $map['result'];
+            if (!empty($map['result'])) {
+                $model->result = [];
+                foreach ($map['result'] as $key1 => $value1) {
+                    $model->result[$key1] = DataResultValue::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['resultId'])) {
             $model->resultId = $map['resultId'];
         }
+
         if (isset($map['state'])) {
             $model->state = $map['state'];
         }
+
         if (isset($map['timestamp'])) {
             $model->timestamp = $map['timestamp'];
         }

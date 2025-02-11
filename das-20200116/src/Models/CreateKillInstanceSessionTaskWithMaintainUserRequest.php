@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateKillInstanceSessionTaskWithMaintainUserRequest extends Model
 {
@@ -12,26 +12,18 @@ class CreateKillInstanceSessionTaskWithMaintainUserRequest extends Model
      * @var string
      */
     public $ignoredUsers;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var bool
      */
     public $killAllSessions;
-
     /**
      * @var string
      */
     public $nodeId;
-
     /**
      * @var string
      */
@@ -46,23 +38,28 @@ class CreateKillInstanceSessionTaskWithMaintainUserRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ignoredUsers) {
             $res['IgnoredUsers'] = $this->ignoredUsers;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->killAllSessions) {
             $res['KillAllSessions'] = $this->killAllSessions;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->sessionIds) {
             $res['SessionIds'] = $this->sessionIds;
         }
@@ -70,26 +67,30 @@ class CreateKillInstanceSessionTaskWithMaintainUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateKillInstanceSessionTaskWithMaintainUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IgnoredUsers'])) {
             $model->ignoredUsers = $map['IgnoredUsers'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['KillAllSessions'])) {
             $model->killAllSessions = $map['KillAllSessions'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['SessionIds'])) {
             $model->sessionIds = $map['SessionIds'];
         }

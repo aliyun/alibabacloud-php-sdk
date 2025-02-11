@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSqlLogRecordsResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSqlLogRecordsResponseBody\data\items\SQLLogRecord;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
-     * @description The SQL log data.
-     *
      * @var SQLLogRecord[]
      */
     public $SQLLogRecord;
@@ -21,17 +19,21 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->SQLLogRecord)) {
+            Model::validateArray($this->SQLLogRecord);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->SQLLogRecord) {
-            $res['SQLLogRecord'] = [];
-            if (null !== $this->SQLLogRecord && \is_array($this->SQLLogRecord)) {
-                $n = 0;
-                foreach ($this->SQLLogRecord as $item) {
-                    $res['SQLLogRecord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->SQLLogRecord)) {
+                $res['SQLLogRecord'] = [];
+                $n1                  = 0;
+                foreach ($this->SQLLogRecord as $item1) {
+                    $res['SQLLogRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SQLLogRecord'])) {
             if (!empty($map['SQLLogRecord'])) {
                 $model->SQLLogRecord = [];
-                $n                   = 0;
-                foreach ($map['SQLLogRecord'] as $item) {
-                    $model->SQLLogRecord[$n++] = null !== $item ? SQLLogRecord::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['SQLLogRecord'] as $item1) {
+                    $model->SQLLogRecord[$n1++] = SQLLogRecord::fromMap($item1);
                 }
             }
         }

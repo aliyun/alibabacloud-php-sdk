@@ -4,113 +4,53 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceInspectionsResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceInspectionsResponseBody\data\list_\autoFunction;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceInspectionsResponseBody\data\list_\instance;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
     /**
-     * @description Indicates whether the autonomy service is enabled.
-     *
      * @var autoFunction
      */
     public $autoFunction;
-
     /**
-     * @description The data returned.
-     *
-     * @example "data": { "hasDeadLock": false, "exceptionTableMap": {}, "bigTransactionCount": 0, "cpu": 4, "isRds": true, "rdsEnable": true, "enable": false, "activeSessions": [], "bigTransactionList": [], "bigSessionList": [ { "blockDuration": 0, "active": false, "Time": 0, "db": "" },
-     *
      * @var mixed[]
      */
     public $data;
-
     /**
-     * @description Indicates whether DAS Enterprise Edition is enabled. Valid values:
-     *
-     *   **0**: disabled.
-     *   **1**: enabled.
-     *   **2**: not supported.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $enableDasPro;
-
     /**
-     * @description The end time of the inspection and scoring task. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * >  The end time must be later than the start time.
-     * @example 1608888296001
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description The time when the task was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1603247192000
-     *
      * @var int
      */
     public $gmtCreate;
-
     /**
-     * @description The information about the instance.
-     *
      * @var instance
      */
     public $instance;
-
     /**
-     * @description The inspection score of the instance.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $score;
-
     /**
-     * @description The scores that are deducted for the instance.
-     *
      * @var mixed[]
      */
     public $scoreMap;
-
     /**
-     * @description The start time of the inspection and scoring task. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1608888296000
-     *
      * @var int
      */
     public $startTime;
-
     /**
-     * @description The state of the inspection and scoring task. Valid values:
-     *
-     *   **0**: The task is waiting for execution.
-     *   **1**: The task is in progress.
-     *   **2**: The task is complete.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $state;
-
     /**
-     * @description The mode in which the inspection and scoring task was initiated. Valid values:
-     *
-     *   **0**: automatic mode.
-     *   **1**: manual mode.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $taskType;
@@ -130,41 +70,74 @@ class list_ extends Model
 
     public function validate()
     {
+        if (null !== $this->autoFunction) {
+            $this->autoFunction->validate();
+        }
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        if (null !== $this->instance) {
+            $this->instance->validate();
+        }
+        if (\is_array($this->scoreMap)) {
+            Model::validateArray($this->scoreMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoFunction) {
-            $res['AutoFunction'] = null !== $this->autoFunction ? $this->autoFunction->toMap() : null;
+            $res['AutoFunction'] = null !== $this->autoFunction ? $this->autoFunction->toArray($noStream) : $this->autoFunction;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                foreach ($this->data as $key1 => $value1) {
+                    $res['Data'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->enableDasPro) {
             $res['EnableDasPro'] = $this->enableDasPro;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->instance) {
-            $res['Instance'] = null !== $this->instance ? $this->instance->toMap() : null;
+            $res['Instance'] = null !== $this->instance ? $this->instance->toArray($noStream) : $this->instance;
         }
+
         if (null !== $this->score) {
             $res['Score'] = $this->score;
         }
+
         if (null !== $this->scoreMap) {
-            $res['ScoreMap'] = $this->scoreMap;
+            if (\is_array($this->scoreMap)) {
+                $res['ScoreMap'] = [];
+                foreach ($this->scoreMap as $key1 => $value1) {
+                    $res['ScoreMap'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -172,44 +145,64 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoFunction'])) {
             $model->autoFunction = autoFunction::fromMap($map['AutoFunction']);
         }
+
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                foreach ($map['Data'] as $key1 => $value1) {
+                    $model->data[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['EnableDasPro'])) {
             $model->enableDasPro = $map['EnableDasPro'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['Instance'])) {
             $model->instance = instance::fromMap($map['Instance']);
         }
+
         if (isset($map['Score'])) {
             $model->score = $map['Score'];
         }
+
         if (isset($map['ScoreMap'])) {
-            $model->scoreMap = $map['ScoreMap'];
+            if (!empty($map['ScoreMap'])) {
+                $model->scoreMap = [];
+                foreach ($map['ScoreMap'] as $key1 => $value1) {
+                    $model->scoreMap[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

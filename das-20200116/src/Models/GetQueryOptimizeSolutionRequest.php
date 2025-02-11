@@ -4,49 +4,23 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetQueryOptimizeSolutionRequest extends Model
 {
     /**
-     * @description The database engine. Valid values:
-     *
-     *   **MySQL**
-     *   **PolarDBMySQL**
-     *   **PostgreSQL**
-     *
-     * This parameter is required.
-     * @example MySQL
-     *
      * @var string
      */
     public $engine;
-
     /**
-     * @description The instance ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the instance ID.
-     *
-     * @example rm-bp1o3z6beqpej****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The tag ID. For more information, see [Query governance](https://help.aliyun.com/document_detail/290038.html).
-     *
-     * This parameter is required.
-     * @example LARGE_ROWS_EXAMINED
-     *
      * @var string
      */
     public $ruleIds;
-
     /**
-     * @description The SQL template ID. You can call the [GetQueryOptimizeDataStats](https://help.aliyun.com/document_detail/405261.html) operation to query the SQL template ID.
-     *
-     * This parameter is required.
-     * @example 05fecf7e7b3efd123c4d5197035f****
-     *
      * @var string
      */
     public $sqlId;
@@ -59,20 +33,24 @@ class GetQueryOptimizeSolutionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ruleIds) {
             $res['RuleIds'] = $this->ruleIds;
         }
+
         if (null !== $this->sqlId) {
             $res['SqlId'] = $this->sqlId;
         }
@@ -80,23 +58,26 @@ class GetQueryOptimizeSolutionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQueryOptimizeSolutionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RuleIds'])) {
             $model->ruleIds = $map['RuleIds'];
         }
+
         if (isset($map['SqlId'])) {
             $model->sqlId = $map['SqlId'];
         }

@@ -4,30 +4,15 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAutoSqlOptimizeStatusRequest extends Model
 {
     /**
-     * @description The database instance IDs. Separate multiple IDs with commas (,).
-     *
-     * This parameter is required.
-     * @example rm-bp10usoc1erj7****,rm-bp10usoc1erj7****
-     *
      * @var string
      */
     public $instances;
-
     /**
-     * @description The status of the automatic SQL optimization feature. Valid values:
-     *
-     *   **0**: The automatic SQL optimization feature is disabled.
-     *   **1**: **SQL diagnosis and automatic index creation** is specified.
-     *   **3**: **SQL diagnosis only** is specified.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -38,14 +23,16 @@ class UpdateAutoSqlOptimizeStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instances) {
             $res['Instances'] = $this->instances;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -53,17 +40,18 @@ class UpdateAutoSqlOptimizeStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAutoSqlOptimizeStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instances'])) {
             $model->instances = $map['Instances'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

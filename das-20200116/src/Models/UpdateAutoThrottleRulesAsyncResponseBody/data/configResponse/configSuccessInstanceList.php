@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\UpdateAutoThrottleRulesAsyncResponseBody\data\configResponse;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class configSuccessInstanceList extends Model
 {
     /**
-     * @description Indicates whether the parameters are configured. Valid values:
-     *
-     * **true**
-     *
-     * **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $configSuccess;
-
     /**
-     * @description The database instance ID.
-     *
-     * @example rm-2ze8g2am97624****
-     *
      * @var string
      */
     public $instanceId;
@@ -36,14 +23,16 @@ class configSuccessInstanceList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configSuccess) {
             $res['ConfigSuccess'] = $this->configSuccess;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -51,17 +40,18 @@ class configSuccessInstanceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return configSuccessInstanceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigSuccess'])) {
             $model->configSuccess = $map['ConfigSuccess'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

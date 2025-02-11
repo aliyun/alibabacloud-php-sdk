@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetInstanceSqlOptimizeStatisticResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The total number of automatic SQL optimization events.
-     *
-     * @example 16
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The multiple of the maximum improvement for returned automatic SQL optimization events.
-     *
-     * @example 1003
-     *
      * @var float
      */
     public $improvement;
@@ -32,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['count'] = $this->count;
         }
+
         if (null !== $this->improvement) {
             $res['improvement'] = $this->improvement;
         }
@@ -47,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['count'])) {
             $model->count = $map['count'];
         }
+
         if (isset($map['improvement'])) {
             $model->improvement = $map['improvement'];
         }

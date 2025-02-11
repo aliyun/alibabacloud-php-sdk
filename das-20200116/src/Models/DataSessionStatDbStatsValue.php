@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataSessionStatDbStatsValue extends Model
 {
     /**
-     * @description The number of active namespaces.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $activeCount;
-
     /**
-     * @description The total number of namespaces.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $totalCount;
@@ -32,14 +23,16 @@ class DataSessionStatDbStatsValue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activeCount) {
             $res['ActiveCount'] = $this->activeCount;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -47,17 +40,18 @@ class DataSessionStatDbStatsValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataSessionStatDbStatsValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActiveCount'])) {
             $model->activeCount = $map['ActiveCount'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

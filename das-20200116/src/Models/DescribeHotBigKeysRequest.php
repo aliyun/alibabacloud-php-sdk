@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHotBigKeysRequest extends Model
 {
     /**
-     * @description The reserved parameter.
-     *
-     * @example None
-     *
      * @var string
      */
     public $consoleContext;
-
     /**
-     * @description The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID.
-     *
-     * This parameter is required.
-     * @example r-bp18ff4a195d****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The ID of the data shard on the ApsaraDB for Redis instance. You can call the [DescribeRoleZoneInfo](https://help.aliyun.com/document_detail/190794.html) operation to query the ID.
-     *
-     * @example r-****-db-0
-     *
      * @var string
      */
     public $nodeId;
@@ -43,17 +28,20 @@ class DescribeHotBigKeysRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consoleContext) {
             $res['ConsoleContext'] = $this->consoleContext;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
@@ -61,20 +49,22 @@ class DescribeHotBigKeysRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHotBigKeysRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConsoleContext'])) {
             $model->consoleContext = $map['ConsoleContext'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }

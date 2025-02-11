@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\GetDeadlockHistogramResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetDeadlockHistogramResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var int
      */
     public $code;
-
     /**
      * @var data[]
      */
     public $data;
-
     /**
-     * @example Successful
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example 0A74B755-98B7-59DB-8724-1321B394****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -51,29 +39,37 @@ class GetDeadlockHistogramResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                $n1          = 0;
+                foreach ($this->data as $item1) {
+                    $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -81,32 +77,36 @@ class GetDeadlockHistogramResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeadlockHistogramResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Data'] as $item1) {
+                    $model->data[$n1++] = data::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

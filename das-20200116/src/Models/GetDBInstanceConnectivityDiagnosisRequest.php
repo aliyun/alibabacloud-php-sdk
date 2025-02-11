@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDBInstanceConnectivityDiagnosisRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example rm-2ze8g2am97624****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The source IP address.
-     *
-     * This parameter is required.
-     * @example 47.110.180.62
-     *
      * @var string
      */
     public $srcIp;
@@ -34,14 +23,16 @@ class GetDBInstanceConnectivityDiagnosisRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->srcIp) {
             $res['SrcIp'] = $this->srcIp;
         }
@@ -49,17 +40,18 @@ class GetDBInstanceConnectivityDiagnosisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDBInstanceConnectivityDiagnosisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SrcIp'])) {
             $model->srcIp = $map['SrcIp'];
         }

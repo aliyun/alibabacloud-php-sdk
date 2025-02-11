@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCloudBenchTasksResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeCloudBenchTasksResponseBody\data\list_\cloudbenchTasks;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -19,17 +19,21 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->cloudbenchTasks)) {
+            Model::validateArray($this->cloudbenchTasks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cloudbenchTasks) {
-            $res['cloudbenchTasks'] = [];
-            if (null !== $this->cloudbenchTasks && \is_array($this->cloudbenchTasks)) {
-                $n = 0;
-                foreach ($this->cloudbenchTasks as $item) {
-                    $res['cloudbenchTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cloudbenchTasks)) {
+                $res['cloudbenchTasks'] = [];
+                $n1                     = 0;
+                foreach ($this->cloudbenchTasks as $item1) {
+                    $res['cloudbenchTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cloudbenchTasks'])) {
             if (!empty($map['cloudbenchTasks'])) {
                 $model->cloudbenchTasks = [];
-                $n                      = 0;
-                foreach ($map['cloudbenchTasks'] as $item) {
-                    $model->cloudbenchTasks[$n++] = null !== $item ? cloudbenchTasks::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['cloudbenchTasks'] as $item1) {
+                    $model->cloudbenchTasks[$n1++] = cloudbenchTasks::fromMap($item1);
                 }
             }
         }

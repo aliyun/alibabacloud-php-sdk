@@ -4,48 +4,27 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models\GetMySQLAllSessionAsyncResponseBody\data\sessionData;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userStats extends Model
 {
     /**
-     * @description The number of active sessions within the account.
-     *
-     * >  If the type of the command executed in the session is Query or Execute and the session in the transaction is not terminated, the session is active.
-     * @example 1
-     *
      * @var int
      */
     public $activeCount;
-
     /**
-     * @description The database account.
-     *
-     * @example testUser
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The IDs of the sessions within the account.
-     *
      * @var int[]
      */
     public $threadIdList;
-
     /**
-     * @description The total number of sessions within the account.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
-
     /**
-     * @description The database accounts to which the sessions belong.
-     *
      * @var string[]
      */
     public $userList;
@@ -59,55 +38,90 @@ class userStats extends Model
 
     public function validate()
     {
+        if (\is_array($this->threadIdList)) {
+            Model::validateArray($this->threadIdList);
+        }
+        if (\is_array($this->userList)) {
+            Model::validateArray($this->userList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activeCount) {
             $res['ActiveCount'] = $this->activeCount;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->threadIdList) {
-            $res['ThreadIdList'] = $this->threadIdList;
+            if (\is_array($this->threadIdList)) {
+                $res['ThreadIdList'] = [];
+                $n1                  = 0;
+                foreach ($this->threadIdList as $item1) {
+                    $res['ThreadIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->userList) {
-            $res['UserList'] = $this->userList;
+            if (\is_array($this->userList)) {
+                $res['UserList'] = [];
+                $n1              = 0;
+                foreach ($this->userList as $item1) {
+                    $res['UserList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userStats
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActiveCount'])) {
             $model->activeCount = $map['ActiveCount'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['ThreadIdList'])) {
             if (!empty($map['ThreadIdList'])) {
-                $model->threadIdList = $map['ThreadIdList'];
+                $model->threadIdList = [];
+                $n1                  = 0;
+                foreach ($map['ThreadIdList'] as $item1) {
+                    $model->threadIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['UserList'])) {
             if (!empty($map['UserList'])) {
-                $model->userList = $map['UserList'];
+                $model->userList = [];
+                $n1              = 0;
+                foreach ($map['UserList'] as $item1) {
+                    $model->userList[$n1++] = $item1;
+                }
             }
         }
 

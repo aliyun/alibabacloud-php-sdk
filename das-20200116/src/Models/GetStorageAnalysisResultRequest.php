@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetStorageAnalysisResultRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example rm-bp10xxxxxxxxx
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The node ID.
-     *
-     * >  This parameter is reserved.
-     * @example 202****
-     *
      * @var string
      */
     public $nodeId;
-
     /**
-     * @description The task ID. You can obtain the task ID from the response of the [CreateStorageAnalysisTask](https://help.aliyun.com/document_detail/2639140.html) operation.
-     *
-     * This parameter is required.
-     * @example 910f83f4b96df0524ddc5749f615****
-     *
      * @var string
      */
     public $taskId;
@@ -45,17 +28,20 @@ class GetStorageAnalysisResultRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -63,20 +49,22 @@ class GetStorageAnalysisResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStorageAnalysisResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

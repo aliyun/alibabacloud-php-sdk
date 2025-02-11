@@ -4,69 +4,36 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeSqlLogTasksRequest\filters;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSqlLogTasksRequest extends Model
 {
     /**
-     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1608888296000
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description The filter parameters.
-     *
      * @var filters[]
      */
     public $filters;
-
     /**
-     * @description The ID of the database instance.
-     *
-     * @example r-bp1nti25tc7bq5****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The node ID.
-     *
-     * >  This parameter is available only for instances that are deployed in the cluster architecture. You can specify this parameter to query the tasks of a specific node. If this parameter is not specified, the tasks of the primary node are returned by default.
-     * @example pi-bp1o58x3ib7e6z496
-     *
      * @var string
      */
     public $nodeId;
-
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
-
     /**
-     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1596177993000
-     *
      * @var int
      */
     public $startTime;
@@ -82,35 +49,45 @@ class DescribeSqlLogTasksRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->filters) {
-            $res['Filters'] = [];
-            if (null !== $this->filters && \is_array($this->filters)) {
-                $n = 0;
-                foreach ($this->filters as $item) {
-                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filters)) {
+                $res['Filters'] = [];
+                $n1             = 0;
+                foreach ($this->filters as $item1) {
+                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -118,38 +95,44 @@ class DescribeSqlLogTasksRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSqlLogTasksRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
-                foreach ($map['Filters'] as $item) {
-                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Filters'] as $item1) {
+                    $model->filters[$n1++] = filters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
