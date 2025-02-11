@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDistributionProductsLinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $codes;
@@ -20,29 +18,43 @@ class DescribeDistributionProductsLinkRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->codes)) {
+            Model::validateArray($this->codes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codes) {
-            $res['Codes'] = $this->codes;
+            if (\is_array($this->codes)) {
+                $res['Codes'] = [];
+                $n1           = 0;
+                foreach ($this->codes as $item1) {
+                    $res['Codes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDistributionProductsLinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Codes'])) {
             if (!empty($map['Codes'])) {
-                $model->codes = $map['Codes'];
+                $model->codes = [];
+                $n1           = 0;
+                foreach ($map['Codes'] as $item1) {
+                    $model->codes[$n1++] = $item1;
+                }
             }
         }
 

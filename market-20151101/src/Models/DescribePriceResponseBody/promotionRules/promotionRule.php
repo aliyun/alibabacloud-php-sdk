@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribePriceResponseBody\promotionRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class promotionRule extends Model
 {
@@ -12,14 +12,10 @@ class promotionRule extends Model
      * @var string
      */
     public $name;
-
     /**
-     * @example 102112
-     *
      * @var string
      */
     public $ruleId;
-
     /**
      * @var string
      */
@@ -32,17 +28,20 @@ class promotionRule extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -50,20 +49,22 @@ class promotionRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return promotionRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeProductResponseBody\shopInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeProductResponseBody\shopInfo\wangWangs\wangWang;
-use AlibabaCloud\Tea\Model;
 
 class wangWangs extends Model
 {
@@ -19,17 +19,21 @@ class wangWangs extends Model
 
     public function validate()
     {
+        if (\is_array($this->wangWang)) {
+            Model::validateArray($this->wangWang);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->wangWang) {
-            $res['WangWang'] = [];
-            if (null !== $this->wangWang && \is_array($this->wangWang)) {
-                $n = 0;
-                foreach ($this->wangWang as $item) {
-                    $res['WangWang'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->wangWang)) {
+                $res['WangWang'] = [];
+                $n1              = 0;
+                foreach ($this->wangWang as $item1) {
+                    $res['WangWang'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class wangWangs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return wangWangs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WangWang'])) {
             if (!empty($map['WangWang'])) {
                 $model->wangWang = [];
-                $n               = 0;
-                foreach ($map['WangWang'] as $item) {
-                    $model->wangWang[$n++] = null !== $item ? wangWang::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['WangWang'] as $item1) {
+                    $model->wangWang[$n1++] = wangWang::fromMap($item1);
                 }
             }
         }

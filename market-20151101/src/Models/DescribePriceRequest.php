@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePriceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example {"components":{"package_version":"yuncode12928000016"},"duration":1,"pricingCycle":"YEAR","productCode":"cmgj01**28","quantity":1,"skuCode":"prepay"}
-     *
      * @var string
      */
     public $commodity;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example INSTANCE_BUY
-     *
      * @var string
      */
     public $orderType;
@@ -32,14 +23,16 @@ class DescribePriceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodity) {
             $res['Commodity'] = $this->commodity;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
@@ -47,17 +40,18 @@ class DescribePriceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Commodity'])) {
             $model->commodity = $map['Commodity'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }

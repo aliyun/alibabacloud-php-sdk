@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CrossAccountVerifyTokenRequest extends Model
 {
     /**
-     * @example C19D103FEA2D50A584410267CE9FBA56
-     *
      * @var string
      */
     public $token;
@@ -20,9 +18,10 @@ class CrossAccountVerifyTokenRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->token) {
@@ -32,11 +31,11 @@ class CrossAccountVerifyTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CrossAccountVerifyTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

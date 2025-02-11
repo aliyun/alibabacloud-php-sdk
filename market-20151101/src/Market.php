@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Market\V20151101\Models\ActivateLicenseRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\ActivateLicenseResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\AutoRenewInstanceRequest;
@@ -23,6 +22,8 @@ use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkRes
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkShrinkRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeImageInstanceForIsvRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeImageInstanceForIsvResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceForIsvRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceForIsvResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceRequest;
@@ -61,11 +62,10 @@ use AlibabaCloud\SDK\Market\V20151101\Models\ResumeProjectRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\ResumeProjectResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\RollbackCurrentProjectNodeRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\RollbackCurrentProjectNodeResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Market extends OpenApiClient
 {
@@ -115,36 +115,43 @@ class Market extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 增加STS支持
-     *  *
-     * @param ActivateLicenseRequest $request ActivateLicenseRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 增加STS支持
      *
-     * @return ActivateLicenseResponse ActivateLicenseResponse
+     * @param request - ActivateLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ActivateLicenseResponse
+     *
+     * @param ActivateLicenseRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ActivateLicenseResponse
      */
     public function activateLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identification)) {
-            $query['Identification'] = $request->identification;
+        if (null !== $request->identification) {
+            @$query['Identification'] = $request->identification;
         }
-        if (!Utils::isUnset($request->licenseCode)) {
-            $query['LicenseCode'] = $request->licenseCode;
+
+        if (null !== $request->licenseCode) {
+            @$query['LicenseCode'] = $request->licenseCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ActivateLicense',
@@ -157,16 +164,22 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ActivateLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ActivateLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ActivateLicenseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 增加STS支持
-     *  *
-     * @param ActivateLicenseRequest $request ActivateLicenseRequest
+     * 增加STS支持
      *
-     * @return ActivateLicenseResponse ActivateLicenseResponse
+     * @param request - ActivateLicenseRequest
+     * @returns ActivateLicenseResponse
+     *
+     * @param ActivateLicenseRequest $request
+     *
+     * @return ActivateLicenseResponse
      */
     public function activateLicense($request)
     {
@@ -176,32 +189,41 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param AutoRenewInstanceRequest $request AutoRenewInstanceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - AutoRenewInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AutoRenewInstanceResponse
      *
-     * @return AutoRenewInstanceResponse AutoRenewInstanceResponse
+     * @param AutoRenewInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AutoRenewInstanceResponse
      */
     public function autoRenewInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoRenewCycle)) {
-            $body['AutoRenewCycle'] = $request->autoRenewCycle;
+        if (null !== $request->autoRenewCycle) {
+            @$body['AutoRenewCycle'] = $request->autoRenewCycle;
         }
-        if (!Utils::isUnset($request->autoRenewDuration)) {
-            $body['AutoRenewDuration'] = $request->autoRenewDuration;
+
+        if (null !== $request->autoRenewDuration) {
+            @$body['AutoRenewDuration'] = $request->autoRenewDuration;
         }
-        if (!Utils::isUnset($request->orderBizId)) {
-            $body['OrderBizId'] = $request->orderBizId;
+
+        if (null !== $request->orderBizId) {
+            @$body['OrderBizId'] = $request->orderBizId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $body['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$body['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AutoRenewInstance',
@@ -214,14 +236,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AutoRenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AutoRenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AutoRenewInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AutoRenewInstanceRequest $request AutoRenewInstanceRequest
+     * @param request - AutoRenewInstanceRequest
+     * @returns AutoRenewInstanceResponse
      *
-     * @return AutoRenewInstanceResponse AutoRenewInstanceResponse
+     * @param AutoRenewInstanceRequest $request
+     *
+     * @return AutoRenewInstanceResponse
      */
     public function autoRenewInstance($request)
     {
@@ -231,35 +259,45 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param CreateOrderRequest $request CreateOrderRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrderResponse
      *
-     * @return CreateOrderResponse CreateOrderResponse
+     * @param CreateOrderRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateOrderResponse
      */
     public function createOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->commodity)) {
-            $query['Commodity'] = $request->commodity;
+
+        if (null !== $request->commodity) {
+            @$query['Commodity'] = $request->commodity;
         }
-        if (!Utils::isUnset($request->orderSouce)) {
-            $query['OrderSouce'] = $request->orderSouce;
+
+        if (null !== $request->orderSouce) {
+            @$query['OrderSouce'] = $request->orderSouce;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->paymentType)) {
-            $query['PaymentType'] = $request->paymentType;
+
+        if (null !== $request->paymentType) {
+            @$query['PaymentType'] = $request->paymentType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateOrder',
@@ -272,14 +310,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateOrderRequest $request CreateOrderRequest
+     * @param request - CreateOrderRequest
+     * @returns CreateOrderResponse
      *
-     * @return CreateOrderResponse CreateOrderResponse
+     * @param CreateOrderRequest $request
+     *
+     * @return CreateOrderResponse
      */
     public function createOrder($request)
     {
@@ -289,20 +333,25 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param CrossAccountVerifyTokenRequest $request CrossAccountVerifyTokenRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - CrossAccountVerifyTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CrossAccountVerifyTokenResponse
      *
-     * @return CrossAccountVerifyTokenResponse CrossAccountVerifyTokenResponse
+     * @param CrossAccountVerifyTokenRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CrossAccountVerifyTokenResponse
      */
     public function crossAccountVerifyTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->token)) {
-            $body['Token'] = $request->token;
+        if (null !== $request->token) {
+            @$body['Token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CrossAccountVerifyToken',
@@ -315,14 +364,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CrossAccountVerifyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CrossAccountVerifyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CrossAccountVerifyTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CrossAccountVerifyTokenRequest $request CrossAccountVerifyTokenRequest
+     * @param request - CrossAccountVerifyTokenRequest
+     * @returns CrossAccountVerifyTokenResponse
      *
-     * @return CrossAccountVerifyTokenResponse CrossAccountVerifyTokenResponse
+     * @param CrossAccountVerifyTokenRequest $request
+     *
+     * @return CrossAccountVerifyTokenResponse
      */
     public function crossAccountVerifyToken($request)
     {
@@ -332,19 +387,23 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @summary 查询API用量
-     *  *
-     * @param DescribeApiMeteringRequest $request DescribeApiMeteringRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询API用量.
      *
-     * @return DescribeApiMeteringResponse DescribeApiMeteringResponse
+     * @param request - DescribeApiMeteringRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApiMeteringResponse
+     *
+     * @param DescribeApiMeteringRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeApiMeteringResponse
      */
     public function describeApiMeteringWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiMetering',
@@ -357,16 +416,22 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApiMeteringResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApiMeteringResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApiMeteringResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询API用量
-     *  *
-     * @param DescribeApiMeteringRequest $request DescribeApiMeteringRequest
+     * 查询API用量.
      *
-     * @return DescribeApiMeteringResponse DescribeApiMeteringResponse
+     * @param request - DescribeApiMeteringRequest
+     * @returns DescribeApiMeteringResponse
+     *
+     * @param DescribeApiMeteringRequest $request
+     *
+     * @return DescribeApiMeteringResponse
      */
     public function describeApiMetering($request)
     {
@@ -376,20 +441,25 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeCurrentNodeInfoRequest $request DescribeCurrentNodeInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeCurrentNodeInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCurrentNodeInfoResponse
      *
-     * @return DescribeCurrentNodeInfoResponse DescribeCurrentNodeInfoResponse
+     * @param DescribeCurrentNodeInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeCurrentNodeInfoResponse
      */
     public function describeCurrentNodeInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCurrentNodeInfo',
@@ -402,14 +472,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCurrentNodeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCurrentNodeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCurrentNodeInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeCurrentNodeInfoRequest $request DescribeCurrentNodeInfoRequest
+     * @param request - DescribeCurrentNodeInfoRequest
+     * @returns DescribeCurrentNodeInfoResponse
      *
-     * @return DescribeCurrentNodeInfoResponse DescribeCurrentNodeInfoResponse
+     * @param DescribeCurrentNodeInfoRequest $request
+     *
+     * @return DescribeCurrentNodeInfoResponse
      */
     public function describeCurrentNodeInfo($request)
     {
@@ -419,19 +495,23 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取推广商品
-     *  *
-     * @param DescribeDistributionProductsRequest $request DescribeDistributionProductsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 分页获取推广商品
      *
-     * @return DescribeDistributionProductsResponse DescribeDistributionProductsResponse
+     * @param request - DescribeDistributionProductsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDistributionProductsResponse
+     *
+     * @param DescribeDistributionProductsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDistributionProductsResponse
      */
     public function describeDistributionProductsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDistributionProducts',
@@ -444,16 +524,22 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDistributionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDistributionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDistributionProductsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页获取推广商品
-     *  *
-     * @param DescribeDistributionProductsRequest $request DescribeDistributionProductsRequest
+     * 分页获取推广商品
      *
-     * @return DescribeDistributionProductsResponse DescribeDistributionProductsResponse
+     * @param request - DescribeDistributionProductsRequest
+     * @returns DescribeDistributionProductsResponse
+     *
+     * @param DescribeDistributionProductsRequest $request
+     *
+     * @return DescribeDistributionProductsResponse
      */
     public function describeDistributionProducts($request)
     {
@@ -463,27 +549,33 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @summary 获取并生成推广商品-链接
-     *  *
-     * @param DescribeDistributionProductsLinkRequest $tmpReq  DescribeDistributionProductsLinkRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 获取并生成推广商品-链接.
      *
-     * @return DescribeDistributionProductsLinkResponse DescribeDistributionProductsLinkResponse
+     * @param tmpReq - DescribeDistributionProductsLinkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDistributionProductsLinkResponse
+     *
+     * @param DescribeDistributionProductsLinkRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDistributionProductsLinkResponse
      */
     public function describeDistributionProductsLinkWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeDistributionProductsLinkShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->codes)) {
-            $request->codesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->codes, 'Codes', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->codes) {
+            $request->codesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->codes, 'Codes', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->codesShrink)) {
-            $query['Codes'] = $request->codesShrink;
+        if (null !== $request->codesShrink) {
+            @$query['Codes'] = $request->codesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDistributionProductsLink',
@@ -496,16 +588,22 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDistributionProductsLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDistributionProductsLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDistributionProductsLinkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取并生成推广商品-链接
-     *  *
-     * @param DescribeDistributionProductsLinkRequest $request DescribeDistributionProductsLinkRequest
+     * 获取并生成推广商品-链接.
      *
-     * @return DescribeDistributionProductsLinkResponse DescribeDistributionProductsLinkResponse
+     * @param request - DescribeDistributionProductsLinkRequest
+     * @returns DescribeDistributionProductsLinkResponse
+     *
+     * @param DescribeDistributionProductsLinkRequest $request
+     *
+     * @return DescribeDistributionProductsLinkResponse
      */
     public function describeDistributionProductsLink($request)
     {
@@ -515,26 +613,95 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 服务商侧查询镜像实例信息.
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param request - DescribeImageInstanceForIsvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeImageInstanceForIsvResponse
+     *
+     * @param DescribeImageInstanceForIsvRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeImageInstanceForIsvResponse
+     */
+    public function describeImageInstanceForIsvWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->customerPk) {
+            @$query['CustomerPk'] = $request->customerPk;
+        }
+
+        if (null !== $request->ecsInstanceId) {
+            @$query['EcsInstanceId'] = $request->ecsInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageInstanceForIsv',
+            'version'     => '2015-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeImageInstanceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeImageInstanceForIsvResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 服务商侧查询镜像实例信息.
+     *
+     * @param request - DescribeImageInstanceForIsvRequest
+     * @returns DescribeImageInstanceForIsvResponse
+     *
+     * @param DescribeImageInstanceForIsvRequest $request
+     *
+     * @return DescribeImageInstanceForIsvResponse
+     */
+    public function describeImageInstanceForIsv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageInstanceForIsvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param request - DescribeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceResponse
+     *
+     * @param DescribeInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstance',
@@ -547,14 +714,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * @param request - DescribeInstanceRequest
+     * @returns DescribeInstanceResponse
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param DescribeInstanceRequest $request
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -564,22 +737,27 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @summary 服务商侧查询实例信息
-     *  *
-     * @param DescribeInstanceForIsvRequest $request DescribeInstanceForIsvRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 服务商侧查询实例信息.
      *
-     * @return DescribeInstanceForIsvResponse DescribeInstanceForIsvResponse
+     * @param request - DescribeInstanceForIsvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceForIsvResponse
+     *
+     * @param DescribeInstanceForIsvRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeInstanceForIsvResponse
      */
     public function describeInstanceForIsvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceForIsv',
@@ -592,16 +770,22 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceForIsvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 服务商侧查询实例信息
-     *  *
-     * @param DescribeInstanceForIsvRequest $request DescribeInstanceForIsvRequest
+     * 服务商侧查询实例信息.
      *
-     * @return DescribeInstanceForIsvResponse DescribeInstanceForIsvResponse
+     * @param request - DescribeInstanceForIsvRequest
+     * @returns DescribeInstanceForIsvResponse
+     *
+     * @param DescribeInstanceForIsvRequest $request
+     *
+     * @return DescribeInstanceForIsvResponse
      */
     public function describeInstanceForIsv($request)
     {
@@ -611,32 +795,41 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstancesResponse
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->codes)) {
-            $query['Codes'] = $request->codes;
+        if (null !== $request->codes) {
+            @$query['Codes'] = $request->codes;
         }
-        if (!Utils::isUnset($request->exceptCodes)) {
-            $query['ExceptCodes'] = $request->exceptCodes;
+
+        if (null !== $request->exceptCodes) {
+            @$query['ExceptCodes'] = $request->exceptCodes;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstances',
@@ -649,14 +842,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @param request - DescribeInstancesRequest
+     * @returns DescribeInstancesResponse
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -666,22 +865,27 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @summary 获取License
-     *  *
-     * @param DescribeLicenseRequest $request DescribeLicenseRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取License.
      *
-     * @return DescribeLicenseResponse DescribeLicenseResponse
+     * @param request - DescribeLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeLicenseResponse
+     *
+     * @param DescribeLicenseRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeLicenseResponse
      */
     public function describeLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->licenseCode)) {
-            $query['LicenseCode'] = $request->licenseCode;
+        if (null !== $request->licenseCode) {
+            @$query['LicenseCode'] = $request->licenseCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeLicense',
@@ -694,16 +898,22 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLicenseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取License
-     *  *
-     * @param DescribeLicenseRequest $request DescribeLicenseRequest
+     * 获取License.
      *
-     * @return DescribeLicenseResponse DescribeLicenseResponse
+     * @param request - DescribeLicenseRequest
+     * @returns DescribeLicenseResponse
+     *
+     * @param DescribeLicenseRequest $request
+     *
+     * @return DescribeLicenseResponse
      */
     public function describeLicense($request)
     {
@@ -713,20 +923,25 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeOrderRequest $request DescribeOrderRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeOrderResponse
      *
-     * @return DescribeOrderResponse DescribeOrderResponse
+     * @param DescribeOrderRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeOrderResponse
      */
     public function describeOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeOrder',
@@ -739,14 +954,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeOrderRequest $request DescribeOrderRequest
+     * @param request - DescribeOrderRequest
+     * @returns DescribeOrderResponse
      *
-     * @return DescribeOrderResponse DescribeOrderResponse
+     * @param DescribeOrderRequest $request
+     *
+     * @return DescribeOrderResponse
      */
     public function describeOrder($request)
     {
@@ -756,22 +977,27 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @summary 服务商侧查询订单详情
-     *  *
-     * @param DescribeOrderForIsvRequest $request DescribeOrderForIsvRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 服务商侧查询订单详情.
      *
-     * @return DescribeOrderForIsvResponse DescribeOrderForIsvResponse
+     * @param request - DescribeOrderForIsvRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeOrderForIsvResponse
+     *
+     * @param DescribeOrderForIsvRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeOrderForIsvResponse
      */
     public function describeOrderForIsvWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeOrderForIsv',
@@ -784,16 +1010,22 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeOrderForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeOrderForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOrderForIsvResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 服务商侧查询订单详情
-     *  *
-     * @param DescribeOrderForIsvRequest $request DescribeOrderForIsvRequest
+     * 服务商侧查询订单详情.
      *
-     * @return DescribeOrderForIsvResponse DescribeOrderForIsvResponse
+     * @param request - DescribeOrderForIsvRequest
+     * @returns DescribeOrderForIsvResponse
+     *
+     * @param DescribeOrderForIsvRequest $request
+     *
+     * @return DescribeOrderForIsvResponse
      */
     public function describeOrderForIsv($request)
     {
@@ -803,23 +1035,29 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribePriceRequest $request DescribePriceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribePriceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePriceResponse
      *
-     * @return DescribePriceResponse DescribePriceResponse
+     * @param DescribePriceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribePriceResponse
      */
     public function describePriceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commodity)) {
-            $query['Commodity'] = $request->commodity;
+        if (null !== $request->commodity) {
+            @$query['Commodity'] = $request->commodity;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePrice',
@@ -832,14 +1070,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePriceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePriceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param request - DescribePriceRequest
+     * @returns DescribePriceResponse
      *
-     * @return DescribePriceResponse DescribePriceResponse
+     * @param DescribePriceRequest $request
+     *
+     * @return DescribePriceResponse
      */
     public function describePrice($request)
     {
@@ -849,26 +1093,33 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductRequest $request DescribeProductRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeProductRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProductResponse
      *
-     * @return DescribeProductResponse DescribeProductResponse
+     * @param DescribeProductRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeProductResponse
      */
     public function describeProductWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliUid)) {
-            $query['AliUid'] = $request->aliUid;
+        if (null !== $request->aliUid) {
+            @$query['AliUid'] = $request->aliUid;
         }
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->queryDraft)) {
-            $query['QueryDraft'] = $request->queryDraft;
+
+        if (null !== $request->queryDraft) {
+            @$query['QueryDraft'] = $request->queryDraft;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProduct',
@@ -881,14 +1132,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProductResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeProductRequest $request DescribeProductRequest
+     * @param request - DescribeProductRequest
+     * @returns DescribeProductResponse
      *
-     * @return DescribeProductResponse DescribeProductResponse
+     * @param DescribeProductRequest $request
+     *
+     * @return DescribeProductResponse
      */
     public function describeProduct($request)
     {
@@ -898,29 +1155,37 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductsRequest $request DescribeProductsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeProductsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProductsResponse
      *
-     * @return DescribeProductsResponse DescribeProductsResponse
+     * @param DescribeProductsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeProductsResponse
      */
     public function describeProductsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchTerm)) {
-            $query['SearchTerm'] = $request->searchTerm;
+
+        if (null !== $request->searchTerm) {
+            @$query['SearchTerm'] = $request->searchTerm;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProducts',
@@ -933,14 +1198,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProductsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeProductsRequest $request DescribeProductsRequest
+     * @param request - DescribeProductsRequest
+     * @returns DescribeProductsResponse
      *
-     * @return DescribeProductsResponse DescribeProductsResponse
+     * @param DescribeProductsRequest $request
+     *
+     * @return DescribeProductsResponse
      */
     public function describeProducts($request)
     {
@@ -950,20 +1221,25 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectAttachmentsRequest $request DescribeProjectAttachmentsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeProjectAttachmentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProjectAttachmentsResponse
      *
-     * @return DescribeProjectAttachmentsResponse DescribeProjectAttachmentsResponse
+     * @param DescribeProjectAttachmentsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeProjectAttachmentsResponse
      */
     public function describeProjectAttachmentsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProjectAttachments',
@@ -976,14 +1252,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProjectAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProjectAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProjectAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeProjectAttachmentsRequest $request DescribeProjectAttachmentsRequest
+     * @param request - DescribeProjectAttachmentsRequest
+     * @returns DescribeProjectAttachmentsResponse
      *
-     * @return DescribeProjectAttachmentsResponse DescribeProjectAttachmentsResponse
+     * @param DescribeProjectAttachmentsRequest $request
+     *
+     * @return DescribeProjectAttachmentsResponse
      */
     public function describeProjectAttachments($request)
     {
@@ -993,20 +1275,25 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectInfoRequest $request DescribeProjectInfoRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeProjectInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProjectInfoResponse
      *
-     * @return DescribeProjectInfoResponse DescribeProjectInfoResponse
+     * @param DescribeProjectInfoRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeProjectInfoResponse
      */
     public function describeProjectInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProjectInfo',
@@ -1019,14 +1306,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProjectInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeProjectInfoRequest $request DescribeProjectInfoRequest
+     * @param request - DescribeProjectInfoRequest
+     * @returns DescribeProjectInfoResponse
      *
-     * @return DescribeProjectInfoResponse DescribeProjectInfoResponse
+     * @param DescribeProjectInfoRequest $request
+     *
+     * @return DescribeProjectInfoResponse
      */
     public function describeProjectInfo($request)
     {
@@ -1036,23 +1329,29 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectMessagesRequest $request DescribeProjectMessagesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeProjectMessagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProjectMessagesResponse
      *
-     * @return DescribeProjectMessagesResponse DescribeProjectMessagesResponse
+     * @param DescribeProjectMessagesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeProjectMessagesResponse
      */
     public function describeProjectMessagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProjectMessages',
@@ -1065,14 +1364,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProjectMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProjectMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProjectMessagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeProjectMessagesRequest $request DescribeProjectMessagesRequest
+     * @param request - DescribeProjectMessagesRequest
+     * @returns DescribeProjectMessagesResponse
      *
-     * @return DescribeProjectMessagesResponse DescribeProjectMessagesResponse
+     * @param DescribeProjectMessagesRequest $request
+     *
+     * @return DescribeProjectMessagesResponse
      */
     public function describeProjectMessages($request)
     {
@@ -1082,22 +1387,27 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @description **
-     *  *
-     * @param DescribeProjectNodesRequest $request DescribeProjectNodesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @remarks
      *
-     * @return DescribeProjectNodesResponse DescribeProjectNodesResponse
+     * @param request - DescribeProjectNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProjectNodesResponse
+     *
+     * @param DescribeProjectNodesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeProjectNodesResponse
      */
     public function describeProjectNodesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProjectNodes',
@@ -1110,16 +1420,22 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProjectNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProjectNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProjectNodesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @description **
-     *  *
-     * @param DescribeProjectNodesRequest $request DescribeProjectNodesRequest
+     * @remarks
      *
-     * @return DescribeProjectNodesResponse DescribeProjectNodesResponse
+     * @param request - DescribeProjectNodesRequest
+     * @returns DescribeProjectNodesResponse
+     *
+     * @param DescribeProjectNodesRequest $request
+     *
+     * @return DescribeProjectNodesResponse
      */
     public function describeProjectNodes($request)
     {
@@ -1129,20 +1445,25 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectOperateLogsRequest $request DescribeProjectOperateLogsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeProjectOperateLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProjectOperateLogsResponse
      *
-     * @return DescribeProjectOperateLogsResponse DescribeProjectOperateLogsResponse
+     * @param DescribeProjectOperateLogsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeProjectOperateLogsResponse
      */
     public function describeProjectOperateLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProjectOperateLogs',
@@ -1155,14 +1476,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProjectOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProjectOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProjectOperateLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeProjectOperateLogsRequest $request DescribeProjectOperateLogsRequest
+     * @param request - DescribeProjectOperateLogsRequest
+     * @returns DescribeProjectOperateLogsResponse
      *
-     * @return DescribeProjectOperateLogsResponse DescribeProjectOperateLogsResponse
+     * @param DescribeProjectOperateLogsRequest $request
+     *
+     * @return DescribeProjectOperateLogsResponse
      */
     public function describeProjectOperateLogs($request)
     {
@@ -1172,29 +1499,37 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param FinishCurrentProjectNodeRequest $request FinishCurrentProjectNodeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - FinishCurrentProjectNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns FinishCurrentProjectNodeResponse
      *
-     * @return FinishCurrentProjectNodeResponse FinishCurrentProjectNodeResponse
+     * @param FinishCurrentProjectNodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return FinishCurrentProjectNodeResponse
      */
     public function finishCurrentProjectNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->templateForm)) {
-            $query['TemplateForm'] = $request->templateForm;
+
+        if (null !== $request->templateForm) {
+            @$query['TemplateForm'] = $request->templateForm;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'FinishCurrentProjectNode',
@@ -1207,14 +1542,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FinishCurrentProjectNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return FinishCurrentProjectNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FinishCurrentProjectNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param FinishCurrentProjectNodeRequest $request FinishCurrentProjectNodeRequest
+     * @param request - FinishCurrentProjectNodeRequest
+     * @returns FinishCurrentProjectNodeResponse
      *
-     * @return FinishCurrentProjectNodeResponse FinishCurrentProjectNodeResponse
+     * @param FinishCurrentProjectNodeRequest $request
+     *
+     * @return FinishCurrentProjectNodeResponse
      */
     public function finishCurrentProjectNode($request)
     {
@@ -1224,26 +1565,33 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param PauseProjectRequest $request PauseProjectRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - PauseProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PauseProjectResponse
      *
-     * @return PauseProjectResponse PauseProjectResponse
+     * @param PauseProjectRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PauseProjectResponse
      */
     public function pauseProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PauseProject',
@@ -1256,14 +1604,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PauseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PauseProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PauseProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param PauseProjectRequest $request PauseProjectRequest
+     * @param request - PauseProjectRequest
+     * @returns PauseProjectResponse
      *
-     * @return PauseProjectResponse PauseProjectResponse
+     * @param PauseProjectRequest $request
+     *
+     * @return PauseProjectResponse
      */
     public function pauseProject($request)
     {
@@ -1273,20 +1627,25 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param PushMeteringDataRequest $request PushMeteringDataRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - PushMeteringDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PushMeteringDataResponse
      *
-     * @return PushMeteringDataResponse PushMeteringDataResponse
+     * @param PushMeteringDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PushMeteringDataResponse
      */
     public function pushMeteringDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->metering)) {
-            $query['Metering'] = $request->metering;
+        if (null !== $request->metering) {
+            @$query['Metering'] = $request->metering;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PushMeteringData',
@@ -1299,14 +1658,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushMeteringDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param PushMeteringDataRequest $request PushMeteringDataRequest
+     * @param request - PushMeteringDataRequest
+     * @returns PushMeteringDataResponse
      *
-     * @return PushMeteringDataResponse PushMeteringDataResponse
+     * @param PushMeteringDataRequest $request
+     *
+     * @return PushMeteringDataResponse
      */
     public function pushMeteringData($request)
     {
@@ -1316,26 +1681,33 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param ResumeProjectRequest $request ResumeProjectRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ResumeProjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResumeProjectResponse
      *
-     * @return ResumeProjectResponse ResumeProjectResponse
+     * @param ResumeProjectRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ResumeProjectResponse
      */
     public function resumeProjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResumeProject',
@@ -1348,14 +1720,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResumeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResumeProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResumeProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ResumeProjectRequest $request ResumeProjectRequest
+     * @param request - ResumeProjectRequest
+     * @returns ResumeProjectResponse
      *
-     * @return ResumeProjectResponse ResumeProjectResponse
+     * @param ResumeProjectRequest $request
+     *
+     * @return ResumeProjectResponse
      */
     public function resumeProject($request)
     {
@@ -1365,26 +1743,33 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param RollbackCurrentProjectNodeRequest $request RollbackCurrentProjectNodeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - RollbackCurrentProjectNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RollbackCurrentProjectNodeResponse
      *
-     * @return RollbackCurrentProjectNodeResponse RollbackCurrentProjectNodeResponse
+     * @param RollbackCurrentProjectNodeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RollbackCurrentProjectNodeResponse
      */
     public function rollbackCurrentProjectNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$query['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RollbackCurrentProjectNode',
@@ -1397,14 +1782,20 @@ class Market extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RollbackCurrentProjectNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RollbackCurrentProjectNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RollbackCurrentProjectNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param RollbackCurrentProjectNodeRequest $request RollbackCurrentProjectNodeRequest
+     * @param request - RollbackCurrentProjectNodeRequest
+     * @returns RollbackCurrentProjectNodeResponse
      *
-     * @return RollbackCurrentProjectNodeResponse RollbackCurrentProjectNodeResponse
+     * @param RollbackCurrentProjectNodeRequest $request
+     *
+     * @return RollbackCurrentProjectNodeResponse
      */
     public function rollbackCurrentProjectNode($request)
     {

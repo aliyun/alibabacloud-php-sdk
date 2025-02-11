@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AutoRenewInstanceRequest extends Model
 {
@@ -12,27 +12,19 @@ class AutoRenewInstanceRequest extends Model
      * @var string
      */
     public $autoRenewCycle;
-
     /**
      * @var int
      */
     public $autoRenewDuration;
-
     /**
-     * @description This parameter is required.
-     *
      * @var int
      */
     public $orderBizId;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $type;
@@ -46,23 +38,28 @@ class AutoRenewInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenewCycle) {
             $res['AutoRenewCycle'] = $this->autoRenewCycle;
         }
+
         if (null !== $this->autoRenewDuration) {
             $res['AutoRenewDuration'] = $this->autoRenewDuration;
         }
+
         if (null !== $this->orderBizId) {
             $res['OrderBizId'] = $this->orderBizId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -70,26 +67,30 @@ class AutoRenewInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AutoRenewInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenewCycle'])) {
             $model->autoRenewCycle = $map['AutoRenewCycle'];
         }
+
         if (isset($map['AutoRenewDuration'])) {
             $model->autoRenewDuration = $map['AutoRenewDuration'];
         }
+
         if (isset($map['OrderBizId'])) {
             $model->orderBizId = $map['OrderBizId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

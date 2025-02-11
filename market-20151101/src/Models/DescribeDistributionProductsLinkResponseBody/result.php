@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
@@ -12,12 +12,10 @@ class result extends Model
      * @var string
      */
     public $code;
-
     /**
      * @var string
      */
     public $name;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -48,20 +49,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLicenseRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxxxx
-     *
      * @var string
      */
     public $licenseCode;
@@ -22,9 +18,10 @@ class DescribeLicenseRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->licenseCode) {
@@ -34,11 +31,11 @@ class DescribeLicenseRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLicenseRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

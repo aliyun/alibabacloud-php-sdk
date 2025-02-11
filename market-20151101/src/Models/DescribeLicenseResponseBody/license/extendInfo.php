@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeLicenseResponseBody\license;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class extendInfo extends Model
 {
     /**
-     * @example -
-     *
      * @var int
      */
     public $accountQuantity;
-
     /**
-     * @example 190311111111****
-     *
      * @var int
      */
     public $aliUid;
-
     /**
-     * @example id***@**.com
-     *
      * @var string
      */
     public $email;
-
     /**
-     * @example 129****1111
-     *
      * @var string
      */
     public $mobile;
@@ -44,20 +33,24 @@ class extendInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountQuantity) {
             $res['AccountQuantity'] = $this->accountQuantity;
         }
+
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
         }
@@ -65,23 +58,26 @@ class extendInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return extendInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountQuantity'])) {
             $model->accountQuantity = $map['AccountQuantity'];
         }
+
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
         }

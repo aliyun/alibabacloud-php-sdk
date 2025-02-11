@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeLicenseResponseBody\license\extendArray;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class licenseAttribute extends Model
 {
     /**
-     * @example -
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @example -
-     *
      * @var string
      */
     public $value;
@@ -28,14 +23,16 @@ class licenseAttribute extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -43,17 +40,18 @@ class licenseAttribute extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return licenseAttribute
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

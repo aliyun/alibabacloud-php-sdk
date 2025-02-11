@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceForIsvResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relationalData extends Model
 {
     /**
-     * @example STARTED
-     *
      * @var string
      */
     public $serviceStatus;
@@ -20,9 +18,10 @@ class relationalData extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceStatus) {
@@ -32,11 +31,11 @@ class relationalData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relationalData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

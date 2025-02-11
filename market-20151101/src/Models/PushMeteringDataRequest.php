@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushMeteringDataRequest extends Model
 {
     /**
-     * @example [{"InstanceId":"1000001","StartTime":"100000000","EndTime":"100000010","Entities":[{"Key":"PeriodMin","Value":"96","meteringAssit":"cmapi00060317-PeriodMin-4"}]}]
-     *
      * @var string
      */
     public $metering;
@@ -20,9 +18,10 @@ class PushMeteringDataRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metering) {
@@ -32,11 +31,11 @@ class PushMeteringDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushMeteringDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

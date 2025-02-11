@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeProductResponseBody\shopInfo\wangWangs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class wangWang extends Model
 {
     /**
-     * @example 123
-     *
      * @var string
      */
     public $remark;
-
     /**
-     * @example ABC
-     *
      * @var string
      */
     public $userName;
@@ -28,14 +23,16 @@ class wangWang extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -43,17 +40,18 @@ class wangWang extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return wangWang
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

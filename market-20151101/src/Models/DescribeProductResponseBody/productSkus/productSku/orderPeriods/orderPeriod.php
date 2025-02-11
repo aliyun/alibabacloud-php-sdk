@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeProductResponseBody\productSkus\productSku\orderPeriods;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class orderPeriod extends Model
 {
@@ -12,10 +12,7 @@ class orderPeriod extends Model
      * @var string
      */
     public $name;
-
     /**
-     * @example HOUR
-     *
      * @var string
      */
     public $periodType;
@@ -26,14 +23,16 @@ class orderPeriod extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
         }
@@ -41,17 +40,18 @@ class orderPeriod extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orderPeriod
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstancesResponseBody\instanceItems\instanceItem;
-use AlibabaCloud\Tea\Model;
 
 class instanceItems extends Model
 {
@@ -19,17 +19,21 @@ class instanceItems extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceItem)) {
+            Model::validateArray($this->instanceItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceItem) {
-            $res['InstanceItem'] = [];
-            if (null !== $this->instanceItem && \is_array($this->instanceItem)) {
-                $n = 0;
-                foreach ($this->instanceItem as $item) {
-                    $res['InstanceItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceItem)) {
+                $res['InstanceItem'] = [];
+                $n1                  = 0;
+                foreach ($this->instanceItem as $item1) {
+                    $res['InstanceItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class instanceItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceItem'])) {
             if (!empty($map['InstanceItem'])) {
                 $model->instanceItem = [];
-                $n                   = 0;
-                foreach ($map['InstanceItem'] as $item) {
-                    $model->instanceItem[$n++] = null !== $item ? instanceItem::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['InstanceItem'] as $item1) {
+                    $model->instanceItem[$n1++] = instanceItem::fromMap($item1);
                 }
             }
         }

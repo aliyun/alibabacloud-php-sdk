@@ -4,142 +4,87 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeOrderForIsvResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $accountQuantity;
-
     /**
-     * @example 190311111111****
-     *
      * @var int
      */
     public $aliUid;
-
     /**
      * @var mixed
      */
     public $components;
-
     /**
-     * @example 0.0
-     *
      * @var float
      */
     public $couponPrice;
-
     /**
-     * @example 1531191564000
-     *
      * @var int
      */
     public $createdOn;
-
     /**
-     * @description List
-     *
      * @var string[]
      */
     public $instanceIds;
-
     /**
-     * @example 202211111111111
-     *
      * @var int
      */
     public $orderId;
-
     /**
-     * @example NORMAL
-     *
      * @var string
      */
     public $orderStatus;
-
     /**
-     * @example NEW
-     *
      * @var string
      */
     public $orderType;
-
     /**
-     * @example 10.0
-     *
      * @var float
      */
     public $originalPrice;
-
     /**
-     * @example 1531191675000
-     *
      * @var int
      */
     public $paidOn;
-
     /**
-     * @example PAID
-     *
      * @var string
      */
     public $payStatus;
-
     /**
-     * @example 0.0
-     *
      * @var float
      */
     public $paymentPrice;
-
     /**
-     * @example MONTH
-     *
      * @var string
      */
     public $periodType;
-
     /**
-     * @example cmgj02****
-     *
      * @var string
      */
     public $productCode;
-
     /**
      * @var string
      */
     public $productName;
-
     /**
-     * @example cmgj02****-prepay
-     *
      * @var string
      */
     public $productSkuCode;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $quantity;
-
     /**
-     * @example 6EF60BEC-****-****-****-270359FB54A7
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 0.0
-     *
      * @var float
      */
     public $totalPrice;
@@ -168,68 +113,97 @@ class DescribeOrderForIsvResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountQuantity) {
             $res['AccountQuantity'] = $this->accountQuantity;
         }
+
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+
         if (null !== $this->components) {
             $res['Components'] = $this->components;
         }
+
         if (null !== $this->couponPrice) {
             $res['CouponPrice'] = $this->couponPrice;
         }
+
         if (null !== $this->createdOn) {
             $res['CreatedOn'] = $this->createdOn;
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1                 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->orderStatus) {
             $res['OrderStatus'] = $this->orderStatus;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
+
         if (null !== $this->originalPrice) {
             $res['OriginalPrice'] = $this->originalPrice;
         }
+
         if (null !== $this->paidOn) {
             $res['PaidOn'] = $this->paidOn;
         }
+
         if (null !== $this->payStatus) {
             $res['PayStatus'] = $this->payStatus;
         }
+
         if (null !== $this->paymentPrice) {
             $res['PaymentPrice'] = $this->paymentPrice;
         }
+
         if (null !== $this->periodType) {
             $res['PeriodType'] = $this->periodType;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->productName) {
             $res['ProductName'] = $this->productName;
         }
+
         if (null !== $this->productSkuCode) {
             $res['ProductSkuCode'] = $this->productSkuCode;
         }
+
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalPrice) {
             $res['TotalPrice'] = $this->totalPrice;
         }
@@ -237,73 +211,96 @@ class DescribeOrderForIsvResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeOrderForIsvResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountQuantity'])) {
             $model->accountQuantity = $map['AccountQuantity'];
         }
+
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+
         if (isset($map['Components'])) {
             $model->components = $map['Components'];
         }
+
         if (isset($map['CouponPrice'])) {
             $model->couponPrice = $map['CouponPrice'];
         }
+
         if (isset($map['CreatedOn'])) {
             $model->createdOn = $map['CreatedOn'];
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1                 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['OrderStatus'])) {
             $model->orderStatus = $map['OrderStatus'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
+
         if (isset($map['OriginalPrice'])) {
             $model->originalPrice = $map['OriginalPrice'];
         }
+
         if (isset($map['PaidOn'])) {
             $model->paidOn = $map['PaidOn'];
         }
+
         if (isset($map['PayStatus'])) {
             $model->payStatus = $map['PayStatus'];
         }
+
         if (isset($map['PaymentPrice'])) {
             $model->paymentPrice = $map['PaymentPrice'];
         }
+
         if (isset($map['PeriodType'])) {
             $model->periodType = $map['PeriodType'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['ProductName'])) {
             $model->productName = $map['ProductName'];
         }
+
         if (isset($map['ProductSkuCode'])) {
             $model->productSkuCode = $map['ProductSkuCode'];
         }
+
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalPrice'])) {
             $model->totalPrice = $map['TotalPrice'];
         }

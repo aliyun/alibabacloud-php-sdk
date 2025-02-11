@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeApiMeteringRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
-
     /**
-     * @example cmapi0004****
-     *
      * @var string
      */
     public $productCode;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;
@@ -38,17 +28,20 @@ class DescribeApiMeteringRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNum) {
             $res['pageNum'] = $this->pageNum;
         }
+
         if (null !== $this->productCode) {
             $res['productCode'] = $this->productCode;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -56,20 +49,22 @@ class DescribeApiMeteringRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApiMeteringRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['pageNum'])) {
             $model->pageNum = $map['pageNum'];
         }
+
         if (isset($map['productCode'])) {
             $model->productCode = $map['productCode'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

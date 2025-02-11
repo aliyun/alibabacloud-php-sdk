@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeProductsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeProductsResponseBody\productItems\productItem;
-use AlibabaCloud\Tea\Model;
 
 class productItems extends Model
 {
@@ -19,17 +19,21 @@ class productItems extends Model
 
     public function validate()
     {
+        if (\is_array($this->productItem)) {
+            Model::validateArray($this->productItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->productItem) {
-            $res['ProductItem'] = [];
-            if (null !== $this->productItem && \is_array($this->productItem)) {
-                $n = 0;
-                foreach ($this->productItem as $item) {
-                    $res['ProductItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->productItem)) {
+                $res['ProductItem'] = [];
+                $n1                 = 0;
+                foreach ($this->productItem as $item1) {
+                    $res['ProductItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class productItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return productItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProductItem'])) {
             if (!empty($map['ProductItem'])) {
                 $model->productItem = [];
-                $n                  = 0;
-                foreach ($map['ProductItem'] as $item) {
-                    $model->productItem[$n++] = null !== $item ? productItem::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['ProductItem'] as $item1) {
+                    $model->productItem[$n1++] = productItem::fromMap($item1);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models\DescribeProjectOperateLogsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
@@ -12,29 +12,19 @@ class result extends Model
      * @var string
      */
     public $description;
-
     /**
-     * @example 1587624497000
-     *
      * @var int
      */
     public $gmtCreate;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $operator;
-
     /**
      * @var string
      */
     public $operatorName;
-
     /**
-     * @example System
-     *
      * @var string
      */
     public $operatorRole;
@@ -48,23 +38,28 @@ class result extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->operatorName) {
             $res['OperatorName'] = $this->operatorName;
         }
+
         if (null !== $this->operatorRole) {
             $res['OperatorRole'] = $this->operatorRole;
         }
@@ -72,26 +67,30 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['OperatorName'])) {
             $model->operatorName = $map['OperatorName'];
         }
+
         if (isset($map['OperatorRole'])) {
             $model->operatorRole = $map['OperatorRole'];
         }

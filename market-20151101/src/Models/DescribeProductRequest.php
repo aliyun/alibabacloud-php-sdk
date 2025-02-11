@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Market\V20151101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeProductRequest extends Model
 {
     /**
-     * @description AliUid
-     *
-     * @example 190********569
-     *
      * @var string
      */
     public $aliUid;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cmjj01**45
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $queryDraft;
@@ -40,17 +28,20 @@ class DescribeProductRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->queryDraft) {
             $res['QueryDraft'] = $this->queryDraft;
         }
@@ -58,20 +49,22 @@ class DescribeProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['QueryDraft'])) {
             $model->queryDraft = $map['QueryDraft'];
         }
