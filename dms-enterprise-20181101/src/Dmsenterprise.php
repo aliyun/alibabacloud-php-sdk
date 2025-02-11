@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeTableShrinkReq
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDifyInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDifyInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateFreeLockCorrectOrderShrinkRequest;
@@ -160,6 +162,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteTaskResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteUserResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DescribeDifyDefaultVpcRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DescribeDifyDefaultVpcResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DisableUserRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DisableUserResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DownloadDataTrackResultRequest;
@@ -3227,6 +3231,280 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * 用于创建DIFY实例及相关资源，支持自定义配置。
+     *
+     * @remarks
+     * ## 请求说明
+     * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+     * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+     * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+     * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+     * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+     * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+     * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+     *
+     * @param request - CreateDifyInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDifyInstanceResponse
+     *
+     * @param CreateDifyInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDifyInstanceResponse
+     */
+    public function createDifyInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->adbpgInstanceMode) {
+            @$query['AdbpgInstanceMode'] = $request->adbpgInstanceMode;
+        }
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
+        }
+
+        if (null !== $request->databaseOption) {
+            @$query['DatabaseOption'] = $request->databaseOption;
+        }
+
+        if (null !== $request->dbEngineType) {
+            @$query['DbEngineType'] = $request->dbEngineType;
+        }
+
+        if (null !== $request->dbEngineVersion) {
+            @$query['DbEngineVersion'] = $request->dbEngineVersion;
+        }
+
+        if (null !== $request->dbInstanceAccount) {
+            @$query['DbInstanceAccount'] = $request->dbInstanceAccount;
+        }
+
+        if (null !== $request->dbInstanceCategory) {
+            @$query['DbInstanceCategory'] = $request->dbInstanceCategory;
+        }
+
+        if (null !== $request->dbInstanceClass) {
+            @$query['DbInstanceClass'] = $request->dbInstanceClass;
+        }
+
+        if (null !== $request->dbInstancePassword) {
+            @$query['DbInstancePassword'] = $request->dbInstancePassword;
+        }
+
+        if (null !== $request->dbResourceId) {
+            @$query['DbResourceId'] = $request->dbResourceId;
+        }
+
+        if (null !== $request->dbStorageSize) {
+            @$query['DbStorageSize'] = $request->dbStorageSize;
+        }
+
+        if (null !== $request->dbStorageType) {
+            @$query['DbStorageType'] = $request->dbStorageType;
+        }
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
+        if (null !== $request->kvStoreAccount) {
+            @$query['KvStoreAccount'] = $request->kvStoreAccount;
+        }
+
+        if (null !== $request->kvStoreEngineVersion) {
+            @$query['KvStoreEngineVersion'] = $request->kvStoreEngineVersion;
+        }
+
+        if (null !== $request->kvStoreInstanceClass) {
+            @$query['KvStoreInstanceClass'] = $request->kvStoreInstanceClass;
+        }
+
+        if (null !== $request->kvStoreNodeType) {
+            @$query['KvStoreNodeType'] = $request->kvStoreNodeType;
+        }
+
+        if (null !== $request->kvStoreOption) {
+            @$query['KvStoreOption'] = $request->kvStoreOption;
+        }
+
+        if (null !== $request->kvStorePassword) {
+            @$query['KvStorePassword'] = $request->kvStorePassword;
+        }
+
+        if (null !== $request->kvStoreResourceId) {
+            @$query['KvStoreResourceId'] = $request->kvStoreResourceId;
+        }
+
+        if (null !== $request->kvStoreType) {
+            @$query['KvStoreType'] = $request->kvStoreType;
+        }
+
+        if (null !== $request->ossPath) {
+            @$query['OssPath'] = $request->ossPath;
+        }
+
+        if (null !== $request->ossResourceId) {
+            @$query['OssResourceId'] = $request->ossResourceId;
+        }
+
+        if (null !== $request->payPeriod) {
+            @$query['PayPeriod'] = $request->payPeriod;
+        }
+
+        if (null !== $request->payPeriodType) {
+            @$query['PayPeriodType'] = $request->payPeriodType;
+        }
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
+        }
+
+        if (null !== $request->replicas) {
+            @$query['Replicas'] = $request->replicas;
+        }
+
+        if (null !== $request->resourceQuota) {
+            @$query['ResourceQuota'] = $request->resourceQuota;
+        }
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
+        }
+
+        if (null !== $request->segDiskPerformanceLevel) {
+            @$query['SegDiskPerformanceLevel'] = $request->segDiskPerformanceLevel;
+        }
+
+        if (null !== $request->segNodeNum) {
+            @$query['SegNodeNum'] = $request->segNodeNum;
+        }
+
+        if (null !== $request->storageType) {
+            @$query['StorageType'] = $request->storageType;
+        }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
+        if (null !== $request->vectordbAccount) {
+            @$query['VectordbAccount'] = $request->vectordbAccount;
+        }
+
+        if (null !== $request->vectordbCategory) {
+            @$query['VectordbCategory'] = $request->vectordbCategory;
+        }
+
+        if (null !== $request->vectordbEngineVersion) {
+            @$query['VectordbEngineVersion'] = $request->vectordbEngineVersion;
+        }
+
+        if (null !== $request->vectordbInstanceSpec) {
+            @$query['VectordbInstanceSpec'] = $request->vectordbInstanceSpec;
+        }
+
+        if (null !== $request->vectordbOption) {
+            @$query['VectordbOption'] = $request->vectordbOption;
+        }
+
+        if (null !== $request->vectordbPassword) {
+            @$query['VectordbPassword'] = $request->vectordbPassword;
+        }
+
+        if (null !== $request->vectordbResourceId) {
+            @$query['VectordbResourceId'] = $request->vectordbResourceId;
+        }
+
+        if (null !== $request->vectordbStorageSize) {
+            @$query['VectordbStorageSize'] = $request->vectordbStorageSize;
+        }
+
+        if (null !== $request->vectordbStorageType) {
+            @$query['VectordbStorageType'] = $request->vectordbStorageType;
+        }
+
+        if (null !== $request->vectordbType) {
+            @$query['VectordbType'] = $request->vectordbType;
+        }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
+        if (null !== $request->workspaceDescription) {
+            @$query['WorkspaceDescription'] = $request->workspaceDescription;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        if (null !== $request->workspaceName) {
+            @$query['WorkspaceName'] = $request->workspaceName;
+        }
+
+        if (null !== $request->workspaceOption) {
+            @$query['WorkspaceOption'] = $request->workspaceOption;
+        }
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDifyInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateDifyInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 用于创建DIFY实例及相关资源，支持自定义配置。
+     *
+     * @remarks
+     * ## 请求说明
+     * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+     * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+     * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+     * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+     * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+     * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+     * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+     *
+     * @param request - CreateDifyInstanceRequest
+     * @returns CreateDifyInstanceResponse
+     *
+     * @param CreateDifyInstanceRequest $request
+     *
+     * @return CreateDifyInstanceResponse
+     */
+    public function createDifyInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDifyInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * 创建无锁变更工单.
      *
      * @remarks
@@ -5826,6 +6104,92 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用于创建DIFY实例及相关资源，支持自定义配置。
+     *
+     * @remarks
+     * ## 请求说明
+     * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+     * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+     * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+     * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+     * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+     * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+     * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+     *
+     * @param request - DescribeDifyDefaultVpcRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDifyDefaultVpcResponse
+     *
+     * @param DescribeDifyDefaultVpcRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDifyDefaultVpcResponse
+     */
+    public function describeDifyDefaultVpcWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDifyDefaultVpc',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDifyDefaultVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeDifyDefaultVpcResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 用于创建DIFY实例及相关资源，支持自定义配置。
+     *
+     * @remarks
+     * ## 请求说明
+     * - `workspaceOption` 参数指示是否新建工作空间，默认使用已有工作空间。
+     * - 如果选择新建工作空间 (`CreateNewInstance`)，则必须提供 `workspaceName` 和 `workspaceDescription`。
+     * - `vpcId`, `VSwitchID`, `zoneId`, `regionCode`, `ResourceQuota`, `Replicas`, `storageType`, `dbInstanceClass`, `dbEngineVersion`, `kvstoreEngineVersion` 是必填项。
+     * - 当 `storageType` 为 `oss` 时，需要指定 `ossBucketResourceId` 和 `ossPath`。
+     * - 如果需要新建数据库实例，则必须提供 `instanceAccount` 和 `instancePassword`。
+     * - 预付费模式下，`PayPeriodType` 和 `PayPeriod` 必须填写。
+     * - 可以通过设置 `dryRun` 为 `true` 来执行预检查而不实际创建实例。
+     *
+     * @param request - DescribeDifyDefaultVpcRequest
+     * @returns DescribeDifyDefaultVpcResponse
+     *
+     * @param DescribeDifyDefaultVpcRequest $request
+     *
+     * @return DescribeDifyDefaultVpcResponse
+     */
+    public function describeDifyDefaultVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDifyDefaultVpcWithOptions($request, $runtime);
     }
 
     /**

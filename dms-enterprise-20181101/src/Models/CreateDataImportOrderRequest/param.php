@@ -28,6 +28,10 @@ class param extends Model
     /**
      * @var string
      */
+    public $execMode;
+    /**
+     * @var string
+     */
     public $fileEncoding;
     /**
      * @var string
@@ -66,6 +70,7 @@ class param extends Model
         'classify'               => 'Classify',
         'csvFirstRowIsColumnDef' => 'CsvFirstRowIsColumnDef',
         'dbItemList'             => 'DbItemList',
+        'execMode'               => 'ExecMode',
         'fileEncoding'           => 'FileEncoding',
         'fileType'               => 'FileType',
         'ignoreError'            => 'IgnoreError',
@@ -108,6 +113,10 @@ class param extends Model
                     $res['DbItemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->execMode) {
+            $res['ExecMode'] = $this->execMode;
         }
 
         if (null !== $this->fileEncoding) {
@@ -177,6 +186,10 @@ class param extends Model
                     $model->dbItemList[$n1++] = dbItemList::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['ExecMode'])) {
+            $model->execMode = $map['ExecMode'];
         }
 
         if (isset($map['FileEncoding'])) {
