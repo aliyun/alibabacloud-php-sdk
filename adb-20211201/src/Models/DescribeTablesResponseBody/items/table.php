@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTablesResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class table extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * @example amv-bp1xxxxxxxx47
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The name of the database.
-     *
-     * @example adb_demo
-     *
      * @var string
      */
     public $schemaName;
-
     /**
-     * @description The name of the table.
-     *
-     * @example test
-     *
      * @var string
      */
     public $tableName;
@@ -42,17 +28,20 @@ class table extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -60,20 +49,22 @@ class table extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return table
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

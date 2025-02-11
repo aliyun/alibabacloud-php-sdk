@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAccountsResponseBody\accountList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAccountsResponseBody extends Model
 {
     /**
-     * @description The queried database accounts.
-     *
      * @var accountList
      */
     public $accountList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9CCFAAB4-97B7-5800-B9F2-685EB596E3EF
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeAccountsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->accountList) {
+            $this->accountList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountList) {
-            $res['AccountList'] = null !== $this->accountList ? $this->accountList->toMap() : null;
+            $res['AccountList'] = null !== $this->accountList ? $this->accountList->toArray($noStream) : $this->accountList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeAccountsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccountsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountList'])) {
             $model->accountList = accountList::fromMap($map['AccountList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

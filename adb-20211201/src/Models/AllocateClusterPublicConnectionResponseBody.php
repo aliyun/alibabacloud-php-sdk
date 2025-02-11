@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AllocateClusterPublicConnectionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 868EF07F-D0B2-5043-B092-0C14CD00B65A
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AllocateClusterPublicConnectionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AllocateClusterPublicConnectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocateClusterPublicConnectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

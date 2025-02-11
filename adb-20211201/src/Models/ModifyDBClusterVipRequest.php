@@ -4,51 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBClusterVipRequest extends Model
 {
     /**
-     * @description The endpoint of the cluster.
-     *
      * @var string
      */
     public $connectString;
-
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
-     *
-     * This parameter is required.
-     * @example amv-2ze8mbuai97*****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The VPC ID.
-     *
-     * >
-     *
-     *   The new **VPC** must reside in the same region as the cluster.
-     *
-     * This parameter is required.
-     * @example vpc-bp1at5ze0t5u3xtqn****
-     *
      * @var string
      */
     public $VPCId;
-
     /**
-     * @description The vSwitch ID.
-     *
-     * >
-     *
-     *   The new vSwitch must reside in the same zone as the cluster.
-     *
-     * This parameter is required.
-     * @example vsw-bp1aadw9k19x6cis9****
-     *
      * @var string
      */
     public $vSwitchId;
@@ -61,20 +33,24 @@ class ModifyDBClusterVipRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectString) {
             $res['ConnectString'] = $this->connectString;
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -82,23 +58,26 @@ class ModifyDBClusterVipRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBClusterVipRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectString'])) {
             $model->connectString = $map['ConnectString'];
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

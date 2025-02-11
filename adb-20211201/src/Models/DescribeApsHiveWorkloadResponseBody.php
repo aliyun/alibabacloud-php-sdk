@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsHiveWorkloadResponseBody\apsWorkload;
-use AlibabaCloud\Tea\Model;
 
 class DescribeApsHiveWorkloadResponseBody extends Model
 {
     /**
-     * @example -
-     *
      * @var apsWorkload
      */
     public $apsWorkload;
-
     /**
-     * @example 86F92D26-B774-5FA1-8E53-******
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +24,19 @@ class DescribeApsHiveWorkloadResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->apsWorkload) {
+            $this->apsWorkload->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apsWorkload) {
-            $res['ApsWorkload'] = null !== $this->apsWorkload ? $this->apsWorkload->toMap() : null;
+            $res['ApsWorkload'] = null !== $this->apsWorkload ? $this->apsWorkload->toArray($noStream) : $this->apsWorkload;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +44,18 @@ class DescribeApsHiveWorkloadResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApsHiveWorkloadResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApsWorkload'])) {
             $model->apsWorkload = apsWorkload::fromMap($map['ApsWorkload']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

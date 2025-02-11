@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCreateTableSQLResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 109462AF-B5FA-3D5A-9377-B27E5B******
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The SQL statement.
-     *
-     * @example create table (
-     * );
      * @var string
      */
     public $SQL;
@@ -32,14 +23,16 @@ class GetCreateTableSQLResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->SQL) {
             $res['SQL'] = $this->SQL;
         }
@@ -47,17 +40,18 @@ class GetCreateTableSQLResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCreateTableSQLResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SQL'])) {
             $model->SQL = $map['SQL'];
         }

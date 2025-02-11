@@ -4,33 +4,24 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeControllerDetectionResponseBody\detectionItems;
-use AlibabaCloud\Tea\Model;
 
 class DescribeControllerDetectionResponseBody extends Model
 {
     /**
-     * @example amv-xxx
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
      * @var detectionItems[]
      */
     public $detectionItems;
-
     /**
-     * @example 257FAE29-ED5F-586C-94E4-43BD1392F238
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 10
-     *
      * @var string
      */
     public $totalCount;
@@ -43,26 +34,33 @@ class DescribeControllerDetectionResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->detectionItems)) {
+            Model::validateArray($this->detectionItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->detectionItems) {
-            $res['DetectionItems'] = [];
-            if (null !== $this->detectionItems && \is_array($this->detectionItems)) {
-                $n = 0;
-                foreach ($this->detectionItems as $item) {
-                    $res['DetectionItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->detectionItems)) {
+                $res['DetectionItems'] = [];
+                $n1                    = 0;
+                foreach ($this->detectionItems as $item1) {
+                    $res['DetectionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -70,29 +68,32 @@ class DescribeControllerDetectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeControllerDetectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['DetectionItems'])) {
             if (!empty($map['DetectionItems'])) {
                 $model->detectionItems = [];
-                $n                     = 0;
-                foreach ($map['DetectionItems'] as $item) {
-                    $model->detectionItems[$n++] = null !== $item ? detectionItems::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['DetectionItems'] as $item1) {
+                    $model->detectionItems[$n1++] = detectionItems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

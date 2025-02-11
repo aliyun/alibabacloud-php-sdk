@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\CreatePerformanceViewRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreatePerformanceViewRequest\viewDetail\categories;
-use AlibabaCloud\Tea\Model;
 
 class viewDetail extends Model
 {
     /**
-     * @description The metric categories.
-     *
      * @var categories[]
      */
     public $categories;
-
     /**
-     * @description Specifies whether to enable the filter interaction feature. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $chartLinked;
-
     /**
-     * @description The number of charts to display in each row.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $chartsPerLine;
@@ -44,23 +29,29 @@ class viewDetail extends Model
 
     public function validate()
     {
+        if (\is_array($this->categories)) {
+            Model::validateArray($this->categories);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categories) {
-            $res['Categories'] = [];
-            if (null !== $this->categories && \is_array($this->categories)) {
-                $n = 0;
-                foreach ($this->categories as $item) {
-                    $res['Categories'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->categories)) {
+                $res['Categories'] = [];
+                $n1                = 0;
+                foreach ($this->categories as $item1) {
+                    $res['Categories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->chartLinked) {
             $res['ChartLinked'] = $this->chartLinked;
         }
+
         if (null !== $this->chartsPerLine) {
             $res['ChartsPerLine'] = $this->chartsPerLine;
         }
@@ -68,26 +59,28 @@ class viewDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return viewDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
-                $n                 = 0;
-                foreach ($map['Categories'] as $item) {
-                    $model->categories[$n++] = null !== $item ? categories::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['Categories'] as $item1) {
+                    $model->categories[$n1++] = categories::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ChartLinked'])) {
             $model->chartLinked = $map['ChartLinked'];
         }
+
         if (isset($map['ChartsPerLine'])) {
             $model->chartsPerLine = $map['ChartsPerLine'];
         }

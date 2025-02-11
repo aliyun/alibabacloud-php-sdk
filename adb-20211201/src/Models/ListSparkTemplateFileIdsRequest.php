@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSparkTemplateFileIdsRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * @example amv-bp11q28kvl688****
-     *
      * @var string
      */
     public $DBClusterId;
@@ -22,9 +18,10 @@ class ListSparkTemplateFileIdsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
@@ -34,11 +31,11 @@ class ListSparkTemplateFileIdsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSparkTemplateFileIdsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

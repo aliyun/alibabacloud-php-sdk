@@ -4,18 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionResponseBody\detectionItems\results;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionResponseBody\detectionItems\results\operatorDetails\searchResults;
-use AlibabaCloud\Tea\Model;
 
 class operatorDetails extends Model
 {
     /**
-     * @example PeakMemory
-     *
      * @var string
      */
     public $metricName;
-
     /**
      * @var searchResults[]
      */
@@ -27,20 +24,25 @@ class operatorDetails extends Model
 
     public function validate()
     {
+        if (\is_array($this->searchResults)) {
+            Model::validateArray($this->searchResults);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->searchResults) {
-            $res['SearchResults'] = [];
-            if (null !== $this->searchResults && \is_array($this->searchResults)) {
-                $n = 0;
-                foreach ($this->searchResults as $item) {
-                    $res['SearchResults'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->searchResults)) {
+                $res['SearchResults'] = [];
+                $n1                   = 0;
+                foreach ($this->searchResults as $item1) {
+                    $res['SearchResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +50,24 @@ class operatorDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operatorDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['SearchResults'])) {
             if (!empty($map['SearchResults'])) {
                 $model->searchResults = [];
-                $n                    = 0;
-                foreach ($map['SearchResults'] as $item) {
-                    $model->searchResults[$n++] = null !== $item ? searchResults::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['SearchResults'] as $item1) {
+                    $model->searchResults[$n1++] = searchResults::fromMap($item1);
                 }
             }
         }

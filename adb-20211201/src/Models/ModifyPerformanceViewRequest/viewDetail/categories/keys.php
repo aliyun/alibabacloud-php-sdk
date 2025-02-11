@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewRequest\viewDetail\categories;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class keys extends Model
 {
     /**
-     * @description The name of the metric.
-     *
-     * @example AnalyticDB_CPU
-     *
      * @var string
      */
     public $keyName;
-
     /**
-     * @description Specifies whether to select the metric. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $selected;
@@ -35,14 +23,16 @@ class keys extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyName) {
             $res['KeyName'] = $this->keyName;
         }
+
         if (null !== $this->selected) {
             $res['Selected'] = $this->selected;
         }
@@ -50,17 +40,18 @@ class keys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return keys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyName'])) {
             $model->keyName = $map['KeyName'];
         }
+
         if (isset($map['Selected'])) {
             $model->selected = $map['Selected'];
         }

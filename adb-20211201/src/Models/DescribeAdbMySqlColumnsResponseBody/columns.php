@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlColumnsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class columns extends Model
 {
     /**
-     * @description The comments of the column.
-     *
-     * @example test
-     *
      * @var string
      */
     public $comment;
-
     /**
-     * @description The name of the column.
-     *
-     * @example id
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The data type of the column.
-     *
-     * @example bigint
-     *
      * @var string
      */
     public $type;
@@ -42,17 +28,20 @@ class columns extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -60,20 +49,22 @@ class columns extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columns
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

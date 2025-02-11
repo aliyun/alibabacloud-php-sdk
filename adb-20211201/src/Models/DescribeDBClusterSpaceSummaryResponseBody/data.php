@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSpaceSummaryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSpaceSummaryResponseBody\data\coldData;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSpaceSummaryResponseBody\data\dataGrowth;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterSpaceSummaryResponseBody\data\hotData;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The cold data.
-     *
      * @var coldData
      */
     public $coldData;
-
     /**
-     * @description The data growth.
-     *
      * @var dataGrowth
      */
     public $dataGrowth;
-
     /**
-     * @description The hot data.
-     *
      * @var hotData
      */
     public $hotData;
-
     /**
-     * @description The total data size. Unit: bytes.
-     *
-     * >  Formula: Total data size = Hot data size+ Cold data size.
-     * @example 8388608
-     *
      * @var string
      */
     public $totalSize;
@@ -50,20 +36,33 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->coldData) {
+            $this->coldData->validate();
+        }
+        if (null !== $this->dataGrowth) {
+            $this->dataGrowth->validate();
+        }
+        if (null !== $this->hotData) {
+            $this->hotData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coldData) {
-            $res['ColdData'] = null !== $this->coldData ? $this->coldData->toMap() : null;
+            $res['ColdData'] = null !== $this->coldData ? $this->coldData->toArray($noStream) : $this->coldData;
         }
+
         if (null !== $this->dataGrowth) {
-            $res['DataGrowth'] = null !== $this->dataGrowth ? $this->dataGrowth->toMap() : null;
+            $res['DataGrowth'] = null !== $this->dataGrowth ? $this->dataGrowth->toArray($noStream) : $this->dataGrowth;
         }
+
         if (null !== $this->hotData) {
-            $res['HotData'] = null !== $this->hotData ? $this->hotData->toMap() : null;
+            $res['HotData'] = null !== $this->hotData ? $this->hotData->toArray($noStream) : $this->hotData;
         }
+
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
         }
@@ -71,23 +70,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColdData'])) {
             $model->coldData = coldData::fromMap($map['ColdData']);
         }
+
         if (isset($map['DataGrowth'])) {
             $model->dataGrowth = dataGrowth::fromMap($map['DataGrowth']);
         }
+
         if (isset($map['HotData'])) {
             $model->hotData = hotData::fromMap($map['HotData']);
         }
+
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
         }

@@ -4,41 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePerformanceViewResponseBody extends Model
 {
     /**
-     * @description The details about the access denial.
-     *
-     * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
-     * @example {
-     * "PolicyType": "AccountLevelIdentityBasedPolicy",
-     * "AuthPrincipalOwnerId": "1*****************7",
-     * "AuthPrincipalType": "SubUser",
-     * "AuthPrincipalDisplayName": "2***************9",
-     * }
      * @var string
      */
     public $accessDeniedDetail;
-
     /**
-     * @description The creation result. Valid values:
-     *
-     *   **SUCCESS**
-     *   **FAILED**
-     *
-     * @example SUCCESS
-     *
      * @var string
      */
     public $createStatus;
-
     /**
-     * @description The request ID.
-     *
-     * @example E031AABF-BD56-5966-A063-4283EF18DB45
-     *
      * @var string
      */
     public $requestId;
@@ -50,17 +28,20 @@ class CreatePerformanceViewResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->createStatus) {
             $res['CreateStatus'] = $this->createStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -68,20 +49,22 @@ class CreatePerformanceViewResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePerformanceViewResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['CreateStatus'])) {
             $model->createStatus = $map['CreateStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

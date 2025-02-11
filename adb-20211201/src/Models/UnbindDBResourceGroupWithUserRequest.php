@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnbindDBResourceGroupWithUserRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example am-bp1ub9grke1****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The name of the resource group.
-     *
-     * @example test
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @description The name of the database account.
-     *
-     * @example user1
-     *
      * @var string
      */
     public $groupUser;
@@ -43,17 +28,20 @@ class UnbindDBResourceGroupWithUserRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->groupUser) {
             $res['GroupUser'] = $this->groupUser;
         }
@@ -61,20 +49,22 @@ class UnbindDBResourceGroupWithUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnbindDBResourceGroupWithUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['GroupUser'])) {
             $model->groupUser = $map['GroupUser'];
         }

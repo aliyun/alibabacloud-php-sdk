@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeKernelVersionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class availableKernelVersions extends Model
 {
     /**
-     * @example 2025-07-17T16:00:00Z
-     *
      * @var string
      */
     public $expireDate;
-
     /**
-     * @example 3.1.9
-     *
      * @var string
      */
     public $kernelVersion;
-
     /**
-     * @example 2024-07-17T16:00:00Z
-     *
      * @var string
      */
     public $releaseDate;
@@ -36,17 +28,20 @@ class availableKernelVersions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expireDate) {
             $res['ExpireDate'] = $this->expireDate;
         }
+
         if (null !== $this->kernelVersion) {
             $res['KernelVersion'] = $this->kernelVersion;
         }
+
         if (null !== $this->releaseDate) {
             $res['ReleaseDate'] = $this->releaseDate;
         }
@@ -54,20 +49,22 @@ class availableKernelVersions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return availableKernelVersions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpireDate'])) {
             $model->expireDate = $map['ExpireDate'];
         }
+
         if (isset($map['KernelVersion'])) {
             $model->kernelVersion = $map['KernelVersion'];
         }
+
         if (isset($map['ReleaseDate'])) {
             $model->releaseDate = $map['ReleaseDate'];
         }

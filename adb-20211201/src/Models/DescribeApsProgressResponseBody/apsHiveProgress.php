@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsProgressResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apsHiveProgress extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $dbName;
-
     /**
-     * @example 95
-     *
      * @var string
      */
     public $progress;
-
     /**
-     * @example 2
-     *
      * @var string
      */
     public $speed;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $tbName;
@@ -44,20 +33,24 @@ class apsHiveProgress extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
+
         if (null !== $this->speed) {
             $res['Speed'] = $this->speed;
         }
+
         if (null !== $this->tbName) {
             $res['TbName'] = $this->tbName;
         }
@@ -65,23 +58,26 @@ class apsHiveProgress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apsHiveProgress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
+
         if (isset($map['Speed'])) {
             $model->speed = $map['Speed'];
         }
+
         if (isset($map['TbName'])) {
             $model->tbName = $map['TbName'];
         }

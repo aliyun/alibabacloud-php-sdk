@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyCompactionServiceSwitchResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 21ABF219-10E0-571B-94B8-9C9AE5022BF8
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyCompactionServiceSwitchResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyCompactionServiceSwitchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCompactionServiceSwitchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

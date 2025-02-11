@@ -4,33 +4,20 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEnabledPrivilegesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEnabledPrivilegesResponseBody\data\privileges;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The description of the permission level.
-     *
-     * This parameter is required.
      * @var string
      */
     public $description;
-
     /**
-     * @description The queried permissions.
-     *
-     * This parameter is required.
      * @var privileges[]
      */
     public $privileges;
-
     /**
-     * @description The permission level.
-     *
-     * This parameter is required.
-     * @example Global
-     *
      * @var string
      */
     public $scope;
@@ -42,23 +29,29 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->privileges)) {
+            Model::validateArray($this->privileges);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->privileges) {
-            $res['Privileges'] = [];
-            if (null !== $this->privileges && \is_array($this->privileges)) {
-                $n = 0;
-                foreach ($this->privileges as $item) {
-                    $res['Privileges'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->privileges)) {
+                $res['Privileges'] = [];
+                $n1                = 0;
+                foreach ($this->privileges as $item1) {
+                    $res['Privileges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
@@ -66,26 +59,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Privileges'])) {
             if (!empty($map['Privileges'])) {
                 $model->privileges = [];
-                $n                 = 0;
-                foreach ($map['Privileges'] as $item) {
-                    $model->privileges[$n++] = null !== $item ? privileges::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['Privileges'] as $item1) {
+                    $model->privileges[$n1++] = privileges::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }

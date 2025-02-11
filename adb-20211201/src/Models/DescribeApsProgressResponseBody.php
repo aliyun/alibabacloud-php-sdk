@@ -4,42 +4,28 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsProgressResponseBody\apsHiveProgress;
-use AlibabaCloud\Tea\Model;
 
 class DescribeApsProgressResponseBody extends Model
 {
     /**
-     * @example -
-     *
      * @var apsHiveProgress[]
      */
     public $apsHiveProgress;
-
     /**
-     * @example ******-3EEC-******-9F06-******
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 100
-     *
      * @var int
      */
     public $successPercentage;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $successTableCount;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalTableCount;
@@ -53,29 +39,37 @@ class DescribeApsProgressResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->apsHiveProgress)) {
+            Model::validateArray($this->apsHiveProgress);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apsHiveProgress) {
-            $res['ApsHiveProgress'] = [];
-            if (null !== $this->apsHiveProgress && \is_array($this->apsHiveProgress)) {
-                $n = 0;
-                foreach ($this->apsHiveProgress as $item) {
-                    $res['ApsHiveProgress'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apsHiveProgress)) {
+                $res['ApsHiveProgress'] = [];
+                $n1                     = 0;
+                foreach ($this->apsHiveProgress as $item1) {
+                    $res['ApsHiveProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->successPercentage) {
             $res['SuccessPercentage'] = $this->successPercentage;
         }
+
         if (null !== $this->successTableCount) {
             $res['SuccessTableCount'] = $this->successTableCount;
         }
+
         if (null !== $this->totalTableCount) {
             $res['TotalTableCount'] = $this->totalTableCount;
         }
@@ -83,32 +77,36 @@ class DescribeApsProgressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApsProgressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApsHiveProgress'])) {
             if (!empty($map['ApsHiveProgress'])) {
                 $model->apsHiveProgress = [];
-                $n                      = 0;
-                foreach ($map['ApsHiveProgress'] as $item) {
-                    $model->apsHiveProgress[$n++] = null !== $item ? apsHiveProgress::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['ApsHiveProgress'] as $item1) {
+                    $model->apsHiveProgress[$n1++] = apsHiveProgress::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SuccessPercentage'])) {
             $model->successPercentage = $map['SuccessPercentage'];
         }
+
         if (isset($map['SuccessTableCount'])) {
             $model->successTableCount = $map['SuccessTableCount'];
         }
+
         if (isset($map['TotalTableCount'])) {
             $model->totalTableCount = $map['TotalTableCount'];
         }

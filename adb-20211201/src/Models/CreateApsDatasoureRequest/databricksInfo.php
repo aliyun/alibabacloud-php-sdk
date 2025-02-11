@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsDatasoureRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class databricksInfo extends Model
 {
     /**
-     * @example ******
-     *
      * @var string
      */
     public $accessToken;
-
     /**
-     * @example xxxxx
-     *
      * @var string
      */
     public $workspaceURL;
@@ -28,14 +23,16 @@ class databricksInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessToken) {
             $res['AccessToken'] = $this->accessToken;
         }
+
         if (null !== $this->workspaceURL) {
             $res['WorkspaceURL'] = $this->workspaceURL;
         }
@@ -43,17 +40,18 @@ class databricksInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databricksInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessToken'])) {
             $model->accessToken = $map['AccessToken'];
         }
+
         if (isset($map['WorkspaceURL'])) {
             $model->workspaceURL = $map['WorkspaceURL'];
         }

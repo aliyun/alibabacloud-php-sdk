@@ -4,53 +4,28 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsResponseBody\data\scanMetrics;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the Spark application.
-     *
-     * @example s202212181815shaccb8be0000253
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The retry ID of the Spark application.
-     *
-     * @example s202301061000hz57d797b0000201-0001
-     *
      * @var string
      */
     public $attemptId;
-
     /**
-     * @description The event log path.
-     *
-     * @example oss://path/to/eventLog
-     *
      * @var string
      */
     public $eventLogPath;
-
     /**
-     * @description Indicates whether parsing is complete. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example True
-     *
      * @var bool
      */
     public $finished;
-
     /**
-     * @description The metrics.
-     *
      * @var scanMetrics
      */
     public $scanMetrics;
@@ -64,50 +39,62 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->scanMetrics) {
+            $this->scanMetrics->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->attemptId) {
             $res['AttemptId'] = $this->attemptId;
         }
+
         if (null !== $this->eventLogPath) {
             $res['EventLogPath'] = $this->eventLogPath;
         }
+
         if (null !== $this->finished) {
             $res['Finished'] = $this->finished;
         }
+
         if (null !== $this->scanMetrics) {
-            $res['ScanMetrics'] = null !== $this->scanMetrics ? $this->scanMetrics->toMap() : null;
+            $res['ScanMetrics'] = null !== $this->scanMetrics ? $this->scanMetrics->toArray($noStream) : $this->scanMetrics;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AttemptId'])) {
             $model->attemptId = $map['AttemptId'];
         }
+
         if (isset($map['EventLogPath'])) {
             $model->eventLogPath = $map['EventLogPath'];
         }
+
         if (isset($map['Finished'])) {
             $model->finished = $map['Finished'];
         }
+
         if (isset($map['ScanMetrics'])) {
             $model->scanMetrics = scanMetrics::fromMap($map['ScanMetrics']);
         }

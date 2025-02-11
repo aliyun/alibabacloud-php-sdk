@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBClusterMaintainTimeRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * This parameter is required.
-     * @example amv-bp1r053byu48p****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The maintenance window of the cluster. It must be in the hh:mmZ-hh:mmZ format.
-     *
-     * This parameter is required.
-     * @example 22:00Z-23:00Z
-     *
      * @var string
      */
     public $maintainTime;
@@ -34,14 +23,16 @@ class ModifyDBClusterMaintainTimeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->maintainTime) {
             $res['MaintainTime'] = $this->maintainTime;
         }
@@ -49,17 +40,18 @@ class ModifyDBClusterMaintainTimeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBClusterMaintainTimeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['MaintainTime'])) {
             $model->maintainTime = $map['MaintainTime'];
         }

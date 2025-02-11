@@ -4,42 +4,22 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAccountsRequest extends Model
 {
     /**
-     * @description The name of the database account.
-     *
-     * > If you do not specify this parameter, the information about all database accounts in the cluster is returned.
-     * @example test_accout
-     *
      * @var string
      */
     public $accountName;
-
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * This parameter is required.
-     * @example amv-bp11q28kvl688****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The database engine of the cluster. Valid values:
-     *
-     *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-     *   **Clickhouse**: the wide table engine.
-     *
-     * @example Clickhouse
-     *
      * @var string
      */
     public $engine;
-
     /**
      * @var string
      */
@@ -53,20 +33,24 @@ class DescribeAccountsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -74,23 +58,26 @@ class DescribeAccountsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccountsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

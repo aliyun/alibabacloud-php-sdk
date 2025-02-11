@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StatementInfo extends Model
 {
@@ -12,32 +12,26 @@ class StatementInfo extends Model
      * @var string
      */
     public $code;
-
     /**
      * @var int
      */
     public $completedTimeInMills;
-
     /**
      * @var string
      */
     public $output;
-
     /**
      * @var float
      */
     public $process;
-
     /**
      * @var int
      */
     public $startedTimeInMills;
-
     /**
      * @var string
      */
     public $state;
-
     /**
      * @var string
      */
@@ -54,29 +48,36 @@ class StatementInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->completedTimeInMills) {
             $res['CompletedTimeInMills'] = $this->completedTimeInMills;
         }
+
         if (null !== $this->output) {
             $res['Output'] = $this->output;
         }
+
         if (null !== $this->process) {
             $res['Process'] = $this->process;
         }
+
         if (null !== $this->startedTimeInMills) {
             $res['StartedTimeInMills'] = $this->startedTimeInMills;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->statementId) {
             $res['StatementId'] = $this->statementId;
         }
@@ -84,32 +85,38 @@ class StatementInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StatementInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['CompletedTimeInMills'])) {
             $model->completedTimeInMills = $map['CompletedTimeInMills'];
         }
+
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
         }
+
         if (isset($map['Process'])) {
             $model->process = $map['Process'];
         }
+
         if (isset($map['StartedTimeInMills'])) {
             $model->startedTimeInMills = $map['StartedTimeInMills'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['StatementId'])) {
             $model->statementId = $map['StatementId'];
         }

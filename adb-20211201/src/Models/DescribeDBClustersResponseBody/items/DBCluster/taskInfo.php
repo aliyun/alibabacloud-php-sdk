@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\DBCluster;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\DBCluster\taskInfo\stepList;
-use AlibabaCloud\Tea\Model;
 
 class taskInfo extends Model
 {
@@ -13,17 +13,14 @@ class taskInfo extends Model
      * @var string
      */
     public $name;
-
     /**
      * @var string
      */
     public $progress;
-
     /**
      * @var string
      */
     public $status;
-
     /**
      * @var stepList
      */
@@ -37,44 +34,54 @@ class taskInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->stepList) {
+            $this->stepList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->stepList) {
-            $res['StepList'] = null !== $this->stepList ? $this->stepList->toMap() : null;
+            $res['StepList'] = null !== $this->stepList ? $this->stepList->toArray($noStream) : $this->stepList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['StepList'])) {
             $model->stepList = stepList::fromMap($map['StepList']);
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DatabaseSummaryModel extends Model
 {
@@ -12,22 +12,18 @@ class DatabaseSummaryModel extends Model
      * @var string
      */
     public $createTime;
-
     /**
      * @var string
      */
     public $description;
-
     /**
      * @var string
      */
     public $owner;
-
     /**
      * @var string
      */
     public $schemaName;
-
     /**
      * @var string
      */
@@ -42,23 +38,28 @@ class DatabaseSummaryModel extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -66,26 +67,30 @@ class DatabaseSummaryModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DatabaseSummaryModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

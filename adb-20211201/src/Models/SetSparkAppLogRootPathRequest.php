@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetSparkAppLogRootPathRequest extends Model
 {
     /**
-     * @description The database ID.
-     *
-     * This parameter is required.
-     * @example am-dbclusterid
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The Object Storage Service (OSS) log path.
-     *
-     * @example oss://path/to/log
-     *
      * @var string
      */
     public $ossLogPath;
-
     /**
-     * @description Specifies whether to use the default OSS log path.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $useDefaultOss;
@@ -43,17 +28,20 @@ class SetSparkAppLogRootPathRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->ossLogPath) {
             $res['OssLogPath'] = $this->ossLogPath;
         }
+
         if (null !== $this->useDefaultOss) {
             $res['UseDefaultOss'] = $this->useDefaultOss;
         }
@@ -61,20 +49,22 @@ class SetSparkAppLogRootPathRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetSparkAppLogRootPathRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['OssLogPath'])) {
             $model->ossLogPath = $map['OssLogPath'];
         }
+
         if (isset($map['UseDefaultOss'])) {
             $model->useDefaultOss = $map['UseDefaultOss'];
         }

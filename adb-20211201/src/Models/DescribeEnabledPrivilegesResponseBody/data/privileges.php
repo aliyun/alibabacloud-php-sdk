@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEnabledPrivilegesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class privileges extends Model
 {
     /**
-     * @description The description of the permission.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The name of the permission.
-     *
-     * @example select
-     *
      * @var string
      */
     public $key;
@@ -30,14 +23,16 @@ class privileges extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -45,17 +40,18 @@ class privileges extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privileges
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

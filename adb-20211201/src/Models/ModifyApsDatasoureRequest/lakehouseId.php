@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsDatasoureRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class lakehouseId extends Model
 {
     /**
-     * @example sg-******
-     *
      * @var string
      */
     public $securityGroup;
-
     /**
-     * @description vpc id。
-     *
-     * @example vpc-******
-     *
      * @var string
      */
     public $vpcId;
-
     /**
-     * @example vsw-******
-     *
      * @var string
      */
     public $vswitch;
@@ -38,17 +28,20 @@ class lakehouseId extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->securityGroup) {
             $res['SecurityGroup'] = $this->securityGroup;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->vswitch) {
             $res['Vswitch'] = $this->vswitch;
         }
@@ -56,20 +49,22 @@ class lakehouseId extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lakehouseId
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecurityGroup'])) {
             $model->securityGroup = $map['SecurityGroup'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['Vswitch'])) {
             $model->vswitch = $map['Vswitch'];
         }

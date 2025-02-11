@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateLakeStorageRequest\permissions;
-use AlibabaCloud\Tea\Model;
 
 class UpdateLakeStorageRequest extends Model
 {
     /**
-     * @description 用于指定和挂载到特定ADB主实例的湖存储
-     *
-     * @example amv-*******
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description 对湖存储的描述信息
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description 用于识别特定湖存储的唯一标识符
-     *
-     * @example -
-     *
      * @var string
      */
     public $lakeStorageId;
-
     /**
-     * @description 设置湖存储的读/写权限和账户级别权限的数组
-     *
-     * @example -
-     *
      * @var permissions[]
      */
     public $permissions;
-
     /**
-     * @example cn-shenzhen
-     *
      * @var string
      */
     public $regionId;
@@ -61,29 +39,37 @@ class UpdateLakeStorageRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->permissions)) {
+            Model::validateArray($this->permissions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->lakeStorageId) {
             $res['LakeStorageId'] = $this->lakeStorageId;
         }
+
         if (null !== $this->permissions) {
-            $res['Permissions'] = [];
-            if (null !== $this->permissions && \is_array($this->permissions)) {
-                $n = 0;
-                foreach ($this->permissions as $item) {
-                    $res['Permissions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->permissions)) {
+                $res['Permissions'] = [];
+                $n1                 = 0;
+                foreach ($this->permissions as $item1) {
+                    $res['Permissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -91,32 +77,36 @@ class UpdateLakeStorageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLakeStorageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['LakeStorageId'])) {
             $model->lakeStorageId = $map['LakeStorageId'];
         }
+
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
                 $model->permissions = [];
-                $n                  = 0;
-                foreach ($map['Permissions'] as $item) {
-                    $model->permissions[$n++] = null !== $item ? permissions::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['Permissions'] as $item1) {
+                    $model->permissions[$n1++] = permissions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

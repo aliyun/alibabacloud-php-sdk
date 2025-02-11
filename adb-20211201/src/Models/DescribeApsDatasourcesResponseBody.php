@@ -4,44 +4,28 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsDatasourcesResponseBody\apsDatasources;
-use AlibabaCloud\Tea\Model;
 
 class DescribeApsDatasourcesResponseBody extends Model
 {
     /**
-     * @description -
-     *
-     * @example -
-     *
      * @var apsDatasources[]
      */
     public $apsDatasources;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $pageNumber;
-
     /**
-     * @example 30
-     *
      * @var string
      */
     public $pageSize;
-
     /**
-     * @example ******-5213-******-B608-******
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $totalCount;
@@ -55,29 +39,37 @@ class DescribeApsDatasourcesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->apsDatasources)) {
+            Model::validateArray($this->apsDatasources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apsDatasources) {
-            $res['ApsDatasources'] = [];
-            if (null !== $this->apsDatasources && \is_array($this->apsDatasources)) {
-                $n = 0;
-                foreach ($this->apsDatasources as $item) {
-                    $res['ApsDatasources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apsDatasources)) {
+                $res['ApsDatasources'] = [];
+                $n1                    = 0;
+                foreach ($this->apsDatasources as $item1) {
+                    $res['ApsDatasources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -85,32 +77,36 @@ class DescribeApsDatasourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApsDatasourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApsDatasources'])) {
             if (!empty($map['ApsDatasources'])) {
                 $model->apsDatasources = [];
-                $n                     = 0;
-                foreach ($map['ApsDatasources'] as $item) {
-                    $model->apsDatasources[$n++] = null !== $item ? apsDatasources::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ApsDatasources'] as $item1) {
+                    $model->apsDatasources[$n1++] = apsDatasources::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

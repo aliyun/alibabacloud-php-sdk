@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DownloadDiagnosisRecordsResponseBody extends Model
 {
     /**
-     * @description The download ID.
-     *
-     * @example 25494
-     *
      * @var int
      */
     public $downloadId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 845774AC-5D43-53A2-AAB8-C73828E68508
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DownloadDiagnosisRecordsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downloadId) {
             $res['DownloadId'] = $this->downloadId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DownloadDiagnosisRecordsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DownloadDiagnosisRecordsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadId'])) {
             $model->downloadId = $map['DownloadId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

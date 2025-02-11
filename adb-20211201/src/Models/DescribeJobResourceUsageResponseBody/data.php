@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageResponseBody\data\jobAcuUsage;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * @example amv-clusterxxx
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The end time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-     *
-     * @example 2023-05-23T16:00:00Z
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @description The AnalyticDB compute unit (ACU) usage of the job resource group.
-     *
      * @var jobAcuUsage[]
      */
     public $jobAcuUsage;
-
     /**
-     * @description The start time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-     *
-     * @example 2023-05-22T16:00:00Z
-     *
      * @var string
      */
     public $startTime;
@@ -51,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->jobAcuUsage)) {
+            Model::validateArray($this->jobAcuUsage);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->jobAcuUsage) {
-            $res['JobAcuUsage'] = [];
-            if (null !== $this->jobAcuUsage && \is_array($this->jobAcuUsage)) {
-                $n = 0;
-                foreach ($this->jobAcuUsage as $item) {
-                    $res['JobAcuUsage'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobAcuUsage)) {
+                $res['JobAcuUsage'] = [];
+                $n1                 = 0;
+                foreach ($this->jobAcuUsage as $item1) {
+                    $res['JobAcuUsage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -78,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['JobAcuUsage'])) {
             if (!empty($map['JobAcuUsage'])) {
                 $model->jobAcuUsage = [];
-                $n                  = 0;
-                foreach ($map['JobAcuUsage'] as $item) {
-                    $model->jobAcuUsage[$n++] = null !== $item ? jobAcuUsage::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['JobAcuUsage'] as $item1) {
+                    $model->jobAcuUsage[$n1++] = jobAcuUsage::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

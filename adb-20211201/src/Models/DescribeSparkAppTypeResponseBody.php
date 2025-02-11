@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSparkAppTypeResponseBody extends Model
 {
     /**
-     * @example {
-     * "PolicyType": "AccountLevelIdentityBasedPolicy",
-     * "AuthPrincipalOwnerId": "1*****************7",
-     * "AuthPrincipalType": "SubUser",
-     * "AuthPrincipalDisplayName": "2***************9",
-     * }
      * @var string
      */
     public $accessDeniedDetail;
-
     /**
-     * @example 596AF63B-8798-501E-BA06-CD2184D48A35
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example Batch
-     *
      * @var string
      */
     public $type;
@@ -40,17 +28,20 @@ class DescribeSparkAppTypeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -58,20 +49,22 @@ class DescribeSparkAppTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSparkAppTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

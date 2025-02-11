@@ -4,45 +4,24 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountPrivilegesRequest\accountPrivileges;
-use AlibabaCloud\Tea\Model;
 
 class ModifyAccountPrivilegesRequest extends Model
 {
     /**
-     * @description The name of the database account.
-     *
-     * This parameter is required.
-     * @example account1
-     *
      * @var string
      */
     public $accountName;
-
     /**
-     * @description The permissions that you want to grant to the database account.
-     *
-     * This parameter is required.
      * @var accountPrivileges[]
      */
     public $accountPrivileges;
-
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
-     *
-     * This parameter is required.
-     * @example amv-bp1k5p066e1a****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -55,26 +34,33 @@ class ModifyAccountPrivilegesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->accountPrivileges)) {
+            Model::validateArray($this->accountPrivileges);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->accountPrivileges) {
-            $res['AccountPrivileges'] = [];
-            if (null !== $this->accountPrivileges && \is_array($this->accountPrivileges)) {
-                $n = 0;
-                foreach ($this->accountPrivileges as $item) {
-                    $res['AccountPrivileges'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accountPrivileges)) {
+                $res['AccountPrivileges'] = [];
+                $n1                       = 0;
+                foreach ($this->accountPrivileges as $item1) {
+                    $res['AccountPrivileges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -82,29 +68,32 @@ class ModifyAccountPrivilegesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAccountPrivilegesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['AccountPrivileges'])) {
             if (!empty($map['AccountPrivileges'])) {
                 $model->accountPrivileges = [];
-                $n                        = 0;
-                foreach ($map['AccountPrivileges'] as $item) {
-                    $model->accountPrivileges[$n++] = null !== $item ? accountPrivileges::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['AccountPrivileges'] as $item1) {
+                    $model->accountPrivileges[$n1++] = accountPrivileges::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

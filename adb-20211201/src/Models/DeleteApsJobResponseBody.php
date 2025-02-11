@@ -4,62 +4,39 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteApsJobResponseBody extends Model
 {
     /**
-     * @example aps-*****
-     *
      * @var string
      */
     public $apsJobId;
-
     /**
-     * @example 200
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @example Success
-     *
      * @var string
      */
     public $errCode;
-
     /**
-     * @example OK
-     *
      * @var string
      */
     public $errMessage;
-
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @example OK
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example ****-****-5D14-AC9F-*********
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example True
-     *
      * @var bool
      */
     public $success;
@@ -76,32 +53,40 @@ class DeleteApsJobResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apsJobId) {
             $res['ApsJobId'] = $this->apsJobId;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -109,35 +94,42 @@ class DeleteApsJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteApsJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApsJobId'])) {
             $model->apsJobId = $map['ApsJobId'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

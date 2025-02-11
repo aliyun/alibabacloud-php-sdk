@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedNodesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @example 90.5
-     *
      * @var string
      */
     public $diskUsageRatio;
-
     /**
-     * @example Node1
-     *
      * @var string
      */
     public $node;
@@ -28,14 +23,16 @@ class items extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskUsageRatio) {
             $res['DiskUsageRatio'] = $this->diskUsageRatio;
         }
+
         if (null !== $this->node) {
             $res['Node'] = $this->node;
         }
@@ -43,17 +40,18 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskUsageRatio'])) {
             $model->diskUsageRatio = $map['DiskUsageRatio'];
         }
+
         if (isset($map['Node'])) {
             $model->node = $map['Node'];
         }

@@ -4,58 +4,27 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkTemplateFileContentResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The application type. Valid values:
-     *
-     *   **SQL**
-     *   **STREAMING**
-     *   **BATCH**
-     *
-     * @example SQL
-     *
      * @var string
      */
     public $appType;
-
     /**
-     * @description The content of the application template.
-     *
-     * @example set spark.driver.resourceSpec=medium;set spark.executor.instances=2;set spark.executor.resourceSpec=medium;set spark.app.name=Spark SQL Test;
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description The application template ID.
-     *
-     * @example 725204
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the resource group.
-     *
-     * @example test
-     *
      * @var string
      */
     public $resourceGroupName;
-
     /**
-     * @description The file type. Valid values:
-     *
-     *   **folder**
-     *   **file**
-     *
-     * @example file
-     *
      * @var string
      */
     public $type;
@@ -69,23 +38,28 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->resourceGroupName) {
             $res['ResourceGroupName'] = $this->resourceGroupName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -93,26 +67,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ResourceGroupName'])) {
             $model->resourceGroupName = $map['ResourceGroupName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

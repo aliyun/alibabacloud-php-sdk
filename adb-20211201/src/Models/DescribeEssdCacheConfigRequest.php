@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEssdCacheConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example amv-uf685u1o987hj6rn
-     *
      * @var string
      */
     public $DBClusterId;
@@ -22,9 +18,10 @@ class DescribeEssdCacheConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
@@ -34,11 +31,11 @@ class DescribeEssdCacheConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEssdCacheConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SerDeInfoModel extends Model
 {
@@ -12,17 +12,14 @@ class SerDeInfoModel extends Model
      * @var string
      */
     public $name;
-
     /**
      * @var string[]
      */
     public $parameters;
-
     /**
      * @var int
      */
     public $serDeId;
-
     /**
      * @var string
      */
@@ -36,20 +33,32 @@ class SerDeInfoModel extends Model
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['Parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->serDeId) {
             $res['SerDeId'] = $this->serDeId;
         }
+
         if (null !== $this->serializationLib) {
             $res['SerializationLib'] = $this->serializationLib;
         }
@@ -57,23 +66,31 @@ class SerDeInfoModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SerDeInfoModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                foreach ($map['Parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['SerDeId'])) {
             $model->serDeId = $map['SerDeId'];
         }
+
         if (isset($map['SerializationLib'])) {
             $model->serializationLib = $map['SerializationLib'];
         }

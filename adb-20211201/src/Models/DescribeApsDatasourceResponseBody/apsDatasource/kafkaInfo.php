@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsDatasourceResponseBody\apsDatasource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class kafkaInfo extends Model
 {
     /**
-     * @example -
-     *
      * @var string
      */
     public $kafkaClusterId;
-
     /**
-     * @description kafka topic
-     *
-     * @example [{\\"value\\": \\"hongxian_test\\"}]
-     *
      * @var string
      */
     public $kafkaTopic;
@@ -30,14 +23,16 @@ class kafkaInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kafkaClusterId) {
             $res['KafkaClusterId'] = $this->kafkaClusterId;
         }
+
         if (null !== $this->kafkaTopic) {
             $res['KafkaTopic'] = $this->kafkaTopic;
         }
@@ -45,17 +40,18 @@ class kafkaInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kafkaInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KafkaClusterId'])) {
             $model->kafkaClusterId = $map['KafkaClusterId'];
         }
+
         if (isset($map['KafkaTopic'])) {
             $model->kafkaTopic = $map['KafkaTopic'];
         }

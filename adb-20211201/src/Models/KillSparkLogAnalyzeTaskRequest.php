@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class KillSparkLogAnalyzeTaskRequest extends Model
 {
     /**
-     * @description The ID of the Spark log analysis task. You can call the ListSparkLogAnalyzeTasks operation to query the IDs and states of all analysis tasks in the current cluster.
-     *
-     * This parameter is required.
-     * @example 15
-     *
      * @var int
      */
     public $taskId;
@@ -23,9 +18,10 @@ class KillSparkLogAnalyzeTaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -35,11 +31,11 @@ class KillSparkLogAnalyzeTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return KillSparkLogAnalyzeTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

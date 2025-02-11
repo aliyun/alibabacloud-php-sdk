@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponseBody\items\address;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ports extends Model
 {
@@ -18,17 +18,21 @@ class ports extends Model
 
     public function validate()
     {
+        if (\is_array($this->ports)) {
+            Model::validateArray($this->ports);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ports) {
-            $res['ports'] = [];
-            if (null !== $this->ports && \is_array($this->ports)) {
-                $n = 0;
-                foreach ($this->ports as $item) {
-                    $res['ports'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ports)) {
+                $res['ports'] = [];
+                $n1           = 0;
+                foreach ($this->ports as $item1) {
+                    $res['ports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +40,20 @@ class ports extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ports
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ports'])) {
             if (!empty($map['ports'])) {
                 $model->ports = [];
-                $n            = 0;
-                foreach ($map['ports'] as $item) {
-                    $model->ports[$n++] = null !== $item ? \AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponseBody\items\address\ports\ports::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['ports'] as $item1) {
+                    $model->ports[$n1++] = \AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponseBody\items\address\ports\ports::fromMap($item1);
                 }
             }
         }

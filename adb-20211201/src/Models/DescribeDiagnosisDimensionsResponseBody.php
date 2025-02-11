@@ -4,43 +4,27 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDiagnosisDimensionsResponseBody extends Model
 {
     /**
-     * @description The queried source IP addresses.
-     *
      * @var string[]
      */
     public $clientIps;
-
     /**
-     * @description The queried database names.
-     *
      * @var string[]
      */
     public $databases;
-
     /**
-     * @description The request ID.
-     *
-     * @example DEA97C6B-D7A4-5E69-9EFC-D7F88737CED5
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The queried resource group names.
-     *
      * @var string[]
      */
     public $resourceGroups;
-
     /**
-     * @description The queried usernames.
-     *
      * @var string[]
      */
     public $userNames;
@@ -54,59 +38,120 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->clientIps)) {
+            Model::validateArray($this->clientIps);
+        }
+        if (\is_array($this->databases)) {
+            Model::validateArray($this->databases);
+        }
+        if (\is_array($this->resourceGroups)) {
+            Model::validateArray($this->resourceGroups);
+        }
+        if (\is_array($this->userNames)) {
+            Model::validateArray($this->userNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIps) {
-            $res['ClientIps'] = $this->clientIps;
+            if (\is_array($this->clientIps)) {
+                $res['ClientIps'] = [];
+                $n1               = 0;
+                foreach ($this->clientIps as $item1) {
+                    $res['ClientIps'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->databases) {
-            $res['Databases'] = $this->databases;
+            if (\is_array($this->databases)) {
+                $res['Databases'] = [];
+                $n1               = 0;
+                foreach ($this->databases as $item1) {
+                    $res['Databases'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceGroups) {
-            $res['ResourceGroups'] = $this->resourceGroups;
+            if (\is_array($this->resourceGroups)) {
+                $res['ResourceGroups'] = [];
+                $n1                    = 0;
+                foreach ($this->resourceGroups as $item1) {
+                    $res['ResourceGroups'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userNames) {
-            $res['UserNames'] = $this->userNames;
+            if (\is_array($this->userNames)) {
+                $res['UserNames'] = [];
+                $n1               = 0;
+                foreach ($this->userNames as $item1) {
+                    $res['UserNames'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiagnosisDimensionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientIps'])) {
             if (!empty($map['ClientIps'])) {
-                $model->clientIps = $map['ClientIps'];
+                $model->clientIps = [];
+                $n1               = 0;
+                foreach ($map['ClientIps'] as $item1) {
+                    $model->clientIps[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
-                $model->databases = $map['Databases'];
+                $model->databases = [];
+                $n1               = 0;
+                foreach ($map['Databases'] as $item1) {
+                    $model->databases[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceGroups'])) {
             if (!empty($map['ResourceGroups'])) {
-                $model->resourceGroups = $map['ResourceGroups'];
+                $model->resourceGroups = [];
+                $n1                    = 0;
+                foreach ($map['ResourceGroups'] as $item1) {
+                    $model->resourceGroups[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UserNames'])) {
             if (!empty($map['UserNames'])) {
-                $model->userNames = $map['UserNames'];
+                $model->userNames = [];
+                $n1               = 0;
+                foreach ($map['UserNames'] as $item1) {
+                    $model->userNames[$n1++] = $item1;
+                }
             }
         }
 

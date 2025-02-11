@@ -4,36 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsDatasourceResponseBody\apsDatasource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hiveInfo extends Model
 {
     /**
-     * @example -
-     *
      * @var string
      */
     public $emrClusterId;
-
     /**
-     * @description hive meta store url。
-     *
-     * @example -
-     *
      * @var string
      */
     public $metaStoreUri;
-
     /**
-     * @example sg-******
-     *
      * @var string
      */
     public $securityGroup;
-
     /**
-     * @example vsw-******
-     *
      * @var string
      */
     public $vswitch;
@@ -46,20 +33,24 @@ class hiveInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->emrClusterId) {
             $res['EmrClusterId'] = $this->emrClusterId;
         }
+
         if (null !== $this->metaStoreUri) {
             $res['MetaStoreUri'] = $this->metaStoreUri;
         }
+
         if (null !== $this->securityGroup) {
             $res['SecurityGroup'] = $this->securityGroup;
         }
+
         if (null !== $this->vswitch) {
             $res['Vswitch'] = $this->vswitch;
         }
@@ -67,23 +58,26 @@ class hiveInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hiveInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EmrClusterId'])) {
             $model->emrClusterId = $map['EmrClusterId'];
         }
+
         if (isset($map['MetaStoreUri'])) {
             $model->metaStoreUri = $map['MetaStoreUri'];
         }
+
         if (isset($map['SecurityGroup'])) {
             $model->securityGroup = $map['SecurityGroup'];
         }
+
         if (isset($map['Vswitch'])) {
             $model->vswitch = $map['Vswitch'];
         }

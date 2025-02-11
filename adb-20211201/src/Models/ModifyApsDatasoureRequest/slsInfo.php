@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsDatasoureRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class slsInfo extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $across;
-
     /**
-     * @example test-role
-     *
      * @var string
      */
     public $acrossRole;
-
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $acrossUid;
-
     /**
-     * @example cn-beijing
-     *
      * @var string
      */
     public $sourceRegionId;
@@ -44,20 +33,24 @@ class slsInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->across) {
             $res['Across'] = $this->across;
         }
+
         if (null !== $this->acrossRole) {
             $res['AcrossRole'] = $this->acrossRole;
         }
+
         if (null !== $this->acrossUid) {
             $res['AcrossUid'] = $this->acrossUid;
         }
+
         if (null !== $this->sourceRegionId) {
             $res['SourceRegionId'] = $this->sourceRegionId;
         }
@@ -65,23 +58,26 @@ class slsInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slsInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Across'])) {
             $model->across = $map['Across'];
         }
+
         if (isset($map['AcrossRole'])) {
             $model->acrossRole = $map['AcrossRole'];
         }
+
         if (isset($map['AcrossUid'])) {
             $model->acrossUid = $map['AcrossUid'];
         }
+
         if (isset($map['SourceRegionId'])) {
             $model->sourceRegionId = $map['SourceRegionId'];
         }

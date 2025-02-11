@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeElasticPlanAttributeRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example amv-wz9509beptiz****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The name of the scaling plan.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $elasticPlanName;
@@ -34,14 +23,16 @@ class DescribeElasticPlanAttributeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->elasticPlanName) {
             $res['ElasticPlanName'] = $this->elasticPlanName;
         }
@@ -49,17 +40,18 @@ class DescribeElasticPlanAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeElasticPlanAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['ElasticPlanName'])) {
             $model->elasticPlanName = $map['ElasticPlanName'];
         }

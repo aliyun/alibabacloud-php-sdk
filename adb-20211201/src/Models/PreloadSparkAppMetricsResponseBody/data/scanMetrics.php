@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scanMetrics extends Model
 {
     /**
-     * @description The number of rows scanned.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $outputRowsCount;
-
     /**
-     * @description The size of the scanned data. Unit: bytes.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $totalReadFileSizeInByte;
@@ -32,14 +23,16 @@ class scanMetrics extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outputRowsCount) {
             $res['OutputRowsCount'] = $this->outputRowsCount;
         }
+
         if (null !== $this->totalReadFileSizeInByte) {
             $res['TotalReadFileSizeInByte'] = $this->totalReadFileSizeInByte;
         }
@@ -47,17 +40,18 @@ class scanMetrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scanMetrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OutputRowsCount'])) {
             $model->outputRowsCount = $map['OutputRowsCount'];
         }
+
         if (isset($map['TotalReadFileSizeInByte'])) {
             $model->totalReadFileSizeInByte = $map['TotalReadFileSizeInByte'];
         }

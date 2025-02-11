@@ -4,43 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSparkAppAttemptLogRequest extends Model
 {
     /**
-     * @description The ID of the log.
-     *
-     * This parameter is required.
-     * @example s202207151211hz****-0001
-     *
      * @var string
      */
     public $attemptId;
-
     /**
-     * @description The number of log entries to return. Valid values: 1 to 500. Default value: 300.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $logLength;
-
     /**
-     * @description The log offset.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $pageSize;
@@ -53,20 +33,24 @@ class GetSparkAppAttemptLogRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attemptId) {
             $res['AttemptId'] = $this->attemptId;
         }
+
         if (null !== $this->logLength) {
             $res['LogLength'] = $this->logLength;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -74,23 +58,26 @@ class GetSparkAppAttemptLogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSparkAppAttemptLogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttemptId'])) {
             $model->attemptId = $map['AttemptId'];
         }
+
         if (isset($map['LogLength'])) {
             $model->logLength = $map['LogLength'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

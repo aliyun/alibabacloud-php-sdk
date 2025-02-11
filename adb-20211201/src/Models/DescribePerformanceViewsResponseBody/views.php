@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribePerformanceViewsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class views extends Model
 {
     /**
-     * @description The time when created.
-     *
-     * @example 2024-06-18T07:06:53.000+00:00
-     *
      * @var string
      */
     public $createTime;
-
     /**
-     * @description The time when updated.
-     *
-     * @example 2024-06-18T07:07:32.000+00:00
-     *
      * @var string
      */
     public $updateTime;
-
     /**
-     * @description The name of the view.
-     *
-     * @example Basic
-     *
      * @var string
      */
     public $viewName;
@@ -42,17 +28,20 @@ class views extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
+
         if (null !== $this->viewName) {
             $res['ViewName'] = $this->viewName;
         }
@@ -60,20 +49,22 @@ class views extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return views
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }
+
         if (isset($map['ViewName'])) {
             $model->viewName = $map['ViewName'];
         }

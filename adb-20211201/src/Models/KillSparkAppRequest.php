@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class KillSparkAppRequest extends Model
 {
     /**
-     * @description The ID of the Spark application that you want to terminate.
-     *
-     * This parameter is required.
-     * @example s202204132018hzprec1ac****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/454250.html) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
-     * @example amv-bp1ub9grke1****
-     *
      * @var string
      */
     public $DBClusterId;
@@ -34,14 +23,16 @@ class KillSparkAppRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -49,17 +40,18 @@ class KillSparkAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return KillSparkAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

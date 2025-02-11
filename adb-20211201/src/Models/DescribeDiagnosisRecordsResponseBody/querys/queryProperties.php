@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDiagnosisRecordsResponseBody\querys;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class queryProperties extends Model
 {
@@ -12,7 +12,6 @@ class queryProperties extends Model
      * @var string
      */
     public $name;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class queryProperties extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -39,17 +40,18 @@ class queryProperties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryProperties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLakeCacheSizeRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example amv-bp10b6646l07akdt
-     *
      * @var string
      */
     public $DBClusterId;
@@ -22,9 +18,10 @@ class DescribeLakeCacheSizeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
@@ -34,11 +31,11 @@ class DescribeLakeCacheSizeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLakeCacheSizeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

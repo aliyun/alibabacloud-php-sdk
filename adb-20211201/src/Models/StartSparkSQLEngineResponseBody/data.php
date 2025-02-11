@@ -4,38 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkSQLEngineResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the Spark job.
-     *
-     * @example s202301xxxx
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The name of the Spark application.
-     *
-     * @example SQLEngine1
-     *
      * @var string
      */
     public $appName;
-
     /**
-     * @description The state of the Spark SQL engine. Valid values:
-     *
-     *   SUBMITTED
-     *   STARTING
-     *   RUNNING
-     *   FAILED
-     *
-     * @example SUBMITTED
-     *
      * @var string
      */
     public $state;
@@ -47,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -65,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }

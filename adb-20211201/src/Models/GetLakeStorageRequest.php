@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetLakeStorageRequest extends Model
 {
     /**
-     * @example amv-*******
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @example -
-     *
      * @var string
      */
     public $lakeStorageId;
-
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -36,17 +28,20 @@ class GetLakeStorageRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->lakeStorageId) {
             $res['LakeStorageId'] = $this->lakeStorageId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -54,20 +49,22 @@ class GetLakeStorageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLakeStorageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['LakeStorageId'])) {
             $model->lakeStorageId = $map['LakeStorageId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

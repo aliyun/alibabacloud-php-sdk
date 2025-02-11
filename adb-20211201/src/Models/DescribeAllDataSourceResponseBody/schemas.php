@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAllDataSourceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAllDataSourceResponseBody\schemas\schema;
-use AlibabaCloud\Tea\Model;
 
 class schemas extends Model
 {
@@ -19,17 +19,21 @@ class schemas extends Model
 
     public function validate()
     {
+        if (\is_array($this->schema)) {
+            Model::validateArray($this->schema);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->schema) {
-            $res['Schema'] = [];
-            if (null !== $this->schema && \is_array($this->schema)) {
-                $n = 0;
-                foreach ($this->schema as $item) {
-                    $res['Schema'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->schema)) {
+                $res['Schema'] = [];
+                $n1            = 0;
+                foreach ($this->schema as $item1) {
+                    $res['Schema'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class schemas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schemas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Schema'])) {
             if (!empty($map['Schema'])) {
                 $model->schema = [];
-                $n             = 0;
-                foreach ($map['Schema'] as $item) {
-                    $model->schema[$n++] = null !== $item ? schema::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Schema'] as $item1) {
+                    $model->schema[$n1++] = schema::fromMap($item1);
                 }
             }
         }

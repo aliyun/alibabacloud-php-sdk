@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterAccessWhiteListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterAccessWhiteListResponseBody\items\IPArray;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,17 +19,21 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->IPArray)) {
+            Model::validateArray($this->IPArray);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->IPArray) {
-            $res['IPArray'] = [];
-            if (null !== $this->IPArray && \is_array($this->IPArray)) {
-                $n = 0;
-                foreach ($this->IPArray as $item) {
-                    $res['IPArray'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->IPArray)) {
+                $res['IPArray'] = [];
+                $n1             = 0;
+                foreach ($this->IPArray as $item1) {
+                    $res['IPArray'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IPArray'])) {
             if (!empty($map['IPArray'])) {
                 $model->IPArray = [];
-                $n              = 0;
-                foreach ($map['IPArray'] as $item) {
-                    $model->IPArray[$n++] = null !== $item ? IPArray::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['IPArray'] as $item1) {
+                    $model->IPArray[$n1++] = IPArray::fromMap($item1);
                 }
             }
         }

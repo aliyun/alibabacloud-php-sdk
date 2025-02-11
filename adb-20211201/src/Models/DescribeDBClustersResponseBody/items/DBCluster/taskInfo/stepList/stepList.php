@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\DBCluster\taskInfo\stepList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stepList extends Model
 {
@@ -12,27 +12,22 @@ class stepList extends Model
      * @var string
      */
     public $endTime;
-
     /**
      * @var string
      */
     public $startTime;
-
     /**
      * @var string
      */
     public $stepDesc;
-
     /**
      * @var string
      */
     public $stepName;
-
     /**
      * @var string
      */
     public $stepProgress;
-
     /**
      * @var string
      */
@@ -48,26 +43,32 @@ class stepList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->stepDesc) {
             $res['StepDesc'] = $this->stepDesc;
         }
+
         if (null !== $this->stepName) {
             $res['StepName'] = $this->stepName;
         }
+
         if (null !== $this->stepProgress) {
             $res['StepProgress'] = $this->stepProgress;
         }
+
         if (null !== $this->stepStatus) {
             $res['StepStatus'] = $this->stepStatus;
         }
@@ -75,29 +76,34 @@ class stepList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stepList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['StepDesc'])) {
             $model->stepDesc = $map['StepDesc'];
         }
+
         if (isset($map['StepName'])) {
             $model->stepName = $map['StepName'];
         }
+
         if (isset($map['StepProgress'])) {
             $model->stepProgress = $map['StepProgress'];
         }
+
         if (isset($map['StepStatus'])) {
             $model->stepStatus = $map['StepStatus'];
         }

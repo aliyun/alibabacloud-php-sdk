@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSparkReplStatementRequest extends Model
 {
     /**
-     * @example s202411071444hzdvk486d9d200****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $sessionId;
-
     /**
-     * @example 123
-     *
      * @var int
      */
     public $statementId;
@@ -36,17 +28,20 @@ class GetSparkReplStatementRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->statementId) {
             $res['StatementId'] = $this->statementId;
         }
@@ -54,20 +49,22 @@ class GetSparkReplStatementRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSparkReplStatementRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['StatementId'])) {
             $model->statementId = $map['StatementId'];
         }

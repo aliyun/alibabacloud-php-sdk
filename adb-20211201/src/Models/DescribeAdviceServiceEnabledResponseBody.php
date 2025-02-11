@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAdviceServiceEnabledResponseBody extends Model
 {
     /**
-     * @example Success
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example E031AABF-BD56-5966-A063-4283EF18DB45
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example False
-     *
      * @var bool
      */
     public $result;
@@ -36,17 +28,20 @@ class DescribeAdviceServiceEnabledResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -54,20 +49,22 @@ class DescribeAdviceServiceEnabledResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAdviceServiceEnabledResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

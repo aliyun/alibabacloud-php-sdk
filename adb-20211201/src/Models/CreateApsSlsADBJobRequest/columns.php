@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsSlsADBJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class columns extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $mapName;
-
     /**
-     * @example int
-     *
      * @var string
      */
     public $mapType;
-
     /**
-     * @example id
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example bigint
-     *
      * @var string
      */
     public $type;
@@ -44,20 +33,24 @@ class columns extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mapName) {
             $res['MapName'] = $this->mapName;
         }
+
         if (null !== $this->mapType) {
             $res['MapType'] = $this->mapType;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -65,23 +58,26 @@ class columns extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return columns
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MapName'])) {
             $model->mapName = $map['MapName'];
         }
+
         if (isset($map['MapType'])) {
             $model->mapType = $map['MapType'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

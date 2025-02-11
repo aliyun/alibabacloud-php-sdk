@@ -4,96 +4,46 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyBackupPolicyRequest extends Model
 {
     /**
-     * @description The number of days for which to retain full backup files. Valid values: 7 to 730.
-     *
-     * >  If you do not specify this parameter, the default value 7 is used.
-     * @example 7
-     *
      * @var string
      */
     public $backupRetentionPeriod;
-
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * This parameter is required.
-     * @example am-bp1xxxxxxxx47
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description Specifies whether to enable log backup. Valid values:
-     *
-     *   **Enable**
-     *   **Disable**
-     *
-     * >  If you do not specify this parameter, the default value Enable is used.
-     * @example Enable
-     *
      * @var string
      */
     public $enableBackupLog;
-
     /**
-     * @description The number of days for which to retain log backup files. Valid values: 7 to 730.
-     *
-     * >  If you do not specify this parameter, the default value 7 is used.
-     * @example 7
-     *
      * @var int
      */
     public $logBackupRetentionPeriod;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The days of the week on which to perform a full backup. Separate multiple values with commas (,). Valid values:
-     *
-     *   **Monday**
-     *   **Tuesday**
-     *   **Wednesday**
-     *   **Thursday**
-     *   **Friday**
-     *   **Saturday**
-     *   **Sunday**
-     *
-     * >  To ensure data security, we recommend that you specify at least two values.
-     * @example Monday,Wednesday,Friday,Sunday
-     *
      * @var string
      */
     public $preferredBackupPeriod;
-
     /**
-     * @description The start time to perform a full backup. Specify the time in the HH:mmZ-HH:mmZ format. The time must be in UTC.
-     *
-     * This parameter is required.
-     * @example 18:00Z-19:00Z
-     *
      * @var string
      */
     public $preferredBackupTime;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -113,38 +63,48 @@ class ModifyBackupPolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
         }
+
         if (null !== $this->logBackupRetentionPeriod) {
             $res['LogBackupRetentionPeriod'] = $this->logBackupRetentionPeriod;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->preferredBackupPeriod) {
             $res['PreferredBackupPeriod'] = $this->preferredBackupPeriod;
         }
+
         if (null !== $this->preferredBackupTime) {
             $res['PreferredBackupTime'] = $this->preferredBackupTime;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -152,41 +112,50 @@ class ModifyBackupPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyBackupPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
         }
+
         if (isset($map['LogBackupRetentionPeriod'])) {
             $model->logBackupRetentionPeriod = $map['LogBackupRetentionPeriod'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PreferredBackupPeriod'])) {
             $model->preferredBackupPeriod = $map['PreferredBackupPeriod'];
         }
+
         if (isset($map['PreferredBackupTime'])) {
             $model->preferredBackupTime = $map['PreferredBackupTime'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

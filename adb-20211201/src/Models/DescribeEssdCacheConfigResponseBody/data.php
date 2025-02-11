@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEssdCacheConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableEssdCache;
-
     /**
-     * @example 500
-     *
      * @var int
      */
     public $essdCacheSize;
@@ -28,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableEssdCache) {
             $res['EnableEssdCache'] = $this->enableEssdCache;
         }
+
         if (null !== $this->essdCacheSize) {
             $res['EssdCacheSize'] = $this->essdCacheSize;
         }
@@ -43,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableEssdCache'])) {
             $model->enableEssdCache = $map['EnableEssdCache'];
         }
+
         if (isset($map['EssdCacheSize'])) {
             $model->essdCacheSize = $map['EssdCacheSize'];
         }

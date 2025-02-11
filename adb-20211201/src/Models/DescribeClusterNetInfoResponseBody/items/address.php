@@ -4,91 +4,40 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponseBody\items;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponseBody\items\address\ports;
-use AlibabaCloud\Tea\Model;
 
 class address extends Model
 {
     /**
-     * @description The endpoint of the cluster.
-     *
-     *   If NetType is set to VPC, the VPC endpoint of the cluster is returned.
-     *   If NetType is set to Public, the public endpoint of the cluster is returned.
-     *
-     * @example amv-wz9dqvn0o7****.ads.aliyuncs.com
-     *
      * @var string
      */
     public $connectionString;
-
     /**
-     * @description The prefix of the endpoint.
-     *
-     *   If NetType is set to VPC, the prefix of the VPC endpoint is returned.
-     *   If NetType is set to Public, the prefix of the public endpoint is returned.
-     *
-     * @example amv-wz9dqvn0o7****
-     *
      * @var string
      */
     public $connectionStringPrefix;
-
     /**
-     * @description The IP address of the endpoint.
-     *
-     *   If NetType is set to VPC, the private IP address of the cluster is returned.
-     *   If NetType is set to Public, the public IP address of the cluster is returned.
-     *
-     * @example 192.168.xx.xx
-     *
      * @var string
      */
     public $IPAddress;
-
     /**
-     * @description The network type of the cluster. Valid values:
-     *
-     *   **Public**: Internet.
-     *   **VPC**: VPC.
-     *
-     * @example VPC
-     *
      * @var string
      */
     public $netType;
-
     /**
-     * @description The port number that is used to connect to the cluster. **3306** is returned.
-     *
-     * @example 3306
-     *
      * @var string
      */
     public $port;
-
     /**
-     * @description The ports.
-     *
      * @var ports
      */
     public $ports;
-
     /**
-     * @description The VPC ID.
-     *
-     * >  If NetType is set to Public, an empty string is returned.
-     * @example vpc-8vbhucmd5b****
-     *
      * @var string
      */
     public $VPCId;
-
     /**
-     * @description The vSwitch ID of the cluster.
-     *
-     * >  If NetType is set to Public, an empty string is returned.
-     * @example vsw-bp1syh8vvw8yec****
-     *
      * @var string
      */
     public $vSwitchId;
@@ -105,32 +54,43 @@ class address extends Model
 
     public function validate()
     {
+        if (null !== $this->ports) {
+            $this->ports->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
         }
+
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
+
         if (null !== $this->IPAddress) {
             $res['IPAddress'] = $this->IPAddress;
         }
+
         if (null !== $this->netType) {
             $res['NetType'] = $this->netType;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->ports) {
-            $res['Ports'] = null !== $this->ports ? $this->ports->toMap() : null;
+            $res['Ports'] = null !== $this->ports ? $this->ports->toArray($noStream) : $this->ports;
         }
+
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -138,35 +98,42 @@ class address extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return address
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
         }
+
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
+
         if (isset($map['IPAddress'])) {
             $model->IPAddress = $map['IPAddress'];
         }
+
         if (isset($map['NetType'])) {
             $model->netType = $map['NetType'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['Ports'])) {
             $model->ports = ports::fromMap($map['Ports']);
         }
+
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

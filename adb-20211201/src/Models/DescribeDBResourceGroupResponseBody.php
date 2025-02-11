@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBResourceGroupResponseBody extends Model
 {
     /**
-     * @description The queried resource groups.
-     *
      * @var groupsInfo[]
      */
     public $groupsInfo;
-
     /**
-     * @description The request ID.
-     *
-     * @example A94B6C02-7BD4-5D67-9776-3AC8317E8DD3
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeDBResourceGroupResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupsInfo)) {
+            Model::validateArray($this->groupsInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupsInfo) {
-            $res['GroupsInfo'] = [];
-            if (null !== $this->groupsInfo && \is_array($this->groupsInfo)) {
-                $n = 0;
-                foreach ($this->groupsInfo as $item) {
-                    $res['GroupsInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupsInfo)) {
+                $res['GroupsInfo'] = [];
+                $n1                = 0;
+                foreach ($this->groupsInfo as $item1) {
+                    $res['GroupsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeDBResourceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBResourceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupsInfo'])) {
             if (!empty($map['GroupsInfo'])) {
                 $model->groupsInfo = [];
-                $n                 = 0;
-                foreach ($map['GroupsInfo'] as $item) {
-                    $model->groupsInfo[$n++] = null !== $item ? groupsInfo::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['GroupsInfo'] as $item1) {
+                    $model->groupsInfo[$n1++] = groupsInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

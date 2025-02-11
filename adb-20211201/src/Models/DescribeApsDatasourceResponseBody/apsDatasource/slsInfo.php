@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsDatasourceResponseBody\apsDatasource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class slsInfo extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $across;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $acrossRole;
-
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $acrossUid;
-
     /**
-     * @example ***
-     *
      * @var string
      */
     public $project;
-
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $sourceRegionId;
-
     /**
-     * @example ***
-     *
      * @var string
      */
     public $store;
@@ -60,26 +43,32 @@ class slsInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->across) {
             $res['Across'] = $this->across;
         }
+
         if (null !== $this->acrossRole) {
             $res['AcrossRole'] = $this->acrossRole;
         }
+
         if (null !== $this->acrossUid) {
             $res['AcrossUid'] = $this->acrossUid;
         }
+
         if (null !== $this->project) {
             $res['Project'] = $this->project;
         }
+
         if (null !== $this->sourceRegionId) {
             $res['SourceRegionId'] = $this->sourceRegionId;
         }
+
         if (null !== $this->store) {
             $res['Store'] = $this->store;
         }
@@ -87,29 +76,34 @@ class slsInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slsInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Across'])) {
             $model->across = $map['Across'];
         }
+
         if (isset($map['AcrossRole'])) {
             $model->acrossRole = $map['AcrossRole'];
         }
+
         if (isset($map['AcrossUid'])) {
             $model->acrossUid = $map['AcrossUid'];
         }
+
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
         }
+
         if (isset($map['SourceRegionId'])) {
             $model->sourceRegionId = $map['SourceRegionId'];
         }
+
         if (isset($map['Store'])) {
             $model->store = $map['Store'];
         }

@@ -4,35 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\ListResultExportJobHistoryRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class order extends Model
 {
     /**
-     * @description The field that is used to sort the SQL statements. Valid values:
-     *
-     *   CreateTime
-     *   DatabaseUser
-     *   TimeCost
-     *   ResourceGroup
-     *   Status
-     *   Progress
-     *   ExportRows
-     *
-     * @example DatabaseUser
-     *
      * @var string
      */
     public $field;
-
     /**
-     * @description The sorting order. Valid values (case-insensitive):
-     *
-     *   **Desc**: descending order.
-     *   **Asc**: ascending order.
-     *
-     * @example Desc
-     *
      * @var string
      */
     public $type;
@@ -43,14 +23,16 @@ class order extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -58,17 +40,18 @@ class order extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return order
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

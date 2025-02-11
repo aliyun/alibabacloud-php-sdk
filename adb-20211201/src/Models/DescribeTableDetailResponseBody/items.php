@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableDetailResponseBody\items\shard;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
@@ -19,17 +19,21 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->shard)) {
+            Model::validateArray($this->shard);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->shard) {
-            $res['Shard'] = [];
-            if (null !== $this->shard && \is_array($this->shard)) {
-                $n = 0;
-                foreach ($this->shard as $item) {
-                    $res['Shard'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->shard)) {
+                $res['Shard'] = [];
+                $n1           = 0;
+                foreach ($this->shard as $item1) {
+                    $res['Shard'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Shard'])) {
             if (!empty($map['Shard'])) {
                 $model->shard = [];
-                $n            = 0;
-                foreach ($map['Shard'] as $item) {
-                    $model->shard[$n++] = null !== $item ? shard::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Shard'] as $item1) {
+                    $model->shard[$n1++] = shard::fromMap($item1);
                 }
             }
         }

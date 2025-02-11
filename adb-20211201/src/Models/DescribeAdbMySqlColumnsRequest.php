@@ -4,44 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAdbMySqlColumnsRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * This parameter is required.
-     * @example amv-bp1r053byu48p****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The name of the database.
-     *
-     * @example adb_demo
-     *
      * @var string
      */
     public $schema;
-
     /**
-     * @description The name of the table.
-     *
-     * @example test
-     *
      * @var string
      */
     public $tableName;
@@ -54,20 +33,24 @@ class DescribeAdbMySqlColumnsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->schema) {
             $res['Schema'] = $this->schema;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -75,23 +58,26 @@ class DescribeAdbMySqlColumnsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAdbMySqlColumnsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Schema'])) {
             $model->schema = $map['Schema'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

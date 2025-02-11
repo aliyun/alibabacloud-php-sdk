@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SparkSession extends Model
 {
     /**
-     * @example true
-     *
      * @var string
      */
     public $active;
-
     /**
-     * @example 11123123
-     *
      * @var int
      */
     public $aliyunUid;
-
     /**
-     * @example 15
-     *
      * @var int
      */
     public $sessionId;
-
     /**
-     * @example idle
-     *
      * @var string
      */
     public $state;
@@ -44,20 +33,24 @@ class SparkSession extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->active) {
             $res['Active'] = $this->active;
         }
+
         if (null !== $this->aliyunUid) {
             $res['AliyunUid'] = $this->aliyunUid;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
@@ -65,23 +58,26 @@ class SparkSession extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SparkSession
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Active'])) {
             $model->active = $map['Active'];
         }
+
         if (isset($map['AliyunUid'])) {
             $model->aliyunUid = $map['AliyunUid'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }

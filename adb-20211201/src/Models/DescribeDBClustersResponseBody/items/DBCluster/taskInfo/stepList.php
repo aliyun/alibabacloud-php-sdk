@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\DBCluster\taskInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\DBCluster\taskInfo\stepList\stepList;
 
 class stepList extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\DBCluster\taskInfo\stepList\stepList[]
+     * @var stepList[]
      */
     public $stepList;
     protected $_name = [
@@ -18,17 +19,21 @@ class stepList extends Model
 
     public function validate()
     {
+        if (\is_array($this->stepList)) {
+            Model::validateArray($this->stepList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->stepList) {
-            $res['StepList'] = [];
-            if (null !== $this->stepList && \is_array($this->stepList)) {
-                $n = 0;
-                foreach ($this->stepList as $item) {
-                    $res['StepList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->stepList)) {
+                $res['StepList'] = [];
+                $n1              = 0;
+                foreach ($this->stepList as $item1) {
+                    $res['StepList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +41,20 @@ class stepList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stepList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StepList'])) {
             if (!empty($map['StepList'])) {
                 $model->stepList = [];
-                $n               = 0;
-                foreach ($map['StepList'] as $item) {
-                    $model->stepList[$n++] = null !== $item ? \AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponseBody\items\DBCluster\taskInfo\stepList\stepList::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['StepList'] as $item1) {
+                    $model->stepList[$n1++] = self::fromMap($item1);
                 }
             }
         }

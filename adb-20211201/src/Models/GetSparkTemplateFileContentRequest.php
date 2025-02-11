@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSparkTemplateFileContentRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * This parameter is required.
-     * @example amv-8vbn8pq537k8w****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The application template ID.
-     *
-     * This parameter is required.
-     * @example 725204
-     *
      * @var int
      */
     public $id;
@@ -34,14 +23,16 @@ class GetSparkTemplateFileContentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -49,17 +40,18 @@ class GetSparkTemplateFileContentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSparkTemplateFileContentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -4,75 +4,35 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAllDataSourceResponseBody\columns;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class column extends Model
 {
     /**
-     * @description Indicates whether the column is an auto-increment column. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoIncrementColumn;
-
     /**
-     * @description The name of the column.
-     *
-     * @example id
-     *
      * @var string
      */
     public $columnName;
-
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * @example amv-bp1pke2pcfavw****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description Indicates whether the column is the primary key of the table. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $primaryKey;
-
     /**
-     * @description The logical name of the database.
-     *
-     * @example adb_demo
-     *
      * @var string
      */
     public $schemaName;
-
     /**
-     * @description The logical name of the table.
-     *
-     * @example test
-     *
      * @var string
      */
     public $tableName;
-
     /**
-     * @description The data type of the column.
-     *
-     * @example bigint
-     *
      * @var string
      */
     public $type;
@@ -88,29 +48,36 @@ class column extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoIncrementColumn) {
             $res['AutoIncrementColumn'] = $this->autoIncrementColumn;
         }
+
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->primaryKey) {
             $res['PrimaryKey'] = $this->primaryKey;
         }
+
         if (null !== $this->schemaName) {
             $res['SchemaName'] = $this->schemaName;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -118,32 +85,38 @@ class column extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return column
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoIncrementColumn'])) {
             $model->autoIncrementColumn = $map['AutoIncrementColumn'];
         }
+
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['PrimaryKey'])) {
             $model->primaryKey = $map['PrimaryKey'];
         }
+
         if (isset($map['SchemaName'])) {
             $model->schemaName = $map['SchemaName'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

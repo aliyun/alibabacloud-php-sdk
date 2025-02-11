@@ -4,40 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AllocateClusterPublicConnectionRequest extends Model
 {
     /**
-     * @description The prefix of the public endpoint.
-     *
-     *   The prefix can contain lowercase letters, digits, and hyphens (-). It must start with a lowercase letter.
-     *   The prefix can be up to 30 characters in length.
-     *
-     * @example test12
-     *
      * @var string
      */
     public $connectionStringPrefix;
-
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
-     *
-     * This parameter is required.
-     * @example amv-bp1z5d2q71is2****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The database engine of the cluster. Valid values:
-     *
-     *   **AnalyticDB** (default): the AnalyticDB for MySQL engine.
-     *   **Clickhouse**: the wide table engine.
-     *
-     * @example Clickhouse
-     *
      * @var string
      */
     public $engine;
@@ -49,17 +28,20 @@ class AllocateClusterPublicConnectionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
+
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
@@ -67,20 +49,22 @@ class AllocateClusterPublicConnectionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocateClusterPublicConnectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }
+
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }

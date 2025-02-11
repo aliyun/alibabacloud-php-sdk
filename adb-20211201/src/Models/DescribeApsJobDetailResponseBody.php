@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsJobDetailResponseBody\APSJobDetail;
-use AlibabaCloud\Tea\Model;
 
 class DescribeApsJobDetailResponseBody extends Model
 {
     /**
-     * @example -
-     *
      * @var APSJobDetail
      */
     public $APSJobDetail;
-
     /**
-     * @example ******-E606-4A42-BF6D-******
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +24,19 @@ class DescribeApsJobDetailResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->APSJobDetail) {
+            $this->APSJobDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->APSJobDetail) {
-            $res['APSJobDetail'] = null !== $this->APSJobDetail ? $this->APSJobDetail->toMap() : null;
+            $res['APSJobDetail'] = null !== $this->APSJobDetail ? $this->APSJobDetail->toArray($noStream) : $this->APSJobDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +44,18 @@ class DescribeApsJobDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApsJobDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['APSJobDetail'])) {
             $model->APSJobDetail = APSJobDetail::fromMap($map['APSJobDetail']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsDatasoureRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hiveInfo extends Model
 {
     /**
-     * @example ******
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @example ******
-     *
      * @var string
      */
     public $hostConfig;
-
     /**
-     * @example ******
-     *
      * @var string
      */
     public $metaStoreUri;
-
     /**
-     * @example sg-uf*******h
-     *
      * @var string
      */
     public $securityGroup;
-
     /**
-     * @example vsw-bp1*****k
-     *
      * @var string
      */
     public $vswitch;
@@ -52,23 +38,28 @@ class hiveInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->hostConfig) {
             $res['HostConfig'] = $this->hostConfig;
         }
+
         if (null !== $this->metaStoreUri) {
             $res['MetaStoreUri'] = $this->metaStoreUri;
         }
+
         if (null !== $this->securityGroup) {
             $res['SecurityGroup'] = $this->securityGroup;
         }
+
         if (null !== $this->vswitch) {
             $res['Vswitch'] = $this->vswitch;
         }
@@ -76,26 +67,30 @@ class hiveInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hiveInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['HostConfig'])) {
             $model->hostConfig = $map['HostConfig'];
         }
+
         if (isset($map['MetaStoreUri'])) {
             $model->metaStoreUri = $map['MetaStoreUri'];
         }
+
         if (isset($map['SecurityGroup'])) {
             $model->securityGroup = $map['SecurityGroup'];
         }
+
         if (isset($map['Vswitch'])) {
             $model->vswitch = $map['Vswitch'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\Filters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class termiatedTimeRange extends Model
 {
@@ -12,7 +12,6 @@ class termiatedTimeRange extends Model
      * @var int
      */
     public $maxTimeInMills;
-
     /**
      * @var int
      */
@@ -24,14 +23,16 @@ class termiatedTimeRange extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxTimeInMills) {
             $res['MaxTimeInMills'] = $this->maxTimeInMills;
         }
+
         if (null !== $this->minTimeInMills) {
             $res['MinTimeInMills'] = $this->minTimeInMills;
         }
@@ -39,17 +40,18 @@ class termiatedTimeRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return termiatedTimeRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxTimeInMills'])) {
             $model->maxTimeInMills = $map['MaxTimeInMills'];
         }
+
         if (isset($map['MinTimeInMills'])) {
             $model->minTimeInMills = $map['MinTimeInMills'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsDatasoureRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class polarDBXInfo extends Model
 {
     /**
-     * @example -
-     *
      * @var string
      */
     public $instanceId;
@@ -20,9 +18,10 @@ class polarDBXInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -32,11 +31,11 @@ class polarDBXInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return polarDBXInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

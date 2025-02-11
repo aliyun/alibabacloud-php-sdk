@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckSampleDataSetResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 0CE655C3-C211-513D-A42F-D4AE2D1A867C
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The state of the built-in dataset. Valid values:
-     *
-     *   **SUCCEED**: The dataset is loaded.
-     *   **INIT**: The dataset is being loaded.
-     *   **FAILED**: The dataset failed to be loaded.
-     *   **UNINITIALIZED**: The dataset is not loaded.
-     *
-     * @example UNINITIALIZED
-     *
      * @var string
      */
     public $status;
@@ -37,14 +23,16 @@ class CheckSampleDataSetResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,17 +40,18 @@ class CheckSampleDataSetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckSampleDataSetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

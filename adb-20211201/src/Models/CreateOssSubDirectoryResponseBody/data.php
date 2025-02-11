@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\CreateOssSubDirectoryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The cyclic redundancy check (CRC) value on the client.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $clientCRC;
-
     /**
-     * @description The tag of the OSS path.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $ETag;
-
     /**
-     * @description The request ID.
-     *
-     * @example 3A0DE2E0-A37B-5EE4-9136-C4C473714802
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The CRC-64 value on the OSS bucket.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $serverCRC;
@@ -52,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientCRC) {
             $res['ClientCRC'] = $this->clientCRC;
         }
+
         if (null !== $this->ETag) {
             $res['ETag'] = $this->ETag;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serverCRC) {
             $res['ServerCRC'] = $this->serverCRC;
         }
@@ -73,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientCRC'])) {
             $model->clientCRC = $map['ClientCRC'];
         }
+
         if (isset($map['ETag'])) {
             $model->ETag = $map['ETag'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServerCRC'])) {
             $model->serverCRC = $map['ServerCRC'];
         }

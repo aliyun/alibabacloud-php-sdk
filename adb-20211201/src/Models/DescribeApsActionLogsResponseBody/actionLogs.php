@@ -4,50 +4,23 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsActionLogsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class actionLogs extends Model
 {
     /**
-     * @description The content of the log.
-     *
-     * @example DDL migration job finished
-     *
      * @var string
      */
     public $context;
-
     /**
-     * @description The phase during which the log was generated. Valid values:
-     *
-     *   **StructureMigrate**: schema migration.
-     *   **FullDataSync**: full data synchronization.
-     *   **IncrementalSync**: incremental data synchronization.
-     *
-     * @example FullDataSync
-     *
      * @var string
      */
     public $stage;
-
     /**
-     * @description The type of the log. Multiple log types are separated by commas (,). Valid values:
-     *
-     *   **INFO**
-     *   **WARN**
-     *   **ERROR**
-     *
-     * @example INFO,WARN,ERROR
-     *
      * @var string
      */
     public $state;
-
     /**
-     * @description The time when the log was generated. The time follows the ISO 8601 standard in the **yyyy-MM-ddTHH:mm:ssZ** format. The time is displayed in UTC.
-     *
-     * @example 2023-02-01T05:46:30Z
-     *
      * @var string
      */
     public $time;
@@ -60,20 +33,24 @@ class actionLogs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->context) {
             $res['Context'] = $this->context;
         }
+
         if (null !== $this->stage) {
             $res['Stage'] = $this->stage;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
@@ -81,23 +58,26 @@ class actionLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return actionLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Context'])) {
             $model->context = $map['Context'];
         }
+
         if (isset($map['Stage'])) {
             $model->stage = $map['Stage'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }

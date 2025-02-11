@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDBClusterStatusResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEAU
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The queried cluster states.
-     *
      * @var string[]
      */
     public $status;
@@ -30,35 +23,51 @@ class DescribeDBClusterStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->status)) {
+            Model::validateArray($this->status);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->status) {
-            $res['Status'] = $this->status;
+            if (\is_array($this->status)) {
+                $res['Status'] = [];
+                $n1            = 0;
+                foreach ($this->status as $item1) {
+                    $res['Status'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBClusterStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
+                $model->status = [];
+                $n1            = 0;
+                foreach ($map['Status'] as $item1) {
+                    $model->status[$n1++] = $item1;
+                }
             }
         }
 

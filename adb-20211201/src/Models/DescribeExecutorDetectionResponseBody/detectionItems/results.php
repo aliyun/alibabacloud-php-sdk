@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExecutorDetectionResponseBody\detectionItems;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExecutorDetectionResponseBody\detectionItems\results\operatorAgg;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExecutorDetectionResponseBody\detectionItems\results\operatorDetails;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
@@ -14,7 +14,6 @@ class results extends Model
      * @var operatorAgg[]
      */
     public $operatorAgg;
-
     /**
      * @var operatorDetails[]
      */
@@ -26,26 +25,34 @@ class results extends Model
 
     public function validate()
     {
+        if (\is_array($this->operatorAgg)) {
+            Model::validateArray($this->operatorAgg);
+        }
+        if (\is_array($this->operatorDetails)) {
+            Model::validateArray($this->operatorDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operatorAgg) {
-            $res['OperatorAgg'] = [];
-            if (null !== $this->operatorAgg && \is_array($this->operatorAgg)) {
-                $n = 0;
-                foreach ($this->operatorAgg as $item) {
-                    $res['OperatorAgg'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operatorAgg)) {
+                $res['OperatorAgg'] = [];
+                $n1                 = 0;
+                foreach ($this->operatorAgg as $item1) {
+                    $res['OperatorAgg'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->operatorDetails) {
-            $res['OperatorDetails'] = [];
-            if (null !== $this->operatorDetails && \is_array($this->operatorDetails)) {
-                $n = 0;
-                foreach ($this->operatorDetails as $item) {
-                    $res['OperatorDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operatorDetails)) {
+                $res['OperatorDetails'] = [];
+                $n1                     = 0;
+                foreach ($this->operatorDetails as $item1) {
+                    $res['OperatorDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -53,29 +60,30 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperatorAgg'])) {
             if (!empty($map['OperatorAgg'])) {
                 $model->operatorAgg = [];
-                $n                  = 0;
-                foreach ($map['OperatorAgg'] as $item) {
-                    $model->operatorAgg[$n++] = null !== $item ? operatorAgg::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['OperatorAgg'] as $item1) {
+                    $model->operatorAgg[$n1++] = operatorAgg::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OperatorDetails'])) {
             if (!empty($map['OperatorDetails'])) {
                 $model->operatorDetails = [];
-                $n                      = 0;
-                foreach ($map['OperatorDetails'] as $item) {
-                    $model->operatorDetails[$n++] = null !== $item ? operatorDetails::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['OperatorDetails'] as $item1) {
+                    $model->operatorDetails[$n1++] = operatorDetails::fromMap($item1);
                 }
             }
         }

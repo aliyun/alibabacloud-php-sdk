@@ -4,38 +4,19 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePerformanceViewResponseBody extends Model
 {
     /**
-     * @description The details about the access denial.
-     *
-     * >  This parameter is returned only if Resource Access Management (RAM) permission verification failed.
-     * @example {
-     * "PolicyType": "AccountLevelIdentityBasedPolicy",
-     * "AuthPrincipalOwnerId": "1*****************7",
-     * "AuthPrincipalType": "SubUser",
-     * "AuthPrincipalDisplayName": "2***************9",
-     * }
      * @var string
      */
     public $accessDeniedDetail;
-
     /**
-     * @description The delete status.
-     *
-     * @example SUCCESS
-     *
      * @var bool
      */
     public $deleteStatus;
-
     /**
-     * @description The request ID.
-     *
-     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
-     *
      * @var string
      */
     public $requestId;
@@ -47,17 +28,20 @@ class DeletePerformanceViewResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessDeniedDetail) {
             $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
         }
+
         if (null !== $this->deleteStatus) {
             $res['DeleteStatus'] = $this->deleteStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,20 +49,22 @@ class DeletePerformanceViewResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePerformanceViewResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessDeniedDetail'])) {
             $model->accessDeniedDetail = $map['AccessDeniedDetail'];
         }
+
         if (isset($map['DeleteStatus'])) {
             $model->deleteStatus = $map['DeleteStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

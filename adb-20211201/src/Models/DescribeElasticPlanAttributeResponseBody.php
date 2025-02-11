@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeElasticPlanAttributeResponseBody\elasticPlan;
-use AlibabaCloud\Tea\Model;
 
 class DescribeElasticPlanAttributeResponseBody extends Model
 {
     /**
-     * @description The queried scaling plan.
-     *
      * @var elasticPlan
      */
     public $elasticPlan;
-
     /**
-     * @description The request ID.
-     *
-     * @example A5C433C2-001F-58E3-99F5-3274C14DF8BD
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeElasticPlanAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->elasticPlan) {
+            $this->elasticPlan->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticPlan) {
-            $res['ElasticPlan'] = null !== $this->elasticPlan ? $this->elasticPlan->toMap() : null;
+            $res['ElasticPlan'] = null !== $this->elasticPlan ? $this->elasticPlan->toArray($noStream) : $this->elasticPlan;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeElasticPlanAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeElasticPlanAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticPlan'])) {
             $model->elasticPlan = elasticPlan::fromMap($map['ElasticPlan']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterResourceUsageResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class acuInfo extends Model
 {
     /**
-     * @description The resource usage metric. Valid values:
-     *
-     *   `TotalAcuNumber`: the total number of ACUs.
-     *   `ReservedAcuNumber`: the number of ACUs for the reserved resources.
-     *   `ReservedAcuUsageNumber`: the number of ACUs for the reserved resources that are used.
-     *
-     * @example TotalAcuNumber
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The values of the metric at specific points in time.
-     *
      * @var string[]
      */
     public $values;
@@ -34,35 +23,51 @@ class acuInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->values) {
-            $res['Values'] = $this->values;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1            = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return acuInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
-                $model->values = $map['Values'];
+                $model->values = [];
+                $n1            = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1++] = $item1;
+                }
             }
         }
 

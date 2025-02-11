@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsDatasourceResponseBody\apsDatasource;
-use AlibabaCloud\Tea\Model;
 
 class DescribeApsDatasourceResponseBody extends Model
 {
     /**
-     * @description -
-     *
      * @var apsDatasource
      */
     public $apsDatasource;
-
     /**
-     * @example ******-**D8-5***-A***-****587
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +24,19 @@ class DescribeApsDatasourceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->apsDatasource) {
+            $this->apsDatasource->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apsDatasource) {
-            $res['ApsDatasource'] = null !== $this->apsDatasource ? $this->apsDatasource->toMap() : null;
+            $res['ApsDatasource'] = null !== $this->apsDatasource ? $this->apsDatasource->toArray($noStream) : $this->apsDatasource;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +44,18 @@ class DescribeApsDatasourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApsDatasourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApsDatasource'])) {
             $model->apsDatasource = apsDatasource::fromMap($map['ApsDatasource']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

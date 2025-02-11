@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSparkTemplateFileRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-     *
-     * This parameter is required.
-     * @example amv-bp1y769u11748****
-     *
      * @var string
      */
     public $DBClusterId;
-
     /**
-     * @description The ID of the template file to be deleted.
-     *
-     * This parameter is required.
-     * @example 284
-     *
      * @var int
      */
     public $id;
@@ -34,14 +23,16 @@ class DeleteSparkTemplateFileRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -49,17 +40,18 @@ class DeleteSparkTemplateFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSparkTemplateFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionResponseBody\detectionItems;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionResponseBody\detectionItems\results\operatorAgg;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionResponseBody\detectionItems\results\operatorDetails;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionResponseBody\detectionItems\results\partitionedTables;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionResponseBody\detectionItems\results\skewedTables;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeWorkerDetectionResponseBody\detectionItems\results\topAccessTables;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
@@ -17,22 +17,18 @@ class results extends Model
      * @var operatorAgg[]
      */
     public $operatorAgg;
-
     /**
      * @var operatorDetails[]
      */
     public $operatorDetails;
-
     /**
      * @var partitionedTables[]
      */
     public $partitionedTables;
-
     /**
      * @var skewedTables[]
      */
     public $skewedTables;
-
     /**
      * @var topAccessTables[]
      */
@@ -47,53 +43,73 @@ class results extends Model
 
     public function validate()
     {
+        if (\is_array($this->operatorAgg)) {
+            Model::validateArray($this->operatorAgg);
+        }
+        if (\is_array($this->operatorDetails)) {
+            Model::validateArray($this->operatorDetails);
+        }
+        if (\is_array($this->partitionedTables)) {
+            Model::validateArray($this->partitionedTables);
+        }
+        if (\is_array($this->skewedTables)) {
+            Model::validateArray($this->skewedTables);
+        }
+        if (\is_array($this->topAccessTables)) {
+            Model::validateArray($this->topAccessTables);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operatorAgg) {
-            $res['OperatorAgg'] = [];
-            if (null !== $this->operatorAgg && \is_array($this->operatorAgg)) {
-                $n = 0;
-                foreach ($this->operatorAgg as $item) {
-                    $res['OperatorAgg'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operatorAgg)) {
+                $res['OperatorAgg'] = [];
+                $n1                 = 0;
+                foreach ($this->operatorAgg as $item1) {
+                    $res['OperatorAgg'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->operatorDetails) {
-            $res['OperatorDetails'] = [];
-            if (null !== $this->operatorDetails && \is_array($this->operatorDetails)) {
-                $n = 0;
-                foreach ($this->operatorDetails as $item) {
-                    $res['OperatorDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operatorDetails)) {
+                $res['OperatorDetails'] = [];
+                $n1                     = 0;
+                foreach ($this->operatorDetails as $item1) {
+                    $res['OperatorDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->partitionedTables) {
-            $res['PartitionedTables'] = [];
-            if (null !== $this->partitionedTables && \is_array($this->partitionedTables)) {
-                $n = 0;
-                foreach ($this->partitionedTables as $item) {
-                    $res['PartitionedTables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->partitionedTables)) {
+                $res['PartitionedTables'] = [];
+                $n1                       = 0;
+                foreach ($this->partitionedTables as $item1) {
+                    $res['PartitionedTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->skewedTables) {
-            $res['SkewedTables'] = [];
-            if (null !== $this->skewedTables && \is_array($this->skewedTables)) {
-                $n = 0;
-                foreach ($this->skewedTables as $item) {
-                    $res['SkewedTables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->skewedTables)) {
+                $res['SkewedTables'] = [];
+                $n1                  = 0;
+                foreach ($this->skewedTables as $item1) {
+                    $res['SkewedTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->topAccessTables) {
-            $res['TopAccessTables'] = [];
-            if (null !== $this->topAccessTables && \is_array($this->topAccessTables)) {
-                $n = 0;
-                foreach ($this->topAccessTables as $item) {
-                    $res['TopAccessTables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->topAccessTables)) {
+                $res['TopAccessTables'] = [];
+                $n1                     = 0;
+                foreach ($this->topAccessTables as $item1) {
+                    $res['TopAccessTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -101,56 +117,60 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperatorAgg'])) {
             if (!empty($map['OperatorAgg'])) {
                 $model->operatorAgg = [];
-                $n                  = 0;
-                foreach ($map['OperatorAgg'] as $item) {
-                    $model->operatorAgg[$n++] = null !== $item ? operatorAgg::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['OperatorAgg'] as $item1) {
+                    $model->operatorAgg[$n1++] = operatorAgg::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OperatorDetails'])) {
             if (!empty($map['OperatorDetails'])) {
                 $model->operatorDetails = [];
-                $n                      = 0;
-                foreach ($map['OperatorDetails'] as $item) {
-                    $model->operatorDetails[$n++] = null !== $item ? operatorDetails::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['OperatorDetails'] as $item1) {
+                    $model->operatorDetails[$n1++] = operatorDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PartitionedTables'])) {
             if (!empty($map['PartitionedTables'])) {
                 $model->partitionedTables = [];
-                $n                        = 0;
-                foreach ($map['PartitionedTables'] as $item) {
-                    $model->partitionedTables[$n++] = null !== $item ? partitionedTables::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['PartitionedTables'] as $item1) {
+                    $model->partitionedTables[$n1++] = partitionedTables::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SkewedTables'])) {
             if (!empty($map['SkewedTables'])) {
                 $model->skewedTables = [];
-                $n                   = 0;
-                foreach ($map['SkewedTables'] as $item) {
-                    $model->skewedTables[$n++] = null !== $item ? skewedTables::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['SkewedTables'] as $item1) {
+                    $model->skewedTables[$n1++] = skewedTables::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TopAccessTables'])) {
             if (!empty($map['TopAccessTables'])) {
                 $model->topAccessTables = [];
-                $n                      = 0;
-                foreach ($map['TopAccessTables'] as $item) {
-                    $model->topAccessTables[$n++] = null !== $item ? topAccessTables::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['TopAccessTables'] as $item1) {
+                    $model->topAccessTables[$n1++] = topAccessTables::fromMap($item1);
                 }
             }
         }
