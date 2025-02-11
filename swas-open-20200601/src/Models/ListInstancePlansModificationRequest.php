@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstancePlansModificationRequest extends Model
 {
     /**
-     * @description The ID of the simple application server.
-     *
-     * This parameter is required.
-     * @example ace0706b2ac4454d984295a94213****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -34,14 +23,16 @@ class ListInstancePlansModificationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,17 +40,18 @@ class ListInstancePlansModificationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancePlansModificationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

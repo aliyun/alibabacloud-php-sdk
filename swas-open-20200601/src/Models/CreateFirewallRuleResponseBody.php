@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFirewallRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the firewall rule.
-     *
-     * @example 8007e18c61024aafbd776d52d0****
-     *
      * @var string
      */
     public $firewallId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateFirewallRuleResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->firewallId) {
             $res['FirewallId'] = $this->firewallId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateFirewallRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFirewallRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirewallId'])) {
             $model->firewallId = $map['FirewallId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

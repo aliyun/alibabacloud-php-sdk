@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddCustomImageShareAccountResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 30637AD6-D977-4833-A54C-CC89483E****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AddCustomImageShareAccountResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AddCustomImageShareAccountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddCustomImageShareAccountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

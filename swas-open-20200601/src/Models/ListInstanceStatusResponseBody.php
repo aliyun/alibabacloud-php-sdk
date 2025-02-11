@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListInstanceStatusResponseBody\instanceStatuses;
-use AlibabaCloud\Tea\Model;
 
 class ListInstanceStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the simple application server.
-     *
      * @var instanceStatuses[]
      */
     public $instanceStatuses;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The request ID.
-     *
-     * @example 30637AD6-D977-4833-A54C-CC89483E****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 54
-     *
      * @var int
      */
     public $totalCount;
@@ -61,29 +39,37 @@ class ListInstanceStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceStatuses)) {
+            Model::validateArray($this->instanceStatuses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceStatuses) {
-            $res['InstanceStatuses'] = [];
-            if (null !== $this->instanceStatuses && \is_array($this->instanceStatuses)) {
-                $n = 0;
-                foreach ($this->instanceStatuses as $item) {
-                    $res['InstanceStatuses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceStatuses)) {
+                $res['InstanceStatuses'] = [];
+                $n1                      = 0;
+                foreach ($this->instanceStatuses as $item1) {
+                    $res['InstanceStatuses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,32 +77,36 @@ class ListInstanceStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceStatuses'])) {
             if (!empty($map['InstanceStatuses'])) {
                 $model->instanceStatuses = [];
-                $n                       = 0;
-                foreach ($map['InstanceStatuses'] as $item) {
-                    $model->instanceStatuses[$n++] = null !== $item ? instanceStatuses::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['InstanceStatuses'] as $item1) {
+                    $model->instanceStatuses[$n1++] = instanceStatuses::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

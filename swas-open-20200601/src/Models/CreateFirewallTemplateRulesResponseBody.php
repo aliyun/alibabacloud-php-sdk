@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallTemplateRulesResponseBody\firewallTemplateRules;
-use AlibabaCloud\Tea\Model;
 
 class CreateFirewallTemplateRulesResponseBody extends Model
 {
     /**
-     * @description The firewall template rules.
-     *
      * @var firewallTemplateRules[]
      */
     public $firewallTemplateRules;
-
     /**
-     * @description The request ID.
-     *
-     * @example 30637AD6-D977-4833-A54C-CC89483E****
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class CreateFirewallTemplateRulesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->firewallTemplateRules)) {
+            Model::validateArray($this->firewallTemplateRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->firewallTemplateRules) {
-            $res['FirewallTemplateRules'] = [];
-            if (null !== $this->firewallTemplateRules && \is_array($this->firewallTemplateRules)) {
-                $n = 0;
-                foreach ($this->firewallTemplateRules as $item) {
-                    $res['FirewallTemplateRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->firewallTemplateRules)) {
+                $res['FirewallTemplateRules'] = [];
+                $n1                           = 0;
+                foreach ($this->firewallTemplateRules as $item1) {
+                    $res['FirewallTemplateRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class CreateFirewallTemplateRulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFirewallTemplateRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FirewallTemplateRules'])) {
             if (!empty($map['FirewallTemplateRules'])) {
                 $model->firewallTemplateRules = [];
-                $n                            = 0;
-                foreach ($map['FirewallTemplateRules'] as $item) {
-                    $model->firewallTemplateRules[$n++] = null !== $item ? firewallTemplateRules::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['FirewallTemplateRules'] as $item1) {
+                    $model->firewallTemplateRules[$n1++] = firewallTemplateRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

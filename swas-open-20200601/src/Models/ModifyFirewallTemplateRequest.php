@@ -4,61 +4,32 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ModifyFirewallTemplateRequest\firewallTemplateRule;
-use AlibabaCloud\Tea\Model;
 
 class ModifyFirewallTemplateRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The description of the firewall template.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the firewall template.
-     *
-     * This parameter is required.
-     * @example ft-bcf1a7hrdq717****
-     *
      * @var string
      */
     public $firewallTemplateId;
-
     /**
-     * @description The firewall rule in the template.
-     *
      * @var firewallTemplateRule[]
      */
     public $firewallTemplateRule;
-
     /**
-     * @description The name of the firewall template.
-     *
-     * @example testName
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The region ID of the simple application server. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -73,32 +44,41 @@ class ModifyFirewallTemplateRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->firewallTemplateRule)) {
+            Model::validateArray($this->firewallTemplateRule);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->firewallTemplateId) {
             $res['FirewallTemplateId'] = $this->firewallTemplateId;
         }
+
         if (null !== $this->firewallTemplateRule) {
-            $res['FirewallTemplateRule'] = [];
-            if (null !== $this->firewallTemplateRule && \is_array($this->firewallTemplateRule)) {
-                $n = 0;
-                foreach ($this->firewallTemplateRule as $item) {
-                    $res['FirewallTemplateRule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->firewallTemplateRule)) {
+                $res['FirewallTemplateRule'] = [];
+                $n1                          = 0;
+                foreach ($this->firewallTemplateRule as $item1) {
+                    $res['FirewallTemplateRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -106,35 +86,40 @@ class ModifyFirewallTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyFirewallTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FirewallTemplateId'])) {
             $model->firewallTemplateId = $map['FirewallTemplateId'];
         }
+
         if (isset($map['FirewallTemplateRule'])) {
             if (!empty($map['FirewallTemplateRule'])) {
                 $model->firewallTemplateRule = [];
-                $n                           = 0;
-                foreach ($map['FirewallTemplateRule'] as $item) {
-                    $model->firewallTemplateRule[$n++] = null !== $item ? firewallTemplateRule::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['FirewallTemplateRule'] as $item1) {
+                    $model->firewallTemplateRule[$n1++] = firewallTemplateRule::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

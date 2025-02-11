@@ -4,70 +4,31 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags from the specified one or more resources. This parameter takes effect only if the TagKey.N parameter is not set. Valid values:
-     *
-     *   true: deletes all tags that are added to the specific lightweight resource. If no tags are added to the specific lightweight resource, the deletion operation is ignored.
-     *   false: does not delete the tags that are added to the specific lightweight resource.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $all;
-
     /**
-     * @description The client token that you want to use to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-     *
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The resource IDs. You can specify up to 50 resource IDs.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
-
     /**
-     * @description The resource type. Valid values:
-     *
-     *   instance
-     *   snapshot
-     *   customimage
-     *   command
-     *   firewallrule
-     *   disk
-     *
-     * This parameter is required.
-     * @example instance
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description The key of tag N. Valid values of N: 1 to 20.
-     *
      * @var string[]
      */
     public $tagKey;
@@ -82,61 +43,98 @@ class UntagResourcesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        if (\is_array($this->tagKey)) {
+            Model::validateArray($this->tagKey);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1                = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+            if (\is_array($this->tagKey)) {
+                $res['TagKey'] = [];
+                $n1            = 0;
+                foreach ($this->tagKey as $item1) {
+                    $res['TagKey'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
+                $model->resourceId = [];
+                $n1                = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
-                $model->tagKey = $map['TagKey'];
+                $model->tagKey = [];
+                $n1            = 0;
+                foreach ($map['TagKey'] as $item1) {
+                    $model->tagKey[$n1++] = $item1;
+                }
             }
         }
 

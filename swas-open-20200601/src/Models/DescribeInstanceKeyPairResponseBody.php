@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceKeyPairResponseBody extends Model
 {
     /**
-     * @description The fingerprint of the key pair.
-     *
-     * @example 4f:70:62:e9:0c:72:f7:ee:74:ce:e3:bf:e0:82:**:**
-     *
      * @var string
      */
     public $fingerprint;
-
     /**
-     * @description The name of the key pair.
-     *
-     * @example KeyPairName
-     *
      * @var string
      */
     public $keyPairName;
-
     /**
-     * @description The request ID.
-     *
-     * @example 20758A-585D-4A41-A9B2-28DA8F4F****
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class DescribeInstanceKeyPairResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fingerprint) {
             $res['Fingerprint'] = $this->fingerprint;
         }
+
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class DescribeInstanceKeyPairResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceKeyPairResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fingerprint'])) {
             $model->fingerprint = $map['Fingerprint'];
         }
+
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

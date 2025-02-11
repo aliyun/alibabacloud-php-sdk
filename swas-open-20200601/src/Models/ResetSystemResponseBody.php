@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResetSystemResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ResetSystemResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ResetSystemResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResetSystemResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

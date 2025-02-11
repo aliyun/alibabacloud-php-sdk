@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDatabaseInstanceParametersRequest extends Model
 {
     /**
-     * @description The ID of the Simple Database Service instance.
-     *
-     * This parameter is required.
-     * @example db-38263fa955774501a2ae1bdaed6f****
-     *
      * @var string
      */
     public $databaseInstanceId;
-
     /**
-     * @description The region ID of the Simple Database Service instance. You can call the [ListRegions](https://help.aliyun.com/document_detail/189315.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -34,14 +23,16 @@ class DescribeDatabaseInstanceParametersRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databaseInstanceId) {
             $res['DatabaseInstanceId'] = $this->databaseInstanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,17 +40,18 @@ class DescribeDatabaseInstanceParametersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDatabaseInstanceParametersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DatabaseInstanceId'])) {
             $model->databaseInstanceId = $map['DatabaseInstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

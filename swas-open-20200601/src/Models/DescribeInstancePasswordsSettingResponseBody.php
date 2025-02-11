@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstancePasswordsSettingResponseBody extends Model
 {
     /**
-     * @description Indicates whether a logon password is set for the simple application server.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $instancePasswordSetting;
-
     /**
-     * @description The request ID.
-     *
-     * @example 20758A-585D-4A41-A9B2-28DA8F4****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether a VNC connection password is set.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $vncPasswordSetting;
@@ -42,17 +28,20 @@ class DescribeInstancePasswordsSettingResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instancePasswordSetting) {
             $res['InstancePasswordSetting'] = $this->instancePasswordSetting;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vncPasswordSetting) {
             $res['VncPasswordSetting'] = $this->vncPasswordSetting;
         }
@@ -60,20 +49,22 @@ class DescribeInstancePasswordsSettingResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstancePasswordsSettingResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstancePasswordSetting'])) {
             $model->instancePasswordSetting = $map['InstancePasswordSetting'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VncPasswordSetting'])) {
             $model->vncPasswordSetting = $map['VncPasswordSetting'];
         }

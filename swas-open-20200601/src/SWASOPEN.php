@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\SWASOPEN\V20200601;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AddCustomImageShareAccountRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AddCustomImageShareAccountResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AllocatePublicConnectionRequest;
@@ -209,11 +208,10 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpgradeInstanceRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpgradeInstanceResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UploadInstanceKeyPairRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UploadInstanceKeyPairResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class SWASOPEN extends OpenApiClient
 {
@@ -238,45 +236,55 @@ class SWASOPEN extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Shares a custom image with other Alibaba Cloud accounts in the same region to quickly deploy the same environment configurations for multiple simple application servers at a time. This improves deployment efficiency.
-     *  *
-     * @description *   Before you share a custom image, make sure that all sensitive data and files are removed from the image.
-     * *   The IDs of the Alibaba Cloud accounts with which you want to share the image is obtained. Move the pointer over the profile in the upper-right corner of the Simple Application Server console. In the card that appears, if Main Account is displayed, the showed account ID is the Alibaba Cloud account ID.
-     *  *
-     * @param AddCustomImageShareAccountRequest $request AddCustomImageShareAccountRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Shares a custom image with other Alibaba Cloud accounts in the same region to quickly deploy the same environment configurations for multiple simple application servers at a time. This improves deployment efficiency.
      *
-     * @return AddCustomImageShareAccountResponse AddCustomImageShareAccountResponse
+     * @remarks
+     *   Before you share a custom image, make sure that all sensitive data and files are removed from the image.
+     * *   The IDs of the Alibaba Cloud accounts with which you want to share the image is obtained. Move the pointer over the profile in the upper-right corner of the Simple Application Server console. In the card that appears, if Main Account is displayed, the showed account ID is the Alibaba Cloud account ID.
+     *
+     * @param request - AddCustomImageShareAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddCustomImageShareAccountResponse
+     *
+     * @param AddCustomImageShareAccountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AddCustomImageShareAccountResponse
      */
     public function addCustomImageShareAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->account)) {
-            $query['Account'] = $request->account;
+        if (null !== $request->account) {
+            @$query['Account'] = $request->account;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddCustomImageShareAccount',
@@ -289,19 +297,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddCustomImageShareAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddCustomImageShareAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddCustomImageShareAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Shares a custom image with other Alibaba Cloud accounts in the same region to quickly deploy the same environment configurations for multiple simple application servers at a time. This improves deployment efficiency.
-     *  *
-     * @description *   Before you share a custom image, make sure that all sensitive data and files are removed from the image.
-     * *   The IDs of the Alibaba Cloud accounts with which you want to share the image is obtained. Move the pointer over the profile in the upper-right corner of the Simple Application Server console. In the card that appears, if Main Account is displayed, the showed account ID is the Alibaba Cloud account ID.
-     *  *
-     * @param AddCustomImageShareAccountRequest $request AddCustomImageShareAccountRequest
+     * Shares a custom image with other Alibaba Cloud accounts in the same region to quickly deploy the same environment configurations for multiple simple application servers at a time. This improves deployment efficiency.
      *
-     * @return AddCustomImageShareAccountResponse AddCustomImageShareAccountResponse
+     * @remarks
+     *   Before you share a custom image, make sure that all sensitive data and files are removed from the image.
+     * *   The IDs of the Alibaba Cloud accounts with which you want to share the image is obtained. Move the pointer over the profile in the upper-right corner of the Simple Application Server console. In the card that appears, if Main Account is displayed, the showed account ID is the Alibaba Cloud account ID.
+     *
+     * @param request - AddCustomImageShareAccountRequest
+     * @returns AddCustomImageShareAccountResponse
+     *
+     * @param AddCustomImageShareAccountRequest $request
+     *
+     * @return AddCustomImageShareAccountResponse
      */
     public function addCustomImageShareAccount($request)
     {
@@ -311,30 +326,38 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Applies for a public endpoint for a Simple Database Service instance.
-     *  *
-     * @description By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
-     *  *
-     * @param AllocatePublicConnectionRequest $request AllocatePublicConnectionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Applies for a public endpoint for a Simple Database Service instance.
      *
-     * @return AllocatePublicConnectionResponse AllocatePublicConnectionResponse
+     * @remarks
+     * By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
+     *
+     * @param request - AllocatePublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AllocatePublicConnectionResponse
+     *
+     * @param AllocatePublicConnectionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AllocatePublicConnectionResponse
      */
     public function allocatePublicConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AllocatePublicConnection',
@@ -347,18 +370,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AllocatePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AllocatePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AllocatePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Applies for a public endpoint for a Simple Database Service instance.
-     *  *
-     * @description By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
-     *  *
-     * @param AllocatePublicConnectionRequest $request AllocatePublicConnectionRequest
+     * Applies for a public endpoint for a Simple Database Service instance.
      *
-     * @return AllocatePublicConnectionResponse AllocatePublicConnectionResponse
+     * @remarks
+     * By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
+     *
+     * @param request - AllocatePublicConnectionRequest
+     * @returns AllocatePublicConnectionResponse
+     *
+     * @param AllocatePublicConnectionRequest $request
+     *
+     * @return AllocatePublicConnectionResponse
      */
     public function allocatePublicConnection($request)
     {
@@ -368,33 +398,42 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Uses a firewall template to apply firewall rules to multiple simple application servers at a time. This improves your efficiency of setting firewall rules.
-     *  *
-     * @description If the port range, protocol, and source IP address of a firewall rule in a firewall template are the same as the port range, protocol, and source IP address of an existing rule, the new rule overwrites the existing rule regardless of whether the existing rule is enabled or disabled.
-     *  *
-     * @param ApplyFirewallTemplateRequest $request ApplyFirewallTemplateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Uses a firewall template to apply firewall rules to multiple simple application servers at a time. This improves your efficiency of setting firewall rules.
      *
-     * @return ApplyFirewallTemplateResponse ApplyFirewallTemplateResponse
+     * @remarks
+     * If the port range, protocol, and source IP address of a firewall rule in a firewall template are the same as the port range, protocol, and source IP address of an existing rule, the new rule overwrites the existing rule regardless of whether the existing rule is enabled or disabled.
+     *
+     * @param request - ApplyFirewallTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApplyFirewallTemplateResponse
+     *
+     * @param ApplyFirewallTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ApplyFirewallTemplateResponse
      */
     public function applyFirewallTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->firewallTemplateId)) {
-            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+
+        if (null !== $request->firewallTemplateId) {
+            @$query['FirewallTemplateId'] = $request->firewallTemplateId;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ApplyFirewallTemplate',
@@ -407,18 +446,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ApplyFirewallTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyFirewallTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyFirewallTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Uses a firewall template to apply firewall rules to multiple simple application servers at a time. This improves your efficiency of setting firewall rules.
-     *  *
-     * @description If the port range, protocol, and source IP address of a firewall rule in a firewall template are the same as the port range, protocol, and source IP address of an existing rule, the new rule overwrites the existing rule regardless of whether the existing rule is enabled or disabled.
-     *  *
-     * @param ApplyFirewallTemplateRequest $request ApplyFirewallTemplateRequest
+     * Uses a firewall template to apply firewall rules to multiple simple application servers at a time. This improves your efficiency of setting firewall rules.
      *
-     * @return ApplyFirewallTemplateResponse ApplyFirewallTemplateResponse
+     * @remarks
+     * If the port range, protocol, and source IP address of a firewall rule in a firewall template are the same as the port range, protocol, and source IP address of an existing rule, the new rule overwrites the existing rule regardless of whether the existing rule is enabled or disabled.
+     *
+     * @param request - ApplyFirewallTemplateRequest
+     * @returns ApplyFirewallTemplateResponse
+     *
+     * @param ApplyFirewallTemplateRequest $request
+     *
+     * @return ApplyFirewallTemplateResponse
      */
     public function applyFirewallTemplate($request)
     {
@@ -428,33 +474,42 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Binds a key pair to simple application servers.
-     *  *
-     * @description You can bind only one key pair to a simple application server in the Simple Application Server console. If a simple application server has a key pair bound, the new key pair overwrites the original key pair.
-     *  *
-     * @param AttachKeyPairRequest $request AttachKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Binds a key pair to simple application servers.
      *
-     * @return AttachKeyPairResponse AttachKeyPairResponse
+     * @remarks
+     * You can bind only one key pair to a simple application server in the Simple Application Server console. If a simple application server has a key pair bound, the new key pair overwrites the original key pair.
+     *
+     * @param request - AttachKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachKeyPairResponse
+     *
+     * @param AttachKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AttachKeyPairResponse
      */
     public function attachKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachKeyPair',
@@ -467,18 +522,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Binds a key pair to simple application servers.
-     *  *
-     * @description You can bind only one key pair to a simple application server in the Simple Application Server console. If a simple application server has a key pair bound, the new key pair overwrites the original key pair.
-     *  *
-     * @param AttachKeyPairRequest $request AttachKeyPairRequest
+     * Binds a key pair to simple application servers.
      *
-     * @return AttachKeyPairResponse AttachKeyPairResponse
+     * @remarks
+     * You can bind only one key pair to a simple application server in the Simple Application Server console. If a simple application server has a key pair bound, the new key pair overwrites the original key pair.
+     *
+     * @param request - AttachKeyPairRequest
+     * @returns AttachKeyPairResponse
+     *
+     * @param AttachKeyPairRequest $request
+     *
+     * @return AttachKeyPairResponse
      */
     public function attachKeyPair($request)
     {
@@ -488,49 +550,63 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Cloud Assistant command.
-     *  *
-     * @param CreateCommandRequest $request CreateCommandRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a Cloud Assistant command.
      *
-     * @return CreateCommandResponse CreateCommandResponse
+     * @param request - CreateCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCommandResponse
+     *
+     * @param CreateCommandRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateCommandResponse
      */
     public function createCommandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commandContent)) {
-            $query['CommandContent'] = $request->commandContent;
+        if (null !== $request->commandContent) {
+            @$query['CommandContent'] = $request->commandContent;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enableParameter)) {
-            $query['EnableParameter'] = $request->enableParameter;
+
+        if (null !== $request->enableParameter) {
+            @$query['EnableParameter'] = $request->enableParameter;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workingDir)) {
-            $query['WorkingDir'] = $request->workingDir;
+
+        if (null !== $request->workingDir) {
+            @$query['WorkingDir'] = $request->workingDir;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCommand',
@@ -543,16 +619,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCommandResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a Cloud Assistant command.
-     *  *
-     * @param CreateCommandRequest $request CreateCommandRequest
+     * Creates a Cloud Assistant command.
      *
-     * @return CreateCommandResponse CreateCommandResponse
+     * @param request - CreateCommandRequest
+     * @returns CreateCommandResponse
+     *
+     * @param CreateCommandRequest $request
+     *
+     * @return CreateCommandResponse
      */
     public function createCommand($request)
     {
@@ -562,58 +644,70 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom image based on a snapshot of a simple application server.
-     *  *
-     * @description A custom image is created based on a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](https://help.aliyun.com/document_detail/199375.html).
+     * Creates a custom image based on a snapshot of a simple application server.
+     *
+     * @remarks
+     * A custom image is created from a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](https://help.aliyun.com/document_detail/199375.html).
      * You must create a system disk snapshot of a simple application server before you create a custom image based on the snapshot. For more information, see [CreateSnapshot](https://help.aliyun.com/document_detail/190452.html).
-     * > If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
+     * >  If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
      * Before you create a custom image, take note of the following items:
      * *   The custom image and the corresponding simple application server must reside in the same region.
-     * *   The maximum number of custom images that can be maintained in an Alibaba Cloud account is triple the number of simple application servers in the account. The value cannot be greater than 15.
-     * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot when you create the custom image.
-     * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on a snapshot of the server are also released.
-     * *   If you reset a simple application server by changing the application system or OS of the server or replacing the image of the server, the disk data on the server is cleared. Back up the disk data as needed.
-     * ### QPS limit
-     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param CreateCustomImageRequest $request CreateCustomImageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * *   The maximum number of custom images that you can create is 3 times the number of simple application servers that you have, but cannot exceed 15.
+     * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot in addition to a system disk snapshot when you create the custom image.
+     * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on the server are also released.
+     * *   Resetting the system or changing the image of a simple application server clears the disk data on the server. Back up the data as needed.
      *
-     * @return CreateCustomImageResponse CreateCustomImageResponse
+     * @param request - CreateCustomImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCustomImageResponse
+     *
+     * @param CreateCustomImageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateCustomImageResponse
      */
     public function createCustomImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataSnapshotId)) {
-            $query['DataSnapshotId'] = $request->dataSnapshotId;
+
+        if (null !== $request->dataSnapshotId) {
+            @$query['DataSnapshotId'] = $request->dataSnapshotId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->imageName)) {
-            $query['ImageName'] = $request->imageName;
+
+        if (null !== $request->imageName) {
+            @$query['ImageName'] = $request->imageName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->systemSnapshotId)) {
-            $query['SystemSnapshotId'] = $request->systemSnapshotId;
+
+        if (null !== $request->systemSnapshotId) {
+            @$query['SystemSnapshotId'] = $request->systemSnapshotId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCustomImage',
@@ -626,28 +720,33 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCustomImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCustomImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCustomImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom image based on a snapshot of a simple application server.
-     *  *
-     * @description A custom image is created based on a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](https://help.aliyun.com/document_detail/199375.html).
+     * Creates a custom image based on a snapshot of a simple application server.
+     *
+     * @remarks
+     * A custom image is created from a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](https://help.aliyun.com/document_detail/199375.html).
      * You must create a system disk snapshot of a simple application server before you create a custom image based on the snapshot. For more information, see [CreateSnapshot](https://help.aliyun.com/document_detail/190452.html).
-     * > If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
+     * >  If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
      * Before you create a custom image, take note of the following items:
      * *   The custom image and the corresponding simple application server must reside in the same region.
-     * *   The maximum number of custom images that can be maintained in an Alibaba Cloud account is triple the number of simple application servers in the account. The value cannot be greater than 15.
-     * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot when you create the custom image.
-     * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on a snapshot of the server are also released.
-     * *   If you reset a simple application server by changing the application system or OS of the server or replacing the image of the server, the disk data on the server is cleared. Back up the disk data as needed.
-     * ### QPS limit
-     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param CreateCustomImageRequest $request CreateCustomImageRequest
+     * *   The maximum number of custom images that you can create is 3 times the number of simple application servers that you have, but cannot exceed 15.
+     * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot in addition to a system disk snapshot when you create the custom image.
+     * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on the server are also released.
+     * *   Resetting the system or changing the image of a simple application server clears the disk data on the server. Back up the data as needed.
      *
-     * @return CreateCustomImageResponse CreateCustomImageResponse
+     * @param request - CreateCustomImageRequest
+     * @returns CreateCustomImageResponse
+     *
+     * @param CreateCustomImageRequest $request
+     *
+     * @return CreateCustomImageResponse
      */
     public function createCustomImage($request)
     {
@@ -657,39 +756,50 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates a firewall rule for a simple application server.
-     *  *
-     * @description Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
-     *  *
-     * @param CreateFirewallRuleRequest $request CreateFirewallRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a firewall rule for a simple application server.
      *
-     * @return CreateFirewallRuleResponse CreateFirewallRuleResponse
+     * @remarks
+     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *
+     * @param request - CreateFirewallRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFirewallRuleResponse
+     *
+     * @param CreateFirewallRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateFirewallRuleResponse
      */
     public function createFirewallRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->ruleProtocol)) {
-            $query['RuleProtocol'] = $request->ruleProtocol;
+
+        if (null !== $request->ruleProtocol) {
+            @$query['RuleProtocol'] = $request->ruleProtocol;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFirewallRule',
@@ -702,18 +812,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFirewallRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a firewall rule for a simple application server.
-     *  *
-     * @description Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
-     *  *
-     * @param CreateFirewallRuleRequest $request CreateFirewallRuleRequest
+     * Creates a firewall rule for a simple application server.
      *
-     * @return CreateFirewallRuleResponse CreateFirewallRuleResponse
+     * @remarks
+     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *
+     * @param request - CreateFirewallRuleRequest
+     * @returns CreateFirewallRuleResponse
+     *
+     * @param CreateFirewallRuleRequest $request
+     *
+     * @return CreateFirewallRuleResponse
      */
     public function createFirewallRule($request)
     {
@@ -723,41 +840,52 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates multiple firewall rules for a simple application server at a time.
-     *  *
-     * @description Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
-     *  *
-     * @param CreateFirewallRulesRequest $tmpReq  CreateFirewallRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates multiple firewall rules for a simple application server at a time.
      *
-     * @return CreateFirewallRulesResponse CreateFirewallRulesResponse
+     * @remarks
+     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *
+     * @param tmpReq - CreateFirewallRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFirewallRulesResponse
+     *
+     * @param CreateFirewallRulesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateFirewallRulesResponse
      */
     public function createFirewallRulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateFirewallRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->firewallRules)) {
-            $request->firewallRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->firewallRules, 'FirewallRules', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->firewallRules) {
+            $request->firewallRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->firewallRules, 'FirewallRules', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->firewallRulesShrink)) {
-            $query['FirewallRules'] = $request->firewallRulesShrink;
+
+        if (null !== $request->firewallRulesShrink) {
+            @$query['FirewallRules'] = $request->firewallRulesShrink;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFirewallRules',
@@ -770,18 +898,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFirewallRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFirewallRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFirewallRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates multiple firewall rules for a simple application server at a time.
-     *  *
-     * @description Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
-     *  *
-     * @param CreateFirewallRulesRequest $request CreateFirewallRulesRequest
+     * Creates multiple firewall rules for a simple application server at a time.
      *
-     * @return CreateFirewallRulesResponse CreateFirewallRulesResponse
+     * @remarks
+     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *
+     * @param request - CreateFirewallRulesRequest
+     * @returns CreateFirewallRulesResponse
+     *
+     * @param CreateFirewallRulesRequest $request
+     *
+     * @return CreateFirewallRulesResponse
      */
     public function createFirewallRules($request)
     {
@@ -791,33 +926,42 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates a firewall template.
-     *  *
-     * @description Simple Application Server supports the firewall template feature that provides multiple firewall rules. You can use a template to add a group of firewall rules to one or more simple application servers at a time. This improves the efficiency of setting firewall rules.
-     *  *
-     * @param CreateFirewallTemplateRequest $request CreateFirewallTemplateRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a firewall template.
      *
-     * @return CreateFirewallTemplateResponse CreateFirewallTemplateResponse
+     * @remarks
+     * Simple Application Server supports the firewall template feature that provides multiple firewall rules. You can use a template to add a group of firewall rules to one or more simple application servers at a time. This improves the efficiency of setting firewall rules.
+     *
+     * @param request - CreateFirewallTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFirewallTemplateResponse
+     *
+     * @param CreateFirewallTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateFirewallTemplateResponse
      */
     public function createFirewallTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->firewallRule)) {
-            $query['FirewallRule'] = $request->firewallRule;
+
+        if (null !== $request->firewallRule) {
+            @$query['FirewallRule'] = $request->firewallRule;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFirewallTemplate',
@@ -830,18 +974,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFirewallTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFirewallTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFirewallTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a firewall template.
-     *  *
-     * @description Simple Application Server supports the firewall template feature that provides multiple firewall rules. You can use a template to add a group of firewall rules to one or more simple application servers at a time. This improves the efficiency of setting firewall rules.
-     *  *
-     * @param CreateFirewallTemplateRequest $request CreateFirewallTemplateRequest
+     * Creates a firewall template.
      *
-     * @return CreateFirewallTemplateResponse CreateFirewallTemplateResponse
+     * @remarks
+     * Simple Application Server supports the firewall template feature that provides multiple firewall rules. You can use a template to add a group of firewall rules to one or more simple application servers at a time. This improves the efficiency of setting firewall rules.
+     *
+     * @param request - CreateFirewallTemplateRequest
+     * @returns CreateFirewallTemplateResponse
+     *
+     * @param CreateFirewallTemplateRequest $request
+     *
+     * @return CreateFirewallTemplateResponse
      */
     public function createFirewallTemplate($request)
     {
@@ -851,30 +1002,38 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Adds firewall rules to a firewall template based on your business requirements.
-     *  *
-     * @description Adding firewall rules to a firewall template does not affect the firewall rules that have been applied to simple application servers..
-     *  *
-     * @param CreateFirewallTemplateRulesRequest $request CreateFirewallTemplateRulesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Adds firewall rules to a firewall template based on your business requirements.
      *
-     * @return CreateFirewallTemplateRulesResponse CreateFirewallTemplateRulesResponse
+     * @remarks
+     * Adding firewall rules to a firewall template does not affect the firewall rules that have been applied to simple application servers..
+     *
+     * @param request - CreateFirewallTemplateRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFirewallTemplateRulesResponse
+     *
+     * @param CreateFirewallTemplateRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateFirewallTemplateRulesResponse
      */
     public function createFirewallTemplateRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->firewallRule)) {
-            $query['FirewallRule'] = $request->firewallRule;
+        if (null !== $request->firewallRule) {
+            @$query['FirewallRule'] = $request->firewallRule;
         }
-        if (!Utils::isUnset($request->firewallTemplateId)) {
-            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+
+        if (null !== $request->firewallTemplateId) {
+            @$query['FirewallTemplateId'] = $request->firewallTemplateId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFirewallTemplateRules',
@@ -887,18 +1046,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFirewallTemplateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFirewallTemplateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFirewallTemplateRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds firewall rules to a firewall template based on your business requirements.
-     *  *
-     * @description Adding firewall rules to a firewall template does not affect the firewall rules that have been applied to simple application servers..
-     *  *
-     * @param CreateFirewallTemplateRulesRequest $request CreateFirewallTemplateRulesRequest
+     * Adds firewall rules to a firewall template based on your business requirements.
      *
-     * @return CreateFirewallTemplateRulesResponse CreateFirewallTemplateRulesResponse
+     * @remarks
+     * Adding firewall rules to a firewall template does not affect the firewall rules that have been applied to simple application servers..
+     *
+     * @param request - CreateFirewallTemplateRulesRequest
+     * @returns CreateFirewallTemplateRulesResponse
+     *
+     * @param CreateFirewallTemplateRulesRequest $request
+     *
+     * @return CreateFirewallTemplateRulesResponse
      */
     public function createFirewallTemplateRules($request)
     {
@@ -908,31 +1074,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates a key pair for a simple application server.
-     *  *
-     * @param CreateInstanceKeyPairRequest $request CreateInstanceKeyPairRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a key pair for a simple application server.
      *
-     * @return CreateInstanceKeyPairResponse CreateInstanceKeyPairResponse
+     * @param request - CreateInstanceKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateInstanceKeyPairResponse
+     *
+     * @param CreateInstanceKeyPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateInstanceKeyPairResponse
      */
     public function createInstanceKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateInstanceKeyPair',
@@ -945,16 +1119,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateInstanceKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateInstanceKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateInstanceKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a key pair for a simple application server.
-     *  *
-     * @param CreateInstanceKeyPairRequest $request CreateInstanceKeyPairRequest
+     * Creates a key pair for a simple application server.
      *
-     * @return CreateInstanceKeyPairResponse CreateInstanceKeyPairResponse
+     * @param request - CreateInstanceKeyPairRequest
+     * @returns CreateInstanceKeyPairResponse
+     *
+     * @param CreateInstanceKeyPairRequest $request
+     *
+     * @return CreateInstanceKeyPairResponse
      */
     public function createInstanceKeyPair($request)
     {
@@ -964,53 +1144,69 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates subscription simple application servers.
-     *  *
-     * @description *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
-     * *   A maximum of 20 simple application servers can be created within an Alibaba Cloud account.
-     * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
-     *  *
-     * @param CreateInstancesRequest $request CreateInstancesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates subscription simple application servers.
      *
-     * @return CreateInstancesResponse CreateInstancesResponse
+     * @remarks
+     *   Before you call this operation, we recommend that you understand the billing rules of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * >  If you have coupons in your Alibaba Cloud account, the coupons are preferentially used to pay for the simple application servers.
+     * *   You can create a maximum of 50 simple application servers in a region for an Alibaba Cloud account.
+     * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
+     *
+     * @param request - CreateInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateInstancesResponse
+     *
+     * @param CreateInstancesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateInstancesResponse
      */
     public function createInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->amount)) {
-            $query['Amount'] = $request->amount;
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
         }
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->autoRenewPeriod)) {
-            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+
+        if (null !== $request->autoRenewPeriod) {
+            @$query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataDiskSize)) {
-            $query['DataDiskSize'] = $request->dataDiskSize;
+
+        if (null !== $request->dataDiskSize) {
+            @$query['DataDiskSize'] = $request->dataDiskSize;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->planId)) {
-            $query['PlanId'] = $request->planId;
+
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateInstances',
@@ -1023,20 +1219,28 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates subscription simple application servers.
-     *  *
-     * @description *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
-     * *   A maximum of 20 simple application servers can be created within an Alibaba Cloud account.
-     * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
-     *  *
-     * @param CreateInstancesRequest $request CreateInstancesRequest
+     * Creates subscription simple application servers.
      *
-     * @return CreateInstancesResponse CreateInstancesResponse
+     * @remarks
+     *   Before you call this operation, we recommend that you understand the billing rules of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * >  If you have coupons in your Alibaba Cloud account, the coupons are preferentially used to pay for the simple application servers.
+     * *   You can create a maximum of 50 simple application servers in a region for an Alibaba Cloud account.
+     * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
+     *
+     * @param request - CreateInstancesRequest
+     * @returns CreateInstancesResponse
+     *
+     * @param CreateInstancesRequest $request
+     *
+     * @return CreateInstancesResponse
      */
     public function createInstances($request)
     {
@@ -1046,33 +1250,41 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates a key pair.
-     *  *
-     * @description Alibaba Cloud SSH key pairs offer a secure and efficient logon authentication mechanism, facilitating both verification and encrypted communication within the SSH protocol framework. An SSH key pair is essentially constituted by a public key and a private key. Tailored for Linux-based simple application servers, this security measure enhances security and convenience, effectively addressing your heightened security requirements.
+     * Creates a key pair.
+     *
+     * @remarks
+     * Alibaba Cloud SSH key pairs offer a secure and efficient logon authentication mechanism, facilitating both verification and encrypted communication within the SSH protocol framework. An SSH key pair is essentially constituted by a public key and a private key. Tailored for Linux-based simple application servers, this security measure enhances security and convenience, effectively addressing your heightened security requirements.
      * *   The key pair logon method is only valid for Linux-based simple application servers.
      * *   A maximum of 10 key pairs can be created in a region for an Alibaba Cloud account.
      * *   Only RSA 2048-bit key pairs can be created in the Simple Application Server console.
-     *  *
-     * @param CreateKeyPairRequest $request CreateKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateKeyPairResponse CreateKeyPairResponse
+     * @param request - CreateKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateKeyPairResponse
+     *
+     * @param CreateKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateKeyPairResponse
      */
     public function createKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateKeyPair',
@@ -1085,21 +1297,28 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a key pair.
-     *  *
-     * @description Alibaba Cloud SSH key pairs offer a secure and efficient logon authentication mechanism, facilitating both verification and encrypted communication within the SSH protocol framework. An SSH key pair is essentially constituted by a public key and a private key. Tailored for Linux-based simple application servers, this security measure enhances security and convenience, effectively addressing your heightened security requirements.
+     * Creates a key pair.
+     *
+     * @remarks
+     * Alibaba Cloud SSH key pairs offer a secure and efficient logon authentication mechanism, facilitating both verification and encrypted communication within the SSH protocol framework. An SSH key pair is essentially constituted by a public key and a private key. Tailored for Linux-based simple application servers, this security measure enhances security and convenience, effectively addressing your heightened security requirements.
      * *   The key pair logon method is only valid for Linux-based simple application servers.
      * *   A maximum of 10 key pairs can be created in a region for an Alibaba Cloud account.
      * *   Only RSA 2048-bit key pairs can be created in the Simple Application Server console.
-     *  *
-     * @param CreateKeyPairRequest $request CreateKeyPairRequest
      *
-     * @return CreateKeyPairResponse CreateKeyPairResponse
+     * @param request - CreateKeyPairRequest
+     * @returns CreateKeyPairResponse
+     *
+     * @param CreateKeyPairRequest $request
+     *
+     * @return CreateKeyPairResponse
      */
     public function createKeyPair($request)
     {
@@ -1109,47 +1328,56 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates a snapshot for a disk.
-     *  *
-     * @description A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental operations on instances, recover data after network attacks, and create custom images.
-     * > You are not charged for creating snapshots for disks of simple application servers.
-     * ### Precautions
-     * *   You can create up to three snapshots for disks of each simple application server.
-     * *   The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple the number of simple application servers that you maintain. The value cannot be greater than 15.
-     * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
-     * *   If you reset the simple application server after you create a snapshot for a server, the snapshot is retained but cannot be used to roll back the disks of the server.
-     * ### QPS limit
-     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param CreateSnapshotRequest $request CreateSnapshotRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a snapshot for a disk.
      *
-     * @return CreateSnapshotResponse CreateSnapshotResponse
+     * @remarks
+     * A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after misoperations on servers, recover data after network attacks, and create custom images.
+     * >  You are not charged for creating snapshots in Simple Application Server.
+     * ### [](#)Precautions
+     * *   You can create up to three snapshots for each simple application server.
+     * *   The maximum number of snapshots that you create per Alibaba Cloud account is triple of the number of simple application servers that are created. The value cannot be greater than 15.
+     * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
+     * *   If you reset a simple application server after you create a snapshot for the server, the snapshot is retained but cannot be used to restore the disks of the server.
+     *
+     * @param request - CreateSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSnapshotResponse
+     *
+     * @param CreateSnapshotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateSnapshotResponse
      */
     public function createSnapshotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->diskId)) {
-            $query['DiskId'] = $request->diskId;
+
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->snapshotName)) {
-            $query['SnapshotName'] = $request->snapshotName;
+
+        if (null !== $request->snapshotName) {
+            @$query['SnapshotName'] = $request->snapshotName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSnapshot',
@@ -1162,26 +1390,31 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSnapshotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a snapshot for a disk.
-     *  *
-     * @description A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental operations on instances, recover data after network attacks, and create custom images.
-     * > You are not charged for creating snapshots for disks of simple application servers.
-     * ### Precautions
-     * *   You can create up to three snapshots for disks of each simple application server.
-     * *   The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple the number of simple application servers that you maintain. The value cannot be greater than 15.
-     * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
-     * *   If you reset the simple application server after you create a snapshot for a server, the snapshot is retained but cannot be used to roll back the disks of the server.
-     * ### QPS limit
-     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param CreateSnapshotRequest $request CreateSnapshotRequest
+     * Creates a snapshot for a disk.
      *
-     * @return CreateSnapshotResponse CreateSnapshotResponse
+     * @remarks
+     * A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after misoperations on servers, recover data after network attacks, and create custom images.
+     * >  You are not charged for creating snapshots in Simple Application Server.
+     * ### [](#)Precautions
+     * *   You can create up to three snapshots for each simple application server.
+     * *   The maximum number of snapshots that you create per Alibaba Cloud account is triple of the number of simple application servers that are created. The value cannot be greater than 15.
+     * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
+     * *   If you reset a simple application server after you create a snapshot for the server, the snapshot is retained but cannot be used to restore the disks of the server.
+     *
+     * @param request - CreateSnapshotRequest
+     * @returns CreateSnapshotResponse
+     *
+     * @param CreateSnapshotRequest $request
+     *
+     * @return CreateSnapshotResponse
      */
     public function createSnapshot($request)
     {
@@ -1191,27 +1424,34 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Command Assistant command.
-     *  *
-     * @description You cannot delete commands that are being run.
-     *  *
-     * @param DeleteCommandRequest $request DeleteCommandRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a Command Assistant command.
      *
-     * @return DeleteCommandResponse DeleteCommandResponse
+     * @remarks
+     * You cannot delete commands that are being run.
+     *
+     * @param request - DeleteCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCommandResponse
+     *
+     * @param DeleteCommandRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteCommandResponse
      */
     public function deleteCommandWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commandId)) {
-            $query['CommandId'] = $request->commandId;
+        if (null !== $request->commandId) {
+            @$query['CommandId'] = $request->commandId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCommand',
@@ -1224,18 +1464,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCommandResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a Command Assistant command.
-     *  *
-     * @description You cannot delete commands that are being run.
-     *  *
-     * @param DeleteCommandRequest $request DeleteCommandRequest
+     * Deletes a Command Assistant command.
      *
-     * @return DeleteCommandResponse DeleteCommandResponse
+     * @remarks
+     * You cannot delete commands that are being run.
+     *
+     * @param request - DeleteCommandRequest
+     * @returns DeleteCommandResponse
+     *
+     * @param DeleteCommandRequest $request
+     *
+     * @return DeleteCommandResponse
      */
     public function deleteCommand($request)
     {
@@ -1245,31 +1492,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom image.
-     *  *
-     * @description You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
-     * >  To delete a shared image, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or API. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](https://help.aliyun.com/document_detail/199378.html).
-     *  *
-     * @param DeleteCustomImageRequest $request DeleteCustomImageRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom image.
      *
-     * @return DeleteCustomImageResponse DeleteCustomImageResponse
+     * @remarks
+     * You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
+     * >  To delete a shared image, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or API. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](https://help.aliyun.com/document_detail/199378.html).
+     *
+     * @param request - DeleteCustomImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomImageResponse
+     *
+     * @param DeleteCustomImageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteCustomImageResponse
      */
     public function deleteCustomImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCustomImage',
@@ -1282,19 +1537,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCustomImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCustomImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCustomImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom image.
-     *  *
-     * @description You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
-     * >  To delete a shared image, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or API. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](https://help.aliyun.com/document_detail/199378.html).
-     *  *
-     * @param DeleteCustomImageRequest $request DeleteCustomImageRequest
+     * Deletes a custom image.
      *
-     * @return DeleteCustomImageResponse DeleteCustomImageResponse
+     * @remarks
+     * You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
+     * >  To delete a shared image, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or API. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](https://help.aliyun.com/document_detail/199378.html).
+     *
+     * @param request - DeleteCustomImageRequest
+     * @returns DeleteCustomImageResponse
+     *
+     * @param DeleteCustomImageRequest $request
+     *
+     * @return DeleteCustomImageResponse
      */
     public function deleteCustomImage($request)
     {
@@ -1304,30 +1566,38 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes custom images. If you no longer require a custom image, you can call this operation to delete the custom image. You can also call this operation to delete multiple custom images at the same time. After a custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
-     *  *
-     * @description If a custom image is shared, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or by calling an ECS API operation. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see the "Copy custom images" topic.
-     *  *
-     * @param DeleteCustomImagesRequest $request DeleteCustomImagesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes custom images. If you no longer require a custom image, you can call this operation to delete the custom image. You can also call this operation to delete multiple custom images at the same time. After a custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
      *
-     * @return DeleteCustomImagesResponse DeleteCustomImagesResponse
+     * @remarks
+     * If a custom image is shared, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or by calling an ECS API operation. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see [Copy a custom image](https://help.aliyun.com/document_detail/199378.html).
+     *
+     * @param request - DeleteCustomImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomImagesResponse
+     *
+     * @param DeleteCustomImagesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteCustomImagesResponse
      */
     public function deleteCustomImagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->imageIds)) {
-            $query['ImageIds'] = $request->imageIds;
+
+        if (null !== $request->imageIds) {
+            @$query['ImageIds'] = $request->imageIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCustomImages',
@@ -1340,18 +1610,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCustomImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCustomImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCustomImagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes custom images. If you no longer require a custom image, you can call this operation to delete the custom image. You can also call this operation to delete multiple custom images at the same time. After a custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
-     *  *
-     * @description If a custom image is shared, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or by calling an ECS API operation. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see the "Copy custom images" topic.
-     *  *
-     * @param DeleteCustomImagesRequest $request DeleteCustomImagesRequest
+     * Deletes custom images. If you no longer require a custom image, you can call this operation to delete the custom image. You can also call this operation to delete multiple custom images at the same time. After a custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
      *
-     * @return DeleteCustomImagesResponse DeleteCustomImagesResponse
+     * @remarks
+     * If a custom image is shared, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or by calling an ECS API operation. If you want to use a custom image to create ECS instances, we recommend that you copy the custom image before you delete it. For more information, see [Copy a custom image](https://help.aliyun.com/document_detail/199378.html).
+     *
+     * @param request - DeleteCustomImagesRequest
+     * @returns DeleteCustomImagesResponse
+     *
+     * @param DeleteCustomImagesRequest $request
+     *
+     * @return DeleteCustomImagesResponse
      */
     public function deleteCustomImages($request)
     {
@@ -1361,33 +1638,42 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a firewall rule of a simple application server.
-     *  *
-     * @description After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
-     *  *
-     * @param DeleteFirewallRuleRequest $request DeleteFirewallRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes a firewall rule of a simple application server.
      *
-     * @return DeleteFirewallRuleResponse DeleteFirewallRuleResponse
+     * @remarks
+     * After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
+     *
+     * @param request - DeleteFirewallRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFirewallRuleResponse
+     *
+     * @param DeleteFirewallRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteFirewallRuleResponse
      */
     public function deleteFirewallRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFirewallRule',
@@ -1400,18 +1686,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFirewallRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a firewall rule of a simple application server.
-     *  *
-     * @description After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
-     *  *
-     * @param DeleteFirewallRuleRequest $request DeleteFirewallRuleRequest
+     * Deletes a firewall rule of a simple application server.
      *
-     * @return DeleteFirewallRuleResponse DeleteFirewallRuleResponse
+     * @remarks
+     * After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
+     *
+     * @param request - DeleteFirewallRuleRequest
+     * @returns DeleteFirewallRuleResponse
+     *
+     * @param DeleteFirewallRuleRequest $request
+     *
+     * @return DeleteFirewallRuleResponse
      */
     public function deleteFirewallRule($request)
     {
@@ -1421,38 +1714,48 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes multiple firewall rules of a simple application server.
-     *  *
-     * @description After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
-     *  *
-     * @param DeleteFirewallRulesRequest $tmpReq  DeleteFirewallRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes multiple firewall rules of a simple application server.
      *
-     * @return DeleteFirewallRulesResponse DeleteFirewallRulesResponse
+     * @remarks
+     * After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
+     *
+     * @param tmpReq - DeleteFirewallRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFirewallRulesResponse
+     *
+     * @param DeleteFirewallRulesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteFirewallRulesResponse
      */
     public function deleteFirewallRulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteFirewallRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->ruleIds)) {
-            $request->ruleIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ruleIds, 'RuleIds', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->ruleIds) {
+            $request->ruleIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ruleIds, 'RuleIds', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->ruleIdsShrink)) {
-            $query['RuleIds'] = $request->ruleIdsShrink;
+
+        if (null !== $request->ruleIdsShrink) {
+            @$query['RuleIds'] = $request->ruleIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFirewallRules',
@@ -1465,18 +1768,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFirewallRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFirewallRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFirewallRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes multiple firewall rules of a simple application server.
-     *  *
-     * @description After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
-     *  *
-     * @param DeleteFirewallRulesRequest $request DeleteFirewallRulesRequest
+     * Deletes multiple firewall rules of a simple application server.
      *
-     * @return DeleteFirewallRulesResponse DeleteFirewallRulesResponse
+     * @remarks
+     * After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
+     *
+     * @param request - DeleteFirewallRulesRequest
+     * @returns DeleteFirewallRulesResponse
+     *
+     * @param DeleteFirewallRulesRequest $request
+     *
+     * @return DeleteFirewallRulesResponse
      */
     public function deleteFirewallRules($request)
     {
@@ -1486,33 +1796,42 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes firewall rules from a firewall template based on your requirements.
-     *  *
-     * @description Deletion of firewall rules does not affect the firewall rules that have been applied to simple application servers.
-     *  *
-     * @param DeleteFirewallTemplateRulesRequest $request DeleteFirewallTemplateRulesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Deletes firewall rules from a firewall template based on your requirements.
      *
-     * @return DeleteFirewallTemplateRulesResponse DeleteFirewallTemplateRulesResponse
+     * @remarks
+     * Deletion of firewall rules does not affect the firewall rules that have been applied to simple application servers.
+     *
+     * @param request - DeleteFirewallTemplateRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFirewallTemplateRulesResponse
+     *
+     * @param DeleteFirewallTemplateRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteFirewallTemplateRulesResponse
      */
     public function deleteFirewallTemplateRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->firewallTemplateId)) {
-            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+
+        if (null !== $request->firewallTemplateId) {
+            @$query['FirewallTemplateId'] = $request->firewallTemplateId;
         }
-        if (!Utils::isUnset($request->firewallTemplateRuleId)) {
-            $query['FirewallTemplateRuleId'] = $request->firewallTemplateRuleId;
+
+        if (null !== $request->firewallTemplateRuleId) {
+            @$query['FirewallTemplateRuleId'] = $request->firewallTemplateRuleId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFirewallTemplateRules',
@@ -1525,18 +1844,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFirewallTemplateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFirewallTemplateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFirewallTemplateRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes firewall rules from a firewall template based on your requirements.
-     *  *
-     * @description Deletion of firewall rules does not affect the firewall rules that have been applied to simple application servers.
-     *  *
-     * @param DeleteFirewallTemplateRulesRequest $request DeleteFirewallTemplateRulesRequest
+     * Deletes firewall rules from a firewall template based on your requirements.
      *
-     * @return DeleteFirewallTemplateRulesResponse DeleteFirewallTemplateRulesResponse
+     * @remarks
+     * Deletion of firewall rules does not affect the firewall rules that have been applied to simple application servers.
+     *
+     * @param request - DeleteFirewallTemplateRulesRequest
+     * @returns DeleteFirewallTemplateRulesResponse
+     *
+     * @param DeleteFirewallTemplateRulesRequest $request
+     *
+     * @return DeleteFirewallTemplateRulesResponse
      */
     public function deleteFirewallTemplateRules($request)
     {
@@ -1546,30 +1872,38 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes firewall templates from a simple application server.
-     *  *
-     * @description Deleting a firewall template does not affect the firewall rules that have been applied to simple application servers. You can delete firewall templates that you no longer need.
-     *  *
-     * @param DeleteFirewallTemplatesRequest $request DeleteFirewallTemplatesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes firewall templates from a simple application server.
      *
-     * @return DeleteFirewallTemplatesResponse DeleteFirewallTemplatesResponse
+     * @remarks
+     * Deleting a firewall template does not affect the firewall rules that have been applied to simple application servers. You can delete firewall templates that you no longer need.
+     *
+     * @param request - DeleteFirewallTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFirewallTemplatesResponse
+     *
+     * @param DeleteFirewallTemplatesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteFirewallTemplatesResponse
      */
     public function deleteFirewallTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->firewallTemplateId)) {
-            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+
+        if (null !== $request->firewallTemplateId) {
+            @$query['FirewallTemplateId'] = $request->firewallTemplateId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFirewallTemplates',
@@ -1582,18 +1916,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFirewallTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFirewallTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFirewallTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes firewall templates from a simple application server.
-     *  *
-     * @description Deleting a firewall template does not affect the firewall rules that have been applied to simple application servers. You can delete firewall templates that you no longer need.
-     *  *
-     * @param DeleteFirewallTemplatesRequest $request DeleteFirewallTemplatesRequest
+     * Deletes firewall templates from a simple application server.
      *
-     * @return DeleteFirewallTemplatesResponse DeleteFirewallTemplatesResponse
+     * @remarks
+     * Deleting a firewall template does not affect the firewall rules that have been applied to simple application servers. You can delete firewall templates that you no longer need.
+     *
+     * @param request - DeleteFirewallTemplatesRequest
+     * @returns DeleteFirewallTemplatesResponse
+     *
+     * @param DeleteFirewallTemplatesRequest $request
+     *
+     * @return DeleteFirewallTemplatesResponse
      */
     public function deleteFirewallTemplates($request)
     {
@@ -1603,28 +1944,35 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the key pair of a simple application server.
-     *  *
-     * @param DeleteInstanceKeyPairRequest $request DeleteInstanceKeyPairRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes the key pair of a simple application server.
      *
-     * @return DeleteInstanceKeyPairResponse DeleteInstanceKeyPairResponse
+     * @param request - DeleteInstanceKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteInstanceKeyPairResponse
+     *
+     * @param DeleteInstanceKeyPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteInstanceKeyPairResponse
      */
     public function deleteInstanceKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstanceKeyPair',
@@ -1637,16 +1985,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteInstanceKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteInstanceKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the key pair of a simple application server.
-     *  *
-     * @param DeleteInstanceKeyPairRequest $request DeleteInstanceKeyPairRequest
+     * Deletes the key pair of a simple application server.
      *
-     * @return DeleteInstanceKeyPairResponse DeleteInstanceKeyPairResponse
+     * @param request - DeleteInstanceKeyPairRequest
+     * @returns DeleteInstanceKeyPairResponse
+     *
+     * @param DeleteInstanceKeyPairRequest $request
+     *
+     * @return DeleteInstanceKeyPairResponse
      */
     public function deleteInstanceKeyPair($request)
     {
@@ -1656,30 +2010,38 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the SSH key pairs of simple application servers.
-     *  *
-     * @description You must unbind SSH key pairs that you no longer use from simple application servers before you delete the SSH key pairs.
-     *  *
-     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes the SSH key pairs of simple application servers.
      *
-     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
+     * @remarks
+     * You must unbind SSH key pairs that you no longer use from simple application servers before you delete the SSH key pairs.
+     *
+     * @param request - DeleteKeyPairsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteKeyPairsResponse
+     *
+     * @param DeleteKeyPairsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteKeyPairsResponse
      */
     public function deleteKeyPairsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->keyPairNames)) {
-            $query['KeyPairNames'] = $request->keyPairNames;
+
+        if (null !== $request->keyPairNames) {
+            @$query['KeyPairNames'] = $request->keyPairNames;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteKeyPairs',
@@ -1692,18 +2054,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteKeyPairsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the SSH key pairs of simple application servers.
-     *  *
-     * @description You must unbind SSH key pairs that you no longer use from simple application servers before you delete the SSH key pairs.
-     *  *
-     * @param DeleteKeyPairsRequest $request DeleteKeyPairsRequest
+     * Deletes the SSH key pairs of simple application servers.
      *
-     * @return DeleteKeyPairsResponse DeleteKeyPairsResponse
+     * @remarks
+     * You must unbind SSH key pairs that you no longer use from simple application servers before you delete the SSH key pairs.
+     *
+     * @param request - DeleteKeyPairsRequest
+     * @returns DeleteKeyPairsResponse
+     *
+     * @param DeleteKeyPairsRequest $request
+     *
+     * @return DeleteKeyPairsResponse
      */
     public function deleteKeyPairs($request)
     {
@@ -1713,31 +2082,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a snapshot of a simple application server.
-     *  *
-     * @description You can delete a snapshot if you no longer need it.
-     * >  If a custom image was created from the snapshot, delete the custom image before you delete the snapshot.
-     *  *
-     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a snapshot of a simple application server.
      *
-     * @return DeleteSnapshotResponse DeleteSnapshotResponse
+     * @remarks
+     * You can delete a snapshot if you no longer need it.
+     * >  If a custom image was created from the snapshot, delete the custom image before you delete the snapshot.
+     *
+     * @param request - DeleteSnapshotRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSnapshotResponse
+     *
+     * @param DeleteSnapshotRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteSnapshotResponse
      */
     public function deleteSnapshotWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSnapshot',
@@ -1750,19 +2127,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSnapshotResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a snapshot of a simple application server.
-     *  *
-     * @description You can delete a snapshot if you no longer need it.
-     * >  If a custom image was created from the snapshot, delete the custom image before you delete the snapshot.
-     *  *
-     * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
+     * Deletes a snapshot of a simple application server.
      *
-     * @return DeleteSnapshotResponse DeleteSnapshotResponse
+     * @remarks
+     * You can delete a snapshot if you no longer need it.
+     * >  If a custom image was created from the snapshot, delete the custom image before you delete the snapshot.
+     *
+     * @param request - DeleteSnapshotRequest
+     * @returns DeleteSnapshotResponse
+     *
+     * @param DeleteSnapshotRequest $request
+     *
+     * @return DeleteSnapshotResponse
      */
     public function deleteSnapshot($request)
     {
@@ -1772,28 +2156,35 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Deletes snapshots of a simple application server.
-     *  *
-     * @param DeleteSnapshotsRequest $request DeleteSnapshotsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes snapshots of a simple application server.
      *
-     * @return DeleteSnapshotsResponse DeleteSnapshotsResponse
+     * @param request - DeleteSnapshotsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSnapshotsResponse
+     *
+     * @param DeleteSnapshotsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteSnapshotsResponse
      */
     public function deleteSnapshotsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->snapshotIds)) {
-            $query['SnapshotIds'] = $request->snapshotIds;
+
+        if (null !== $request->snapshotIds) {
+            @$query['SnapshotIds'] = $request->snapshotIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSnapshots',
@@ -1806,16 +2197,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSnapshotsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes snapshots of a simple application server.
-     *  *
-     * @param DeleteSnapshotsRequest $request DeleteSnapshotsRequest
+     * Deletes snapshots of a simple application server.
      *
-     * @return DeleteSnapshotsResponse DeleteSnapshotsResponse
+     * @param request - DeleteSnapshotsRequest
+     * @returns DeleteSnapshotsResponse
+     *
+     * @param DeleteSnapshotsRequest $request
+     *
+     * @return DeleteSnapshotsResponse
      */
     public function deleteSnapshots($request)
     {
@@ -1825,36 +2222,45 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Command Assistant information of simple application servers.
-     *  *
-     * @param DescribeCloudAssistantAttributesRequest $tmpReq  DescribeCloudAssistantAttributesRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the Command Assistant information of simple application servers.
      *
-     * @return DescribeCloudAssistantAttributesResponse DescribeCloudAssistantAttributesResponse
+     * @param tmpReq - DescribeCloudAssistantAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCloudAssistantAttributesResponse
+     *
+     * @param DescribeCloudAssistantAttributesRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeCloudAssistantAttributesResponse
      */
     public function describeCloudAssistantAttributesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeCloudAssistantAttributesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['InstanceIds'] = $request->instanceIdsShrink;
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCloudAssistantAttributes',
@@ -1867,16 +2273,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCloudAssistantAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCloudAssistantAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCloudAssistantAttributesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Command Assistant information of simple application servers.
-     *  *
-     * @param DescribeCloudAssistantAttributesRequest $request DescribeCloudAssistantAttributesRequest
+     * Queries the Command Assistant information of simple application servers.
      *
-     * @return DescribeCloudAssistantAttributesResponse DescribeCloudAssistantAttributesResponse
+     * @param request - DescribeCloudAssistantAttributesRequest
+     * @returns DescribeCloudAssistantAttributesResponse
+     *
+     * @param DescribeCloudAssistantAttributesRequest $request
+     *
+     * @return DescribeCloudAssistantAttributesResponse
      */
     public function describeCloudAssistantAttributes($request)
     {
@@ -1886,38 +2298,48 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether the Cloud Assistant client is installed on simple application servers.
-     *  *
-     * @description By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
-     *  *
-     * @param DescribeCloudAssistantStatusRequest $tmpReq  DescribeCloudAssistantStatusRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries whether the Cloud Assistant client is installed on simple application servers.
      *
-     * @return DescribeCloudAssistantStatusResponse DescribeCloudAssistantStatusResponse
+     * @remarks
+     * By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
+     *
+     * @param tmpReq - DescribeCloudAssistantStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCloudAssistantStatusResponse
+     *
+     * @param DescribeCloudAssistantStatusRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCloudAssistantStatusResponse
      */
     public function describeCloudAssistantStatusWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeCloudAssistantStatusShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['InstanceIds'] = $request->instanceIdsShrink;
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCloudAssistantStatus',
@@ -1930,18 +2352,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCloudAssistantStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCloudAssistantStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCloudAssistantStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether the Cloud Assistant client is installed on simple application servers.
-     *  *
-     * @description By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
-     *  *
-     * @param DescribeCloudAssistantStatusRequest $request DescribeCloudAssistantStatusRequest
+     * Queries whether the Cloud Assistant client is installed on simple application servers.
      *
-     * @return DescribeCloudAssistantStatusResponse DescribeCloudAssistantStatusResponse
+     * @remarks
+     * By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
+     *
+     * @param request - DescribeCloudAssistantStatusRequest
+     * @returns DescribeCloudAssistantStatusResponse
+     *
+     * @param DescribeCloudAssistantStatusRequest $request
+     *
+     * @return DescribeCloudAssistantStatusResponse
      */
     public function describeCloudAssistantStatus($request)
     {
@@ -1951,28 +2380,35 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the CloudMonitor agent on simple application servers.
-     *  *
-     * @param DescribeCloudMonitorAgentStatusesRequest $request DescribeCloudMonitorAgentStatusesRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the CloudMonitor agent on simple application servers.
      *
-     * @return DescribeCloudMonitorAgentStatusesResponse DescribeCloudMonitorAgentStatusesResponse
+     * @param request - DescribeCloudMonitorAgentStatusesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCloudMonitorAgentStatusesResponse
+     *
+     * @param DescribeCloudMonitorAgentStatusesRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeCloudMonitorAgentStatusesResponse
      */
     public function describeCloudMonitorAgentStatusesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCloudMonitorAgentStatuses',
@@ -1985,16 +2421,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCloudMonitorAgentStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCloudMonitorAgentStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCloudMonitorAgentStatusesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of the CloudMonitor agent on simple application servers.
-     *  *
-     * @param DescribeCloudMonitorAgentStatusesRequest $request DescribeCloudMonitorAgentStatusesRequest
+     * Queries the status of the CloudMonitor agent on simple application servers.
      *
-     * @return DescribeCloudMonitorAgentStatusesResponse DescribeCloudMonitorAgentStatusesResponse
+     * @param request - DescribeCloudMonitorAgentStatusesRequest
+     * @returns DescribeCloudMonitorAgentStatusesResponse
+     *
+     * @param DescribeCloudMonitorAgentStatusesRequest $request
+     *
+     * @return DescribeCloudMonitorAgentStatusesResponse
      */
     public function describeCloudMonitorAgentStatuses($request)
     {
@@ -2004,46 +2446,59 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the executions and execution status of a Cloud Assistant command.
-     *  *
-     * @param DescribeCommandInvocationsRequest $request DescribeCommandInvocationsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the executions and execution status of a Cloud Assistant command.
      *
-     * @return DescribeCommandInvocationsResponse DescribeCommandInvocationsResponse
+     * @param request - DescribeCommandInvocationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCommandInvocationsResponse
+     *
+     * @param DescribeCommandInvocationsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeCommandInvocationsResponse
      */
     public function describeCommandInvocationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commandId)) {
-            $query['CommandId'] = $request->commandId;
+        if (null !== $request->commandId) {
+            @$query['CommandId'] = $request->commandId;
         }
-        if (!Utils::isUnset($request->commandName)) {
-            $query['CommandName'] = $request->commandName;
+
+        if (null !== $request->commandName) {
+            @$query['CommandName'] = $request->commandName;
         }
-        if (!Utils::isUnset($request->commandType)) {
-            $query['CommandType'] = $request->commandType;
+
+        if (null !== $request->commandType) {
+            @$query['CommandType'] = $request->commandType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->invocationStatus)) {
-            $query['InvocationStatus'] = $request->invocationStatus;
+
+        if (null !== $request->invocationStatus) {
+            @$query['InvocationStatus'] = $request->invocationStatus;
         }
-        if (!Utils::isUnset($request->invokeId)) {
-            $query['InvokeId'] = $request->invokeId;
+
+        if (null !== $request->invokeId) {
+            @$query['InvokeId'] = $request->invokeId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCommandInvocations',
@@ -2056,16 +2511,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCommandInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCommandInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCommandInvocationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the executions and execution status of a Cloud Assistant command.
-     *  *
-     * @param DescribeCommandInvocationsRequest $request DescribeCommandInvocationsRequest
+     * Queries the executions and execution status of a Cloud Assistant command.
      *
-     * @return DescribeCommandInvocationsResponse DescribeCommandInvocationsResponse
+     * @param request - DescribeCommandInvocationsRequest
+     * @returns DescribeCommandInvocationsResponse
+     *
+     * @param DescribeCommandInvocationsRequest $request
+     *
+     * @return DescribeCommandInvocationsResponse
      */
     public function describeCommandInvocations($request)
     {
@@ -2075,46 +2536,59 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the commands that you created or the common commands that Alibaba Cloud provides.
-     *  *
-     * @param DescribeCommandsRequest $request DescribeCommandsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the commands that you created or the common commands that Alibaba Cloud provides.
      *
-     * @return DescribeCommandsResponse DescribeCommandsResponse
+     * @param request - DescribeCommandsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCommandsResponse
+     *
+     * @param DescribeCommandsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeCommandsResponse
      */
     public function describeCommandsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commandId)) {
-            $query['CommandId'] = $request->commandId;
+        if (null !== $request->commandId) {
+            @$query['CommandId'] = $request->commandId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->provider)) {
-            $query['Provider'] = $request->provider;
+
+        if (null !== $request->provider) {
+            @$query['Provider'] = $request->provider;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCommands',
@@ -2127,16 +2601,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCommandsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the commands that you created or the common commands that Alibaba Cloud provides.
-     *  *
-     * @param DescribeCommandsRequest $request DescribeCommandsRequest
+     * Queries the commands that you created or the common commands that Alibaba Cloud provides.
      *
-     * @return DescribeCommandsResponse DescribeCommandsResponse
+     * @param request - DescribeCommandsRequest
+     * @returns DescribeCommandsResponse
+     *
+     * @param DescribeCommandsRequest $request
+     *
+     * @return DescribeCommandsResponse
      */
     public function describeCommands($request)
     {
@@ -2146,39 +2626,50 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries error logs of databases in a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
-     *  *
-     * @param DescribeDatabaseErrorLogsRequest $request DescribeDatabaseErrorLogsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries error logs of databases in a Simple Database Service instance.
      *
-     * @return DescribeDatabaseErrorLogsResponse DescribeDatabaseErrorLogsResponse
+     * @remarks
+     * You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
+     *
+     * @param request - DescribeDatabaseErrorLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDatabaseErrorLogsResponse
+     *
+     * @param DescribeDatabaseErrorLogsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDatabaseErrorLogsResponse
      */
     public function describeDatabaseErrorLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDatabaseErrorLogs',
@@ -2191,18 +2682,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDatabaseErrorLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDatabaseErrorLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDatabaseErrorLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries error logs of databases in a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
-     *  *
-     * @param DescribeDatabaseErrorLogsRequest $request DescribeDatabaseErrorLogsRequest
+     * Queries error logs of databases in a Simple Database Service instance.
      *
-     * @return DescribeDatabaseErrorLogsResponse DescribeDatabaseErrorLogsResponse
+     * @remarks
+     * You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
+     *
+     * @param request - DescribeDatabaseErrorLogsRequest
+     * @returns DescribeDatabaseErrorLogsResponse
+     *
+     * @param DescribeDatabaseErrorLogsRequest $request
+     *
+     * @return DescribeDatabaseErrorLogsResponse
      */
     public function describeDatabaseErrorLogs($request)
     {
@@ -2212,36 +2710,46 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring information about a Simple Database Service instance.
-     *  *
-     * @description After you create a Simple Database Service instance, you can query the details about the instance, including CPU, memory, and disk usage, storage IOPS, and total number of connections.
-     *  *
-     * @param DescribeDatabaseInstanceMetricDataRequest $request DescribeDatabaseInstanceMetricDataRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the monitoring information about a Simple Database Service instance.
      *
-     * @return DescribeDatabaseInstanceMetricDataResponse DescribeDatabaseInstanceMetricDataResponse
+     * @remarks
+     * After you create a Simple Database Service instance, you can query the details about the instance, including CPU, memory, and disk usage, storage IOPS, and total number of connections.
+     *
+     * @param request - DescribeDatabaseInstanceMetricDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDatabaseInstanceMetricDataResponse
+     *
+     * @param DescribeDatabaseInstanceMetricDataRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDatabaseInstanceMetricDataResponse
      */
     public function describeDatabaseInstanceMetricDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDatabaseInstanceMetricData',
@@ -2254,18 +2762,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDatabaseInstanceMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDatabaseInstanceMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDatabaseInstanceMetricDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring information about a Simple Database Service instance.
-     *  *
-     * @description After you create a Simple Database Service instance, you can query the details about the instance, including CPU, memory, and disk usage, storage IOPS, and total number of connections.
-     *  *
-     * @param DescribeDatabaseInstanceMetricDataRequest $request DescribeDatabaseInstanceMetricDataRequest
+     * Queries the monitoring information about a Simple Database Service instance.
      *
-     * @return DescribeDatabaseInstanceMetricDataResponse DescribeDatabaseInstanceMetricDataResponse
+     * @remarks
+     * After you create a Simple Database Service instance, you can query the details about the instance, including CPU, memory, and disk usage, storage IOPS, and total number of connections.
+     *
+     * @param request - DescribeDatabaseInstanceMetricDataRequest
+     * @returns DescribeDatabaseInstanceMetricDataResponse
+     *
+     * @param DescribeDatabaseInstanceMetricDataRequest $request
+     *
+     * @return DescribeDatabaseInstanceMetricDataResponse
      */
     public function describeDatabaseInstanceMetricData($request)
     {
@@ -2275,27 +2790,34 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the parameters of a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to query the information about parameters of a Simple Database Service instance.
-     *  *
-     * @param DescribeDatabaseInstanceParametersRequest $request DescribeDatabaseInstanceParametersRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the parameters of a Simple Database Service instance.
      *
-     * @return DescribeDatabaseInstanceParametersResponse DescribeDatabaseInstanceParametersResponse
+     * @remarks
+     * You can call this operation to query the information about parameters of a Simple Database Service instance.
+     *
+     * @param request - DescribeDatabaseInstanceParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDatabaseInstanceParametersResponse
+     *
+     * @param DescribeDatabaseInstanceParametersRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDatabaseInstanceParametersResponse
      */
     public function describeDatabaseInstanceParametersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDatabaseInstanceParameters',
@@ -2308,18 +2830,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDatabaseInstanceParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDatabaseInstanceParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDatabaseInstanceParametersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the parameters of a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to query the information about parameters of a Simple Database Service instance.
-     *  *
-     * @param DescribeDatabaseInstanceParametersRequest $request DescribeDatabaseInstanceParametersRequest
+     * Queries the parameters of a Simple Database Service instance.
      *
-     * @return DescribeDatabaseInstanceParametersResponse DescribeDatabaseInstanceParametersResponse
+     * @remarks
+     * You can call this operation to query the information about parameters of a Simple Database Service instance.
+     *
+     * @param request - DescribeDatabaseInstanceParametersRequest
+     * @returns DescribeDatabaseInstanceParametersResponse
+     *
+     * @param DescribeDatabaseInstanceParametersRequest $request
+     *
+     * @return DescribeDatabaseInstanceParametersResponse
      */
     public function describeDatabaseInstanceParameters($request)
     {
@@ -2329,33 +2858,42 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Simple Database Service instances.
-     *  *
-     * @description You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoints, internal endpoints, creation time, and expiration time of the instances.
-     *  *
-     * @param DescribeDatabaseInstancesRequest $request DescribeDatabaseInstancesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about Simple Database Service instances.
      *
-     * @return DescribeDatabaseInstancesResponse DescribeDatabaseInstancesResponse
+     * @remarks
+     * You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoints, internal endpoints, creation time, and expiration time of the instances.
+     *
+     * @param request - DescribeDatabaseInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDatabaseInstancesResponse
+     *
+     * @param DescribeDatabaseInstancesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDatabaseInstancesResponse
      */
     public function describeDatabaseInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseInstanceIds)) {
-            $query['DatabaseInstanceIds'] = $request->databaseInstanceIds;
+        if (null !== $request->databaseInstanceIds) {
+            @$query['DatabaseInstanceIds'] = $request->databaseInstanceIds;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDatabaseInstances',
@@ -2368,18 +2906,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDatabaseInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDatabaseInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDatabaseInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about Simple Database Service instances.
-     *  *
-     * @description You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoints, internal endpoints, creation time, and expiration time of the instances.
-     *  *
-     * @param DescribeDatabaseInstancesRequest $request DescribeDatabaseInstancesRequest
+     * Queries the information about Simple Database Service instances.
      *
-     * @return DescribeDatabaseInstancesResponse DescribeDatabaseInstancesResponse
+     * @remarks
+     * You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoints, internal endpoints, creation time, and expiration time of the instances.
+     *
+     * @param request - DescribeDatabaseInstancesRequest
+     * @returns DescribeDatabaseInstancesResponse
+     *
+     * @param DescribeDatabaseInstancesRequest $request
+     *
+     * @return DescribeDatabaseInstancesResponse
      */
     public function describeDatabaseInstances($request)
     {
@@ -2389,40 +2934,51 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the slow query log details of a Simple Database Service instance.
-     *  *
-     * @description You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
-     * >  Slow query log details are retained for 7 days.
-     *  *
-     * @param DescribeDatabaseSlowLogRecordsRequest $request DescribeDatabaseSlowLogRecordsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the slow query log details of a Simple Database Service instance.
      *
-     * @return DescribeDatabaseSlowLogRecordsResponse DescribeDatabaseSlowLogRecordsResponse
+     * @remarks
+     * You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
+     * >  Slow query log details are retained for 7 days.
+     *
+     * @param request - DescribeDatabaseSlowLogRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDatabaseSlowLogRecordsResponse
+     *
+     * @param DescribeDatabaseSlowLogRecordsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDatabaseSlowLogRecordsResponse
      */
     public function describeDatabaseSlowLogRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDatabaseSlowLogRecords',
@@ -2435,19 +2991,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDatabaseSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDatabaseSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDatabaseSlowLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the slow query log details of a Simple Database Service instance.
-     *  *
-     * @description You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
-     * >  Slow query log details are retained for 7 days.
-     *  *
-     * @param DescribeDatabaseSlowLogRecordsRequest $request DescribeDatabaseSlowLogRecordsRequest
+     * Queries the slow query log details of a Simple Database Service instance.
      *
-     * @return DescribeDatabaseSlowLogRecordsResponse DescribeDatabaseSlowLogRecordsResponse
+     * @remarks
+     * You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
+     * >  Slow query log details are retained for 7 days.
+     *
+     * @param request - DescribeDatabaseSlowLogRecordsRequest
+     * @returns DescribeDatabaseSlowLogRecordsResponse
+     *
+     * @param DescribeDatabaseSlowLogRecordsRequest $request
+     *
+     * @return DescribeDatabaseSlowLogRecordsResponse
      */
     public function describeDatabaseSlowLogRecords($request)
     {
@@ -2457,37 +3020,47 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the result of applying a firewall template to simple application servers.
-     *  *
-     * @param DescribeFirewallTemplateApplyResultsRequest $request DescribeFirewallTemplateApplyResultsRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Queries the result of applying a firewall template to simple application servers.
      *
-     * @return DescribeFirewallTemplateApplyResultsResponse DescribeFirewallTemplateApplyResultsResponse
+     * @param request - DescribeFirewallTemplateApplyResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFirewallTemplateApplyResultsResponse
+     *
+     * @param DescribeFirewallTemplateApplyResultsRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribeFirewallTemplateApplyResultsResponse
      */
     public function describeFirewallTemplateApplyResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->firewallTemplateId)) {
-            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+
+        if (null !== $request->firewallTemplateId) {
+            @$query['FirewallTemplateId'] = $request->firewallTemplateId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFirewallTemplateApplyResults',
@@ -2500,16 +3073,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFirewallTemplateApplyResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFirewallTemplateApplyResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFirewallTemplateApplyResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the result of applying a firewall template to simple application servers.
-     *  *
-     * @param DescribeFirewallTemplateApplyResultsRequest $request DescribeFirewallTemplateApplyResultsRequest
+     * Queries the result of applying a firewall template to simple application servers.
      *
-     * @return DescribeFirewallTemplateApplyResultsResponse DescribeFirewallTemplateApplyResultsResponse
+     * @param request - DescribeFirewallTemplateApplyResultsRequest
+     * @returns DescribeFirewallTemplateApplyResultsResponse
+     *
+     * @param DescribeFirewallTemplateApplyResultsRequest $request
+     *
+     * @return DescribeFirewallTemplateApplyResultsResponse
      */
     public function describeFirewallTemplateApplyResults($request)
     {
@@ -2519,34 +3098,43 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the result of applying a firewall template rule to simple application servers.
-     *  *
-     * @param DescribeFirewallTemplateRulesApplyResultRequest $request DescribeFirewallTemplateRulesApplyResultRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * Queries the result of applying a firewall template rule to simple application servers.
      *
-     * @return DescribeFirewallTemplateRulesApplyResultResponse DescribeFirewallTemplateRulesApplyResultResponse
+     * @param request - DescribeFirewallTemplateRulesApplyResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFirewallTemplateRulesApplyResultResponse
+     *
+     * @param DescribeFirewallTemplateRulesApplyResultRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return DescribeFirewallTemplateRulesApplyResultResponse
      */
     public function describeFirewallTemplateRulesApplyResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->firewallTemplateId)) {
-            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+
+        if (null !== $request->firewallTemplateId) {
+            @$query['FirewallTemplateId'] = $request->firewallTemplateId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFirewallTemplateRulesApplyResult',
@@ -2559,16 +3147,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFirewallTemplateRulesApplyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFirewallTemplateRulesApplyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFirewallTemplateRulesApplyResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the result of applying a firewall template rule to simple application servers.
-     *  *
-     * @param DescribeFirewallTemplateRulesApplyResultRequest $request DescribeFirewallTemplateRulesApplyResultRequest
+     * Queries the result of applying a firewall template rule to simple application servers.
      *
-     * @return DescribeFirewallTemplateRulesApplyResultResponse DescribeFirewallTemplateRulesApplyResultResponse
+     * @param request - DescribeFirewallTemplateRulesApplyResultRequest
+     * @returns DescribeFirewallTemplateRulesApplyResultResponse
+     *
+     * @param DescribeFirewallTemplateRulesApplyResultRequest $request
+     *
+     * @return DescribeFirewallTemplateRulesApplyResultResponse
      */
     public function describeFirewallTemplateRulesApplyResult($request)
     {
@@ -2578,34 +3172,43 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries details about firewall templates.
-     *  *
-     * @param DescribeFirewallTemplatesRequest $request DescribeFirewallTemplatesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries details about firewall templates.
      *
-     * @return DescribeFirewallTemplatesResponse DescribeFirewallTemplatesResponse
+     * @param request - DescribeFirewallTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFirewallTemplatesResponse
+     *
+     * @param DescribeFirewallTemplatesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeFirewallTemplatesResponse
      */
     public function describeFirewallTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->firewallTemplateId)) {
-            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+        if (null !== $request->firewallTemplateId) {
+            @$query['FirewallTemplateId'] = $request->firewallTemplateId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFirewallTemplates',
@@ -2618,16 +3221,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFirewallTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFirewallTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFirewallTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries details about firewall templates.
-     *  *
-     * @param DescribeFirewallTemplatesRequest $request DescribeFirewallTemplatesRequest
+     * Queries details about firewall templates.
      *
-     * @return DescribeFirewallTemplatesResponse DescribeFirewallTemplatesResponse
+     * @param request - DescribeFirewallTemplatesRequest
+     * @returns DescribeFirewallTemplatesResponse
+     *
+     * @param DescribeFirewallTemplatesRequest $request
+     *
+     * @return DescribeFirewallTemplatesResponse
      */
     public function describeFirewallTemplates($request)
     {
@@ -2637,28 +3246,35 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the key pair of a simple application server.
-     *  *
-     * @param DescribeInstanceKeyPairRequest $request DescribeInstanceKeyPairRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries information about the key pair of a simple application server.
      *
-     * @return DescribeInstanceKeyPairResponse DescribeInstanceKeyPairResponse
+     * @param request - DescribeInstanceKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceKeyPairResponse
+     *
+     * @param DescribeInstanceKeyPairRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInstanceKeyPairResponse
      */
     public function describeInstanceKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceKeyPair',
@@ -2671,16 +3287,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about the key pair of a simple application server.
-     *  *
-     * @param DescribeInstanceKeyPairRequest $request DescribeInstanceKeyPairRequest
+     * Queries information about the key pair of a simple application server.
      *
-     * @return DescribeInstanceKeyPairResponse DescribeInstanceKeyPairResponse
+     * @param request - DescribeInstanceKeyPairRequest
+     * @returns DescribeInstanceKeyPairResponse
+     *
+     * @param DescribeInstanceKeyPairRequest $request
+     *
+     * @return DescribeInstanceKeyPairResponse
      */
     public function describeInstanceKeyPair($request)
     {
@@ -2690,28 +3312,35 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether a password is set for a simple application server.
-     *  *
-     * @param DescribeInstancePasswordsSettingRequest $request DescribeInstancePasswordsSettingRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Checks whether a password is set for a simple application server.
      *
-     * @return DescribeInstancePasswordsSettingResponse DescribeInstancePasswordsSettingResponse
+     * @param request - DescribeInstancePasswordsSettingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstancePasswordsSettingResponse
+     *
+     * @param DescribeInstancePasswordsSettingRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeInstancePasswordsSettingResponse
      */
     public function describeInstancePasswordsSettingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstancePasswordsSetting',
@@ -2724,16 +3353,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstancePasswordsSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstancePasswordsSettingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstancePasswordsSettingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether a password is set for a simple application server.
-     *  *
-     * @param DescribeInstancePasswordsSettingRequest $request DescribeInstancePasswordsSettingRequest
+     * Checks whether a password is set for a simple application server.
      *
-     * @return DescribeInstancePasswordsSettingResponse DescribeInstancePasswordsSettingResponse
+     * @param request - DescribeInstancePasswordsSettingRequest
+     * @returns DescribeInstancePasswordsSettingResponse
+     *
+     * @param DescribeInstancePasswordsSettingRequest $request
+     *
+     * @return DescribeInstancePasswordsSettingResponse
      */
     public function describeInstancePasswordsSetting($request)
     {
@@ -2743,28 +3378,35 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the VNC connection address of a simple application server.
-     *  *
-     * @param DescribeInstanceVncUrlRequest $request DescribeInstanceVncUrlRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the VNC connection address of a simple application server.
      *
-     * @return DescribeInstanceVncUrlResponse DescribeInstanceVncUrlResponse
+     * @param request - DescribeInstanceVncUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceVncUrlResponse
+     *
+     * @param DescribeInstanceVncUrlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeInstanceVncUrlResponse
      */
     public function describeInstanceVncUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceVncUrl',
@@ -2777,16 +3419,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceVncUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceVncUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceVncUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the VNC connection address of a simple application server.
-     *  *
-     * @param DescribeInstanceVncUrlRequest $request DescribeInstanceVncUrlRequest
+     * Queries the VNC connection address of a simple application server.
      *
-     * @return DescribeInstanceVncUrlResponse DescribeInstanceVncUrlResponse
+     * @param request - DescribeInstanceVncUrlRequest
+     * @returns DescribeInstanceVncUrlResponse
+     *
+     * @param DescribeInstanceVncUrlRequest $request
+     *
+     * @return DescribeInstanceVncUrlResponse
      */
     public function describeInstanceVncUrl($request)
     {
@@ -2796,31 +3444,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution result of a command.
-     *  *
-     * @description *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
-     * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
-     *  *
-     * @param DescribeInvocationResultRequest $request DescribeInvocationResultRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the execution result of a command.
      *
-     * @return DescribeInvocationResultResponse DescribeInvocationResultResponse
+     * @remarks
+     *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
+     * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
+     *
+     * @param request - DescribeInvocationResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInvocationResultResponse
+     *
+     * @param DescribeInvocationResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeInvocationResultResponse
      */
     public function describeInvocationResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->invokeId)) {
-            $query['InvokeId'] = $request->invokeId;
+
+        if (null !== $request->invokeId) {
+            @$query['InvokeId'] = $request->invokeId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInvocationResult',
@@ -2833,19 +3489,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInvocationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInvocationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInvocationResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the execution result of a command.
-     *  *
-     * @description *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
-     * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
-     *  *
-     * @param DescribeInvocationResultRequest $request DescribeInvocationResultRequest
+     * Queries the execution result of a command.
      *
-     * @return DescribeInvocationResultResponse DescribeInvocationResultResponse
+     * @remarks
+     *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
+     * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
+     *
+     * @param request - DescribeInvocationResultRequest
+     * @returns DescribeInvocationResultResponse
+     *
+     * @param DescribeInvocationResultRequest $request
+     *
+     * @return DescribeInvocationResultResponse
      */
     public function describeInvocationResult($request)
     {
@@ -2855,37 +3518,47 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries details about command execution.
-     *  *
-     * @description *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
-     * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
-     *  *
-     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries details about command execution.
      *
-     * @return DescribeInvocationsResponse DescribeInvocationsResponse
+     * @remarks
+     *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
+     * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
+     *
+     * @param request - DescribeInvocationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInvocationsResponse
+     *
+     * @param DescribeInvocationsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInvocationsResponse
      */
     public function describeInvocationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->invokeStatus)) {
-            $query['InvokeStatus'] = $request->invokeStatus;
+
+        if (null !== $request->invokeStatus) {
+            @$query['InvokeStatus'] = $request->invokeStatus;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInvocations',
@@ -2898,19 +3571,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInvocationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries details about command execution.
-     *  *
-     * @description *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
-     * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
-     *  *
-     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
+     * Queries details about command execution.
      *
-     * @return DescribeInvocationsResponse DescribeInvocationsResponse
+     * @remarks
+     *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
+     * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
+     *
+     * @param request - DescribeInvocationsRequest
+     * @returns DescribeInvocationsResponse
+     *
+     * @param DescribeInvocationsRequest $request
+     *
+     * @return DescribeInvocationsResponse
      */
     public function describeInvocations($request)
     {
@@ -2920,46 +3600,59 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the monitoring information about vCPUs, memory, disk IOPS, and traffic of a simple application server.
-     *  *
-     * @param DescribeMonitorDataRequest $request DescribeMonitorDataRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the monitoring information about vCPUs, memory, disk IOPS, and traffic of a simple application server.
      *
-     * @return DescribeMonitorDataResponse DescribeMonitorDataResponse
+     * @param request - DescribeMonitorDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMonitorDataResponse
+     *
+     * @param DescribeMonitorDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeMonitorDataResponse
      */
     public function describeMonitorDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->length)) {
-            $query['Length'] = $request->length;
+
+        if (null !== $request->length) {
+            @$query['Length'] = $request->length;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMonitorData',
@@ -2972,16 +3665,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMonitorDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the monitoring information about vCPUs, memory, disk IOPS, and traffic of a simple application server.
-     *  *
-     * @param DescribeMonitorDataRequest $request DescribeMonitorDataRequest
+     * Queries the monitoring information about vCPUs, memory, disk IOPS, and traffic of a simple application server.
      *
-     * @return DescribeMonitorDataResponse DescribeMonitorDataResponse
+     * @param request - DescribeMonitorDataRequest
+     * @returns DescribeMonitorDataResponse
+     *
+     * @param DescribeMonitorDataRequest $request
+     *
+     * @return DescribeMonitorDataResponse
      */
     public function describeMonitorData($request)
     {
@@ -2991,28 +3690,35 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the Security Center agent on a simple application server.
-     *  *
-     * @param DescribeSecurityAgentStatusRequest $request DescribeSecurityAgentStatusRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the Security Center agent on a simple application server.
      *
-     * @return DescribeSecurityAgentStatusResponse DescribeSecurityAgentStatusResponse
+     * @param request - DescribeSecurityAgentStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSecurityAgentStatusResponse
+     *
+     * @param DescribeSecurityAgentStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSecurityAgentStatusResponse
      */
     public function describeSecurityAgentStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSecurityAgentStatus',
@@ -3025,16 +3731,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSecurityAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSecurityAgentStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSecurityAgentStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of the Security Center agent on a simple application server.
-     *  *
-     * @param DescribeSecurityAgentStatusRequest $request DescribeSecurityAgentStatusRequest
+     * Queries the status of the Security Center agent on a simple application server.
      *
-     * @return DescribeSecurityAgentStatusResponse DescribeSecurityAgentStatusResponse
+     * @param request - DescribeSecurityAgentStatusRequest
+     * @returns DescribeSecurityAgentStatusResponse
+     *
+     * @param DescribeSecurityAgentStatusRequest $request
+     *
+     * @return DescribeSecurityAgentStatusResponse
      */
     public function describeSecurityAgentStatus($request)
     {
@@ -3044,33 +3756,42 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds key pairs from simple application servers.
-     *  *
-     * @description If you want to change the SSH key pairs that are bound to your simple application servers or your end user no longer needs to access a specific simple application server, you can unbind the SSH key pairs from simple application servers to improve the security of the simple application servers or restrict access to the specific simple application server.
-     *  *
-     * @param DetachKeyPairRequest $request DetachKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Unbinds key pairs from simple application servers.
      *
-     * @return DetachKeyPairResponse DetachKeyPairResponse
+     * @remarks
+     * If you want to change the SSH key pairs that are bound to your simple application servers or your end user no longer needs to access a specific simple application server, you can unbind the SSH key pairs from simple application servers to improve the security of the simple application servers or restrict access to the specific simple application server.
+     *
+     * @param request - DetachKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachKeyPairResponse
+     *
+     * @param DetachKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DetachKeyPairResponse
      */
     public function detachKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachKeyPair',
@@ -3083,18 +3804,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unbinds key pairs from simple application servers.
-     *  *
-     * @description If you want to change the SSH key pairs that are bound to your simple application servers or your end user no longer needs to access a specific simple application server, you can unbind the SSH key pairs from simple application servers to improve the security of the simple application servers or restrict access to the specific simple application server.
-     *  *
-     * @param DetachKeyPairRequest $request DetachKeyPairRequest
+     * Unbinds key pairs from simple application servers.
      *
-     * @return DetachKeyPairResponse DetachKeyPairResponse
+     * @remarks
+     * If you want to change the SSH key pairs that are bound to your simple application servers or your end user no longer needs to access a specific simple application server, you can unbind the SSH key pairs from simple application servers to improve the security of the simple application servers or restrict access to the specific simple application server.
+     *
+     * @param request - DetachKeyPairRequest
+     * @returns DetachKeyPairResponse
+     *
+     * @param DetachKeyPairRequest $request
+     *
+     * @return DetachKeyPairResponse
      */
     public function detachKeyPair($request)
     {
@@ -3104,34 +3832,43 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Disables a firewall rule of a simple application server.
-     *  *
-     * @param DisableFirewallRuleRequest $request DisableFirewallRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Disables a firewall rule of a simple application server.
      *
-     * @return DisableFirewallRuleResponse DisableFirewallRuleResponse
+     * @param request - DisableFirewallRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableFirewallRuleResponse
+     *
+     * @param DisableFirewallRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DisableFirewallRuleResponse
      */
     public function disableFirewallRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableFirewallRule',
@@ -3144,16 +3881,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableFirewallRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables a firewall rule of a simple application server.
-     *  *
-     * @param DisableFirewallRuleRequest $request DisableFirewallRuleRequest
+     * Disables a firewall rule of a simple application server.
      *
-     * @return DisableFirewallRuleResponse DisableFirewallRuleResponse
+     * @param request - DisableFirewallRuleRequest
+     * @returns DisableFirewallRuleResponse
+     *
+     * @param DisableFirewallRuleRequest $request
+     *
+     * @return DisableFirewallRuleResponse
      */
     public function disableFirewallRule($request)
     {
@@ -3163,37 +3906,47 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Enables a firewall rule for a simple application server.
-     *  *
-     * @param EnableFirewallRuleRequest $request EnableFirewallRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Enables a firewall rule for a simple application server.
      *
-     * @return EnableFirewallRuleResponse EnableFirewallRuleResponse
+     * @param request - EnableFirewallRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableFirewallRuleResponse
+     *
+     * @param EnableFirewallRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return EnableFirewallRuleResponse
      */
     public function enableFirewallRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->sourceCidrIp)) {
-            $query['SourceCidrIp'] = $request->sourceCidrIp;
+
+        if (null !== $request->sourceCidrIp) {
+            @$query['SourceCidrIp'] = $request->sourceCidrIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableFirewallRule',
@@ -3206,16 +3959,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableFirewallRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables a firewall rule for a simple application server.
-     *  *
-     * @param EnableFirewallRuleRequest $request EnableFirewallRuleRequest
+     * Enables a firewall rule for a simple application server.
      *
-     * @return EnableFirewallRuleResponse EnableFirewallRuleResponse
+     * @param request - EnableFirewallRuleRequest
+     * @returns EnableFirewallRuleResponse
+     *
+     * @param EnableFirewallRuleRequest $request
+     *
+     * @return EnableFirewallRuleResponse
      */
     public function enableFirewallRule($request)
     {
@@ -3225,33 +3984,42 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Imports an existing key pair to the Simple Application Server console.
-     *  *
-     * @description You can call this operation to import an existing key pair to the Simple Application Server console. This way, you can use the key pair to log on to simple application servers. The existing key pair that you want to import must use a supported encryption method. For more information, see [Q2: Which encryption methods must be used by key pairs when I import existing key pairs to the Simple Application Server console?](https://help.aliyun.com/document_detail/59085.html)
-     *  *
-     * @param ImportKeyPairRequest $request ImportKeyPairRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Imports an existing key pair to the Simple Application Server console.
      *
-     * @return ImportKeyPairResponse ImportKeyPairResponse
+     * @remarks
+     * You can call this operation to import an existing key pair to the Simple Application Server console. This way, you can use the key pair to log on to simple application servers. The existing key pair that you want to import must use a supported encryption method. For more information, see [Q2: Which encryption methods must be used by key pairs when I import existing key pairs to the Simple Application Server console?](https://help.aliyun.com/document_detail/59085.html)
+     *
+     * @param request - ImportKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ImportKeyPairResponse
+     *
+     * @param ImportKeyPairRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ImportKeyPairResponse
      */
     public function importKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->publicKeyBody)) {
-            $query['PublicKeyBody'] = $request->publicKeyBody;
+
+        if (null !== $request->publicKeyBody) {
+            @$query['PublicKeyBody'] = $request->publicKeyBody;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ImportKeyPair',
@@ -3264,18 +4032,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ImportKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ImportKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Imports an existing key pair to the Simple Application Server console.
-     *  *
-     * @description You can call this operation to import an existing key pair to the Simple Application Server console. This way, you can use the key pair to log on to simple application servers. The existing key pair that you want to import must use a supported encryption method. For more information, see [Q2: Which encryption methods must be used by key pairs when I import existing key pairs to the Simple Application Server console?](https://help.aliyun.com/document_detail/59085.html)
-     *  *
-     * @param ImportKeyPairRequest $request ImportKeyPairRequest
+     * Imports an existing key pair to the Simple Application Server console.
      *
-     * @return ImportKeyPairResponse ImportKeyPairResponse
+     * @remarks
+     * You can call this operation to import an existing key pair to the Simple Application Server console. This way, you can use the key pair to log on to simple application servers. The existing key pair that you want to import must use a supported encryption method. For more information, see [Q2: Which encryption methods must be used by key pairs when I import existing key pairs to the Simple Application Server console?](https://help.aliyun.com/document_detail/59085.html)
+     *
+     * @param request - ImportKeyPairRequest
+     * @returns ImportKeyPairResponse
+     *
+     * @param ImportKeyPairRequest $request
+     *
+     * @return ImportKeyPairResponse
      */
     public function importKeyPair($request)
     {
@@ -3285,32 +4060,40 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Installs the Cloud Assistant client on simple application servers at a time.
-     *  *
-     * @description To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/439512.html) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation to restart the servers to allow the client to take effect.
-     *  *
-     * @param InstallCloudAssistantRequest $tmpReq  InstallCloudAssistantRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Installs the Cloud Assistant client on simple application servers at a time.
      *
-     * @return InstallCloudAssistantResponse InstallCloudAssistantResponse
+     * @remarks
+     * To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/439512.html) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation to restart the servers to allow the client to take effect.
+     *
+     * @param tmpReq - InstallCloudAssistantRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InstallCloudAssistantResponse
+     *
+     * @param InstallCloudAssistantRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return InstallCloudAssistantResponse
      */
     public function installCloudAssistantWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InstallCloudAssistantShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['InstanceIds'] = $request->instanceIdsShrink;
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallCloudAssistant',
@@ -3323,18 +4106,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InstallCloudAssistantResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InstallCloudAssistantResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallCloudAssistantResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Installs the Cloud Assistant client on simple application servers at a time.
-     *  *
-     * @description To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/439512.html) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation to restart the servers to allow the client to take effect.
-     *  *
-     * @param InstallCloudAssistantRequest $request InstallCloudAssistantRequest
+     * Installs the Cloud Assistant client on simple application servers at a time.
      *
-     * @return InstallCloudAssistantResponse InstallCloudAssistantResponse
+     * @remarks
+     * To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](https://help.aliyun.com/document_detail/439512.html) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation to restart the servers to allow the client to take effect.
+     *
+     * @param request - InstallCloudAssistantRequest
+     * @returns InstallCloudAssistantResponse
+     *
+     * @param InstallCloudAssistantRequest $request
+     *
+     * @return InstallCloudAssistantResponse
      */
     public function installCloudAssistant($request)
     {
@@ -3344,31 +4134,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Installs the CloudMonitor agent for a simple application server.
-     *  *
-     * @param InstallCloudMonitorAgentRequest $request InstallCloudMonitorAgentRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Installs the CloudMonitor agent for a simple application server.
      *
-     * @return InstallCloudMonitorAgentResponse InstallCloudMonitorAgentResponse
+     * @param request - InstallCloudMonitorAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InstallCloudMonitorAgentResponse
+     *
+     * @param InstallCloudMonitorAgentRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return InstallCloudMonitorAgentResponse
      */
     public function installCloudMonitorAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->force)) {
-            $query['Force'] = $request->force;
+
+        if (null !== $request->force) {
+            @$query['Force'] = $request->force;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallCloudMonitorAgent',
@@ -3381,16 +4179,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InstallCloudMonitorAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InstallCloudMonitorAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallCloudMonitorAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Installs the CloudMonitor agent for a simple application server.
-     *  *
-     * @param InstallCloudMonitorAgentRequest $request InstallCloudMonitorAgentRequest
+     * Installs the CloudMonitor agent for a simple application server.
      *
-     * @return InstallCloudMonitorAgentResponse InstallCloudMonitorAgentResponse
+     * @param request - InstallCloudMonitorAgentRequest
+     * @returns InstallCloudMonitorAgentResponse
+     *
+     * @param InstallCloudMonitorAgentRequest $request
+     *
+     * @return InstallCloudMonitorAgentResponse
      */
     public function installCloudMonitorAgent($request)
     {
@@ -3400,47 +4204,58 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Runs a Command Assistant command for one or more simple application servers.
-     *  *
-     * @description *   The simple application servers for which you want to call the operation must meet the following conditions. If a simple application server cannot meet the conditions, you must call this operation again.
+     * Runs a Command Assistant command for one or more simple application servers.
+     *
+     * @remarks
+     *   The simple application servers for which you want to call the operation must meet the following conditions. If a simple application server cannot meet the conditions, you must call this operation again.
      *     *   The simple application servers are in the `Running` state. You can call the [ListInstances](https://help.aliyun.com/document_detail/2361065.html) operation to query the status of simple application servers.
      *     *   Cloud Assistant Agent is installed on the simple application servers. For more information, see [InstallCloudAssistant](https://help.aliyun.com/document_detail/2361030.html).
      *     *   If you run a PowerShell command, make sure that the PowerShell module is configured for the simple application servers.
      * *   The command may fail to be run due to the abnormal states of simple application servers, network exceptions, or exceptions in Cloud Assistant Agent. If the command fails to be run, no execution information is generated.
      * *   If you enable the custom parameter feature when you create a command, you must set the `Parameters` parameter to specify custom parameters when you run the command.
      * *   When you call this operation, you can select only one common command or a custom command that you have created.
-     *  *
-     * @param InvokeCommandRequest $tmpReq  InvokeCommandRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return InvokeCommandResponse InvokeCommandResponse
+     * @param tmpReq - InvokeCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InvokeCommandResponse
+     *
+     * @param InvokeCommandRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InvokeCommandResponse
      */
     public function invokeCommandWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InvokeCommandShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->parameters)) {
-            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->commandId)) {
-            $query['CommandId'] = $request->commandId;
+        if (null !== $request->commandId) {
+            @$query['CommandId'] = $request->commandId;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->parametersShrink)) {
-            $query['Parameters'] = $request->parametersShrink;
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InvokeCommand',
@@ -3453,24 +4268,31 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InvokeCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InvokeCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InvokeCommandResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Runs a Command Assistant command for one or more simple application servers.
-     *  *
-     * @description *   The simple application servers for which you want to call the operation must meet the following conditions. If a simple application server cannot meet the conditions, you must call this operation again.
+     * Runs a Command Assistant command for one or more simple application servers.
+     *
+     * @remarks
+     *   The simple application servers for which you want to call the operation must meet the following conditions. If a simple application server cannot meet the conditions, you must call this operation again.
      *     *   The simple application servers are in the `Running` state. You can call the [ListInstances](https://help.aliyun.com/document_detail/2361065.html) operation to query the status of simple application servers.
      *     *   Cloud Assistant Agent is installed on the simple application servers. For more information, see [InstallCloudAssistant](https://help.aliyun.com/document_detail/2361030.html).
      *     *   If you run a PowerShell command, make sure that the PowerShell module is configured for the simple application servers.
      * *   The command may fail to be run due to the abnormal states of simple application servers, network exceptions, or exceptions in Cloud Assistant Agent. If the command fails to be run, no execution information is generated.
      * *   If you enable the custom parameter feature when you create a command, you must set the `Parameters` parameter to specify custom parameters when you run the command.
      * *   When you call this operation, you can select only one common command or a custom command that you have created.
-     *  *
-     * @param InvokeCommandRequest $request InvokeCommandRequest
      *
-     * @return InvokeCommandResponse InvokeCommandResponse
+     * @param request - InvokeCommandRequest
+     * @returns InvokeCommandResponse
+     *
+     * @param InvokeCommandRequest $request
+     *
+     * @return InvokeCommandResponse
      */
     public function invokeCommand($request)
     {
@@ -3480,34 +4302,43 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about custom images that are shared across Alibaba Cloud accounts in a region.
-     *  *
-     * @param ListCustomImageShareAccountsRequest $request ListCustomImageShareAccountsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries information about custom images that are shared across Alibaba Cloud accounts in a region.
      *
-     * @return ListCustomImageShareAccountsResponse ListCustomImageShareAccountsResponse
+     * @param request - ListCustomImageShareAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCustomImageShareAccountsResponse
+     *
+     * @param ListCustomImageShareAccountsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListCustomImageShareAccountsResponse
      */
     public function listCustomImageShareAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCustomImageShareAccounts',
@@ -3520,16 +4351,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCustomImageShareAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCustomImageShareAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCustomImageShareAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about custom images that are shared across Alibaba Cloud accounts in a region.
-     *  *
-     * @param ListCustomImageShareAccountsRequest $request ListCustomImageShareAccountsRequest
+     * Queries information about custom images that are shared across Alibaba Cloud accounts in a region.
      *
-     * @return ListCustomImageShareAccountsResponse ListCustomImageShareAccountsResponse
+     * @param request - ListCustomImageShareAccountsRequest
+     * @returns ListCustomImageShareAccountsResponse
+     *
+     * @param ListCustomImageShareAccountsRequest $request
+     *
+     * @return ListCustomImageShareAccountsResponse
      */
     public function listCustomImageShareAccounts($request)
     {
@@ -3539,55 +4376,71 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about custom images in a region.
-     *  *
-     * @param ListCustomImagesRequest $request ListCustomImagesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about custom images in a region.
      *
-     * @return ListCustomImagesResponse ListCustomImagesResponse
+     * @param request - ListCustomImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCustomImagesResponse
+     *
+     * @param ListCustomImagesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListCustomImagesResponse
      */
     public function listCustomImagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dataSnapshotId)) {
-            $query['DataSnapshotId'] = $request->dataSnapshotId;
+
+        if (null !== $request->dataSnapshotId) {
+            @$query['DataSnapshotId'] = $request->dataSnapshotId;
         }
-        if (!Utils::isUnset($request->imageIds)) {
-            $query['ImageIds'] = $request->imageIds;
+
+        if (null !== $request->imageIds) {
+            @$query['ImageIds'] = $request->imageIds;
         }
-        if (!Utils::isUnset($request->imageNames)) {
-            $query['ImageNames'] = $request->imageNames;
+
+        if (null !== $request->imageNames) {
+            @$query['ImageNames'] = $request->imageNames;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->share)) {
-            $query['Share'] = $request->share;
+
+        if (null !== $request->share) {
+            @$query['Share'] = $request->share;
         }
-        if (!Utils::isUnset($request->systemSnapshotId)) {
-            $query['SystemSnapshotId'] = $request->systemSnapshotId;
+
+        if (null !== $request->systemSnapshotId) {
+            @$query['SystemSnapshotId'] = $request->systemSnapshotId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCustomImages',
@@ -3600,16 +4453,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCustomImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCustomImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCustomImagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about custom images in a region.
-     *  *
-     * @param ListCustomImagesRequest $request ListCustomImagesRequest
+     * Queries the information about custom images in a region.
      *
-     * @return ListCustomImagesResponse ListCustomImagesResponse
+     * @param request - ListCustomImagesRequest
+     * @returns ListCustomImagesResponse
+     *
+     * @param ListCustomImagesRequest $request
+     *
+     * @return ListCustomImagesResponse
      */
     public function listCustomImages($request)
     {
@@ -3619,45 +4478,58 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about disks in a region.
-     *  *
-     * @description The `InstanceId`, `DiskIds`, and `ResourceGroupId` parameters are optional. However, you can specify them as filter conditions and combine them with the logical AND operator to filter disks that you want to query.
-     *  *
-     * @param ListDisksRequest $request ListDisksRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about disks in a region.
      *
-     * @return ListDisksResponse ListDisksResponse
+     * @remarks
+     * The `InstanceId`, `DiskIds`, and `ResourceGroupId` parameters are optional. However, you can specify them as filter conditions and combine them with the logical AND operator to filter disks that you want to query.
+     *
+     * @param request - ListDisksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDisksResponse
+     *
+     * @param ListDisksRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListDisksResponse
      */
     public function listDisksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->diskIds)) {
-            $query['DiskIds'] = $request->diskIds;
+        if (null !== $request->diskIds) {
+            @$query['DiskIds'] = $request->diskIds;
         }
-        if (!Utils::isUnset($request->diskType)) {
-            $query['DiskType'] = $request->diskType;
+
+        if (null !== $request->diskType) {
+            @$query['DiskType'] = $request->diskType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDisks',
@@ -3670,18 +4542,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDisksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about disks in a region.
-     *  *
-     * @description The `InstanceId`, `DiskIds`, and `ResourceGroupId` parameters are optional. However, you can specify them as filter conditions and combine them with the logical AND operator to filter disks that you want to query.
-     *  *
-     * @param ListDisksRequest $request ListDisksRequest
+     * Queries the information about disks in a region.
      *
-     * @return ListDisksResponse ListDisksResponse
+     * @remarks
+     * The `InstanceId`, `DiskIds`, and `ResourceGroupId` parameters are optional. However, you can specify them as filter conditions and combine them with the logical AND operator to filter disks that you want to query.
+     *
+     * @param request - ListDisksRequest
+     * @returns ListDisksResponse
+     *
+     * @param ListDisksRequest $request
+     *
+     * @return ListDisksResponse
      */
     public function listDisks($request)
     {
@@ -3691,39 +4570,50 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the firewall rules of a simple application server.
-     *  *
-     * @description You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
-     *  *
-     * @param ListFirewallRulesRequest $request ListFirewallRulesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the firewall rules of a simple application server.
      *
-     * @return ListFirewallRulesResponse ListFirewallRulesResponse
+     * @remarks
+     * You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
+     *
+     * @param request - ListFirewallRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListFirewallRulesResponse
+     *
+     * @param ListFirewallRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListFirewallRulesResponse
      */
     public function listFirewallRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->firewallRuleId)) {
-            $query['FirewallRuleId'] = $request->firewallRuleId;
+        if (null !== $request->firewallRuleId) {
+            @$query['FirewallRuleId'] = $request->firewallRuleId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListFirewallRules',
@@ -3736,18 +4626,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListFirewallRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFirewallRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFirewallRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the firewall rules of a simple application server.
-     *  *
-     * @description You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
-     *  *
-     * @param ListFirewallRulesRequest $request ListFirewallRulesRequest
+     * Queries the firewall rules of a simple application server.
      *
-     * @return ListFirewallRulesResponse ListFirewallRulesResponse
+     * @remarks
+     * You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
+     *
+     * @param request - ListFirewallRulesRequest
+     * @returns ListFirewallRulesResponse
+     *
+     * @param ListFirewallRulesRequest $request
+     *
+     * @return ListFirewallRulesResponse
      */
     public function listFirewallRules($request)
     {
@@ -3757,30 +4654,38 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about images in a region.
-     *  *
-     * @description You can query details about one or more images in a specified region, including the IDs, names, and types of the images.
-     *  *
-     * @param ListImagesRequest $request ListImagesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about images in a region.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @remarks
+     * You can query details about one or more images in a specified region, including the IDs, names, and types of the images.
+     *
+     * @param request - ListImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListImagesResponse
      */
     public function listImagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageIds)) {
-            $query['ImageIds'] = $request->imageIds;
+        if (null !== $request->imageIds) {
+            @$query['ImageIds'] = $request->imageIds;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListImages',
@@ -3793,18 +4698,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListImagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about images in a region.
-     *  *
-     * @description You can query details about one or more images in a specified region, including the IDs, names, and types of the images.
-     *  *
-     * @param ListImagesRequest $request ListImagesRequest
+     * Queries the information about images in a region.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @remarks
+     * You can query details about one or more images in a specified region, including the IDs, names, and types of the images.
+     *
+     * @param request - ListImagesRequest
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     *
+     * @return ListImagesResponse
      */
     public function listImages($request)
     {
@@ -3814,29 +4726,36 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the plans to which you can upgrade your simple application server.
-     *  *
-     * @description If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans that can be upgraded for your simple application server. Then, you can call the [UpgradeInstance](https://help.aliyun.com/document_detail/190445.html) operation to upgrade the plan.
+     * Queries the plans to which you can upgrade your simple application server.
+     *
+     * @remarks
+     * If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans that can be upgraded for your simple application server. Then, you can call the [UpgradeInstance](https://help.aliyun.com/document_detail/190445.html) operation to upgrade the plan.
      * >  We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the plan. For more information, see [CreateSnapshot](https://help.aliyun.com/document_detail/190452.html).
      * For the precautions about plan upgrade, see [Upgrade a simple application server](https://help.aliyun.com/document_detail/61433.html).
-     *  *
-     * @param ListInstancePlansModificationRequest $request ListInstancePlansModificationRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancePlansModificationResponse ListInstancePlansModificationResponse
+     * @param request - ListInstancePlansModificationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancePlansModificationResponse
+     *
+     * @param ListInstancePlansModificationRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListInstancePlansModificationResponse
      */
     public function listInstancePlansModificationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstancePlansModification',
@@ -3849,20 +4768,27 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancePlansModificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancePlansModificationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancePlansModificationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the plans to which you can upgrade your simple application server.
-     *  *
-     * @description If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans that can be upgraded for your simple application server. Then, you can call the [UpgradeInstance](https://help.aliyun.com/document_detail/190445.html) operation to upgrade the plan.
+     * Queries the plans to which you can upgrade your simple application server.
+     *
+     * @remarks
+     * If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans that can be upgraded for your simple application server. Then, you can call the [UpgradeInstance](https://help.aliyun.com/document_detail/190445.html) operation to upgrade the plan.
      * >  We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the plan. For more information, see [CreateSnapshot](https://help.aliyun.com/document_detail/190452.html).
      * For the precautions about plan upgrade, see [Upgrade a simple application server](https://help.aliyun.com/document_detail/61433.html).
-     *  *
-     * @param ListInstancePlansModificationRequest $request ListInstancePlansModificationRequest
      *
-     * @return ListInstancePlansModificationResponse ListInstancePlansModificationResponse
+     * @param request - ListInstancePlansModificationRequest
+     * @returns ListInstancePlansModificationResponse
+     *
+     * @param ListInstancePlansModificationRequest $request
+     *
+     * @return ListInstancePlansModificationResponse
      */
     public function listInstancePlansModification($request)
     {
@@ -3872,31 +4798,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of simple application servers.
-     *  *
-     * @param ListInstanceStatusRequest $request ListInstanceStatusRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the status of simple application servers.
      *
-     * @return ListInstanceStatusResponse ListInstanceStatusResponse
+     * @param request - ListInstanceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstanceStatusResponse
+     *
+     * @param ListInstanceStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInstanceStatusResponse
      */
     public function listInstanceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstanceStatus',
@@ -3909,16 +4843,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of simple application servers.
-     *  *
-     * @param ListInstanceStatusRequest $request ListInstanceStatusRequest
+     * Queries the status of simple application servers.
      *
-     * @return ListInstanceStatusResponse ListInstanceStatusResponse
+     * @param request - ListInstanceStatusRequest
+     * @returns ListInstanceStatusResponse
+     *
+     * @param ListInstanceStatusRequest $request
+     *
+     * @return ListInstanceStatusResponse
      */
     public function listInstanceStatus($request)
     {
@@ -3928,51 +4868,66 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about simple application servers in a region.
-     *  *
-     * @description You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about simple application servers in a region.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @remarks
+     * You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
+     *
+     * @param request - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->publicIpAddresses)) {
-            $query['PublicIpAddresses'] = $request->publicIpAddresses;
+
+        if (null !== $request->publicIpAddresses) {
+            @$query['PublicIpAddresses'] = $request->publicIpAddresses;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstances',
@@ -3985,18 +4940,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about simple application servers in a region.
-     *  *
-     * @description You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * Queries the information about simple application servers in a region.
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @remarks
+     * You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
+     *
+     * @param request - ListInstancesRequest
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -4006,32 +4968,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about data transfer plans of simple application servers.
-     *  *
-     * @description You can query the details of data transfer plans of simple application servers, including the total quota, used quota, unused quota, and excess data transfers in the current month.
+     * Queries the details about data transfer plans of simple application servers.
+     *
+     * @remarks
+     * You can query the details of data transfer plans of simple application servers, including the total quota, used quota, unused quota, and excess data transfers in the current month.
      * Simple Application Server provides data transfer plans that can be used to offset data transfer fees. You are charged for excess data transfers. Take note of the following items:
      * *   Only outbound data transfers of simple application servers over the Internet are calculated. Outbound data transfers include the data transfer quota and the excess data transfers beyond the quota. Inbound data transfers of simple application servers over the Internet are not calculated.
      * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet first consume data transfer quotas. If the quotas are exhausted, you are charged for excess data transfers.
      * *   You are not charged for data transfers between simple application servers within the same virtual private cloud (VPC).
      * For more information, see [Quotas and billing of data transfers](https://help.aliyun.com/document_detail/86281.html).
-     *  *
-     * @param ListInstancesTrafficPackagesRequest $request ListInstancesTrafficPackagesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesTrafficPackagesResponse ListInstancesTrafficPackagesResponse
+     * @param request - ListInstancesTrafficPackagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesTrafficPackagesResponse
+     *
+     * @param ListInstancesTrafficPackagesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListInstancesTrafficPackagesResponse
      */
     public function listInstancesTrafficPackagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstancesTrafficPackages',
@@ -4044,23 +5013,30 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesTrafficPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesTrafficPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesTrafficPackagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about data transfer plans of simple application servers.
-     *  *
-     * @description You can query the details of data transfer plans of simple application servers, including the total quota, used quota, unused quota, and excess data transfers in the current month.
+     * Queries the details about data transfer plans of simple application servers.
+     *
+     * @remarks
+     * You can query the details of data transfer plans of simple application servers, including the total quota, used quota, unused quota, and excess data transfers in the current month.
      * Simple Application Server provides data transfer plans that can be used to offset data transfer fees. You are charged for excess data transfers. Take note of the following items:
      * *   Only outbound data transfers of simple application servers over the Internet are calculated. Outbound data transfers include the data transfer quota and the excess data transfers beyond the quota. Inbound data transfers of simple application servers over the Internet are not calculated.
      * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet first consume data transfer quotas. If the quotas are exhausted, you are charged for excess data transfers.
      * *   You are not charged for data transfers between simple application servers within the same virtual private cloud (VPC).
      * For more information, see [Quotas and billing of data transfers](https://help.aliyun.com/document_detail/86281.html).
-     *  *
-     * @param ListInstancesTrafficPackagesRequest $request ListInstancesTrafficPackagesRequest
      *
-     * @return ListInstancesTrafficPackagesResponse ListInstancesTrafficPackagesResponse
+     * @param request - ListInstancesTrafficPackagesRequest
+     * @returns ListInstancesTrafficPackagesResponse
+     *
+     * @param ListInstancesTrafficPackagesRequest $request
+     *
+     * @return ListInstancesTrafficPackagesResponse
      */
     public function listInstancesTrafficPackages($request)
     {
@@ -4070,19 +5046,23 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the AccessKey pairs that are bound to simple application servers in a specific region.
-     *  *
-     * @param ListKeyPairsRequest $request ListKeyPairsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the AccessKey pairs that are bound to simple application servers in a specific region.
      *
-     * @return ListKeyPairsResponse ListKeyPairsResponse
+     * @param request - ListKeyPairsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListKeyPairsResponse
+     *
+     * @param ListKeyPairsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListKeyPairsResponse
      */
     public function listKeyPairsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListKeyPairs',
@@ -4095,16 +5075,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListKeyPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListKeyPairsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the AccessKey pairs that are bound to simple application servers in a specific region.
-     *  *
-     * @param ListKeyPairsRequest $request ListKeyPairsRequest
+     * Queries the AccessKey pairs that are bound to simple application servers in a specific region.
      *
-     * @return ListKeyPairsResponse ListKeyPairsResponse
+     * @param request - ListKeyPairsRequest
+     * @returns ListKeyPairsResponse
+     *
+     * @param ListKeyPairsRequest $request
+     *
+     * @return ListKeyPairsResponse
      */
     public function listKeyPairs($request)
     {
@@ -4114,24 +5100,30 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries all plans provided by Simple Application Server in a region.
-     *  *
-     * @description You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
-     *  *
-     * @param ListPlansRequest $request ListPlansRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries all plans provided by Simple Application Server in a region.
      *
-     * @return ListPlansResponse ListPlansResponse
+     * @remarks
+     * You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
+     *
+     * @param request - ListPlansRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPlansResponse
+     *
+     * @param ListPlansRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListPlansResponse
      */
     public function listPlansWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPlans',
@@ -4144,18 +5136,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPlansResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPlansResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPlansResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all plans provided by Simple Application Server in a region.
-     *  *
-     * @description You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
-     *  *
-     * @param ListPlansRequest $request ListPlansRequest
+     * Queries all plans provided by Simple Application Server in a region.
      *
-     * @return ListPlansResponse ListPlansResponse
+     * @remarks
+     * You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
+     *
+     * @param request - ListPlansRequest
+     * @returns ListPlansResponse
+     *
+     * @param ListPlansRequest $request
+     *
+     * @return ListPlansResponse
      */
     public function listPlans($request)
     {
@@ -4165,24 +5164,30 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries all regions in which Simple Application Server is supported.
-     *  *
-     * @description The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
-     *  *
-     * @param ListRegionsRequest $request ListRegionsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries all regions in which Simple Application Server is supported.
      *
-     * @return ListRegionsResponse ListRegionsResponse
+     * @remarks
+     * The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
+     *
+     * @param request - ListRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRegionsResponse
+     *
+     * @param ListRegionsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListRegionsResponse
      */
     public function listRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRegions',
@@ -4195,18 +5200,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all regions in which Simple Application Server is supported.
-     *  *
-     * @description The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
-     *  *
-     * @param ListRegionsRequest $request ListRegionsRequest
+     * Queries all regions in which Simple Application Server is supported.
      *
-     * @return ListRegionsResponse ListRegionsResponse
+     * @remarks
+     * The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
+     *
+     * @param request - ListRegionsRequest
+     * @returns ListRegionsResponse
+     *
+     * @param ListRegionsRequest $request
+     *
+     * @return ListRegionsResponse
      */
     public function listRegions($request)
     {
@@ -4216,48 +5228,62 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about snapshots that are created for a simple application server.
-     *  *
-     * @description The `InstanceId`, `DiskId`, `SnapshotIds`, and `ResourceGroupId` parameters are optional. However, you can specify them as filter conditions and combine them with the logical AND operator to filter snapshots that you want to query.
-     *  *
-     * @param ListSnapshotsRequest $request ListSnapshotsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about snapshots that are created for a simple application server.
      *
-     * @return ListSnapshotsResponse ListSnapshotsResponse
+     * @remarks
+     * The `InstanceId`, `DiskId`, `SnapshotIds`, and `ResourceGroupId` parameters are optional. However, you can specify them as filter conditions and combine them with the logical AND operator to filter snapshots that you want to query.
+     *
+     * @param request - ListSnapshotsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSnapshotsResponse
+     *
+     * @param ListSnapshotsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSnapshotsResponse
      */
     public function listSnapshotsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->diskId)) {
-            $query['DiskId'] = $request->diskId;
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->snapshotIds)) {
-            $query['SnapshotIds'] = $request->snapshotIds;
+
+        if (null !== $request->snapshotIds) {
+            @$query['SnapshotIds'] = $request->snapshotIds;
         }
-        if (!Utils::isUnset($request->sourceDiskType)) {
-            $query['SourceDiskType'] = $request->sourceDiskType;
+
+        if (null !== $request->sourceDiskType) {
+            @$query['SourceDiskType'] = $request->sourceDiskType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSnapshots',
@@ -4270,18 +5296,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSnapshotsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about snapshots that are created for a simple application server.
-     *  *
-     * @description The `InstanceId`, `DiskId`, `SnapshotIds`, and `ResourceGroupId` parameters are optional. However, you can specify them as filter conditions and combine them with the logical AND operator to filter snapshots that you want to query.
-     *  *
-     * @param ListSnapshotsRequest $request ListSnapshotsRequest
+     * Queries the information about snapshots that are created for a simple application server.
      *
-     * @return ListSnapshotsResponse ListSnapshotsResponse
+     * @remarks
+     * The `InstanceId`, `DiskId`, `SnapshotIds`, and `ResourceGroupId` parameters are optional. However, you can specify them as filter conditions and combine them with the logical AND operator to filter snapshots that you want to query.
+     *
+     * @param request - ListSnapshotsRequest
+     * @returns ListSnapshotsResponse
+     *
+     * @param ListSnapshotsRequest $request
+     *
+     * @return ListSnapshotsResponse
      */
     public function listSnapshots($request)
     {
@@ -4291,37 +5324,47 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are added to simple resources, such as instances, snapshots, disks, images, commands, and firewall rules.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the tags that are added to simple resources, such as instances, snapshots, disks, images, commands, and firewall rules.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -4334,16 +5377,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tags that are added to simple resources, such as instances, snapshots, disks, images, commands, and firewall rules.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries the tags that are added to simple resources, such as instances, snapshots, disks, images, commands, and firewall rules.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4353,36 +5402,46 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Logs on to a simple application server on Workbench.
-     *  *
-     * @description After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
-     *  *
-     * @param LoginInstanceRequest $request LoginInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Logs on to a simple application server on Workbench.
      *
-     * @return LoginInstanceResponse LoginInstanceResponse
+     * @remarks
+     * After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
+     *
+     * @param request - LoginInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LoginInstanceResponse
+     *
+     * @param LoginInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return LoginInstanceResponse
      */
     public function loginInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'LoginInstance',
@@ -4395,18 +5454,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LoginInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LoginInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LoginInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Logs on to a simple application server on Workbench.
-     *  *
-     * @description After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
-     *  *
-     * @param LoginInstanceRequest $request LoginInstanceRequest
+     * Logs on to a simple application server on Workbench.
      *
-     * @return LoginInstanceResponse LoginInstanceResponse
+     * @remarks
+     * After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
+     *
+     * @param request - LoginInstanceRequest
+     * @returns LoginInstanceResponse
+     *
+     * @param LoginInstanceRequest $request
+     *
+     * @return LoginInstanceResponse
      */
     public function loginInstance($request)
     {
@@ -4416,35 +5482,44 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to modify the description of a Simple Database Service instance.
+     * Modifies the description of a Simple Database Service instance.
+     *
+     * @remarks
+     * You can call this operation to modify the description of a Simple Database Service instance.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ModifyDatabaseInstanceDescriptionRequest $request ModifyDatabaseInstanceDescriptionRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDatabaseInstanceDescriptionResponse ModifyDatabaseInstanceDescriptionResponse
+     * @param request - ModifyDatabaseInstanceDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDatabaseInstanceDescriptionResponse
+     *
+     * @param ModifyDatabaseInstanceDescriptionRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyDatabaseInstanceDescriptionResponse
      */
     public function modifyDatabaseInstanceDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseInstanceDescription)) {
-            $query['DatabaseInstanceDescription'] = $request->databaseInstanceDescription;
+
+        if (null !== $request->databaseInstanceDescription) {
+            @$query['DatabaseInstanceDescription'] = $request->databaseInstanceDescription;
         }
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDatabaseInstanceDescription',
@@ -4457,20 +5532,27 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDatabaseInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDatabaseInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDatabaseInstanceDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to modify the description of a Simple Database Service instance.
+     * Modifies the description of a Simple Database Service instance.
+     *
+     * @remarks
+     * You can call this operation to modify the description of a Simple Database Service instance.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ModifyDatabaseInstanceDescriptionRequest $request ModifyDatabaseInstanceDescriptionRequest
      *
-     * @return ModifyDatabaseInstanceDescriptionResponse ModifyDatabaseInstanceDescriptionResponse
+     * @param request - ModifyDatabaseInstanceDescriptionRequest
+     * @returns ModifyDatabaseInstanceDescriptionResponse
+     *
+     * @param ModifyDatabaseInstanceDescriptionRequest $request
+     *
+     * @return ModifyDatabaseInstanceDescriptionResponse
      */
     public function modifyDatabaseInstanceDescription($request)
     {
@@ -4480,38 +5562,48 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
-     *  *
-     * @description After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
+     * After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
+     *
+     * @remarks
+     * After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ModifyDatabaseInstanceParameterRequest $request ModifyDatabaseInstanceParameterRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDatabaseInstanceParameterResponse ModifyDatabaseInstanceParameterResponse
+     * @param request - ModifyDatabaseInstanceParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDatabaseInstanceParameterResponse
+     *
+     * @param ModifyDatabaseInstanceParameterRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ModifyDatabaseInstanceParameterResponse
      */
     public function modifyDatabaseInstanceParameterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->forceRestart)) {
-            $query['ForceRestart'] = $request->forceRestart;
+
+        if (null !== $request->forceRestart) {
+            @$query['ForceRestart'] = $request->forceRestart;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDatabaseInstanceParameter',
@@ -4524,20 +5616,27 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDatabaseInstanceParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDatabaseInstanceParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDatabaseInstanceParameterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
-     *  *
-     * @description After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
+     * After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
+     *
+     * @remarks
+     * After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ModifyDatabaseInstanceParameterRequest $request ModifyDatabaseInstanceParameterRequest
      *
-     * @return ModifyDatabaseInstanceParameterResponse ModifyDatabaseInstanceParameterResponse
+     * @param request - ModifyDatabaseInstanceParameterRequest
+     * @returns ModifyDatabaseInstanceParameterResponse
+     *
+     * @param ModifyDatabaseInstanceParameterRequest $request
+     *
+     * @return ModifyDatabaseInstanceParameterResponse
      */
     public function modifyDatabaseInstanceParameter($request)
     {
@@ -4547,43 +5646,55 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the firewall rule of a simple application server.
-     *  *
-     * @param ModifyFirewallRuleRequest $request ModifyFirewallRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the firewall rule of a simple application server.
      *
-     * @return ModifyFirewallRuleResponse ModifyFirewallRuleResponse
+     * @param request - ModifyFirewallRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyFirewallRuleResponse
+     *
+     * @param ModifyFirewallRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyFirewallRuleResponse
      */
     public function modifyFirewallRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleProtocol)) {
-            $query['RuleProtocol'] = $request->ruleProtocol;
+
+        if (null !== $request->ruleProtocol) {
+            @$query['RuleProtocol'] = $request->ruleProtocol;
         }
-        if (!Utils::isUnset($request->sourceCidrIp)) {
-            $query['SourceCidrIp'] = $request->sourceCidrIp;
+
+        if (null !== $request->sourceCidrIp) {
+            @$query['SourceCidrIp'] = $request->sourceCidrIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyFirewallRule',
@@ -4596,16 +5707,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyFirewallRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyFirewallRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the firewall rule of a simple application server.
-     *  *
-     * @param ModifyFirewallRuleRequest $request ModifyFirewallRuleRequest
+     * Modifies the firewall rule of a simple application server.
      *
-     * @return ModifyFirewallRuleResponse ModifyFirewallRuleResponse
+     * @param request - ModifyFirewallRuleRequest
+     * @returns ModifyFirewallRuleResponse
+     *
+     * @param ModifyFirewallRuleRequest $request
+     *
+     * @return ModifyFirewallRuleResponse
      */
     public function modifyFirewallRule($request)
     {
@@ -4615,39 +5732,50 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the firewall rule in a firewall template. You can apply the new firewall rule to simple application servers.
-     *  *
-     * @description Modifying a firewall template does not affect the firewall rules that have been applied to simple application servers.
-     *  *
-     * @param ModifyFirewallTemplateRequest $request ModifyFirewallTemplateRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies the firewall rule in a firewall template. You can apply the new firewall rule to simple application servers.
      *
-     * @return ModifyFirewallTemplateResponse ModifyFirewallTemplateResponse
+     * @remarks
+     * Modifying a firewall template does not affect the firewall rules that have been applied to simple application servers.
+     *
+     * @param request - ModifyFirewallTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyFirewallTemplateResponse
+     *
+     * @param ModifyFirewallTemplateRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyFirewallTemplateResponse
      */
     public function modifyFirewallTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->firewallTemplateId)) {
-            $query['FirewallTemplateId'] = $request->firewallTemplateId;
+
+        if (null !== $request->firewallTemplateId) {
+            @$query['FirewallTemplateId'] = $request->firewallTemplateId;
         }
-        if (!Utils::isUnset($request->firewallTemplateRule)) {
-            $query['FirewallTemplateRule'] = $request->firewallTemplateRule;
+
+        if (null !== $request->firewallTemplateRule) {
+            @$query['FirewallTemplateRule'] = $request->firewallTemplateRule;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyFirewallTemplate',
@@ -4660,18 +5788,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyFirewallTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyFirewallTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyFirewallTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the firewall rule in a firewall template. You can apply the new firewall rule to simple application servers.
-     *  *
-     * @description Modifying a firewall template does not affect the firewall rules that have been applied to simple application servers.
-     *  *
-     * @param ModifyFirewallTemplateRequest $request ModifyFirewallTemplateRequest
+     * Modifies the firewall rule in a firewall template. You can apply the new firewall rule to simple application servers.
      *
-     * @return ModifyFirewallTemplateResponse ModifyFirewallTemplateResponse
+     * @remarks
+     * Modifying a firewall template does not affect the firewall rules that have been applied to simple application servers.
+     *
+     * @param request - ModifyFirewallTemplateRequest
+     * @returns ModifyFirewallTemplateResponse
+     *
+     * @param ModifyFirewallTemplateRequest $request
+     *
+     * @return ModifyFirewallTemplateResponse
      */
     public function modifyFirewallTemplate($request)
     {
@@ -4681,37 +5816,46 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Shares or unshares a custom image to Elastic Compute Service (ECS).
-     *  *
-     * @description Custom images can be shared to ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to deploy your business on ECS instances, you can share your custom image to ECS to transfer your business from Simple Application Server to ECS.
+     * Shares or unshares a custom image to Elastic Compute Service (ECS).
+     *
+     * @remarks
+     * Custom images can be shared to ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to deploy your business on ECS instances, you can share your custom image to ECS to transfer your business from Simple Application Server to ECS.
      * >  The region in which the shared image resides in ECS is the same as the region in which the custom image resides in Simple Application Server.
      * You can unshare a custom image based on your business requirements or when you want to delete the custom image. After you unshare a custom image, take note of the following items:
      * *   You cannot query or use the custom image by using the ECS console or API.
      * *   You cannot re-initialize the disks of the ECS instances that were created based on the shared image.
-     *  *
-     * @param ModifyImageShareStatusRequest $request ModifyImageShareStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyImageShareStatusResponse ModifyImageShareStatusResponse
+     * @param request - ModifyImageShareStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyImageShareStatusResponse
+     *
+     * @param ModifyImageShareStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyImageShareStatusResponse
      */
     public function modifyImageShareStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->operation)) {
-            $query['Operation'] = $request->operation;
+
+        if (null !== $request->operation) {
+            @$query['Operation'] = $request->operation;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyImageShareStatus',
@@ -4724,22 +5868,29 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyImageShareStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyImageShareStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyImageShareStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Shares or unshares a custom image to Elastic Compute Service (ECS).
-     *  *
-     * @description Custom images can be shared to ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to deploy your business on ECS instances, you can share your custom image to ECS to transfer your business from Simple Application Server to ECS.
+     * Shares or unshares a custom image to Elastic Compute Service (ECS).
+     *
+     * @remarks
+     * Custom images can be shared to ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to deploy your business on ECS instances, you can share your custom image to ECS to transfer your business from Simple Application Server to ECS.
      * >  The region in which the shared image resides in ECS is the same as the region in which the custom image resides in Simple Application Server.
      * You can unshare a custom image based on your business requirements or when you want to delete the custom image. After you unshare a custom image, take note of the following items:
      * *   You cannot query or use the custom image by using the ECS console or API.
      * *   You cannot re-initialize the disks of the ECS instances that were created based on the shared image.
-     *  *
-     * @param ModifyImageShareStatusRequest $request ModifyImageShareStatusRequest
      *
-     * @return ModifyImageShareStatusResponse ModifyImageShareStatusResponse
+     * @param request - ModifyImageShareStatusRequest
+     * @returns ModifyImageShareStatusResponse
+     *
+     * @param ModifyImageShareStatusRequest $request
+     *
+     * @return ModifyImageShareStatusResponse
      */
     public function modifyImageShareStatus($request)
     {
@@ -4749,31 +5900,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Changes the VNC password of a simple application server.
-     *  *
-     * @param ModifyInstanceVncPasswordRequest $request ModifyInstanceVncPasswordRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Changes the VNC password of a simple application server.
      *
-     * @return ModifyInstanceVncPasswordResponse ModifyInstanceVncPasswordResponse
+     * @param request - ModifyInstanceVncPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyInstanceVncPasswordResponse
+     *
+     * @param ModifyInstanceVncPasswordRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyInstanceVncPasswordResponse
      */
     public function modifyInstanceVncPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vncPassword)) {
-            $query['VncPassword'] = $request->vncPassword;
+
+        if (null !== $request->vncPassword) {
+            @$query['VncPassword'] = $request->vncPassword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyInstanceVncPassword',
@@ -4786,16 +5945,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyInstanceVncPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyInstanceVncPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceVncPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the VNC password of a simple application server.
-     *  *
-     * @param ModifyInstanceVncPasswordRequest $request ModifyInstanceVncPasswordRequest
+     * Changes the VNC password of a simple application server.
      *
-     * @return ModifyInstanceVncPasswordResponse ModifyInstanceVncPasswordResponse
+     * @param request - ModifyInstanceVncPasswordRequest
+     * @returns ModifyInstanceVncPasswordResponse
+     *
+     * @param ModifyInstanceVncPasswordRequest $request
+     *
+     * @return ModifyInstanceVncPasswordResponse
      */
     public function modifyInstanceVncPassword($request)
     {
@@ -4805,31 +5970,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Restarts a simple application server.
-     *  *
-     * @description *   Only simple application servers that are in the Running state can be restarted.
-     * *   After you restart a simple application server, it enters the Starting state.
-     *  *
-     * @param RebootInstanceRequest $request RebootInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Restarts a simple application server.
      *
-     * @return RebootInstanceResponse RebootInstanceResponse
+     * @remarks
+     *   Only simple application servers that are in the Running state can be restarted.
+     * *   After you restart a simple application server, it enters the Starting state.
+     *
+     * @param request - RebootInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RebootInstanceResponse
+     *
+     * @param RebootInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return RebootInstanceResponse
      */
     public function rebootInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RebootInstance',
@@ -4842,19 +6015,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RebootInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RebootInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RebootInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Restarts a simple application server.
-     *  *
-     * @description *   Only simple application servers that are in the Running state can be restarted.
-     * *   After you restart a simple application server, it enters the Starting state.
-     *  *
-     * @param RebootInstanceRequest $request RebootInstanceRequest
+     * Restarts a simple application server.
      *
-     * @return RebootInstanceResponse RebootInstanceResponse
+     * @remarks
+     *   Only simple application servers that are in the Running state can be restarted.
+     * *   After you restart a simple application server, it enters the Starting state.
+     *
+     * @param request - RebootInstanceRequest
+     * @returns RebootInstanceResponse
+     *
+     * @param RebootInstanceRequest $request
+     *
+     * @return RebootInstanceResponse
      */
     public function rebootInstance($request)
     {
@@ -4864,31 +6044,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Restarts simple application servers.
-     *  *
-     * @param RebootInstancesRequest $request RebootInstancesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Restarts simple application servers.
      *
-     * @return RebootInstancesResponse RebootInstancesResponse
+     * @param request - RebootInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RebootInstancesResponse
+     *
+     * @param RebootInstancesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RebootInstancesResponse
      */
     public function rebootInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->forceReboot)) {
-            $query['ForceReboot'] = $request->forceReboot;
+
+        if (null !== $request->forceReboot) {
+            @$query['ForceReboot'] = $request->forceReboot;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RebootInstances',
@@ -4901,16 +6089,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RebootInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RebootInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RebootInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Restarts simple application servers.
-     *  *
-     * @param RebootInstancesRequest $request RebootInstancesRequest
+     * Restarts simple application servers.
      *
-     * @return RebootInstancesResponse RebootInstancesResponse
+     * @param request - RebootInstancesRequest
+     * @returns RebootInstancesResponse
+     *
+     * @param RebootInstancesRequest $request
+     *
+     * @return RebootInstancesResponse
      */
     public function rebootInstances($request)
     {
@@ -4920,32 +6114,40 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
-     *  *
-     * @description If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
+     * If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
+     *
+     * @remarks
+     * If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ReleasePublicConnectionRequest $request ReleasePublicConnectionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleasePublicConnectionResponse ReleasePublicConnectionResponse
+     * @param request - ReleasePublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReleasePublicConnectionResponse
+     *
+     * @param ReleasePublicConnectionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ReleasePublicConnectionResponse
      */
     public function releasePublicConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReleasePublicConnection',
@@ -4958,20 +6160,27 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReleasePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleasePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleasePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
-     *  *
-     * @description If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
+     * If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
+     *
+     * @remarks
+     * If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ReleasePublicConnectionRequest $request ReleasePublicConnectionRequest
      *
-     * @return ReleasePublicConnectionResponse ReleasePublicConnectionResponse
+     * @param request - ReleasePublicConnectionRequest
+     * @returns ReleasePublicConnectionResponse
+     *
+     * @param ReleasePublicConnectionRequest $request
+     *
+     * @return ReleasePublicConnectionResponse
      */
     public function releasePublicConnection($request)
     {
@@ -4981,31 +6190,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Unshares a custom image that is shared across Alibaba Cloud accounts.
-     *  *
-     * @param RemoveCustomImageShareAccountRequest $request RemoveCustomImageShareAccountRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Unshares a custom image that is shared across Alibaba Cloud accounts.
      *
-     * @return RemoveCustomImageShareAccountResponse RemoveCustomImageShareAccountResponse
+     * @param request - RemoveCustomImageShareAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveCustomImageShareAccountResponse
+     *
+     * @param RemoveCustomImageShareAccountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return RemoveCustomImageShareAccountResponse
      */
     public function removeCustomImageShareAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->account)) {
-            $query['Account'] = $request->account;
+        if (null !== $request->account) {
+            @$query['Account'] = $request->account;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveCustomImageShareAccount',
@@ -5018,16 +6235,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveCustomImageShareAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveCustomImageShareAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveCustomImageShareAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unshares a custom image that is shared across Alibaba Cloud accounts.
-     *  *
-     * @param RemoveCustomImageShareAccountRequest $request RemoveCustomImageShareAccountRequest
+     * Unshares a custom image that is shared across Alibaba Cloud accounts.
      *
-     * @return RemoveCustomImageShareAccountResponse RemoveCustomImageShareAccountResponse
+     * @param request - RemoveCustomImageShareAccountRequest
+     * @returns RemoveCustomImageShareAccountResponse
+     *
+     * @param RemoveCustomImageShareAccountRequest $request
+     *
+     * @return RemoveCustomImageShareAccountResponse
      */
     public function removeCustomImageShareAccount($request)
     {
@@ -5037,34 +6260,43 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Renews a simple application server.
-     *  *
-     * @description *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
-     * *   Before you call this operation, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the renewal fails.
-     *  *
-     * @param RenewInstanceRequest $request RenewInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Renews a simple application server.
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @remarks
+     *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   Before you call this operation, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the renewal fails.
+     *
+     * @param request - RenewInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RenewInstanceResponse
+     *
+     * @param RenewInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RenewInstance',
@@ -5077,19 +6309,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenewInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Renews a simple application server.
-     *  *
-     * @description *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
-     * *   Before you call this operation, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the renewal fails.
-     *  *
-     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * Renews a simple application server.
      *
-     * @return RenewInstanceResponse RenewInstanceResponse
+     * @remarks
+     *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   Before you call this operation, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the renewal fails.
+     *
+     * @param request - RenewInstanceRequest
+     * @returns RenewInstanceResponse
+     *
+     * @param RenewInstanceRequest $request
+     *
+     * @return RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -5099,35 +6338,44 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
-     *  *
-     * @description If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
+     * If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
+     *
+     * @remarks
+     * If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ResetDatabaseAccountPasswordRequest $request ResetDatabaseAccountPasswordRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetDatabaseAccountPasswordResponse ResetDatabaseAccountPasswordResponse
+     * @param request - ResetDatabaseAccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetDatabaseAccountPasswordResponse
+     *
+     * @param ResetDatabaseAccountPasswordRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ResetDatabaseAccountPasswordResponse
      */
     public function resetDatabaseAccountPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetDatabaseAccountPassword',
@@ -5140,20 +6388,27 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetDatabaseAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetDatabaseAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetDatabaseAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
-     *  *
-     * @description If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
+     * If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
+     *
+     * @remarks
+     * If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ResetDatabaseAccountPasswordRequest $request ResetDatabaseAccountPasswordRequest
      *
-     * @return ResetDatabaseAccountPasswordResponse ResetDatabaseAccountPasswordResponse
+     * @param request - ResetDatabaseAccountPasswordRequest
+     * @returns ResetDatabaseAccountPasswordResponse
+     *
+     * @param ResetDatabaseAccountPasswordRequest $request
+     *
+     * @return ResetDatabaseAccountPasswordResponse
      */
     public function resetDatabaseAccountPassword($request)
     {
@@ -5163,36 +6418,45 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Rolls back a disk based on a snapshot.
-     *  *
-     * @description *   You can call this operation only if the associated simple application server is in the Stopped state.
+     * Rolls back a disk based on a snapshot.
+     *
+     * @remarks
+     *   You can call this operation only if the associated simple application server is in the Stopped state.
      * *   If you restore a disk from a snapshot, the incremental data after the snapshot is created is lost. We recommend that you back up the data before you perform this operation.
      * ### [](#)Precautions
      * Resetting the system or changing the image of a simple application server clears the disk data on the server. Snapshots created before the reset or change are retained but cannot be used to restore disks.
-     *  *
-     * @param ResetDiskRequest $request ResetDiskRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetDiskResponse ResetDiskResponse
+     * @param request - ResetDiskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetDiskResponse
+     *
+     * @param ResetDiskRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ResetDiskResponse
      */
     public function resetDiskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->diskId)) {
-            $query['DiskId'] = $request->diskId;
+
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetDisk',
@@ -5205,21 +6469,28 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetDiskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Rolls back a disk based on a snapshot.
-     *  *
-     * @description *   You can call this operation only if the associated simple application server is in the Stopped state.
+     * Rolls back a disk based on a snapshot.
+     *
+     * @remarks
+     *   You can call this operation only if the associated simple application server is in the Stopped state.
      * *   If you restore a disk from a snapshot, the incremental data after the snapshot is created is lost. We recommend that you back up the data before you perform this operation.
      * ### [](#)Precautions
      * Resetting the system or changing the image of a simple application server clears the disk data on the server. Snapshots created before the reset or change are retained but cannot be used to restore disks.
-     *  *
-     * @param ResetDiskRequest $request ResetDiskRequest
      *
-     * @return ResetDiskResponse ResetDiskResponse
+     * @param request - ResetDiskRequest
+     * @returns ResetDiskResponse
+     *
+     * @param ResetDiskRequest $request
+     *
+     * @return ResetDiskResponse
      */
     public function resetDisk($request)
     {
@@ -5229,55 +6500,65 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Resets a simple application server.
-     *  *
-     * @description You can reset a simple application server to re-install its application system or OS and re-initialize the server. You can reset a simple application server by resetting the current system or replacing the image.
-     * You can use one of the following methods to reset a simple application server:
-     * *   Reset the current system. You can re-install the operating system without replacing the image.
-     * *   Replace the image. You can select an Alibaba Cloud image or a custom image that is different from the existing image of the server to reinstall the OS of the server.
-     * ### Precautions
-     * *   After you reset a simple application server, the disk data on the server is cleared. Back up the data as needed.
-     * *   After you reset a simple application server, the monitoring operations that are performed on the server may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
+     * Resets a simple application server.
+     *
+     * @remarks
+     * You can reset a simple application server to re-install its applications or operating system and re-initialize the server. You can reset a simple application server by resetting the current system or changing the image.
+     * *   Reset the current system: You can re-install the operating system without changing the image.
+     * *   Change the image: You can select another Alibaba Cloud image or a custom image to re-install the operating system.
+     * ### [](#)Precautions
+     * *   Resetting the system or changing the image of a simple application server clears the disk data on the server. Back up the data as needed.
+     * *   After you reset a simple application server, monitoring may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
      *     *   Connect to the server: For more information, see [Manually install the CloudMonitor agent for C++ on an ECS instance](https://help.aliyun.com/document_detail/183482.html).
      *     *   Use Command Assistant: For more information, see [Use Command Assistant](https://help.aliyun.com/document_detail/438681.html). You can obtain the command that can be used to install CloudMonitor from the "Common commands" section of the [Use Command Assistant](https://help.aliyun.com/document_detail/438681.html) topic.
-     * ### Limits
-     * *   Snapshots that are created before a server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
-     * *   You cannot reset simple application servers that were created based on custom images that contain data of data disks.
-     * *   Before you reset a simple application server by replacing the existing image with a custom image, take note of the following items:
+     * ### [](#)Limits
+     * *   Snapshots that are created before the reset are retained, but the snapshots cannot be used to restore the disks of the server.
+     * *   You cannot reset simple application servers that were created from custom images that contain data of data disks.
+     * *   If you reset a simple application server by replacing the existing image with a custom image, the following limits apply:
      *     *   The custom image must reside in the same region as the current server.
-     *     *   The custom image cannot be created based on the current server. If you want to recover the data on the server, you can use a snapshot of the server to roll back the disks of the server.
-     *     *   If your simple application server resides outside the Chinese mainland, you cannot switch the OS of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. You also cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the OSs of simple application servers only between Windows Server OSs or between Linux distributions.
+     *     *   The custom image cannot be created based on the current server. If you want to restore the data on the server, you can use a snapshot of the server to restore disk data.
+     *     *   If your simple application server resides in a region outside the Chinese mainland, you cannot switch the operating system of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. Similarly, you cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the operating systems of simple application servers only between Windows Server versions or between Linux distributions.
      *     *   The following limits apply to the disks attached to the simple application server:
-     *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server and no data disk is attached, you cannot use the custom image to reset the simple application server.
+     *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server, you cannot use the custom image to reset the simple application server.
      *         *   If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
-     *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your simple application server, you can upgrade the server. For more information, see Upgrade a simple application server.
+     *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your server, you can upgrade the server configuration. For more information, see Upgrade a simple application server.
      *         *   If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
-     * ### QPS limit
-     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ResetSystemRequest $request ResetSystemRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetSystemResponse ResetSystemResponse
+     * @param request - ResetSystemRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetSystemResponse
+     *
+     * @param ResetSystemRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ResetSystemResponse
      */
     public function resetSystemWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->loginCredentials) {
+            @$query['LoginCredentials'] = $request->loginCredentials;
         }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetSystem',
@@ -5290,40 +6571,44 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetSystemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetSystemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Resets a simple application server.
-     *  *
-     * @description You can reset a simple application server to re-install its application system or OS and re-initialize the server. You can reset a simple application server by resetting the current system or replacing the image.
-     * You can use one of the following methods to reset a simple application server:
-     * *   Reset the current system. You can re-install the operating system without replacing the image.
-     * *   Replace the image. You can select an Alibaba Cloud image or a custom image that is different from the existing image of the server to reinstall the OS of the server.
-     * ### Precautions
-     * *   After you reset a simple application server, the disk data on the server is cleared. Back up the data as needed.
-     * *   After you reset a simple application server, the monitoring operations that are performed on the server may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
+     * Resets a simple application server.
+     *
+     * @remarks
+     * You can reset a simple application server to re-install its applications or operating system and re-initialize the server. You can reset a simple application server by resetting the current system or changing the image.
+     * *   Reset the current system: You can re-install the operating system without changing the image.
+     * *   Change the image: You can select another Alibaba Cloud image or a custom image to re-install the operating system.
+     * ### [](#)Precautions
+     * *   Resetting the system or changing the image of a simple application server clears the disk data on the server. Back up the data as needed.
+     * *   After you reset a simple application server, monitoring may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
      *     *   Connect to the server: For more information, see [Manually install the CloudMonitor agent for C++ on an ECS instance](https://help.aliyun.com/document_detail/183482.html).
      *     *   Use Command Assistant: For more information, see [Use Command Assistant](https://help.aliyun.com/document_detail/438681.html). You can obtain the command that can be used to install CloudMonitor from the "Common commands" section of the [Use Command Assistant](https://help.aliyun.com/document_detail/438681.html) topic.
-     * ### Limits
-     * *   Snapshots that are created before a server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
-     * *   You cannot reset simple application servers that were created based on custom images that contain data of data disks.
-     * *   Before you reset a simple application server by replacing the existing image with a custom image, take note of the following items:
+     * ### [](#)Limits
+     * *   Snapshots that are created before the reset are retained, but the snapshots cannot be used to restore the disks of the server.
+     * *   You cannot reset simple application servers that were created from custom images that contain data of data disks.
+     * *   If you reset a simple application server by replacing the existing image with a custom image, the following limits apply:
      *     *   The custom image must reside in the same region as the current server.
-     *     *   The custom image cannot be created based on the current server. If you want to recover the data on the server, you can use a snapshot of the server to roll back the disks of the server.
-     *     *   If your simple application server resides outside the Chinese mainland, you cannot switch the OS of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. You also cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the OSs of simple application servers only between Windows Server OSs or between Linux distributions.
+     *     *   The custom image cannot be created based on the current server. If you want to restore the data on the server, you can use a snapshot of the server to restore disk data.
+     *     *   If your simple application server resides in a region outside the Chinese mainland, you cannot switch the operating system of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. Similarly, you cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the operating systems of simple application servers only between Windows Server versions or between Linux distributions.
      *     *   The following limits apply to the disks attached to the simple application server:
-     *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server and no data disk is attached, you cannot use the custom image to reset the simple application server.
+     *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server, you cannot use the custom image to reset the simple application server.
      *         *   If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
-     *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your simple application server, you can upgrade the server. For more information, see Upgrade a simple application server.
+     *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your server, you can upgrade the server configuration. For more information, see Upgrade a simple application server.
      *         *   If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
-     * ### QPS limit
-     * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param ResetSystemRequest $request ResetSystemRequest
      *
-     * @return ResetSystemResponse ResetSystemResponse
+     * @param request - ResetSystemRequest
+     * @returns ResetSystemResponse
+     *
+     * @param ResetSystemRequest $request
+     *
+     * @return ResetSystemResponse
      */
     public function resetSystem($request)
     {
@@ -5333,32 +6618,40 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to restart a Simple Database Service instance that is in the Running state.
-     *  *
-     * @description You can call this operation to restart a Simple Database Service instance that is in the Running state.
+     * You can call this operation to restart a Simple Database Service instance that is in the Running state.
+     *
+     * @remarks
+     * You can call this operation to restart a Simple Database Service instance that is in the Running state.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param RestartDatabaseInstanceRequest $request RestartDatabaseInstanceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartDatabaseInstanceResponse RestartDatabaseInstanceResponse
+     * @param request - RestartDatabaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestartDatabaseInstanceResponse
+     *
+     * @param RestartDatabaseInstanceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RestartDatabaseInstanceResponse
      */
     public function restartDatabaseInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RestartDatabaseInstance',
@@ -5371,20 +6664,27 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RestartDatabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartDatabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartDatabaseInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to restart a Simple Database Service instance that is in the Running state.
-     *  *
-     * @description You can call this operation to restart a Simple Database Service instance that is in the Running state.
+     * You can call this operation to restart a Simple Database Service instance that is in the Running state.
+     *
+     * @remarks
+     * You can call this operation to restart a Simple Database Service instance that is in the Running state.
      * ### QPS limit
      * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](https://help.aliyun.com/document_detail/347607.html).
-     *  *
-     * @param RestartDatabaseInstanceRequest $request RestartDatabaseInstanceRequest
      *
-     * @return RestartDatabaseInstanceResponse RestartDatabaseInstanceResponse
+     * @param request - RestartDatabaseInstanceRequest
+     * @returns RestartDatabaseInstanceResponse
+     *
+     * @param RestartDatabaseInstanceRequest $request
+     *
+     * @return RestartDatabaseInstanceResponse
      */
     public function restartDatabaseInstance($request)
     {
@@ -5394,62 +6694,79 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Runs commands on a simple application server.
-     *  *
-     * @description Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
+     * Runs commands on a simple application server.
+     *
+     * @remarks
+     * Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
      * Before you use Command Assistant, take note of the following items:
      * *   The simple application server must be in the Running state.
      * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall it. For more information, see [Install the Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html).
-     *  *
-     * @param RunCommandRequest $tmpReq  RunCommandRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunCommandResponse RunCommandResponse
+     * @param tmpReq - RunCommandRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RunCommandResponse
+     *
+     * @param RunCommandRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunCommandResponse
      */
     public function runCommandWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new RunCommandShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->parameters)) {
-            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->commandContent)) {
-            $query['CommandContent'] = $request->commandContent;
+        if (null !== $request->commandContent) {
+            @$query['CommandContent'] = $request->commandContent;
         }
-        if (!Utils::isUnset($request->enableParameter)) {
-            $query['EnableParameter'] = $request->enableParameter;
+
+        if (null !== $request->enableParameter) {
+            @$query['EnableParameter'] = $request->enableParameter;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parametersShrink)) {
-            $query['Parameters'] = $request->parametersShrink;
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->windowsPasswordName)) {
-            $query['WindowsPasswordName'] = $request->windowsPasswordName;
+
+        if (null !== $request->windowsPasswordName) {
+            @$query['WindowsPasswordName'] = $request->windowsPasswordName;
         }
-        if (!Utils::isUnset($request->workingDir)) {
-            $query['WorkingDir'] = $request->workingDir;
+
+        if (null !== $request->workingDir) {
+            @$query['WorkingDir'] = $request->workingDir;
         }
-        if (!Utils::isUnset($request->workingUser)) {
-            $query['WorkingUser'] = $request->workingUser;
+
+        if (null !== $request->workingUser) {
+            @$query['WorkingUser'] = $request->workingUser;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RunCommand',
@@ -5462,21 +6779,28 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunCommandResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Runs commands on a simple application server.
-     *  *
-     * @description Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
+     * Runs commands on a simple application server.
+     *
+     * @remarks
+     * Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
      * Before you use Command Assistant, take note of the following items:
      * *   The simple application server must be in the Running state.
      * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall it. For more information, see [Install the Cloud Assistant Agent](https://help.aliyun.com/document_detail/64921.html).
-     *  *
-     * @param RunCommandRequest $request RunCommandRequest
      *
-     * @return RunCommandResponse RunCommandResponse
+     * @param request - RunCommandRequest
+     * @returns RunCommandResponse
+     *
+     * @param RunCommandRequest $request
+     *
+     * @return RunCommandResponse
      */
     public function runCommand($request)
     {
@@ -5486,30 +6810,38 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Starts a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to start a Simple Database Service instance that is in the Stopped state.
-     *  *
-     * @param StartDatabaseInstanceRequest $request StartDatabaseInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Starts a Simple Database Service instance.
      *
-     * @return StartDatabaseInstanceResponse StartDatabaseInstanceResponse
+     * @remarks
+     * You can call this operation to start a Simple Database Service instance that is in the Stopped state.
+     *
+     * @param request - StartDatabaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartDatabaseInstanceResponse
+     *
+     * @param StartDatabaseInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StartDatabaseInstanceResponse
      */
     public function startDatabaseInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartDatabaseInstance',
@@ -5522,18 +6854,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartDatabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartDatabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartDatabaseInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to start a Simple Database Service instance that is in the Stopped state.
-     *  *
-     * @param StartDatabaseInstanceRequest $request StartDatabaseInstanceRequest
+     * Starts a Simple Database Service instance.
      *
-     * @return StartDatabaseInstanceResponse StartDatabaseInstanceResponse
+     * @remarks
+     * You can call this operation to start a Simple Database Service instance that is in the Stopped state.
+     *
+     * @param request - StartDatabaseInstanceRequest
+     * @returns StartDatabaseInstanceResponse
+     *
+     * @param StartDatabaseInstanceRequest $request
+     *
+     * @return StartDatabaseInstanceResponse
      */
     public function startDatabaseInstance($request)
     {
@@ -5543,30 +6882,38 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Starts a simple application server.
-     *  *
-     * @description You can call this operation to start a simple application server that is in the Stopped state.
-     *  *
-     * @param StartInstanceRequest $request StartInstanceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Starts a simple application server.
      *
-     * @return StartInstanceResponse StartInstanceResponse
+     * @remarks
+     * You can call this operation to start a simple application server that is in the Stopped state.
+     *
+     * @param request - StartInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartInstanceResponse
+     *
+     * @param StartInstanceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartInstanceResponse
      */
     public function startInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartInstance',
@@ -5579,18 +6926,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts a simple application server.
-     *  *
-     * @description You can call this operation to start a simple application server that is in the Stopped state.
-     *  *
-     * @param StartInstanceRequest $request StartInstanceRequest
+     * Starts a simple application server.
      *
-     * @return StartInstanceResponse StartInstanceResponse
+     * @remarks
+     * You can call this operation to start a simple application server that is in the Stopped state.
+     *
+     * @param request - StartInstanceRequest
+     * @returns StartInstanceResponse
+     *
+     * @param StartInstanceRequest $request
+     *
+     * @return StartInstanceResponse
      */
     public function startInstance($request)
     {
@@ -5600,28 +6954,35 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Starts simple application servers.
-     *  *
-     * @param StartInstancesRequest $request StartInstancesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Starts simple application servers.
      *
-     * @return StartInstancesResponse StartInstancesResponse
+     * @param request - StartInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartInstancesResponse
+     *
+     * @param StartInstancesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StartInstancesResponse
      */
     public function startInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartInstances',
@@ -5634,16 +6995,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts simple application servers.
-     *  *
-     * @param StartInstancesRequest $request StartInstancesRequest
+     * Starts simple application servers.
      *
-     * @return StartInstancesResponse StartInstancesResponse
+     * @param request - StartInstancesRequest
+     * @returns StartInstancesResponse
+     *
+     * @param StartInstancesRequest $request
+     *
+     * @return StartInstancesResponse
      */
     public function startInstances($request)
     {
@@ -5653,25 +7020,31 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Creates a session for a simple application server.
-     *  *
-     * @param StartTerminalSessionRequest $request StartTerminalSessionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a session for a simple application server.
      *
-     * @return StartTerminalSessionResponse StartTerminalSessionResponse
+     * @param request - StartTerminalSessionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartTerminalSessionResponse
+     *
+     * @param StartTerminalSessionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartTerminalSessionResponse
      */
     public function startTerminalSessionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartTerminalSession',
@@ -5684,16 +7057,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartTerminalSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartTerminalSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartTerminalSessionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a session for a simple application server.
-     *  *
-     * @param StartTerminalSessionRequest $request StartTerminalSessionRequest
+     * Creates a session for a simple application server.
      *
-     * @return StartTerminalSessionResponse StartTerminalSessionResponse
+     * @param request - StartTerminalSessionRequest
+     * @returns StartTerminalSessionResponse
+     *
+     * @param StartTerminalSessionRequest $request
+     *
+     * @return StartTerminalSessionResponse
      */
     public function startTerminalSession($request)
     {
@@ -5703,30 +7082,38 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Stops a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
-     *  *
-     * @param StopDatabaseInstanceRequest $request StopDatabaseInstanceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Stops a Simple Database Service instance.
      *
-     * @return StopDatabaseInstanceResponse StopDatabaseInstanceResponse
+     * @remarks
+     * You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
+     *
+     * @param request - StopDatabaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopDatabaseInstanceResponse
+     *
+     * @param StopDatabaseInstanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StopDatabaseInstanceResponse
      */
     public function stopDatabaseInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->databaseInstanceId)) {
-            $query['DatabaseInstanceId'] = $request->databaseInstanceId;
+
+        if (null !== $request->databaseInstanceId) {
+            @$query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopDatabaseInstance',
@@ -5739,18 +7126,25 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopDatabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopDatabaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopDatabaseInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops a Simple Database Service instance.
-     *  *
-     * @description You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
-     *  *
-     * @param StopDatabaseInstanceRequest $request StopDatabaseInstanceRequest
+     * Stops a Simple Database Service instance.
      *
-     * @return StopDatabaseInstanceResponse StopDatabaseInstanceResponse
+     * @remarks
+     * You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
+     *
+     * @param request - StopDatabaseInstanceRequest
+     * @returns StopDatabaseInstanceResponse
+     *
+     * @param StopDatabaseInstanceRequest $request
+     *
+     * @return StopDatabaseInstanceResponse
      */
     public function stopDatabaseInstance($request)
     {
@@ -5760,31 +7154,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Stops a simple application server.
-     *  *
-     * @description You can stop a simple application server that you do not use for the time being.
-     * >  Stopping a simple application server may interrupt your business. We recommend that you perform this operation during off-peak hours.
-     *  *
-     * @param StopInstanceRequest $request StopInstanceRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Stops a simple application server.
      *
-     * @return StopInstanceResponse StopInstanceResponse
+     * @remarks
+     * You can stop a simple application server that you do not use for the time being.
+     * >  Stopping a simple application server may interrupt your business. We recommend that you perform this operation during off-peak hours.
+     *
+     * @param request - StopInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopInstanceResponse
+     *
+     * @param StopInstanceRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopInstanceResponse
      */
     public function stopInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopInstance',
@@ -5797,19 +7199,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops a simple application server.
-     *  *
-     * @description You can stop a simple application server that you do not use for the time being.
-     * >  Stopping a simple application server may interrupt your business. We recommend that you perform this operation during off-peak hours.
-     *  *
-     * @param StopInstanceRequest $request StopInstanceRequest
+     * Stops a simple application server.
      *
-     * @return StopInstanceResponse StopInstanceResponse
+     * @remarks
+     * You can stop a simple application server that you do not use for the time being.
+     * >  Stopping a simple application server may interrupt your business. We recommend that you perform this operation during off-peak hours.
+     *
+     * @param request - StopInstanceRequest
+     * @returns StopInstanceResponse
+     *
+     * @param StopInstanceRequest $request
+     *
+     * @return StopInstanceResponse
      */
     public function stopInstance($request)
     {
@@ -5819,31 +7228,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Stops simple application servers.
-     *  *
-     * @param StopInstancesRequest $request StopInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Stops simple application servers.
      *
-     * @return StopInstancesResponse StopInstancesResponse
+     * @param request - StopInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopInstancesResponse
+     *
+     * @param StopInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StopInstancesResponse
      */
     public function stopInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->forceStop)) {
-            $query['ForceStop'] = $request->forceStop;
+
+        if (null !== $request->forceStop) {
+            @$query['ForceStop'] = $request->forceStop;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopInstances',
@@ -5856,16 +7273,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops simple application servers.
-     *  *
-     * @param StopInstancesRequest $request StopInstancesRequest
+     * Stops simple application servers.
      *
-     * @return StopInstancesResponse StopInstancesResponse
+     * @param request - StopInstancesRequest
+     * @returns StopInstancesResponse
+     *
+     * @param StopInstancesRequest $request
+     *
+     * @return StopInstancesResponse
      */
     public function stopInstances($request)
     {
@@ -5875,34 +7298,43 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to simple application servers, snapshots, custom images, commands, firewall rules, and disks to facilitate the viewing and management of the preceding resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to simple application servers, snapshots, custom images, commands, firewall rules, and disks to facilitate the viewing and management of the preceding resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -5915,16 +7347,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to simple application servers, snapshots, custom images, commands, firewall rules, and disks to facilitate the viewing and management of the preceding resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to simple application servers, snapshots, custom images, commands, firewall rules, and disks to facilitate the viewing and management of the preceding resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5934,37 +7372,47 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds and deletes tags from specified lightweight resources, such as instances, snapshots, disks, images, commands, and firewall rules.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Unbinds and deletes tags from specified lightweight resources, such as instances, snapshots, disks, images, commands, and firewall rules.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -5977,16 +7425,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unbinds and deletes tags from specified lightweight resources, such as instances, snapshots, disks, images, commands, and firewall rules.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Unbinds and deletes tags from specified lightweight resources, such as instances, snapshots, disks, images, commands, and firewall rules.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -5996,37 +7450,47 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Modifys the parameter of a command.
-     *  *
-     * @param UpdateCommandAttributeRequest $request UpdateCommandAttributeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifys the parameter of a command.
      *
-     * @return UpdateCommandAttributeResponse UpdateCommandAttributeResponse
+     * @param request - UpdateCommandAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCommandAttributeResponse
+     *
+     * @param UpdateCommandAttributeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateCommandAttributeResponse
      */
     public function updateCommandAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->commandId)) {
-            $query['CommandId'] = $request->commandId;
+        if (null !== $request->commandId) {
+            @$query['CommandId'] = $request->commandId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
-        if (!Utils::isUnset($request->workingDir)) {
-            $query['WorkingDir'] = $request->workingDir;
+
+        if (null !== $request->workingDir) {
+            @$query['WorkingDir'] = $request->workingDir;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateCommandAttribute',
@@ -6039,16 +7503,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCommandAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCommandAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCommandAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifys the parameter of a command.
-     *  *
-     * @param UpdateCommandAttributeRequest $request UpdateCommandAttributeRequest
+     * Modifys the parameter of a command.
      *
-     * @return UpdateCommandAttributeResponse UpdateCommandAttributeResponse
+     * @param request - UpdateCommandAttributeRequest
+     * @returns UpdateCommandAttributeResponse
+     *
+     * @param UpdateCommandAttributeRequest $request
+     *
+     * @return UpdateCommandAttributeResponse
      */
     public function updateCommandAttribute($request)
     {
@@ -6058,31 +7528,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the remarks for the data disk that is attached to a simple application server.
-     *  *
-     * @param UpdateDiskAttributeRequest $request UpdateDiskAttributeRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the remarks for the data disk that is attached to a simple application server.
      *
-     * @return UpdateDiskAttributeResponse UpdateDiskAttributeResponse
+     * @param request - UpdateDiskAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDiskAttributeResponse
+     *
+     * @param UpdateDiskAttributeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDiskAttributeResponse
      */
     public function updateDiskAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->diskId)) {
-            $query['DiskId'] = $request->diskId;
+
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDiskAttribute',
@@ -6095,16 +7573,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDiskAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDiskAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDiskAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the remarks for the data disk that is attached to a simple application server.
-     *  *
-     * @param UpdateDiskAttributeRequest $request UpdateDiskAttributeRequest
+     * Modifies the remarks for the data disk that is attached to a simple application server.
      *
-     * @return UpdateDiskAttributeResponse UpdateDiskAttributeResponse
+     * @param request - UpdateDiskAttributeRequest
+     * @returns UpdateDiskAttributeResponse
+     *
+     * @param UpdateDiskAttributeRequest $request
+     *
+     * @return UpdateDiskAttributeResponse
      */
     public function updateDiskAttribute($request)
     {
@@ -6114,37 +7598,47 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information of a simple application server, including the server name and the password that you use to log on to the server.
-     *  *
-     * @description ## [](#)Usage notes
-     * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation for the new password to take effect.
-     *  *
-     * @param UpdateInstanceAttributeRequest $request UpdateInstanceAttributeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the information of a simple application server, including the server name and the password that you use to log on to the server.
      *
-     * @return UpdateInstanceAttributeResponse UpdateInstanceAttributeResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation for the new password to take effect.
+     *
+     * @param request - UpdateInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateInstanceAttributeResponse
+     *
+     * @param UpdateInstanceAttributeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateInstanceAttributeResponse
      */
     public function updateInstanceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateInstanceAttribute',
@@ -6157,19 +7651,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information of a simple application server, including the server name and the password that you use to log on to the server.
-     *  *
-     * @description ## [](#)Usage notes
-     * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation for the new password to take effect.
-     *  *
-     * @param UpdateInstanceAttributeRequest $request UpdateInstanceAttributeRequest
+     * Modifies the information of a simple application server, including the server name and the password that you use to log on to the server.
      *
-     * @return UpdateInstanceAttributeResponse UpdateInstanceAttributeResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](https://help.aliyun.com/document_detail/190443.html) operation for the new password to take effect.
+     *
+     * @param request - UpdateInstanceAttributeRequest
+     * @returns UpdateInstanceAttributeResponse
+     *
+     * @param UpdateInstanceAttributeRequest $request
+     *
+     * @return UpdateInstanceAttributeResponse
      */
     public function updateInstanceAttribute($request)
     {
@@ -6179,31 +7680,39 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the remarks of a snapshot of a simple application server.
-     *  *
-     * @param UpdateSnapshotAttributeRequest $request UpdateSnapshotAttributeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the remarks of a snapshot of a simple application server.
      *
-     * @return UpdateSnapshotAttributeResponse UpdateSnapshotAttributeResponse
+     * @param request - UpdateSnapshotAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSnapshotAttributeResponse
+     *
+     * @param UpdateSnapshotAttributeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateSnapshotAttributeResponse
      */
     public function updateSnapshotAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->snapshotId)) {
-            $query['SnapshotId'] = $request->snapshotId;
+
+        if (null !== $request->snapshotId) {
+            @$query['SnapshotId'] = $request->snapshotId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSnapshotAttribute',
@@ -6216,16 +7725,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSnapshotAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSnapshotAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSnapshotAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the remarks of a snapshot of a simple application server.
-     *  *
-     * @param UpdateSnapshotAttributeRequest $request UpdateSnapshotAttributeRequest
+     * Modifies the remarks of a snapshot of a simple application server.
      *
-     * @return UpdateSnapshotAttributeResponse UpdateSnapshotAttributeResponse
+     * @param request - UpdateSnapshotAttributeRequest
+     * @returns UpdateSnapshotAttributeResponse
+     *
+     * @param UpdateSnapshotAttributeRequest $request
+     *
+     * @return UpdateSnapshotAttributeResponse
      */
     public function updateSnapshotAttribute($request)
     {
@@ -6235,34 +7750,43 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades the plan for a simple application server.
-     *  *
-     * @description *   The plan of a simple application server can only be upgraded. For more information about plans, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
-     * *   Before you call this operation, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the upgrade fails.
-     *  *
-     * @param UpgradeInstanceRequest $request UpgradeInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Upgrades the plan for a simple application server.
      *
-     * @return UpgradeInstanceResponse UpgradeInstanceResponse
+     * @remarks
+     *   The plan of a simple application server can only be upgraded. For more information about plans, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   Before you call this operation, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the upgrade fails.
+     *
+     * @param request - UpgradeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpgradeInstanceResponse
+     *
+     * @param UpgradeInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpgradeInstanceResponse
      */
     public function upgradeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->planId)) {
-            $query['PlanId'] = $request->planId;
+
+        if (null !== $request->planId) {
+            @$query['PlanId'] = $request->planId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeInstance',
@@ -6275,19 +7799,26 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpgradeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpgradeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Upgrades the plan for a simple application server.
-     *  *
-     * @description *   The plan of a simple application server can only be upgraded. For more information about plans, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
-     * *   Before you call this operation, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the upgrade fails.
-     *  *
-     * @param UpgradeInstanceRequest $request UpgradeInstanceRequest
+     * Upgrades the plan for a simple application server.
      *
-     * @return UpgradeInstanceResponse UpgradeInstanceResponse
+     * @remarks
+     *   The plan of a simple application server can only be upgraded. For more information about plans, see [Billable items](https://help.aliyun.com/document_detail/58623.html).
+     * *   Before you call this operation, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the upgrade fails.
+     *
+     * @param request - UpgradeInstanceRequest
+     * @returns UpgradeInstanceResponse
+     *
+     * @param UpgradeInstanceRequest $request
+     *
+     * @return UpgradeInstanceResponse
      */
     public function upgradeInstance($request)
     {
@@ -6297,34 +7828,43 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @summary Imports a key pair for a simple application server.
-     *  *
-     * @param UploadInstanceKeyPairRequest $request UploadInstanceKeyPairRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Imports a key pair for a simple application server.
      *
-     * @return UploadInstanceKeyPairResponse UploadInstanceKeyPairResponse
+     * @param request - UploadInstanceKeyPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UploadInstanceKeyPairResponse
+     *
+     * @param UploadInstanceKeyPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UploadInstanceKeyPairResponse
      */
     public function uploadInstanceKeyPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->keyPairName)) {
-            $query['KeyPairName'] = $request->keyPairName;
+
+        if (null !== $request->keyPairName) {
+            @$query['KeyPairName'] = $request->keyPairName;
         }
-        if (!Utils::isUnset($request->publicKey)) {
-            $query['PublicKey'] = $request->publicKey;
+
+        if (null !== $request->publicKey) {
+            @$query['PublicKey'] = $request->publicKey;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UploadInstanceKeyPair',
@@ -6337,16 +7877,22 @@ class SWASOPEN extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UploadInstanceKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadInstanceKeyPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadInstanceKeyPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Imports a key pair for a simple application server.
-     *  *
-     * @param UploadInstanceKeyPairRequest $request UploadInstanceKeyPairRequest
+     * Imports a key pair for a simple application server.
      *
-     * @return UploadInstanceKeyPairResponse UploadInstanceKeyPairResponse
+     * @param request - UploadInstanceKeyPairRequest
+     * @returns UploadInstanceKeyPairResponse
+     *
+     * @param UploadInstanceKeyPairRequest $request
+     *
+     * @return UploadInstanceKeyPairResponse
      */
     public function uploadInstanceKeyPair($request)
     {
