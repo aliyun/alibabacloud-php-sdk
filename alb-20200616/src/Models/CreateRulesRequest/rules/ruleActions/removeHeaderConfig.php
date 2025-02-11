@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class removeHeaderConfig extends Model
 {
@@ -18,9 +18,10 @@ class removeHeaderConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
@@ -30,11 +31,11 @@ class removeHeaderConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return removeHeaderConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

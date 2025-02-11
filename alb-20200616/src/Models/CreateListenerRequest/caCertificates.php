@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class caCertificates extends Model
 {
     /**
-     * @description The ID of the CA certificate.
-     *
-     * >  This parameter is required if you set **CaEnabled** to **true**.
-     * @example 12315790212_166f8204689_1714763408_70998****
-     *
      * @var string
      */
     public $certificateId;
@@ -23,9 +18,10 @@ class caCertificates extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateId) {
@@ -35,11 +31,11 @@ class caCertificates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return caCertificates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

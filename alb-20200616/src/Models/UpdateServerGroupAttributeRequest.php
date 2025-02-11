@@ -4,148 +4,64 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\connectionDrainConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\healthCheckConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\slowStartConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\stickySessionConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\uchConfig;
-use AlibabaCloud\Tea\Model;
 
 class UpdateServerGroupAttributeRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
-     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The configurations of connection draining.
-     *
-     * >
-     *
-     *   Basic SLB instances do not support connection draining. Standard and WAF-enabled SLB instances support connection draining.
-     *
-     *   Server groups of the server and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
-     *
      * @var connectionDrainConfig
      */
     public $connectionDrainConfig;
-
     /**
-     * @description Indicates whether cross-zone load balancing is enabled for the server group. Valid values:
-     *
-     *   **true** (default)
-     *   **false**
-     *
-     * >
-     *
-     *   Basic ALB instances do not support server groups that have cross-zone load balancing disabled. Only Standard and WAF-enabled ALB instances support server groups that have cross-zone load balancing.
-     *
-     *   Cross-zone load balancing can be disabled for server groups of the server and IP type, but not for server groups of the Function Compute type.
-     *
-     *   When cross-zone load balancing is disabled, session persistence cannot be enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $crossZoneEnabled;
-
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-     *
-     *   **true**: checks the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx` HTTP status code is returned and the operation is performed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
-
     /**
-     * @description The configuration of health checks.
-     *
      * @var healthCheckConfig
      */
     public $healthCheckConfig;
-
     /**
-     * @description The scheduling algorithm. Valid values:
-     *
-     *   **Wrr**: the weighted round robin algorithm. Backend servers that have higher weights receive more requests than those that have lower weights.
-     *   **Wlc**: the weighted least connections algorithm. Requests are distributed based on the weights and the number of connections to backend servers. If two backend servers have the same weight, the backend server that has fewer connections is expected to receive more requests.
-     *   **Sch**: the consistent hashing algorithm. Requests from the same source IP address are distributed to the same backend server.
-     *
-     * @example Wrr
-     *
      * @var string
      */
     public $scheduler;
-
     /**
-     * @description The server group ID.
-     *
-     * This parameter is required.
-     * @example sgp-atstuj3rtop****
-     *
      * @var string
      */
     public $serverGroupId;
-
     /**
-     * @description The server group name.
-     *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
-     * @example test
-     *
      * @var string
      */
     public $serverGroupName;
-
     /**
-     * @description This parameter is available only if the ALB Ingress controller is used. In this case, set this parameter to the name of the `Kubernetes Service` that is associated with the server group.
-     *
-     * @example test2
-     *
      * @var string
      */
     public $serviceName;
-
     /**
-     * @description The configurations of slow starts.
-     *
-     * After slow starts are enabled, ALB prefetches data to newly added backend servers. Requests distributed to the backend servers gradually increase.
-     *
-     * > *   Basic ALB instances do not support slow starts. Standard and WAF-enabled ALB instances support slow starts.
-     * >*   Server groups of the instance and IP types support slow starts. Server groups of the Function Compute type do not support slow starts.
-     * >*   Slow start is supported only by the weighted round-robin scheduling algorithm.
      * @var slowStartConfig
      */
     public $slowStartConfig;
-
     /**
-     * @description The configuration of session persistence.
-     *
      * @var stickySessionConfig
      */
     public $stickySessionConfig;
-
     /**
-     * @description The configurations of consistent hashing based on URLs.
-     *
      * @var uchConfig
      */
     public $uchConfig;
-
     /**
-     * @description Specifies whether to enable persistent TCP connections.
-     *
      * @var bool
      */
     public $upstreamKeepaliveEnabled;
@@ -167,47 +83,75 @@ class UpdateServerGroupAttributeRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->connectionDrainConfig) {
+            $this->connectionDrainConfig->validate();
+        }
+        if (null !== $this->healthCheckConfig) {
+            $this->healthCheckConfig->validate();
+        }
+        if (null !== $this->slowStartConfig) {
+            $this->slowStartConfig->validate();
+        }
+        if (null !== $this->stickySessionConfig) {
+            $this->stickySessionConfig->validate();
+        }
+        if (null !== $this->uchConfig) {
+            $this->uchConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->connectionDrainConfig) {
-            $res['ConnectionDrainConfig'] = null !== $this->connectionDrainConfig ? $this->connectionDrainConfig->toMap() : null;
+            $res['ConnectionDrainConfig'] = null !== $this->connectionDrainConfig ? $this->connectionDrainConfig->toArray($noStream) : $this->connectionDrainConfig;
         }
+
         if (null !== $this->crossZoneEnabled) {
             $res['CrossZoneEnabled'] = $this->crossZoneEnabled;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->healthCheckConfig) {
-            $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toMap() : null;
+            $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toArray($noStream) : $this->healthCheckConfig;
         }
+
         if (null !== $this->scheduler) {
             $res['Scheduler'] = $this->scheduler;
         }
+
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
         }
+
         if (null !== $this->serverGroupName) {
             $res['ServerGroupName'] = $this->serverGroupName;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
+
         if (null !== $this->slowStartConfig) {
-            $res['SlowStartConfig'] = null !== $this->slowStartConfig ? $this->slowStartConfig->toMap() : null;
+            $res['SlowStartConfig'] = null !== $this->slowStartConfig ? $this->slowStartConfig->toArray($noStream) : $this->slowStartConfig;
         }
+
         if (null !== $this->stickySessionConfig) {
-            $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
+            $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toArray($noStream) : $this->stickySessionConfig;
         }
+
         if (null !== $this->uchConfig) {
-            $res['UchConfig'] = null !== $this->uchConfig ? $this->uchConfig->toMap() : null;
+            $res['UchConfig'] = null !== $this->uchConfig ? $this->uchConfig->toArray($noStream) : $this->uchConfig;
         }
+
         if (null !== $this->upstreamKeepaliveEnabled) {
             $res['UpstreamKeepaliveEnabled'] = $this->upstreamKeepaliveEnabled;
         }
@@ -215,50 +159,62 @@ class UpdateServerGroupAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateServerGroupAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['ConnectionDrainConfig'])) {
             $model->connectionDrainConfig = connectionDrainConfig::fromMap($map['ConnectionDrainConfig']);
         }
+
         if (isset($map['CrossZoneEnabled'])) {
             $model->crossZoneEnabled = $map['CrossZoneEnabled'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['HealthCheckConfig'])) {
             $model->healthCheckConfig = healthCheckConfig::fromMap($map['HealthCheckConfig']);
         }
+
         if (isset($map['Scheduler'])) {
             $model->scheduler = $map['Scheduler'];
         }
+
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
         }
+
         if (isset($map['ServerGroupName'])) {
             $model->serverGroupName = $map['ServerGroupName'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }
+
         if (isset($map['SlowStartConfig'])) {
             $model->slowStartConfig = slowStartConfig::fromMap($map['SlowStartConfig']);
         }
+
         if (isset($map['StickySessionConfig'])) {
             $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);
         }
+
         if (isset($map['UchConfig'])) {
             $model->uchConfig = uchConfig::fromMap($map['UchConfig']);
         }
+
         if (isset($map['UpstreamKeepaliveEnabled'])) {
             $model->upstreamKeepaliveEnabled = $map['UpstreamKeepaliveEnabled'];
         }

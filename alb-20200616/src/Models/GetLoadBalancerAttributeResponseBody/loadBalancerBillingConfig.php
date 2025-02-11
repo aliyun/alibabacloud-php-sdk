@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\GetLoadBalancerAttributeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class loadBalancerBillingConfig extends Model
 {
     /**
-     * @description The billing method.
-     *
-     * Only **PostPay** is returned, which indicates the pay-as-you-go billing method.
-     * @example PostPay
-     *
      * @var string
      */
     public $payType;
@@ -23,9 +18,10 @@ class loadBalancerBillingConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->payType) {
@@ -35,11 +31,11 @@ class loadBalancerBillingConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return loadBalancerBillingConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fixedResponseConfig extends Model
 {
@@ -12,12 +12,10 @@ class fixedResponseConfig extends Model
      * @var string
      */
     public $content;
-
     /**
      * @var string
      */
     public $contentType;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class fixedResponseConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->contentType) {
             $res['ContentType'] = $this->contentType;
         }
+
         if (null !== $this->httpCode) {
             $res['HttpCode'] = $this->httpCode;
         }
@@ -48,20 +49,22 @@ class fixedResponseConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fixedResponseConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['ContentType'])) {
             $model->contentType = $map['ContentType'];
         }
+
         if (isset($map['HttpCode'])) {
             $model->httpCode = $map['HttpCode'];
         }

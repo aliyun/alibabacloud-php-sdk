@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class uchConfig extends Model
 {
     /**
-     * @description The type of the parameter. Only query strings are supported.
-     *
-     * This parameter is required.
-     * @example QueryString
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The value of the parameter used for consistent hashing.
-     *
-     * This parameter is required.
-     * @example abc
-     *
      * @var string
      */
     public $value;
@@ -34,14 +23,16 @@ class uchConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +40,18 @@ class uchConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return uchConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

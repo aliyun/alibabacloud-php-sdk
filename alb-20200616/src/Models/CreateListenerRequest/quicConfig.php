@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class quicConfig extends Model
 {
     /**
-     * @description The ID of the QUIC listener that you want to associate with the ALB instance. This parameter is required if you set **QuicUpgradeEnabled** to **true**.
-     *
-     * >  The original listener and the QUIC listener must belong to the same ALB instance.
-     * @example lsr-bp1bpn0kn908w4nbw****
-     *
      * @var string
      */
     public $quicListenerId;
-
     /**
-     * @description Specifies whether to enable QUIC upgrade. Valid values:
-     *
-     *   **true**:
-     *   **false** (default)
-     *
-     * >  Only HTTPS listeners support this parameter.
-     * @example false
-     *
      * @var bool
      */
     public $quicUpgradeEnabled;
@@ -37,14 +23,16 @@ class quicConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quicListenerId) {
             $res['QuicListenerId'] = $this->quicListenerId;
         }
+
         if (null !== $this->quicUpgradeEnabled) {
             $res['QuicUpgradeEnabled'] = $this->quicUpgradeEnabled;
         }
@@ -52,17 +40,18 @@ class quicConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quicConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QuicListenerId'])) {
             $model->quicListenerId = $map['QuicListenerId'];
         }
+
         if (isset($map['QuicUpgradeEnabled'])) {
             $model->quicUpgradeEnabled = $map['QuicUpgradeEnabled'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\ruleActions;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\ruleActions\trafficMirrorConfig\mirrorGroupConfig;
-use AlibabaCloud\Tea\Model;
 
 class trafficMirrorConfig extends Model
 {
     /**
-     * @description The configuration of the server group to which traffic is mirrored.
-     *
      * @var mirrorGroupConfig
      */
     public $mirrorGroupConfig;
-
     /**
-     * @description The destination to which traffic is mirrored. The destination can be a server group.
-     *
-     * @example ForwardGroupMirror
-     *
      * @var string
      */
     public $targetType;
@@ -31,14 +24,19 @@ class trafficMirrorConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->mirrorGroupConfig) {
+            $this->mirrorGroupConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mirrorGroupConfig) {
-            $res['MirrorGroupConfig'] = null !== $this->mirrorGroupConfig ? $this->mirrorGroupConfig->toMap() : null;
+            $res['MirrorGroupConfig'] = null !== $this->mirrorGroupConfig ? $this->mirrorGroupConfig->toArray($noStream) : $this->mirrorGroupConfig;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -46,17 +44,18 @@ class trafficMirrorConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trafficMirrorConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MirrorGroupConfig'])) {
             $model->mirrorGroupConfig = mirrorGroupConfig::fromMap($map['MirrorGroupConfig']);
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

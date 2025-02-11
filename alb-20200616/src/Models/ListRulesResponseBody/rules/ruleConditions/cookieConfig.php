@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\ruleConditions;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\ruleConditions\cookieConfig\values;
-use AlibabaCloud\Tea\Model;
 
 class cookieConfig extends Model
 {
     /**
-     * @description The cookie value.
-     *
      * @var values[]
      */
     public $values;
@@ -21,17 +19,21 @@ class cookieConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->values)) {
+            Model::validateArray($this->values);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->values) {
-            $res['Values'] = [];
-            if (null !== $this->values && \is_array($this->values)) {
-                $n = 0;
-                foreach ($this->values as $item) {
-                    $res['Values'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->values)) {
+                $res['Values'] = [];
+                $n1            = 0;
+                foreach ($this->values as $item1) {
+                    $res['Values'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class cookieConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cookieConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n             = 0;
-                foreach ($map['Values'] as $item) {
-                    $model->values[$n++] = null !== $item ? values::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Values'] as $item1) {
+                    $model->values[$n1++] = values::fromMap($item1);
                 }
             }
         }

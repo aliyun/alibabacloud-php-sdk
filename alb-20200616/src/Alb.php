@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AddEntriesToAclRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AddEntriesToAclResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\AddServersToServerGroupRequest;
@@ -171,12 +170,10 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupServersAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupServersAttributeResponse;
-use AlibabaCloud\Tea\Tea;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Alb extends OpenApiClient
 {
@@ -201,49 +198,59 @@ class Alb extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds IP entries to an access control list (ACL).
-     *  *
-     * @description *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
+     * Adds IP entries to an access control list (ACL).
+     *
+     * @remarks
+     *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
      *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
      *     *   The maximum number of IP entries that each ACL can contain: 1,000
      * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
      *     *   If the ACL is in the **Adding** state, the IP entries are being added.
      *     *   If the ACL is in the **Available** state, the IP entries are added.
-     *  *
-     * @param AddEntriesToAclRequest $request AddEntriesToAclRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddEntriesToAclResponse AddEntriesToAclResponse
+     * @param request - AddEntriesToAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddEntriesToAclResponse
+     *
+     * @param AddEntriesToAclRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddEntriesToAclResponse
      */
     public function addEntriesToAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclEntries)) {
-            $query['AclEntries'] = $request->aclEntries;
+        if (null !== $request->aclEntries) {
+            @$query['AclEntries'] = $request->aclEntries;
         }
-        if (!Utils::isUnset($request->aclId)) {
-            $query['AclId'] = $request->aclId;
+
+        if (null !== $request->aclId) {
+            @$query['AclId'] = $request->aclId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddEntriesToAcl',
@@ -256,23 +263,30 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddEntriesToAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddEntriesToAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddEntriesToAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds IP entries to an access control list (ACL).
-     *  *
-     * @description *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
+     * Adds IP entries to an access control list (ACL).
+     *
+     * @remarks
+     *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
      *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
      *     *   The maximum number of IP entries that each ACL can contain: 1,000
      * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
      *     *   If the ACL is in the **Adding** state, the IP entries are being added.
      *     *   If the ACL is in the **Available** state, the IP entries are added.
-     *  *
-     * @param AddEntriesToAclRequest $request AddEntriesToAclRequest
      *
-     * @return AddEntriesToAclResponse AddEntriesToAclResponse
+     * @param request - AddEntriesToAclRequest
+     * @returns AddEntriesToAclResponse
+     *
+     * @param AddEntriesToAclRequest $request
+     *
+     * @return AddEntriesToAclResponse
      */
     public function addEntriesToAcl($request)
     {
@@ -282,39 +296,48 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Adds backend servers to a server group.
-     *  *
-     * @description **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Adds backend servers to a server group.
+     *
+     * @remarks
+     * *AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
      * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
      * *   If a server group is in the **Available** state, it indicates that the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
      * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
      * *   If a backend server is in the **Available** state, it indicates that the server is running.
-     *  *
-     * @param AddServersToServerGroupRequest $request AddServersToServerGroupRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddServersToServerGroupResponse AddServersToServerGroupResponse
+     * @param request - AddServersToServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddServersToServerGroupResponse
+     *
+     * @param AddServersToServerGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddServersToServerGroupResponse
      */
     public function addServersToServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $query['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$query['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->servers)) {
-            $query['Servers'] = $request->servers;
+
+        if (null !== $request->servers) {
+            @$query['Servers'] = $request->servers;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddServersToServerGroup',
@@ -327,24 +350,31 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddServersToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddServersToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddServersToServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds backend servers to a server group.
-     *  *
-     * @description **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Adds backend servers to a server group.
+     *
+     * @remarks
+     * *AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
      * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
      * *   If a server group is in the **Available** state, it indicates that the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
      * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
      * *   If a backend server is in the **Available** state, it indicates that the server is running.
-     *  *
-     * @param AddServersToServerGroupRequest $request AddServersToServerGroupRequest
      *
-     * @return AddServersToServerGroupResponse AddServersToServerGroupResponse
+     * @param request - AddServersToServerGroupRequest
+     * @returns AddServersToServerGroupResponse
+     *
+     * @param AddServersToServerGroupRequest $request
+     *
+     * @return AddServersToServerGroupResponse
      */
     public function addServersToServerGroup($request)
     {
@@ -354,31 +384,39 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Applies a health check template to a server group.
-     *  *
-     * @param ApplyHealthCheckTemplateToServerGroupRequest $request ApplyHealthCheckTemplateToServerGroupRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Applies a health check template to a server group.
      *
-     * @return ApplyHealthCheckTemplateToServerGroupResponse ApplyHealthCheckTemplateToServerGroupResponse
+     * @param request - ApplyHealthCheckTemplateToServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApplyHealthCheckTemplateToServerGroupResponse
+     *
+     * @param ApplyHealthCheckTemplateToServerGroupRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ApplyHealthCheckTemplateToServerGroupResponse
      */
     public function applyHealthCheckTemplateToServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->healthCheckTemplateId)) {
-            $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
+
+        if (null !== $request->healthCheckTemplateId) {
+            @$query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $query['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$query['ServerGroupId'] = $request->serverGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ApplyHealthCheckTemplateToServerGroup',
@@ -391,16 +429,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ApplyHealthCheckTemplateToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyHealthCheckTemplateToServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyHealthCheckTemplateToServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Applies a health check template to a server group.
-     *  *
-     * @param ApplyHealthCheckTemplateToServerGroupRequest $request ApplyHealthCheckTemplateToServerGroupRequest
+     * Applies a health check template to a server group.
      *
-     * @return ApplyHealthCheckTemplateToServerGroupResponse ApplyHealthCheckTemplateToServerGroupResponse
+     * @param request - ApplyHealthCheckTemplateToServerGroupRequest
+     * @returns ApplyHealthCheckTemplateToServerGroupResponse
+     *
+     * @param ApplyHealthCheckTemplateToServerGroupRequest $request
+     *
+     * @return ApplyHealthCheckTemplateToServerGroupResponse
      */
     public function applyHealthCheckTemplateToServerGroup($request)
     {
@@ -410,38 +454,48 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Associates access control lists (ACLs) with a listener.
-     *  *
-     * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+     * Associates access control lists (ACLs) with a listener.
+     *
+     * @remarks
+     * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
      * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
      * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
-     *  *
-     * @param AssociateAclsWithListenerRequest $request AssociateAclsWithListenerRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateAclsWithListenerResponse AssociateAclsWithListenerResponse
+     * @param request - AssociateAclsWithListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssociateAclsWithListenerResponse
+     *
+     * @param AssociateAclsWithListenerRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AssociateAclsWithListenerResponse
      */
     public function associateAclsWithListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclIds)) {
-            $query['AclIds'] = $request->aclIds;
+        if (null !== $request->aclIds) {
+            @$query['AclIds'] = $request->aclIds;
         }
-        if (!Utils::isUnset($request->aclType)) {
-            $query['AclType'] = $request->aclType;
+
+        if (null !== $request->aclType) {
+            @$query['AclType'] = $request->aclType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AssociateAclsWithListener',
@@ -454,20 +508,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssociateAclsWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssociateAclsWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssociateAclsWithListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates access control lists (ACLs) with a listener.
-     *  *
-     * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+     * Associates access control lists (ACLs) with a listener.
+     *
+     * @remarks
+     * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
      * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
      * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
-     *  *
-     * @param AssociateAclsWithListenerRequest $request AssociateAclsWithListenerRequest
      *
-     * @return AssociateAclsWithListenerResponse AssociateAclsWithListenerResponse
+     * @param request - AssociateAclsWithListenerRequest
+     * @returns AssociateAclsWithListenerResponse
+     *
+     * @param AssociateAclsWithListenerRequest $request
+     *
+     * @return AssociateAclsWithListenerResponse
      */
     public function associateAclsWithListener($request)
     {
@@ -477,35 +538,44 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Associates additional certificates with a listener.
-     *  *
-     * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+     * Associates additional certificates with a listener.
+     *
+     * @remarks
+     * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
      * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
      * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
-     *  *
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
+     * @param request - AssociateAdditionalCertificatesWithListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssociateAdditionalCertificatesWithListenerResponse
+     *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certificates)) {
-            $query['Certificates'] = $request->certificates;
+        if (null !== $request->certificates) {
+            @$query['Certificates'] = $request->certificates;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AssociateAdditionalCertificatesWithListener',
@@ -518,20 +588,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssociateAdditionalCertificatesWithListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates additional certificates with a listener.
-     *  *
-     * @description **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+     * Associates additional certificates with a listener.
+     *
+     * @remarks
+     * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
      * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
      * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
-     *  *
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
+     * @param request - AssociateAdditionalCertificatesWithListenerRequest
+     * @returns AssociateAdditionalCertificatesWithListenerResponse
+     *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request
+     *
+     * @return AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListener($request)
     {
@@ -541,38 +618,48 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
-     *  *
-     * @description **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+     * Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
      * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
      * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
-     *  *
-     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request AttachCommonBandwidthPackageToLoadBalancerRequest
-     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachCommonBandwidthPackageToLoadBalancerResponse AttachCommonBandwidthPackageToLoadBalancerResponse
+     * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
+     *
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
+     * @param RuntimeOptions                                    $runtime
+     *
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
      */
     public function attachCommonBandwidthPackageToLoadBalancerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidthPackageId)) {
-            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        if (null !== $request->bandwidthPackageId) {
+            @$query['BandwidthPackageId'] = $request->bandwidthPackageId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachCommonBandwidthPackageToLoadBalancer',
@@ -585,20 +672,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachCommonBandwidthPackageToLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
-     *  *
-     * @description **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+     * Associates an EIP bandwidth plan with an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * *AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
      * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
      * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
-     *  *
-     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request AttachCommonBandwidthPackageToLoadBalancerRequest
      *
-     * @return AttachCommonBandwidthPackageToLoadBalancerResponse AttachCommonBandwidthPackageToLoadBalancerResponse
+     * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
+     * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
+     *
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
+     *
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
      */
     public function attachCommonBandwidthPackageToLoadBalancer($request)
     {
@@ -608,33 +702,42 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
-     *  *
-     * @description This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
-     *  *
-     * @param CancelShiftLoadBalancerZonesRequest $request CancelShiftLoadBalancerZonesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
      *
-     * @return CancelShiftLoadBalancerZonesResponse CancelShiftLoadBalancerZonesResponse
+     * @remarks
+     * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+     *
+     * @param request - CancelShiftLoadBalancerZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelShiftLoadBalancerZonesResponse
+     *
+     * @param CancelShiftLoadBalancerZonesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CancelShiftLoadBalancerZonesResponse
      */
     public function cancelShiftLoadBalancerZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $query['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$query['ZoneMappings'] = $request->zoneMappings;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelShiftLoadBalancerZones',
@@ -647,18 +750,25 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelShiftLoadBalancerZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
-     *  *
-     * @description This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
-     *  *
-     * @param CancelShiftLoadBalancerZonesRequest $request CancelShiftLoadBalancerZonesRequest
+     * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to a DNS record.
      *
-     * @return CancelShiftLoadBalancerZonesResponse CancelShiftLoadBalancerZonesResponse
+     * @remarks
+     * This operation is supported only by Application Load Balancer (ALB) instances that use static IP addresses. Before you call this operation, you must call the StartShiftLoadBalancerZones operation to remove the zone from the ALB instance.
+     *
+     * @param request - CancelShiftLoadBalancerZonesRequest
+     * @returns CancelShiftLoadBalancerZonesResponse
+     *
+     * @param CancelShiftLoadBalancerZonesRequest $request
+     *
+     * @return CancelShiftLoadBalancerZonesResponse
      */
     public function cancelShiftLoadBalancerZones($request)
     {
@@ -668,38 +778,47 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates AScript rules.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Creates AScript rules.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
      * ### [](#)Usage notes
      * **CreateAScripts** an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of a script.
      * *   If the script is in the **Creating** state, the script is being created.
      * *   If the script is in the **Available**, the script is created.
-     *  *
-     * @param CreateAScriptsRequest $request CreateAScriptsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAScriptsResponse CreateAScriptsResponse
+     * @param request - CreateAScriptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAScriptsResponse
+     *
+     * @param CreateAScriptsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateAScriptsResponse
      */
     public function createAScriptsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AScripts)) {
-            $query['AScripts'] = $request->AScripts;
+        if (null !== $request->AScripts) {
+            @$query['AScripts'] = $request->AScripts;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAScripts',
@@ -712,23 +831,30 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAScriptsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates AScript rules.
-     *  *
-     * @description ### [](#)Prerequisites
+     * Creates AScript rules.
+     *
+     * @remarks
+     * ### [](#)Prerequisites
      * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
      * ### [](#)Usage notes
      * **CreateAScripts** an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of a script.
      * *   If the script is in the **Creating** state, the script is being created.
      * *   If the script is in the **Available**, the script is created.
-     *  *
-     * @param CreateAScriptsRequest $request CreateAScriptsRequest
      *
-     * @return CreateAScriptsResponse CreateAScriptsResponse
+     * @param request - CreateAScriptsRequest
+     * @returns CreateAScriptsResponse
+     *
+     * @param CreateAScriptsRequest $request
+     *
+     * @return CreateAScriptsResponse
      */
     public function createAScripts($request)
     {
@@ -738,39 +864,49 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates an access control list (ACL) in a region.
-     *  *
-     * @description ## Usage notes
+     * Creates an access control list (ACL) in a region.
+     *
+     * @remarks
+     * ## Usage notes
      * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of an ACL:
      * *   If an ACL is in the **Creating** state, the ACL is being created.
      * *   If an ACL is in the **Available** state, the ACL is created.
-     *  *
-     * @param CreateAclRequest $request CreateAclRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAclResponse CreateAclResponse
+     * @param request - CreateAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAclResponse
+     *
+     * @param CreateAclRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateAclResponse
      */
     public function createAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclName)) {
-            $query['AclName'] = $request->aclName;
+        if (null !== $request->aclName) {
+            @$query['AclName'] = $request->aclName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAcl',
@@ -783,21 +919,28 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an access control list (ACL) in a region.
-     *  *
-     * @description ## Usage notes
+     * Creates an access control list (ACL) in a region.
+     *
+     * @remarks
+     * ## Usage notes
      * The **CreateAcl** operation is asynchronous. After you send a request, the system returns a request ID. However, the operation is still being performed in the system background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of an ACL:
      * *   If an ACL is in the **Creating** state, the ACL is being created.
      * *   If an ACL is in the **Available** state, the ACL is created.
-     *  *
-     * @param CreateAclRequest $request CreateAclRequest
      *
-     * @return CreateAclResponse CreateAclResponse
+     * @param request - CreateAclRequest
+     * @returns CreateAclResponse
+     *
+     * @param CreateAclRequest $request
+     *
+     * @return CreateAclResponse
      */
     public function createAcl($request)
     {
@@ -807,64 +950,83 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a health check template in a region.
-     *  *
-     * @param CreateHealthCheckTemplateRequest $request CreateHealthCheckTemplateRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Creates a health check template in a region.
      *
-     * @return CreateHealthCheckTemplateResponse CreateHealthCheckTemplateResponse
+     * @param request - CreateHealthCheckTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateHealthCheckTemplateResponse
+     *
+     * @param CreateHealthCheckTemplateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateHealthCheckTemplateResponse
      */
     public function createHealthCheckTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->healthCheckCodes)) {
-            $query['HealthCheckCodes'] = $request->healthCheckCodes;
+
+        if (null !== $request->healthCheckCodes) {
+            @$query['HealthCheckCodes'] = $request->healthCheckCodes;
         }
-        if (!Utils::isUnset($request->healthCheckConnectPort)) {
-            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+
+        if (null !== $request->healthCheckConnectPort) {
+            @$query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
         }
-        if (!Utils::isUnset($request->healthCheckHost)) {
-            $query['HealthCheckHost'] = $request->healthCheckHost;
+
+        if (null !== $request->healthCheckHost) {
+            @$query['HealthCheckHost'] = $request->healthCheckHost;
         }
-        if (!Utils::isUnset($request->healthCheckHttpVersion)) {
-            $query['HealthCheckHttpVersion'] = $request->healthCheckHttpVersion;
+
+        if (null !== $request->healthCheckHttpVersion) {
+            @$query['HealthCheckHttpVersion'] = $request->healthCheckHttpVersion;
         }
-        if (!Utils::isUnset($request->healthCheckInterval)) {
-            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+
+        if (null !== $request->healthCheckInterval) {
+            @$query['HealthCheckInterval'] = $request->healthCheckInterval;
         }
-        if (!Utils::isUnset($request->healthCheckMethod)) {
-            $query['HealthCheckMethod'] = $request->healthCheckMethod;
+
+        if (null !== $request->healthCheckMethod) {
+            @$query['HealthCheckMethod'] = $request->healthCheckMethod;
         }
-        if (!Utils::isUnset($request->healthCheckPath)) {
-            $query['HealthCheckPath'] = $request->healthCheckPath;
+
+        if (null !== $request->healthCheckPath) {
+            @$query['HealthCheckPath'] = $request->healthCheckPath;
         }
-        if (!Utils::isUnset($request->healthCheckProtocol)) {
-            $query['HealthCheckProtocol'] = $request->healthCheckProtocol;
+
+        if (null !== $request->healthCheckProtocol) {
+            @$query['HealthCheckProtocol'] = $request->healthCheckProtocol;
         }
-        if (!Utils::isUnset($request->healthCheckTemplateName)) {
-            $query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
+
+        if (null !== $request->healthCheckTemplateName) {
+            @$query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
         }
-        if (!Utils::isUnset($request->healthCheckTimeout)) {
-            $query['HealthCheckTimeout'] = $request->healthCheckTimeout;
+
+        if (null !== $request->healthCheckTimeout) {
+            @$query['HealthCheckTimeout'] = $request->healthCheckTimeout;
         }
-        if (!Utils::isUnset($request->healthyThreshold)) {
-            $query['HealthyThreshold'] = $request->healthyThreshold;
+
+        if (null !== $request->healthyThreshold) {
+            @$query['HealthyThreshold'] = $request->healthyThreshold;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->unhealthyThreshold)) {
-            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+
+        if (null !== $request->unhealthyThreshold) {
+            @$query['UnhealthyThreshold'] = $request->unhealthyThreshold;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateHealthCheckTemplate',
@@ -877,16 +1039,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateHealthCheckTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateHealthCheckTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateHealthCheckTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a health check template in a region.
-     *  *
-     * @param CreateHealthCheckTemplateRequest $request CreateHealthCheckTemplateRequest
+     * Creates a health check template in a region.
      *
-     * @return CreateHealthCheckTemplateResponse CreateHealthCheckTemplateResponse
+     * @param request - CreateHealthCheckTemplateRequest
+     * @returns CreateHealthCheckTemplateResponse
+     *
+     * @param CreateHealthCheckTemplateRequest $request
+     *
+     * @return CreateHealthCheckTemplateResponse
      */
     public function createHealthCheckTemplate($request)
     {
@@ -896,78 +1064,101 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a listener.
-     *  *
-     * @description ## Usage notes
+     * Creates a listener.
+     *
+     * @remarks
+     * ## Usage notes
      * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
      * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
      * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
-     *  *
-     * @param CreateListenerRequest $request CreateListenerRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateListenerResponse CreateListenerResponse
+     * @param request - CreateListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateListenerResponse
+     *
+     * @param CreateListenerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateListenerResponse
      */
     public function createListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->caCertificates)) {
-            $query['CaCertificates'] = $request->caCertificates;
+        if (null !== $request->caCertificates) {
+            @$query['CaCertificates'] = $request->caCertificates;
         }
-        if (!Utils::isUnset($request->caEnabled)) {
-            $query['CaEnabled'] = $request->caEnabled;
+
+        if (null !== $request->caEnabled) {
+            @$query['CaEnabled'] = $request->caEnabled;
         }
-        if (!Utils::isUnset($request->certificates)) {
-            $query['Certificates'] = $request->certificates;
+
+        if (null !== $request->certificates) {
+            @$query['Certificates'] = $request->certificates;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->defaultActions)) {
-            $query['DefaultActions'] = $request->defaultActions;
+
+        if (null !== $request->defaultActions) {
+            @$query['DefaultActions'] = $request->defaultActions;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->gzipEnabled)) {
-            $query['GzipEnabled'] = $request->gzipEnabled;
+
+        if (null !== $request->gzipEnabled) {
+            @$query['GzipEnabled'] = $request->gzipEnabled;
         }
-        if (!Utils::isUnset($request->http2Enabled)) {
-            $query['Http2Enabled'] = $request->http2Enabled;
+
+        if (null !== $request->http2Enabled) {
+            @$query['Http2Enabled'] = $request->http2Enabled;
         }
-        if (!Utils::isUnset($request->idleTimeout)) {
-            $query['IdleTimeout'] = $request->idleTimeout;
+
+        if (null !== $request->idleTimeout) {
+            @$query['IdleTimeout'] = $request->idleTimeout;
         }
-        if (!Utils::isUnset($request->listenerDescription)) {
-            $query['ListenerDescription'] = $request->listenerDescription;
+
+        if (null !== $request->listenerDescription) {
+            @$query['ListenerDescription'] = $request->listenerDescription;
         }
-        if (!Utils::isUnset($request->listenerPort)) {
-            $query['ListenerPort'] = $request->listenerPort;
+
+        if (null !== $request->listenerPort) {
+            @$query['ListenerPort'] = $request->listenerPort;
         }
-        if (!Utils::isUnset($request->listenerProtocol)) {
-            $query['ListenerProtocol'] = $request->listenerProtocol;
+
+        if (null !== $request->listenerProtocol) {
+            @$query['ListenerProtocol'] = $request->listenerProtocol;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->quicConfig)) {
-            $query['QuicConfig'] = $request->quicConfig;
+
+        if (null !== $request->quicConfig) {
+            @$query['QuicConfig'] = $request->quicConfig;
         }
-        if (!Utils::isUnset($request->requestTimeout)) {
-            $query['RequestTimeout'] = $request->requestTimeout;
+
+        if (null !== $request->requestTimeout) {
+            @$query['RequestTimeout'] = $request->requestTimeout;
         }
-        if (!Utils::isUnset($request->securityPolicyId)) {
-            $query['SecurityPolicyId'] = $request->securityPolicyId;
+
+        if (null !== $request->securityPolicyId) {
+            @$query['SecurityPolicyId'] = $request->securityPolicyId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->XForwardedForConfig)) {
-            $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+
+        if (null !== $request->XForwardedForConfig) {
+            @$query['XForwardedForConfig'] = $request->XForwardedForConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateListener',
@@ -980,21 +1171,28 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a listener.
-     *  *
-     * @description ## Usage notes
+     * Creates a listener.
+     *
+     * @remarks
+     * ## Usage notes
      * **CreateListener** is an asynchronous operation. After you call this operation, the system returns a request ID. However, the operation is still being performed in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/214353.html) operation to query the status of the HTTP, HTTPS, or QUIC listener.
      * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, it indicates that the listener is being created.
      * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, it indicates that the listener has been created successfully.
-     *  *
-     * @param CreateListenerRequest $request CreateListenerRequest
      *
-     * @return CreateListenerResponse CreateListenerResponse
+     * @param request - CreateListenerRequest
+     * @returns CreateListenerResponse
+     *
+     * @param CreateListenerRequest $request
+     *
+     * @return CreateListenerResponse
      */
     public function createListener($request)
     {
@@ -1004,65 +1202,84 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates an Application Load Balancer (ALB) instance in a region.
-     *  *
-     * @description **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
+     * Creates an Application Load Balancer (ALB) instance in a region.
+     *
+     * @remarks
+     * *CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
      * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
      * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
-     *  *
-     * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
+     * @param request - CreateLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateLoadBalancerResponse
+     *
+     * @param CreateLoadBalancerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateLoadBalancerResponse
      */
     public function createLoadBalancerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressAllocatedMode)) {
-            $query['AddressAllocatedMode'] = $request->addressAllocatedMode;
+        if (null !== $request->addressAllocatedMode) {
+            @$query['AddressAllocatedMode'] = $request->addressAllocatedMode;
         }
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $query['AddressIpVersion'] = $request->addressIpVersion;
+
+        if (null !== $request->addressIpVersion) {
+            @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->addressType)) {
-            $query['AddressType'] = $request->addressType;
+
+        if (null !== $request->addressType) {
+            @$query['AddressType'] = $request->addressType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->deletionProtectionEnabled)) {
-            $query['DeletionProtectionEnabled'] = $request->deletionProtectionEnabled;
+
+        if (null !== $request->deletionProtectionEnabled) {
+            @$query['DeletionProtectionEnabled'] = $request->deletionProtectionEnabled;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerBillingConfig)) {
-            $query['LoadBalancerBillingConfig'] = $request->loadBalancerBillingConfig;
+
+        if (null !== $request->loadBalancerBillingConfig) {
+            @$query['LoadBalancerBillingConfig'] = $request->loadBalancerBillingConfig;
         }
-        if (!Utils::isUnset($request->loadBalancerEdition)) {
-            $query['LoadBalancerEdition'] = $request->loadBalancerEdition;
+
+        if (null !== $request->loadBalancerEdition) {
+            @$query['LoadBalancerEdition'] = $request->loadBalancerEdition;
         }
-        if (!Utils::isUnset($request->loadBalancerName)) {
-            $query['LoadBalancerName'] = $request->loadBalancerName;
+
+        if (null !== $request->loadBalancerName) {
+            @$query['LoadBalancerName'] = $request->loadBalancerName;
         }
-        if (!Utils::isUnset($request->modificationProtectionConfig)) {
-            $query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
+
+        if (null !== $request->modificationProtectionConfig) {
+            @$query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $query['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$query['ZoneMappings'] = $request->zoneMappings;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateLoadBalancer',
@@ -1075,20 +1292,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an Application Load Balancer (ALB) instance in a region.
-     *  *
-     * @description **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
+     * Creates an Application Load Balancer (ALB) instance in a region.
+     *
+     * @remarks
+     * *CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
      * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
      * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
-     *  *
-     * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      *
-     * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
+     * @param request - CreateLoadBalancerRequest
+     * @returns CreateLoadBalancerResponse
+     *
+     * @param CreateLoadBalancerRequest $request
+     *
+     * @return CreateLoadBalancerResponse
      */
     public function createLoadBalancer($request)
     {
@@ -1098,9 +1322,10 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a forwarding rule for a listener.
-     *  *
-     * @description Take note of the following limits:
+     * Creates a forwarding rule for a listener.
+     *
+     * @remarks
+     * Take note of the following limits:
      * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
      * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
      * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule.
@@ -1109,45 +1334,58 @@ class Alb extends OpenApiClient
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
      *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
      *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-     *  *
-     * @param CreateRuleRequest $request CreateRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @param request - CreateRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRuleResponse
+     *
+     * @param CreateRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateRuleResponse
      */
     public function createRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->ruleActions)) {
-            $query['RuleActions'] = $request->ruleActions;
+
+        if (null !== $request->ruleActions) {
+            @$query['RuleActions'] = $request->ruleActions;
         }
-        if (!Utils::isUnset($request->ruleConditions)) {
-            $query['RuleConditions'] = $request->ruleConditions;
+
+        if (null !== $request->ruleConditions) {
+            @$query['RuleConditions'] = $request->ruleConditions;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRule',
@@ -1160,14 +1398,18 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a forwarding rule for a listener.
-     *  *
-     * @description Take note of the following limits:
+     * Creates a forwarding rule for a listener.
+     *
+     * @remarks
+     * Take note of the following limits:
      * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
      * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
      * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule.
@@ -1176,10 +1418,13 @@ class Alb extends OpenApiClient
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
      *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
      *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-     *  *
-     * @param CreateRuleRequest $request CreateRuleRequest
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @param request - CreateRuleRequest
+     * @returns CreateRuleResponse
+     *
+     * @param CreateRuleRequest $request
+     *
+     * @return CreateRuleResponse
      */
     public function createRule($request)
     {
@@ -1189,9 +1434,10 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates multiple forwarding rules at a time.
-     *  *
-     * @description When you call this operation, take note of the following limits:
+     * Creates multiple forwarding rules at a time.
+     *
+     * @remarks
+     * When you call this operation, take note of the following limits:
      * *   When you configure the **Redirect** action, do not use the default values for parameters other than **HttpCode**.
      * *   If you specify multiple actions in a forward rule, you must specify the **ForwardGroup** parameter along with the **Rewrite** parameter.
      * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the forwarding rules.
@@ -1200,34 +1446,43 @@ class Alb extends OpenApiClient
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
      *     *   Conditions: 5 for each basic ALB instance, 10 for each standard ALB instance, and 10 for each WAF-enabled ALB instance.
      *     *   Actions: 3 for each basic ALB instance, 5 for each standard ALB instance, and 5 for each WAF-enabled ALB instance.
-     *  *
-     * @param CreateRulesRequest $request CreateRulesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRulesResponse CreateRulesResponse
+     * @param request - CreateRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRulesResponse
+     *
+     * @param CreateRulesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateRulesResponse
      */
     public function createRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $body     = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->rules)) {
-            $bodyFlat['Rules'] = $request->rules;
+        if (null !== $request->rules) {
+            @$bodyFlat['Rules'] = $request->rules;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRules',
@@ -1240,14 +1495,18 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates multiple forwarding rules at a time.
-     *  *
-     * @description When you call this operation, take note of the following limits:
+     * Creates multiple forwarding rules at a time.
+     *
+     * @remarks
+     * When you call this operation, take note of the following limits:
      * *   When you configure the **Redirect** action, do not use the default values for parameters other than **HttpCode**.
      * *   If you specify multiple actions in a forward rule, you must specify the **ForwardGroup** parameter along with the **Rewrite** parameter.
      * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the forwarding rules.
@@ -1256,10 +1515,13 @@ class Alb extends OpenApiClient
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
      *     *   Conditions: 5 for each basic ALB instance, 10 for each standard ALB instance, and 10 for each WAF-enabled ALB instance.
      *     *   Actions: 3 for each basic ALB instance, 5 for each standard ALB instance, and 5 for each WAF-enabled ALB instance.
-     *  *
-     * @param CreateRulesRequest $request CreateRulesRequest
      *
-     * @return CreateRulesResponse CreateRulesResponse
+     * @param request - CreateRulesRequest
+     * @returns CreateRulesResponse
+     *
+     * @param CreateRulesRequest $request
+     *
+     * @return CreateRulesResponse
      */
     public function createRules($request)
     {
@@ -1269,40 +1531,51 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom security policy in a region.
-     *  *
-     * @param CreateSecurityPolicyRequest $request CreateSecurityPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a custom security policy in a region.
      *
-     * @return CreateSecurityPolicyResponse CreateSecurityPolicyResponse
+     * @param request - CreateSecurityPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSecurityPolicyResponse
+     *
+     * @param CreateSecurityPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateSecurityPolicyResponse
      */
     public function createSecurityPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ciphers)) {
-            $query['Ciphers'] = $request->ciphers;
+        if (null !== $request->ciphers) {
+            @$query['Ciphers'] = $request->ciphers;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityPolicyName)) {
-            $query['SecurityPolicyName'] = $request->securityPolicyName;
+
+        if (null !== $request->securityPolicyName) {
+            @$query['SecurityPolicyName'] = $request->securityPolicyName;
         }
-        if (!Utils::isUnset($request->TLSVersions)) {
-            $query['TLSVersions'] = $request->TLSVersions;
+
+        if (null !== $request->TLSVersions) {
+            @$query['TLSVersions'] = $request->TLSVersions;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSecurityPolicy',
@@ -1315,16 +1588,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom security policy in a region.
-     *  *
-     * @param CreateSecurityPolicyRequest $request CreateSecurityPolicyRequest
+     * Creates a custom security policy in a region.
      *
-     * @return CreateSecurityPolicyResponse CreateSecurityPolicyResponse
+     * @param request - CreateSecurityPolicyRequest
+     * @returns CreateSecurityPolicyResponse
+     *
+     * @param CreateSecurityPolicyRequest $request
+     *
+     * @return CreateSecurityPolicyResponse
      */
     public function createSecurityPolicy($request)
     {
@@ -1334,74 +1613,100 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a server group in a region.
-     *  *
-     * @description **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
+     * Creates a server group in a region.
+     *
+     * @remarks
+     * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
      * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
      * *   If a server group is in the **Available** state, it indicates that the server group is created.
-     *  *
-     * @param CreateServerGroupRequest $request CreateServerGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServerGroupResponse CreateServerGroupResponse
+     * @param request - CreateServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServerGroupResponse
+     *
+     * @param CreateServerGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateServerGroupResponse
      */
     public function createServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionDrainConfig)) {
-            $query['ConnectionDrainConfig'] = $request->connectionDrainConfig;
+
+        if (null !== $request->connectionDrainConfig) {
+            @$query['ConnectionDrainConfig'] = $request->connectionDrainConfig;
         }
-        if (!Utils::isUnset($request->crossZoneEnabled)) {
-            $query['CrossZoneEnabled'] = $request->crossZoneEnabled;
+
+        if (null !== $request->crossZoneEnabled) {
+            @$query['CrossZoneEnabled'] = $request->crossZoneEnabled;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->healthCheckConfig)) {
-            $query['HealthCheckConfig'] = $request->healthCheckConfig;
+
+        if (null !== $request->healthCheckConfig) {
+            @$query['HealthCheckConfig'] = $request->healthCheckConfig;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $query['Protocol'] = $request->protocol;
+
+        if (null !== $request->ipv6Enabled) {
+            @$query['Ipv6Enabled'] = $request->ipv6Enabled;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->scheduler)) {
-            $query['Scheduler'] = $request->scheduler;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serverGroupName)) {
-            $query['ServerGroupName'] = $request->serverGroupName;
+
+        if (null !== $request->scheduler) {
+            @$query['Scheduler'] = $request->scheduler;
         }
-        if (!Utils::isUnset($request->serverGroupType)) {
-            $query['ServerGroupType'] = $request->serverGroupType;
+
+        if (null !== $request->serverGroupName) {
+            @$query['ServerGroupName'] = $request->serverGroupName;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serverGroupType) {
+            @$query['ServerGroupType'] = $request->serverGroupType;
         }
-        if (!Utils::isUnset($request->slowStartConfig)) {
-            $query['SlowStartConfig'] = $request->slowStartConfig;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->stickySessionConfig)) {
-            $query['StickySessionConfig'] = $request->stickySessionConfig;
+
+        if (null !== $request->slowStartConfig) {
+            @$query['SlowStartConfig'] = $request->slowStartConfig;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->stickySessionConfig) {
+            @$query['StickySessionConfig'] = $request->stickySessionConfig;
         }
-        if (!Utils::isUnset($request->uchConfig)) {
-            $query['UchConfig'] = $request->uchConfig;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->upstreamKeepaliveEnabled)) {
-            $query['UpstreamKeepaliveEnabled'] = $request->upstreamKeepaliveEnabled;
+
+        if (null !== $request->uchConfig) {
+            @$query['UchConfig'] = $request->uchConfig;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->upstreamKeepaliveEnabled) {
+            @$query['UpstreamKeepaliveEnabled'] = $request->upstreamKeepaliveEnabled;
         }
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateServerGroup',
@@ -1414,20 +1719,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a server group in a region.
-     *  *
-     * @description **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
+     * Creates a server group in a region.
+     *
+     * @remarks
+     * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) to query the status of a server group.
      * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
      * *   If a server group is in the **Available** state, it indicates that the server group is created.
-     *  *
-     * @param CreateServerGroupRequest $request CreateServerGroupRequest
      *
-     * @return CreateServerGroupResponse CreateServerGroupResponse
+     * @param request - CreateServerGroupRequest
+     * @returns CreateServerGroupResponse
+     *
+     * @param CreateServerGroupRequest $request
+     *
+     * @return CreateServerGroupResponse
      */
     public function createServerGroup($request)
     {
@@ -1437,32 +1749,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes AScript rules.
-     *  *
-     * @description **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
+     * Deletes AScript rules.
+     *
+     * @remarks
+     * *DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
      * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
      * *   If an AScript rule cannot be found, the AScript rule is deleted.
-     *  *
-     * @param DeleteAScriptsRequest $request DeleteAScriptsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAScriptsResponse DeleteAScriptsResponse
+     * @param request - DeleteAScriptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAScriptsResponse
+     *
+     * @param DeleteAScriptsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteAScriptsResponse
      */
     public function deleteAScriptsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AScriptIds)) {
-            $query['AScriptIds'] = $request->AScriptIds;
+        if (null !== $request->AScriptIds) {
+            @$query['AScriptIds'] = $request->AScriptIds;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAScripts',
@@ -1475,20 +1795,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAScriptsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes AScript rules.
-     *  *
-     * @description **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
+     * Deletes AScript rules.
+     *
+     * @remarks
+     * *DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of the task:
      * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
      * *   If an AScript rule cannot be found, the AScript rule is deleted.
-     *  *
-     * @param DeleteAScriptsRequest $request DeleteAScriptsRequest
      *
-     * @return DeleteAScriptsResponse DeleteAScriptsResponse
+     * @param request - DeleteAScriptsRequest
+     * @returns DeleteAScriptsResponse
+     *
+     * @param DeleteAScriptsRequest $request
+     *
+     * @return DeleteAScriptsResponse
      */
     public function deleteAScripts($request)
     {
@@ -1498,32 +1825,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an access control list (ACL).
-     *  *
-     * @description **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
+     * Deletes an access control list (ACL).
+     *
+     * @remarks
+     * *DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
      * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
      * *   If the ACL cannot be found, the ACL is deleted.
-     *  *
-     * @param DeleteAclRequest $request DeleteAclRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAclResponse DeleteAclResponse
+     * @param request - DeleteAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAclResponse
+     *
+     * @param DeleteAclRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteAclResponse
      */
     public function deleteAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclId)) {
-            $query['AclId'] = $request->aclId;
+        if (null !== $request->aclId) {
+            @$query['AclId'] = $request->aclId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAcl',
@@ -1536,20 +1871,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an access control list (ACL).
-     *  *
-     * @description **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
+     * Deletes an access control list (ACL).
+     *
+     * @remarks
+     * *DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](https://help.aliyun.com/document_detail/213617.html) operation to query the status of the task.
      * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
      * *   If the ACL cannot be found, the ACL is deleted.
-     *  *
-     * @param DeleteAclRequest $request DeleteAclRequest
      *
-     * @return DeleteAclResponse DeleteAclResponse
+     * @param request - DeleteAclRequest
+     * @returns DeleteAclResponse
+     *
+     * @param DeleteAclRequest $request
+     *
+     * @return DeleteAclResponse
      */
     public function deleteAcl($request)
     {
@@ -1559,28 +1901,35 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes health check templates.
-     *  *
-     * @param DeleteHealthCheckTemplatesRequest $request DeleteHealthCheckTemplatesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes health check templates.
      *
-     * @return DeleteHealthCheckTemplatesResponse DeleteHealthCheckTemplatesResponse
+     * @param request - DeleteHealthCheckTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteHealthCheckTemplatesResponse
+     *
+     * @param DeleteHealthCheckTemplatesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteHealthCheckTemplatesResponse
      */
     public function deleteHealthCheckTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->healthCheckTemplateIds)) {
-            $query['HealthCheckTemplateIds'] = $request->healthCheckTemplateIds;
+
+        if (null !== $request->healthCheckTemplateIds) {
+            @$query['HealthCheckTemplateIds'] = $request->healthCheckTemplateIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteHealthCheckTemplates',
@@ -1593,16 +1942,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteHealthCheckTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteHealthCheckTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteHealthCheckTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes health check templates.
-     *  *
-     * @param DeleteHealthCheckTemplatesRequest $request DeleteHealthCheckTemplatesRequest
+     * Deletes health check templates.
      *
-     * @return DeleteHealthCheckTemplatesResponse DeleteHealthCheckTemplatesResponse
+     * @param request - DeleteHealthCheckTemplatesRequest
+     * @returns DeleteHealthCheckTemplatesResponse
+     *
+     * @param DeleteHealthCheckTemplatesRequest $request
+     *
+     * @return DeleteHealthCheckTemplatesResponse
      */
     public function deleteHealthCheckTemplates($request)
     {
@@ -1612,32 +1967,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a listener.
-     *  *
-     * @description **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+     * Deletes a listener.
+     *
+     * @remarks
+     * *DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
      * *   If the listener is in the **Deleting** state, the listener is being deleted.
      * *   If the listener cannot be found, the listener is deleted.
-     *  *
-     * @param DeleteListenerRequest $request DeleteListenerRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteListenerResponse DeleteListenerResponse
+     * @param request - DeleteListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteListenerResponse
+     *
+     * @param DeleteListenerRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteListenerResponse
      */
     public function deleteListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteListener',
@@ -1650,20 +2013,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a listener.
-     *  *
-     * @description **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+     * Deletes a listener.
+     *
+     * @remarks
+     * *DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
      * *   If the listener is in the **Deleting** state, the listener is being deleted.
      * *   If the listener cannot be found, the listener is deleted.
-     *  *
-     * @param DeleteListenerRequest $request DeleteListenerRequest
      *
-     * @return DeleteListenerResponse DeleteListenerResponse
+     * @param request - DeleteListenerRequest
+     * @returns DeleteListenerResponse
+     *
+     * @param DeleteListenerRequest $request
+     *
+     * @return DeleteListenerResponse
      */
     public function deleteListener($request)
     {
@@ -1673,32 +2043,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an Application Load Balancer (ALB) instance.
-     *  *
-     * @description **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+     * Deletes an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * *DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
      * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
      * *   If an ALB instance cannot be found, the ALB instance is deleted.
-     *  *
-     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
+     * @param request - DeleteLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteLoadBalancerResponse
+     *
+     * @param DeleteLoadBalancerRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteLoadBalancer',
@@ -1711,20 +2089,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an Application Load Balancer (ALB) instance.
-     *  *
-     * @description **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+     * Deletes an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * *DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
      * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
      * *   If an ALB instance cannot be found, the ALB instance is deleted.
-     *  *
-     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
      *
-     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
+     * @param request - DeleteLoadBalancerRequest
+     * @returns DeleteLoadBalancerResponse
+     *
+     * @param DeleteLoadBalancerRequest $request
+     *
+     * @return DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancer($request)
     {
@@ -1734,32 +2119,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a forwarding rule.
-     *  *
-     * @description **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+     * Deletes a forwarding rule.
+     *
+     * @remarks
+     * *DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
      * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
      * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
-     *  *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @param request - DeleteRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteRule',
@@ -1772,20 +2165,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a forwarding rule.
-     *  *
-     * @description **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+     * Deletes a forwarding rule.
+     *
+     * @remarks
+     * *DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
      * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
      * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
-     *  *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @param request - DeleteRuleRequest
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -1795,32 +2195,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more forwarding rules from a listener at a time.
-     *  *
-     * @description **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
+     * Deletes one or more forwarding rules from a listener at a time.
+     *
+     * @remarks
+     * *DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
      * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
      * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
-     *  *
-     * @param DeleteRulesRequest $request DeleteRulesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRulesResponse DeleteRulesResponse
+     * @param request - DeleteRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRulesResponse
+     *
+     * @param DeleteRulesRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteRulesResponse
      */
     public function deleteRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->ruleIds)) {
-            $query['RuleIds'] = $request->ruleIds;
+
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteRules',
@@ -1833,20 +2241,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes one or more forwarding rules from a listener at a time.
-     *  *
-     * @description **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
+     * Deletes one or more forwarding rules from a listener at a time.
+     *
+     * @remarks
+     * *DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of forwarding rules.
      * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
      * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
-     *  *
-     * @param DeleteRulesRequest $request DeleteRulesRequest
      *
-     * @return DeleteRulesResponse DeleteRulesResponse
+     * @param request - DeleteRulesRequest
+     * @returns DeleteRulesResponse
+     *
+     * @param DeleteRulesRequest $request
+     *
+     * @return DeleteRulesResponse
      */
     public function deleteRules($request)
     {
@@ -1856,28 +2271,35 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom security policy.
-     *  *
-     * @param DeleteSecurityPolicyRequest $request DeleteSecurityPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom security policy.
      *
-     * @return DeleteSecurityPolicyResponse DeleteSecurityPolicyResponse
+     * @param request - DeleteSecurityPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSecurityPolicyResponse
+     *
+     * @param DeleteSecurityPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteSecurityPolicyResponse
      */
     public function deleteSecurityPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->securityPolicyId)) {
-            $query['SecurityPolicyId'] = $request->securityPolicyId;
+
+        if (null !== $request->securityPolicyId) {
+            @$query['SecurityPolicyId'] = $request->securityPolicyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSecurityPolicy',
@@ -1890,16 +2312,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom security policy.
-     *  *
-     * @param DeleteSecurityPolicyRequest $request DeleteSecurityPolicyRequest
+     * Deletes a custom security policy.
      *
-     * @return DeleteSecurityPolicyResponse DeleteSecurityPolicyResponse
+     * @param request - DeleteSecurityPolicyRequest
+     * @returns DeleteSecurityPolicyResponse
+     *
+     * @param DeleteSecurityPolicyRequest $request
+     *
+     * @return DeleteSecurityPolicyResponse
      */
     public function deleteSecurityPolicy($request)
     {
@@ -1909,32 +2337,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a server group.
-     *  *
-     * @description **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
+     * Deletes a server group.
+     *
+     * @remarks
+     * *DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
      * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
      * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
-     *  *
-     * @param DeleteServerGroupRequest $request DeleteServerGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServerGroupResponse DeleteServerGroupResponse
+     * @param request - DeleteServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteServerGroupResponse
+     *
+     * @param DeleteServerGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteServerGroupResponse
      */
     public function deleteServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $query['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$query['ServerGroupId'] = $request->serverGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteServerGroup',
@@ -1947,20 +2383,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a server group.
-     *  *
-     * @description **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
+     * Deletes a server group.
+     *
+     * @remarks
+     * *DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of the task.
      * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
      * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
-     *  *
-     * @param DeleteServerGroupRequest $request DeleteServerGroupRequest
      *
-     * @return DeleteServerGroupResponse DeleteServerGroupResponse
+     * @param request - DeleteServerGroupRequest
+     * @returns DeleteServerGroupResponse
+     *
+     * @param DeleteServerGroupRequest $request
+     *
+     * @return DeleteServerGroupResponse
      */
     public function deleteServerGroup($request)
     {
@@ -1970,22 +2413,27 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries available regions.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries available regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -1998,16 +2446,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries available regions.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries available regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2017,22 +2471,27 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries zones in a region.
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries zones in a region.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeZones',
@@ -2045,16 +2504,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries zones in a region.
-     *  *
-     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * Queries zones in a region.
      *
-     * @return DescribeZonesResponse DescribeZonesResponse
+     * @param request - DescribeZonesRequest
+     * @returns DescribeZonesResponse
+     *
+     * @param DescribeZonesRequest $request
+     *
+     * @return DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -2064,38 +2529,48 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
-     *  *
-     * @description **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
+     * Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
      * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
      * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
-     *  *
-     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request DetachCommonBandwidthPackageFromLoadBalancerRequest
-     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse DetachCommonBandwidthPackageFromLoadBalancerResponse
+     * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
+     *
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
      */
     public function detachCommonBandwidthPackageFromLoadBalancerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidthPackageId)) {
-            $query['BandwidthPackageId'] = $request->bandwidthPackageId;
+        if (null !== $request->bandwidthPackageId) {
+            @$query['BandwidthPackageId'] = $request->bandwidthPackageId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachCommonBandwidthPackageFromLoadBalancer',
@@ -2108,20 +2583,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachCommonBandwidthPackageFromLoadBalancerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
-     *  *
-     * @description **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
+     * Disassociates an elastic IP address (EIP) bandwidth plan from an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * *DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214359.html) operation to query the status of the task.
      * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
      * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
-     *  *
-     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request DetachCommonBandwidthPackageFromLoadBalancerRequest
      *
-     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse DetachCommonBandwidthPackageFromLoadBalancerResponse
+     * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
+     * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
+     *
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
+     *
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
      */
     public function detachCommonBandwidthPackageFromLoadBalancer($request)
     {
@@ -2131,28 +2613,35 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Disables deletion protection for an Application Load Balancer (ALB) instance.
-     *  *
-     * @param DisableDeletionProtectionRequest $request DisableDeletionProtectionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Disables deletion protection for an Application Load Balancer (ALB) instance.
      *
-     * @return DisableDeletionProtectionResponse DisableDeletionProtectionResponse
+     * @param request - DisableDeletionProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableDeletionProtectionResponse
+     *
+     * @param DisableDeletionProtectionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableDeletionProtectionResponse
      */
     public function disableDeletionProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableDeletionProtection',
@@ -2165,16 +2654,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableDeletionProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables deletion protection for an Application Load Balancer (ALB) instance.
-     *  *
-     * @param DisableDeletionProtectionRequest $request DisableDeletionProtectionRequest
+     * Disables deletion protection for an Application Load Balancer (ALB) instance.
      *
-     * @return DisableDeletionProtectionResponse DisableDeletionProtectionResponse
+     * @param request - DisableDeletionProtectionRequest
+     * @returns DisableDeletionProtectionResponse
+     *
+     * @param DisableDeletionProtectionRequest $request
+     *
+     * @return DisableDeletionProtectionResponse
      */
     public function disableDeletionProtection($request)
     {
@@ -2184,28 +2679,35 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Disables the access log feature for a Server Load Balancer (SLB) instance.
-     *  *
-     * @param DisableLoadBalancerAccessLogRequest $request DisableLoadBalancerAccessLogRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Disables the access log feature for a Server Load Balancer (SLB) instance.
      *
-     * @return DisableLoadBalancerAccessLogResponse DisableLoadBalancerAccessLogResponse
+     * @param request - DisableLoadBalancerAccessLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableLoadBalancerAccessLogResponse
+     *
+     * @param DisableLoadBalancerAccessLogRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DisableLoadBalancerAccessLogResponse
      */
     public function disableLoadBalancerAccessLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableLoadBalancerAccessLog',
@@ -2218,16 +2720,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableLoadBalancerAccessLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableLoadBalancerAccessLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableLoadBalancerAccessLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables the access log feature for a Server Load Balancer (SLB) instance.
-     *  *
-     * @param DisableLoadBalancerAccessLogRequest $request DisableLoadBalancerAccessLogRequest
+     * Disables the access log feature for a Server Load Balancer (SLB) instance.
      *
-     * @return DisableLoadBalancerAccessLogResponse DisableLoadBalancerAccessLogResponse
+     * @param request - DisableLoadBalancerAccessLogRequest
+     * @returns DisableLoadBalancerAccessLogResponse
+     *
+     * @param DisableLoadBalancerAccessLogRequest $request
+     *
+     * @return DisableLoadBalancerAccessLogResponse
      */
     public function disableLoadBalancerAccessLog($request)
     {
@@ -2237,9 +2745,10 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
-     *  *
-     * @description ### Prerequisites
+     * Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
+     *
+     * @remarks
+     * ### Prerequisites
      * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
      * > If you set **AddressIpVersion** to **DualStack**:
      * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
@@ -2249,27 +2758,34 @@ class Alb extends OpenApiClient
      * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
      *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
      *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-     *  *
-     * @param DisableLoadBalancerIpv6InternetRequest $request DisableLoadBalancerIpv6InternetRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableLoadBalancerIpv6InternetResponse DisableLoadBalancerIpv6InternetResponse
+     * @param request - DisableLoadBalancerIpv6InternetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableLoadBalancerIpv6InternetResponse
+     *
+     * @param DisableLoadBalancerIpv6InternetRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DisableLoadBalancerIpv6InternetResponse
      */
     public function disableLoadBalancerIpv6InternetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableLoadBalancerIpv6Internet',
@@ -2282,14 +2798,18 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableLoadBalancerIpv6InternetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
-     *  *
-     * @description ### Prerequisites
+     * Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from public to private.
+     *
+     * @remarks
+     * ### Prerequisites
      * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
      * > If you set **AddressIpVersion** to **DualStack**:
      * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
@@ -2299,10 +2819,13 @@ class Alb extends OpenApiClient
      * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
      *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
      *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-     *  *
-     * @param DisableLoadBalancerIpv6InternetRequest $request DisableLoadBalancerIpv6InternetRequest
      *
-     * @return DisableLoadBalancerIpv6InternetResponse DisableLoadBalancerIpv6InternetResponse
+     * @param request - DisableLoadBalancerIpv6InternetRequest
+     * @returns DisableLoadBalancerIpv6InternetResponse
+     *
+     * @param DisableLoadBalancerIpv6InternetRequest $request
+     *
+     * @return DisableLoadBalancerIpv6InternetResponse
      */
     public function disableLoadBalancerIpv6Internet($request)
     {
@@ -2312,35 +2835,44 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates access control lists (ACLs) from a listener.
-     *  *
-     * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+     * Disassociates access control lists (ACLs) from a listener.
+     *
+     * @remarks
+     * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
      * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
      * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
-     *  *
-     * @param DissociateAclsFromListenerRequest $request DissociateAclsFromListenerRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DissociateAclsFromListenerResponse DissociateAclsFromListenerResponse
+     * @param request - DissociateAclsFromListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DissociateAclsFromListenerResponse
+     *
+     * @param DissociateAclsFromListenerRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DissociateAclsFromListenerResponse
      */
     public function dissociateAclsFromListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclIds)) {
-            $query['AclIds'] = $request->aclIds;
+        if (null !== $request->aclIds) {
+            @$query['AclIds'] = $request->aclIds;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DissociateAclsFromListener',
@@ -2353,20 +2885,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DissociateAclsFromListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DissociateAclsFromListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DissociateAclsFromListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates access control lists (ACLs) from a listener.
-     *  *
-     * @description **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
+     * Disassociates access control lists (ACLs) from a listener.
+     *
+     * @remarks
+     * *DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](https://help.aliyun.com/document_detail/213618.html) operation to query the status of the task.
      * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
      * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
-     *  *
-     * @param DissociateAclsFromListenerRequest $request DissociateAclsFromListenerRequest
      *
-     * @return DissociateAclsFromListenerResponse DissociateAclsFromListenerResponse
+     * @param request - DissociateAclsFromListenerRequest
+     * @returns DissociateAclsFromListenerResponse
+     *
+     * @param DissociateAclsFromListenerRequest $request
+     *
+     * @return DissociateAclsFromListenerResponse
      */
     public function dissociateAclsFromListener($request)
     {
@@ -2376,33 +2915,42 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates additional certificates from a listener.
-     *  *
-     * @description **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-     *  *
-     * @param DissociateAdditionalCertificatesFromListenerRequest $request DissociateAdditionalCertificatesFromListenerRequest
-     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
+     * Disassociates additional certificates from a listener.
      *
-     * @return DissociateAdditionalCertificatesFromListenerResponse DissociateAdditionalCertificatesFromListenerResponse
+     * @remarks
+     * *DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+     *
+     * @param request - DissociateAdditionalCertificatesFromListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DissociateAdditionalCertificatesFromListenerResponse
+     *
+     * @param DissociateAdditionalCertificatesFromListenerRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return DissociateAdditionalCertificatesFromListenerResponse
      */
     public function dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certificates)) {
-            $query['Certificates'] = $request->certificates;
+        if (null !== $request->certificates) {
+            @$query['Certificates'] = $request->certificates;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DissociateAdditionalCertificatesFromListener',
@@ -2415,18 +2963,25 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DissociateAdditionalCertificatesFromListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DissociateAdditionalCertificatesFromListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DissociateAdditionalCertificatesFromListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates additional certificates from a listener.
-     *  *
-     * @description **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
-     *  *
-     * @param DissociateAdditionalCertificatesFromListenerRequest $request DissociateAdditionalCertificatesFromListenerRequest
+     * Disassociates additional certificates from a listener.
      *
-     * @return DissociateAdditionalCertificatesFromListenerResponse DissociateAdditionalCertificatesFromListenerResponse
+     * @remarks
+     * *DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/214354.html) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+     *
+     * @param request - DissociateAdditionalCertificatesFromListenerRequest
+     * @returns DissociateAdditionalCertificatesFromListenerResponse
+     *
+     * @param DissociateAdditionalCertificatesFromListenerRequest $request
+     *
+     * @return DissociateAdditionalCertificatesFromListenerResponse
      */
     public function dissociateAdditionalCertificatesFromListener($request)
     {
@@ -2436,28 +2991,35 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Enables deletion protection for a resource.
-     *  *
-     * @param EnableDeletionProtectionRequest $request EnableDeletionProtectionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Enables deletion protection for a resource.
      *
-     * @return EnableDeletionProtectionResponse EnableDeletionProtectionResponse
+     * @param request - EnableDeletionProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableDeletionProtectionResponse
+     *
+     * @param EnableDeletionProtectionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EnableDeletionProtectionResponse
      */
     public function enableDeletionProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableDeletionProtection',
@@ -2470,16 +3032,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableDeletionProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables deletion protection for a resource.
-     *  *
-     * @param EnableDeletionProtectionRequest $request EnableDeletionProtectionRequest
+     * Enables deletion protection for a resource.
      *
-     * @return EnableDeletionProtectionResponse EnableDeletionProtectionResponse
+     * @param request - EnableDeletionProtectionRequest
+     * @returns EnableDeletionProtectionResponse
+     *
+     * @param EnableDeletionProtectionRequest $request
+     *
+     * @return EnableDeletionProtectionResponse
      */
     public function enableDeletionProtection($request)
     {
@@ -2489,34 +3057,43 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Enables the access log feature for an Application Load Balancer (ALB) instance.
-     *  *
-     * @param EnableLoadBalancerAccessLogRequest $request EnableLoadBalancerAccessLogRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Enables the access log feature for an Application Load Balancer (ALB) instance.
      *
-     * @return EnableLoadBalancerAccessLogResponse EnableLoadBalancerAccessLogResponse
+     * @param request - EnableLoadBalancerAccessLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableLoadBalancerAccessLogResponse
+     *
+     * @param EnableLoadBalancerAccessLogRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return EnableLoadBalancerAccessLogResponse
      */
     public function enableLoadBalancerAccessLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->logProject)) {
-            $query['LogProject'] = $request->logProject;
+
+        if (null !== $request->logProject) {
+            @$query['LogProject'] = $request->logProject;
         }
-        if (!Utils::isUnset($request->logStore)) {
-            $query['LogStore'] = $request->logStore;
+
+        if (null !== $request->logStore) {
+            @$query['LogStore'] = $request->logStore;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableLoadBalancerAccessLog',
@@ -2529,16 +3106,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableLoadBalancerAccessLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableLoadBalancerAccessLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableLoadBalancerAccessLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the access log feature for an Application Load Balancer (ALB) instance.
-     *  *
-     * @param EnableLoadBalancerAccessLogRequest $request EnableLoadBalancerAccessLogRequest
+     * Enables the access log feature for an Application Load Balancer (ALB) instance.
      *
-     * @return EnableLoadBalancerAccessLogResponse EnableLoadBalancerAccessLogResponse
+     * @param request - EnableLoadBalancerAccessLogRequest
+     * @returns EnableLoadBalancerAccessLogResponse
+     *
+     * @param EnableLoadBalancerAccessLogRequest $request
+     *
+     * @return EnableLoadBalancerAccessLogResponse
      */
     public function enableLoadBalancerAccessLog($request)
     {
@@ -2548,9 +3131,10 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
-     *  *
-     * @description ### Prerequisites
+     * Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
+     *
+     * @remarks
+     * ### Prerequisites
      * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
      * > If you set **AddressIpVersion** to **DualStack**:
      * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
@@ -2560,27 +3144,34 @@ class Alb extends OpenApiClient
      * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
      *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
      *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-     *  *
-     * @param EnableLoadBalancerIpv6InternetRequest $request EnableLoadBalancerIpv6InternetRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableLoadBalancerIpv6InternetResponse EnableLoadBalancerIpv6InternetResponse
+     * @param request - EnableLoadBalancerIpv6InternetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableLoadBalancerIpv6InternetResponse
+     *
+     * @param EnableLoadBalancerIpv6InternetRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return EnableLoadBalancerIpv6InternetResponse
      */
     public function enableLoadBalancerIpv6InternetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableLoadBalancerIpv6Internet',
@@ -2593,14 +3184,18 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableLoadBalancerIpv6InternetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
-     *  *
-     * @description ### Prerequisites
+     * Changes the type of the IPv6 address that is used by a dual-stack Application Load Balancer (ALB) instance from private to public.
+     *
+     * @remarks
+     * ### Prerequisites
      * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
      * > If you set **AddressIpVersion** to **DualStack**:
      * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
@@ -2610,10 +3205,13 @@ class Alb extends OpenApiClient
      * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
      *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
      *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
-     *  *
-     * @param EnableLoadBalancerIpv6InternetRequest $request EnableLoadBalancerIpv6InternetRequest
      *
-     * @return EnableLoadBalancerIpv6InternetResponse EnableLoadBalancerIpv6InternetResponse
+     * @param request - EnableLoadBalancerIpv6InternetRequest
+     * @returns EnableLoadBalancerIpv6InternetResponse
+     *
+     * @param EnableLoadBalancerIpv6InternetRequest $request
+     *
+     * @return EnableLoadBalancerIpv6InternetResponse
      */
     public function enableLoadBalancerIpv6Internet($request)
     {
@@ -2623,22 +3221,27 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a health check template.
-     *  *
-     * @param GetHealthCheckTemplateAttributeRequest $request GetHealthCheckTemplateAttributeRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the details about a health check template.
      *
-     * @return GetHealthCheckTemplateAttributeResponse GetHealthCheckTemplateAttributeResponse
+     * @param request - GetHealthCheckTemplateAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHealthCheckTemplateAttributeResponse
+     *
+     * @param GetHealthCheckTemplateAttributeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetHealthCheckTemplateAttributeResponse
      */
     public function getHealthCheckTemplateAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->healthCheckTemplateId)) {
-            $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
+        if (null !== $request->healthCheckTemplateId) {
+            @$query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetHealthCheckTemplateAttribute',
@@ -2651,16 +3254,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHealthCheckTemplateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHealthCheckTemplateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHealthCheckTemplateAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about a health check template.
-     *  *
-     * @param GetHealthCheckTemplateAttributeRequest $request GetHealthCheckTemplateAttributeRequest
+     * Queries the details about a health check template.
      *
-     * @return GetHealthCheckTemplateAttributeResponse GetHealthCheckTemplateAttributeResponse
+     * @param request - GetHealthCheckTemplateAttributeRequest
+     * @returns GetHealthCheckTemplateAttributeResponse
+     *
+     * @param GetHealthCheckTemplateAttributeRequest $request
+     *
+     * @return GetHealthCheckTemplateAttributeResponse
      */
     public function getHealthCheckTemplateAttribute($request)
     {
@@ -2670,22 +3279,27 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a listener.
-     *  *
-     * @param GetListenerAttributeRequest $request GetListenerAttributeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details about a listener.
      *
-     * @return GetListenerAttributeResponse GetListenerAttributeResponse
+     * @param request - GetListenerAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetListenerAttributeResponse
+     *
+     * @param GetListenerAttributeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetListenerAttributeResponse
      */
     public function getListenerAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetListenerAttribute',
@@ -2698,16 +3312,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetListenerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about a listener.
-     *  *
-     * @param GetListenerAttributeRequest $request GetListenerAttributeRequest
+     * Queries the details about a listener.
      *
-     * @return GetListenerAttributeResponse GetListenerAttributeResponse
+     * @param request - GetListenerAttributeRequest
+     * @returns GetListenerAttributeResponse
+     *
+     * @param GetListenerAttributeRequest $request
+     *
+     * @return GetListenerAttributeResponse
      */
     public function getListenerAttribute($request)
     {
@@ -2717,31 +3337,39 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the health check status of a listener and its forwarding rules.
-     *  *
-     * @param GetListenerHealthStatusRequest $request GetListenerHealthStatusRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the health check status of a listener and its forwarding rules.
      *
-     * @return GetListenerHealthStatusResponse GetListenerHealthStatusResponse
+     * @param request - GetListenerHealthStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetListenerHealthStatusResponse
+     *
+     * @param GetListenerHealthStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetListenerHealthStatusResponse
      */
     public function getListenerHealthStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->includeRule)) {
-            $query['IncludeRule'] = $request->includeRule;
+        if (null !== $request->includeRule) {
+            @$query['IncludeRule'] = $request->includeRule;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetListenerHealthStatus',
@@ -2754,16 +3382,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetListenerHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetListenerHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetListenerHealthStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the health check status of a listener and its forwarding rules.
-     *  *
-     * @param GetListenerHealthStatusRequest $request GetListenerHealthStatusRequest
+     * Queries the health check status of a listener and its forwarding rules.
      *
-     * @return GetListenerHealthStatusResponse GetListenerHealthStatusResponse
+     * @param request - GetListenerHealthStatusRequest
+     * @returns GetListenerHealthStatusResponse
+     *
+     * @param GetListenerHealthStatusRequest $request
+     *
+     * @return GetListenerHealthStatusResponse
      */
     public function getListenerHealthStatus($request)
     {
@@ -2773,22 +3407,27 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an Application Load Balancer (ALB) instance.
-     *  *
-     * @param GetLoadBalancerAttributeRequest $request GetLoadBalancerAttributeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an Application Load Balancer (ALB) instance.
      *
-     * @return GetLoadBalancerAttributeResponse GetLoadBalancerAttributeResponse
+     * @param request - GetLoadBalancerAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLoadBalancerAttributeResponse
+     *
+     * @param GetLoadBalancerAttributeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetLoadBalancerAttributeResponse
      */
     public function getLoadBalancerAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetLoadBalancerAttribute',
@@ -2801,16 +3440,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLoadBalancerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an Application Load Balancer (ALB) instance.
-     *  *
-     * @param GetLoadBalancerAttributeRequest $request GetLoadBalancerAttributeRequest
+     * Queries the details of an Application Load Balancer (ALB) instance.
      *
-     * @return GetLoadBalancerAttributeResponse GetLoadBalancerAttributeResponse
+     * @param request - GetLoadBalancerAttributeRequest
+     * @returns GetLoadBalancerAttributeResponse
+     *
+     * @param GetLoadBalancerAttributeRequest $request
+     *
+     * @return GetLoadBalancerAttributeResponse
      */
     public function getLoadBalancerAttribute($request)
     {
@@ -2820,34 +3465,43 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries AScript rules.
-     *  *
-     * @param ListAScriptsRequest $request ListAScriptsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries AScript rules.
      *
-     * @return ListAScriptsResponse ListAScriptsResponse
+     * @param request - ListAScriptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAScriptsResponse
+     *
+     * @param ListAScriptsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAScriptsResponse
      */
     public function listAScriptsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AScriptIds)) {
-            $query['AScriptIds'] = $request->AScriptIds;
+        if (null !== $request->AScriptIds) {
+            @$query['AScriptIds'] = $request->AScriptIds;
         }
-        if (!Utils::isUnset($request->AScriptNames)) {
-            $query['AScriptNames'] = $request->AScriptNames;
+
+        if (null !== $request->AScriptNames) {
+            @$query['AScriptNames'] = $request->AScriptNames;
         }
-        if (!Utils::isUnset($request->listenerIds)) {
-            $query['ListenerIds'] = $request->listenerIds;
+
+        if (null !== $request->listenerIds) {
+            @$query['ListenerIds'] = $request->listenerIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAScripts',
@@ -2860,16 +3514,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAScriptsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries AScript rules.
-     *  *
-     * @param ListAScriptsRequest $request ListAScriptsRequest
+     * Queries AScript rules.
      *
-     * @return ListAScriptsResponse ListAScriptsResponse
+     * @param request - ListAScriptsRequest
+     * @returns ListAScriptsResponse
+     *
+     * @param ListAScriptsRequest $request
+     *
+     * @return ListAScriptsResponse
      */
     public function listAScripts($request)
     {
@@ -2879,28 +3539,35 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the entries of an access control list (ACL).
-     *  *
-     * @param ListAclEntriesRequest $request ListAclEntriesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the entries of an access control list (ACL).
      *
-     * @return ListAclEntriesResponse ListAclEntriesResponse
+     * @param request - ListAclEntriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAclEntriesResponse
+     *
+     * @param ListAclEntriesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAclEntriesResponse
      */
     public function listAclEntriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclId)) {
-            $query['AclId'] = $request->aclId;
+        if (null !== $request->aclId) {
+            @$query['AclId'] = $request->aclId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAclEntries',
@@ -2913,16 +3580,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAclEntriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the entries of an access control list (ACL).
-     *  *
-     * @param ListAclEntriesRequest $request ListAclEntriesRequest
+     * Queries the entries of an access control list (ACL).
      *
-     * @return ListAclEntriesResponse ListAclEntriesResponse
+     * @param request - ListAclEntriesRequest
+     * @returns ListAclEntriesResponse
+     *
+     * @param ListAclEntriesRequest $request
+     *
+     * @return ListAclEntriesResponse
      */
     public function listAclEntries($request)
     {
@@ -2932,22 +3605,27 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the listeners that are associated with access control lists (ACLs).
-     *  *
-     * @param ListAclRelationsRequest $request ListAclRelationsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the listeners that are associated with access control lists (ACLs).
      *
-     * @return ListAclRelationsResponse ListAclRelationsResponse
+     * @param request - ListAclRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAclRelationsResponse
+     *
+     * @param ListAclRelationsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAclRelationsResponse
      */
     public function listAclRelationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclIds)) {
-            $query['AclIds'] = $request->aclIds;
+        if (null !== $request->aclIds) {
+            @$query['AclIds'] = $request->aclIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAclRelations',
@@ -2960,16 +3638,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAclRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAclRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAclRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the listeners that are associated with access control lists (ACLs).
-     *  *
-     * @param ListAclRelationsRequest $request ListAclRelationsRequest
+     * Queries the listeners that are associated with access control lists (ACLs).
      *
-     * @return ListAclRelationsResponse ListAclRelationsResponse
+     * @param request - ListAclRelationsRequest
+     * @returns ListAclRelationsResponse
+     *
+     * @param ListAclRelationsRequest $request
+     *
+     * @return ListAclRelationsResponse
      */
     public function listAclRelations($request)
     {
@@ -2979,37 +3663,47 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the access control lists (ACLs) in a region.
-     *  *
-     * @param ListAclsRequest $request ListAclsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the access control lists (ACLs) in a region.
      *
-     * @return ListAclsResponse ListAclsResponse
+     * @param request - ListAclsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAclsResponse
+     *
+     * @param ListAclsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListAclsResponse
      */
     public function listAclsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclIds)) {
-            $query['AclIds'] = $request->aclIds;
+        if (null !== $request->aclIds) {
+            @$query['AclIds'] = $request->aclIds;
         }
-        if (!Utils::isUnset($request->aclNames)) {
-            $query['AclNames'] = $request->aclNames;
+
+        if (null !== $request->aclNames) {
+            @$query['AclNames'] = $request->aclNames;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAcls',
@@ -3022,16 +3716,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAclsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAclsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAclsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the access control lists (ACLs) in a region.
-     *  *
-     * @param ListAclsRequest $request ListAclsRequest
+     * Queries the access control lists (ACLs) in a region.
      *
-     * @return ListAclsResponse ListAclsResponse
+     * @param request - ListAclsRequest
+     * @returns ListAclsResponse
+     *
+     * @param ListAclsRequest $request
+     *
+     * @return ListAclsResponse
      */
     public function listAcls($request)
     {
@@ -3041,43 +3741,55 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries asynchronous tasks in a region.
-     *  *
-     * @param ListAsynJobsRequest $request ListAsynJobsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries asynchronous tasks in a region.
      *
-     * @return ListAsynJobsResponse ListAsynJobsResponse
+     * @param request - ListAsynJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAsynJobsResponse
+     *
+     * @param ListAsynJobsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAsynJobsResponse
      */
     public function listAsynJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiName)) {
-            $query['ApiName'] = $request->apiName;
+        if (null !== $request->apiName) {
+            @$query['ApiName'] = $request->apiName;
         }
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->jobIds)) {
-            $query['JobIds'] = $request->jobIds;
+
+        if (null !== $request->jobIds) {
+            @$query['JobIds'] = $request->jobIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAsynJobs',
@@ -3090,16 +3802,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAsynJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAsynJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAsynJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries asynchronous tasks in a region.
-     *  *
-     * @param ListAsynJobsRequest $request ListAsynJobsRequest
+     * Queries asynchronous tasks in a region.
      *
-     * @return ListAsynJobsResponse ListAsynJobsResponse
+     * @param request - ListAsynJobsRequest
+     * @returns ListAsynJobsResponse
+     *
+     * @param ListAsynJobsRequest $request
+     *
+     * @return ListAsynJobsResponse
      */
     public function listAsynJobs($request)
     {
@@ -3109,34 +3827,43 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries health check templates in a region.
-     *  *
-     * @param ListHealthCheckTemplatesRequest $request ListHealthCheckTemplatesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries health check templates in a region.
      *
-     * @return ListHealthCheckTemplatesResponse ListHealthCheckTemplatesResponse
+     * @param request - ListHealthCheckTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHealthCheckTemplatesResponse
+     *
+     * @param ListHealthCheckTemplatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListHealthCheckTemplatesResponse
      */
     public function listHealthCheckTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->healthCheckTemplateIds)) {
-            $query['HealthCheckTemplateIds'] = $request->healthCheckTemplateIds;
+        if (null !== $request->healthCheckTemplateIds) {
+            @$query['HealthCheckTemplateIds'] = $request->healthCheckTemplateIds;
         }
-        if (!Utils::isUnset($request->healthCheckTemplateNames)) {
-            $query['HealthCheckTemplateNames'] = $request->healthCheckTemplateNames;
+
+        if (null !== $request->healthCheckTemplateNames) {
+            @$query['HealthCheckTemplateNames'] = $request->healthCheckTemplateNames;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListHealthCheckTemplates',
@@ -3149,16 +3876,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHealthCheckTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHealthCheckTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHealthCheckTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries health check templates in a region.
-     *  *
-     * @param ListHealthCheckTemplatesRequest $request ListHealthCheckTemplatesRequest
+     * Queries health check templates in a region.
      *
-     * @return ListHealthCheckTemplatesResponse ListHealthCheckTemplatesResponse
+     * @param request - ListHealthCheckTemplatesRequest
+     * @returns ListHealthCheckTemplatesResponse
+     *
+     * @param ListHealthCheckTemplatesRequest $request
+     *
+     * @return ListHealthCheckTemplatesResponse
      */
     public function listHealthCheckTemplates($request)
     {
@@ -3168,34 +3901,43 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
-     *  *
-     * @param ListListenerCertificatesRequest $request ListListenerCertificatesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
      *
-     * @return ListListenerCertificatesResponse ListListenerCertificatesResponse
+     * @param request - ListListenerCertificatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListListenerCertificatesResponse
+     *
+     * @param ListListenerCertificatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListListenerCertificatesResponse
      */
     public function listListenerCertificatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certificateIds)) {
-            $query['CertificateIds'] = $request->certificateIds;
+        if (null !== $request->certificateIds) {
+            @$query['CertificateIds'] = $request->certificateIds;
         }
-        if (!Utils::isUnset($request->certificateType)) {
-            $query['CertificateType'] = $request->certificateType;
+
+        if (null !== $request->certificateType) {
+            @$query['CertificateType'] = $request->certificateType;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListListenerCertificates',
@@ -3208,16 +3950,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListListenerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListListenerCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListListenerCertificatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
-     *  *
-     * @param ListListenerCertificatesRequest $request ListListenerCertificatesRequest
+     * Queries the certificates that are associated with a listener, including additional certificates and the default certificate.
      *
-     * @return ListListenerCertificatesResponse ListListenerCertificatesResponse
+     * @param request - ListListenerCertificatesRequest
+     * @returns ListListenerCertificatesResponse
+     *
+     * @param ListListenerCertificatesRequest $request
+     *
+     * @return ListListenerCertificatesResponse
      */
     public function listListenerCertificates($request)
     {
@@ -3227,37 +3975,47 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the listeners in a region.
-     *  *
-     * @param ListListenersRequest $request ListListenersRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the listeners in a region.
      *
-     * @return ListListenersResponse ListListenersResponse
+     * @param request - ListListenersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListListenersResponse
+     *
+     * @param ListListenersRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListListenersResponse
      */
     public function listListenersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listenerIds)) {
-            $query['ListenerIds'] = $request->listenerIds;
+        if (null !== $request->listenerIds) {
+            @$query['ListenerIds'] = $request->listenerIds;
         }
-        if (!Utils::isUnset($request->listenerProtocol)) {
-            $query['ListenerProtocol'] = $request->listenerProtocol;
+
+        if (null !== $request->listenerProtocol) {
+            @$query['ListenerProtocol'] = $request->listenerProtocol;
         }
-        if (!Utils::isUnset($request->loadBalancerIds)) {
-            $query['LoadBalancerIds'] = $request->loadBalancerIds;
+
+        if (null !== $request->loadBalancerIds) {
+            @$query['LoadBalancerIds'] = $request->loadBalancerIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListListeners',
@@ -3270,16 +4028,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListListenersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListListenersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListListenersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the listeners in a region.
-     *  *
-     * @param ListListenersRequest $request ListListenersRequest
+     * Queries the listeners in a region.
      *
-     * @return ListListenersResponse ListListenersResponse
+     * @param request - ListListenersRequest
+     * @returns ListListenersResponse
+     *
+     * @param ListListenersRequest $request
+     *
+     * @return ListListenersResponse
      */
     public function listListeners($request)
     {
@@ -3289,64 +4053,83 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of instances.
-     *  *
-     * @param ListLoadBalancersRequest $request ListLoadBalancersRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of instances.
      *
-     * @return ListLoadBalancersResponse ListLoadBalancersResponse
+     * @param request - ListLoadBalancersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLoadBalancersResponse
+     *
+     * @param ListLoadBalancersRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListLoadBalancersResponse
      */
     public function listLoadBalancersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressIpVersion)) {
-            $query['AddressIpVersion'] = $request->addressIpVersion;
+        if (null !== $request->addressIpVersion) {
+            @$query['AddressIpVersion'] = $request->addressIpVersion;
         }
-        if (!Utils::isUnset($request->addressType)) {
-            $query['AddressType'] = $request->addressType;
+
+        if (null !== $request->addressType) {
+            @$query['AddressType'] = $request->addressType;
         }
-        if (!Utils::isUnset($request->DNSName)) {
-            $query['DNSName'] = $request->DNSName;
+
+        if (null !== $request->DNSName) {
+            @$query['DNSName'] = $request->DNSName;
         }
-        if (!Utils::isUnset($request->ipv6AddressType)) {
-            $query['Ipv6AddressType'] = $request->ipv6AddressType;
+
+        if (null !== $request->ipv6AddressType) {
+            @$query['Ipv6AddressType'] = $request->ipv6AddressType;
         }
-        if (!Utils::isUnset($request->loadBalancerBussinessStatus)) {
-            $query['LoadBalancerBussinessStatus'] = $request->loadBalancerBussinessStatus;
+
+        if (null !== $request->loadBalancerBussinessStatus) {
+            @$query['LoadBalancerBussinessStatus'] = $request->loadBalancerBussinessStatus;
         }
-        if (!Utils::isUnset($request->loadBalancerIds)) {
-            $query['LoadBalancerIds'] = $request->loadBalancerIds;
+
+        if (null !== $request->loadBalancerIds) {
+            @$query['LoadBalancerIds'] = $request->loadBalancerIds;
         }
-        if (!Utils::isUnset($request->loadBalancerNames)) {
-            $query['LoadBalancerNames'] = $request->loadBalancerNames;
+
+        if (null !== $request->loadBalancerNames) {
+            @$query['LoadBalancerNames'] = $request->loadBalancerNames;
         }
-        if (!Utils::isUnset($request->loadBalancerStatus)) {
-            $query['LoadBalancerStatus'] = $request->loadBalancerStatus;
+
+        if (null !== $request->loadBalancerStatus) {
+            @$query['LoadBalancerStatus'] = $request->loadBalancerStatus;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpcIds)) {
-            $query['VpcIds'] = $request->vpcIds;
+
+        if (null !== $request->vpcIds) {
+            @$query['VpcIds'] = $request->vpcIds;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListLoadBalancers',
@@ -3359,16 +4142,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLoadBalancersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of instances.
-     *  *
-     * @param ListLoadBalancersRequest $request ListLoadBalancersRequest
+     * Queries the configurations of instances.
      *
-     * @return ListLoadBalancersResponse ListLoadBalancersResponse
+     * @param request - ListLoadBalancersRequest
+     * @returns ListLoadBalancersResponse
+     *
+     * @param ListLoadBalancersRequest $request
+     *
+     * @return ListLoadBalancersResponse
      */
     public function listLoadBalancers($request)
     {
@@ -3378,40 +4167,51 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the forwarding rules in a region.
-     *  *
-     * @param ListRulesRequest $request ListRulesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the forwarding rules in a region.
      *
-     * @return ListRulesResponse ListRulesResponse
+     * @param request - ListRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRulesResponse
+     *
+     * @param ListRulesRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListRulesResponse
      */
     public function listRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->listenerIds)) {
-            $query['ListenerIds'] = $request->listenerIds;
+
+        if (null !== $request->listenerIds) {
+            @$query['ListenerIds'] = $request->listenerIds;
         }
-        if (!Utils::isUnset($request->loadBalancerIds)) {
-            $query['LoadBalancerIds'] = $request->loadBalancerIds;
+
+        if (null !== $request->loadBalancerIds) {
+            @$query['LoadBalancerIds'] = $request->loadBalancerIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->ruleIds)) {
-            $query['RuleIds'] = $request->ruleIds;
+
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRules',
@@ -3424,16 +4224,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the forwarding rules in a region.
-     *  *
-     * @param ListRulesRequest $request ListRulesRequest
+     * Queries the forwarding rules in a region.
      *
-     * @return ListRulesResponse ListRulesResponse
+     * @param request - ListRulesRequest
+     * @returns ListRulesResponse
+     *
+     * @param ListRulesRequest $request
+     *
+     * @return ListRulesResponse
      */
     public function listRules($request)
     {
@@ -3443,37 +4249,47 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries custom security policies in a region.
-     *  *
-     * @param ListSecurityPoliciesRequest $request ListSecurityPoliciesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries custom security policies in a region.
      *
-     * @return ListSecurityPoliciesResponse ListSecurityPoliciesResponse
+     * @param request - ListSecurityPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSecurityPoliciesResponse
+     *
+     * @param ListSecurityPoliciesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSecurityPoliciesResponse
      */
     public function listSecurityPoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityPolicyIds)) {
-            $query['SecurityPolicyIds'] = $request->securityPolicyIds;
+
+        if (null !== $request->securityPolicyIds) {
+            @$query['SecurityPolicyIds'] = $request->securityPolicyIds;
         }
-        if (!Utils::isUnset($request->securityPolicyNames)) {
-            $query['SecurityPolicyNames'] = $request->securityPolicyNames;
+
+        if (null !== $request->securityPolicyNames) {
+            @$query['SecurityPolicyNames'] = $request->securityPolicyNames;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSecurityPolicies',
@@ -3486,16 +4302,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSecurityPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSecurityPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSecurityPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries custom security policies in a region.
-     *  *
-     * @param ListSecurityPoliciesRequest $request ListSecurityPoliciesRequest
+     * Queries custom security policies in a region.
      *
-     * @return ListSecurityPoliciesResponse ListSecurityPoliciesResponse
+     * @param request - ListSecurityPoliciesRequest
+     * @returns ListSecurityPoliciesResponse
+     *
+     * @param ListSecurityPoliciesRequest $request
+     *
+     * @return ListSecurityPoliciesResponse
      */
     public function listSecurityPolicies($request)
     {
@@ -3505,22 +4327,27 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the listeners that are associated with security policies.
-     *  *
-     * @param ListSecurityPolicyRelationsRequest $request ListSecurityPolicyRelationsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the listeners that are associated with security policies.
      *
-     * @return ListSecurityPolicyRelationsResponse ListSecurityPolicyRelationsResponse
+     * @param request - ListSecurityPolicyRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSecurityPolicyRelationsResponse
+     *
+     * @param ListSecurityPolicyRelationsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListSecurityPolicyRelationsResponse
      */
     public function listSecurityPolicyRelationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->securityPolicyIds)) {
-            $query['SecurityPolicyIds'] = $request->securityPolicyIds;
+        if (null !== $request->securityPolicyIds) {
+            @$query['SecurityPolicyIds'] = $request->securityPolicyIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSecurityPolicyRelations',
@@ -3533,16 +4360,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSecurityPolicyRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSecurityPolicyRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSecurityPolicyRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the listeners that are associated with security policies.
-     *  *
-     * @param ListSecurityPolicyRelationsRequest $request ListSecurityPolicyRelationsRequest
+     * Queries the listeners that are associated with security policies.
      *
-     * @return ListSecurityPolicyRelationsResponse ListSecurityPolicyRelationsResponse
+     * @param request - ListSecurityPolicyRelationsRequest
+     * @returns ListSecurityPolicyRelationsResponse
+     *
+     * @param ListSecurityPolicyRelationsRequest $request
+     *
+     * @return ListSecurityPolicyRelationsResponse
      */
     public function listSecurityPolicyRelations($request)
     {
@@ -3552,34 +4385,43 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries servers in a server group.
-     *  *
-     * @param ListServerGroupServersRequest $request ListServerGroupServersRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries servers in a server group.
      *
-     * @return ListServerGroupServersResponse ListServerGroupServersResponse
+     * @param request - ListServerGroupServersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServerGroupServersResponse
+     *
+     * @param ListServerGroupServersRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListServerGroupServersResponse
      */
     public function listServerGroupServersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $query['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$query['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->serverIds)) {
-            $query['ServerIds'] = $request->serverIds;
+
+        if (null !== $request->serverIds) {
+            @$query['ServerIds'] = $request->serverIds;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListServerGroupServers',
@@ -3592,16 +4434,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServerGroupServersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListServerGroupServersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServerGroupServersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries servers in a server group.
-     *  *
-     * @param ListServerGroupServersRequest $request ListServerGroupServersRequest
+     * Queries servers in a server group.
      *
-     * @return ListServerGroupServersResponse ListServerGroupServersResponse
+     * @param request - ListServerGroupServersRequest
+     * @returns ListServerGroupServersResponse
+     *
+     * @param ListServerGroupServersRequest $request
+     *
+     * @return ListServerGroupServersResponse
      */
     public function listServerGroupServers($request)
     {
@@ -3611,43 +4459,55 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries server groups.
-     *  *
-     * @param ListServerGroupsRequest $request ListServerGroupsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries server groups.
      *
-     * @return ListServerGroupsResponse ListServerGroupsResponse
+     * @param request - ListServerGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServerGroupsResponse
+     *
+     * @param ListServerGroupsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListServerGroupsResponse
      */
     public function listServerGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serverGroupIds)) {
-            $query['ServerGroupIds'] = $request->serverGroupIds;
+
+        if (null !== $request->serverGroupIds) {
+            @$query['ServerGroupIds'] = $request->serverGroupIds;
         }
-        if (!Utils::isUnset($request->serverGroupNames)) {
-            $query['ServerGroupNames'] = $request->serverGroupNames;
+
+        if (null !== $request->serverGroupNames) {
+            @$query['ServerGroupNames'] = $request->serverGroupNames;
         }
-        if (!Utils::isUnset($request->serverGroupType)) {
-            $query['ServerGroupType'] = $request->serverGroupType;
+
+        if (null !== $request->serverGroupType) {
+            @$query['ServerGroupType'] = $request->serverGroupType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListServerGroups',
@@ -3660,16 +4520,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries server groups.
-     *  *
-     * @param ListServerGroupsRequest $request ListServerGroupsRequest
+     * Queries server groups.
      *
-     * @return ListServerGroupsResponse ListServerGroupsResponse
+     * @param request - ListServerGroupsRequest
+     * @returns ListServerGroupsResponse
+     *
+     * @param ListServerGroupsRequest $request
+     *
+     * @return ListServerGroupsResponse
      */
     public function listServerGroups($request)
     {
@@ -3679,11 +4545,15 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries system security policies in a region.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries system security policies in a region.
      *
-     * @return ListSystemSecurityPoliciesResponse ListSystemSecurityPoliciesResponse
+     * @param request - ListSystemSecurityPoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSystemSecurityPoliciesResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListSystemSecurityPoliciesResponse
      */
     public function listSystemSecurityPoliciesWithOptions($runtime)
     {
@@ -3699,14 +4569,19 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSystemSecurityPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSystemSecurityPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSystemSecurityPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries system security policies in a region.
-     *  *
-     * @return ListSystemSecurityPoliciesResponse ListSystemSecurityPoliciesResponse
+     * Queries system security policies in a region.
+     *
+     * @returns ListSystemSecurityPoliciesResponse
+     *
+     * @return ListSystemSecurityPoliciesResponse
      */
     public function listSystemSecurityPolicies()
     {
@@ -3716,34 +4591,43 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries tag keys.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries tag keys.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @param request - ListTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagKeys',
@@ -3756,16 +4640,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tag keys.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * Queries tag keys.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @param request - ListTagKeysRequest
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -3775,34 +4665,43 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags of resources.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the tags of resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -3815,16 +4714,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tags of resources.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries the tags of resources.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3834,34 +4739,43 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Queries tag values.
-     *  *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries tag values.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @param request - ListTagValuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagValues',
@@ -3874,16 +4788,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tag values.
-     *  *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * Queries tag values.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @param request - ListTagValuesRequest
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -3893,39 +4813,48 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Adds an Application Load Balancer (ALB) instance to a security group.
-     *  *
-     * @description *   By default, security groups are unavailable. To use security groups, contact your account manager.
+     * Adds an Application Load Balancer (ALB) instance to a security group.
+     *
+     * @remarks
+     *   By default, security groups are unavailable. To use security groups, contact your account manager.
      * *   Make sure that a security group is created. For more information about how to create security groups, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/2679843.html).
      * *   Each ALB instance can be added to at most four security groups.
      * *   To query the security groups of an ALB instance, call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/2254835.html) operation.
      * *   GetLoadBalancerAttribute is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
      *     *   If the task is in the Succeeded state, the ALB instance is added to the security group.
      *     *   If the task is in the Processing state, the ALB instance is being added to the security group. In this case, you can query the task but cannot perform other operations.
-     *  *
-     * @param LoadBalancerJoinSecurityGroupRequest $request LoadBalancerJoinSecurityGroupRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return LoadBalancerJoinSecurityGroupResponse LoadBalancerJoinSecurityGroupResponse
+     * @param request - LoadBalancerJoinSecurityGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LoadBalancerJoinSecurityGroupResponse
+     *
+     * @param LoadBalancerJoinSecurityGroupRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return LoadBalancerJoinSecurityGroupResponse
      */
     public function loadBalancerJoinSecurityGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->securityGroupIds)) {
-            $query['SecurityGroupIds'] = $request->securityGroupIds;
+
+        if (null !== $request->securityGroupIds) {
+            @$query['SecurityGroupIds'] = $request->securityGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'LoadBalancerJoinSecurityGroup',
@@ -3938,24 +4867,31 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LoadBalancerJoinSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LoadBalancerJoinSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LoadBalancerJoinSecurityGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an Application Load Balancer (ALB) instance to a security group.
-     *  *
-     * @description *   By default, security groups are unavailable. To use security groups, contact your account manager.
+     * Adds an Application Load Balancer (ALB) instance to a security group.
+     *
+     * @remarks
+     *   By default, security groups are unavailable. To use security groups, contact your account manager.
      * *   Make sure that a security group is created. For more information about how to create security groups, see [CreateSecurityGroup](https://help.aliyun.com/document_detail/2679843.html).
      * *   Each ALB instance can be added to at most four security groups.
      * *   To query the security groups of an ALB instance, call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/2254835.html) operation.
      * *   GetLoadBalancerAttribute is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
      *     *   If the task is in the Succeeded state, the ALB instance is added to the security group.
      *     *   If the task is in the Processing state, the ALB instance is being added to the security group. In this case, you can query the task but cannot perform other operations.
-     *  *
-     * @param LoadBalancerJoinSecurityGroupRequest $request LoadBalancerJoinSecurityGroupRequest
      *
-     * @return LoadBalancerJoinSecurityGroupResponse LoadBalancerJoinSecurityGroupResponse
+     * @param request - LoadBalancerJoinSecurityGroupRequest
+     * @returns LoadBalancerJoinSecurityGroupResponse
+     *
+     * @param LoadBalancerJoinSecurityGroupRequest $request
+     *
+     * @return LoadBalancerJoinSecurityGroupResponse
      */
     public function loadBalancerJoinSecurityGroup($request)
     {
@@ -3965,35 +4901,44 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Removes an Application Load Balancer (ALB) instance from a security group.
-     *  *
-     * @description *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
+     * Removes an Application Load Balancer (ALB) instance from a security group.
+     *
+     * @remarks
+     *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
      *     *   If the task is in the Succeeded state, the ALB instance is removed from the security group.
      *     *   If the task is in the Processing state, the ALB instance is being removed from the security group. In this case, you can query the task but cannot perform other operations.
-     *  *
-     * @param LoadBalancerLeaveSecurityGroupRequest $request LoadBalancerLeaveSecurityGroupRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return LoadBalancerLeaveSecurityGroupResponse LoadBalancerLeaveSecurityGroupResponse
+     * @param request - LoadBalancerLeaveSecurityGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LoadBalancerLeaveSecurityGroupResponse
+     *
+     * @param LoadBalancerLeaveSecurityGroupRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return LoadBalancerLeaveSecurityGroupResponse
      */
     public function loadBalancerLeaveSecurityGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->securityGroupIds)) {
-            $query['SecurityGroupIds'] = $request->securityGroupIds;
+
+        if (null !== $request->securityGroupIds) {
+            @$query['SecurityGroupIds'] = $request->securityGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'LoadBalancerLeaveSecurityGroup',
@@ -4006,20 +4951,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LoadBalancerLeaveSecurityGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes an Application Load Balancer (ALB) instance from a security group.
-     *  *
-     * @description *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
+     * Removes an Application Load Balancer (ALB) instance from a security group.
+     *
+     * @remarks
+     *   LoadBalancerLeaveSecurityGroup is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAsynJobs](https://help.aliyun.com/document_detail/2254893.html) operation to query the status of the task.
      *     *   If the task is in the Succeeded state, the ALB instance is removed from the security group.
      *     *   If the task is in the Processing state, the ALB instance is being removed from the security group. In this case, you can query the task but cannot perform other operations.
-     *  *
-     * @param LoadBalancerLeaveSecurityGroupRequest $request LoadBalancerLeaveSecurityGroupRequest
      *
-     * @return LoadBalancerLeaveSecurityGroupResponse LoadBalancerLeaveSecurityGroupResponse
+     * @param request - LoadBalancerLeaveSecurityGroupRequest
+     * @returns LoadBalancerLeaveSecurityGroupResponse
+     *
+     * @param LoadBalancerLeaveSecurityGroupRequest $request
+     *
+     * @return LoadBalancerLeaveSecurityGroupResponse
      */
     public function loadBalancerLeaveSecurityGroup($request)
     {
@@ -4029,28 +4981,35 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Moves a resource to another resource group.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Moves a resource to another resource group.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MoveResourceGroup',
@@ -4063,16 +5022,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Moves a resource to another resource group.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * Moves a resource to another resource group.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -4082,35 +5047,44 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Removes entries from an access control list (ACL).
-     *  *
-     * @description **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
+     * Removes entries from an access control list (ACL).
+     *
+     * @remarks
+     * *RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
      * *   If an ACL is in the **Removing** state, the entries are being removed.
      * *   If an ACL cannot be found, the entries are removed.
-     *  *
-     * @param RemoveEntriesFromAclRequest $request RemoveEntriesFromAclRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveEntriesFromAclResponse RemoveEntriesFromAclResponse
+     * @param request - RemoveEntriesFromAclRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveEntriesFromAclResponse
+     *
+     * @param RemoveEntriesFromAclRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RemoveEntriesFromAclResponse
      */
     public function removeEntriesFromAclWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclId)) {
-            $query['AclId'] = $request->aclId;
+        if (null !== $request->aclId) {
+            @$query['AclId'] = $request->aclId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->entries)) {
-            $query['Entries'] = $request->entries;
+
+        if (null !== $request->entries) {
+            @$query['Entries'] = $request->entries;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveEntriesFromAcl',
@@ -4123,20 +5097,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveEntriesFromAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveEntriesFromAclResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveEntriesFromAclResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes entries from an access control list (ACL).
-     *  *
-     * @description **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
+     * Removes entries from an access control list (ACL).
+     *
+     * @remarks
+     * *RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](https://help.aliyun.com/document_detail/213616.html) operation to query the status of the task.
      * *   If an ACL is in the **Removing** state, the entries are being removed.
      * *   If an ACL cannot be found, the entries are removed.
-     *  *
-     * @param RemoveEntriesFromAclRequest $request RemoveEntriesFromAclRequest
      *
-     * @return RemoveEntriesFromAclResponse RemoveEntriesFromAclResponse
+     * @param request - RemoveEntriesFromAclRequest
+     * @returns RemoveEntriesFromAclResponse
+     *
+     * @param RemoveEntriesFromAclRequest $request
+     *
+     * @return RemoveEntriesFromAclResponse
      */
     public function removeEntriesFromAcl($request)
     {
@@ -4146,39 +5127,48 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Removes backend servers from a server group.
-     *  *
-     * @description **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Removes backend servers from a server group.
+     *
+     * @remarks
+     * *RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
      *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
      *     *   If a server group is in the **Available** state, it indicates that the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
      *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
      *     *   If a backend server cannot be found, the server is no longer in the server group.
-     *  *
-     * @param RemoveServersFromServerGroupRequest $request RemoveServersFromServerGroupRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveServersFromServerGroupResponse RemoveServersFromServerGroupResponse
+     * @param request - RemoveServersFromServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveServersFromServerGroupResponse
+     *
+     * @param RemoveServersFromServerGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return RemoveServersFromServerGroupResponse
      */
     public function removeServersFromServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $query['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$query['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->servers)) {
-            $query['Servers'] = $request->servers;
+
+        if (null !== $request->servers) {
+            @$query['Servers'] = $request->servers;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveServersFromServerGroup',
@@ -4191,24 +5181,31 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveServersFromServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveServersFromServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveServersFromServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes backend servers from a server group.
-     *  *
-     * @description **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Removes backend servers from a server group.
+     *
+     * @remarks
+     * *RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
      *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
      *     *   If a server group is in the **Available** state, it indicates that the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
      *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
      *     *   If a backend server cannot be found, the server is no longer in the server group.
-     *  *
-     * @param RemoveServersFromServerGroupRequest $request RemoveServersFromServerGroupRequest
      *
-     * @return RemoveServersFromServerGroupResponse RemoveServersFromServerGroupResponse
+     * @param request - RemoveServersFromServerGroupRequest
+     * @returns RemoveServersFromServerGroupResponse
+     *
+     * @param RemoveServersFromServerGroupRequest $request
+     *
+     * @return RemoveServersFromServerGroupResponse
      */
     public function removeServersFromServerGroup($request)
     {
@@ -4218,42 +5215,52 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Replaces backend servers in a server group.
-     *  *
-     * @description **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Replaces backend servers in a server group.
+     *
+     * @remarks
+     * *ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
      *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
      *     *   If a server group is in the **Available** state, it indicates that the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
      *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
      *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
-     *  *
-     * @param ReplaceServersInServerGroupRequest $request ReplaceServersInServerGroupRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReplaceServersInServerGroupResponse ReplaceServersInServerGroupResponse
+     * @param request - ReplaceServersInServerGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReplaceServersInServerGroupResponse
+     *
+     * @param ReplaceServersInServerGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ReplaceServersInServerGroupResponse
      */
     public function replaceServersInServerGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addedServers)) {
-            $query['AddedServers'] = $request->addedServers;
+        if (null !== $request->addedServers) {
+            @$query['AddedServers'] = $request->addedServers;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->removedServers)) {
-            $query['RemovedServers'] = $request->removedServers;
+
+        if (null !== $request->removedServers) {
+            @$query['RemovedServers'] = $request->removedServers;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $query['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$query['ServerGroupId'] = $request->serverGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReplaceServersInServerGroup',
@@ -4266,24 +5273,31 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReplaceServersInServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReplaceServersInServerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReplaceServersInServerGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Replaces backend servers in a server group.
-     *  *
-     * @description **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Replaces backend servers in a server group.
+     *
+     * @remarks
+     * *ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
      *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
      *     *   If a server group is in the **Available** state, it indicates that the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
      *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
      *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
-     *  *
-     * @param ReplaceServersInServerGroupRequest $request ReplaceServersInServerGroupRequest
      *
-     * @return ReplaceServersInServerGroupResponse ReplaceServersInServerGroupResponse
+     * @param request - ReplaceServersInServerGroupRequest
+     * @returns ReplaceServersInServerGroupResponse
+     *
+     * @param ReplaceServersInServerGroupRequest $request
+     *
+     * @return ReplaceServersInServerGroupResponse
      */
     public function replaceServersInServerGroup($request)
     {
@@ -4293,32 +5307,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Enables a listener.
-     *  *
-     * @description **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+     * Enables a listener.
+     *
+     * @remarks
+     * *StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
      * *   If a listener is in the **Configuring** state, the listener is being enabled.
      * *   If a listener is in the **Running** state, the listener is enabled.
-     *  *
-     * @param StartListenerRequest $request StartListenerRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartListenerResponse StartListenerResponse
+     * @param request - StartListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartListenerResponse
+     *
+     * @param StartListenerRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StartListenerResponse
      */
     public function startListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartListener',
@@ -4331,20 +5353,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables a listener.
-     *  *
-     * @description **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
+     * Enables a listener.
+     *
+     * @remarks
+     * *StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task.
      * *   If a listener is in the **Configuring** state, the listener is being enabled.
      * *   If a listener is in the **Running** state, the listener is enabled.
-     *  *
-     * @param StartListenerRequest $request StartListenerRequest
      *
-     * @return StartListenerResponse StartListenerResponse
+     * @param request - StartListenerRequest
+     * @returns StartListenerResponse
+     *
+     * @param StartListenerRequest $request
+     *
+     * @return StartListenerResponse
      */
     public function startListener($request)
     {
@@ -4354,33 +5383,42 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
-     *  *
-     * @description This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
-     *  *
-     * @param StartShiftLoadBalancerZonesRequest $request StartShiftLoadBalancerZonesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
      *
-     * @return StartShiftLoadBalancerZonesResponse StartShiftLoadBalancerZonesResponse
+     * @remarks
+     * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+     *
+     * @param request - StartShiftLoadBalancerZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartShiftLoadBalancerZonesResponse
+     *
+     * @param StartShiftLoadBalancerZonesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return StartShiftLoadBalancerZonesResponse
      */
     public function startShiftLoadBalancerZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $query['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$query['ZoneMappings'] = $request->zoneMappings;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartShiftLoadBalancerZones',
@@ -4393,18 +5431,25 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartShiftLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartShiftLoadBalancerZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
-     *  *
-     * @description This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
-     *  *
-     * @param StartShiftLoadBalancerZonesRequest $request StartShiftLoadBalancerZonesRequest
+     * Removes an elastic IP address (EIP) or a virtual IP address (VIP) of a zone from a DNS record.
      *
-     * @return StartShiftLoadBalancerZonesResponse StartShiftLoadBalancerZonesResponse
+     * @remarks
+     * This operation is supported by Application Load Balancer (ALB) instances that use static IP addresses. The zone cannot be removed if the ALB instance has only one available zone.
+     *
+     * @param request - StartShiftLoadBalancerZonesRequest
+     * @returns StartShiftLoadBalancerZonesResponse
+     *
+     * @param StartShiftLoadBalancerZonesRequest $request
+     *
+     * @return StartShiftLoadBalancerZonesResponse
      */
     public function startShiftLoadBalancerZones($request)
     {
@@ -4414,32 +5459,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Disables a listener.
-     *  *
-     * @description **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+     * Disables a listener.
+     *
+     * @remarks
+     * *StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
      * *   If a listener is in the **Configuring** state, the listener is being disabled.
      * *   If a listener is in the **Stopped** state, the listener is disabled.
-     *  *
-     * @param StopListenerRequest $request StopListenerRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopListenerResponse StopListenerResponse
+     * @param request - StopListenerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopListenerResponse
+     *
+     * @param StopListenerRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return StopListenerResponse
      */
     public function stopListenerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopListener',
@@ -4452,20 +5505,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopListenerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopListenerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables a listener.
-     *  *
-     * @description **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
+     * Disables a listener.
+     *
+     * @remarks
+     * *StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task:
      * *   If a listener is in the **Configuring** state, the listener is being disabled.
      * *   If a listener is in the **Stopped** state, the listener is disabled.
-     *  *
-     * @param StopListenerRequest $request StopListenerRequest
      *
-     * @return StopListenerResponse StopListenerResponse
+     * @param request - StopListenerRequest
+     * @returns StopListenerResponse
+     *
+     * @param StopListenerRequest $request
+     *
+     * @return StopListenerResponse
      */
     public function stopListener($request)
     {
@@ -4475,28 +5535,35 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -4509,16 +5576,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4528,34 +5601,43 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources.
-     *  *
-     * @param UnTagResourcesRequest $request UnTagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from resources.
      *
-     * @return UnTagResourcesResponse UnTagResourcesResponse
+     * @param request - UnTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnTagResourcesResponse
      */
     public function unTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnTagResources',
@@ -4568,16 +5650,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from resources.
-     *  *
-     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * Removes tags from resources.
      *
-     * @return UnTagResourcesResponse UnTagResourcesResponse
+     * @param request - UnTagResourcesRequest
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $request
+     *
+     * @return UnTagResourcesResponse
      */
     public function unTagResources($request)
     {
@@ -4587,32 +5675,40 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Updates AScript rules.
-     *  *
-     * @description **UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
+     * Updates AScript rules.
+     *
+     * @remarks
+     * *UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
      * *   If the rule is in the **Configuring** state, the rule is being updated.
      * *   If the rule is in the **Available** state, the rule is updated.
-     *  *
-     * @param UpdateAScriptsRequest $request UpdateAScriptsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAScriptsResponse UpdateAScriptsResponse
+     * @param request - UpdateAScriptsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAScriptsResponse
+     *
+     * @param UpdateAScriptsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateAScriptsResponse
      */
     public function updateAScriptsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->AScripts)) {
-            $query['AScripts'] = $request->AScripts;
+        if (null !== $request->AScripts) {
+            @$query['AScripts'] = $request->AScripts;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAScripts',
@@ -4625,20 +5721,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAScriptsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates AScript rules.
-     *  *
-     * @description **UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
+     * Updates AScript rules.
+     *
+     * @remarks
+     * *UpdateAScripts** is an an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](https://help.aliyun.com/document_detail/472574.html) operation to query the status of an AScript rule.
      * *   If the rule is in the **Configuring** state, the rule is being updated.
      * *   If the rule is in the **Available** state, the rule is updated.
-     *  *
-     * @param UpdateAScriptsRequest $request UpdateAScriptsRequest
      *
-     * @return UpdateAScriptsResponse UpdateAScriptsResponse
+     * @param request - UpdateAScriptsRequest
+     * @returns UpdateAScriptsResponse
+     *
+     * @param UpdateAScriptsRequest $request
+     *
+     * @return UpdateAScriptsResponse
      */
     public function updateAScripts($request)
     {
@@ -4648,31 +5751,39 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Updates the attributes of an access control list (ACL), such as the name.
-     *  *
-     * @param UpdateAclAttributeRequest $request UpdateAclAttributeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Updates the attributes of an access control list (ACL), such as the name.
      *
-     * @return UpdateAclAttributeResponse UpdateAclAttributeResponse
+     * @param request - UpdateAclAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAclAttributeResponse
+     *
+     * @param UpdateAclAttributeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateAclAttributeResponse
      */
     public function updateAclAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aclId)) {
-            $query['AclId'] = $request->aclId;
+        if (null !== $request->aclId) {
+            @$query['AclId'] = $request->aclId;
         }
-        if (!Utils::isUnset($request->aclName)) {
-            $query['AclName'] = $request->aclName;
+
+        if (null !== $request->aclName) {
+            @$query['AclName'] = $request->aclName;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateAclAttribute',
@@ -4685,16 +5796,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAclAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAclAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAclAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the attributes of an access control list (ACL), such as the name.
-     *  *
-     * @param UpdateAclAttributeRequest $request UpdateAclAttributeRequest
+     * Updates the attributes of an access control list (ACL), such as the name.
      *
-     * @return UpdateAclAttributeResponse UpdateAclAttributeResponse
+     * @param request - UpdateAclAttributeRequest
+     * @returns UpdateAclAttributeResponse
+     *
+     * @param UpdateAclAttributeRequest $request
+     *
+     * @return UpdateAclAttributeResponse
      */
     public function updateAclAttribute($request)
     {
@@ -4704,64 +5821,83 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes, such as the name and protocol, of a health check template.
-     *  *
-     * @param UpdateHealthCheckTemplateAttributeRequest $request UpdateHealthCheckTemplateAttributeRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Modifies the attributes, such as the name and protocol, of a health check template.
      *
-     * @return UpdateHealthCheckTemplateAttributeResponse UpdateHealthCheckTemplateAttributeResponse
+     * @param request - UpdateHealthCheckTemplateAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateHealthCheckTemplateAttributeResponse
+     *
+     * @param UpdateHealthCheckTemplateAttributeRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateHealthCheckTemplateAttributeResponse
      */
     public function updateHealthCheckTemplateAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->healthCheckCodes)) {
-            $query['HealthCheckCodes'] = $request->healthCheckCodes;
+
+        if (null !== $request->healthCheckCodes) {
+            @$query['HealthCheckCodes'] = $request->healthCheckCodes;
         }
-        if (!Utils::isUnset($request->healthCheckConnectPort)) {
-            $query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
+
+        if (null !== $request->healthCheckConnectPort) {
+            @$query['HealthCheckConnectPort'] = $request->healthCheckConnectPort;
         }
-        if (!Utils::isUnset($request->healthCheckHost)) {
-            $query['HealthCheckHost'] = $request->healthCheckHost;
+
+        if (null !== $request->healthCheckHost) {
+            @$query['HealthCheckHost'] = $request->healthCheckHost;
         }
-        if (!Utils::isUnset($request->healthCheckHttpVersion)) {
-            $query['HealthCheckHttpVersion'] = $request->healthCheckHttpVersion;
+
+        if (null !== $request->healthCheckHttpVersion) {
+            @$query['HealthCheckHttpVersion'] = $request->healthCheckHttpVersion;
         }
-        if (!Utils::isUnset($request->healthCheckInterval)) {
-            $query['HealthCheckInterval'] = $request->healthCheckInterval;
+
+        if (null !== $request->healthCheckInterval) {
+            @$query['HealthCheckInterval'] = $request->healthCheckInterval;
         }
-        if (!Utils::isUnset($request->healthCheckMethod)) {
-            $query['HealthCheckMethod'] = $request->healthCheckMethod;
+
+        if (null !== $request->healthCheckMethod) {
+            @$query['HealthCheckMethod'] = $request->healthCheckMethod;
         }
-        if (!Utils::isUnset($request->healthCheckPath)) {
-            $query['HealthCheckPath'] = $request->healthCheckPath;
+
+        if (null !== $request->healthCheckPath) {
+            @$query['HealthCheckPath'] = $request->healthCheckPath;
         }
-        if (!Utils::isUnset($request->healthCheckProtocol)) {
-            $query['HealthCheckProtocol'] = $request->healthCheckProtocol;
+
+        if (null !== $request->healthCheckProtocol) {
+            @$query['HealthCheckProtocol'] = $request->healthCheckProtocol;
         }
-        if (!Utils::isUnset($request->healthCheckTemplateId)) {
-            $query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
+
+        if (null !== $request->healthCheckTemplateId) {
+            @$query['HealthCheckTemplateId'] = $request->healthCheckTemplateId;
         }
-        if (!Utils::isUnset($request->healthCheckTemplateName)) {
-            $query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
+
+        if (null !== $request->healthCheckTemplateName) {
+            @$query['HealthCheckTemplateName'] = $request->healthCheckTemplateName;
         }
-        if (!Utils::isUnset($request->healthCheckTimeout)) {
-            $query['HealthCheckTimeout'] = $request->healthCheckTimeout;
+
+        if (null !== $request->healthCheckTimeout) {
+            @$query['HealthCheckTimeout'] = $request->healthCheckTimeout;
         }
-        if (!Utils::isUnset($request->healthyThreshold)) {
-            $query['HealthyThreshold'] = $request->healthyThreshold;
+
+        if (null !== $request->healthyThreshold) {
+            @$query['HealthyThreshold'] = $request->healthyThreshold;
         }
-        if (!Utils::isUnset($request->unhealthyThreshold)) {
-            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+
+        if (null !== $request->unhealthyThreshold) {
+            @$query['UnhealthyThreshold'] = $request->unhealthyThreshold;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateHealthCheckTemplateAttribute',
@@ -4774,16 +5910,22 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateHealthCheckTemplateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateHealthCheckTemplateAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateHealthCheckTemplateAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes, such as the name and protocol, of a health check template.
-     *  *
-     * @param UpdateHealthCheckTemplateAttributeRequest $request UpdateHealthCheckTemplateAttributeRequest
+     * Modifies the attributes, such as the name and protocol, of a health check template.
      *
-     * @return UpdateHealthCheckTemplateAttributeResponse UpdateHealthCheckTemplateAttributeResponse
+     * @param request - UpdateHealthCheckTemplateAttributeRequest
+     * @returns UpdateHealthCheckTemplateAttributeResponse
+     *
+     * @param UpdateHealthCheckTemplateAttributeRequest $request
+     *
+     * @return UpdateHealthCheckTemplateAttributeResponse
      */
     public function updateHealthCheckTemplateAttribute($request)
     {
@@ -4793,68 +5935,88 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Updates the attributes of a listener, such as the name and the default action.
-     *  *
-     * @description **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
+     * Updates the attributes of a listener, such as the name and the default action.
+     *
+     * @remarks
+     * *UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
      * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
      * *   If a listener is in the **Running** state, the configuration of the listener is modified.
-     *  *
-     * @param UpdateListenerAttributeRequest $request UpdateListenerAttributeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateListenerAttributeResponse UpdateListenerAttributeResponse
+     * @param request - UpdateListenerAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateListenerAttributeResponse
+     *
+     * @param UpdateListenerAttributeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateListenerAttributeResponse
      */
     public function updateListenerAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->caCertificates)) {
-            $query['CaCertificates'] = $request->caCertificates;
+        if (null !== $request->caCertificates) {
+            @$query['CaCertificates'] = $request->caCertificates;
         }
-        if (!Utils::isUnset($request->caEnabled)) {
-            $query['CaEnabled'] = $request->caEnabled;
+
+        if (null !== $request->caEnabled) {
+            @$query['CaEnabled'] = $request->caEnabled;
         }
-        if (!Utils::isUnset($request->certificates)) {
-            $query['Certificates'] = $request->certificates;
+
+        if (null !== $request->certificates) {
+            @$query['Certificates'] = $request->certificates;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->defaultActions)) {
-            $query['DefaultActions'] = $request->defaultActions;
+
+        if (null !== $request->defaultActions) {
+            @$query['DefaultActions'] = $request->defaultActions;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->gzipEnabled)) {
-            $query['GzipEnabled'] = $request->gzipEnabled;
+
+        if (null !== $request->gzipEnabled) {
+            @$query['GzipEnabled'] = $request->gzipEnabled;
         }
-        if (!Utils::isUnset($request->http2Enabled)) {
-            $query['Http2Enabled'] = $request->http2Enabled;
+
+        if (null !== $request->http2Enabled) {
+            @$query['Http2Enabled'] = $request->http2Enabled;
         }
-        if (!Utils::isUnset($request->idleTimeout)) {
-            $query['IdleTimeout'] = $request->idleTimeout;
+
+        if (null !== $request->idleTimeout) {
+            @$query['IdleTimeout'] = $request->idleTimeout;
         }
-        if (!Utils::isUnset($request->listenerDescription)) {
-            $query['ListenerDescription'] = $request->listenerDescription;
+
+        if (null !== $request->listenerDescription) {
+            @$query['ListenerDescription'] = $request->listenerDescription;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
-        if (!Utils::isUnset($request->quicConfig)) {
-            $query['QuicConfig'] = $request->quicConfig;
+
+        if (null !== $request->quicConfig) {
+            @$query['QuicConfig'] = $request->quicConfig;
         }
-        if (!Utils::isUnset($request->requestTimeout)) {
-            $query['RequestTimeout'] = $request->requestTimeout;
+
+        if (null !== $request->requestTimeout) {
+            @$query['RequestTimeout'] = $request->requestTimeout;
         }
-        if (!Utils::isUnset($request->securityPolicyId)) {
-            $query['SecurityPolicyId'] = $request->securityPolicyId;
+
+        if (null !== $request->securityPolicyId) {
+            @$query['SecurityPolicyId'] = $request->securityPolicyId;
         }
-        if (!Utils::isUnset($request->XForwardedForConfig)) {
-            $query['XForwardedForConfig'] = $request->XForwardedForConfig;
+
+        if (null !== $request->XForwardedForConfig) {
+            @$query['XForwardedForConfig'] = $request->XForwardedForConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateListenerAttribute',
@@ -4867,20 +6029,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateListenerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateListenerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the attributes of a listener, such as the name and the default action.
-     *  *
-     * @description **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
+     * Updates the attributes of a listener, such as the name and the default action.
+     *
+     * @remarks
+     * *UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) operation to query the status of the task.
      * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
      * *   If a listener is in the **Running** state, the configuration of the listener is modified.
-     *  *
-     * @param UpdateListenerAttributeRequest $request UpdateListenerAttributeRequest
      *
-     * @return UpdateListenerAttributeResponse UpdateListenerAttributeResponse
+     * @param request - UpdateListenerAttributeRequest
+     * @returns UpdateListenerAttributeResponse
+     *
+     * @param UpdateListenerAttributeRequest $request
+     *
+     * @return UpdateListenerAttributeResponse
      */
     public function updateListenerAttribute($request)
     {
@@ -4890,39 +6059,49 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Updates the log configuration of a listener, such as the access log configuration.
-     *  *
-     * @description **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
+     * Updates the log configuration of a listener, such as the access log configuration.
+     *
+     * @remarks
+     * *UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
      * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
      * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
      * > You can update the log configuration of a listener only after you enable the access log feature.
-     *  *
-     * @param UpdateListenerLogConfigRequest $request UpdateListenerLogConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateListenerLogConfigResponse UpdateListenerLogConfigResponse
+     * @param request - UpdateListenerLogConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateListenerLogConfigResponse
+     *
+     * @param UpdateListenerLogConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateListenerLogConfigResponse
      */
     public function updateListenerLogConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessLogRecordCustomizedHeadersEnabled)) {
-            $query['AccessLogRecordCustomizedHeadersEnabled'] = $request->accessLogRecordCustomizedHeadersEnabled;
+        if (null !== $request->accessLogRecordCustomizedHeadersEnabled) {
+            @$query['AccessLogRecordCustomizedHeadersEnabled'] = $request->accessLogRecordCustomizedHeadersEnabled;
         }
-        if (!Utils::isUnset($request->accessLogTracingConfig)) {
-            $query['AccessLogTracingConfig'] = $request->accessLogTracingConfig;
+
+        if (null !== $request->accessLogTracingConfig) {
+            @$query['AccessLogTracingConfig'] = $request->accessLogTracingConfig;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->listenerId)) {
-            $query['ListenerId'] = $request->listenerId;
+
+        if (null !== $request->listenerId) {
+            @$query['ListenerId'] = $request->listenerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateListenerLogConfig',
@@ -4935,21 +6114,28 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateListenerLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateListenerLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateListenerLogConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the log configuration of a listener, such as the access log configuration.
-     *  *
-     * @description **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
+     * Updates the log configuration of a listener, such as the access log configuration.
+     *
+     * @remarks
+     * *UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](https://help.aliyun.com/document_detail/2254865.html) to query the status of the task:
      * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
      * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
      * > You can update the log configuration of a listener only after you enable the access log feature.
-     *  *
-     * @param UpdateListenerLogConfigRequest $request UpdateListenerLogConfigRequest
      *
-     * @return UpdateListenerLogConfigResponse UpdateListenerLogConfigResponse
+     * @param request - UpdateListenerLogConfigRequest
+     * @returns UpdateListenerLogConfigResponse
+     *
+     * @param UpdateListenerLogConfigRequest $request
+     *
+     * @return UpdateListenerLogConfigResponse
      */
     public function updateListenerLogConfig($request)
     {
@@ -4959,42 +6145,52 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the network type of an Application Load Balancer (ALB) instance.
-     *  *
-     * @description ## Prerequisites
+     * Modifies the network type of an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * ## Prerequisites
      * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
      * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
      * ## Usage notes
      * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
      * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
      * *   If an ALB instance is in the **Active** state, the network type has been changed.
-     *  *
-     * @param UpdateLoadBalancerAddressTypeConfigRequest $request UpdateLoadBalancerAddressTypeConfigRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerAddressTypeConfigResponse UpdateLoadBalancerAddressTypeConfigResponse
+     * @param request - UpdateLoadBalancerAddressTypeConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLoadBalancerAddressTypeConfigResponse
+     *
+     * @param UpdateLoadBalancerAddressTypeConfigRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateLoadBalancerAddressTypeConfigResponse
      */
     public function updateLoadBalancerAddressTypeConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addressType)) {
-            $query['AddressType'] = $request->addressType;
+        if (null !== $request->addressType) {
+            @$query['AddressType'] = $request->addressType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $query['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$query['ZoneMappings'] = $request->zoneMappings;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateLoadBalancerAddressTypeConfig',
@@ -5007,24 +6203,31 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLoadBalancerAddressTypeConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the network type of an Application Load Balancer (ALB) instance.
-     *  *
-     * @description ## Prerequisites
+     * Modifies the network type of an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * ## Prerequisites
      * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/214358.html).
      * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](https://help.aliyun.com/document_detail/120192.html).
      * ## Usage notes
      * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of the task.
      * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
      * *   If an ALB instance is in the **Active** state, the network type has been changed.
-     *  *
-     * @param UpdateLoadBalancerAddressTypeConfigRequest $request UpdateLoadBalancerAddressTypeConfigRequest
      *
-     * @return UpdateLoadBalancerAddressTypeConfigResponse UpdateLoadBalancerAddressTypeConfigResponse
+     * @param request - UpdateLoadBalancerAddressTypeConfigRequest
+     * @returns UpdateLoadBalancerAddressTypeConfigResponse
+     *
+     * @param UpdateLoadBalancerAddressTypeConfigRequest $request
+     *
+     * @return UpdateLoadBalancerAddressTypeConfigResponse
      */
     public function updateLoadBalancerAddressTypeConfig($request)
     {
@@ -5034,38 +6237,48 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
-     *  *
-     * @description **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+     * Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
+     *
+     * @remarks
+     * *UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
      * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
      * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
-     *  *
-     * @param UpdateLoadBalancerAttributeRequest $request UpdateLoadBalancerAttributeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerAttributeResponse UpdateLoadBalancerAttributeResponse
+     * @param request - UpdateLoadBalancerAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLoadBalancerAttributeResponse
+     *
+     * @param UpdateLoadBalancerAttributeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateLoadBalancerAttributeResponse
      */
     public function updateLoadBalancerAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->loadBalancerName)) {
-            $query['LoadBalancerName'] = $request->loadBalancerName;
+
+        if (null !== $request->loadBalancerName) {
+            @$query['LoadBalancerName'] = $request->loadBalancerName;
         }
-        if (!Utils::isUnset($request->modificationProtectionConfig)) {
-            $query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
+
+        if (null !== $request->modificationProtectionConfig) {
+            @$query['ModificationProtectionConfig'] = $request->modificationProtectionConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateLoadBalancerAttribute',
@@ -5078,20 +6291,27 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLoadBalancerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLoadBalancerAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
-     *  *
-     * @description **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+     * Modifies the attributes of an Application Load Balancer (ALB) instance, such as the name and the configuration read-only mode.
+     *
+     * @remarks
+     * *UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
      * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
      * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
-     *  *
-     * @param UpdateLoadBalancerAttributeRequest $request UpdateLoadBalancerAttributeRequest
      *
-     * @return UpdateLoadBalancerAttributeResponse UpdateLoadBalancerAttributeResponse
+     * @param request - UpdateLoadBalancerAttributeRequest
+     * @returns UpdateLoadBalancerAttributeResponse
+     *
+     * @param UpdateLoadBalancerAttributeRequest $request
+     *
+     * @return UpdateLoadBalancerAttributeResponse
      */
     public function updateLoadBalancerAttribute($request)
     {
@@ -5101,36 +6321,45 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Changes the edition of an Application Load Balancer (ALB) instance.
-     *  *
-     * @description *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
+     * Changes the edition of an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
      * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
      *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
      *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance is modified.
-     *  *
-     * @param UpdateLoadBalancerEditionRequest $request UpdateLoadBalancerEditionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerEditionResponse UpdateLoadBalancerEditionResponse
+     * @param request - UpdateLoadBalancerEditionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLoadBalancerEditionResponse
+     *
+     * @param UpdateLoadBalancerEditionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateLoadBalancerEditionResponse
      */
     public function updateLoadBalancerEditionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerEdition)) {
-            $query['LoadBalancerEdition'] = $request->loadBalancerEdition;
+
+        if (null !== $request->loadBalancerEdition) {
+            @$query['LoadBalancerEdition'] = $request->loadBalancerEdition;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateLoadBalancerEdition',
@@ -5143,21 +6372,28 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLoadBalancerEditionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLoadBalancerEditionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLoadBalancerEditionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the edition of an Application Load Balancer (ALB) instance.
-     *  *
-     * @description *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
+     * Changes the edition of an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     *   You can only upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance. You cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](https://help.aliyun.com/document_detail/214654.html).
      * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) operation to query the status of an ALB instance.
      *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
      *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance is modified.
-     *  *
-     * @param UpdateLoadBalancerEditionRequest $request UpdateLoadBalancerEditionRequest
      *
-     * @return UpdateLoadBalancerEditionResponse UpdateLoadBalancerEditionResponse
+     * @param request - UpdateLoadBalancerEditionRequest
+     * @returns UpdateLoadBalancerEditionResponse
+     *
+     * @param UpdateLoadBalancerEditionRequest $request
+     *
+     * @return UpdateLoadBalancerEditionResponse
      */
     public function updateLoadBalancerEdition($request)
     {
@@ -5167,36 +6403,45 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the zones of an Application Load Balancer (ALB) instance.
-     *  *
-     * @description **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+     * Modifies the zones of an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * *UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
      * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
      * *   If an ALB instance is in the **Active** state, the zones are modified.
      * > You may be charged after you call UpdateLoadBalancerZones.
-     *  *
-     * @param UpdateLoadBalancerZonesRequest $request UpdateLoadBalancerZonesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerZonesResponse UpdateLoadBalancerZonesResponse
+     * @param request - UpdateLoadBalancerZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLoadBalancerZonesResponse
+     *
+     * @param UpdateLoadBalancerZonesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateLoadBalancerZonesResponse
      */
     public function updateLoadBalancerZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->loadBalancerId)) {
-            $query['LoadBalancerId'] = $request->loadBalancerId;
+
+        if (null !== $request->loadBalancerId) {
+            @$query['LoadBalancerId'] = $request->loadBalancerId;
         }
-        if (!Utils::isUnset($request->zoneMappings)) {
-            $query['ZoneMappings'] = $request->zoneMappings;
+
+        if (null !== $request->zoneMappings) {
+            @$query['ZoneMappings'] = $request->zoneMappings;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateLoadBalancerZones',
@@ -5209,21 +6454,28 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLoadBalancerZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLoadBalancerZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the zones of an Application Load Balancer (ALB) instance.
-     *  *
-     * @description **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
+     * Modifies the zones of an Application Load Balancer (ALB) instance.
+     *
+     * @remarks
+     * *UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/214362.html) to query the status of the task.
      * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
      * *   If an ALB instance is in the **Active** state, the zones are modified.
      * > You may be charged after you call UpdateLoadBalancerZones.
-     *  *
-     * @param UpdateLoadBalancerZonesRequest $request UpdateLoadBalancerZonesRequest
      *
-     * @return UpdateLoadBalancerZonesResponse UpdateLoadBalancerZonesResponse
+     * @param request - UpdateLoadBalancerZonesRequest
+     * @returns UpdateLoadBalancerZonesResponse
+     *
+     * @param UpdateLoadBalancerZonesRequest $request
+     *
+     * @return UpdateLoadBalancerZonesResponse
      */
     public function updateLoadBalancerZones($request)
     {
@@ -5233,47 +6485,59 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Updates a forwarding rule, such as the match condition, action, and name.
-     *  *
-     * @description *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+     * Updates a forwarding rule, such as the match condition, action, and name.
+     *
+     * @remarks
+     *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
      *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
      *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
      *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
      *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
-     *  *
-     * @param UpdateRuleAttributeRequest $request UpdateRuleAttributeRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRuleAttributeResponse UpdateRuleAttributeResponse
+     * @param request - UpdateRuleAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRuleAttributeResponse
+     *
+     * @param UpdateRuleAttributeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateRuleAttributeResponse
      */
     public function updateRuleAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->ruleActions)) {
-            $query['RuleActions'] = $request->ruleActions;
+
+        if (null !== $request->ruleActions) {
+            @$query['RuleActions'] = $request->ruleActions;
         }
-        if (!Utils::isUnset($request->ruleConditions)) {
-            $query['RuleConditions'] = $request->ruleConditions;
+
+        if (null !== $request->ruleConditions) {
+            @$query['RuleConditions'] = $request->ruleConditions;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateRuleAttribute',
@@ -5286,23 +6550,30 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRuleAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a forwarding rule, such as the match condition, action, and name.
-     *  *
-     * @description *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
+     * Updates a forwarding rule, such as the match condition, action, and name.
+     *
+     * @remarks
+     *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of a forwarding rule:
      *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
      *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
      *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
      *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
-     *  *
-     * @param UpdateRuleAttributeRequest $request UpdateRuleAttributeRequest
      *
-     * @return UpdateRuleAttributeResponse UpdateRuleAttributeResponse
+     * @param request - UpdateRuleAttributeRequest
+     * @returns UpdateRuleAttributeResponse
+     *
+     * @param UpdateRuleAttributeRequest $request
+     *
+     * @return UpdateRuleAttributeResponse
      */
     public function updateRuleAttribute($request)
     {
@@ -5312,39 +6583,48 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of forwarding rules.
-     *  *
-     * @description **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
+     * Modifies the attributes of forwarding rules.
+     *
+     * @remarks
+     * *UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
      * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
      * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
      *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
      *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-     *  *
-     * @param UpdateRulesAttributeRequest $request UpdateRulesAttributeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRulesAttributeResponse UpdateRulesAttributeResponse
+     * @param request - UpdateRulesAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRulesAttributeResponse
+     *
+     * @param UpdateRulesAttributeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateRulesAttributeResponse
      */
     public function updateRulesAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
+
         $body     = [];
         $bodyFlat = [];
-        if (!Utils::isUnset($request->rules)) {
-            $bodyFlat['Rules'] = $request->rules;
+        if (null !== $request->rules) {
+            @$bodyFlat['Rules'] = $request->rules;
         }
-        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
-        $req  = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+
+        $body = Dara::merge([
+        ], $body, Utils::query($bodyFlat));
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRulesAttribute',
@@ -5357,23 +6637,30 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRulesAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRulesAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRulesAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the attributes of forwarding rules.
-     *  *
-     * @description **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
+     * Modifies the attributes of forwarding rules.
+     *
+     * @remarks
+     * *UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](https://help.aliyun.com/document_detail/214379.html) operation to query the status of the task.
      * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
      * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
      * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
      *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
      *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
-     *  *
-     * @param UpdateRulesAttributeRequest $request UpdateRulesAttributeRequest
      *
-     * @return UpdateRulesAttributeResponse UpdateRulesAttributeResponse
+     * @param request - UpdateRulesAttributeRequest
+     * @returns UpdateRulesAttributeResponse
+     *
+     * @param UpdateRulesAttributeRequest $request
+     *
+     * @return UpdateRulesAttributeResponse
      */
     public function updateRulesAttribute($request)
     {
@@ -5383,42 +6670,53 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
-     *  *
-     * @description ##
+     * Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
+     *
+     * @remarks
+     * ##
      * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the status of the task.
      * *   If a security policy is in the **Configuring** state, the security policy is being updated.
      * *   If a security policy is in the **Available** state, the security policy is updated.
-     *  *
-     * @param UpdateSecurityPolicyAttributeRequest $request UpdateSecurityPolicyAttributeRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSecurityPolicyAttributeResponse UpdateSecurityPolicyAttributeResponse
+     * @param request - UpdateSecurityPolicyAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSecurityPolicyAttributeResponse
+     *
+     * @param UpdateSecurityPolicyAttributeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateSecurityPolicyAttributeResponse
      */
     public function updateSecurityPolicyAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ciphers)) {
-            $query['Ciphers'] = $request->ciphers;
+        if (null !== $request->ciphers) {
+            @$query['Ciphers'] = $request->ciphers;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->securityPolicyId)) {
-            $query['SecurityPolicyId'] = $request->securityPolicyId;
+
+        if (null !== $request->securityPolicyId) {
+            @$query['SecurityPolicyId'] = $request->securityPolicyId;
         }
-        if (!Utils::isUnset($request->securityPolicyName)) {
-            $query['SecurityPolicyName'] = $request->securityPolicyName;
+
+        if (null !== $request->securityPolicyName) {
+            @$query['SecurityPolicyName'] = $request->securityPolicyName;
         }
-        if (!Utils::isUnset($request->TLSVersions)) {
-            $query['TLSVersions'] = $request->TLSVersions;
+
+        if (null !== $request->TLSVersions) {
+            @$query['TLSVersions'] = $request->TLSVersions;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSecurityPolicyAttribute',
@@ -5431,21 +6729,28 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSecurityPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSecurityPolicyAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSecurityPolicyAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
-     *  *
-     * @description ##
+     * Updates the attributes of a security policy, such as the TLS protocol version and the supported cipher suites.
+     *
+     * @remarks
+     * ##
      * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](https://help.aliyun.com/document_detail/213609.html) to query the status of the task.
      * *   If a security policy is in the **Configuring** state, the security policy is being updated.
      * *   If a security policy is in the **Available** state, the security policy is updated.
-     *  *
-     * @param UpdateSecurityPolicyAttributeRequest $request UpdateSecurityPolicyAttributeRequest
      *
-     * @return UpdateSecurityPolicyAttributeResponse UpdateSecurityPolicyAttributeResponse
+     * @param request - UpdateSecurityPolicyAttributeRequest
+     * @returns UpdateSecurityPolicyAttributeResponse
+     *
+     * @param UpdateSecurityPolicyAttributeRequest $request
+     *
+     * @return UpdateSecurityPolicyAttributeResponse
      */
     public function updateSecurityPolicyAttribute($request)
     {
@@ -5455,63 +6760,81 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
-     *  *
-     * @description ## Description
+     * Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+     *
+     * @remarks
+     * ## Description
      * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
      * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
      * *   If a server group is in the **Available** state, the configuration of the server group is modified.
-     *  *
-     * @param UpdateServerGroupAttributeRequest $request UpdateServerGroupAttributeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServerGroupAttributeResponse UpdateServerGroupAttributeResponse
+     * @param request - UpdateServerGroupAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateServerGroupAttributeResponse
+     *
+     * @param UpdateServerGroupAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateServerGroupAttributeResponse
      */
     public function updateServerGroupAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionDrainConfig)) {
-            $query['ConnectionDrainConfig'] = $request->connectionDrainConfig;
+
+        if (null !== $request->connectionDrainConfig) {
+            @$query['ConnectionDrainConfig'] = $request->connectionDrainConfig;
         }
-        if (!Utils::isUnset($request->crossZoneEnabled)) {
-            $query['CrossZoneEnabled'] = $request->crossZoneEnabled;
+
+        if (null !== $request->crossZoneEnabled) {
+            @$query['CrossZoneEnabled'] = $request->crossZoneEnabled;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->healthCheckConfig)) {
-            $query['HealthCheckConfig'] = $request->healthCheckConfig;
+
+        if (null !== $request->healthCheckConfig) {
+            @$query['HealthCheckConfig'] = $request->healthCheckConfig;
         }
-        if (!Utils::isUnset($request->scheduler)) {
-            $query['Scheduler'] = $request->scheduler;
+
+        if (null !== $request->scheduler) {
+            @$query['Scheduler'] = $request->scheduler;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $query['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$query['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->serverGroupName)) {
-            $query['ServerGroupName'] = $request->serverGroupName;
+
+        if (null !== $request->serverGroupName) {
+            @$query['ServerGroupName'] = $request->serverGroupName;
         }
-        if (!Utils::isUnset($request->serviceName)) {
-            $query['ServiceName'] = $request->serviceName;
+
+        if (null !== $request->serviceName) {
+            @$query['ServiceName'] = $request->serviceName;
         }
-        if (!Utils::isUnset($request->slowStartConfig)) {
-            $query['SlowStartConfig'] = $request->slowStartConfig;
+
+        if (null !== $request->slowStartConfig) {
+            @$query['SlowStartConfig'] = $request->slowStartConfig;
         }
-        if (!Utils::isUnset($request->stickySessionConfig)) {
-            $query['StickySessionConfig'] = $request->stickySessionConfig;
+
+        if (null !== $request->stickySessionConfig) {
+            @$query['StickySessionConfig'] = $request->stickySessionConfig;
         }
-        if (!Utils::isUnset($request->uchConfig)) {
-            $query['UchConfig'] = $request->uchConfig;
+
+        if (null !== $request->uchConfig) {
+            @$query['UchConfig'] = $request->uchConfig;
         }
-        if (!Utils::isUnset($request->upstreamKeepaliveEnabled)) {
-            $query['UpstreamKeepaliveEnabled'] = $request->upstreamKeepaliveEnabled;
+
+        if (null !== $request->upstreamKeepaliveEnabled) {
+            @$query['UpstreamKeepaliveEnabled'] = $request->upstreamKeepaliveEnabled;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateServerGroupAttribute',
@@ -5524,21 +6847,28 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateServerGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateServerGroupAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
-     *  *
-     * @description ## Description
+     * Modifies the configurations of a server group, such as health checks, session persistence, server group names, routing algorithms, and protocols.
+     *
+     * @remarks
+     * ## Description
      * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group:
      * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
      * *   If a server group is in the **Available** state, the configuration of the server group is modified.
-     *  *
-     * @param UpdateServerGroupAttributeRequest $request UpdateServerGroupAttributeRequest
      *
-     * @return UpdateServerGroupAttributeResponse UpdateServerGroupAttributeResponse
+     * @param request - UpdateServerGroupAttributeRequest
+     * @returns UpdateServerGroupAttributeResponse
+     *
+     * @param UpdateServerGroupAttributeRequest $request
+     *
+     * @return UpdateServerGroupAttributeResponse
      */
     public function updateServerGroupAttribute($request)
     {
@@ -5548,39 +6878,48 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations, such as the backend server weight and description, of a server group.
-     *  *
-     * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Modifies the configurations, such as the backend server weight and description, of a server group.
+     *
+     * @remarks
+     * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
      *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
      *     *   If a server group is in the **Available** state, it indicates that the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
      *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
      *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-     *  *
-     * @param UpdateServerGroupServersAttributeRequest $request UpdateServerGroupServersAttributeRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServerGroupServersAttributeResponse UpdateServerGroupServersAttributeResponse
+     * @param request - UpdateServerGroupServersAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateServerGroupServersAttributeResponse
+     *
+     * @param UpdateServerGroupServersAttributeRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return UpdateServerGroupServersAttributeResponse
      */
     public function updateServerGroupServersAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->serverGroupId)) {
-            $query['ServerGroupId'] = $request->serverGroupId;
+
+        if (null !== $request->serverGroupId) {
+            @$query['ServerGroupId'] = $request->serverGroupId;
         }
-        if (!Utils::isUnset($request->servers)) {
-            $query['Servers'] = $request->servers;
+
+        if (null !== $request->servers) {
+            @$query['Servers'] = $request->servers;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateServerGroupServersAttribute',
@@ -5593,24 +6932,31 @@ class Alb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateServerGroupServersAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateServerGroupServersAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateServerGroupServersAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations, such as the backend server weight and description, of a server group.
-     *  *
-     * @description **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     * Modifies the configurations, such as the backend server weight and description, of a server group.
+     *
+     * @remarks
+     * *UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
      * 1.  You can call the [ListServerGroups](https://help.aliyun.com/document_detail/213627.html) operation to query the status of a server group.
      *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
      *     *   If a server group is in the **Available** state, it indicates that the server group is running.
      * 2.  You can call the [ListServerGroupServers](https://help.aliyun.com/document_detail/213628.html) operation to query the status of a backend server.
      *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
      *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
-     *  *
-     * @param UpdateServerGroupServersAttributeRequest $request UpdateServerGroupServersAttributeRequest
      *
-     * @return UpdateServerGroupServersAttributeResponse UpdateServerGroupServersAttributeResponse
+     * @param request - UpdateServerGroupServersAttributeRequest
+     * @returns UpdateServerGroupServersAttributeResponse
+     *
+     * @param UpdateServerGroupServersAttributeRequest $request
+     *
+     * @return UpdateServerGroupServersAttributeResponse
      */
     public function updateServerGroupServersAttribute($request)
     {

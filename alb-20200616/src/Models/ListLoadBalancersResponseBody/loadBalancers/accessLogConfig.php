@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListLoadBalancersResponseBody\loadBalancers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessLogConfig extends Model
 {
     /**
-     * @description The Simple Log Service project.
-     *
-     * @example sls-setter
-     *
      * @var string
      */
     public $logProject;
-
     /**
-     * @description The Logstore.
-     *
-     * @example test
-     *
      * @var string
      */
     public $logStore;
@@ -32,14 +23,16 @@ class accessLogConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logProject) {
             $res['LogProject'] = $this->logProject;
         }
+
         if (null !== $this->logStore) {
             $res['LogStore'] = $this->logStore;
         }
@@ -47,17 +40,18 @@ class accessLogConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessLogConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogProject'])) {
             $model->logProject = $map['LogProject'];
         }
+
         if (isset($map['LogStore'])) {
             $model->logStore = $map['LogStore'];
         }

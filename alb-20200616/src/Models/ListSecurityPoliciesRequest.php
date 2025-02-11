@@ -4,58 +4,32 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListSecurityPoliciesRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class ListSecurityPoliciesRequest extends Model
 {
     /**
-     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-     *
-     *   You do not need to specify this parameter for the first request.
-     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
-     *
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-atstuj3rtop****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The security policy IDs. You can specify at most 20 security policies.
-     *
      * @var string[]
      */
     public $securityPolicyIds;
-
     /**
-     * @description The names of the security policies. You can specify up to 10 names.
-     *
      * @var string[]
      */
     public $securityPolicyNames;
-
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;
@@ -70,32 +44,59 @@ class ListSecurityPoliciesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->securityPolicyIds)) {
+            Model::validateArray($this->securityPolicyIds);
+        }
+        if (\is_array($this->securityPolicyNames)) {
+            Model::validateArray($this->securityPolicyNames);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->securityPolicyIds) {
-            $res['SecurityPolicyIds'] = $this->securityPolicyIds;
+            if (\is_array($this->securityPolicyIds)) {
+                $res['SecurityPolicyIds'] = [];
+                $n1                       = 0;
+                foreach ($this->securityPolicyIds as $item1) {
+                    $res['SecurityPolicyIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->securityPolicyNames) {
-            $res['SecurityPolicyNames'] = $this->securityPolicyNames;
+            if (\is_array($this->securityPolicyNames)) {
+                $res['SecurityPolicyNames'] = [];
+                $n1                         = 0;
+                foreach ($this->securityPolicyNames as $item1) {
+                    $res['SecurityPolicyNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -103,39 +104,52 @@ class ListSecurityPoliciesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSecurityPoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SecurityPolicyIds'])) {
             if (!empty($map['SecurityPolicyIds'])) {
-                $model->securityPolicyIds = $map['SecurityPolicyIds'];
+                $model->securityPolicyIds = [];
+                $n1                       = 0;
+                foreach ($map['SecurityPolicyIds'] as $item1) {
+                    $model->securityPolicyIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SecurityPolicyNames'])) {
             if (!empty($map['SecurityPolicyNames'])) {
-                $model->securityPolicyNames = $map['SecurityPolicyNames'];
+                $model->securityPolicyNames = [];
+                $n1                         = 0;
+                foreach ($map['SecurityPolicyNames'] as $item1) {
+                    $model->securityPolicyNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

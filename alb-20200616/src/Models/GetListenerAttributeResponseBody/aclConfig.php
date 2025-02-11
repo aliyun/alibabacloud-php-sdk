@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerAttributeResponseBody\aclConfig\aclRelations;
-use AlibabaCloud\Tea\Model;
 
 class aclConfig extends Model
 {
     /**
-     * @description The IDs of the ACLs that are associated with the listener.
-     *
      * @var aclRelations[]
      */
     public $aclRelations;
-
     /**
-     * @description The type of the ACL. Valid values:
-     *
-     *   **White**: a whitelist. Only requests from the IP addresses or CIDR blocks in the network ACL are forwarded. Whitelists are applicable to scenarios in which you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. If a whitelist is configured for a listener, only requests from IP addresses that are on the whitelist are forwarded by the listener.
-     *
-     * If you enable a whitelist but do not add an IP address to the whitelist, the listener forwards all requests.
-     *
-     *   **Black**: a blacklist. Requests from the IP addresses or CIDR blocks in the network ACL are denied. Blacklists are suitable for scenarios in which you want to deny access from specific IP addresses or CIDR blocks to an application.
-     *
-     * If a blacklist is configured for a listener but no IP addresses are added to the blacklist, the listener forwards all requests.
-     * @example White
-     *
      * @var string
      */
     public $aclType;
@@ -38,20 +24,25 @@ class aclConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->aclRelations)) {
+            Model::validateArray($this->aclRelations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclRelations) {
-            $res['AclRelations'] = [];
-            if (null !== $this->aclRelations && \is_array($this->aclRelations)) {
-                $n = 0;
-                foreach ($this->aclRelations as $item) {
-                    $res['AclRelations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aclRelations)) {
+                $res['AclRelations'] = [];
+                $n1                  = 0;
+                foreach ($this->aclRelations as $item1) {
+                    $res['AclRelations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->aclType) {
             $res['AclType'] = $this->aclType;
         }
@@ -59,23 +50,24 @@ class aclConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aclConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclRelations'])) {
             if (!empty($map['AclRelations'])) {
                 $model->aclRelations = [];
-                $n                   = 0;
-                foreach ($map['AclRelations'] as $item) {
-                    $model->aclRelations[$n++] = null !== $item ? aclRelations::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['AclRelations'] as $item1) {
+                    $model->aclRelations[$n1++] = aclRelations::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['AclType'])) {
             $model->aclType = $map['AclType'];
         }

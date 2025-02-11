@@ -4,67 +4,32 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\UpdateAScriptsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateAScriptsRequest\AScripts\extAttributes;
-use AlibabaCloud\Tea\Model;
 
 class AScripts extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * This parameter is required.
-     * @example as-mhqxcanmivn4g5****
-     *
      * @var string
      */
     public $AScriptId;
-
     /**
-     * @description The name of the AScript rule.
-     *
-     * The name must be 2 to 128 character in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
-     * @example Group1
-     *
      * @var string
      */
     public $AScriptName;
-
     /**
-     * @description Specifies whether to enable the AScript rule. Valid values:
-     *
-     *   **true**
-     *   **false** (default)
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description Specifies whether to enable the extended attributes of the Ascript rule. Valid values:
-     *
-     *   true
-     *   false (false)
-     *
-     * @example true
-     *
      * @var bool
      */
     public $extAttributeEnabled;
-
     /**
-     * @description The extended attribute.
-     *
      * @var extAttributes[]
      */
     public $extAttributes;
-
     /**
-     * @description The content of the AScript rule.
-     *
-     * @example if and(match_re($uri, \\"^/1.txt$\\"), $arg_type) { rewrite(concat(\\"/1.\\", $arg_type), \\"break\\") }
-     *
      * @var string
      */
     public $scriptContent;
@@ -79,32 +44,41 @@ class AScripts extends Model
 
     public function validate()
     {
+        if (\is_array($this->extAttributes)) {
+            Model::validateArray($this->extAttributes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AScriptId) {
             $res['AScriptId'] = $this->AScriptId;
         }
+
         if (null !== $this->AScriptName) {
             $res['AScriptName'] = $this->AScriptName;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->extAttributeEnabled) {
             $res['ExtAttributeEnabled'] = $this->extAttributeEnabled;
         }
+
         if (null !== $this->extAttributes) {
-            $res['ExtAttributes'] = [];
-            if (null !== $this->extAttributes && \is_array($this->extAttributes)) {
-                $n = 0;
-                foreach ($this->extAttributes as $item) {
-                    $res['ExtAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->extAttributes)) {
+                $res['ExtAttributes'] = [];
+                $n1                   = 0;
+                foreach ($this->extAttributes as $item1) {
+                    $res['ExtAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->scriptContent) {
             $res['ScriptContent'] = $this->scriptContent;
         }
@@ -112,35 +86,40 @@ class AScripts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AScripts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AScriptId'])) {
             $model->AScriptId = $map['AScriptId'];
         }
+
         if (isset($map['AScriptName'])) {
             $model->AScriptName = $map['AScriptName'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['ExtAttributeEnabled'])) {
             $model->extAttributeEnabled = $map['ExtAttributeEnabled'];
         }
+
         if (isset($map['ExtAttributes'])) {
             if (!empty($map['ExtAttributes'])) {
                 $model->extAttributes = [];
-                $n                    = 0;
-                foreach ($map['ExtAttributes'] as $item) {
-                    $model->extAttributes[$n++] = null !== $item ? extAttributes::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['ExtAttributes'] as $item1) {
+                    $model->extAttributes[$n1++] = extAttributes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ScriptContent'])) {
             $model->scriptContent = $map['ScriptContent'];
         }

@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListListenersResponseBody\listeners;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListListenersResponseBody\listeners\logConfig\accessLogTracingConfig;
-use AlibabaCloud\Tea\Model;
 
 class logConfig extends Model
 {
     /**
-     * @description Indicates whether custom headers are carried in the access log. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $accessLogRecordCustomizedHeadersEnabled;
-
     /**
-     * @description The configurations of xtrace.
-     *
      * @var accessLogTracingConfig
      */
     public $accessLogTracingConfig;
@@ -34,32 +24,38 @@ class logConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->accessLogTracingConfig) {
+            $this->accessLogTracingConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessLogRecordCustomizedHeadersEnabled) {
             $res['AccessLogRecordCustomizedHeadersEnabled'] = $this->accessLogRecordCustomizedHeadersEnabled;
         }
+
         if (null !== $this->accessLogTracingConfig) {
-            $res['AccessLogTracingConfig'] = null !== $this->accessLogTracingConfig ? $this->accessLogTracingConfig->toMap() : null;
+            $res['AccessLogTracingConfig'] = null !== $this->accessLogTracingConfig ? $this->accessLogTracingConfig->toArray($noStream) : $this->accessLogTracingConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessLogRecordCustomizedHeadersEnabled'])) {
             $model->accessLogRecordCustomizedHeadersEnabled = $map['AccessLogRecordCustomizedHeadersEnabled'];
         }
+
         if (isset($map['AccessLogTracingConfig'])) {
             $model->accessLogTracingConfig = accessLogTracingConfig::fromMap($map['AccessLogTracingConfig']);
         }

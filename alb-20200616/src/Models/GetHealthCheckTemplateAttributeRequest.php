@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetHealthCheckTemplateAttributeRequest extends Model
 {
     /**
-     * @description The ID of the health check template.
-     *
-     * This parameter is required.
-     * @example hct-x4jazoyi6tvsq9****
-     *
      * @var string
      */
     public $healthCheckTemplateId;
@@ -23,9 +18,10 @@ class GetHealthCheckTemplateAttributeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->healthCheckTemplateId) {
@@ -35,11 +31,11 @@ class GetHealthCheckTemplateAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHealthCheckTemplateAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

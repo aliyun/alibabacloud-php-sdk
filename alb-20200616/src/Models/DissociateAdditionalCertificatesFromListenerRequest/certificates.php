@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\DissociateAdditionalCertificatesFromListenerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class certificates extends Model
 {
     /**
-     * @description The certificate ID.
-     *
-     * This parameter is required.
-     * @example 12315790343_166f8204689_1714763408_70998****
-     *
      * @var string
      */
     public $certificateId;
@@ -23,9 +18,10 @@ class certificates extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certificateId) {
@@ -35,11 +31,11 @@ class certificates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return certificates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

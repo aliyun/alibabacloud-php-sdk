@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListSystemSecurityPoliciesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityPolicies extends Model
 {
     /**
-     * @description The supported cipher suite.
-     *
      * @var string[]
      */
     public $ciphers;
-
     /**
-     * @description The ID of the security policy.
-     *
-     * @example spy-n0kn923****
-     *
      * @var string
      */
     public $securityPolicyId;
-
     /**
-     * @description The supported TLS protocol versions.
-     *
      * @var string[]
      */
     public $TLSVersions;
@@ -38,43 +28,74 @@ class securityPolicies extends Model
 
     public function validate()
     {
+        if (\is_array($this->ciphers)) {
+            Model::validateArray($this->ciphers);
+        }
+        if (\is_array($this->TLSVersions)) {
+            Model::validateArray($this->TLSVersions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ciphers) {
-            $res['Ciphers'] = $this->ciphers;
+            if (\is_array($this->ciphers)) {
+                $res['Ciphers'] = [];
+                $n1             = 0;
+                foreach ($this->ciphers as $item1) {
+                    $res['Ciphers'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
         }
+
         if (null !== $this->TLSVersions) {
-            $res['TLSVersions'] = $this->TLSVersions;
+            if (\is_array($this->TLSVersions)) {
+                $res['TLSVersions'] = [];
+                $n1                 = 0;
+                foreach ($this->TLSVersions as $item1) {
+                    $res['TLSVersions'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityPolicies
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ciphers'])) {
             if (!empty($map['Ciphers'])) {
-                $model->ciphers = $map['Ciphers'];
+                $model->ciphers = [];
+                $n1             = 0;
+                foreach ($map['Ciphers'] as $item1) {
+                    $model->ciphers[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
         }
+
         if (isset($map['TLSVersions'])) {
             if (!empty($map['TLSVersions'])) {
-                $model->TLSVersions = $map['TLSVersions'];
+                $model->TLSVersions = [];
+                $n1                 = 0;
+                foreach ($map['TLSVersions'] as $item1) {
+                    $model->TLSVersions[$n1++] = $item1;
+                }
             }
         }
 
