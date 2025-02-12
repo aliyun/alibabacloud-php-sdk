@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\AddImageRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\AddImageResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\AddImageShrinkRequest;
@@ -59,11 +58,10 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolShrinkRequest;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class EhpcInstant extends OpenApiClient
 {
@@ -88,56 +86,69 @@ class EhpcInstant extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加托管侧用户自定义镜像
-     *  *
-     * @param AddImageRequest $tmpReq  AddImageRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 添加托管侧用户自定义镜像.
      *
-     * @return AddImageResponse AddImageResponse
+     * @param tmpReq - AddImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddImageResponse
+     *
+     * @param AddImageRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return AddImageResponse
      */
     public function addImageWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AddImageShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->containerImageSpec)) {
-            $request->containerImageSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->containerImageSpec, 'ContainerImageSpec', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->containerImageSpec) {
+            $request->containerImageSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->containerImageSpec, 'ContainerImageSpec', 'json');
         }
-        if (!Utils::isUnset($tmpReq->VMImageSpec)) {
-            $request->VMImageSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->VMImageSpec, 'VMImageSpec', 'json');
+
+        if (null !== $tmpReq->VMImageSpec) {
+            $request->VMImageSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->VMImageSpec, 'VMImageSpec', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->containerImageSpecShrink)) {
-            $query['ContainerImageSpec'] = $request->containerImageSpecShrink;
+        if (null !== $request->containerImageSpecShrink) {
+            @$query['ContainerImageSpec'] = $request->containerImageSpecShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->imageVersion)) {
-            $query['ImageVersion'] = $request->imageVersion;
+
+        if (null !== $request->imageVersion) {
+            @$query['ImageVersion'] = $request->imageVersion;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->VMImageSpecShrink)) {
-            $query['VMImageSpec'] = $request->VMImageSpecShrink;
+
+        if (null !== $request->VMImageSpecShrink) {
+            @$query['VMImageSpec'] = $request->VMImageSpecShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddImage',
@@ -150,16 +161,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加托管侧用户自定义镜像
-     *  *
-     * @param AddImageRequest $request AddImageRequest
+     * 添加托管侧用户自定义镜像.
      *
-     * @return AddImageResponse AddImageResponse
+     * @param request - AddImageRequest
+     * @returns AddImageResponse
+     *
+     * @param AddImageRequest $request
+     *
+     * @return AddImageResponse
      */
     public function addImage($request)
     {
@@ -169,42 +186,61 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 提交任务
-     *  *
-     * @param CreateJobRequest $tmpReq  CreateJobRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 提交任务
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @param tmpReq - CreateJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateJobResponse
      */
     public function createJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->deploymentPolicy)) {
-            $request->deploymentPolicyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentPolicy, 'DeploymentPolicy', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->deploymentPolicy) {
+            $request->deploymentPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deploymentPolicy, 'DeploymentPolicy', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tasks)) {
-            $request->tasksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tasks, 'Tasks', 'json');
+
+        if (null !== $tmpReq->securityPolicy) {
+            $request->securityPolicyShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->securityPolicy, 'SecurityPolicy', 'json');
         }
+
+        if (null !== $tmpReq->tasks) {
+            $request->tasksShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tasks, 'Tasks', 'json');
+        }
+
         $query = [];
-        if (!Utils::isUnset($request->deploymentPolicyShrink)) {
-            $query['DeploymentPolicy'] = $request->deploymentPolicyShrink;
+        if (null !== $request->deploymentPolicyShrink) {
+            @$query['DeploymentPolicy'] = $request->deploymentPolicyShrink;
         }
-        if (!Utils::isUnset($request->jobDescription)) {
-            $query['JobDescription'] = $request->jobDescription;
+
+        if (null !== $request->jobDescription) {
+            @$query['JobDescription'] = $request->jobDescription;
         }
-        if (!Utils::isUnset($request->jobName)) {
-            $query['JobName'] = $request->jobName;
+
+        if (null !== $request->jobName) {
+            @$query['JobName'] = $request->jobName;
         }
-        if (!Utils::isUnset($request->jobScheduler)) {
-            $query['JobScheduler'] = $request->jobScheduler;
+
+        if (null !== $request->jobScheduler) {
+            @$query['JobScheduler'] = $request->jobScheduler;
         }
-        if (!Utils::isUnset($request->tasksShrink)) {
-            $query['Tasks'] = $request->tasksShrink;
+
+        if (null !== $request->securityPolicyShrink) {
+            @$query['SecurityPolicy'] = $request->securityPolicyShrink;
         }
+
+        if (null !== $request->tasksShrink) {
+            @$query['Tasks'] = $request->tasksShrink;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateJob',
@@ -217,16 +253,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交任务
-     *  *
-     * @param CreateJobRequest $request CreateJobRequest
+     * 提交任务
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @param request - CreateJobRequest
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $request
+     *
+     * @return CreateJobResponse
      */
     public function createJob($request)
     {
@@ -236,33 +278,41 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 创建资源池
-     *  *
-     * @param CreatePoolRequest $tmpReq  CreatePoolRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 创建资源池.
      *
-     * @return CreatePoolResponse CreatePoolResponse
+     * @param tmpReq - CreatePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePoolResponse
+     *
+     * @param CreatePoolRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreatePoolResponse
      */
     public function createPoolWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePoolShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceLimits)) {
-            $request->resourceLimitsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceLimits, 'ResourceLimits', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceLimits) {
+            $request->resourceLimitsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceLimits, 'ResourceLimits', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->poolName)) {
-            $query['PoolName'] = $request->poolName;
+        if (null !== $request->poolName) {
+            @$query['PoolName'] = $request->poolName;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->resourceLimitsShrink)) {
-            $query['ResourceLimits'] = $request->resourceLimitsShrink;
+
+        if (null !== $request->resourceLimitsShrink) {
+            @$query['ResourceLimits'] = $request->resourceLimitsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePool',
@@ -275,16 +325,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建资源池
-     *  *
-     * @param CreatePoolRequest $request CreatePoolRequest
+     * 创建资源池.
      *
-     * @return CreatePoolResponse CreatePoolResponse
+     * @param request - CreatePoolRequest
+     * @returns CreatePoolResponse
+     *
+     * @param CreatePoolRequest $request
+     *
+     * @return CreatePoolResponse
      */
     public function createPool($request)
     {
@@ -294,33 +350,41 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 删除作业
-     *  *
-     * @param DeleteJobsRequest $tmpReq  DeleteJobsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 删除作业.
      *
-     * @return DeleteJobsResponse DeleteJobsResponse
+     * @param tmpReq - DeleteJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteJobsResponse
+     *
+     * @param DeleteJobsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteJobsResponse
      */
     public function deleteJobsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->executorIds)) {
-            $request->executorIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executorIds, 'ExecutorIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->executorIds) {
+            $request->executorIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->executorIds, 'ExecutorIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->jobSpec)) {
-            $request->jobSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSpec, 'JobSpec', 'json');
+
+        if (null !== $tmpReq->jobSpec) {
+            $request->jobSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobSpec, 'JobSpec', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->executorIdsShrink)) {
-            $query['ExecutorIds'] = $request->executorIdsShrink;
+        if (null !== $request->executorIdsShrink) {
+            @$query['ExecutorIds'] = $request->executorIdsShrink;
         }
-        if (!Utils::isUnset($request->jobSpecShrink)) {
-            $query['JobSpec'] = $request->jobSpecShrink;
+
+        if (null !== $request->jobSpecShrink) {
+            @$query['JobSpec'] = $request->jobSpecShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteJobs',
@@ -333,16 +397,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除作业
-     *  *
-     * @param DeleteJobsRequest $request DeleteJobsRequest
+     * 删除作业.
      *
-     * @return DeleteJobsResponse DeleteJobsResponse
+     * @param request - DeleteJobsRequest
+     * @returns DeleteJobsResponse
+     *
+     * @param DeleteJobsRequest $request
+     *
+     * @return DeleteJobsResponse
      */
     public function deleteJobs($request)
     {
@@ -352,22 +422,27 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 删除资源池
-     *  *
-     * @param DeletePoolRequest $request DeletePoolRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 删除资源池.
      *
-     * @return DeletePoolResponse DeletePoolResponse
+     * @param request - DeletePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePoolResponse
+     *
+     * @param DeletePoolRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeletePoolResponse
      */
     public function deletePoolWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->poolName)) {
-            $query['PoolName'] = $request->poolName;
+        if (null !== $request->poolName) {
+            @$query['PoolName'] = $request->poolName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePool',
@@ -380,16 +455,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除资源池
-     *  *
-     * @param DeletePoolRequest $request DeletePoolRequest
+     * 删除资源池.
      *
-     * @return DeletePoolResponse DeletePoolResponse
+     * @param request - DeletePoolRequest
+     * @returns DeletePoolResponse
+     *
+     * @param DeletePoolRequest $request
+     *
+     * @return DeletePoolResponse
      */
     public function deletePool($request)
     {
@@ -399,36 +480,45 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询作业性能数据
-     *  *
-     * @param DescribeJobMetricDataRequest $tmpReq  DescribeJobMetricDataRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询作业性能数据.
      *
-     * @return DescribeJobMetricDataResponse DescribeJobMetricDataResponse
+     * @param tmpReq - DescribeJobMetricDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeJobMetricDataResponse
+     *
+     * @param DescribeJobMetricDataRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeJobMetricDataResponse
      */
     public function describeJobMetricDataWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeJobMetricDataShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->arrayIndex)) {
-            $request->arrayIndexShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->arrayIndex, 'ArrayIndex', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->arrayIndex) {
+            $request->arrayIndexShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->arrayIndex, 'ArrayIndex', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->arrayIndexShrink)) {
-            $query['ArrayIndex'] = $request->arrayIndexShrink;
+        if (null !== $request->arrayIndexShrink) {
+            @$query['ArrayIndex'] = $request->arrayIndexShrink;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeJobMetricData',
@@ -441,16 +531,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeJobMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeJobMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeJobMetricDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询作业性能数据
-     *  *
-     * @param DescribeJobMetricDataRequest $request DescribeJobMetricDataRequest
+     * 查询作业性能数据.
      *
-     * @return DescribeJobMetricDataResponse DescribeJobMetricDataResponse
+     * @param request - DescribeJobMetricDataRequest
+     * @returns DescribeJobMetricDataResponse
+     *
+     * @param DescribeJobMetricDataRequest $request
+     *
+     * @return DescribeJobMetricDataResponse
      */
     public function describeJobMetricData($request)
     {
@@ -460,33 +556,41 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询作业即时监控项
-     *  *
-     * @param DescribeJobMetricLastRequest $tmpReq  DescribeJobMetricLastRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询作业即时监控项.
      *
-     * @return DescribeJobMetricLastResponse DescribeJobMetricLastResponse
+     * @param tmpReq - DescribeJobMetricLastRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeJobMetricLastResponse
+     *
+     * @param DescribeJobMetricLastRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeJobMetricLastResponse
      */
     public function describeJobMetricLastWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeJobMetricLastShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->arrayIndex)) {
-            $request->arrayIndexShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->arrayIndex, 'ArrayIndex', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->arrayIndex) {
+            $request->arrayIndexShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->arrayIndex, 'ArrayIndex', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->arrayIndexShrink)) {
-            $query['ArrayIndex'] = $request->arrayIndexShrink;
+        if (null !== $request->arrayIndexShrink) {
+            @$query['ArrayIndex'] = $request->arrayIndexShrink;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeJobMetricLast',
@@ -499,16 +603,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeJobMetricLastResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeJobMetricLastResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeJobMetricLastResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询作业即时监控项
-     *  *
-     * @param DescribeJobMetricLastRequest $request DescribeJobMetricLastRequest
+     * 查询作业即时监控项.
      *
-     * @return DescribeJobMetricLastResponse DescribeJobMetricLastResponse
+     * @param request - DescribeJobMetricLastRequest
+     * @returns DescribeJobMetricLastResponse
+     *
+     * @param DescribeJobMetricLastRequest $request
+     *
+     * @return DescribeJobMetricLastResponse
      */
     public function describeJobMetricLast($request)
     {
@@ -518,34 +628,43 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查看应用版本列表
-     *  *
-     * @param GetAppVersionsRequest $request GetAppVersionsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查看应用版本列表.
      *
-     * @return GetAppVersionsResponse GetAppVersionsResponse
+     * @param request - GetAppVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAppVersionsResponse
+     *
+     * @param GetAppVersionsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAppVersionsResponse
      */
     public function getAppVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->imageCategory)) {
-            $query['ImageCategory'] = $request->imageCategory;
+
+        if (null !== $request->imageCategory) {
+            @$query['ImageCategory'] = $request->imageCategory;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAppVersions',
@@ -558,16 +677,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAppVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAppVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAppVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看应用版本列表
-     *  *
-     * @param GetAppVersionsRequest $request GetAppVersionsRequest
+     * 查看应用版本列表.
      *
-     * @return GetAppVersionsResponse GetAppVersionsResponse
+     * @param request - GetAppVersionsRequest
+     * @returns GetAppVersionsResponse
+     *
+     * @param GetAppVersionsRequest $request
+     *
+     * @return GetAppVersionsResponse
      */
     public function getAppVersions($request)
     {
@@ -577,28 +702,35 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询托管侧镜像详情。
-     *  *
-     * @param GetImageRequest $request GetImageRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 查询托管侧镜像详情。
      *
-     * @return GetImageResponse GetImageResponse
+     * @param request - GetImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetImageResponse
+     *
+     * @param GetImageRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetImageResponse
      */
     public function getImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageCategory)) {
-            $query['ImageCategory'] = $request->imageCategory;
+        if (null !== $request->imageCategory) {
+            @$query['ImageCategory'] = $request->imageCategory;
         }
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetImage',
@@ -611,16 +743,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询托管侧镜像详情。
-     *  *
-     * @param GetImageRequest $request GetImageRequest
+     * 查询托管侧镜像详情。
      *
-     * @return GetImageResponse GetImageResponse
+     * @param request - GetImageRequest
+     * @returns GetImageResponse
+     *
+     * @param GetImageRequest $request
+     *
+     * @return GetImageResponse
      */
     public function getImage($request)
     {
@@ -630,22 +768,27 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询作业详情
-     *  *
-     * @param GetJobRequest  $request GetJobRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询作业详情.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetJobResponse
+     *
+     * @param GetJobRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetJobResponse
      */
     public function getJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetJob',
@@ -658,16 +801,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询作业详情
-     *  *
-     * @param GetJobRequest $request GetJobRequest
+     * 查询作业详情.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     * @returns GetJobResponse
+     *
+     * @param GetJobRequest $request
+     *
+     * @return GetJobResponse
      */
     public function getJob($request)
     {
@@ -677,22 +826,27 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询队列详细信息
-     *  *
-     * @param GetPoolRequest $request GetPoolRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询队列详细信息.
      *
-     * @return GetPoolResponse GetPoolResponse
+     * @param request - GetPoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPoolResponse
+     *
+     * @param GetPoolRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetPoolResponse
      */
     public function getPoolWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->poolName)) {
-            $query['PoolName'] = $request->poolName;
+        if (null !== $request->poolName) {
+            @$query['PoolName'] = $request->poolName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPool',
@@ -705,16 +859,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询队列详细信息
-     *  *
-     * @param GetPoolRequest $request GetPoolRequest
+     * 查询队列详细信息.
      *
-     * @return GetPoolResponse GetPoolResponse
+     * @param request - GetPoolRequest
+     * @returns GetPoolResponse
+     *
+     * @param GetPoolRequest $request
+     *
+     * @return GetPoolResponse
      */
     public function getPool($request)
     {
@@ -724,33 +884,41 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询全局Executor信息
-     *  *
-     * @param ListExecutorsRequest $tmpReq  ListExecutorsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询全局Executor信息.
      *
-     * @return ListExecutorsResponse ListExecutorsResponse
+     * @param tmpReq - ListExecutorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListExecutorsResponse
+     *
+     * @param ListExecutorsRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListExecutorsResponse
      */
     public function listExecutorsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListExecutorsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filter)) {
-            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->filterShrink)) {
-            $query['Filter'] = $request->filterShrink;
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListExecutors',
@@ -763,16 +931,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListExecutorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询全局Executor信息
-     *  *
-     * @param ListExecutorsRequest $request ListExecutorsRequest
+     * 查询全局Executor信息.
      *
-     * @return ListExecutorsResponse ListExecutorsResponse
+     * @param request - ListExecutorsRequest
+     * @returns ListExecutorsResponse
+     *
+     * @param ListExecutorsRequest $request
+     *
+     * @return ListExecutorsResponse
      */
     public function listExecutors($request)
     {
@@ -782,48 +956,61 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查看托管侧镜像列表
-     *  *
-     * @param ListImagesRequest $tmpReq  ListImagesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 查看托管侧镜像列表.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @param tmpReq - ListImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListImagesResponse
      */
     public function listImagesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListImagesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->imageIds)) {
-            $request->imageIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageIds, 'ImageIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->imageIds) {
+            $request->imageIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageIds, 'ImageIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->imageNames)) {
-            $request->imageNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'json');
+
+        if (null !== $tmpReq->imageNames) {
+            $request->imageNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->imageCategory)) {
-            $query['ImageCategory'] = $request->imageCategory;
+        if (null !== $request->imageCategory) {
+            @$query['ImageCategory'] = $request->imageCategory;
         }
-        if (!Utils::isUnset($request->imageIdsShrink)) {
-            $query['ImageIds'] = $request->imageIdsShrink;
+
+        if (null !== $request->imageIdsShrink) {
+            @$query['ImageIds'] = $request->imageIdsShrink;
         }
-        if (!Utils::isUnset($request->imageNamesShrink)) {
-            $query['ImageNames'] = $request->imageNamesShrink;
+
+        if (null !== $request->imageNamesShrink) {
+            @$query['ImageNames'] = $request->imageNamesShrink;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListImages',
@@ -836,16 +1023,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListImagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看托管侧镜像列表
-     *  *
-     * @param ListImagesRequest $request ListImagesRequest
+     * 查看托管侧镜像列表.
      *
-     * @return ListImagesResponse ListImagesResponse
+     * @param request - ListImagesRequest
+     * @returns ListImagesResponse
+     *
+     * @param ListImagesRequest $request
+     *
+     * @return ListImagesResponse
      */
     public function listImages($request)
     {
@@ -855,31 +1048,39 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询作业Executor信息
-     *  *
-     * @param ListJobExecutorsRequest $request ListJobExecutorsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询作业Executor信息.
      *
-     * @return ListJobExecutorsResponse ListJobExecutorsResponse
+     * @param request - ListJobExecutorsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListJobExecutorsResponse
+     *
+     * @param ListJobExecutorsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListJobExecutorsResponse
      */
     public function listJobExecutorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListJobExecutors',
@@ -892,16 +1093,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListJobExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListJobExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListJobExecutorsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询作业Executor信息
-     *  *
-     * @param ListJobExecutorsRequest $request ListJobExecutorsRequest
+     * 查询作业Executor信息.
      *
-     * @return ListJobExecutorsResponse ListJobExecutorsResponse
+     * @param request - ListJobExecutorsRequest
+     * @returns ListJobExecutorsResponse
+     *
+     * @param ListJobExecutorsRequest $request
+     *
+     * @return ListJobExecutorsResponse
      */
     public function listJobExecutors($request)
     {
@@ -911,39 +1118,49 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询作业列表
-     *  *
-     * @param ListJobsRequest $tmpReq  ListJobsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 查询作业列表.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param tmpReq - ListJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListJobsResponse
      */
     public function listJobsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filter)) {
-            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sortBy)) {
-            $request->sortByShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sortBy, 'SortBy', 'json');
+
+        if (null !== $tmpReq->sortBy) {
+            $request->sortByShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sortBy, 'SortBy', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->filterShrink)) {
-            $query['Filter'] = $request->filterShrink;
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sortByShrink)) {
-            $query['SortBy'] = $request->sortByShrink;
+
+        if (null !== $request->sortByShrink) {
+            @$query['SortBy'] = $request->sortByShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListJobs',
@@ -956,16 +1173,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询作业列表
-     *  *
-     * @param ListJobsRequest $request ListJobsRequest
+     * 查询作业列表.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $request
+     *
+     * @return ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -975,33 +1198,41 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询资源池列表
-     *  *
-     * @param ListPoolsRequest $tmpReq  ListPoolsRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 查询资源池列表.
      *
-     * @return ListPoolsResponse ListPoolsResponse
+     * @param tmpReq - ListPoolsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPoolsResponse
+     *
+     * @param ListPoolsRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListPoolsResponse
      */
     public function listPoolsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListPoolsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filter)) {
-            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->filterShrink)) {
-            $query['Filter'] = $request->filterShrink;
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPools',
@@ -1014,16 +1245,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPoolsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询资源池列表
-     *  *
-     * @param ListPoolsRequest $request ListPoolsRequest
+     * 查询资源池列表.
      *
-     * @return ListPoolsResponse ListPoolsResponse
+     * @param request - ListPoolsRequest
+     * @returns ListPoolsResponse
+     *
+     * @param ListPoolsRequest $request
+     *
+     * @return ListPoolsResponse
      */
     public function listPools($request)
     {
@@ -1033,34 +1270,43 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 查询一个或多个资源已经绑定的标签列表
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询一个或多个资源已经绑定的标签列表.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResult)) {
-            $query['MaxResult'] = $request->maxResult;
+        if (null !== $request->maxResult) {
+            @$query['MaxResult'] = $request->maxResult;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -1073,16 +1319,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询一个或多个资源已经绑定的标签列表
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * 查询一个或多个资源已经绑定的标签列表.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1092,25 +1344,31 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 移除托管侧镜像信息。
-     *  *
-     * @param RemoveImageRequest $request RemoveImageRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 移除托管侧镜像信息。
      *
-     * @return RemoveImageResponse RemoveImageResponse
+     * @param request - RemoveImageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveImageResponse
+     *
+     * @param RemoveImageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RemoveImageResponse
      */
     public function removeImageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->imageId)) {
-            $query['ImageId'] = $request->imageId;
+        if (null !== $request->imageId) {
+            @$query['ImageId'] = $request->imageId;
         }
-        if (!Utils::isUnset($request->imageType)) {
-            $query['ImageType'] = $request->imageType;
+
+        if (null !== $request->imageType) {
+            @$query['ImageType'] = $request->imageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveImage',
@@ -1123,16 +1381,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 移除托管侧镜像信息。
-     *  *
-     * @param RemoveImageRequest $request RemoveImageRequest
+     * 移除托管侧镜像信息。
      *
-     * @return RemoveImageResponse RemoveImageResponse
+     * @param request - RemoveImageRequest
+     * @returns RemoveImageResponse
+     *
+     * @param RemoveImageRequest $request
+     *
+     * @return RemoveImageResponse
      */
     public function removeImage($request)
     {
@@ -1142,28 +1406,35 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 为指定的资源列表统一创建并绑定标签
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 为指定的资源列表统一创建并绑定标签.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -1176,16 +1447,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 为指定的资源列表统一创建并绑定标签
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * 为指定的资源列表统一创建并绑定标签.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1195,31 +1472,39 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 为指定的ECS资源列表统一解绑标签
-     *  *
-     * @param UnTagResourcesRequest $request UnTagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 为指定的ECS资源列表统一解绑标签.
      *
-     * @return UnTagResourcesResponse UnTagResourcesResponse
+     * @param request - UnTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnTagResourcesResponse
      */
     public function unTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnTagResources',
@@ -1232,16 +1517,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 为指定的ECS资源列表统一解绑标签
-     *  *
-     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * 为指定的ECS资源列表统一解绑标签.
      *
-     * @return UnTagResourcesResponse UnTagResourcesResponse
+     * @param request - UnTagResourcesRequest
+     * @returns UnTagResourcesResponse
+     *
+     * @param UnTagResourcesRequest $request
+     *
+     * @return UnTagResourcesResponse
      */
     public function unTagResources($request)
     {
@@ -1251,33 +1542,41 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
-     * @summary 更新资源池
-     *  *
-     * @param UpdatePoolRequest $tmpReq  UpdatePoolRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 更新资源池.
      *
-     * @return UpdatePoolResponse UpdatePoolResponse
+     * @param tmpReq - UpdatePoolRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePoolResponse
+     *
+     * @param UpdatePoolRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdatePoolResponse
      */
     public function updatePoolWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdatePoolShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->resourceLimits)) {
-            $request->resourceLimitsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceLimits, 'ResourceLimits', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->resourceLimits) {
+            $request->resourceLimitsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceLimits, 'ResourceLimits', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->poolName)) {
-            $query['PoolName'] = $request->poolName;
+        if (null !== $request->poolName) {
+            @$query['PoolName'] = $request->poolName;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $query['Priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$query['Priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->resourceLimitsShrink)) {
-            $query['ResourceLimits'] = $request->resourceLimitsShrink;
+
+        if (null !== $request->resourceLimitsShrink) {
+            @$query['ResourceLimits'] = $request->resourceLimitsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePool',
@@ -1290,16 +1589,22 @@ class EhpcInstant extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePoolResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新资源池
-     *  *
-     * @param UpdatePoolRequest $request UpdatePoolRequest
+     * 更新资源池.
      *
-     * @return UpdatePoolResponse UpdatePoolResponse
+     * @param request - UpdatePoolRequest
+     * @returns UpdatePoolResponse
+     *
+     * @param UpdatePoolRequest $request
+     *
+     * @return UpdatePoolResponse
      */
     public function updatePool($request)
     {

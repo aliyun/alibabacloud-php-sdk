@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPoolRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example PoolTest
-     *
      * @var string
      */
     public $poolName;
@@ -22,9 +18,10 @@ class GetPoolRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->poolName) {
@@ -34,11 +31,11 @@ class GetPoolRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPoolRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

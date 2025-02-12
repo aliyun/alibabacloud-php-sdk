@@ -4,24 +4,20 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\deploymentPolicy\network;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest\deploymentPolicy\tag;
-use AlibabaCloud\Tea\Model;
 
 class deploymentPolicy extends Model
 {
     /**
-     * @example Dedicated
-     *
      * @var string
      */
     public $allocationSpec;
-
     /**
      * @var network
      */
     public $network;
-
     /**
      * @var tag[]
      */
@@ -34,23 +30,32 @@ class deploymentPolicy extends Model
 
     public function validate()
     {
+        if (null !== $this->network) {
+            $this->network->validate();
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allocationSpec) {
             $res['AllocationSpec'] = $this->allocationSpec;
         }
+
         if (null !== $this->network) {
-            $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
+            $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -58,26 +63,28 @@ class deploymentPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deploymentPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllocationSpec'])) {
             $model->allocationSpec = $map['AllocationSpec'];
         }
+
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

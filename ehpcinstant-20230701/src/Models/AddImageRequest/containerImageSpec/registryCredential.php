@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\AddImageRequest\containerImageSpec;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class registryCredential extends Model
 {
     /**
-     * @example userpassword
-     *
      * @var string
      */
     public $password;
-
     /**
-     * @example registry-vpc.cn-hangzhou.aliyuncs.com
-     *
      * @var string
      */
     public $server;
-
     /**
-     * @example username
-     *
      * @var string
      */
     public $userName;
@@ -36,17 +28,20 @@ class registryCredential extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
+
         if (null !== $this->server) {
             $res['Server'] = $this->server;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
@@ -54,20 +49,22 @@ class registryCredential extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return registryCredential
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }
+
         if (isset($map['Server'])) {
             $model->server = $map['Server'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }

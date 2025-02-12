@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetJobResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class GetJobResponseBody extends Model
      * @var jobInfo
      */
     public $jobInfo;
-
     /**
-     * @example 896D338C-E4F4-41EC-A154-D605E5DE****
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class GetJobResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->jobInfo) {
+            $this->jobInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobInfo) {
-            $res['JobInfo'] = null !== $this->jobInfo ? $this->jobInfo->toMap() : null;
+            $res['JobInfo'] = null !== $this->jobInfo ? $this->jobInfo->toArray($noStream) : $this->jobInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class GetJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobInfo'])) {
             $model->jobInfo = jobInfo::fromMap($map['JobInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

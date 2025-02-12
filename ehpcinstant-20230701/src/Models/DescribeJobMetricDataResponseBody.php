@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeJobMetricDataResponseBody extends Model
 {
     /**
-     * @example [{"timestamp":1709540685000,"Minimum":28.45,"Maximum":28.45,"Average":28.45}]
-     *
      * @var string
      */
     public $dataPoints;
-
     /**
-     * @example 15
-     *
      * @var int
      */
     public $period;
-
     /**
-     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
-     *
      * @var string
      */
     public $requestId;
@@ -36,17 +28,20 @@ class DescribeJobMetricDataResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataPoints) {
             $res['DataPoints'] = $this->dataPoints;
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,20 +49,22 @@ class DescribeJobMetricDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeJobMetricDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataPoints'])) {
             $model->dataPoints = $map['DataPoints'];
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

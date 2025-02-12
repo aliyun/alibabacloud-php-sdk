@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListImagesRequest extends Model
 {
@@ -12,37 +12,27 @@ class ListImagesRequest extends Model
      * @var string
      */
     public $imageCategory;
-
     /**
      * @var string[]
      */
     public $imageIds;
-
     /**
      * @var string[]
      */
     public $imageNames;
-
     /**
      * @var string
      */
     public $imageType;
-
     /**
      * @var string
      */
     public $mode;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -58,29 +48,54 @@ class ListImagesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->imageIds)) {
+            Model::validateArray($this->imageIds);
+        }
+        if (\is_array($this->imageNames)) {
+            Model::validateArray($this->imageNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageCategory) {
             $res['ImageCategory'] = $this->imageCategory;
         }
+
         if (null !== $this->imageIds) {
-            $res['ImageIds'] = $this->imageIds;
+            if (\is_array($this->imageIds)) {
+                $res['ImageIds'] = [];
+                $n1              = 0;
+                foreach ($this->imageIds as $item1) {
+                    $res['ImageIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->imageNames) {
-            $res['ImageNames'] = $this->imageNames;
+            if (\is_array($this->imageNames)) {
+                $res['ImageNames'] = [];
+                $n1                = 0;
+                foreach ($this->imageNames as $item1) {
+                    $res['ImageNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -88,36 +103,50 @@ class ListImagesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListImagesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageCategory'])) {
             $model->imageCategory = $map['ImageCategory'];
         }
+
         if (isset($map['ImageIds'])) {
             if (!empty($map['ImageIds'])) {
-                $model->imageIds = $map['ImageIds'];
+                $model->imageIds = [];
+                $n1              = 0;
+                foreach ($map['ImageIds'] as $item1) {
+                    $model->imageIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ImageNames'])) {
             if (!empty($map['ImageNames'])) {
-                $model->imageNames = $map['ImageNames'];
+                $model->imageNames = [];
+                $n1                = 0;
+                foreach ($map['ImageNames'] as $item1) {
+                    $model->imageNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

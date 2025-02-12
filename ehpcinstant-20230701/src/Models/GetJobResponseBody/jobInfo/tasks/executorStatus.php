@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class executorStatus extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $arrayId;
-
     /**
-     * @example 2024-02-04 13:54:10
-     *
      * @var string
      */
     public $createTime;
-
     /**
-     * @example 2024-02-04 13:54:10
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @example 2024-02-04 13:54:10
-     *
      * @var string
      */
     public $startTime;
-
     /**
-     * @example Running
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @example Creating executor
-     *
      * @var string
      */
     public $statusReason;
@@ -60,26 +43,32 @@ class executorStatus extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->arrayId) {
             $res['ArrayId'] = $this->arrayId;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
         }
@@ -87,29 +76,34 @@ class executorStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return executorStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ArrayId'])) {
             $model->arrayId = $map['ArrayId'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
         }

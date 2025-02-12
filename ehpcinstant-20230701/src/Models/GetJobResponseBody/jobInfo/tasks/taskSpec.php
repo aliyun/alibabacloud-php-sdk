@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\resource;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponseBody\jobInfo\tasks\taskSpec\taskExecutor;
-use AlibabaCloud\Tea\Model;
 
 class taskSpec extends Model
 {
@@ -14,7 +14,6 @@ class taskSpec extends Model
      * @var resource
      */
     public $resource;
-
     /**
      * @var taskExecutor[]
      */
@@ -26,20 +25,28 @@ class taskSpec extends Model
 
     public function validate()
     {
+        if (null !== $this->resource) {
+            $this->resource->validate();
+        }
+        if (\is_array($this->taskExecutor)) {
+            Model::validateArray($this->taskExecutor);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resource) {
-            $res['Resource'] = null !== $this->resource ? $this->resource->toMap() : null;
+            $res['Resource'] = null !== $this->resource ? $this->resource->toArray($noStream) : $this->resource;
         }
+
         if (null !== $this->taskExecutor) {
-            $res['TaskExecutor'] = [];
-            if (null !== $this->taskExecutor && \is_array($this->taskExecutor)) {
-                $n = 0;
-                foreach ($this->taskExecutor as $item) {
-                    $res['TaskExecutor'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskExecutor)) {
+                $res['TaskExecutor'] = [];
+                $n1                  = 0;
+                foreach ($this->taskExecutor as $item1) {
+                    $res['TaskExecutor'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -47,23 +54,24 @@ class taskSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Resource'])) {
             $model->resource = resource::fromMap($map['Resource']);
         }
+
         if (isset($map['TaskExecutor'])) {
             if (!empty($map['TaskExecutor'])) {
                 $model->taskExecutor = [];
-                $n                   = 0;
-                foreach ($map['TaskExecutor'] as $item) {
-                    $model->taskExecutor[$n++] = null !== $item ? taskExecutor::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['TaskExecutor'] as $item1) {
+                    $model->taskExecutor[$n1++] = taskExecutor::fromMap($item1);
                 }
             }
         }
