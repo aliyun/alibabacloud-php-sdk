@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAutoScalingConfigurationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetAutoScalingConfigurationResponseBody\data\scheduledScalingRules;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The scheduled scaling rules.
-     *
      * @var scheduledScalingRules
      */
     public $scheduledScalingRules;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->scheduledScalingRules) {
+            $this->scheduledScalingRules->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->scheduledScalingRules) {
-            $res['ScheduledScalingRules'] = null !== $this->scheduledScalingRules ? $this->scheduledScalingRules->toMap() : null;
+            $res['ScheduledScalingRules'] = null !== $this->scheduledScalingRules ? $this->scheduledScalingRules->toArray($noStream) : $this->scheduledScalingRules;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableAutoTopicCreationResponseBody extends Model
 {
     /**
-     * @description The returned status code. If the request is successful, 200 is returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
-
     /**
-     * @description The returned message.
-     *
-     * @example operation success.
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9E3B3592-5994-4F65-A61E-E62A77A7***
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request is successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -52,20 +33,24 @@ class EnableAutoTopicCreationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -73,23 +58,26 @@ class EnableAutoTopicCreationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableAutoTopicCreationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

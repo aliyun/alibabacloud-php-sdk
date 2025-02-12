@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetTopicStatusResponseBody\topicStatus\offsetTable;
-use AlibabaCloud\Tea\Model;
 
 class topicStatus extends Model
 {
     /**
-     * @description The time when the last consumed message was generated.
-     *
-     * @example 1566470063575
-     *
      * @var int
      */
     public $lastTimeStamp;
-
     /**
-     * @description The information about offsets in the topic.
-     *
      * @var offsetTable
      */
     public $offsetTable;
-
     /**
-     * @description The number of messages in the topic.
-     *
-     * @example 423
-     *
      * @var int
      */
     public $totalCount;
@@ -41,17 +29,23 @@ class topicStatus extends Model
 
     public function validate()
     {
+        if (null !== $this->offsetTable) {
+            $this->offsetTable->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lastTimeStamp) {
             $res['LastTimeStamp'] = $this->lastTimeStamp;
         }
+
         if (null !== $this->offsetTable) {
-            $res['OffsetTable'] = null !== $this->offsetTable ? $this->offsetTable->toMap() : null;
+            $res['OffsetTable'] = null !== $this->offsetTable ? $this->offsetTable->toArray($noStream) : $this->offsetTable;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,20 +53,22 @@ class topicStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topicStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LastTimeStamp'])) {
             $model->lastTimeStamp = $map['LastTimeStamp'];
         }
+
         if (isset($map['OffsetTable'])) {
             $model->offsetTable = offsetTable::fromMap($map['OffsetTable']);
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

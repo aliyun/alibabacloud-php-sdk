@@ -4,68 +4,36 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListResponseBody\consumerList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetConsumerListResponseBody\consumerList\consumerVO\tags;
-use AlibabaCloud\Tea\Model;
 
 class consumerVO extends Model
 {
     /**
-     * @description Indicates that the consumer group was automatically created by the system.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $automaticallyCreatedGroup;
-
     /**
-     * @description The consumer group ID.
-     *
-     * @example kafka-test
-     *
      * @var string
      */
     public $consumerId;
-
     /**
-     * @description The timestamp that indicates when the consumer group was created. Unit: milliseconds.
-     *
-     * @example 1729736584002
-     *
      * @var int
      */
     public $createTime;
-
     /**
-     * @description The instance ID.
-     *
-     * @example alikafka_post-cn-v0h18sav****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The ID of the region where the instance resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The instance description.
-     *
-     * @example test
-     *
      * @var string
      */
     public $remark;
-
     /**
-     * @description The tags.
-     *
      * @var tags
      */
     public $tags;
@@ -81,62 +49,78 @@ class consumerVO extends Model
 
     public function validate()
     {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->automaticallyCreatedGroup) {
             $res['AutomaticallyCreatedGroup'] = $this->automaticallyCreatedGroup;
         }
+
         if (null !== $this->consumerId) {
             $res['ConsumerId'] = $this->consumerId;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumerVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutomaticallyCreatedGroup'])) {
             $model->automaticallyCreatedGroup = $map['AutomaticallyCreatedGroup'];
         }
+
         if (isset($map['ConsumerId'])) {
             $model->consumerId = $map['ConsumerId'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }

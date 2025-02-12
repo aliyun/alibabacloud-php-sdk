@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\DescribeAclsResponseBody\kafkaAclList\kafkaAclVO;
-use AlibabaCloud\Tea\Model;
 
 class kafkaAclList extends Model
 {
@@ -19,17 +19,21 @@ class kafkaAclList extends Model
 
     public function validate()
     {
+        if (\is_array($this->kafkaAclVO)) {
+            Model::validateArray($this->kafkaAclVO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kafkaAclVO) {
-            $res['KafkaAclVO'] = [];
-            if (null !== $this->kafkaAclVO && \is_array($this->kafkaAclVO)) {
-                $n = 0;
-                foreach ($this->kafkaAclVO as $item) {
-                    $res['KafkaAclVO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->kafkaAclVO)) {
+                $res['KafkaAclVO'] = [];
+                $n1                = 0;
+                foreach ($this->kafkaAclVO as $item1) {
+                    $res['KafkaAclVO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class kafkaAclList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return kafkaAclList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KafkaAclVO'])) {
             if (!empty($map['KafkaAclVO'])) {
                 $model->kafkaAclVO = [];
-                $n                 = 0;
-                foreach ($map['KafkaAclVO'] as $item) {
-                    $model->kafkaAclVO[$n++] = null !== $item ? kafkaAclVO::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['KafkaAclVO'] as $item1) {
+                    $model->kafkaAclVO[$n1++] = kafkaAclVO::fromMap($item1);
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\GetInstanceListResponseBody\instanceList\instanceVO;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class upgradeServiceDetailInfo extends Model
 {
     /**
-     * @description The open source Apache Kafka version that corresponds to the instance.
-     *
-     * @example 2.2.0
-     *
      * @var string
      */
     public $current2OpenSourceVersion;
@@ -22,9 +18,10 @@ class upgradeServiceDetailInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->current2OpenSourceVersion) {
@@ -34,11 +31,11 @@ class upgradeServiceDetailInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return upgradeServiceDetailInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeInstanceVersionRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example alikafka_post-cn-v0h1fgs2****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The ID of the region where the instance resides.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The major version to be upgraded to. Valid values:
-     *
-     *   **0.10.2**
-     *   **2.2.0**
-     *
-     * This parameter is required.
-     * @example 0.10.2
-     *
      * @var string
      */
     public $targetVersion;
@@ -48,17 +28,20 @@ class UpgradeInstanceVersionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->targetVersion) {
             $res['TargetVersion'] = $this->targetVersion;
         }
@@ -66,20 +49,22 @@ class UpgradeInstanceVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeInstanceVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TargetVersion'])) {
             $model->targetVersion = $map['TargetVersion'];
         }
