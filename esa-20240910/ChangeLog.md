@@ -1,3 +1,17 @@
+2025-02-12 Version: 2.13.0
+- Support API CheckAssumeSlrRole.
+- Support API CreateSlrRoleForRealtimeLog.
+- Update API CreateCompressionRule: add param Zstd.
+- Update API CreateWaitingRoom: update response param.
+- Update API CreateWaitingRoomEvent: update response param.
+- Update API CreateWaitingRoomRule: update response param.
+- Update API GetCompressionRule: update response param.
+- Update API ListCompressionRules: update response param.
+- Update API ListUserRatePlanInstances: add param SubscribeType.
+- Update API ListUserRatePlanInstances: update response param.
+- Update API UpdateCompressionRule: add param Zstd.
+
+
 2025-02-10 Version: 2.12.1
 - Update API CreateLoadBalancer: update param DefaultPools.
 - Update API CreateLoadBalancer: update param FallbackPool.

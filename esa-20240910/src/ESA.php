@@ -32,6 +32,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\BatchPutKvWithHighCapacityResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CheckAssumeSlrRoleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteNameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteNameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteProjectNameRequest;
@@ -112,6 +113,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSlrRoleForRealtimeLogResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskShrinkRequest;
@@ -1616,6 +1618,52 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 检查实时日志slr角色是否已创建.
+     *
+     * @param request - CheckAssumeSlrRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckAssumeSlrRoleResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return CheckAssumeSlrRoleResponse
+     */
+    public function checkAssumeSlrRoleWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'CheckAssumeSlrRole',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckAssumeSlrRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CheckAssumeSlrRoleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 检查实时日志slr角色是否已创建.
+     *
+     * @returns CheckAssumeSlrRoleResponse
+     *
+     * @return CheckAssumeSlrRoleResponse
+     */
+    public function checkAssumeSlrRole()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkAssumeSlrRoleWithOptions($runtime);
+    }
+
+    /**
      * Checks whether a specified website name is available.
      *
      * @param request - CheckSiteNameRequest
@@ -2111,6 +2159,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->siteVersion) {
             @$query['SiteVersion'] = $request->siteVersion;
+        }
+
+        if (null !== $request->zstd) {
+            @$query['Zstd'] = $request->zstd;
         }
 
         $req = new OpenApiRequest([
@@ -4557,6 +4609,52 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSiteDeliveryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建一个实时日志slr角色.
+     *
+     * @param request - CreateSlrRoleForRealtimeLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSlrRoleForRealtimeLogResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return CreateSlrRoleForRealtimeLogResponse
+     */
+    public function createSlrRoleForRealtimeLogWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'CreateSlrRoleForRealtimeLog',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSlrRoleForRealtimeLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateSlrRoleForRealtimeLogResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建一个实时日志slr角色.
+     *
+     * @returns CreateSlrRoleForRealtimeLogResponse
+     *
+     * @return CreateSlrRoleForRealtimeLogResponse
+     */
+    public function createSlrRoleForRealtimeLog()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSlrRoleForRealtimeLogWithOptions($runtime);
     }
 
     /**
@@ -16173,6 +16271,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->siteId) {
             @$query['SiteId'] = $request->siteId;
+        }
+
+        if (null !== $request->zstd) {
+            @$query['Zstd'] = $request->zstd;
         }
 
         $req = new OpenApiRequest([

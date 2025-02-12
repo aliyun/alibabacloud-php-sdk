@@ -44,6 +44,10 @@ class configs extends Model
      * @var int
      */
     public $siteVersion;
+    /**
+     * @var string
+     */
+    public $zstd;
     protected $_name = [
         'brotli'      => 'Brotli',
         'configId'    => 'ConfigId',
@@ -54,6 +58,7 @@ class configs extends Model
         'ruleName'    => 'RuleName',
         'sequence'    => 'Sequence',
         'siteVersion' => 'SiteVersion',
+        'zstd'        => 'Zstd',
     ];
 
     public function validate()
@@ -98,6 +103,10 @@ class configs extends Model
 
         if (null !== $this->siteVersion) {
             $res['SiteVersion'] = $this->siteVersion;
+        }
+
+        if (null !== $this->zstd) {
+            $res['Zstd'] = $this->zstd;
         }
 
         return $res;
@@ -145,6 +154,10 @@ class configs extends Model
 
         if (isset($map['SiteVersion'])) {
             $model->siteVersion = $map['SiteVersion'];
+        }
+
+        if (isset($map['Zstd'])) {
+            $model->zstd = $map['Zstd'];
         }
 
         return $model;

@@ -6,19 +6,14 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class CreateWaitingRoomEventResponseBody extends Model
+class CreateSlrRoleForRealtimeLogResponseBody extends Model
 {
     /**
      * @var string
      */
     public $requestId;
-    /**
-     * @var int
-     */
-    public $waitingRoomEventId;
     protected $_name = [
-        'requestId'          => 'RequestId',
-        'waitingRoomEventId' => 'WaitingRoomEventId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -31,10 +26,6 @@ class CreateWaitingRoomEventResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-
-        if (null !== $this->waitingRoomEventId) {
-            $res['WaitingRoomEventId'] = $this->waitingRoomEventId;
         }
 
         return $res;
@@ -50,10 +41,6 @@ class CreateWaitingRoomEventResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-
-        if (isset($map['WaitingRoomEventId'])) {
-            $model->waitingRoomEventId = $map['WaitingRoomEventId'];
         }
 
         return $model;

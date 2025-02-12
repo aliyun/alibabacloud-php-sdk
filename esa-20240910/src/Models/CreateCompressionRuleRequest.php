@@ -36,6 +36,10 @@ class CreateCompressionRuleRequest extends Model
      * @var int
      */
     public $siteVersion;
+    /**
+     * @var string
+     */
+    public $zstd;
     protected $_name = [
         'brotli'      => 'Brotli',
         'gzip'        => 'Gzip',
@@ -44,6 +48,7 @@ class CreateCompressionRuleRequest extends Model
         'ruleName'    => 'RuleName',
         'siteId'      => 'SiteId',
         'siteVersion' => 'SiteVersion',
+        'zstd'        => 'Zstd',
     ];
 
     public function validate()
@@ -80,6 +85,10 @@ class CreateCompressionRuleRequest extends Model
 
         if (null !== $this->siteVersion) {
             $res['SiteVersion'] = $this->siteVersion;
+        }
+
+        if (null !== $this->zstd) {
+            $res['Zstd'] = $this->zstd;
         }
 
         return $res;
@@ -119,6 +128,10 @@ class CreateCompressionRuleRequest extends Model
 
         if (isset($map['SiteVersion'])) {
             $model->siteVersion = $map['SiteVersion'];
+        }
+
+        if (isset($map['Zstd'])) {
+            $model->zstd = $map['Zstd'];
         }
 
         return $model;

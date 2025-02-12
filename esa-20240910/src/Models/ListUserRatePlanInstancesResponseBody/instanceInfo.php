@@ -105,6 +105,10 @@ class instanceInfo extends Model
      * @var string
      */
     public $status;
+    /**
+     * @var string
+     */
+    public $subscribeType;
     protected $_name = [
         'billingMode'                     => 'BillingMode',
         'botInstanceLevel'                => 'BotInstanceLevel',
@@ -130,6 +134,7 @@ class instanceInfo extends Model
         'smartRoutingRequest'             => 'SmartRoutingRequest',
         'staticRequest'                   => 'StaticRequest',
         'status'                          => 'Status',
+        'subscribeType'                   => 'SubscribeType',
     ];
 
     public function validate()
@@ -245,6 +250,10 @@ class instanceInfo extends Model
             $res['Status'] = $this->status;
         }
 
+        if (null !== $this->subscribeType) {
+            $res['SubscribeType'] = $this->subscribeType;
+        }
+
         return $res;
     }
 
@@ -356,6 +365,10 @@ class instanceInfo extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SubscribeType'])) {
+            $model->subscribeType = $map['SubscribeType'];
         }
 
         return $model;

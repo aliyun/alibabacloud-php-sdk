@@ -40,6 +40,10 @@ class ListUserRatePlanInstancesRequest extends Model
      * @var string
      */
     public $status;
+    /**
+     * @var string
+     */
+    public $subscribeType;
     protected $_name = [
         'checkRemainingSiteQuota' => 'CheckRemainingSiteQuota',
         'instanceId'              => 'InstanceId',
@@ -49,6 +53,7 @@ class ListUserRatePlanInstancesRequest extends Model
         'sortBy'                  => 'SortBy',
         'sortOrder'               => 'SortOrder',
         'status'                  => 'Status',
+        'subscribeType'           => 'SubscribeType',
     ];
 
     public function validate()
@@ -89,6 +94,10 @@ class ListUserRatePlanInstancesRequest extends Model
 
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+
+        if (null !== $this->subscribeType) {
+            $res['SubscribeType'] = $this->subscribeType;
         }
 
         return $res;
@@ -132,6 +141,10 @@ class ListUserRatePlanInstancesRequest extends Model
 
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+
+        if (isset($map['SubscribeType'])) {
+            $model->subscribeType = $map['SubscribeType'];
         }
 
         return $model;

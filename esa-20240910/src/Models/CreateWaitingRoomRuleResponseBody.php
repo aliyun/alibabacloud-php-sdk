@@ -12,8 +12,13 @@ class CreateWaitingRoomRuleResponseBody extends Model
      * @var string
      */
     public $requestId;
+    /**
+     * @var int
+     */
+    public $waitingRoomRuleId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'requestId'         => 'RequestId',
+        'waitingRoomRuleId' => 'WaitingRoomRuleId',
     ];
 
     public function validate()
@@ -26,6 +31,10 @@ class CreateWaitingRoomRuleResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->waitingRoomRuleId) {
+            $res['WaitingRoomRuleId'] = $this->waitingRoomRuleId;
         }
 
         return $res;
@@ -41,6 +50,10 @@ class CreateWaitingRoomRuleResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['WaitingRoomRuleId'])) {
+            $model->waitingRoomRuleId = $map['WaitingRoomRuleId'];
         }
 
         return $model;
