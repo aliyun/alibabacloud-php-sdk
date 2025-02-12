@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class errorMessages extends Model
 {
@@ -18,29 +18,43 @@ class errorMessages extends Model
 
     public function validate()
     {
+        if (\is_array($this->errorMessage)) {
+            Model::validateArray($this->errorMessage);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+            if (\is_array($this->errorMessage)) {
+                $res['ErrorMessage'] = [];
+                $n1                  = 0;
+                foreach ($this->errorMessage as $item1) {
+                    $res['ErrorMessage'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return errorMessages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             if (!empty($map['ErrorMessage'])) {
-                $model->errorMessage = $map['ErrorMessage'];
+                $model->errorMessage = [];
+                $n1                  = 0;
+                foreach ($map['ErrorMessage'] as $item1) {
+                    $model->errorMessage[$n1++] = $item1;
+                }
             }
         }
 

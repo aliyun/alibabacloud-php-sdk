@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyVpcAccessAndUpdateApisResponseBody extends Model
 {
     /**
-     * @description The ID of the asynchronous task.
-     *
-     * >
-     *
-     *   If the associated API is updated, you can use the task ID in the **DescribeUpdateVpcInfoTask** operation to query the update result.
-     *
-     * @example 7b6d0cb72b2e4215b0129f675c889746
-     *
      * @var string
      */
     public $operationId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example C2CEC6EA-EEBA-5FD6-8BD9-2CF01980FE39
-     *
      * @var string
      */
     public $requestId;
@@ -36,14 +23,16 @@ class ModifyVpcAccessAndUpdateApisResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,17 +40,18 @@ class ModifyVpcAccessAndUpdateApisResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyVpcAccessAndUpdateApisResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ossConfig extends Model
 {
     /**
-     * @description The name of the OSS bucket.
-     *
-     * @example my_bucket
-     *
      * @var string
      */
     public $bucketName;
-
     /**
-     * @description The region ID of the OSS bucket.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $ossRegionId;
@@ -32,14 +23,16 @@ class ossConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
+
         if (null !== $this->ossRegionId) {
             $res['OssRegionId'] = $this->ossRegionId;
         }
@@ -47,17 +40,18 @@ class ossConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ossConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
+
         if (isset($map['OssRegionId'])) {
             $model->ossRegionId = $map['OssRegionId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePurchasedApiGroupResponseBody\domains;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainItem extends Model
 {
     /**
-     * @description The domain name.
-     *
-     * @example test_domain.com
-     *
      * @var string
      */
     public $domainName;
@@ -22,9 +18,10 @@ class domainItem extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainName) {
@@ -34,11 +31,11 @@ class domainItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

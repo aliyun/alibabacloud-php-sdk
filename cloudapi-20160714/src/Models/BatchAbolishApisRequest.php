@@ -4,19 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\BatchAbolishApisRequest\api;
-use AlibabaCloud\Tea\Model;
 
 class BatchAbolishApisRequest extends Model
 {
     /**
-     * @description The APIs that you want to operate.
-     *
-     * This parameter is required.
      * @var api[]
      */
     public $api;
-
     /**
      * @var string
      */
@@ -28,20 +24,25 @@ class BatchAbolishApisRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->api)) {
+            Model::validateArray($this->api);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->api) {
-            $res['Api'] = [];
-            if (null !== $this->api && \is_array($this->api)) {
-                $n = 0;
-                foreach ($this->api as $item) {
-                    $res['Api'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->api)) {
+                $res['Api'] = [];
+                $n1         = 0;
+                foreach ($this->api as $item1) {
+                    $res['Api'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -49,23 +50,24 @@ class BatchAbolishApisRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchAbolishApisRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Api'])) {
             if (!empty($map['Api'])) {
                 $model->api = [];
-                $n          = 0;
-                foreach ($map['Api'] as $item) {
-                    $model->api[$n++] = null !== $item ? api::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Api'] as $item1) {
+                    $model->api[$n1++] = api::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

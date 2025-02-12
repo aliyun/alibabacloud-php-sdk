@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsByApiResponseBody\trafficControlItems;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTrafficControlsByApiResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The returned throttling policy information. It is an array consisting of TrafficControlItem data.
-     *
      * @var trafficControlItems
      */
     public $trafficControlItems;
@@ -31,32 +24,38 @@ class DescribeTrafficControlsByApiResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->trafficControlItems) {
+            $this->trafficControlItems->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->trafficControlItems) {
-            $res['TrafficControlItems'] = null !== $this->trafficControlItems ? $this->trafficControlItems->toMap() : null;
+            $res['TrafficControlItems'] = null !== $this->trafficControlItems ? $this->trafficControlItems->toArray($noStream) : $this->trafficControlItems;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTrafficControlsByApiResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TrafficControlItems'])) {
             $model->trafficControlItems = trafficControlItems::fromMap($map['TrafficControlItems']);
         }

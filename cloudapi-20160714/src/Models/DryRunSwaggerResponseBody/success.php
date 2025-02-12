@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DryRunSwaggerResponseBody\success\apiDryRunSwaggerSuccess;
-use AlibabaCloud\Tea\Model;
 
 class success extends Model
 {
@@ -19,17 +19,21 @@ class success extends Model
 
     public function validate()
     {
+        if (\is_array($this->apiDryRunSwaggerSuccess)) {
+            Model::validateArray($this->apiDryRunSwaggerSuccess);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiDryRunSwaggerSuccess) {
-            $res['ApiDryRunSwaggerSuccess'] = [];
-            if (null !== $this->apiDryRunSwaggerSuccess && \is_array($this->apiDryRunSwaggerSuccess)) {
-                $n = 0;
-                foreach ($this->apiDryRunSwaggerSuccess as $item) {
-                    $res['ApiDryRunSwaggerSuccess'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiDryRunSwaggerSuccess)) {
+                $res['ApiDryRunSwaggerSuccess'] = [];
+                $n1                             = 0;
+                foreach ($this->apiDryRunSwaggerSuccess as $item1) {
+                    $res['ApiDryRunSwaggerSuccess'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class success extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return success
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiDryRunSwaggerSuccess'])) {
             if (!empty($map['ApiDryRunSwaggerSuccess'])) {
                 $model->apiDryRunSwaggerSuccess = [];
-                $n                              = 0;
-                foreach ($map['ApiDryRunSwaggerSuccess'] as $item) {
-                    $model->apiDryRunSwaggerSuccess[$n++] = null !== $item ? apiDryRunSwaggerSuccess::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['ApiDryRunSwaggerSuccess'] as $item1) {
+                    $model->apiDryRunSwaggerSuccess[$n1++] = apiDryRunSwaggerSuccess::fromMap($item1);
                 }
             }
         }

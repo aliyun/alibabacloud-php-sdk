@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeApiGroupVpcWhitelistResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ016
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the VPC.
-     *
-     * @example vpc-bp11w979o2s9rcr962w25
-     *
      * @var string
      */
     public $vpcIds;
@@ -32,14 +23,16 @@ class DescribeApiGroupVpcWhitelistResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vpcIds) {
             $res['VpcIds'] = $this->vpcIds;
         }
@@ -47,17 +40,18 @@ class DescribeApiGroupVpcWhitelistResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApiGroupVpcWhitelistResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VpcIds'])) {
             $model->vpcIds = $map['VpcIds'];
         }

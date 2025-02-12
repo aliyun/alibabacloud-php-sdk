@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceDropConnectionsResponseBody\instanceDropConnections;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceDropConnectionsResponseBody extends Model
 {
     /**
-     * @description The list of dropped connections in the instance.
-     *
      * @var instanceDropConnections
      */
     public $instanceDropConnections;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeInstanceDropConnectionsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->instanceDropConnections) {
+            $this->instanceDropConnections->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceDropConnections) {
-            $res['InstanceDropConnections'] = null !== $this->instanceDropConnections ? $this->instanceDropConnections->toMap() : null;
+            $res['InstanceDropConnections'] = null !== $this->instanceDropConnections ? $this->instanceDropConnections->toArray($noStream) : $this->instanceDropConnections;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeInstanceDropConnectionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceDropConnectionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceDropConnections'])) {
             $model->instanceDropConnections = instanceDropConnections::fromMap($map['InstanceDropConnections']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

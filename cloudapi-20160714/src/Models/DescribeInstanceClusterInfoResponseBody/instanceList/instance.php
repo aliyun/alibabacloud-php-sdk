@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstanceClusterInfoResponseBody\instanceList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instance extends Model
 {
     /**
-     * @description The error message returned if the call fails.
-     *
-     * @example Instance not found.
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @description The instance ID.
-     *
-     * @example apigateway-ht-04e41d95e9c1
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The instance name.
-     *
-     * @example tf-testacceu-central-1apigatewayinstance8752
-     *
      * @var string
      */
     public $instanceName;
-
     /**
-     * @description The instance status.
-     *
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
@@ -52,20 +33,24 @@ class instance extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -73,23 +58,26 @@ class instance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

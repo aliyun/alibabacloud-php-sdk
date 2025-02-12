@@ -4,19 +4,14 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceClusterInfoRequest extends Model
 {
     /**
-     * @description The name of the dedicated instance cluster.
-     *
-     * @example testvpc
-     *
      * @var string
      */
     public $instanceClusterName;
-
     /**
      * @var string
      */
@@ -28,14 +23,16 @@ class DescribeInstanceClusterInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceClusterName) {
             $res['InstanceClusterName'] = $this->instanceClusterName;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
@@ -43,17 +40,18 @@ class DescribeInstanceClusterInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceClusterInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceClusterName'])) {
             $model->instanceClusterName = $map['InstanceClusterName'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }

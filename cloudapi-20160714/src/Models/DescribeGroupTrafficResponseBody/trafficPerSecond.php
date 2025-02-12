@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupTrafficResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupTrafficResponseBody\trafficPerSecond\monitorItem;
-use AlibabaCloud\Tea\Model;
 
 class trafficPerSecond extends Model
 {
@@ -19,17 +19,21 @@ class trafficPerSecond extends Model
 
     public function validate()
     {
+        if (\is_array($this->monitorItem)) {
+            Model::validateArray($this->monitorItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->monitorItem) {
-            $res['MonitorItem'] = [];
-            if (null !== $this->monitorItem && \is_array($this->monitorItem)) {
-                $n = 0;
-                foreach ($this->monitorItem as $item) {
-                    $res['MonitorItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->monitorItem)) {
+                $res['MonitorItem'] = [];
+                $n1                 = 0;
+                foreach ($this->monitorItem as $item1) {
+                    $res['MonitorItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class trafficPerSecond extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trafficPerSecond
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MonitorItem'])) {
             if (!empty($map['MonitorItem'])) {
                 $model->monitorItem = [];
-                $n                  = 0;
-                foreach ($map['MonitorItem'] as $item) {
-                    $model->monitorItem[$n++] = null !== $item ? monitorItem::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['MonitorItem'] as $item1) {
+                    $model->monitorItem[$n1++] = monitorItem::fromMap($item1);
                 }
             }
         }

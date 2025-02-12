@@ -4,53 +4,27 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyModelRequest extends Model
 {
     /**
-     * @description The description of the new model definition.
-     *
-     * @example Model Description
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the API group to which the model belongs.
-     *
-     * This parameter is required.
-     * @example 30e792398d6c4569b04c0e53a3494381
-     *
      * @var string
      */
     public $groupId;
-
     /**
-     * @description The name of the model.
-     *
-     * This parameter is required.
-     * @example Test
-     *
      * @var string
      */
     public $modelName;
-
     /**
-     * @description The new name of the model.
-     *
-     * @example NewTest
-     *
      * @var string
      */
     public $newModelName;
-
     /**
-     * @description The new definition of the model.
-     *
-     * @example {\\"type\\":\\"object\\",\\"properties\\":{\\"id\\":{\\"format\\":\\"int64\\",\\"maximum\\":100,\\"exclusiveMaximum\\":true,\\"type\\":\\"integer\\"},\\"name\\":{\\"maxLength\\":10,\\"type\\":\\"string\\"}}}
-     *
      * @var string
      */
     public $schema;
@@ -64,23 +38,28 @@ class ModifyModelRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->modelName) {
             $res['ModelName'] = $this->modelName;
         }
+
         if (null !== $this->newModelName) {
             $res['NewModelName'] = $this->newModelName;
         }
+
         if (null !== $this->schema) {
             $res['Schema'] = $this->schema;
         }
@@ -88,26 +67,30 @@ class ModifyModelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyModelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['ModelName'])) {
             $model->modelName = $map['ModelName'];
         }
+
         if (isset($map['NewModelName'])) {
             $model->newModelName = $map['NewModelName'];
         }
+
         if (isset($map['Schema'])) {
             $model->schema = $map['Schema'];
         }

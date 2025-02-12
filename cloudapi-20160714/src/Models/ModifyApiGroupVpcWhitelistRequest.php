@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyApiGroupVpcWhitelistRequest extends Model
 {
     /**
-     * @description The ID of the API group.
-     *
-     * This parameter is required.
-     * @example 9b80408147724ddab4c4e2703c6ca019
-     *
      * @var string
      */
     public $groupId;
-
     /**
      * @var string
      */
     public $securityToken;
-
     /**
-     * @description The ID of the VPC instance.
-     *
-     * This parameter is required.
-     * @example vpc-bp11w979o2s9rcr962w25
-     *
      * @var string
      */
     public $vpcIds;
@@ -40,17 +28,20 @@ class ModifyApiGroupVpcWhitelistRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+
         if (null !== $this->vpcIds) {
             $res['VpcIds'] = $this->vpcIds;
         }
@@ -58,20 +49,22 @@ class ModifyApiGroupVpcWhitelistRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyApiGroupVpcWhitelistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
         }
+
         if (isset($map['VpcIds'])) {
             $model->vpcIds = $map['VpcIds'];
         }

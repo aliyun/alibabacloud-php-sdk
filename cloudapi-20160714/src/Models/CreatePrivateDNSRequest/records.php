@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\CreatePrivateDNSRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class records extends Model
 {
     /**
-     * @description The resolution record.
-     *
-     * @example 192.168.0.1
-     *
      * @var string
      */
     public $record;
-
     /**
-     * @description The weight of the record.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $weight;
@@ -32,14 +23,16 @@ class records extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->record) {
             $res['Record'] = $this->record;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -47,17 +40,18 @@ class records extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return records
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Record'])) {
             $model->record = $map['Record'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

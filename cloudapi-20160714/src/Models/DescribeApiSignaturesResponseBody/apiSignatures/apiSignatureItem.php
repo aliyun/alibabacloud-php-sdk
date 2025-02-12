@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiSignaturesResponseBody\apiSignatures;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class apiSignatureItem extends Model
 {
     /**
-     * @description The ID of the API.
-     *
-     * @example 46fbb52840d146f186e38e8e70fc8c90
-     *
      * @var string
      */
     public $apiId;
-
     /**
-     * @description The name of the API.
-     *
-     * @example testapi
-     *
      * @var string
      */
     public $apiName;
-
     /**
-     * @description The time when the backend signature key was bound.
-     *
-     * @example 2016-07-23T08:28:48Z
-     *
      * @var string
      */
     public $boundTime;
-
     /**
-     * @description The ID of the backend signature key.
-     *
-     * @example dd05f1c54d6749eda95f9fa6d491449a
-     *
      * @var string
      */
     public $signatureId;
-
     /**
-     * @description The name of the backend signature key.
-     *
-     * @example backendsignature
-     *
      * @var string
      */
     public $signatureName;
@@ -62,23 +38,28 @@ class apiSignatureItem extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiId) {
             $res['ApiId'] = $this->apiId;
         }
+
         if (null !== $this->apiName) {
             $res['ApiName'] = $this->apiName;
         }
+
         if (null !== $this->boundTime) {
             $res['BoundTime'] = $this->boundTime;
         }
+
         if (null !== $this->signatureId) {
             $res['SignatureId'] = $this->signatureId;
         }
+
         if (null !== $this->signatureName) {
             $res['SignatureName'] = $this->signatureName;
         }
@@ -86,26 +67,30 @@ class apiSignatureItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiSignatureItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiId'])) {
             $model->apiId = $map['ApiId'];
         }
+
         if (isset($map['ApiName'])) {
             $model->apiName = $map['ApiName'];
         }
+
         if (isset($map['BoundTime'])) {
             $model->boundTime = $map['BoundTime'];
         }
+
         if (isset($map['SignatureId'])) {
             $model->signatureId = $map['SignatureId'];
         }
+
         if (isset($map['SignatureName'])) {
             $model->signatureName = $map['SignatureName'];
         }

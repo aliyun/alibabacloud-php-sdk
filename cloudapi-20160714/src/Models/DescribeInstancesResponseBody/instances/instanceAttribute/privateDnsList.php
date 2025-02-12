@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeInstancesResponseBody\instances\instanceAttribute;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class privateDnsList extends Model
 {
@@ -18,29 +18,43 @@ class privateDnsList extends Model
 
     public function validate()
     {
+        if (\is_array($this->privateDns)) {
+            Model::validateArray($this->privateDns);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privateDns) {
-            $res['PrivateDns'] = $this->privateDns;
+            if (\is_array($this->privateDns)) {
+                $res['PrivateDns'] = [];
+                $n1                = 0;
+                foreach ($this->privateDns as $item1) {
+                    $res['PrivateDns'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privateDnsList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivateDns'])) {
             if (!empty($map['PrivateDns'])) {
-                $model->privateDns = $map['PrivateDns'];
+                $model->privateDns = [];
+                $n1                = 0;
+                foreach ($map['PrivateDns'] as $item1) {
+                    $model->privateDns[$n1++] = $item1;
+                }
             }
         }
 

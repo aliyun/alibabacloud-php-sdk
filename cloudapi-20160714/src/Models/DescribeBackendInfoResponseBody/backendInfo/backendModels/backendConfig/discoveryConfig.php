@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\discoveryConfig\nacosConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\discoveryConfig\zookeeperConfig;
-use AlibabaCloud\Tea\Model;
 
 class discoveryConfig extends Model
 {
     /**
-     * @description The Nacos configurations.
-     *
      * @var nacosConfig
      */
     public $nacosConfig;
-
     /**
-     * @description The registry type.
-     *
-     * @example NACOS
-     *
      * @var string
      */
     public $rcType;
-
     /**
-     * @description The ZooKeeper configuration.
-     *
      * @var zookeeperConfig
      */
     public $zookeeperConfig;
@@ -40,38 +30,49 @@ class discoveryConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->nacosConfig) {
+            $this->nacosConfig->validate();
+        }
+        if (null !== $this->zookeeperConfig) {
+            $this->zookeeperConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nacosConfig) {
-            $res['NacosConfig'] = null !== $this->nacosConfig ? $this->nacosConfig->toMap() : null;
+            $res['NacosConfig'] = null !== $this->nacosConfig ? $this->nacosConfig->toArray($noStream) : $this->nacosConfig;
         }
+
         if (null !== $this->rcType) {
             $res['RcType'] = $this->rcType;
         }
+
         if (null !== $this->zookeeperConfig) {
-            $res['ZookeeperConfig'] = null !== $this->zookeeperConfig ? $this->zookeeperConfig->toMap() : null;
+            $res['ZookeeperConfig'] = null !== $this->zookeeperConfig ? $this->zookeeperConfig->toArray($noStream) : $this->zookeeperConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return discoveryConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NacosConfig'])) {
             $model->nacosConfig = nacosConfig::fromMap($map['NacosConfig']);
         }
+
         if (isset($map['RcType'])) {
             $model->rcType = $map['RcType'];
         }
+
         if (isset($map['ZookeeperConfig'])) {
             $model->zookeeperConfig = zookeeperConfig::fromMap($map['ZookeeperConfig']);
         }

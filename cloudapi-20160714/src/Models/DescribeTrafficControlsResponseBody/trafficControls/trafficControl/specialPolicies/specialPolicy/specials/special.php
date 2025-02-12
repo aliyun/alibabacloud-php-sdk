@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsResponseBody\trafficControls\trafficControl\specialPolicies\specialPolicy\specials;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class special extends Model
 {
     /**
-     * @description The AppId or user account corresponding to SpecialType.
-     *
-     * @example test_wg@aliyun.com
-     *
      * @var string
      */
     public $specialKey;
-
     /**
-     * @description The throttling value.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $trafficValue;
@@ -32,14 +23,16 @@ class special extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->specialKey) {
             $res['SpecialKey'] = $this->specialKey;
         }
+
         if (null !== $this->trafficValue) {
             $res['TrafficValue'] = $this->trafficValue;
         }
@@ -47,17 +40,18 @@ class special extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return special
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpecialKey'])) {
             $model->specialKey = $map['SpecialKey'];
         }
+
         if (isset($map['TrafficValue'])) {
             $model->trafficValue = $map['TrafficValue'];
         }

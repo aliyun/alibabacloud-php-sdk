@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiProductsByAppResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiProductsByAppResponseBody\apiProductInfoList\apiProductInfo;
-use AlibabaCloud\Tea\Model;
 
 class apiProductInfoList extends Model
 {
@@ -19,17 +19,21 @@ class apiProductInfoList extends Model
 
     public function validate()
     {
+        if (\is_array($this->apiProductInfo)) {
+            Model::validateArray($this->apiProductInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apiProductInfo) {
-            $res['ApiProductInfo'] = [];
-            if (null !== $this->apiProductInfo && \is_array($this->apiProductInfo)) {
-                $n = 0;
-                foreach ($this->apiProductInfo as $item) {
-                    $res['ApiProductInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->apiProductInfo)) {
+                $res['ApiProductInfo'] = [];
+                $n1                    = 0;
+                foreach ($this->apiProductInfo as $item1) {
+                    $res['ApiProductInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class apiProductInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return apiProductInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApiProductInfo'])) {
             if (!empty($map['ApiProductInfo'])) {
                 $model->apiProductInfo = [];
-                $n                     = 0;
-                foreach ($map['ApiProductInfo'] as $item) {
-                    $model->apiProductInfo[$n++] = null !== $item ? apiProductInfo::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ApiProductInfo'] as $item1) {
+                    $model->apiProductInfo[$n1++] = apiProductInfo::fromMap($item1);
                 }
             }
         }

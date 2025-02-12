@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody\successApis\successApi;
-use AlibabaCloud\Tea\Model;
 
 class successApis extends Model
 {
@@ -19,17 +19,21 @@ class successApis extends Model
 
     public function validate()
     {
+        if (\is_array($this->successApi)) {
+            Model::validateArray($this->successApi);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->successApi) {
-            $res['SuccessApi'] = [];
-            if (null !== $this->successApi && \is_array($this->successApi)) {
-                $n = 0;
-                foreach ($this->successApi as $item) {
-                    $res['SuccessApi'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->successApi)) {
+                $res['SuccessApi'] = [];
+                $n1                = 0;
+                foreach ($this->successApi as $item1) {
+                    $res['SuccessApi'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class successApis extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return successApis
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SuccessApi'])) {
             if (!empty($map['SuccessApi'])) {
                 $model->successApi = [];
-                $n                 = 0;
-                foreach ($map['SuccessApi'] as $item) {
-                    $model->successApi[$n++] = null !== $item ? successApi::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['SuccessApi'] as $item1) {
+                    $model->successApi[$n1++] = successApi::fromMap($item1);
                 }
             }
         }

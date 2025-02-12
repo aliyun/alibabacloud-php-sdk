@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class warningMessages extends Model
 {
@@ -18,29 +18,43 @@ class warningMessages extends Model
 
     public function validate()
     {
+        if (\is_array($this->warningMessage)) {
+            Model::validateArray($this->warningMessage);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->warningMessage) {
-            $res['WarningMessage'] = $this->warningMessage;
+            if (\is_array($this->warningMessage)) {
+                $res['WarningMessage'] = [];
+                $n1                    = 0;
+                foreach ($this->warningMessage as $item1) {
+                    $res['WarningMessage'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return warningMessages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WarningMessage'])) {
             if (!empty($map['WarningMessage'])) {
-                $model->warningMessage = $map['WarningMessage'];
+                $model->warningMessage = [];
+                $n1                    = 0;
+                foreach ($map['WarningMessage'] as $item1) {
+                    $model->warningMessage[$n1++] = $item1;
+                }
             }
         }
 

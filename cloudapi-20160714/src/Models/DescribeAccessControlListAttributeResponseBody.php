@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAccessControlListAttributeResponseBody\aclEntrys;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAccessControlListAttributeResponseBody extends Model
 {
     /**
-     * @description The information about the access control policy.
-     *
      * @var aclEntrys
      */
     public $aclEntrys;
-
     /**
-     * @description The ID of the access control policy.
-     *
-     * @example acl-uf6fpfdg3b5muska7uqem
-     *
      * @var string
      */
     public $aclId;
-
     /**
-     * @description The name of the access control policy.
-     *
-     * @example testAcl
-     *
      * @var string
      */
     public $aclName;
-
     /**
-     * @description The IP protocol version. Valid values: **ipv4** and **ipv6**.
-     *
-     * @example ipv4
-     *
      * @var string
      */
     public $addressIPVersion;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
-     *
      * @var string
      */
     public $requestId;
@@ -61,23 +39,31 @@ class DescribeAccessControlListAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->aclEntrys) {
+            $this->aclEntrys->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclEntrys) {
-            $res['AclEntrys'] = null !== $this->aclEntrys ? $this->aclEntrys->toMap() : null;
+            $res['AclEntrys'] = null !== $this->aclEntrys ? $this->aclEntrys->toArray($noStream) : $this->aclEntrys;
         }
+
         if (null !== $this->aclId) {
             $res['AclId'] = $this->aclId;
         }
+
         if (null !== $this->aclName) {
             $res['AclName'] = $this->aclName;
         }
+
         if (null !== $this->addressIPVersion) {
             $res['AddressIPVersion'] = $this->addressIPVersion;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -85,26 +71,30 @@ class DescribeAccessControlListAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccessControlListAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclEntrys'])) {
             $model->aclEntrys = aclEntrys::fromMap($map['AclEntrys']);
         }
+
         if (isset($map['AclId'])) {
             $model->aclId = $map['AclId'];
         }
+
         if (isset($map['AclName'])) {
             $model->aclName = $map['AclName'];
         }
+
         if (isset($map['AddressIPVersion'])) {
             $model->addressIPVersion = $map['AddressIPVersion'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

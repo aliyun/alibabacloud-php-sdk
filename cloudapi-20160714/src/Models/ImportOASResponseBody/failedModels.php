@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ImportOASResponseBody\failedModels\failedModel;
-use AlibabaCloud\Tea\Model;
 
 class failedModels extends Model
 {
@@ -19,17 +19,21 @@ class failedModels extends Model
 
     public function validate()
     {
+        if (\is_array($this->failedModel)) {
+            Model::validateArray($this->failedModel);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedModel) {
-            $res['FailedModel'] = [];
-            if (null !== $this->failedModel && \is_array($this->failedModel)) {
-                $n = 0;
-                foreach ($this->failedModel as $item) {
-                    $res['FailedModel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failedModel)) {
+                $res['FailedModel'] = [];
+                $n1                 = 0;
+                foreach ($this->failedModel as $item1) {
+                    $res['FailedModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class failedModels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failedModels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedModel'])) {
             if (!empty($map['FailedModel'])) {
                 $model->failedModel = [];
-                $n                  = 0;
-                foreach ($map['FailedModel'] as $item) {
-                    $model->failedModel[$n++] = null !== $item ? failedModel::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['FailedModel'] as $item1) {
+                    $model->failedModel[$n1++] = failedModel::fromMap($item1);
                 }
             }
         }

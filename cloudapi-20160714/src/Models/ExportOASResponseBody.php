@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportOASResponseBody extends Model
 {
     /**
-     * @description The Base64-encoded data of the exported Swagger file. You can obtain the file by using Base64 decoding.
-     *
-     * @example UEsDBBQACAAIAABc8FgAAAAAAAAAAAAAAAA...
-     *
      * @var string
      */
     public $data;
-
     /**
-     * @description The request ID.
-     *
-     * @example CEF72CEB-54B6-4AE8-B225-F876xxxxxxxx
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class ExportOASResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class ExportOASResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportOASResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

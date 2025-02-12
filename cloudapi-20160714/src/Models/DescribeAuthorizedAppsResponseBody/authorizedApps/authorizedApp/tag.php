@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedAppsResponseBody\authorizedApps\authorizedApp;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeAuthorizedAppsResponseBody\authorizedApps\authorizedApp\tag\tagInfo;
-use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
@@ -19,17 +19,21 @@ class tag extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagInfo)) {
+            Model::validateArray($this->tagInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagInfo) {
-            $res['TagInfo'] = [];
-            if (null !== $this->tagInfo && \is_array($this->tagInfo)) {
-                $n = 0;
-                foreach ($this->tagInfo as $item) {
-                    $res['TagInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagInfo)) {
+                $res['TagInfo'] = [];
+                $n1             = 0;
+                foreach ($this->tagInfo as $item1) {
+                    $res['TagInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagInfo'])) {
             if (!empty($map['TagInfo'])) {
                 $model->tagInfo = [];
-                $n              = 0;
-                foreach ($map['TagInfo'] as $item) {
-                    $model->tagInfo[$n++] = null !== $item ? tagInfo::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['TagInfo'] as $item1) {
+                    $model->tagInfo[$n1++] = tagInfo::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePurchasedApiGroupsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribePurchasedApiGroupsResponseBody\purchasedApiGroupAttributes\purchasedApiGroupAttribute;
-use AlibabaCloud\Tea\Model;
 
 class purchasedApiGroupAttributes extends Model
 {
@@ -19,17 +19,21 @@ class purchasedApiGroupAttributes extends Model
 
     public function validate()
     {
+        if (\is_array($this->purchasedApiGroupAttribute)) {
+            Model::validateArray($this->purchasedApiGroupAttribute);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->purchasedApiGroupAttribute) {
-            $res['PurchasedApiGroupAttribute'] = [];
-            if (null !== $this->purchasedApiGroupAttribute && \is_array($this->purchasedApiGroupAttribute)) {
-                $n = 0;
-                foreach ($this->purchasedApiGroupAttribute as $item) {
-                    $res['PurchasedApiGroupAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->purchasedApiGroupAttribute)) {
+                $res['PurchasedApiGroupAttribute'] = [];
+                $n1                                = 0;
+                foreach ($this->purchasedApiGroupAttribute as $item1) {
+                    $res['PurchasedApiGroupAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class purchasedApiGroupAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return purchasedApiGroupAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PurchasedApiGroupAttribute'])) {
             if (!empty($map['PurchasedApiGroupAttribute'])) {
                 $model->purchasedApiGroupAttribute = [];
-                $n                                 = 0;
-                foreach ($map['PurchasedApiGroupAttribute'] as $item) {
-                    $model->purchasedApiGroupAttribute[$n++] = null !== $item ? purchasedApiGroupAttribute::fromMap($item) : $item;
+                $n1                                = 0;
+                foreach ($map['PurchasedApiGroupAttribute'] as $item1) {
+                    $model->purchasedApiGroupAttribute[$n1++] = purchasedApiGroupAttribute::fromMap($item1);
                 }
             }
         }

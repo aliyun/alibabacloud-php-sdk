@@ -4,68 +4,36 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendListResponseBody\backendInfoList\tags;
-use AlibabaCloud\Tea\Model;
 
 class backendInfoList extends Model
 {
     /**
-     * @description The ID of the backend service.
-     *
-     * @example 35bd31d32c9c425ebbe9330db9f8c375
-     *
      * @var string
      */
     public $backendId;
-
     /**
-     * @description The name of the backend service.
-     *
-     * @example test
-     *
      * @var string
      */
     public $backendName;
-
     /**
-     * @description The type of the backend service.
-     *
-     * @example HTTP
-     *
      * @var string
      */
     public $backendType;
-
     /**
-     * @description The time when the backend service was created.
-     *
-     * @example 2022-01-25T11:22:29Z
-     *
      * @var string
      */
     public $createdTime;
-
     /**
-     * @description The description of the backend service.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The time when the backend service was modified.
-     *
-     * @example 2022-01-25T11:22:29Z
-     *
      * @var string
      */
     public $modifiedTime;
-
     /**
-     * @description The list of tags.
-     *
      * @var tags[]
      */
     public $tags;
@@ -81,35 +49,45 @@ class backendInfoList extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendId) {
             $res['BackendId'] = $this->backendId;
         }
+
         if (null !== $this->backendName) {
             $res['BackendName'] = $this->backendName;
         }
+
         if (null !== $this->backendType) {
             $res['BackendType'] = $this->backendType;
         }
+
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -117,38 +95,44 @@ class backendInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backendInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackendId'])) {
             $model->backendId = $map['BackendId'];
         }
+
         if (isset($map['BackendName'])) {
             $model->backendName = $map['BackendName'];
         }
+
         if (isset($map['BackendType'])) {
             $model->backendType = $map['BackendType'];
         }
+
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
