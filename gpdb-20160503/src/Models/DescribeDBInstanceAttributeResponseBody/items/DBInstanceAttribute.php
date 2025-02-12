@@ -142,6 +142,10 @@ class DBInstanceAttribute extends Model
      */
     public $maintainStartTime;
     /**
+     * @var string
+     */
+    public $masterAISpec;
+    /**
      * @var int
      */
     public $masterCU;
@@ -209,6 +213,10 @@ class DBInstanceAttribute extends Model
      * @var int
      */
     public $segNodeNum;
+    /**
+     * @var string
+     */
+    public $segmentAISpec;
     /**
      * @var int
      */
@@ -303,6 +311,7 @@ class DBInstanceAttribute extends Model
         'lockReason'                => 'LockReason',
         'maintainEndTime'           => 'MaintainEndTime',
         'maintainStartTime'         => 'MaintainStartTime',
+        'masterAISpec'              => 'MasterAISpec',
         'masterCU'                  => 'MasterCU',
         'masterNodeNum'             => 'MasterNodeNum',
         'maxConnections'            => 'MaxConnections',
@@ -320,6 +329,7 @@ class DBInstanceAttribute extends Model
         'securityIPList'            => 'SecurityIPList',
         'segDiskPerformanceLevel'   => 'SegDiskPerformanceLevel',
         'segNodeNum'                => 'SegNodeNum',
+        'segmentAISpec'             => 'SegmentAISpec',
         'segmentCounts'             => 'SegmentCounts',
         'serverlessMode'            => 'ServerlessMode',
         'serverlessResource'        => 'ServerlessResource',
@@ -480,6 +490,10 @@ class DBInstanceAttribute extends Model
             $res['MaintainStartTime'] = $this->maintainStartTime;
         }
 
+        if (null !== $this->masterAISpec) {
+            $res['MasterAISpec'] = $this->masterAISpec;
+        }
+
         if (null !== $this->masterCU) {
             $res['MasterCU'] = $this->masterCU;
         }
@@ -546,6 +560,10 @@ class DBInstanceAttribute extends Model
 
         if (null !== $this->segNodeNum) {
             $res['SegNodeNum'] = $this->segNodeNum;
+        }
+
+        if (null !== $this->segmentAISpec) {
+            $res['SegmentAISpec'] = $this->segmentAISpec;
         }
 
         if (null !== $this->segmentCounts) {
@@ -751,6 +769,10 @@ class DBInstanceAttribute extends Model
             $model->maintainStartTime = $map['MaintainStartTime'];
         }
 
+        if (isset($map['MasterAISpec'])) {
+            $model->masterAISpec = $map['MasterAISpec'];
+        }
+
         if (isset($map['MasterCU'])) {
             $model->masterCU = $map['MasterCU'];
         }
@@ -817,6 +839,10 @@ class DBInstanceAttribute extends Model
 
         if (isset($map['SegNodeNum'])) {
             $model->segNodeNum = $map['SegNodeNum'];
+        }
+
+        if (isset($map['SegmentAISpec'])) {
+            $model->segmentAISpec = $map['SegmentAISpec'];
         }
 
         if (isset($map['SegmentCounts'])) {

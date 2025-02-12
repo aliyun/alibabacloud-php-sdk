@@ -17,6 +17,10 @@ class ModifyMasterSpecRequest extends Model
      */
     public $DBInstanceId;
     /**
+     * @var string
+     */
+    public $masterAISpec;
+    /**
      * @var int
      */
     public $masterCU;
@@ -27,6 +31,7 @@ class ModifyMasterSpecRequest extends Model
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceId'          => 'DBInstanceId',
+        'masterAISpec'          => 'MasterAISpec',
         'masterCU'              => 'MasterCU',
         'resourceGroupId'       => 'ResourceGroupId',
     ];
@@ -45,6 +50,10 @@ class ModifyMasterSpecRequest extends Model
 
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+
+        if (null !== $this->masterAISpec) {
+            $res['MasterAISpec'] = $this->masterAISpec;
         }
 
         if (null !== $this->masterCU) {
@@ -72,6 +81,10 @@ class ModifyMasterSpecRequest extends Model
 
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+
+        if (isset($map['MasterAISpec'])) {
+            $model->masterAISpec = $map['MasterAISpec'];
         }
 
         if (isset($map['MasterCU'])) {

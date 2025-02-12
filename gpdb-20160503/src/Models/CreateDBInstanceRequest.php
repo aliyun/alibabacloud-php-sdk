@@ -78,6 +78,10 @@ class CreateDBInstanceRequest extends Model
      */
     public $instanceSpec;
     /**
+     * @var string
+     */
+    public $masterAISpec;
+    /**
      * @var int
      */
     public $masterCU;
@@ -199,6 +203,7 @@ class CreateDBInstanceRequest extends Model
         'idleTime'                  => 'IdleTime',
         'instanceNetworkType'       => 'InstanceNetworkType',
         'instanceSpec'              => 'InstanceSpec',
+        'masterAISpec'              => 'MasterAISpec',
         'masterCU'                  => 'MasterCU',
         'masterNodeNum'             => 'MasterNodeNum',
         'ownerId'                   => 'OwnerId',
@@ -304,6 +309,10 @@ class CreateDBInstanceRequest extends Model
 
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
+        }
+
+        if (null !== $this->masterAISpec) {
+            $res['MasterAISpec'] = $this->masterAISpec;
         }
 
         if (null !== $this->masterCU) {
@@ -493,6 +502,10 @@ class CreateDBInstanceRequest extends Model
 
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
+        }
+
+        if (isset($map['MasterAISpec'])) {
+            $model->masterAISpec = $map['MasterAISpec'];
         }
 
         if (isset($map['MasterCU'])) {

@@ -1627,6 +1627,10 @@ class Gpdb extends OpenApiClient
             @$query['InstanceSpec'] = $request->instanceSpec;
         }
 
+        if (null !== $request->masterAISpec) {
+            @$query['MasterAISpec'] = $request->masterAISpec;
+        }
+
         if (null !== $request->masterCU) {
             @$query['MasterCU'] = $request->masterCU;
         }
@@ -13556,6 +13560,10 @@ class Gpdb extends OpenApiClient
 
         if (null !== $request->DBInstanceId) {
             @$query['DBInstanceId'] = $request->DBInstanceId;
+        }
+
+        if (null !== $request->masterAISpec) {
+            @$query['MasterAISpec'] = $request->masterAISpec;
         }
 
         if (null !== $request->masterCU) {
