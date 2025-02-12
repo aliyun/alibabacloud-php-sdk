@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataItemListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The identifier of the data item.
-     *
-     * @example demo_api_code
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The name of the data item.
-     *
-     * @example name_bbb
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description Data filling method, 1: monthly value 2: annual value.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $period;
-
     /**
-     * @description The data item unit.
-     *
-     * @example kg
-     *
      * @var string
      */
     public $unit;
@@ -52,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->period) {
             $res['period'] = $this->period;
         }
+
         if (null !== $this->unit) {
             $res['unit'] = $this->unit;
         }
@@ -73,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['period'])) {
             $model->period = $map['period'];
         }
+
         if (isset($map['unit'])) {
             $model->unit = $map['unit'];
         }

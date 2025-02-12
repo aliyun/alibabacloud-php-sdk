@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetCarbonEmissionTrendResponseBody\data\actualEmissionList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @description Carbon emissions.
-     *
-     * @example 20.22
-     *
      * @var float
      */
     public $carbonEmissionData;
-
     /**
-     * @description The month.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $month;
-
     /**
-     * @description The year.
-     *
-     * @example 2024
-     *
      * @var string
      */
     public $year;
@@ -42,17 +28,20 @@ class items extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->carbonEmissionData) {
             $res['carbonEmissionData'] = $this->carbonEmissionData;
         }
+
         if (null !== $this->month) {
             $res['month'] = $this->month;
         }
+
         if (null !== $this->year) {
             $res['year'] = $this->year;
         }
@@ -60,20 +49,22 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['carbonEmissionData'])) {
             $model->carbonEmissionData = $map['carbonEmissionData'];
         }
+
         if (isset($map['month'])) {
             $model->month = $map['month'];
         }
+
         if (isset($map['year'])) {
             $model->year = $map['year'];
         }

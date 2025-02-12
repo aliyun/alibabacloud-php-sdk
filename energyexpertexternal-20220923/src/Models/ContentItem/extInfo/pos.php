@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\ContentItem\extInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pos extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $x;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $y;
@@ -28,14 +23,16 @@ class pos extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->x) {
             $res['x'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['y'] = $this->y;
         }
@@ -43,17 +40,18 @@ class pos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['x'])) {
             $model->x = $map['x'];
         }
+
         if (isset($map['y'])) {
             $model->y = $map['y'];
         }

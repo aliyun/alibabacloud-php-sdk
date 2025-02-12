@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDeviceListResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDeviceListResponseBody\data\deviceList\info;
-use AlibabaCloud\Tea\Model;
 
 class deviceList extends Model
 {
     /**
-     * @description The device ID.
-     *
-     * @example pn_69873
-     *
      * @var string
      */
     public $deviceId;
-
     /**
-     * @description The device name.
-     *
-     * @example Main transformer 4#
-     *
      * @var string
      */
     public $deviceName;
-
     /**
-     * @description The level 1 meter type.
-     *
-     * @example Electric meter
-     *
      * @var string
      */
     public $firstTypeName;
-
     /**
-     * @description The device information.
-     *
      * @var info
      */
     public $info;
-
     /**
-     * @description The ID of the parent device.
-     *
-     * @example pn_6987
-     *
      * @var string
      */
     public $parentDevice;
-
     /**
-     * @description The level 2 meter type.
-     *
-     * @example Gateway meter
-     *
      * @var string
      */
     public $secondTypeName;
@@ -71,26 +44,35 @@ class deviceList extends Model
 
     public function validate()
     {
+        if (null !== $this->info) {
+            $this->info->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['deviceId'] = $this->deviceId;
         }
+
         if (null !== $this->deviceName) {
             $res['deviceName'] = $this->deviceName;
         }
+
         if (null !== $this->firstTypeName) {
             $res['firstTypeName'] = $this->firstTypeName;
         }
+
         if (null !== $this->info) {
-            $res['info'] = null !== $this->info ? $this->info->toMap() : null;
+            $res['info'] = null !== $this->info ? $this->info->toArray($noStream) : $this->info;
         }
+
         if (null !== $this->parentDevice) {
             $res['parentDevice'] = $this->parentDevice;
         }
+
         if (null !== $this->secondTypeName) {
             $res['secondTypeName'] = $this->secondTypeName;
         }
@@ -98,29 +80,34 @@ class deviceList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deviceList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deviceId'])) {
             $model->deviceId = $map['deviceId'];
         }
+
         if (isset($map['deviceName'])) {
             $model->deviceName = $map['deviceName'];
         }
+
         if (isset($map['firstTypeName'])) {
             $model->firstTypeName = $map['firstTypeName'];
         }
+
         if (isset($map['info'])) {
             $model->info = info::fromMap($map['info']);
         }
+
         if (isset($map['parentDevice'])) {
             $model->parentDevice = $map['parentDevice'];
         }
+
         if (isset($map['secondTypeName'])) {
             $model->secondTypeName = $map['secondTypeName'];
         }

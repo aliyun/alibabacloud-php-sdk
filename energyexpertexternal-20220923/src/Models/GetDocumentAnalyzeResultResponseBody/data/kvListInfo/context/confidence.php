@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDocumentAnalyzeResultResponseBody\data\kvListInfo\context;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class confidence extends Model
 {
     /**
-     * @example 0.9994202852249146
-     *
      * @var float
      */
     public $keyConfidence;
-
     /**
-     * @example 0.9794202852249146
-     *
      * @var float
      */
     public $valueConfidence;
@@ -28,14 +23,16 @@ class confidence extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyConfidence) {
             $res['keyConfidence'] = $this->keyConfidence;
         }
+
         if (null !== $this->valueConfidence) {
             $res['valueConfidence'] = $this->valueConfidence;
         }
@@ -43,17 +40,18 @@ class confidence extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return confidence
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['keyConfidence'])) {
             $model->keyConfidence = $map['keyConfidence'];
         }
+
         if (isset($map['valueConfidence'])) {
             $model->valueConfidence = $map['valueConfidence'];
         }

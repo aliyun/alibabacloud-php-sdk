@@ -4,47 +4,31 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataQualityAnalysisResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataQualityAnalysisResponseBody\data\dataQuality;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataQualityAnalysisResponseBody\data\dataQualityResult;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataQualityAnalysisResponseBody\data\sensitivityList;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataQualityAnalysisResponseBody\data\uncertaintyValues;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Score of each inventory.
-     *
      * @var dataQuality[]
      */
     public $dataQuality;
-
     /**
-     * @description Data quality result.
-     *
      * @var dataQualityResult
      */
     public $dataQualityResult;
-
     /**
-     * @description Sensitivity analysis list
-     *
      * @var sensitivityList[]
      */
     public $sensitivityList;
-
     /**
-     * @description Uncertainty value. The model\\"s overall percentage uncertainty results. "10.00%" symbolizes a 10.00% uncertainty, indicating that the carbon footprint lies within ±10.00%. This is derived from a weighted aggregation of individual inventory uncertainties.
-     *
-     * @example 10.00
-     *
      * @var string
      */
     public $uncertainty;
-
     /**
-     * @description Uncertainty list
-     *
      * @var uncertaintyValues[]
      */
     public $uncertaintyValues;
@@ -58,41 +42,58 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataQuality)) {
+            Model::validateArray($this->dataQuality);
+        }
+        if (null !== $this->dataQualityResult) {
+            $this->dataQualityResult->validate();
+        }
+        if (\is_array($this->sensitivityList)) {
+            Model::validateArray($this->sensitivityList);
+        }
+        if (\is_array($this->uncertaintyValues)) {
+            Model::validateArray($this->uncertaintyValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataQuality) {
-            $res['dataQuality'] = [];
-            if (null !== $this->dataQuality && \is_array($this->dataQuality)) {
-                $n = 0;
-                foreach ($this->dataQuality as $item) {
-                    $res['dataQuality'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataQuality)) {
+                $res['dataQuality'] = [];
+                $n1                 = 0;
+                foreach ($this->dataQuality as $item1) {
+                    $res['dataQuality'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->dataQualityResult) {
-            $res['dataQualityResult'] = null !== $this->dataQualityResult ? $this->dataQualityResult->toMap() : null;
+            $res['dataQualityResult'] = null !== $this->dataQualityResult ? $this->dataQualityResult->toArray($noStream) : $this->dataQualityResult;
         }
+
         if (null !== $this->sensitivityList) {
-            $res['sensitivityList'] = [];
-            if (null !== $this->sensitivityList && \is_array($this->sensitivityList)) {
-                $n = 0;
-                foreach ($this->sensitivityList as $item) {
-                    $res['sensitivityList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sensitivityList)) {
+                $res['sensitivityList'] = [];
+                $n1                     = 0;
+                foreach ($this->sensitivityList as $item1) {
+                    $res['sensitivityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->uncertainty) {
             $res['uncertainty'] = $this->uncertainty;
         }
+
         if (null !== $this->uncertaintyValues) {
-            $res['uncertaintyValues'] = [];
-            if (null !== $this->uncertaintyValues && \is_array($this->uncertaintyValues)) {
-                $n = 0;
-                foreach ($this->uncertaintyValues as $item) {
-                    $res['uncertaintyValues'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->uncertaintyValues)) {
+                $res['uncertaintyValues'] = [];
+                $n1                       = 0;
+                foreach ($this->uncertaintyValues as $item1) {
+                    $res['uncertaintyValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -100,44 +101,48 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataQuality'])) {
             if (!empty($map['dataQuality'])) {
                 $model->dataQuality = [];
-                $n                  = 0;
-                foreach ($map['dataQuality'] as $item) {
-                    $model->dataQuality[$n++] = null !== $item ? dataQuality::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['dataQuality'] as $item1) {
+                    $model->dataQuality[$n1++] = dataQuality::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['dataQualityResult'])) {
             $model->dataQualityResult = dataQualityResult::fromMap($map['dataQualityResult']);
         }
+
         if (isset($map['sensitivityList'])) {
             if (!empty($map['sensitivityList'])) {
                 $model->sensitivityList = [];
-                $n                      = 0;
-                foreach ($map['sensitivityList'] as $item) {
-                    $model->sensitivityList[$n++] = null !== $item ? sensitivityList::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['sensitivityList'] as $item1) {
+                    $model->sensitivityList[$n1++] = sensitivityList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['uncertainty'])) {
             $model->uncertainty = $map['uncertainty'];
         }
+
         if (isset($map['uncertaintyValues'])) {
             if (!empty($map['uncertaintyValues'])) {
                 $model->uncertaintyValues = [];
-                $n                        = 0;
-                foreach ($map['uncertaintyValues'] as $item) {
-                    $model->uncertaintyValues[$n++] = null !== $item ? uncertaintyValues::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['uncertaintyValues'] as $item1) {
+                    $model->uncertaintyValues[$n1++] = uncertaintyValues::fromMap($item1);
                 }
             }
         }

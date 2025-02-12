@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchSaveInstructionStatusRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchSaveInstructionStatusResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchUpdateSystemRunningPlanRequest;
@@ -85,12 +84,11 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class EnergyExpertExternal extends OpenApiClient
 {
@@ -115,41 +113,50 @@ class EnergyExpertExternal extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 策略执行状态反馈
-     *  *
-     * @param BatchSaveInstructionStatusRequest $request BatchSaveInstructionStatusRequest
-     * @param string[]                          $headers map
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 策略执行状态反馈.
      *
-     * @return BatchSaveInstructionStatusResponse BatchSaveInstructionStatusResponse
+     * @param request - BatchSaveInstructionStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchSaveInstructionStatusResponse
+     *
+     * @param BatchSaveInstructionStatusRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return BatchSaveInstructionStatusResponse
      */
     public function batchSaveInstructionStatusWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->factoryId)) {
-            $body['factoryId'] = $request->factoryId;
+        if (null !== $request->factoryId) {
+            @$body['factoryId'] = $request->factoryId;
         }
-        if (!Utils::isUnset($request->pKey)) {
-            $body['pKey'] = $request->pKey;
+
+        if (null !== $request->pKey) {
+            @$body['pKey'] = $request->pKey;
         }
-        if (!Utils::isUnset($request->statusList)) {
-            $body['statusList'] = $request->statusList;
+
+        if (null !== $request->statusList) {
+            @$body['statusList'] = $request->statusList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchSaveInstructionStatus',
@@ -162,16 +169,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchSaveInstructionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchSaveInstructionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchSaveInstructionStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 策略执行状态反馈
-     *  *
-     * @param BatchSaveInstructionStatusRequest $request BatchSaveInstructionStatusRequest
+     * 策略执行状态反馈.
      *
-     * @return BatchSaveInstructionStatusResponse BatchSaveInstructionStatusResponse
+     * @param request - BatchSaveInstructionStatusRequest
+     * @returns BatchSaveInstructionStatusResponse
+     *
+     * @param BatchSaveInstructionStatusRequest $request
+     *
+     * @return BatchSaveInstructionStatusResponse
      */
     public function batchSaveInstructionStatus($request)
     {
@@ -182,63 +195,82 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary 批量设置空调站点运行计划
-     *  *
-     * @param BatchUpdateSystemRunningPlanRequest $request BatchUpdateSystemRunningPlanRequest
-     * @param string[]                            $headers map
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 批量设置空调站点运行计划.
      *
-     * @return BatchUpdateSystemRunningPlanResponse BatchUpdateSystemRunningPlanResponse
+     * @param request - BatchUpdateSystemRunningPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchUpdateSystemRunningPlanResponse
+     *
+     * @param BatchUpdateSystemRunningPlanRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchUpdateSystemRunningPlanResponse
      */
     public function batchUpdateSystemRunningPlanWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->controlType)) {
-            $body['controlType'] = $request->controlType;
+        if (null !== $request->controlType) {
+            @$body['controlType'] = $request->controlType;
         }
-        if (!Utils::isUnset($request->dateType)) {
-            $body['dateType'] = $request->dateType;
+
+        if (null !== $request->dateType) {
+            @$body['dateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->earliestStartupTime)) {
-            $body['earliestStartupTime'] = $request->earliestStartupTime;
+
+        if (null !== $request->earliestStartupTime) {
+            @$body['earliestStartupTime'] = $request->earliestStartupTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->factoryId)) {
-            $body['factoryId'] = $request->factoryId;
+
+        if (null !== $request->factoryId) {
+            @$body['factoryId'] = $request->factoryId;
         }
-        if (!Utils::isUnset($request->latestShutdownTime)) {
-            $body['latestShutdownTime'] = $request->latestShutdownTime;
+
+        if (null !== $request->latestShutdownTime) {
+            @$body['latestShutdownTime'] = $request->latestShutdownTime;
         }
-        if (!Utils::isUnset($request->maxCarbonDioxide)) {
-            $body['maxCarbonDioxide'] = $request->maxCarbonDioxide;
+
+        if (null !== $request->maxCarbonDioxide) {
+            @$body['maxCarbonDioxide'] = $request->maxCarbonDioxide;
         }
-        if (!Utils::isUnset($request->maxTem)) {
-            $body['maxTem'] = $request->maxTem;
+
+        if (null !== $request->maxTem) {
+            @$body['maxTem'] = $request->maxTem;
         }
-        if (!Utils::isUnset($request->minTem)) {
-            $body['minTem'] = $request->minTem;
+
+        if (null !== $request->minTem) {
+            @$body['minTem'] = $request->minTem;
         }
-        if (!Utils::isUnset($request->seasonMode)) {
-            $body['seasonMode'] = $request->seasonMode;
+
+        if (null !== $request->seasonMode) {
+            @$body['seasonMode'] = $request->seasonMode;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->systemId)) {
-            $body['systemId'] = $request->systemId;
+
+        if (null !== $request->systemId) {
+            @$body['systemId'] = $request->systemId;
         }
-        if (!Utils::isUnset($request->workingEndTime)) {
-            $body['workingEndTime'] = $request->workingEndTime;
+
+        if (null !== $request->workingEndTime) {
+            @$body['workingEndTime'] = $request->workingEndTime;
         }
-        if (!Utils::isUnset($request->workingStartTime)) {
-            $body['workingStartTime'] = $request->workingStartTime;
+
+        if (null !== $request->workingStartTime) {
+            @$body['workingStartTime'] = $request->workingStartTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'BatchUpdateSystemRunningPlan',
@@ -251,16 +283,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchUpdateSystemRunningPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchUpdateSystemRunningPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchUpdateSystemRunningPlanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量设置空调站点运行计划
-     *  *
-     * @param BatchUpdateSystemRunningPlanRequest $request BatchUpdateSystemRunningPlanRequest
+     * 批量设置空调站点运行计划.
      *
-     * @return BatchUpdateSystemRunningPlanResponse BatchUpdateSystemRunningPlanResponse
+     * @param request - BatchUpdateSystemRunningPlanRequest
+     * @returns BatchUpdateSystemRunningPlanResponse
+     *
+     * @param BatchUpdateSystemRunningPlanRequest $request
+     *
+     * @return BatchUpdateSystemRunningPlanResponse
      */
     public function batchUpdateSystemRunningPlan($request)
     {
@@ -271,30 +309,38 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary 编辑禁用设备
-     *  *
-     * @param EditProhibitedDevicesRequest $request EditProhibitedDevicesRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 编辑禁用设备.
      *
-     * @return EditProhibitedDevicesResponse EditProhibitedDevicesResponse
+     * @param request - EditProhibitedDevicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EditProhibitedDevicesResponse
+     *
+     * @param EditProhibitedDevicesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return EditProhibitedDevicesResponse
      */
     public function editProhibitedDevicesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->factoryId)) {
-            $body['factoryId'] = $request->factoryId;
+        if (null !== $request->factoryId) {
+            @$body['factoryId'] = $request->factoryId;
         }
-        if (!Utils::isUnset($request->hvacDeviceConfigVOList)) {
-            $body['hvacDeviceConfigVOList'] = $request->hvacDeviceConfigVOList;
+
+        if (null !== $request->hvacDeviceConfigVOList) {
+            @$body['hvacDeviceConfigVOList'] = $request->hvacDeviceConfigVOList;
         }
-        if (!Utils::isUnset($request->systemId)) {
-            $body['systemId'] = $request->systemId;
+
+        if (null !== $request->systemId) {
+            @$body['systemId'] = $request->systemId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EditProhibitedDevices',
@@ -307,16 +353,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EditProhibitedDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EditProhibitedDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EditProhibitedDevicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑禁用设备
-     *  *
-     * @param EditProhibitedDevicesRequest $request EditProhibitedDevicesRequest
+     * 编辑禁用设备.
      *
-     * @return EditProhibitedDevicesResponse EditProhibitedDevicesResponse
+     * @param request - EditProhibitedDevicesRequest
+     * @returns EditProhibitedDevicesResponse
+     *
+     * @param EditProhibitedDevicesRequest $request
+     *
+     * @return EditProhibitedDevicesResponse
      */
     public function editProhibitedDevices($request)
     {
@@ -327,30 +379,38 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary 编辑不利区设备
-     *  *
-     * @param EditUnfavorableAreaDevicesRequest $request EditUnfavorableAreaDevicesRequest
-     * @param string[]                          $headers map
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 编辑不利区设备.
      *
-     * @return EditUnfavorableAreaDevicesResponse EditUnfavorableAreaDevicesResponse
+     * @param request - EditUnfavorableAreaDevicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EditUnfavorableAreaDevicesResponse
+     *
+     * @param EditUnfavorableAreaDevicesRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return EditUnfavorableAreaDevicesResponse
      */
     public function editUnfavorableAreaDevicesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->factoryId)) {
-            $body['factoryId'] = $request->factoryId;
+        if (null !== $request->factoryId) {
+            @$body['factoryId'] = $request->factoryId;
         }
-        if (!Utils::isUnset($request->hvacDeviceConfigVOList)) {
-            $body['hvacDeviceConfigVOList'] = $request->hvacDeviceConfigVOList;
+
+        if (null !== $request->hvacDeviceConfigVOList) {
+            @$body['hvacDeviceConfigVOList'] = $request->hvacDeviceConfigVOList;
         }
-        if (!Utils::isUnset($request->systemId)) {
-            $body['systemId'] = $request->systemId;
+
+        if (null !== $request->systemId) {
+            @$body['systemId'] = $request->systemId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'EditUnfavorableAreaDevices',
@@ -363,16 +423,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EditUnfavorableAreaDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EditUnfavorableAreaDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EditUnfavorableAreaDevicesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 编辑不利区设备
-     *  *
-     * @param EditUnfavorableAreaDevicesRequest $request EditUnfavorableAreaDevicesRequest
+     * 编辑不利区设备.
      *
-     * @return EditUnfavorableAreaDevicesResponse EditUnfavorableAreaDevicesResponse
+     * @param request - EditUnfavorableAreaDevicesRequest
+     * @returns EditUnfavorableAreaDevicesResponse
+     *
+     * @param EditUnfavorableAreaDevicesRequest $request
+     *
+     * @return EditUnfavorableAreaDevicesResponse
      */
     public function editUnfavorableAreaDevices($request)
     {
@@ -383,32 +449,41 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Generate a report of the specified carbon footprint.
-     *  *
-     * @description Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
-     *  *
-     * @param GenerateResultRequest $request GenerateResultRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Generate a report of the specified carbon footprint.
      *
-     * @return GenerateResultResponse GenerateResultResponse
+     * @remarks
+     * Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
+     *
+     * @param request - GenerateResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateResultResponse
+     *
+     * @param GenerateResultRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GenerateResultResponse
      */
     public function generateResultWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenerateResult',
@@ -421,18 +496,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Generate a report of the specified carbon footprint.
-     *  *
-     * @description Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
-     *  *
-     * @param GenerateResultRequest $request GenerateResultRequest
+     * Generate a report of the specified carbon footprint.
      *
-     * @return GenerateResultResponse GenerateResultResponse
+     * @remarks
+     * Given a product ID, this API initiates a task to calculate the carbon footprint result for the corresponding product. The task\\"s status can be checked using the `IsCompleted` API. Following the generation of results, other result inquiry APIs can be accessed for display content.
+     *
+     * @param request - GenerateResultRequest
+     * @returns GenerateResultResponse
+     *
+     * @param GenerateResultRequest $request
+     *
+     * @return GenerateResultResponse
      */
     public function generateResult($request)
     {
@@ -443,27 +525,34 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This interface is used to obtain electrical constitute analysis data.
-     *  *
-     * @param GetAreaElecConstituteRequest $request GetAreaElecConstituteRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * This interface is used to obtain electrical constitute analysis data.
      *
-     * @return GetAreaElecConstituteResponse GetAreaElecConstituteResponse
+     * @param request - GetAreaElecConstituteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAreaElecConstituteResponse
+     *
+     * @param GetAreaElecConstituteRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAreaElecConstituteResponse
      */
     public function getAreaElecConstituteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->year)) {
-            $body['year'] = $request->year;
+
+        if (null !== $request->year) {
+            @$body['year'] = $request->year;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetAreaElecConstitute',
@@ -476,16 +565,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAreaElecConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAreaElecConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAreaElecConstituteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This interface is used to obtain electrical constitute analysis data.
-     *  *
-     * @param GetAreaElecConstituteRequest $request GetAreaElecConstituteRequest
+     * This interface is used to obtain electrical constitute analysis data.
      *
-     * @return GetAreaElecConstituteResponse GetAreaElecConstituteResponse
+     * @param request - GetAreaElecConstituteRequest
+     * @returns GetAreaElecConstituteResponse
+     *
+     * @param GetAreaElecConstituteRequest $request
+     *
+     * @return GetAreaElecConstituteResponse
      */
     public function getAreaElecConstitute($request)
     {
@@ -496,36 +591,46 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Get trends in carbon emissions.
-     *  *
-     * @param GetCarbonEmissionTrendRequest $request GetCarbonEmissionTrendRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Get trends in carbon emissions.
      *
-     * @return GetCarbonEmissionTrendResponse GetCarbonEmissionTrendResponse
+     * @param request - GetCarbonEmissionTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCarbonEmissionTrendResponse
+     *
+     * @param GetCarbonEmissionTrendRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetCarbonEmissionTrendResponse
      */
     public function getCarbonEmissionTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->moduleCode)) {
-            $body['moduleCode'] = $request->moduleCode;
+
+        if (null !== $request->moduleCode) {
+            @$body['moduleCode'] = $request->moduleCode;
         }
-        if (!Utils::isUnset($request->moduleType)) {
-            $body['moduleType'] = $request->moduleType;
+
+        if (null !== $request->moduleType) {
+            @$body['moduleType'] = $request->moduleType;
         }
-        if (!Utils::isUnset($request->trendType)) {
-            $body['trendType'] = $request->trendType;
+
+        if (null !== $request->trendType) {
+            @$body['trendType'] = $request->trendType;
         }
-        if (!Utils::isUnset($request->yearList)) {
-            $body['yearList'] = $request->yearList;
+
+        if (null !== $request->yearList) {
+            @$body['yearList'] = $request->yearList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetCarbonEmissionTrend',
@@ -538,16 +643,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCarbonEmissionTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCarbonEmissionTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCarbonEmissionTrendResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get trends in carbon emissions.
-     *  *
-     * @param GetCarbonEmissionTrendRequest $request GetCarbonEmissionTrendRequest
+     * Get trends in carbon emissions.
      *
-     * @return GetCarbonEmissionTrendResponse GetCarbonEmissionTrendResponse
+     * @param request - GetCarbonEmissionTrendRequest
+     * @returns GetCarbonEmissionTrendResponse
+     *
+     * @param GetCarbonEmissionTrendRequest $request
+     *
+     * @return GetCarbonEmissionTrendResponse
      */
     public function getCarbonEmissionTrend($request)
     {
@@ -558,26 +669,33 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This interface is used to obtain the details category of a data item.
-     *  *
-     * @description - obtain data item detail list under the current enterprise.
-     *  *
-     * @param GetDataItemListRequest $request GetDataItemListRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * This interface is used to obtain the details category of a data item.
      *
-     * @return GetDataItemListResponse GetDataItemListResponse
+     * @remarks
+     * - obtain data item detail list under the current enterprise.
+     *
+     * @param request - GetDataItemListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataItemListResponse
+     *
+     * @param GetDataItemListRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDataItemListResponse
      */
     public function getDataItemListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataItemList',
@@ -590,18 +708,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataItemListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataItemListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataItemListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This interface is used to obtain the details category of a data item.
-     *  *
-     * @description - obtain data item detail list under the current enterprise.
-     *  *
-     * @param GetDataItemListRequest $request GetDataItemListRequest
+     * This interface is used to obtain the details category of a data item.
      *
-     * @return GetDataItemListResponse GetDataItemListResponse
+     * @remarks
+     * - obtain data item detail list under the current enterprise.
+     *
+     * @param request - GetDataItemListRequest
+     * @returns GetDataItemListResponse
+     *
+     * @param GetDataItemListRequest $request
+     *
+     * @return GetDataItemListResponse
      */
     public function getDataItemList($request)
     {
@@ -612,35 +737,45 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Obtain the data quality evaluation results DQR and DQI.
-     *  *
-     * @description This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
-     *  *
-     * @param GetDataQualityAnalysisRequest $request GetDataQualityAnalysisRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Obtain the data quality evaluation results DQR and DQI.
      *
-     * @return GetDataQualityAnalysisResponse GetDataQualityAnalysisResponse
+     * @remarks
+     * This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
+     *
+     * @param request - GetDataQualityAnalysisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataQualityAnalysisResponse
+     *
+     * @param GetDataQualityAnalysisRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDataQualityAnalysisResponse
      */
     public function getDataQualityAnalysisWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->dataQualityEvaluationType)) {
-            $body['dataQualityEvaluationType'] = $request->dataQualityEvaluationType;
+
+        if (null !== $request->dataQualityEvaluationType) {
+            @$body['dataQualityEvaluationType'] = $request->dataQualityEvaluationType;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDataQualityAnalysis',
@@ -653,18 +788,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataQualityAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDataQualityAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataQualityAnalysisResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtain the data quality evaluation results DQR and DQI.
-     *  *
-     * @description This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
-     *  *
-     * @param GetDataQualityAnalysisRequest $request GetDataQualityAnalysisRequest
+     * Obtain the data quality evaluation results DQR and DQI.
      *
-     * @return GetDataQualityAnalysisResponse GetDataQualityAnalysisResponse
+     * @remarks
+     * This API returns the data quality evaluation results based on the user-provided product ID. It\\"s useful for understanding the data quality of the carbon emission factors for each inventory of the product.
+     *
+     * @param request - GetDataQualityAnalysisRequest
+     * @returns GetDataQualityAnalysisResponse
+     *
+     * @param GetDataQualityAnalysisRequest $request
+     *
+     * @return GetDataQualityAnalysisResponse
      */
     public function getDataQualityAnalysis($request)
     {
@@ -675,36 +817,45 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a device at a site that is activated by using an Alibaba Cloud account.
-     *  *
-     * @description *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
+     * Queries the information about a device at a site that is activated by using an Alibaba Cloud account.
+     *
+     * @remarks
+     *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
      * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
-     *  *
-     * @param GetDeviceInfoRequest $request GetDeviceInfoRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDeviceInfoResponse GetDeviceInfoResponse
+     * @param request - GetDeviceInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDeviceInfoResponse
+     *
+     * @param GetDeviceInfoRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDeviceInfoResponse
      */
     public function getDeviceInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deviceId)) {
-            $query['deviceId'] = $request->deviceId;
+        if (null !== $request->deviceId) {
+            @$query['deviceId'] = $request->deviceId;
         }
-        if (!Utils::isUnset($request->ds)) {
-            $query['ds'] = $request->ds;
+
+        if (null !== $request->ds) {
+            @$query['ds'] = $request->ds;
         }
-        if (!Utils::isUnset($request->factoryId)) {
-            $query['factoryId'] = $request->factoryId;
+
+        if (null !== $request->factoryId) {
+            @$query['factoryId'] = $request->factoryId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDeviceInfo',
@@ -717,22 +868,29 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a device at a site that is activated by using an Alibaba Cloud account.
-     *  *
-     * @description *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
+     * Queries the information about a device at a site that is activated by using an Alibaba Cloud account.
+     *
+     * @remarks
+     *   You can call this operation to query the parameters of a data collection device based on the device ID. If the verification is passed, the device parameters are returned. If the verification fails, a null value is returned.
      * *   You can query the parameters of a single device by day. If data of the device does not exist, a null value is returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
-     *  *
-     * @param GetDeviceInfoRequest $request GetDeviceInfoRequest
      *
-     * @return GetDeviceInfoResponse GetDeviceInfoResponse
+     * @param request - GetDeviceInfoRequest
+     * @returns GetDeviceInfoResponse
+     *
+     * @param GetDeviceInfoRequest $request
+     *
+     * @return GetDeviceInfoResponse
      */
     public function getDeviceInfo($request)
     {
@@ -743,30 +901,37 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Queries the devices of a site that is activated by using an Alibaba Cloud account.
-     *  *
-     * @description *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
+     * Queries the devices of a site that is activated by using an Alibaba Cloud account.
+     *
+     * @remarks
+     *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
      * *   Virtual meters at the site are not returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
-     *  *
-     * @param GetDeviceListRequest $request GetDeviceListRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDeviceListResponse GetDeviceListResponse
+     * @param request - GetDeviceListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDeviceListResponse
+     *
+     * @param GetDeviceListRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDeviceListResponse
      */
     public function getDeviceListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->factoryId)) {
-            $query['factoryId'] = $request->factoryId;
+        if (null !== $request->factoryId) {
+            @$query['factoryId'] = $request->factoryId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDeviceList',
@@ -779,22 +944,29 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the devices of a site that is activated by using an Alibaba Cloud account.
-     *  *
-     * @description *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
+     * Queries the devices of a site that is activated by using an Alibaba Cloud account.
+     *
+     * @remarks
+     *   You can query the information about data collection devices of a site based on the ID of the site. If the verification is passed, the information about the devices of the site is returned. If the verification fails, a null value is returned.
      * *   Virtual meters at the site are not returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
-     *  *
-     * @param GetDeviceListRequest $request GetDeviceListRequest
      *
-     * @return GetDeviceListResponse GetDeviceListResponse
+     * @param request - GetDeviceListRequest
+     * @returns GetDeviceListResponse
+     *
+     * @param GetDeviceListRequest $request
+     *
+     * @return GetDeviceListResponse
      */
     public function getDeviceList($request)
     {
@@ -805,24 +977,30 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档结果
-     *  *
-     * @param GetDocumentAnalyzeResultRequest $request GetDocumentAnalyzeResultRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取文档结果.
      *
-     * @return GetDocumentAnalyzeResultResponse GetDocumentAnalyzeResultResponse
+     * @param request - GetDocumentAnalyzeResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDocumentAnalyzeResultResponse
+     *
+     * @param GetDocumentAnalyzeResultRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDocumentAnalyzeResultResponse
      */
     public function getDocumentAnalyzeResultWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $body['jobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$body['jobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDocumentAnalyzeResult',
@@ -835,16 +1013,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDocumentAnalyzeResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDocumentAnalyzeResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDocumentAnalyzeResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取文档结果
-     *  *
-     * @param GetDocumentAnalyzeResultRequest $request GetDocumentAnalyzeResultRequest
+     * 获取文档结果.
      *
-     * @return GetDocumentAnalyzeResultResponse GetDocumentAnalyzeResultResponse
+     * @param request - GetDocumentAnalyzeResultRequest
+     * @returns GetDocumentAnalyzeResultResponse
+     *
+     * @param GetDocumentAnalyzeResultRequest $request
+     *
+     * @return GetDocumentAnalyzeResultResponse
      */
     public function getDocumentAnalyzeResult($request)
     {
@@ -855,27 +1039,34 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This interface is used to obtain power composition analysis data.
-     *  *
-     * @param GetElecConstituteRequest $request GetElecConstituteRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * This interface is used to obtain power composition analysis data.
      *
-     * @return GetElecConstituteResponse GetElecConstituteResponse
+     * @param request - GetElecConstituteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetElecConstituteResponse
+     *
+     * @param GetElecConstituteRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetElecConstituteResponse
      */
     public function getElecConstituteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->year)) {
-            $body['year'] = $request->year;
+
+        if (null !== $request->year) {
+            @$body['year'] = $request->year;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetElecConstitute',
@@ -888,16 +1079,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetElecConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetElecConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetElecConstituteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This interface is used to obtain power composition analysis data.
-     *  *
-     * @param GetElecConstituteRequest $request GetElecConstituteRequest
+     * This interface is used to obtain power composition analysis data.
      *
-     * @return GetElecConstituteResponse GetElecConstituteResponse
+     * @param request - GetElecConstituteRequest
+     * @returns GetElecConstituteResponse
+     *
+     * @param GetElecConstituteRequest $request
+     *
+     * @return GetElecConstituteResponse
      */
     public function getElecConstitute($request)
     {
@@ -908,27 +1105,34 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This interface is used to obtain power trend analysis data.
-     *  *
-     * @param GetElecTrendRequest $request GetElecTrendRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * This interface is used to obtain power trend analysis data.
      *
-     * @return GetElecTrendResponse GetElecTrendResponse
+     * @param request - GetElecTrendRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetElecTrendResponse
+     *
+     * @param GetElecTrendRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetElecTrendResponse
      */
     public function getElecTrendWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->yearList)) {
-            $body['yearList'] = $request->yearList;
+
+        if (null !== $request->yearList) {
+            @$body['yearList'] = $request->yearList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetElecTrend',
@@ -941,16 +1145,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetElecTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetElecTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetElecTrendResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This interface is used to obtain power trend analysis data.
-     *  *
-     * @param GetElecTrendRequest $request GetElecTrendRequest
+     * This interface is used to obtain power trend analysis data.
      *
-     * @return GetElecTrendResponse GetElecTrendResponse
+     * @param request - GetElecTrendRequest
+     * @returns GetElecTrendResponse
+     *
+     * @param GetElecTrendRequest $request
+     *
+     * @return GetElecTrendResponse
      */
     public function getElecTrend($request)
     {
@@ -961,33 +1171,42 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Obtain the emission source composition.
-     *  *
-     * @param GetEmissionSourceConstituteRequest $request GetEmissionSourceConstituteRequest
-     * @param string[]                           $headers map
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Obtain the emission source composition.
      *
-     * @return GetEmissionSourceConstituteResponse GetEmissionSourceConstituteResponse
+     * @param request - GetEmissionSourceConstituteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEmissionSourceConstituteResponse
+     *
+     * @param GetEmissionSourceConstituteRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetEmissionSourceConstituteResponse
      */
     public function getEmissionSourceConstituteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->moduleCode)) {
-            $body['moduleCode'] = $request->moduleCode;
+
+        if (null !== $request->moduleCode) {
+            @$body['moduleCode'] = $request->moduleCode;
         }
-        if (!Utils::isUnset($request->moduleType)) {
-            $body['moduleType'] = $request->moduleType;
+
+        if (null !== $request->moduleType) {
+            @$body['moduleType'] = $request->moduleType;
         }
-        if (!Utils::isUnset($request->year)) {
-            $body['year'] = $request->year;
+
+        if (null !== $request->year) {
+            @$body['year'] = $request->year;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetEmissionSourceConstitute',
@@ -1000,16 +1219,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEmissionSourceConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEmissionSourceConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEmissionSourceConstituteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtain the emission source composition.
-     *  *
-     * @param GetEmissionSourceConstituteRequest $request GetEmissionSourceConstituteRequest
+     * Obtain the emission source composition.
      *
-     * @return GetEmissionSourceConstituteResponse GetEmissionSourceConstituteResponse
+     * @param request - GetEmissionSourceConstituteRequest
+     * @returns GetEmissionSourceConstituteResponse
+     *
+     * @param GetEmissionSourceConstituteRequest $request
+     *
+     * @return GetEmissionSourceConstituteResponse
      */
     public function getEmissionSourceConstitute($request)
     {
@@ -1020,33 +1245,42 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Get a summary of carbon emissions.
-     *  *
-     * @param GetEmissionSummaryRequest $request GetEmissionSummaryRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Get a summary of carbon emissions.
      *
-     * @return GetEmissionSummaryResponse GetEmissionSummaryResponse
+     * @param request - GetEmissionSummaryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEmissionSummaryResponse
+     *
+     * @param GetEmissionSummaryRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetEmissionSummaryResponse
      */
     public function getEmissionSummaryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->moduleCode)) {
-            $body['moduleCode'] = $request->moduleCode;
+
+        if (null !== $request->moduleCode) {
+            @$body['moduleCode'] = $request->moduleCode;
         }
-        if (!Utils::isUnset($request->moduleType)) {
-            $body['moduleType'] = $request->moduleType;
+
+        if (null !== $request->moduleType) {
+            @$body['moduleType'] = $request->moduleType;
         }
-        if (!Utils::isUnset($request->year)) {
-            $body['year'] = $request->year;
+
+        if (null !== $request->year) {
+            @$body['year'] = $request->year;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetEmissionSummary',
@@ -1059,16 +1293,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEmissionSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEmissionSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEmissionSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get a summary of carbon emissions.
-     *  *
-     * @param GetEmissionSummaryRequest $request GetEmissionSummaryRequest
+     * Get a summary of carbon emissions.
      *
-     * @return GetEmissionSummaryResponse GetEmissionSummaryResponse
+     * @param request - GetEmissionSummaryRequest
+     * @returns GetEmissionSummaryResponse
+     *
+     * @param GetEmissionSummaryRequest $request
+     *
+     * @return GetEmissionSummaryResponse
      */
     public function getEmissionSummary($request)
     {
@@ -1079,32 +1319,41 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Gets the result details of the environmental impact category.
-     *  *
-     * @description This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
-     *  *
-     * @param GetEpdInventoryConstituteRequest $request GetEpdInventoryConstituteRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Gets the result details of the environmental impact category.
      *
-     * @return GetEpdInventoryConstituteResponse GetEpdInventoryConstituteResponse
+     * @remarks
+     * This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
+     *
+     * @param request - GetEpdInventoryConstituteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEpdInventoryConstituteResponse
+     *
+     * @param GetEpdInventoryConstituteRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetEpdInventoryConstituteResponse
      */
     public function getEpdInventoryConstituteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetEpdInventoryConstitute',
@@ -1117,18 +1366,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEpdInventoryConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEpdInventoryConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEpdInventoryConstituteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Gets the result details of the environmental impact category.
-     *  *
-     * @description This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
-     *  *
-     * @param GetEpdInventoryConstituteRequest $request GetEpdInventoryConstituteRequest
+     * Gets the result details of the environmental impact category.
      *
-     * @return GetEpdInventoryConstituteResponse GetEpdInventoryConstituteResponse
+     * @remarks
+     * This API returns the emission amounts for various environmental impact categories at different levels for the given product ID. It helps understand the emission quantities for different environmental impact categories and inventories of the product.
+     *
+     * @param request - GetEpdInventoryConstituteRequest
+     * @returns GetEpdInventoryConstituteResponse
+     *
+     * @param GetEpdInventoryConstituteRequest $request
+     *
+     * @return GetEpdInventoryConstituteResponse
      */
     public function getEpdInventoryConstitute($request)
     {
@@ -1139,32 +1395,41 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Obtain the total amount of emissions for various environmental impacts.
-     *  *
-     * @description This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
-     *  *
-     * @param GetEpdSummaryRequest $request GetEpdSummaryRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Obtain the total amount of emissions for various environmental impacts.
      *
-     * @return GetEpdSummaryResponse GetEpdSummaryResponse
+     * @remarks
+     * This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
+     *
+     * @param request - GetEpdSummaryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEpdSummaryResponse
+     *
+     * @param GetEpdSummaryRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetEpdSummaryResponse
      */
     public function getEpdSummaryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetEpdSummary',
@@ -1177,18 +1442,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEpdSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEpdSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEpdSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtain the total amount of emissions for various environmental impacts.
-     *  *
-     * @description This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
-     *  *
-     * @param GetEpdSummaryRequest $request GetEpdSummaryRequest
+     * Obtain the total amount of emissions for various environmental impacts.
      *
-     * @return GetEpdSummaryResponse GetEpdSummaryResponse
+     * @remarks
+     * This API takes a product ID from the user and returns the summary of environmental impact generated for the product. This info helps understand the overall emissions for different environmental impact categories of the product.
+     *
+     * @param request - GetEpdSummaryRequest
+     * @returns GetEpdSummaryResponse
+     *
+     * @param GetEpdSummaryRequest $request
+     *
+     * @return GetEpdSummaryResponse
      */
     public function getEpdSummary($request)
     {
@@ -1199,35 +1471,45 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Get the list of product carbon footprints.
-     *  *
-     * @description With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
-     *  *
-     * @param GetFootprintListRequest $request GetFootprintListRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Get the list of product carbon footprints.
      *
-     * @return GetFootprintListResponse GetFootprintListResponse
+     * @remarks
+     * With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
+     *
+     * @param request - GetFootprintListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFootprintListResponse
+     *
+     * @param GetFootprintListRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetFootprintListResponse
      */
     public function getFootprintListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['currentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['currentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetFootprintList',
@@ -1240,18 +1522,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFootprintListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFootprintListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFootprintListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get the list of product carbon footprints.
-     *  *
-     * @description With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
-     *  *
-     * @param GetFootprintListRequest $request GetFootprintListRequest
+     * Get the list of product carbon footprints.
      *
-     * @return GetFootprintListResponse GetFootprintListResponse
+     * @remarks
+     * With user-specified parameters such as enterprise code, current page, and page size, this API returns a list of matching product carbon footprints (or supply chain carbon footprints), including product names and product IDs. The product ID can be used as input parameters in other APIs to get the corresponding product\\"s detailed information.
+     *
+     * @param request - GetFootprintListRequest
+     * @returns GetFootprintListResponse
+     *
+     * @param GetFootprintListRequest $request
+     *
+     * @return GetFootprintListResponse
      */
     public function getFootprintList($request)
     {
@@ -1262,33 +1551,42 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This interface is used to obtain gas composition analysis.
-     *  *
-     * @param GetGasConstituteRequest $request GetGasConstituteRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * This interface is used to obtain gas composition analysis.
      *
-     * @return GetGasConstituteResponse GetGasConstituteResponse
+     * @param request - GetGasConstituteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGasConstituteResponse
+     *
+     * @param GetGasConstituteRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetGasConstituteResponse
      */
     public function getGasConstituteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->moduleCode)) {
-            $body['moduleCode'] = $request->moduleCode;
+
+        if (null !== $request->moduleCode) {
+            @$body['moduleCode'] = $request->moduleCode;
         }
-        if (!Utils::isUnset($request->moduleType)) {
-            $body['moduleType'] = $request->moduleType;
+
+        if (null !== $request->moduleType) {
+            @$body['moduleType'] = $request->moduleType;
         }
-        if (!Utils::isUnset($request->year)) {
-            $body['year'] = $request->year;
+
+        if (null !== $request->year) {
+            @$body['year'] = $request->year;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetGasConstitute',
@@ -1301,16 +1599,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGasConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGasConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGasConstituteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This interface is used to obtain gas composition analysis.
-     *  *
-     * @param GetGasConstituteRequest $request GetGasConstituteRequest
+     * This interface is used to obtain gas composition analysis.
      *
-     * @return GetGasConstituteResponse GetGasConstituteResponse
+     * @param request - GetGasConstituteRequest
+     * @returns GetGasConstituteResponse
+     *
+     * @param GetGasConstituteRequest $request
+     *
+     * @return GetGasConstituteResponse
      */
     public function getGasConstitute($request)
     {
@@ -1321,32 +1625,41 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary obtain the active carbon reduction ranking list.
-     *  *
-     * @description This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
-     *  *
-     * @param GetGwpBenchmarkListRequest $request GetGwpBenchmarkListRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * obtain the active carbon reduction ranking list.
      *
-     * @return GetGwpBenchmarkListResponse GetGwpBenchmarkListResponse
+     * @remarks
+     * This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
+     *
+     * @param request - GetGwpBenchmarkListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGwpBenchmarkListResponse
+     *
+     * @param GetGwpBenchmarkListRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetGwpBenchmarkListResponse
      */
     public function getGwpBenchmarkListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetGwpBenchmarkList',
@@ -1359,18 +1672,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGwpBenchmarkListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGwpBenchmarkListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGwpBenchmarkListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary obtain the active carbon reduction ranking list.
-     *  *
-     * @description This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
-     *  *
-     * @param GetGwpBenchmarkListRequest $request GetGwpBenchmarkListRequest
+     * obtain the active carbon reduction ranking list.
      *
-     * @return GetGwpBenchmarkListResponse GetGwpBenchmarkListResponse
+     * @remarks
+     * This interface returns a list of proactive carbon reduction information given product ID. It\\"s used to understand the carbon reduction efforts at various levels of the product.
+     *
+     * @param request - GetGwpBenchmarkListRequest
+     * @returns GetGwpBenchmarkListResponse
+     *
+     * @param GetGwpBenchmarkListRequest $request
+     *
+     * @return GetGwpBenchmarkListResponse
      */
     public function getGwpBenchmarkList($request)
     {
@@ -1381,32 +1701,41 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This API is to obtain the total amount of active carbon reduction.
-     *  *
-     * @description The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
-     *  *
-     * @param GetGwpBenchmarkSummaryRequest $request GetGwpBenchmarkSummaryRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * This API is to obtain the total amount of active carbon reduction.
      *
-     * @return GetGwpBenchmarkSummaryResponse GetGwpBenchmarkSummaryResponse
+     * @remarks
+     * The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
+     *
+     * @param request - GetGwpBenchmarkSummaryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGwpBenchmarkSummaryResponse
+     *
+     * @param GetGwpBenchmarkSummaryRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetGwpBenchmarkSummaryResponse
      */
     public function getGwpBenchmarkSummaryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetGwpBenchmarkSummary',
@@ -1419,18 +1748,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGwpBenchmarkSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGwpBenchmarkSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGwpBenchmarkSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This API is to obtain the total amount of active carbon reduction.
-     *  *
-     * @description The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
-     *  *
-     * @param GetGwpBenchmarkSummaryRequest $request GetGwpBenchmarkSummaryRequest
+     * This API is to obtain the total amount of active carbon reduction.
      *
-     * @return GetGwpBenchmarkSummaryResponse GetGwpBenchmarkSummaryResponse
+     * @remarks
+     * The API takes a product ID and returns data on the carbon emissions reduction along with a list of the top four contributors to carbon reduction. This info helps understand the total carbon reduction of the product and its main sources.
+     *
+     * @param request - GetGwpBenchmarkSummaryRequest
+     * @returns GetGwpBenchmarkSummaryResponse
+     *
+     * @param GetGwpBenchmarkSummaryRequest $request
+     *
+     * @return GetGwpBenchmarkSummaryResponse
      */
     public function getGwpBenchmarkSummary($request)
     {
@@ -1441,32 +1777,41 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
-     *  *
-     * @description Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
-     *  *
-     * @param GetGwpInventoryConstituteRequest $request GetGwpInventoryConstituteRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
      *
-     * @return GetGwpInventoryConstituteResponse GetGwpInventoryConstituteResponse
+     * @remarks
+     * Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+     *
+     * @param request - GetGwpInventoryConstituteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGwpInventoryConstituteResponse
+     *
+     * @param GetGwpInventoryConstituteRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetGwpInventoryConstituteResponse
      */
     public function getGwpInventoryConstituteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetGwpInventoryConstitute',
@@ -1479,18 +1824,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGwpInventoryConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGwpInventoryConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGwpInventoryConstituteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
-     *  *
-     * @description Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
-     *  *
-     * @param GetGwpInventoryConstituteRequest $request GetGwpInventoryConstituteRequest
+     * Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
      *
-     * @return GetGwpInventoryConstituteResponse GetGwpInventoryConstituteResponse
+     * @remarks
+     * Used to obtain the carbon emission composition analysis of a specified product. Carbon emission composition analysis includes two analysis dimensions: inventory and type. In the rendering effect, including a hierarchical list and pie chart.
+     *
+     * @param request - GetGwpInventoryConstituteRequest
+     * @returns GetGwpInventoryConstituteResponse
+     *
+     * @param GetGwpInventoryConstituteRequest $request
+     *
+     * @return GetGwpInventoryConstituteResponse
      */
     public function getGwpInventoryConstitute($request)
     {
@@ -1501,32 +1853,41 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This API is used to obtain the total carbon footprint of a product and the top four types of carbon footprint contribution.
-     *  *
-     * @description Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
-     *  *
-     * @param GetGwpInventorySummaryRequest $request GetGwpInventorySummaryRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * This API is used to obtain the total carbon footprint of a product and the top four types of carbon footprint contribution.
      *
-     * @return GetGwpInventorySummaryResponse GetGwpInventorySummaryResponse
+     * @remarks
+     * Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
+     *
+     * @param request - GetGwpInventorySummaryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGwpInventorySummaryResponse
+     *
+     * @param GetGwpInventorySummaryRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetGwpInventorySummaryResponse
      */
     public function getGwpInventorySummaryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetGwpInventorySummary',
@@ -1539,18 +1900,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGwpInventorySummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGwpInventorySummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGwpInventorySummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This API is used to obtain the total carbon footprint of a product and the top four types of carbon footprint contribution.
-     *  *
-     * @description Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
-     *  *
-     * @param GetGwpInventorySummaryRequest $request GetGwpInventorySummaryRequest
+     * This API is used to obtain the total carbon footprint of a product and the top four types of carbon footprint contribution.
      *
-     * @return GetGwpInventorySummaryResponse GetGwpInventorySummaryResponse
+     * @remarks
+     * Returns the total carbon footprint data for the user-specified product ID, along with details on the top four contributors to the carbon footprint, helping to understand the overall carbon footprint and its main components.
+     *
+     * @param request - GetGwpInventorySummaryRequest
+     * @returns GetGwpInventorySummaryResponse
+     *
+     * @param GetGwpInventorySummaryRequest $request
+     *
+     * @return GetGwpInventorySummaryResponse
      */
     public function getGwpInventorySummary($request)
     {
@@ -1561,41 +1929,53 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Get the list of emissions in descending order under the specified environmental impact (methodType), specified aggregate level (group), and specified calculation mode (emissionType).
-     *  *
-     * @description This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
-     *  *
-     * @param GetInventoryListRequest $request GetInventoryListRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Get the list of emissions in descending order under the specified environmental impact (methodType), specified aggregate level (group), and specified calculation mode (emissionType).
      *
-     * @return GetInventoryListResponse GetInventoryListResponse
+     * @remarks
+     * This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
+     *
+     * @param request - GetInventoryListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetInventoryListResponse
+     *
+     * @param GetInventoryListRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetInventoryListResponse
      */
     public function getInventoryListWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->emissionType)) {
-            $body['emissionType'] = $request->emissionType;
+
+        if (null !== $request->emissionType) {
+            @$body['emissionType'] = $request->emissionType;
         }
-        if (!Utils::isUnset($request->group)) {
-            $body['group'] = $request->group;
+
+        if (null !== $request->group) {
+            @$body['group'] = $request->group;
         }
-        if (!Utils::isUnset($request->methodType)) {
-            $body['methodType'] = $request->methodType;
+
+        if (null !== $request->methodType) {
+            @$body['methodType'] = $request->methodType;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetInventoryList',
@@ -1608,18 +1988,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInventoryListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInventoryListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInventoryListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get the list of emissions in descending order under the specified environmental impact (methodType), specified aggregate level (group), and specified calculation mode (emissionType).
-     *  *
-     * @description This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
-     *  *
-     * @param GetInventoryListRequest $request GetInventoryListRequest
+     * Get the list of emissions in descending order under the specified environmental impact (methodType), specified aggregate level (group), and specified calculation mode (emissionType).
      *
-     * @return GetInventoryListResponse GetInventoryListResponse
+     * @remarks
+     * This interface retrieves a descending order list of emissions for a specified product ID, environmental impact method, group level, and calculation method. It\\"s used to understand various environmental impact emission scenarios.
+     *
+     * @param request - GetInventoryListRequest
+     * @returns GetInventoryListResponse
+     *
+     * @param GetInventoryListRequest $request
+     *
+     * @return GetInventoryListResponse
      */
     public function getInventoryList($request)
     {
@@ -1630,17 +2017,22 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Queries the organizations and sites that are activated by using an Alibaba Cloud account. You cannot call this operation to query the organizations or sites that have not been activated in the console.
-     *  *
-     * @description *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
+     * Queries the organizations and sites that are activated by using an Alibaba Cloud account. You cannot call this operation to query the organizations or sites that have not been activated in the console.
+     *
+     * @remarks
+     *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetOrgAndFactoryResponse GetOrgAndFactoryResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOrgAndFactoryResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetOrgAndFactoryResponse
      */
     public function getOrgAndFactoryWithOptions($headers, $runtime)
     {
@@ -1658,19 +2050,24 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOrgAndFactoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrgAndFactoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrgAndFactoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the organizations and sites that are activated by using an Alibaba Cloud account. You cannot call this operation to query the organizations or sites that have not been activated in the console.
-     *  *
-     * @description *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
+     * Queries the organizations and sites that are activated by using an Alibaba Cloud account. You cannot call this operation to query the organizations or sites that have not been activated in the console.
+     *
+     * @remarks
+     *   If an activated site exists, the information about the site and the organization to which the site belongs is returned. If no activated site exists, null is returned.
      * - By current, endpoint only supports Hangzhou: `energyexpertexternal.cn-hangzhou.aliyuncs.com`.
      * - To use this API, you need to be added to the whitelist. Please contact us through  <props="china">[official website](https://energy.aliyun.com/ifa/web/defaultLoginPage?adapter=aliyun#/consult?source=%E8%83%BD%E8%80%97%E5%AE%9D%E7%99%BB%E5%BD%95%E9%A1%B5%EF%BC%88WEB%EF%BC%89)
      * <props="intl">[official website](https://energy.alibabacloud.com/common?adapter=aliyun&lang=en-US#/home/en) to apply for whitelist activation.
-     *  *
-     * @return GetOrgAndFactoryResponse GetOrgAndFactoryResponse
+     * @returns GetOrgAndFactoryResponse
+     *
+     * @return GetOrgAndFactoryResponse
      */
     public function getOrgAndFactory()
     {
@@ -1681,33 +2078,42 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This interface is used to obtain carbon inventory organization analysis data.
-     *  *
-     * @param GetOrgConstituteRequest $request GetOrgConstituteRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * This interface is used to obtain carbon inventory organization analysis data.
      *
-     * @return GetOrgConstituteResponse GetOrgConstituteResponse
+     * @param request - GetOrgConstituteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOrgConstituteResponse
+     *
+     * @param GetOrgConstituteRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetOrgConstituteResponse
      */
     public function getOrgConstituteWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->moduleCode)) {
-            $body['moduleCode'] = $request->moduleCode;
+
+        if (null !== $request->moduleCode) {
+            @$body['moduleCode'] = $request->moduleCode;
         }
-        if (!Utils::isUnset($request->moduleType)) {
-            $body['moduleType'] = $request->moduleType;
+
+        if (null !== $request->moduleType) {
+            @$body['moduleType'] = $request->moduleType;
         }
-        if (!Utils::isUnset($request->year)) {
-            $body['year'] = $request->year;
+
+        if (null !== $request->year) {
+            @$body['year'] = $request->year;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetOrgConstitute',
@@ -1720,16 +2126,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOrgConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrgConstituteResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrgConstituteResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This interface is used to obtain carbon inventory organization analysis data.
-     *  *
-     * @param GetOrgConstituteRequest $request GetOrgConstituteRequest
+     * This interface is used to obtain carbon inventory organization analysis data.
      *
-     * @return GetOrgConstituteResponse GetOrgConstituteResponse
+     * @param request - GetOrgConstituteRequest
+     * @returns GetOrgConstituteResponse
+     *
+     * @param GetOrgConstituteRequest $request
+     *
+     * @return GetOrgConstituteResponse
      */
     public function getOrgConstitute($request)
     {
@@ -1740,32 +2152,41 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the oss address of the Product Carbon footprint Report.
-     *  *
-     * @description With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
-     *  *
-     * @param GetPcrInfoRequest $request GetPcrInfoRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Obtains the oss address of the Product Carbon footprint Report.
      *
-     * @return GetPcrInfoResponse GetPcrInfoResponse
+     * @remarks
+     * With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
+     *
+     * @param request - GetPcrInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPcrInfoResponse
+     *
+     * @param GetPcrInfoRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetPcrInfoResponse
      */
     public function getPcrInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetPcrInfo',
@@ -1778,18 +2199,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPcrInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPcrInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPcrInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the oss address of the Product Carbon footprint Report.
-     *  *
-     * @description With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
-     *  *
-     * @param GetPcrInfoRequest $request GetPcrInfoRequest
+     * Obtains the oss address of the Product Carbon footprint Report.
      *
-     * @return GetPcrInfoResponse GetPcrInfoResponse
+     * @remarks
+     * With the user-specified product ID, this interface retrieves detailed information and download links for previously generated PCR reports. To use it, two conditions must be met: 1) the result has already been generated; 2) the PCR report has been created.
+     *
+     * @param request - GetPcrInfoRequest
+     * @returns GetPcrInfoResponse
+     *
+     * @param GetPcrInfoRequest $request
+     *
+     * @return GetPcrInfoResponse
      */
     public function getPcrInfo($request)
     {
@@ -1800,35 +2228,45 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Get carbon reduction recommendations.
-     *  *
-     * @description This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
-     *  *
-     * @param GetReductionProposalRequest $request GetReductionProposalRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Get carbon reduction recommendations.
      *
-     * @return GetReductionProposalResponse GetReductionProposalResponse
+     * @remarks
+     * This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
+     *
+     * @param request - GetReductionProposalRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetReductionProposalResponse
+     *
+     * @param GetReductionProposalRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetReductionProposalResponse
      */
     public function getReductionProposalWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->dataQualityEvaluationType)) {
-            $body['dataQualityEvaluationType'] = $request->dataQualityEvaluationType;
+
+        if (null !== $request->dataQualityEvaluationType) {
+            @$body['dataQualityEvaluationType'] = $request->dataQualityEvaluationType;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetReductionProposal',
@@ -1841,18 +2279,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetReductionProposalResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetReductionProposalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetReductionProposalResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get carbon reduction recommendations.
-     *  *
-     * @description This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
-     *  *
-     * @param GetReductionProposalRequest $request GetReductionProposalRequest
+     * Get carbon reduction recommendations.
      *
-     * @return GetReductionProposalResponse GetReductionProposalResponse
+     * @remarks
+     * This API returns carbon reduction proposals based on the product ID. It\\"s useful for understanding optimization tips to reduce the carbon emissions associated with a product.
+     *
+     * @param request - GetReductionProposalRequest
+     * @returns GetReductionProposalResponse
+     *
+     * @param GetReductionProposalRequest $request
+     *
+     * @return GetReductionProposalResponse
      */
     public function getReductionProposal($request)
     {
@@ -1863,32 +2308,41 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Check if the result generation is complete.
-     *  *
-     * @description This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
-     *  *
-     * @param IsCompletedRequest $request IsCompletedRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Check if the result generation is complete.
      *
-     * @return IsCompletedResponse IsCompletedResponse
+     * @remarks
+     * This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
+     *
+     * @param request - IsCompletedRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns IsCompletedResponse
+     *
+     * @param IsCompletedRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return IsCompletedResponse
      */
     public function isCompletedWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $body['productId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $body['productType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$body['productType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'IsCompleted',
@@ -1901,18 +2355,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return IsCompletedResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return IsCompletedResponse::fromMap($this->callApi($params, $req, $runtime));
+        return IsCompletedResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Check if the result generation is complete.
-     *  *
-     * @description This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
-     *  *
-     * @param IsCompletedRequest $request IsCompletedRequest
+     * Check if the result generation is complete.
      *
-     * @return IsCompletedResponse IsCompletedResponse
+     * @remarks
+     * This API checks the completion status of generating a report. It should be used before calling other result APIs, as they will only display content once the report generation is complete.
+     *
+     * @param request - IsCompletedRequest
+     * @returns IsCompletedResponse
+     *
+     * @param IsCompletedRequest $request
+     *
+     * @return IsCompletedResponse
      */
     public function isCompleted($request)
     {
@@ -1923,27 +2384,34 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This interface is used to push device measuring point data, such as power meter voltage and other data.
-     *  *
-     * @param PushDeviceDataRequest $request PushDeviceDataRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * This interface is used to push device measuring point data, such as power meter voltage and other data.
      *
-     * @return PushDeviceDataResponse PushDeviceDataResponse
+     * @param request - PushDeviceDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PushDeviceDataResponse
+     *
+     * @param PushDeviceDataRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return PushDeviceDataResponse
      */
     public function pushDeviceDataWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->deviceType)) {
-            $body['deviceType'] = $request->deviceType;
+        if (null !== $request->deviceType) {
+            @$body['deviceType'] = $request->deviceType;
         }
-        if (!Utils::isUnset($request->devices)) {
-            $body['devices'] = $request->devices;
+
+        if (null !== $request->devices) {
+            @$body['devices'] = $request->devices;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PushDeviceData',
@@ -1956,16 +2424,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PushDeviceDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushDeviceDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushDeviceDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This interface is used to push device measuring point data, such as power meter voltage and other data.
-     *  *
-     * @param PushDeviceDataRequest $request PushDeviceDataRequest
+     * This interface is used to push device measuring point data, such as power meter voltage and other data.
      *
-     * @return PushDeviceDataResponse PushDeviceDataResponse
+     * @param request - PushDeviceDataRequest
+     * @returns PushDeviceDataResponse
+     *
+     * @param PushDeviceDataRequest $request
+     *
+     * @return PushDeviceDataResponse
      */
     public function pushDeviceData($request)
     {
@@ -1976,34 +2450,43 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary This interface is used to push data items.
-     *  *
-     * @description - This interface is used for individual data item data.
+     * This interface is used to push data items.
+     *
+     * @remarks
+     * - This interface is used for individual data item data.
      * - Data items can link data to services such as carbon footprints and carbon inventories.
      * - Depending on the platform configuration, active data on a yearly and monthly basis is supported.
-     *  *
-     * @param PushItemDataRequest $request PushItemDataRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return PushItemDataResponse PushItemDataResponse
+     * @param request - PushItemDataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PushItemDataResponse
+     *
+     * @param PushItemDataRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PushItemDataResponse
      */
     public function pushItemDataWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->items)) {
-            $body['items'] = $request->items;
+
+        if (null !== $request->items) {
+            @$body['items'] = $request->items;
         }
-        if (!Utils::isUnset($request->year)) {
-            $body['year'] = $request->year;
+
+        if (null !== $request->year) {
+            @$body['year'] = $request->year;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PushItemData',
@@ -2016,20 +2499,27 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PushItemDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushItemDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushItemDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This interface is used to push data items.
-     *  *
-     * @description - This interface is used for individual data item data.
+     * This interface is used to push data items.
+     *
+     * @remarks
+     * - This interface is used for individual data item data.
      * - Data items can link data to services such as carbon footprints and carbon inventories.
      * - Depending on the platform configuration, active data on a yearly and monthly basis is supported.
-     *  *
-     * @param PushItemDataRequest $request PushItemDataRequest
      *
-     * @return PushItemDataResponse PushItemDataResponse
+     * @param request - PushItemDataRequest
+     * @returns PushItemDataResponse
+     *
+     * @param PushItemDataRequest $request
+     *
+     * @return PushItemDataResponse
      */
     public function pushItemData($request)
     {
@@ -2040,29 +2530,37 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary Recalculate carbon emissions.
-     *  *
-     * @description - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
-     *  *
-     * @param RecalculateCarbonEmissionRequest $request RecalculateCarbonEmissionRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Recalculate carbon emissions.
      *
-     * @return RecalculateCarbonEmissionResponse RecalculateCarbonEmissionResponse
+     * @remarks
+     * - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
+     *
+     * @param request - RecalculateCarbonEmissionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RecalculateCarbonEmissionResponse
+     *
+     * @param RecalculateCarbonEmissionRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RecalculateCarbonEmissionResponse
      */
     public function recalculateCarbonEmissionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->year)) {
-            $body['year'] = $request->year;
+
+        if (null !== $request->year) {
+            @$body['year'] = $request->year;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RecalculateCarbonEmission',
@@ -2075,18 +2573,25 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RecalculateCarbonEmissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RecalculateCarbonEmissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RecalculateCarbonEmissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Recalculate carbon emissions.
-     *  *
-     * @description - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
-     *  *
-     * @param RecalculateCarbonEmissionRequest $request RecalculateCarbonEmissionRequest
+     * Recalculate carbon emissions.
      *
-     * @return RecalculateCarbonEmissionResponse RecalculateCarbonEmissionResponse
+     * @remarks
+     * - After uploading the data items, you need to call this interface to recalculate the carbon inventory data.
+     *
+     * @param request - RecalculateCarbonEmissionRequest
+     * @returns RecalculateCarbonEmissionResponse
+     *
+     * @param RecalculateCarbonEmissionRequest $request
+     *
+     * @return RecalculateCarbonEmissionResponse
      */
     public function recalculateCarbonEmission($request)
     {
@@ -2097,30 +2602,38 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary 在线文档问答
-     *  *
-     * @param SendDocumentAskQuestionRequest $request SendDocumentAskQuestionRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 在线文档问答.
      *
-     * @return SendDocumentAskQuestionResponse SendDocumentAskQuestionResponse
+     * @param request - SendDocumentAskQuestionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendDocumentAskQuestionResponse
+     *
+     * @param SendDocumentAskQuestionRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SendDocumentAskQuestionResponse
      */
     public function sendDocumentAskQuestionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->folderId)) {
-            $body['folderId'] = $request->folderId;
+        if (null !== $request->folderId) {
+            @$body['folderId'] = $request->folderId;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $body['prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$body['prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['sessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendDocumentAskQuestion',
@@ -2133,16 +2646,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendDocumentAskQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendDocumentAskQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendDocumentAskQuestionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 在线文档问答
-     *  *
-     * @param SendDocumentAskQuestionRequest $request SendDocumentAskQuestionRequest
+     * 在线文档问答.
      *
-     * @return SendDocumentAskQuestionResponse SendDocumentAskQuestionResponse
+     * @param request - SendDocumentAskQuestionRequest
+     * @returns SendDocumentAskQuestionResponse
+     *
+     * @param SendDocumentAskQuestionRequest $request
+     *
+     * @return SendDocumentAskQuestionResponse
      */
     public function sendDocumentAskQuestion($request)
     {
@@ -2153,69 +2672,90 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary 设置运行计划
-     *  *
-     * @param SetRunningPlanRequest $request SetRunningPlanRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 设置运行计划.
      *
-     * @return SetRunningPlanResponse SetRunningPlanResponse
+     * @param request - SetRunningPlanRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetRunningPlanResponse
+     *
+     * @param SetRunningPlanRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SetRunningPlanResponse
      */
     public function setRunningPlanWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->controlType)) {
-            $body['controlType'] = $request->controlType;
+        if (null !== $request->controlType) {
+            @$body['controlType'] = $request->controlType;
         }
-        if (!Utils::isUnset($request->dateType)) {
-            $body['dateType'] = $request->dateType;
+
+        if (null !== $request->dateType) {
+            @$body['dateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->earliestStartupTime)) {
-            $body['earliestStartupTime'] = $request->earliestStartupTime;
+
+        if (null !== $request->earliestStartupTime) {
+            @$body['earliestStartupTime'] = $request->earliestStartupTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->factoryId)) {
-            $body['factoryId'] = $request->factoryId;
+
+        if (null !== $request->factoryId) {
+            @$body['factoryId'] = $request->factoryId;
         }
-        if (!Utils::isUnset($request->latestShutdownTime)) {
-            $body['latestShutdownTime'] = $request->latestShutdownTime;
+
+        if (null !== $request->latestShutdownTime) {
+            @$body['latestShutdownTime'] = $request->latestShutdownTime;
         }
-        if (!Utils::isUnset($request->maxCarbonDioxide)) {
-            $body['maxCarbonDioxide'] = $request->maxCarbonDioxide;
+
+        if (null !== $request->maxCarbonDioxide) {
+            @$body['maxCarbonDioxide'] = $request->maxCarbonDioxide;
         }
-        if (!Utils::isUnset($request->maxTem)) {
-            $body['maxTem'] = $request->maxTem;
+
+        if (null !== $request->maxTem) {
+            @$body['maxTem'] = $request->maxTem;
         }
-        if (!Utils::isUnset($request->minTem)) {
-            $body['minTem'] = $request->minTem;
+
+        if (null !== $request->minTem) {
+            @$body['minTem'] = $request->minTem;
         }
-        if (!Utils::isUnset($request->pKey)) {
-            $body['pKey'] = $request->pKey;
+
+        if (null !== $request->pKey) {
+            @$body['pKey'] = $request->pKey;
         }
-        if (!Utils::isUnset($request->seasonMode)) {
-            $body['seasonMode'] = $request->seasonMode;
+
+        if (null !== $request->seasonMode) {
+            @$body['seasonMode'] = $request->seasonMode;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->statisticsTime)) {
-            $body['statisticsTime'] = $request->statisticsTime;
+
+        if (null !== $request->statisticsTime) {
+            @$body['statisticsTime'] = $request->statisticsTime;
         }
-        if (!Utils::isUnset($request->systemId)) {
-            $body['systemId'] = $request->systemId;
+
+        if (null !== $request->systemId) {
+            @$body['systemId'] = $request->systemId;
         }
-        if (!Utils::isUnset($request->workingEndTime)) {
-            $body['workingEndTime'] = $request->workingEndTime;
+
+        if (null !== $request->workingEndTime) {
+            @$body['workingEndTime'] = $request->workingEndTime;
         }
-        if (!Utils::isUnset($request->workingStartTime)) {
-            $body['workingStartTime'] = $request->workingStartTime;
+
+        if (null !== $request->workingStartTime) {
+            @$body['workingStartTime'] = $request->workingStartTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SetRunningPlan',
@@ -2228,16 +2768,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetRunningPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetRunningPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetRunningPlanResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置运行计划
-     *  *
-     * @param SetRunningPlanRequest $request SetRunningPlanRequest
+     * 设置运行计划.
      *
-     * @return SetRunningPlanResponse SetRunningPlanResponse
+     * @param request - SetRunningPlanRequest
+     * @returns SetRunningPlanResponse
+     *
+     * @param SetRunningPlanRequest $request
+     *
+     * @return SetRunningPlanResponse
      */
     public function setRunningPlan($request)
     {
@@ -2248,36 +2794,46 @@ class EnergyExpertExternal extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档结果
-     *  *
-     * @param SubmitDocumentAnalyzeJobRequest $request SubmitDocumentAnalyzeJobRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 获取文档结果.
      *
-     * @return SubmitDocumentAnalyzeJobResponse SubmitDocumentAnalyzeJobResponse
+     * @param request - SubmitDocumentAnalyzeJobRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitDocumentAnalyzeJobResponse
+     *
+     * @param SubmitDocumentAnalyzeJobRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitDocumentAnalyzeJobResponse
      */
     public function submitDocumentAnalyzeJobWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->analysisType)) {
-            $query['analysisType'] = $request->analysisType;
+        if (null !== $request->analysisType) {
+            @$query['analysisType'] = $request->analysisType;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['fileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['fileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->folderId)) {
-            $query['folderId'] = $request->folderId;
+
+        if (null !== $request->folderId) {
+            @$query['folderId'] = $request->folderId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['templateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['templateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitDocumentAnalyzeJob',
@@ -2290,16 +2846,22 @@ class EnergyExpertExternal extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitDocumentAnalyzeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDocumentAnalyzeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDocumentAnalyzeJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取文档结果
-     *  *
-     * @param SubmitDocumentAnalyzeJobRequest $request SubmitDocumentAnalyzeJobRequest
+     * 获取文档结果.
      *
-     * @return SubmitDocumentAnalyzeJobResponse SubmitDocumentAnalyzeJobResponse
+     * @param request - SubmitDocumentAnalyzeJobRequest
+     * @returns SubmitDocumentAnalyzeJobResponse
+     *
+     * @param SubmitDocumentAnalyzeJobRequest $request
+     *
+     * @return SubmitDocumentAnalyzeJobResponse
      */
     public function submitDocumentAnalyzeJob($request)
     {
@@ -2324,12 +2886,14 @@ class EnergyExpertExternal extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -2357,13 +2921,13 @@ class EnergyExpertExternal extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitDocumentAnalyzeJobReq = new SubmitDocumentAnalyzeJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitDocumentAnalyzeJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitDocumentAnalyzeJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,

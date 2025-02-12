@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetOrgAndFactoryResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetOrgAndFactoryResponseBody extends Model
 {
     /**
-     * @description The code returned for the request.
-     *
-     * @example Success
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description data
-     *
      * @var data[]
      */
     public $data;
-
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpCode;
-
     /**
-     * @description The request ID.
-     *
-     * @example 83A5A7DD-8974-5769-952E-590A97BEA34E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example True
-     *
      * @var bool
      */
     public $success;
@@ -61,29 +39,37 @@ class GetOrgAndFactoryResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1          = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->httpCode) {
             $res['httpCode'] = $this->httpCode;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -91,32 +77,36 @@ class GetOrgAndFactoryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOrgAndFactoryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n           = 0;
-                foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1++] = data::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['httpCode'])) {
             $model->httpCode = $map['httpCode'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

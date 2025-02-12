@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOrgConstituteResponseBody extends Model
 {
     /**
-     * @description The data returned.
-     *
      * @var OrgEmission
      */
     public $data;
-
     /**
-     * @description The request ID.
-     *
-     * @example 83A5A7DD-8974-5769-952E-590A97BEA34E
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,19 @@ class GetOrgConstituteResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -45,17 +43,18 @@ class GetOrgConstituteResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOrgConstituteResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = OrgEmission::fromMap($map['data']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetEpdSummaryResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetEpdSummaryResponseBody extends Model
 {
     /**
-     * @description Response parameters
-     *
      * @var data[]
      */
     public $data;
-
     /**
-     * @description The ID of the request. The value is unique for each request. This facilitates subsequent troubleshooting.
-     *
-     * @example B91B5559-065A-55C3-8D75-DA218EBFD1DC
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class GetEpdSummaryResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1          = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class GetEpdSummaryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEpdSummaryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n           = 0;
-                foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1++] = data::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

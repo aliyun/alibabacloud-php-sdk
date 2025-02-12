@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetEpdInventoryConstituteResponseBody extends Model
 {
     /**
-     * @description List of environmental impact results.
-     *
      * @var EpdInventoryConstituteItem[]
      */
     public $data;
-
     /**
-     * @description The ID of the request. The value is unique for each request. This facilitates subsequent troubleshooting.
-     *
-     * @example 83A5A7DD-8974-5769-952E-590A97BEA34E
-     *
      * @var string
      */
     public $requestId;
@@ -30,20 +23,25 @@ class GetEpdInventoryConstituteResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1          = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -51,23 +49,24 @@ class GetEpdInventoryConstituteResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEpdInventoryConstituteResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n           = 0;
-                foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? EpdInventoryConstituteItem::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1++] = EpdInventoryConstituteItem::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

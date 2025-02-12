@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDocumentAnalyzeResultRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example bfce2248-1546-4298-8bcf-70ac26e69646
-     *
      * @var string
      */
     public $jobId;
@@ -22,9 +18,10 @@ class GetDocumentAnalyzeResultRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -34,11 +31,11 @@ class GetDocumentAnalyzeResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDocumentAnalyzeResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

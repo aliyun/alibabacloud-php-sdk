@@ -4,60 +4,31 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDeviceInfoResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recordList extends Model
 {
     /**
-     * @description The device identifier.
-     *
-     * @example Ia
-     *
      * @var string
      */
     public $identifier;
-
     /**
-     * @description The parameter name.
-     *
-     * @example Phase A current
-     *
      * @var string
      */
     public $paramName;
-
     /**
-     * @description The date on which the statistics were collected.
-     *
-     * @example 2022-07-26 00:00:00
-     *
      * @var string
      */
     public $statisticsDate;
-
     /**
-     * @description The type of the measuring point.
-     *
-     * @example DOUBLE
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The unit of the parameter value.
-     *
-     * @example A
-     *
      * @var string
      */
     public $unit;
-
     /**
-     * @description The value of the measuring point.
-     *
-     * @example 20.00
-     *
      * @var float
      */
     public $value;
@@ -72,26 +43,32 @@ class recordList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
+
         if (null !== $this->paramName) {
             $res['paramName'] = $this->paramName;
         }
+
         if (null !== $this->statisticsDate) {
             $res['statisticsDate'] = $this->statisticsDate;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->unit) {
             $res['unit'] = $this->unit;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -99,29 +76,34 @@ class recordList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recordList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
+
         if (isset($map['paramName'])) {
             $model->paramName = $map['paramName'];
         }
+
         if (isset($map['statisticsDate'])) {
             $model->statisticsDate = $map['statisticsDate'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['unit'])) {
             $model->unit = $map['unit'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

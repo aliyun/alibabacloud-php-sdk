@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetCarbonEmissionTrendResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetCarbonEmissionTrendResponseBody extends Model
 {
     /**
-     * @description The response parameters.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description Id of the request.
-     *
-     * @example 9bc20a5a-b26b-4c28-922a-7cd10b61f96f
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetCarbonEmissionTrendResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetCarbonEmissionTrendResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCarbonEmissionTrendResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

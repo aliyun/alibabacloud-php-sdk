@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\PushDeviceDataRequest\devices;
-use AlibabaCloud\Tea\Model;
 
 class PushDeviceDataRequest extends Model
 {
     /**
-     * @description The type of the device. [View device type definitions](https://carbon-doc.oss-cn-hangzhou.aliyuncs.com/Deviceappendixes-en.pdf)
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var string
      */
     public $deviceType;
-
     /**
-     * @description List of devices to which data is pushed.
-     *
-     * This parameter is required.
      * @var devices[]
      */
     public $devices;
@@ -33,20 +24,25 @@ class PushDeviceDataRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->devices)) {
+            Model::validateArray($this->devices);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceType) {
             $res['deviceType'] = $this->deviceType;
         }
+
         if (null !== $this->devices) {
-            $res['devices'] = [];
-            if (null !== $this->devices && \is_array($this->devices)) {
-                $n = 0;
-                foreach ($this->devices as $item) {
-                    $res['devices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->devices)) {
+                $res['devices'] = [];
+                $n1             = 0;
+                foreach ($this->devices as $item1) {
+                    $res['devices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -54,23 +50,24 @@ class PushDeviceDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushDeviceDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deviceType'])) {
             $model->deviceType = $map['deviceType'];
         }
+
         if (isset($map['devices'])) {
             if (!empty($map['devices'])) {
                 $model->devices = [];
-                $n              = 0;
-                foreach ($map['devices'] as $item) {
-                    $model->devices[$n++] = null !== $item ? devices::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['devices'] as $item1) {
+                    $model->devices[$n1++] = devices::fromMap($item1);
                 }
             }
         }

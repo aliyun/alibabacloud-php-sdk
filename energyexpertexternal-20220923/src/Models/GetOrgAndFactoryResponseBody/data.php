@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetOrgAndFactoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetOrgAndFactoryResponseBody\data\factoryList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID.
-     *
-     * @example 1319617584664960
-     *
      * @var string
      */
     public $aliyunPk;
-
     /**
-     * @description The sites.
-     *
      * @var factoryList[]
      */
     public $factoryList;
-
     /**
-     * @description The enterprise ID.
-     *
-     * @example 6265f42XXXX2fec150
-     *
      * @var string
      */
     public $organizationId;
-
     /**
-     * @description The enterprise name.
-     *
-     * @example Ledi Industrial Park
-     *
      * @var string
      */
     public $organizationName;
@@ -51,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->factoryList)) {
+            Model::validateArray($this->factoryList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunPk) {
             $res['aliyunPk'] = $this->aliyunPk;
         }
+
         if (null !== $this->factoryList) {
-            $res['factoryList'] = [];
-            if (null !== $this->factoryList && \is_array($this->factoryList)) {
-                $n = 0;
-                foreach ($this->factoryList as $item) {
-                    $res['factoryList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->factoryList)) {
+                $res['factoryList'] = [];
+                $n1                 = 0;
+                foreach ($this->factoryList as $item1) {
+                    $res['factoryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
+
         if (null !== $this->organizationName) {
             $res['organizationName'] = $this->organizationName;
         }
@@ -78,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aliyunPk'])) {
             $model->aliyunPk = $map['aliyunPk'];
         }
+
         if (isset($map['factoryList'])) {
             if (!empty($map['factoryList'])) {
                 $model->factoryList = [];
-                $n                  = 0;
-                foreach ($map['factoryList'] as $item) {
-                    $model->factoryList[$n++] = null !== $item ? factoryList::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['factoryList'] as $item1) {
+                    $model->factoryList[$n1++] = factoryList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }
+
         if (isset($map['organizationName'])) {
             $model->organizationName = $map['organizationName'];
         }

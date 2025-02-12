@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDeviceInfoRequest extends Model
 {
     /**
-     * @description The ID of the device.
-     *
-     * This parameter is required.
-     * @example pn_69873
-     *
      * @var string
      */
     public $deviceId;
-
     /**
-     * @description The time string in the YYYY-mm-dd format.
-     *
-     * This parameter is required.
-     * @example 2022-07-26
-     *
      * @var string
      */
     public $ds;
-
     /**
-     * @description The ID of the site.
-     *
-     * This parameter is required.
-     * @example pn_95
-     *
      * @var string
      */
     public $factoryId;
@@ -45,17 +28,20 @@ class GetDeviceInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceId) {
             $res['deviceId'] = $this->deviceId;
         }
+
         if (null !== $this->ds) {
             $res['ds'] = $this->ds;
         }
+
         if (null !== $this->factoryId) {
             $res['factoryId'] = $this->factoryId;
         }
@@ -63,20 +49,22 @@ class GetDeviceInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeviceInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deviceId'])) {
             $model->deviceId = $map['deviceId'];
         }
+
         if (isset($map['ds'])) {
             $model->ds = $map['ds'];
         }
+
         if (isset($map['factoryId'])) {
             $model->factoryId = $map['factoryId'];
         }

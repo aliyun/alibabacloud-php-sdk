@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDocumentAnalyzeResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDocumentAnalyzeResultResponseBody\data\kvListInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->kvListInfo)) {
+            Model::validateArray($this->kvListInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->kvListInfo) {
-            $res['kvListInfo'] = [];
-            if (null !== $this->kvListInfo && \is_array($this->kvListInfo)) {
-                $n = 0;
-                foreach ($this->kvListInfo as $item) {
-                    $res['kvListInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->kvListInfo)) {
+                $res['kvListInfo'] = [];
+                $n1                = 0;
+                foreach ($this->kvListInfo as $item1) {
+                    $res['kvListInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['kvListInfo'])) {
             if (!empty($map['kvListInfo'])) {
                 $model->kvListInfo = [];
-                $n                 = 0;
-                foreach ($map['kvListInfo'] as $item) {
-                    $model->kvListInfo[$n++] = null !== $item ? kvListInfo::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['kvListInfo'] as $item1) {
+                    $model->kvListInfo[$n1++] = kvListInfo::fromMap($item1);
                 }
             }
         }

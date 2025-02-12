@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SubmitDocumentAnalyzeJobResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class SubmitDocumentAnalyzeJobResponseBody extends Model
 {
@@ -13,12 +13,7 @@ class SubmitDocumentAnalyzeJobResponseBody extends Model
      * @var data
      */
     public $data;
-
     /**
-     * @description Id of the request
-     *
-     * @example 4A0AEC56-5C9A-5D47-93DF-7227836FFF82
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +24,19 @@ class SubmitDocumentAnalyzeJobResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -44,17 +44,18 @@ class SubmitDocumentAnalyzeJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitDocumentAnalyzeJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

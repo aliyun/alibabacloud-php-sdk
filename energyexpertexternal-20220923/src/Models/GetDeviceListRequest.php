@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDeviceListRequest extends Model
 {
     /**
-     * @description The ID of the site.
-     *
-     * This parameter is required.
-     * @example pn_95
-     *
      * @var string
      */
     public $factoryId;
@@ -23,9 +18,10 @@ class GetDeviceListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->factoryId) {
@@ -35,11 +31,11 @@ class GetDeviceListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeviceListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

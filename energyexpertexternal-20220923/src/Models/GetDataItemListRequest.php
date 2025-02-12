@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDataItemListRequest extends Model
 {
     /**
-     * @description The enterprise code.
-     *
-     * This parameter is required.
-     * @example C-202302-01
-     *
      * @var string
      */
     public $code;
@@ -23,9 +18,10 @@ class GetDataItemListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
@@ -35,11 +31,11 @@ class GetDataItemListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDataItemListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

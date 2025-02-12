@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetRunningPlanResponseBody extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $data;
-
     /**
-     * @description Id of the request
-     *
-     * @example 83A5A7DD-8974-5769-952E-590A97BEA34E
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,16 @@ class SetRunningPlanResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -45,17 +40,18 @@ class SetRunningPlanResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetRunningPlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

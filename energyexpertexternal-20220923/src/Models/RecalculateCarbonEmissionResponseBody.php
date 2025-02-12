@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RecalculateCarbonEmissionResponseBody extends Model
 {
     /**
-     * @description The returned data. A value of true indicates that the request is successful. A value of false indicates that the request fails.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $data;
-
     /**
-     * @description The request ID.
-     *
-     * @example 83A5A7DD-8974-5769-952E-590A97BEA34E
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class RecalculateCarbonEmissionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class RecalculateCarbonEmissionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecalculateCarbonEmissionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

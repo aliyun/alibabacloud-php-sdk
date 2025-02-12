@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPcrInfoRequest extends Model
 {
     /**
-     * @description The enterprise code.
-     *
-     * This parameter is required.
-     * @example C-20080808-1
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The product id.
-     *
-     * This parameter is required.
-     * @example 1024
-     *
      * @var string
      */
     public $productId;
-
     /**
-     * @description Product type: 1 indicates that the carbon footprint of the product is requested, and 5 indicates that the carbon footprint of the supply chain is requested.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $productType;
@@ -45,17 +28,20 @@ class GetPcrInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
+
         if (null !== $this->productType) {
             $res['productType'] = $this->productType;
         }
@@ -63,20 +49,22 @@ class GetPcrInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPcrInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
+
         if (isset($map['productType'])) {
             $model->productType = $map['productType'];
         }

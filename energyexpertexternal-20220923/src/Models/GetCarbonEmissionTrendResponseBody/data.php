@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetCarbonEmissionTrendResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetCarbonEmissionTrendResponseBody\data\actualEmissionList;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetCarbonEmissionTrendResponseBody\data\targetEmissionList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Actual emission list.
-     *
      * @var actualEmissionList[]
      */
     public $actualEmissionList;
-
     /**
-     * @description Target Emission List.
-     *
      * @var targetEmissionList[]
      */
     public $targetEmissionList;
@@ -30,26 +25,34 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->actualEmissionList)) {
+            Model::validateArray($this->actualEmissionList);
+        }
+        if (\is_array($this->targetEmissionList)) {
+            Model::validateArray($this->targetEmissionList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actualEmissionList) {
-            $res['actualEmissionList'] = [];
-            if (null !== $this->actualEmissionList && \is_array($this->actualEmissionList)) {
-                $n = 0;
-                foreach ($this->actualEmissionList as $item) {
-                    $res['actualEmissionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actualEmissionList)) {
+                $res['actualEmissionList'] = [];
+                $n1                        = 0;
+                foreach ($this->actualEmissionList as $item1) {
+                    $res['actualEmissionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->targetEmissionList) {
-            $res['targetEmissionList'] = [];
-            if (null !== $this->targetEmissionList && \is_array($this->targetEmissionList)) {
-                $n = 0;
-                foreach ($this->targetEmissionList as $item) {
-                    $res['targetEmissionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->targetEmissionList)) {
+                $res['targetEmissionList'] = [];
+                $n1                        = 0;
+                foreach ($this->targetEmissionList as $item1) {
+                    $res['targetEmissionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -57,29 +60,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actualEmissionList'])) {
             if (!empty($map['actualEmissionList'])) {
                 $model->actualEmissionList = [];
-                $n                         = 0;
-                foreach ($map['actualEmissionList'] as $item) {
-                    $model->actualEmissionList[$n++] = null !== $item ? actualEmissionList::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['actualEmissionList'] as $item1) {
+                    $model->actualEmissionList[$n1++] = actualEmissionList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['targetEmissionList'])) {
             if (!empty($map['targetEmissionList'])) {
                 $model->targetEmissionList = [];
-                $n                         = 0;
-                foreach ($map['targetEmissionList'] as $item) {
-                    $model->targetEmissionList[$n++] = null !== $item ? targetEmissionList::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['targetEmissionList'] as $item1) {
+                    $model->targetEmissionList[$n1++] = targetEmissionList::fromMap($item1);
                 }
             }
         }

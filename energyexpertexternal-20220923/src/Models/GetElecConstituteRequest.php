@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetElecConstituteRequest extends Model
 {
     /**
-     * @description The enterprise code.
-     *
-     * This parameter is required.
-     * @example C-20240202-01
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description Year.
-     *
-     * This parameter is required.
-     * @example 2024
-     *
      * @var int
      */
     public $year;
@@ -34,14 +23,16 @@ class GetElecConstituteRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->year) {
             $res['year'] = $this->year;
         }
@@ -49,17 +40,18 @@ class GetElecConstituteRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetElecConstituteRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['year'])) {
             $model->year = $map['year'];
         }

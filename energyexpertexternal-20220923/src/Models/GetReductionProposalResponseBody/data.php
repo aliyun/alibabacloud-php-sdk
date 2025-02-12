@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetReductionProposalResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description Proactive carbon reduction recommendations and advice.
-     *
-     * @example Reduce one-drop usage
-     *
      * @var string
      */
     public $reduction;
-
     /**
-     * @description Active carbon reduction assessment.
-     *
-     * @example Trying Energy Expert for a more detailed assessment.
-     *
      * @var string
      */
     public $reductionEvaluation;
@@ -32,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reduction) {
             $res['reduction'] = $this->reduction;
         }
+
         if (null !== $this->reductionEvaluation) {
             $res['reductionEvaluation'] = $this->reductionEvaluation;
         }
@@ -47,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['reduction'])) {
             $model->reduction = $map['reduction'];
         }
+
         if (isset($map['reductionEvaluation'])) {
             $model->reductionEvaluation = $map['reductionEvaluation'];
         }

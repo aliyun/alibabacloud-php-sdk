@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GwpInventoryConstitute extends Model
 {
@@ -12,32 +12,26 @@ class GwpInventoryConstitute extends Model
      * @var GwpResourceConstitute[]
      */
     public $byResourceType;
-
     /**
      * @var float
      */
     public $carbonEmission;
-
     /**
-     * @var \AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GwpInventoryConstitute[]
+     * @var GwpInventoryConstitute[]
      */
     public $items;
-
     /**
      * @var string
      */
     public $name;
-
     /**
      * @var float
      */
     public $percent;
-
     /**
      * @var int
      */
     public $resourceType;
-
     /**
      * @var string
      */
@@ -54,41 +48,54 @@ class GwpInventoryConstitute extends Model
 
     public function validate()
     {
+        if (\is_array($this->byResourceType)) {
+            Model::validateArray($this->byResourceType);
+        }
+        if (\is_array($this->items)) {
+            Model::validateArray($this->items);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->byResourceType) {
-            $res['byResourceType'] = [];
-            if (null !== $this->byResourceType && \is_array($this->byResourceType)) {
-                $n = 0;
-                foreach ($this->byResourceType as $item) {
-                    $res['byResourceType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->byResourceType)) {
+                $res['byResourceType'] = [];
+                $n1                    = 0;
+                foreach ($this->byResourceType as $item1) {
+                    $res['byResourceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->carbonEmission) {
             $res['carbonEmission'] = $this->carbonEmission;
         }
+
         if (null !== $this->items) {
-            $res['items'] = [];
-            if (null !== $this->items && \is_array($this->items)) {
-                $n = 0;
-                foreach ($this->items as $item) {
-                    $res['items'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->items)) {
+                $res['items'] = [];
+                $n1           = 0;
+                foreach ($this->items as $item1) {
+                    $res['items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->percent) {
             $res['percent'] = $this->percent;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
+
         if (null !== $this->unit) {
             $res['unit'] = $this->unit;
         }
@@ -96,44 +103,50 @@ class GwpInventoryConstitute extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GwpInventoryConstitute
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['byResourceType'])) {
             if (!empty($map['byResourceType'])) {
                 $model->byResourceType = [];
-                $n                     = 0;
-                foreach ($map['byResourceType'] as $item) {
-                    $model->byResourceType[$n++] = null !== $item ? GwpResourceConstitute::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['byResourceType'] as $item1) {
+                    $model->byResourceType[$n1++] = GwpResourceConstitute::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['carbonEmission'])) {
             $model->carbonEmission = $map['carbonEmission'];
         }
+
         if (isset($map['items'])) {
             if (!empty($map['items'])) {
                 $model->items = [];
-                $n            = 0;
-                foreach ($map['items'] as $item) {
-                    $model->items[$n++] = null !== $item ? self::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['items'] as $item1) {
+                    $model->items[$n1++] = self::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['percent'])) {
             $model->percent = $map['percent'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }
+
         if (isset($map['unit'])) {
             $model->unit = $map['unit'];
         }

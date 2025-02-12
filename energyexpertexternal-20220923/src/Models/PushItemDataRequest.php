@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\PushItemDataRequest\items;
-use AlibabaCloud\Tea\Model;
 
 class PushItemDataRequest extends Model
 {
     /**
-     * @description The enterprise code.
-     *
-     * This parameter is required.
-     * @example C-20210223-01
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description List of data to be pushed.
-     *
-     * This parameter is required.
      * @var items
      */
     public $items;
-
     /**
-     * @description The year of the data created.
-     *
-     * This parameter is required.
-     * @example 2024
-     *
      * @var string
      */
     public $year;
@@ -44,17 +29,23 @@ class PushItemDataRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->items) {
+            $this->items->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->items) {
-            $res['items'] = null !== $this->items ? $this->items->toMap() : null;
+            $res['items'] = null !== $this->items ? $this->items->toArray($noStream) : $this->items;
         }
+
         if (null !== $this->year) {
             $res['year'] = $this->year;
         }
@@ -62,20 +53,22 @@ class PushItemDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushItemDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['items'])) {
             $model->items = items::fromMap($map['items']);
         }
+
         if (isset($map['year'])) {
             $model->year = $map['year'];
         }

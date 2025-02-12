@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetGwpInventorySummaryResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class items extends Model
 {
     /**
-     * @description Inventory resource type name.
-     *
-     * @example Energy
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description Percentage.
-     *
-     * @example 99.01
-     *
      * @var string
      */
     public $percent;
-
     /**
-     * @description Quantity.
-     *
-     * @example 9.9763
-     *
      * @var float
      */
     public $quantity;
-
     /**
-     * @description The unit.
-     *
-     * @example kgCO₂e/Piece(s)
-     *
      * @var string
      */
     public $unit;
@@ -52,20 +33,24 @@ class items extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->percent) {
             $res['percent'] = $this->percent;
         }
+
         if (null !== $this->quantity) {
             $res['quantity'] = $this->quantity;
         }
+
         if (null !== $this->unit) {
             $res['unit'] = $this->unit;
         }
@@ -73,23 +58,26 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['percent'])) {
             $model->percent = $map['percent'];
         }
+
         if (isset($map['quantity'])) {
             $model->quantity = $map['quantity'];
         }
+
         if (isset($map['unit'])) {
             $model->unit = $map['unit'];
         }

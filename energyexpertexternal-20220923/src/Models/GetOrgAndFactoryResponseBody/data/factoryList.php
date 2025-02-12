@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetOrgAndFactoryResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class factoryList extends Model
 {
     /**
-     * @description The site ID.
-     *
-     * @example pn_95
-     *
      * @var string
      */
     public $factoryId;
-
     /**
-     * @description The site name.
-     *
-     * @example Ledi Industrial Park 1
-     *
      * @var string
      */
     public $factoryName;
@@ -32,14 +23,16 @@ class factoryList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->factoryId) {
             $res['factoryId'] = $this->factoryId;
         }
+
         if (null !== $this->factoryName) {
             $res['factoryName'] = $this->factoryName;
         }
@@ -47,17 +40,18 @@ class factoryList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return factoryList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['factoryId'])) {
             $model->factoryId = $map['factoryId'];
         }
+
         if (isset($map['factoryName'])) {
             $model->factoryName = $map['factoryName'];
         }

@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EditProhibitedDevicesResponseBody extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $data;
-
     /**
-     * @description Id of the request
-     *
-     * @example 9bc20a5a-b26b-4c28-922a-7cd10b61f96f
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,16 @@ class EditProhibitedDevicesResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -45,17 +40,18 @@ class EditProhibitedDevicesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EditProhibitedDevicesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

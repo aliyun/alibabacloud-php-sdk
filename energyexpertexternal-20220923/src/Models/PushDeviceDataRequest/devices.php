@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\PushDeviceDataRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class devices extends Model
 {
     /**
-     * @description Measuring point information To avoid accuracy problems, the measurement point data is uniformly transmitted to the string. The function of missing required fields cannot be used normally. Some functions may be affected due to the lack of recommend fields. For details, please refer to the notes of equipment measuring points in the appendix. [Reference Point Definition](https://carbon-doc.oss-cn-hangzhou.aliyuncs.com/Deviceappendixes-en.pdf
-     * This parameter is required.
-     * @example {
-     * }
      * @var mixed[]
      */
     public $data;
-
     /**
-     * @description If the deviceType parameter is set to 12, 13, or 17, you must set the system_id parameter. The field name is still device_id. If the deviceType parameter is set to 15 or 16, no Other situations will be transmitted.
-     *
-     * This parameter is required.
-     * @example device_code_xxx
-     *
      * @var string
      */
     public $deviceId;
-
     /**
-     * @description Data generation time of measuring point.
-     *
-     * This parameter is required.
-     * @example 2021-09-08 18:40:00
-     *
      * @var string
      */
     public $recordTime;
@@ -44,17 +28,28 @@ class devices extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                foreach ($this->data as $key1 => $value1) {
+                    $res['data'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->deviceId) {
             $res['deviceId'] = $this->deviceId;
         }
+
         if (null !== $this->recordTime) {
             $res['recordTime'] = $this->recordTime;
         }
@@ -62,20 +57,27 @@ class devices extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return devices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
-            $model->data = $map['data'];
+            if (!empty($map['data'])) {
+                $model->data = [];
+                foreach ($map['data'] as $key1 => $value1) {
+                    $model->data[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['deviceId'])) {
             $model->deviceId = $map['deviceId'];
         }
+
         if (isset($map['recordTime'])) {
             $model->recordTime = $map['recordTime'];
         }

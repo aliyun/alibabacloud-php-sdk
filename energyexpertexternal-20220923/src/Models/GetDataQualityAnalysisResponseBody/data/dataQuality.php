@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataQualityAnalysisResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\GetDataQualityAnalysisResponseBody\data\dataQuality\score;
-use AlibabaCloud\Tea\Model;
 
 class dataQuality extends Model
 {
     /**
-     * @description Inventory name
-     *
-     * @example energy
-     *
      * @var string
      */
     public $inventory;
-
     /**
-     * @description Score. The distribution ranges from 1 to 5. A value closer to 1 indicates better data quality.
-     *
      * @var score
      */
     public $score;
@@ -31,32 +24,38 @@ class dataQuality extends Model
 
     public function validate()
     {
+        if (null !== $this->score) {
+            $this->score->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inventory) {
             $res['inventory'] = $this->inventory;
         }
+
         if (null !== $this->score) {
-            $res['score'] = null !== $this->score ? $this->score->toMap() : null;
+            $res['score'] = null !== $this->score ? $this->score->toArray($noStream) : $this->score;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataQuality
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['inventory'])) {
             $model->inventory = $map['inventory'];
         }
+
         if (isset($map['score'])) {
             $model->score = score::fromMap($map['score']);
         }

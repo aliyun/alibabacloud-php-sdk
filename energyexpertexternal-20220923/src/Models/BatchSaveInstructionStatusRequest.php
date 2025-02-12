@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchSaveInstructionStatusRequest extends Model
 {
     /**
-     * @example ***
-     *
      * @var string
      */
     public $factoryId;
-
     /**
-     * @example ib
-     *
      * @var string
      */
     public $pKey;
-
     /**
      * @var string
      */
@@ -34,17 +28,20 @@ class BatchSaveInstructionStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->factoryId) {
             $res['factoryId'] = $this->factoryId;
         }
+
         if (null !== $this->pKey) {
             $res['pKey'] = $this->pKey;
         }
+
         if (null !== $this->statusList) {
             $res['statusList'] = $this->statusList;
         }
@@ -52,20 +49,22 @@ class BatchSaveInstructionStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchSaveInstructionStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['factoryId'])) {
             $model->factoryId = $map['factoryId'];
         }
+
         if (isset($map['pKey'])) {
             $model->pKey = $map['pKey'];
         }
+
         if (isset($map['statusList'])) {
             $model->statusList = $map['statusList'];
         }

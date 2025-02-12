@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\SendDocumentAskQuestionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,7 +12,6 @@ class data extends Model
      * @var string
      */
     public $answer;
-
     /**
      * @var string[]
      */
@@ -24,35 +23,51 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->document)) {
+            Model::validateArray($this->document);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->answer) {
             $res['answer'] = $this->answer;
         }
+
         if (null !== $this->document) {
-            $res['document'] = $this->document;
+            if (\is_array($this->document)) {
+                $res['document'] = [];
+                $n1              = 0;
+                foreach ($this->document as $item1) {
+                    $res['document'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['answer'])) {
             $model->answer = $map['answer'];
         }
+
         if (isset($map['document'])) {
             if (!empty($map['document'])) {
-                $model->document = $map['document'];
+                $model->document = [];
+                $n1              = 0;
+                foreach ($map['document'] as $item1) {
+                    $model->document[$n1++] = $item1;
+                }
             }
         }
 
