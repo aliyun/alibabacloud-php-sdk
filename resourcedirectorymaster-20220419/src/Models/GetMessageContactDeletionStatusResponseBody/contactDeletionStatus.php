@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactDeletionStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactDeletionStatusResponseBody\contactDeletionStatus\failReasonList;
-use AlibabaCloud\Tea\Model;
 
 class contactDeletionStatus extends Model
 {
     /**
-     * @description The ID of the contact.
-     *
-     * @example c-qL4HqKONzOM7****
-     *
      * @var string
      */
     public $contactId;
-
     /**
-     * @description The types of messages received by the contact.
-     *
      * @var failReasonList[]
      */
     public $failReasonList;
-
     /**
-     * @description The deletion status of the contact. Valid values:
-     *
-     *   Deleting
-     *   Failed
-     *
-     * @example Deleting
-     *
      * @var string
      */
     public $status;
@@ -44,23 +29,29 @@ class contactDeletionStatus extends Model
 
     public function validate()
     {
+        if (\is_array($this->failReasonList)) {
+            Model::validateArray($this->failReasonList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->failReasonList) {
-            $res['FailReasonList'] = [];
-            if (null !== $this->failReasonList && \is_array($this->failReasonList)) {
-                $n = 0;
-                foreach ($this->failReasonList as $item) {
-                    $res['FailReasonList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->failReasonList)) {
+                $res['FailReasonList'] = [];
+                $n1                    = 0;
+                foreach ($this->failReasonList as $item1) {
+                    $res['FailReasonList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -68,26 +59,28 @@ class contactDeletionStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contactDeletionStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['FailReasonList'])) {
             if (!empty($map['FailReasonList'])) {
                 $model->failReasonList = [];
-                $n                     = 0;
-                foreach ($map['FailReasonList'] as $item) {
-                    $model->failReasonList[$n++] = null !== $item ? failReasonList::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['FailReasonList'] as $item1) {
+                    $model->failReasonList[$n1++] = failReasonList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

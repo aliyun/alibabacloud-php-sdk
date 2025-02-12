@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelMessageContactUpdateResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CancelMessageContactUpdateResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CancelMessageContactUpdateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelMessageContactUpdateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

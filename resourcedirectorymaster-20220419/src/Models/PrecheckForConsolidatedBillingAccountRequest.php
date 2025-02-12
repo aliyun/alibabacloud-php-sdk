@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PrecheckForConsolidatedBillingAccountRequest extends Model
 {
     /**
-     * @description The ID of the management account or member to be used as a main financial account.
-     *
-     * This parameter is required.
-     * @example 111***089
-     *
      * @var string
      */
     public $billingAccountId;
@@ -23,9 +18,10 @@ class PrecheckForConsolidatedBillingAccountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->billingAccountId) {
@@ -35,11 +31,11 @@ class PrecheckForConsolidatedBillingAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PrecheckForConsolidatedBillingAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

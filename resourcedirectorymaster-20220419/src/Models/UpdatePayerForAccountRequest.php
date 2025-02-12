@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePayerForAccountRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 138660628348****
-     *
      * @var string
      */
     public $accountId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 12323344****
-     *
      * @var string
      */
     public $payerAccountId;
@@ -32,14 +23,16 @@ class UpdatePayerForAccountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->payerAccountId) {
             $res['PayerAccountId'] = $this->payerAccountId;
         }
@@ -47,17 +40,18 @@ class UpdatePayerForAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePayerForAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['PayerAccountId'])) {
             $model->payerAccountId = $map['PayerAccountId'];
         }

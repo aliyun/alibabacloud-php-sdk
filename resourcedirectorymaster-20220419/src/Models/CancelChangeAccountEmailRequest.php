@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelChangeAccountEmailRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the member.
-     *
-     * This parameter is required.
-     * @example 181761095690****
-     *
      * @var string
      */
     public $accountId;
@@ -23,9 +18,10 @@ class CancelChangeAccountEmailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
@@ -35,11 +31,11 @@ class CancelChangeAccountEmailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelChangeAccountEmailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

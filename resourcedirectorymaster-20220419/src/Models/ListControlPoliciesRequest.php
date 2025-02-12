@@ -4,104 +4,111 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListControlPoliciesRequest\tag;
 
 class ListControlPoliciesRequest extends Model
 {
     /**
-     * @description The language in which you want to return the descriptions of the access control policies. Valid values:
-     *
-     *   zh-CN (default value): Chinese
-     *   en: English
-     *   ja: Japanese
-     *
-     * > This parameter is available only for system access control policies.
-     * @example zh-CN
-     *
      * @var string
      */
     public $language;
-
     /**
-     * @description The number of the page to return.
-     *
-     * Pages start from page 1. Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries to return on each page.
-     *
-     * Valid values: 1 to 100. Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The type of the access control policies. Valid values:
-     *
-     *   System: system access control policy
-     *   Custom: custom access control policy
-     *
-     * @example System
-     *
      * @var string
      */
     public $policyType;
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'language'   => 'Language',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'policyType' => 'PolicyType',
+        'tag'        => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListControlPoliciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         return $model;

@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateFolderRequest extends Model
 {
     /**
-     * @description The ID of the folder.
-     *
-     * This parameter is required.
-     * @example fd-u8B321****
-     *
      * @var string
      */
     public $folderId;
-
     /**
-     * @description The new name of the folder.
-     *
-     * This parameter is required.
-     * @example rdFolder
-     *
      * @var string
      */
     public $newFolderName;
@@ -34,14 +23,16 @@ class UpdateFolderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->folderId) {
             $res['FolderId'] = $this->folderId;
         }
+
         if (null !== $this->newFolderName) {
             $res['NewFolderName'] = $this->newFolderName;
         }
@@ -49,17 +40,18 @@ class UpdateFolderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateFolderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FolderId'])) {
             $model->folderId = $map['FolderId'];
         }
+
         if (isset($map['NewFolderName'])) {
             $model->newFolderName = $map['NewFolderName'];
         }

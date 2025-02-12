@@ -4,87 +4,43 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contact extends Model
 {
     /**
-     * @description The ID of the contact.
-     *
-     * @example c-qL4HqKONzOM7****
-     *
      * @var string
      */
     public $contactId;
-
     /**
-     * @description The time when the contact was created.
-     *
-     * @example 2023-03-27 17:19:21
-     *
      * @var string
      */
     public $createDate;
-
     /**
-     * @description The email address of the contact.
-     *
-     * @example someone***@example.com
-     *
      * @var string
      */
     public $emailAddress;
-
     /**
-     * @description The IDs of objects to which the contact is bound.
-     *
      * @var string[]
      */
     public $members;
-
     /**
-     * @description The types of messages received by the contact.
-     *
      * @var string[]
      */
     public $messageTypes;
-
     /**
-     * @description The name of the contact.
-     *
-     * @example tom
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The mobile phone number of the contact.
-     *
-     * @example 86-139****1234
-     *
      * @var string
      */
     public $phoneNumber;
-
     /**
-     * @description The status of the contact. Valid values:
-     *
-     *   Verifying
-     *   Active
-     *   Deleting
-     *
-     * @example Active
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @description The job title of the contact.
-     *
-     * @example TechnicalDirector
-     *
      * @var string
      */
     public $title;
@@ -102,35 +58,62 @@ class contact extends Model
 
     public function validate()
     {
+        if (\is_array($this->members)) {
+            Model::validateArray($this->members);
+        }
+        if (\is_array($this->messageTypes)) {
+            Model::validateArray($this->messageTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
+
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
+
         if (null !== $this->emailAddress) {
             $res['EmailAddress'] = $this->emailAddress;
         }
+
         if (null !== $this->members) {
-            $res['Members'] = $this->members;
+            if (\is_array($this->members)) {
+                $res['Members'] = [];
+                $n1             = 0;
+                foreach ($this->members as $item1) {
+                    $res['Members'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->messageTypes) {
-            $res['MessageTypes'] = $this->messageTypes;
+            if (\is_array($this->messageTypes)) {
+                $res['MessageTypes'] = [];
+                $n1                  = 0;
+                foreach ($this->messageTypes as $item1) {
+                    $res['MessageTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->phoneNumber) {
             $res['PhoneNumber'] = $this->phoneNumber;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -138,42 +121,58 @@ class contact extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contact
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }
+
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }
+
         if (isset($map['EmailAddress'])) {
             $model->emailAddress = $map['EmailAddress'];
         }
+
         if (isset($map['Members'])) {
             if (!empty($map['Members'])) {
-                $model->members = $map['Members'];
+                $model->members = [];
+                $n1             = 0;
+                foreach ($map['Members'] as $item1) {
+                    $model->members[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MessageTypes'])) {
             if (!empty($map['MessageTypes'])) {
-                $model->messageTypes = $map['MessageTypes'];
+                $model->messageTypes = [];
+                $n1                  = 0;
+                foreach ($map['MessageTypes'] as $item1) {
+                    $model->messageTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PhoneNumber'])) {
             $model->phoneNumber = $map['PhoneNumber'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

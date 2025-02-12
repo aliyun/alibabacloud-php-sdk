@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\GetMessageContactResponseBody\contact;
-use AlibabaCloud\Tea\Model;
 
 class GetMessageContactResponseBody extends Model
 {
     /**
-     * @description The information about the contact.
-     *
      * @var contact
      */
     public $contact;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetMessageContactResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->contact) {
+            $this->contact->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contact) {
-            $res['Contact'] = null !== $this->contact ? $this->contact->toMap() : null;
+            $res['Contact'] = null !== $this->contact ? $this->contact->toArray($noStream) : $this->contact;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetMessageContactResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMessageContactResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contact'])) {
             $model->contact = contact::fromMap($map['Contact']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

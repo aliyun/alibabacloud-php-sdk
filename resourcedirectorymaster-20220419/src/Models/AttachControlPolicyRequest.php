@@ -4,30 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachControlPolicyRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
-     * This parameter is required.
-     * @example cp-jExXAqIYkwHN****
-     *
      * @var string
      */
     public $policyId;
-
     /**
-     * @description The ID of the object to which you want to attach the access control policy. Access control policies can be attached to the following objects:
-     *
-     *   Root folder
-     *   Subfolders of the Root folder
-     *   Members
-     *
-     * This parameter is required.
-     * @example fd-ZDNPiT****
-     *
      * @var string
      */
     public $targetId;
@@ -38,14 +23,16 @@ class AttachControlPolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
@@ -53,17 +40,18 @@ class AttachControlPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachControlPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
