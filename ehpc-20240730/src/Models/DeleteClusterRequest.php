@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteClusterRequest extends Model
 {
     /**
-     * @description The ID of the E-HPC cluster to be released.
-     *
-     * @example ehpc-hz-QKKVqO****
-     *
      * @var string
      */
     public $clusterId;
@@ -22,9 +18,10 @@ class DeleteClusterRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
@@ -34,11 +31,11 @@ class DeleteClusterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteClusterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

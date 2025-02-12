@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SharedStorageTemplate extends Model
 {
     /**
-     * @example 008b63****
-     *
      * @var string
      */
     public $fileSystemId;
-
     /**
-     * @example /home
-     *
      * @var string
      */
     public $mountDirectory;
-
     /**
-     * @example -t nfs -o vers=3,nolock,noresvport
-     *
      * @var string
      */
     public $mountOptions;
-
     /**
-     * @example 008b****-sihc.cn-hangzhou.extreme.nas.aliyuncs.com
-     *
      * @var string
      */
     public $mountTargetDomain;
-
     /**
-     * @example /
-     *
      * @var string
      */
     public $NASDirectory;
-
     /**
-     * @example NFS
-     *
      * @var string
      */
     public $protocolType;
@@ -60,26 +43,32 @@ class SharedStorageTemplate extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
         }
+
         if (null !== $this->mountDirectory) {
             $res['MountDirectory'] = $this->mountDirectory;
         }
+
         if (null !== $this->mountOptions) {
             $res['MountOptions'] = $this->mountOptions;
         }
+
         if (null !== $this->mountTargetDomain) {
             $res['MountTargetDomain'] = $this->mountTargetDomain;
         }
+
         if (null !== $this->NASDirectory) {
             $res['NASDirectory'] = $this->NASDirectory;
         }
+
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
@@ -87,29 +76,34 @@ class SharedStorageTemplate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SharedStorageTemplate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
         }
+
         if (isset($map['MountDirectory'])) {
             $model->mountDirectory = $map['MountDirectory'];
         }
+
         if (isset($map['MountOptions'])) {
             $model->mountOptions = $map['MountOptions'];
         }
+
         if (isset($map['MountTargetDomain'])) {
             $model->mountTargetDomain = $map['MountTargetDomain'];
         }
+
         if (isset($map['NASDirectory'])) {
             $model->NASDirectory = $map['NASDirectory'];
         }
+
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }

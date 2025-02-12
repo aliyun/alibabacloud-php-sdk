@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateNodesRequest\instances;
-use AlibabaCloud\Tea\Model;
 
 class UpdateNodesRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The information about the compute nodes that you want to update.
-     *
      * @var instances[]
      */
     public $instances;
@@ -31,20 +24,25 @@ class UpdateNodesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instances)) {
+                $res['Instances'] = [];
+                $n1               = 0;
+                foreach ($this->instances as $item1) {
+                    $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class UpdateNodesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateNodesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Instances'] as $item1) {
+                    $model->instances[$n1++] = instances::fromMap($item1);
                 }
             }
         }

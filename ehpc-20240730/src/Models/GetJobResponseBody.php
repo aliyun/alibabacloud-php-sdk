@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetJobResponseBody\jobInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetJobResponseBody extends Model
 {
     /**
-     * @description The job details.
-     *
      * @var jobInfo
      */
     public $jobInfo;
-
     /**
-     * @description The request ID.
-     *
-     * @example 04F0****-1335-****-A1D7-6C044FE7****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The request result. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var string
      */
     public $success;
@@ -44,17 +29,23 @@ class GetJobResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->jobInfo) {
+            $this->jobInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobInfo) {
-            $res['JobInfo'] = null !== $this->jobInfo ? $this->jobInfo->toMap() : null;
+            $res['JobInfo'] = null !== $this->jobInfo ? $this->jobInfo->toArray($noStream) : $this->jobInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -62,20 +53,22 @@ class GetJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobInfo'])) {
             $model->jobInfo = jobInfo::fromMap($map['JobInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

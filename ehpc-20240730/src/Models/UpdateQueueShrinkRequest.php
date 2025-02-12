@@ -4,23 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateQueueShrinkRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The information about the queue to be updated.
-     *
      * @var string
      */
     public $queueShrink;
@@ -31,14 +23,16 @@ class UpdateQueueShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->queueShrink) {
             $res['Queue'] = $this->queueShrink;
         }
@@ -46,17 +40,18 @@ class UpdateQueueShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateQueueShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Queue'])) {
             $model->queueShrink = $map['Queue'];
         }

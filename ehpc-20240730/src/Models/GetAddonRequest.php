@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAddonRequest extends Model
 {
     /**
-     * @description The addon ID.
-     *
-     * This parameter is required.
-     * @example Login-1.0-W4g****
-     *
      * @var string
      */
     public $addonId;
-
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
@@ -34,14 +23,16 @@ class GetAddonRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addonId) {
             $res['AddonId'] = $this->addonId;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -49,17 +40,18 @@ class GetAddonRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAddonRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddonId'])) {
             $model->addonId = $map['AddonId'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

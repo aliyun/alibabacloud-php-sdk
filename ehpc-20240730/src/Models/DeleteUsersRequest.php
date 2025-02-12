@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteUsersRequest\user;
-use AlibabaCloud\Tea\Model;
 
 class DeleteUsersRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The users that you want to delete.
-     *
-     * This parameter is required.
      * @var user[]
      */
     public $user;
@@ -33,20 +24,25 @@ class DeleteUsersRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->user)) {
+            Model::validateArray($this->user);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->user) {
-            $res['User'] = [];
-            if (null !== $this->user && \is_array($this->user)) {
-                $n = 0;
-                foreach ($this->user as $item) {
-                    $res['User'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->user)) {
+                $res['User'] = [];
+                $n1          = 0;
+                foreach ($this->user as $item1) {
+                    $res['User'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -54,23 +50,24 @@ class DeleteUsersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteUsersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['User'])) {
             if (!empty($map['User'])) {
                 $model->user = [];
-                $n           = 0;
-                foreach ($map['User'] as $item) {
-                    $model->user[$n++] = null !== $item ? user::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['User'] as $item1) {
+                    $model->user[$n1++] = user::fromMap($item1);
                 }
             }
         }

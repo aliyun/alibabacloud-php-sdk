@@ -4,82 +4,45 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsRequest\jobFilter\diagnosis;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsRequest\jobFilter\sortBy;
-use AlibabaCloud\Tea\Model;
 
 class jobFilter extends Model
 {
     /**
-     * @description The time when the job was last updated. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
-     *
-     * @example 1724123085
-     *
      * @var string
      */
     public $createTimeEnd;
-
     /**
-     * @description The time when the job started. The value is a UNIX timestamp representing the number of seconds that have elapsed since 1970-01-01T00:00:00Z.
-     *
-     * @example 1724122486
-     *
      * @var string
      */
     public $createTimeStart;
-
     /**
      * @var diagnosis[]
      */
     public $diagnosis;
-
     /**
-     * @description The job name. Fuzzy match is supported.
-     *
-     * @example testjob
-     *
      * @var string
      */
     public $jobName;
-
     /**
-     * @description The job state. Valid values:
-     *
-     *   all: returns all jobs.
-     *   finished: returns completed jobs.
-     *   notfinish: returns uncompleted jobs.
-     *
-     * Default value: all.
-     * @example all
-     *
      * @var string
      */
     public $jobStatus;
-
     /**
-     * @description The compute nodes that run the jobs.
-     *
      * @var string[]
      */
     public $nodes;
-
     /**
-     * @description The queues to which the jobs belong.
-     *
      * @var string[]
      */
     public $queues;
-
     /**
-     * @description The result sorting configurations.
-     *
      * @var sortBy
      */
     public $sortBy;
-
     /**
-     * @description The users that run the jobs.
-     *
      * @var string[]
      */
     public $users;
@@ -97,93 +60,155 @@ class jobFilter extends Model
 
     public function validate()
     {
+        if (\is_array($this->diagnosis)) {
+            Model::validateArray($this->diagnosis);
+        }
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        if (\is_array($this->queues)) {
+            Model::validateArray($this->queues);
+        }
+        if (null !== $this->sortBy) {
+            $this->sortBy->validate();
+        }
+        if (\is_array($this->users)) {
+            Model::validateArray($this->users);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTimeEnd) {
             $res['CreateTimeEnd'] = $this->createTimeEnd;
         }
+
         if (null !== $this->createTimeStart) {
             $res['CreateTimeStart'] = $this->createTimeStart;
         }
+
         if (null !== $this->diagnosis) {
-            $res['Diagnosis'] = [];
-            if (null !== $this->diagnosis && \is_array($this->diagnosis)) {
-                $n = 0;
-                foreach ($this->diagnosis as $item) {
-                    $res['Diagnosis'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->diagnosis)) {
+                $res['Diagnosis'] = [];
+                $n1               = 0;
+                foreach ($this->diagnosis as $item1) {
+                    $res['Diagnosis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
+
         if (null !== $this->jobStatus) {
             $res['JobStatus'] = $this->jobStatus;
         }
+
         if (null !== $this->nodes) {
-            $res['Nodes'] = $this->nodes;
+            if (\is_array($this->nodes)) {
+                $res['Nodes'] = [];
+                $n1           = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['Nodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->queues) {
-            $res['Queues'] = $this->queues;
+            if (\is_array($this->queues)) {
+                $res['Queues'] = [];
+                $n1            = 0;
+                foreach ($this->queues as $item1) {
+                    $res['Queues'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->sortBy) {
-            $res['SortBy'] = null !== $this->sortBy ? $this->sortBy->toMap() : null;
+            $res['SortBy'] = null !== $this->sortBy ? $this->sortBy->toArray($noStream) : $this->sortBy;
         }
+
         if (null !== $this->users) {
-            $res['Users'] = $this->users;
+            if (\is_array($this->users)) {
+                $res['Users'] = [];
+                $n1           = 0;
+                foreach ($this->users as $item1) {
+                    $res['Users'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobFilter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTimeEnd'])) {
             $model->createTimeEnd = $map['CreateTimeEnd'];
         }
+
         if (isset($map['CreateTimeStart'])) {
             $model->createTimeStart = $map['CreateTimeStart'];
         }
+
         if (isset($map['Diagnosis'])) {
             if (!empty($map['Diagnosis'])) {
                 $model->diagnosis = [];
-                $n                = 0;
-                foreach ($map['Diagnosis'] as $item) {
-                    $model->diagnosis[$n++] = null !== $item ? diagnosis::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Diagnosis'] as $item1) {
+                    $model->diagnosis[$n1++] = diagnosis::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
+
         if (isset($map['JobStatus'])) {
             $model->jobStatus = $map['JobStatus'];
         }
+
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
-                $model->nodes = $map['Nodes'];
+                $model->nodes = [];
+                $n1           = 0;
+                foreach ($map['Nodes'] as $item1) {
+                    $model->nodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Queues'])) {
             if (!empty($map['Queues'])) {
-                $model->queues = $map['Queues'];
+                $model->queues = [];
+                $n1            = 0;
+                foreach ($map['Queues'] as $item1) {
+                    $model->queues[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SortBy'])) {
             $model->sortBy = sortBy::fromMap($map['SortBy']);
         }
+
         if (isset($map['Users'])) {
             if (!empty($map['Users'])) {
-                $model->users = $map['Users'];
+                $model->users = [];
+                $n1           = 0;
+                foreach ($map['Users'] as $item1) {
+                    $model->users[$n1++] = $item1;
+                }
             }
         }
 

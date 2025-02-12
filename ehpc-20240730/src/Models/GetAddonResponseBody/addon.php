@@ -4,93 +4,49 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\GetAddonResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetAddonResponseBody\addon\resourcesSpec;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetAddonResponseBody\addon\servicesSpec;
-use AlibabaCloud\Tea\Model;
 
 class addon extends Model
 {
     /**
-     * @description The addon ID.
-     *
-     * This parameter is required.
-     * @example Login-1.0-W2g****
-     *
      * @var string
      */
     public $addonId;
-
     /**
-     * @description The addon description.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The addon icon.
-     *
-     * @example /assets/icons/your_icon.svg
-     *
      * @var string
      */
     public $icon;
-
     /**
-     * @description The time when the addon was installed.
-     *
-     * @example 2024-08-22 18:11:17
-     *
      * @var string
      */
     public $installTime;
-
     /**
-     * @description The addon label.
-     *
      * @var string
      */
     public $label;
-
     /**
-     * @description The addon name.
-     *
-     * This parameter is required.
-     * @example Login
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The resource configurations of the addon.
-     *
      * @var resourcesSpec
      */
     public $resourcesSpec;
-
     /**
-     * @description The service configurations of the addon.
-     *
      * @var servicesSpec[]
      */
     public $servicesSpec;
-
     /**
-     * @description The addon status.
-     *
-     * @example Running
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @description The addon version.
-     *
-     * This parameter is required.
-     * @example 1.0
-     *
      * @var string
      */
     public $version;
@@ -109,44 +65,60 @@ class addon extends Model
 
     public function validate()
     {
+        if (null !== $this->resourcesSpec) {
+            $this->resourcesSpec->validate();
+        }
+        if (\is_array($this->servicesSpec)) {
+            Model::validateArray($this->servicesSpec);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addonId) {
             $res['AddonId'] = $this->addonId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
+
         if (null !== $this->installTime) {
             $res['InstallTime'] = $this->installTime;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->resourcesSpec) {
-            $res['ResourcesSpec'] = null !== $this->resourcesSpec ? $this->resourcesSpec->toMap() : null;
+            $res['ResourcesSpec'] = null !== $this->resourcesSpec ? $this->resourcesSpec->toArray($noStream) : $this->resourcesSpec;
         }
+
         if (null !== $this->servicesSpec) {
-            $res['ServicesSpec'] = [];
-            if (null !== $this->servicesSpec && \is_array($this->servicesSpec)) {
-                $n = 0;
-                foreach ($this->servicesSpec as $item) {
-                    $res['ServicesSpec'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->servicesSpec)) {
+                $res['ServicesSpec'] = [];
+                $n1                  = 0;
+                foreach ($this->servicesSpec as $item1) {
+                    $res['ServicesSpec'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -154,47 +126,56 @@ class addon extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addon
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddonId'])) {
             $model->addonId = $map['AddonId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
+
         if (isset($map['InstallTime'])) {
             $model->installTime = $map['InstallTime'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ResourcesSpec'])) {
             $model->resourcesSpec = resourcesSpec::fromMap($map['ResourcesSpec']);
         }
+
         if (isset($map['ServicesSpec'])) {
             if (!empty($map['ServicesSpec'])) {
                 $model->servicesSpec = [];
-                $n                   = 0;
-                foreach ($map['ServicesSpec'] as $item) {
-                    $model->servicesSpec[$n++] = null !== $item ? servicesSpec::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['ServicesSpec'] as $item1) {
+                    $model->servicesSpec[$n1++] = servicesSpec::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

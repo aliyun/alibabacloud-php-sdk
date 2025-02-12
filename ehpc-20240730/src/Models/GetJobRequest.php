@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetJobRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The job ID. You can call the ListJobs operation to query the job ID.
-     *
-     * This parameter is required.
-     * @example 1.manager
-     *
      * @var string
      */
     public $jobId;
@@ -34,14 +23,16 @@ class GetJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -49,17 +40,18 @@ class GetJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }

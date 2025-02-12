@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DetachSharedStoragesRequest\sharedStorages;
-use AlibabaCloud\Tea\Model;
 
 class DetachSharedStoragesRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The information about mounted shared storage resources.
-     *
-     * This parameter is required.
      * @var sharedStorages[]
      */
     public $sharedStorages;
@@ -33,20 +24,25 @@ class DetachSharedStoragesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->sharedStorages)) {
+            Model::validateArray($this->sharedStorages);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->sharedStorages) {
-            $res['SharedStorages'] = [];
-            if (null !== $this->sharedStorages && \is_array($this->sharedStorages)) {
-                $n = 0;
-                foreach ($this->sharedStorages as $item) {
-                    $res['SharedStorages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sharedStorages)) {
+                $res['SharedStorages'] = [];
+                $n1                    = 0;
+                foreach ($this->sharedStorages as $item1) {
+                    $res['SharedStorages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -54,23 +50,24 @@ class DetachSharedStoragesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachSharedStoragesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['SharedStorages'])) {
             if (!empty($map['SharedStorages'])) {
                 $model->sharedStorages = [];
-                $n                     = 0;
-                foreach ($map['SharedStorages'] as $item) {
-                    $model->sharedStorages[$n++] = null !== $item ? sharedStorages::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['SharedStorages'] as $item1) {
+                    $model->sharedStorages[$n1++] = sharedStorages::fromMap($item1);
                 }
             }
         }

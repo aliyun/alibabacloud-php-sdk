@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteQueuesShrinkRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The queues that you want to delete.
-     *
      * @var string
      */
     public $queueNamesShrink;
@@ -30,14 +23,16 @@ class DeleteQueuesShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->queueNamesShrink) {
             $res['QueueNames'] = $this->queueNamesShrink;
         }
@@ -45,17 +40,18 @@ class DeleteQueuesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteQueuesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['QueueNames'])) {
             $model->queueNamesShrink = $map['QueueNames'];
         }

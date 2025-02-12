@@ -4,249 +4,111 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\clusterCustomConfiguration;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\manager;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\monitorSpec;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\schedulerSpec;
-use AlibabaCloud\Tea\Model;
 
 class GetClusterResponseBody extends Model
 {
     /**
-     * @description The E-HPC Util version.
-     *
-     * @example 2.0.31
-     *
      * @var string
      */
     public $clientVersion;
-
     /**
-     * @description The cluster type. Valid values:
-     *
-     *   Standard
-     *   Serverless
-     *
-     * @example Standard
-     *
      * @var string
      */
     public $clusterCategory;
-
     /**
-     * @description The time when the cluster was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-     *
-     * @example 2024-08-06T12:43:01.000Z
-     *
      * @var string
      */
     public $clusterCreateTime;
-
     /**
-     * @description The post-processing script of the cluster.
-     *
      * @var clusterCustomConfiguration
      */
     public $clusterCustomConfiguration;
-
     /**
-     * @description The cluster ID.
-     *
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The deployment type of the cluster. Valid values:
-     *
-     *   Integrated: The cluster is deployed on a public cloud.
-     *   Hybrid: The cluster is deployed on a hybrid cloud.
-     *   Custom: The cluster is a custom cluster.
-     *
-     * @example Integrated
-     *
      * @var string
      */
     public $clusterMode;
-
     /**
-     * @description The time when the cluster was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://help.aliyun.com/document_detail/25696.html).
-     *
-     * @example 2024-08-06T12:43:01.000Z
-     *
      * @var string
      */
     public $clusterModifyTime;
-
     /**
-     * @description The cluster name.
-     *
-     * @example slurm22.05.8-cluster-20240614
-     *
      * @var string
      */
     public $clusterName;
-
     /**
-     * @description The cluster state. Valid values:
-     *
-     *   uninit: The cluster is being installed.
-     *   creating: The cluster is being created.
-     *   initing: The cluster is being initialized.
-     *   running: The cluster is running.
-     *   exception: The cluster has run into an exception.
-     *   raleasing: The cluster is being released.
-     *   stopping: The cluster is being stopped.
-     *   stopped: The cluster is stopped.
-     *   pending: The cluster is waiting to be configured.
-     *
-     * @example running
-     *
      * @var string
      */
     public $clusterStatus;
-
     /**
-     * @description The ID of the vSwitch used by the cluster.
-     *
-     * @example vsw-bp1p2uugqsjppno******
-     *
      * @var string
      */
     public $clusterVSwitchId;
-
     /**
-     * @description The ID of the virtual private cloud (VPC) used by the cluster.
-     *
-     * @example vpc-uf6u3lk1pjy28eg*****
-     *
      * @var string
      */
     public $clusterVpcId;
-
     /**
-     * @description Indicates whether deletion protection is enabled for the cluster. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var string
      */
     public $deleteProtection;
-
     /**
-     * @description The E-HPC version.
-     *
-     * @example 2.0.0
-     *
      * @var string
      */
     public $ehpcVersion;
-
     /**
-     * @description Indicates whether automatic scale-in is enabled for the cluster. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableScaleIn;
-
     /**
-     * @description Indicates whether automatic scale-out is enabled for the cluster. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableScaleOut;
-
     /**
-     * @description The interval at which the cluster is automatically scaled out.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $growInterval;
-
     /**
-     * @description The idle duration of the compute nodes allowed by the cluster.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $idleInterval;
-
     /**
-     * @description The management node configurations.
-     *
      * @var manager
      */
     public $manager;
-
     /**
-     * @description The maximum total number of vCPUs that can be used by all compute nodes managed by the cluster.
-     *
-     * @example 10000
-     *
      * @var string
      */
     public $maxCoreCount;
-
     /**
-     * @description The maximum number of compute nodes that the cluster can manage.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $maxCount;
-
     /**
      * @var monitorSpec
      */
     public $monitorSpec;
-
     /**
-     * @description The request ID.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The resource group ID.
-     *
-     * @example rg-acfmxazb4ph****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
      * @var schedulerSpec
      */
     public $schedulerSpec;
-
     /**
-     * @description The security group ID.
-     *
-     * @example sg-f8z9vb2zaezpkr69a21k
-     *
      * @var string
      */
     public $securityGroupId;
@@ -280,83 +142,120 @@ class GetClusterResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->clusterCustomConfiguration) {
+            $this->clusterCustomConfiguration->validate();
+        }
+        if (null !== $this->manager) {
+            $this->manager->validate();
+        }
+        if (null !== $this->monitorSpec) {
+            $this->monitorSpec->validate();
+        }
+        if (null !== $this->schedulerSpec) {
+            $this->schedulerSpec->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
         }
+
         if (null !== $this->clusterCategory) {
             $res['ClusterCategory'] = $this->clusterCategory;
         }
+
         if (null !== $this->clusterCreateTime) {
             $res['ClusterCreateTime'] = $this->clusterCreateTime;
         }
+
         if (null !== $this->clusterCustomConfiguration) {
-            $res['ClusterCustomConfiguration'] = null !== $this->clusterCustomConfiguration ? $this->clusterCustomConfiguration->toMap() : null;
+            $res['ClusterCustomConfiguration'] = null !== $this->clusterCustomConfiguration ? $this->clusterCustomConfiguration->toArray($noStream) : $this->clusterCustomConfiguration;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterMode) {
             $res['ClusterMode'] = $this->clusterMode;
         }
+
         if (null !== $this->clusterModifyTime) {
             $res['ClusterModifyTime'] = $this->clusterModifyTime;
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->clusterStatus) {
             $res['ClusterStatus'] = $this->clusterStatus;
         }
+
         if (null !== $this->clusterVSwitchId) {
             $res['ClusterVSwitchId'] = $this->clusterVSwitchId;
         }
+
         if (null !== $this->clusterVpcId) {
             $res['ClusterVpcId'] = $this->clusterVpcId;
         }
+
         if (null !== $this->deleteProtection) {
             $res['DeleteProtection'] = $this->deleteProtection;
         }
+
         if (null !== $this->ehpcVersion) {
             $res['EhpcVersion'] = $this->ehpcVersion;
         }
+
         if (null !== $this->enableScaleIn) {
             $res['EnableScaleIn'] = $this->enableScaleIn;
         }
+
         if (null !== $this->enableScaleOut) {
             $res['EnableScaleOut'] = $this->enableScaleOut;
         }
+
         if (null !== $this->growInterval) {
             $res['GrowInterval'] = $this->growInterval;
         }
+
         if (null !== $this->idleInterval) {
             $res['IdleInterval'] = $this->idleInterval;
         }
+
         if (null !== $this->manager) {
-            $res['Manager'] = null !== $this->manager ? $this->manager->toMap() : null;
+            $res['Manager'] = null !== $this->manager ? $this->manager->toArray($noStream) : $this->manager;
         }
+
         if (null !== $this->maxCoreCount) {
             $res['MaxCoreCount'] = $this->maxCoreCount;
         }
+
         if (null !== $this->maxCount) {
             $res['MaxCount'] = $this->maxCount;
         }
+
         if (null !== $this->monitorSpec) {
-            $res['MonitorSpec'] = null !== $this->monitorSpec ? $this->monitorSpec->toMap() : null;
+            $res['MonitorSpec'] = null !== $this->monitorSpec ? $this->monitorSpec->toArray($noStream) : $this->monitorSpec;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->schedulerSpec) {
-            $res['SchedulerSpec'] = null !== $this->schedulerSpec ? $this->schedulerSpec->toMap() : null;
+            $res['SchedulerSpec'] = null !== $this->schedulerSpec ? $this->schedulerSpec->toArray($noStream) : $this->schedulerSpec;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
@@ -364,86 +263,110 @@ class GetClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
         }
+
         if (isset($map['ClusterCategory'])) {
             $model->clusterCategory = $map['ClusterCategory'];
         }
+
         if (isset($map['ClusterCreateTime'])) {
             $model->clusterCreateTime = $map['ClusterCreateTime'];
         }
+
         if (isset($map['ClusterCustomConfiguration'])) {
             $model->clusterCustomConfiguration = clusterCustomConfiguration::fromMap($map['ClusterCustomConfiguration']);
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ClusterMode'])) {
             $model->clusterMode = $map['ClusterMode'];
         }
+
         if (isset($map['ClusterModifyTime'])) {
             $model->clusterModifyTime = $map['ClusterModifyTime'];
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['ClusterStatus'])) {
             $model->clusterStatus = $map['ClusterStatus'];
         }
+
         if (isset($map['ClusterVSwitchId'])) {
             $model->clusterVSwitchId = $map['ClusterVSwitchId'];
         }
+
         if (isset($map['ClusterVpcId'])) {
             $model->clusterVpcId = $map['ClusterVpcId'];
         }
+
         if (isset($map['DeleteProtection'])) {
             $model->deleteProtection = $map['DeleteProtection'];
         }
+
         if (isset($map['EhpcVersion'])) {
             $model->ehpcVersion = $map['EhpcVersion'];
         }
+
         if (isset($map['EnableScaleIn'])) {
             $model->enableScaleIn = $map['EnableScaleIn'];
         }
+
         if (isset($map['EnableScaleOut'])) {
             $model->enableScaleOut = $map['EnableScaleOut'];
         }
+
         if (isset($map['GrowInterval'])) {
             $model->growInterval = $map['GrowInterval'];
         }
+
         if (isset($map['IdleInterval'])) {
             $model->idleInterval = $map['IdleInterval'];
         }
+
         if (isset($map['Manager'])) {
             $model->manager = manager::fromMap($map['Manager']);
         }
+
         if (isset($map['MaxCoreCount'])) {
             $model->maxCoreCount = $map['MaxCoreCount'];
         }
+
         if (isset($map['MaxCount'])) {
             $model->maxCount = $map['MaxCount'];
         }
+
         if (isset($map['MonitorSpec'])) {
             $model->monitorSpec = monitorSpec::fromMap($map['MonitorSpec']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SchedulerSpec'])) {
             $model->schedulerSpec = schedulerSpec::fromMap($map['SchedulerSpec']);
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }

@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\DescribeAddonTemplateResponseBody\addon;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\AddonNodeTemplate;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\DescribeAddonTemplateResponseBody\addon\resourcesSpec\eipResource;
-use AlibabaCloud\Tea\Model;
 
 class resourcesSpec extends Model
 {
     /**
-     * @description The Elastic Compute Service (ECS) resource configurations of the addon.
-     *
      * @var AddonNodeTemplate[]
      */
     public $ecsResources;
-
     /**
-     * @description The Elastic IP Address (EIP) configurations of the service.
-     *
      * @var eipResource
      */
     public $eipResource;
@@ -30,44 +25,53 @@ class resourcesSpec extends Model
 
     public function validate()
     {
+        if (\is_array($this->ecsResources)) {
+            Model::validateArray($this->ecsResources);
+        }
+        if (null !== $this->eipResource) {
+            $this->eipResource->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ecsResources) {
-            $res['EcsResources'] = [];
-            if (null !== $this->ecsResources && \is_array($this->ecsResources)) {
-                $n = 0;
-                foreach ($this->ecsResources as $item) {
-                    $res['EcsResources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ecsResources)) {
+                $res['EcsResources'] = [];
+                $n1                  = 0;
+                foreach ($this->ecsResources as $item1) {
+                    $res['EcsResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->eipResource) {
-            $res['EipResource'] = null !== $this->eipResource ? $this->eipResource->toMap() : null;
+            $res['EipResource'] = null !== $this->eipResource ? $this->eipResource->toArray($noStream) : $this->eipResource;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourcesSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsResources'])) {
             if (!empty($map['EcsResources'])) {
                 $model->ecsResources = [];
-                $n                   = 0;
-                foreach ($map['EcsResources'] as $item) {
-                    $model->ecsResources[$n++] = null !== $item ? AddonNodeTemplate::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['EcsResources'] as $item1) {
+                    $model->ecsResources[$n1++] = AddonNodeTemplate::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['EipResource'])) {
             $model->eipResource = eipResource::fromMap($map['EipResource']);
         }

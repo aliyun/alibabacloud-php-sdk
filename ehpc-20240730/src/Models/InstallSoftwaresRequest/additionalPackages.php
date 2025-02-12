@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\InstallSoftwaresRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class additionalPackages extends Model
 {
     /**
-     * @description The software name.
-     *
-     * @example gromacs
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The software version.
-     *
-     * @example 2024.1
-     *
      * @var string
      */
     public $version;
@@ -32,14 +23,16 @@ class additionalPackages extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -47,17 +40,18 @@ class additionalPackages extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return additionalPackages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

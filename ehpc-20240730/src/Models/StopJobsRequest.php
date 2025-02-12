@@ -4,23 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopJobsRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The IDs of the jobs that you want to stop.
-     *
      * @var string[]
      */
     public $jobIds;
@@ -31,35 +23,51 @@ class StopJobsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->jobIds)) {
+            Model::validateArray($this->jobIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->jobIds) {
-            $res['JobIds'] = $this->jobIds;
+            if (\is_array($this->jobIds)) {
+                $res['JobIds'] = [];
+                $n1            = 0;
+                foreach ($this->jobIds as $item1) {
+                    $res['JobIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopJobsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['JobIds'])) {
             if (!empty($map['JobIds'])) {
-                $model->jobIds = $map['JobIds'];
+                $model->jobIds = [];
+                $n1            = 0;
+                foreach ($map['JobIds'] as $item1) {
+                    $model->jobIds[$n1++] = $item1;
+                }
             }
         }
 

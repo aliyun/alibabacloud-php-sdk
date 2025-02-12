@@ -4,104 +4,70 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueueTemplate extends Model
 {
     /**
-     * @example PriorityInstanceType
-     *
      * @var string
      */
     public $allocationStrategy;
-
     /**
      * @var NodeTemplate[]
      */
     public $computeNodes;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableScaleIn;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableScaleOut;
-
     /**
-     * @example compute
-     *
      * @var string
      */
     public $hostnamePrefix;
-
     /**
      * @var string
      */
     public $hostnameSuffix;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $initialCount;
-
     /**
-     * @example erdma
-     *
      * @var string
      */
     public $interConnect;
-
     /**
      * @var string[]
      */
     public $keepAliveNodes;
-
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $maxCount;
-
     /**
-     * @example 99
-     *
      * @var int
      */
     public $maxCountPerCycle;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $minCount;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example comp
-     *
      * @var string
      */
     public $queueName;
-
     /**
-     * @example AliyunECSInstanceForEHPCRole
-     *
      * @var string
      */
     public $ramRole;
-
+    /**
+     * @var string
+     */
+    public $reservedNodePoolId;
     /**
      * @var string[]
      */
@@ -121,132 +87,199 @@ class QueueTemplate extends Model
         'minCount'           => 'MinCount',
         'queueName'          => 'QueueName',
         'ramRole'            => 'RamRole',
+        'reservedNodePoolId' => 'ReservedNodePoolId',
         'vSwitchIds'         => 'VSwitchIds',
     ];
 
     public function validate()
     {
+        if (\is_array($this->computeNodes)) {
+            Model::validateArray($this->computeNodes);
+        }
+        if (\is_array($this->keepAliveNodes)) {
+            Model::validateArray($this->keepAliveNodes);
+        }
+        if (\is_array($this->vSwitchIds)) {
+            Model::validateArray($this->vSwitchIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allocationStrategy) {
             $res['AllocationStrategy'] = $this->allocationStrategy;
         }
+
         if (null !== $this->computeNodes) {
-            $res['ComputeNodes'] = [];
-            if (null !== $this->computeNodes && \is_array($this->computeNodes)) {
-                $n = 0;
-                foreach ($this->computeNodes as $item) {
-                    $res['ComputeNodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->computeNodes)) {
+                $res['ComputeNodes'] = [];
+                $n1                  = 0;
+                foreach ($this->computeNodes as $item1) {
+                    $res['ComputeNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->enableScaleIn) {
             $res['EnableScaleIn'] = $this->enableScaleIn;
         }
+
         if (null !== $this->enableScaleOut) {
             $res['EnableScaleOut'] = $this->enableScaleOut;
         }
+
         if (null !== $this->hostnamePrefix) {
             $res['HostnamePrefix'] = $this->hostnamePrefix;
         }
+
         if (null !== $this->hostnameSuffix) {
             $res['HostnameSuffix'] = $this->hostnameSuffix;
         }
+
         if (null !== $this->initialCount) {
             $res['InitialCount'] = $this->initialCount;
         }
+
         if (null !== $this->interConnect) {
             $res['InterConnect'] = $this->interConnect;
         }
+
         if (null !== $this->keepAliveNodes) {
-            $res['KeepAliveNodes'] = $this->keepAliveNodes;
+            if (\is_array($this->keepAliveNodes)) {
+                $res['KeepAliveNodes'] = [];
+                $n1                    = 0;
+                foreach ($this->keepAliveNodes as $item1) {
+                    $res['KeepAliveNodes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->maxCount) {
             $res['MaxCount'] = $this->maxCount;
         }
+
         if (null !== $this->maxCountPerCycle) {
             $res['MaxCountPerCycle'] = $this->maxCountPerCycle;
         }
+
         if (null !== $this->minCount) {
             $res['MinCount'] = $this->minCount;
         }
+
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
+
         if (null !== $this->ramRole) {
             $res['RamRole'] = $this->ramRole;
         }
+
+        if (null !== $this->reservedNodePoolId) {
+            $res['ReservedNodePoolId'] = $this->reservedNodePoolId;
+        }
+
         if (null !== $this->vSwitchIds) {
-            $res['VSwitchIds'] = $this->vSwitchIds;
+            if (\is_array($this->vSwitchIds)) {
+                $res['VSwitchIds'] = [];
+                $n1                = 0;
+                foreach ($this->vSwitchIds as $item1) {
+                    $res['VSwitchIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueueTemplate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllocationStrategy'])) {
             $model->allocationStrategy = $map['AllocationStrategy'];
         }
+
         if (isset($map['ComputeNodes'])) {
             if (!empty($map['ComputeNodes'])) {
                 $model->computeNodes = [];
-                $n                   = 0;
-                foreach ($map['ComputeNodes'] as $item) {
-                    $model->computeNodes[$n++] = null !== $item ? NodeTemplate::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['ComputeNodes'] as $item1) {
+                    $model->computeNodes[$n1++] = NodeTemplate::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['EnableScaleIn'])) {
             $model->enableScaleIn = $map['EnableScaleIn'];
         }
+
         if (isset($map['EnableScaleOut'])) {
             $model->enableScaleOut = $map['EnableScaleOut'];
         }
+
         if (isset($map['HostnamePrefix'])) {
             $model->hostnamePrefix = $map['HostnamePrefix'];
         }
+
         if (isset($map['HostnameSuffix'])) {
             $model->hostnameSuffix = $map['HostnameSuffix'];
         }
+
         if (isset($map['InitialCount'])) {
             $model->initialCount = $map['InitialCount'];
         }
+
         if (isset($map['InterConnect'])) {
             $model->interConnect = $map['InterConnect'];
         }
+
         if (isset($map['KeepAliveNodes'])) {
             if (!empty($map['KeepAliveNodes'])) {
-                $model->keepAliveNodes = $map['KeepAliveNodes'];
+                $model->keepAliveNodes = [];
+                $n1                    = 0;
+                foreach ($map['KeepAliveNodes'] as $item1) {
+                    $model->keepAliveNodes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MaxCount'])) {
             $model->maxCount = $map['MaxCount'];
         }
+
         if (isset($map['MaxCountPerCycle'])) {
             $model->maxCountPerCycle = $map['MaxCountPerCycle'];
         }
+
         if (isset($map['MinCount'])) {
             $model->minCount = $map['MinCount'];
         }
+
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
+
         if (isset($map['RamRole'])) {
             $model->ramRole = $map['RamRole'];
         }
+
+        if (isset($map['ReservedNodePoolId'])) {
+            $model->reservedNodePoolId = $map['ReservedNodePoolId'];
+        }
+
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
-                $model->vSwitchIds = $map['VSwitchIds'];
+                $model->vSwitchIds = [];
+                $n1                = 0;
+                foreach ($map['VSwitchIds'] as $item1) {
+                    $model->vSwitchIds[$n1++] = $item1;
+                }
             }
         }
 

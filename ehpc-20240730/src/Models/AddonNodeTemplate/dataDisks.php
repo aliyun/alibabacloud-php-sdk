@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\AddonNodeTemplate;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataDisks extends Model
 {
     /**
-     * @example cloud_auto
-     *
      * @var string
      */
     public $category;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $deleteWithInstance;
-
     /**
-     * @example PL0
-     *
      * @var string
      */
     public $level;
-
     /**
-     * @example 40
-     *
      * @var int
      */
     public $size;
@@ -44,20 +33,24 @@ class dataDisks extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->deleteWithInstance) {
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -65,23 +58,26 @@ class dataDisks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataDisks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['DeleteWithInstance'])) {
             $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UninstallSoftwaresRequest\additionalPackages;
-use AlibabaCloud\Tea\Model;
 
 class UninstallSoftwaresRequest extends Model
 {
     /**
-     * @description The information about the software systems that you want to uninstall.
-     *
      * @var additionalPackages[]
      */
     public $additionalPackages;
-
     /**
-     * @description The cluster ID.
-     *
-     * You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
@@ -32,20 +24,25 @@ class UninstallSoftwaresRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalPackages)) {
+            Model::validateArray($this->additionalPackages);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalPackages) {
-            $res['AdditionalPackages'] = [];
-            if (null !== $this->additionalPackages && \is_array($this->additionalPackages)) {
-                $n = 0;
-                foreach ($this->additionalPackages as $item) {
-                    $res['AdditionalPackages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->additionalPackages)) {
+                $res['AdditionalPackages'] = [];
+                $n1                        = 0;
+                foreach ($this->additionalPackages as $item1) {
+                    $res['AdditionalPackages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -53,23 +50,24 @@ class UninstallSoftwaresRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UninstallSoftwaresRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdditionalPackages'])) {
             if (!empty($map['AdditionalPackages'])) {
                 $model->additionalPackages = [];
-                $n                         = 0;
-                foreach ($map['AdditionalPackages'] as $item) {
-                    $model->additionalPackages[$n++] = null !== $item ? additionalPackages::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['AdditionalPackages'] as $item1) {
+                    $model->additionalPackages[$n1++] = additionalPackages::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

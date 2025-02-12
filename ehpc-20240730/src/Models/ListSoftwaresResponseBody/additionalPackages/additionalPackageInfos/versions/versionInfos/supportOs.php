@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListSoftwaresResponseBody\additionalPackages\additionalPackageInfos\versions\versionInfos;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListSoftwaresResponseBody\additionalPackages\additionalPackageInfos\versions\versionInfos\supportOs\supportOsInfos;
-use AlibabaCloud\Tea\Model;
 
 class supportOs extends Model
 {
@@ -19,17 +19,21 @@ class supportOs extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportOsInfos)) {
+            Model::validateArray($this->supportOsInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportOsInfos) {
-            $res['SupportOsInfos'] = [];
-            if (null !== $this->supportOsInfos && \is_array($this->supportOsInfos)) {
-                $n = 0;
-                foreach ($this->supportOsInfos as $item) {
-                    $res['SupportOsInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportOsInfos)) {
+                $res['SupportOsInfos'] = [];
+                $n1                    = 0;
+                foreach ($this->supportOsInfos as $item1) {
+                    $res['SupportOsInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class supportOs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportOs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportOsInfos'])) {
             if (!empty($map['SupportOsInfos'])) {
                 $model->supportOsInfos = [];
-                $n                     = 0;
-                foreach ($map['SupportOsInfos'] as $item) {
-                    $model->supportOsInfos[$n++] = null !== $item ? supportOsInfos::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['SupportOsInfos'] as $item1) {
+                    $model->supportOsInfos[$n1++] = supportOsInfos::fromMap($item1);
                 }
             }
         }

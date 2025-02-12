@@ -4,45 +4,19 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsRequest\jobFilter;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sortBy extends Model
 {
     /**
-     * @description The order in which jobs are sorted based on their execution time. Valid values:
-     *
-     *   asc: in ascending order.
-     *   desc: in descending order.
-     *
-     * Default value: desc.
-     * @example asc
-     *
      * @var string
      */
     public $executeOrder;
-
     /**
-     * @description The order in which jobs are sorted based on their queuing time. Valid values:
-     *
-     *   asc: in ascending order.
-     *   desc: in descending order.
-     *
-     * Default value: desc.
-     * @example desc
-     *
      * @var string
      */
     public $pendOrder;
-
     /**
-     * @description The order in which jobs are sorted based on their submitting time. Valid values:
-     *
-     *   asc: in ascending order.
-     *   desc: in descending order.
-     *
-     * Default value: desc.
-     * @example asc
-     *
      * @var string
      */
     public $submitOrder;
@@ -54,17 +28,20 @@ class sortBy extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->executeOrder) {
             $res['ExecuteOrder'] = $this->executeOrder;
         }
+
         if (null !== $this->pendOrder) {
             $res['PendOrder'] = $this->pendOrder;
         }
+
         if (null !== $this->submitOrder) {
             $res['SubmitOrder'] = $this->submitOrder;
         }
@@ -72,20 +49,22 @@ class sortBy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sortBy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExecuteOrder'])) {
             $model->executeOrder = $map['ExecuteOrder'];
         }
+
         if (isset($map['PendOrder'])) {
             $model->pendOrder = $map['PendOrder'];
         }
+
         if (isset($map['SubmitOrder'])) {
             $model->submitOrder = $map['SubmitOrder'];
         }

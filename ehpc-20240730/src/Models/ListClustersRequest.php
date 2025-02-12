@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClustersRequest extends Model
 {
     /**
-     * @description The cluster IDs. You can specify up to 20 IDs.
-     *
      * @var string[]
      */
     public $clusterIds;
-
     /**
-     * @description The cluster names. You can specify up to 20 names.
-     *
      * @var string[]
      */
     public $clusterNames;
-
     /**
-     * @description The page number of the page to return. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Valid values: 10 to 100. Default value: 10
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -48,20 +33,42 @@ class ListClustersRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->clusterIds)) {
+            Model::validateArray($this->clusterIds);
+        }
+        if (\is_array($this->clusterNames)) {
+            Model::validateArray($this->clusterNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterIds) {
-            $res['ClusterIds'] = $this->clusterIds;
+            if (\is_array($this->clusterIds)) {
+                $res['ClusterIds'] = [];
+                $n1                = 0;
+                foreach ($this->clusterIds as $item1) {
+                    $res['ClusterIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->clusterNames) {
-            $res['ClusterNames'] = $this->clusterNames;
+            if (\is_array($this->clusterNames)) {
+                $res['ClusterNames'] = [];
+                $n1                  = 0;
+                foreach ($this->clusterNames as $item1) {
+                    $res['ClusterNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -69,27 +76,38 @@ class ListClustersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClustersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
-                $model->clusterIds = $map['ClusterIds'];
+                $model->clusterIds = [];
+                $n1                = 0;
+                foreach ($map['ClusterIds'] as $item1) {
+                    $model->clusterIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ClusterNames'])) {
             if (!empty($map['ClusterNames'])) {
-                $model->clusterNames = $map['ClusterNames'];
+                $model->clusterNames = [];
+                $n1                  = 0;
+                foreach ($map['ClusterNames'] as $item1) {
+                    $model->clusterNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

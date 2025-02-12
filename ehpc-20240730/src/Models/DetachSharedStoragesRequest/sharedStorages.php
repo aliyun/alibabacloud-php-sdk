@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\DetachSharedStoragesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sharedStorages extends Model
 {
     /**
-     * @description The local mount directory of the mounted file system.
-     *
-     * This parameter is required.
-     * @example /test
-     *
      * @var string
      */
     public $mountDirectory;
@@ -23,9 +18,10 @@ class sharedStorages extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountDirectory) {
@@ -35,11 +31,11 @@ class sharedStorages extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sharedStorages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

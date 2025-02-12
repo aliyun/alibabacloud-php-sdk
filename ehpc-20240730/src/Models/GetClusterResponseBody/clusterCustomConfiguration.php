@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clusterCustomConfiguration extends Model
 {
     /**
-     * @description The arguments that are used to run the script after the scrip is installed.
-     *
-     * @example E-HPC cn-hangzhou
-     *
      * @var string
      */
     public $args;
-
     /**
-     * @description The URL that is used to download the post-processing script.
-     *
-     * @example http://*****
-     *
      * @var string
      */
     public $script;
@@ -32,14 +23,16 @@ class clusterCustomConfiguration extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->args) {
             $res['Args'] = $this->args;
         }
+
         if (null !== $this->script) {
             $res['Script'] = $this->script;
         }
@@ -47,17 +40,18 @@ class clusterCustomConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusterCustomConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Args'])) {
             $model->args = $map['Args'];
         }
+
         if (isset($map['Script'])) {
             $model->script = $map['Script'];
         }

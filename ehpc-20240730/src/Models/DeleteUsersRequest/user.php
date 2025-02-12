@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\DeleteUsersRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class user extends Model
 {
     /**
-     * @description The name of user N that you want to delete.
-     *
-     * This parameter is required.
-     * @example testuser
-     *
      * @var string
      */
     public $userName;
@@ -23,9 +18,10 @@ class user extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userName) {
@@ -35,11 +31,11 @@ class user extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return user
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

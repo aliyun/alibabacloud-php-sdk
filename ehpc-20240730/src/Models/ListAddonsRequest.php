@@ -4,41 +4,23 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAddonsRequest extends Model
 {
     /**
-     * @description The addon IDs.
-     *
      * @var string[]
      */
     public $addonIds;
-
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The page number of the page to return. Default value: 1
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -51,20 +33,33 @@ class ListAddonsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->addonIds)) {
+            Model::validateArray($this->addonIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addonIds) {
-            $res['AddonIds'] = $this->addonIds;
+            if (\is_array($this->addonIds)) {
+                $res['AddonIds'] = [];
+                $n1              = 0;
+                foreach ($this->addonIds as $item1) {
+                    $res['AddonIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -72,25 +67,32 @@ class ListAddonsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAddonsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddonIds'])) {
             if (!empty($map['AddonIds'])) {
-                $model->addonIds = $map['AddonIds'];
+                $model->addonIds = [];
+                $n1              = 0;
+                foreach ($map['AddonIds'] as $item1) {
+                    $model->addonIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

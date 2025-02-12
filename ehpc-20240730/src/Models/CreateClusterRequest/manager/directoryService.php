@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\CreateClusterRequest\manager;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class directoryService extends Model
 {
     /**
-     * @description The type of the domain account.
-     *
-     * Valid values:
-     *
-     *   NIS: NIS.
-     *
-     * @example NIS
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The version of the domain account service.
-     *
-     * @example 2.31
-     *
      * @var string
      */
     public $version;
@@ -36,14 +23,16 @@ class directoryService extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -51,17 +40,18 @@ class directoryService extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return directoryService
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

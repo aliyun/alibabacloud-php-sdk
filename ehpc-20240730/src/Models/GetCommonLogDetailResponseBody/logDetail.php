@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\GetCommonLogDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetCommonLogDetailResponseBody\logDetail\stages;
-use AlibabaCloud\Tea\Model;
 
 class logDetail extends Model
 {
     /**
-     * @description The stage name of the log.
-     *
-     * @example ConfigNetwork
-     *
      * @var string
      */
     public $stageName;
-
     /**
-     * @description The information about the log stages.
-     *
      * @var stages[]
      */
     public $stages;
@@ -31,20 +24,25 @@ class logDetail extends Model
 
     public function validate()
     {
+        if (\is_array($this->stages)) {
+            Model::validateArray($this->stages);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->stageName) {
             $res['StageName'] = $this->stageName;
         }
+
         if (null !== $this->stages) {
-            $res['Stages'] = [];
-            if (null !== $this->stages && \is_array($this->stages)) {
-                $n = 0;
-                foreach ($this->stages as $item) {
-                    $res['Stages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->stages)) {
+                $res['Stages'] = [];
+                $n1            = 0;
+                foreach ($this->stages as $item1) {
+                    $res['Stages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class logDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StageName'])) {
             $model->stageName = $map['StageName'];
         }
+
         if (isset($map['Stages'])) {
             if (!empty($map['Stages'])) {
                 $model->stages = [];
-                $n             = 0;
-                foreach ($map['Stages'] as $item) {
-                    $model->stages[$n++] = null !== $item ? stages::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Stages'] as $item1) {
+                    $model->stages[$n1++] = stages::fromMap($item1);
                 }
             }
         }

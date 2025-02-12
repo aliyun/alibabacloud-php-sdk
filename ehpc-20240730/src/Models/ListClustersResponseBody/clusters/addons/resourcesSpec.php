@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListClustersResponseBody\clusters\addons;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourcesSpec extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example i-bp1bg85d2q6laic8****
-     *
      * @var string
      */
     public $ecsInstanceId;
-
     /**
-     * @description The Elastic IP Address (EIP) ID.
-     *
-     * @example eip-bp1vi9124tbx1g3kr****
-     *
      * @var string
      */
     public $eipInstanceId;
@@ -32,14 +23,16 @@ class resourcesSpec extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ecsInstanceId) {
             $res['EcsInstanceId'] = $this->ecsInstanceId;
         }
+
         if (null !== $this->eipInstanceId) {
             $res['EipInstanceId'] = $this->eipInstanceId;
         }
@@ -47,17 +40,18 @@ class resourcesSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourcesSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsInstanceId'])) {
             $model->ecsInstanceId = $map['EcsInstanceId'];
         }
+
         if (isset($map['EipInstanceId'])) {
             $model->eipInstanceId = $map['EipInstanceId'];
         }

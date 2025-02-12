@@ -4,68 +4,31 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\GetAddonResponseBody\addon\resourcesSpec;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eipResource extends Model
 {
     /**
-     * @description Indicates whether the EIP is automatically created.
-     *
-     * @example True
-     *
      * @var bool
      */
     public $autoCreate;
-
     /**
-     * @description The maximum bandwidth of the EIP. Unit: Mbit/s.
-     *
-     * @example 100
-     *
      * @var string
      */
     public $bandwidth;
-
     /**
-     * @description The EIP.
-     *
-     * @example 39.108.xx.xx
-     *
      * @var string
      */
     public $eipAddress;
-
     /**
-     * @description The EIP ID.
-     *
-     * @example eip-bp1vi9124tbx1g3kr****
-     *
      * @var string
      */
     public $eipInstanceId;
-
     /**
-     * @description The billing method of the EIP.
-     *
-     *   PostPaid: pay-as-you-go.
-     *   PrePaid: subscription.
-     *
-     * Default value: PostPaid.
-     * @example PostPaid
-     *
      * @var string
      */
     public $instanceChargeType;
-
     /**
-     * @description The metering method of the EIP. Valid values:
-     *
-     *   PayByBandwidth: pay by bandwidth.
-     *   PayByTraffic: pay by data transfer.
-     *
-     * Valid values of N: 1 to 10.
-     * @example PayByTraffic
-     *
      * @var string
      */
     public $internetChargeType;
@@ -80,26 +43,32 @@ class eipResource extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoCreate) {
             $res['AutoCreate'] = $this->autoCreate;
         }
+
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
+
         if (null !== $this->eipAddress) {
             $res['EipAddress'] = $this->eipAddress;
         }
+
         if (null !== $this->eipInstanceId) {
             $res['EipInstanceId'] = $this->eipInstanceId;
         }
+
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
+
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
@@ -107,29 +76,34 @@ class eipResource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eipResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoCreate'])) {
             $model->autoCreate = $map['AutoCreate'];
         }
+
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
+
         if (isset($map['EipAddress'])) {
             $model->eipAddress = $map['EipAddress'];
         }
+
         if (isset($map['EipInstanceId'])) {
             $model->eipInstanceId = $map['EipInstanceId'];
         }
+
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
+
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }

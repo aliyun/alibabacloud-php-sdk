@@ -4,52 +4,27 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAddonTemplatesRequest extends Model
 {
     /**
-     * @description The addon names.
-     *
      * @var string[]
      */
     public $addonNames;
-
     /**
-     * @description The cluster type. Valid values:
-     *
-     *   Standard
-     *   Serverless
-     *
-     * @example Standard
-     *
      * @var string
      */
     public $clusterCategory;
-
     /**
-     * @description The page number of the page to return. Pages start from page 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Default value: 20.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
@@ -63,23 +38,37 @@ class ListAddonTemplatesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->addonNames)) {
+            Model::validateArray($this->addonNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addonNames) {
-            $res['AddonNames'] = $this->addonNames;
+            if (\is_array($this->addonNames)) {
+                $res['AddonNames'] = [];
+                $n1                = 0;
+                foreach ($this->addonNames as $item1) {
+                    $res['AddonNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->clusterCategory) {
             $res['ClusterCategory'] = $this->clusterCategory;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -87,28 +76,36 @@ class ListAddonTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAddonTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddonNames'])) {
             if (!empty($map['AddonNames'])) {
-                $model->addonNames = $map['AddonNames'];
+                $model->addonNames = [];
+                $n1                = 0;
+                foreach ($map['AddonNames'] as $item1) {
+                    $model->addonNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ClusterCategory'])) {
             $model->clusterCategory = $map['ClusterCategory'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

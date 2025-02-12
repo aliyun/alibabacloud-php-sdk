@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListClustersResponseBody\clusters\addons;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class servicesSpec extends Model
 {
     /**
-     * @description The service access type.
-     *
-     * @example URL
-     *
      * @var string
      */
     public $serviceAccessType;
-
     /**
-     * @description The service access URL.
-     *
-     * @example https://47.96.xx.xx:12008
-     *
      * @var string
      */
     public $serviceAccessUrl;
-
     /**
-     * @description The service name.
-     *
-     * This parameter is required.
-     * @example Web Portal
-     *
      * @var string
      */
     public $serviceName;
@@ -43,17 +28,20 @@ class servicesSpec extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceAccessType) {
             $res['ServiceAccessType'] = $this->serviceAccessType;
         }
+
         if (null !== $this->serviceAccessUrl) {
             $res['ServiceAccessUrl'] = $this->serviceAccessUrl;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -61,20 +49,22 @@ class servicesSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return servicesSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ServiceAccessType'])) {
             $model->serviceAccessType = $map['ServiceAccessType'];
         }
+
         if (isset($map['ServiceAccessUrl'])) {
             $model->serviceAccessUrl = $map['ServiceAccessUrl'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }

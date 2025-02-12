@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsResponseBody\jobs\jobSpec;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourcesActualOccupied extends Model
 {
@@ -12,17 +12,14 @@ class resourcesActualOccupied extends Model
      * @var string
      */
     public $cores;
-
     /**
      * @var string
      */
     public $gpus;
-
     /**
      * @var string
      */
     public $memory;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class resourcesActualOccupied extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cores) {
             $res['Cores'] = $this->cores;
         }
+
         if (null !== $this->gpus) {
             $res['Gpus'] = $this->gpus;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->nodes) {
             $res['Nodes'] = $this->nodes;
         }
@@ -57,23 +58,26 @@ class resourcesActualOccupied extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourcesActualOccupied
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cores'])) {
             $model->cores = $map['Cores'];
         }
+
         if (isset($map['Gpus'])) {
             $model->gpus = $map['Gpus'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['Nodes'])) {
             $model->nodes = $map['Nodes'];
         }

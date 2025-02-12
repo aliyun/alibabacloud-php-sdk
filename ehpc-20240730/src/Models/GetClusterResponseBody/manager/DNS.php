@@ -4,41 +4,19 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\manager;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DNS extends Model
 {
     /**
-     * @description The state of the domain name resolution service. Valid values:
-     *
-     *   uninit: The service is being installed.
-     *   initing: The service is being initialized.
-     *   running: The service is running.
-     *   exception: The service has run into an exception.
-     *   releasing: The service is being released.
-     *   stopped: The service is stopped.
-     *   pending: The service is waiting to be configured.
-     *
-     * @example running
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @description The resolution type.
-     *
-     * @example nis
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The version of the resolution service.
-     *
-     * @example 2.31
-     *
      * @var string
      */
     public $version;
@@ -50,17 +28,20 @@ class DNS extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -68,20 +49,22 @@ class DNS extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DNS
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

@@ -4,87 +4,43 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListNodesRequest extends Model
 {
     /**
-     * @description The cluster ID. You can call the [ListClusters](https://help.aliyun.com/document_detail/87116.html) operation to query the cluster ID.
-     *
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The hostnames of the compute nodes that you want to query.
-     *
      * @var string[]
      */
     public $hostnames;
-
     /**
-     * @description The page number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The IP addresses of the compute nodes that you want to query.
-     *
      * @var string[]
      */
     public $privateIpAddress;
-
     /**
-     * @description The queues to which the nodes belong.
-     *
      * @var string[]
      */
     public $queueNames;
-
     /**
-     * @description Specifies whether the results are sorted in ascending or descending order. Valid values:
-     *
-     *   Forward: ascending
-     *   Backward: descending
-     *
-     * Default value: Forward.
-     * @example Forward
-     *
      * @var string
      */
     public $sequence;
-
     /**
-     * @description The sorting method of the node list. Valid values:
-     *
-     *   AddedTime: sorts the nodes by the time that they were added.
-     *   HostName: sorts the nodes by their hostnames.
-     *
-     * Default value: addedtime.
-     * @example AddedTime
-     *
      * @var string
      */
     public $sortBy;
-
     /**
-     * @description The states of the compute nodes to be queried.
-     *
      * @var string[]
      */
     public $status;
@@ -102,83 +58,152 @@ class ListNodesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->hostnames)) {
+            Model::validateArray($this->hostnames);
+        }
+        if (\is_array($this->privateIpAddress)) {
+            Model::validateArray($this->privateIpAddress);
+        }
+        if (\is_array($this->queueNames)) {
+            Model::validateArray($this->queueNames);
+        }
+        if (\is_array($this->status)) {
+            Model::validateArray($this->status);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->hostnames) {
-            $res['Hostnames'] = $this->hostnames;
+            if (\is_array($this->hostnames)) {
+                $res['Hostnames'] = [];
+                $n1               = 0;
+                foreach ($this->hostnames as $item1) {
+                    $res['Hostnames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
+            if (\is_array($this->privateIpAddress)) {
+                $res['PrivateIpAddress'] = [];
+                $n1                      = 0;
+                foreach ($this->privateIpAddress as $item1) {
+                    $res['PrivateIpAddress'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->queueNames) {
-            $res['QueueNames'] = $this->queueNames;
+            if (\is_array($this->queueNames)) {
+                $res['QueueNames'] = [];
+                $n1                = 0;
+                foreach ($this->queueNames as $item1) {
+                    $res['QueueNames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->sequence) {
             $res['Sequence'] = $this->sequence;
         }
+
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
+
         if (null !== $this->status) {
-            $res['Status'] = $this->status;
+            if (\is_array($this->status)) {
+                $res['Status'] = [];
+                $n1            = 0;
+                foreach ($this->status as $item1) {
+                    $res['Status'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Hostnames'])) {
             if (!empty($map['Hostnames'])) {
-                $model->hostnames = $map['Hostnames'];
+                $model->hostnames = [];
+                $n1               = 0;
+                foreach ($map['Hostnames'] as $item1) {
+                    $model->hostnames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PrivateIpAddress'])) {
             if (!empty($map['PrivateIpAddress'])) {
-                $model->privateIpAddress = $map['PrivateIpAddress'];
+                $model->privateIpAddress = [];
+                $n1                      = 0;
+                foreach ($map['PrivateIpAddress'] as $item1) {
+                    $model->privateIpAddress[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['QueueNames'])) {
             if (!empty($map['QueueNames'])) {
-                $model->queueNames = $map['QueueNames'];
+                $model->queueNames = [];
+                $n1                = 0;
+                foreach ($map['QueueNames'] as $item1) {
+                    $model->queueNames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Sequence'])) {
             $model->sequence = $map['Sequence'];
         }
+
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
+
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
+                $model->status = [];
+                $n1            = 0;
+                foreach ($map['Status'] as $item1) {
+                    $model->status[$n1++] = $item1;
+                }
             }
         }
 

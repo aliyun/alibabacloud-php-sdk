@@ -4,48 +4,24 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsRequest\jobFilter;
-use AlibabaCloud\Tea\Model;
 
 class ListJobsRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example ehpc-hz-csbua72***
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The job filter information.
-     *
      * @var jobFilter
      */
     public $jobFilter;
-
     /**
-     * @description The page number of the page to return.
-     *
-     *   Pages start from page 1.
-     *   Default value: 1
-     *
-     * @example 1
-     *
      * @var string
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     *   Maximum value: 50.
-     *   Default value: 10
-     *
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;
@@ -58,20 +34,27 @@ class ListJobsRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->jobFilter) {
+            $this->jobFilter->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->jobFilter) {
-            $res['JobFilter'] = null !== $this->jobFilter ? $this->jobFilter->toMap() : null;
+            $res['JobFilter'] = null !== $this->jobFilter ? $this->jobFilter->toArray($noStream) : $this->jobFilter;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -79,23 +62,26 @@ class ListJobsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListJobsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['JobFilter'])) {
             $model->jobFilter = jobFilter::fromMap($map['JobFilter']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

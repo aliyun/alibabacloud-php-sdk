@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListQueuesRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example ehpc-hz-FYUr32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The names of the queues that you want to query. You can specify up to eight names.
-     *
      * @var string[]
      */
     public $queueNames;
@@ -30,35 +23,51 @@ class ListQueuesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->queueNames)) {
+            Model::validateArray($this->queueNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->queueNames) {
-            $res['QueueNames'] = $this->queueNames;
+            if (\is_array($this->queueNames)) {
+                $res['QueueNames'] = [];
+                $n1                = 0;
+                foreach ($this->queueNames as $item1) {
+                    $res['QueueNames'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListQueuesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['QueueNames'])) {
             if (!empty($map['QueueNames'])) {
-                $model->queueNames = $map['QueueNames'];
+                $model->queueNames = [];
+                $n1                = 0;
+                foreach ($map['QueueNames'] as $item1) {
+                    $model->queueNames[$n1++] = $item1;
+                }
             }
         }
 

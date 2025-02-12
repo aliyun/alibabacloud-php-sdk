@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListClustersResponseBody\clusters;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodes extends Model
 {
     /**
-     * @description The number of malfunctioning compute nodes.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $abnormalCounts;
-
     /**
-     * @description The number of compute nodes that are being created.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $creatingCounts;
-
     /**
-     * @description The number of running compute nodes.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $runningCounts;
@@ -42,17 +28,20 @@ class nodes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->abnormalCounts) {
             $res['AbnormalCounts'] = $this->abnormalCounts;
         }
+
         if (null !== $this->creatingCounts) {
             $res['CreatingCounts'] = $this->creatingCounts;
         }
+
         if (null !== $this->runningCounts) {
             $res['RunningCounts'] = $this->runningCounts;
         }
@@ -60,20 +49,22 @@ class nodes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AbnormalCounts'])) {
             $model->abnormalCounts = $map['AbnormalCounts'];
         }
+
         if (isset($map['CreatingCounts'])) {
             $model->creatingCounts = $map['CreatingCounts'];
         }
+
         if (isset($map['RunningCounts'])) {
             $model->runningCounts = $map['RunningCounts'];
         }

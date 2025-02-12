@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsResponseBody\jobs\jobSpec;
-use AlibabaCloud\Tea\Model;
 
 class jobs extends Model
 {
     /**
-     * @description The job name.
-     *
-     * @example testjob
-     *
      * @var string
      */
     public $jobName;
-
     /**
-     * @description The job configurations.
-     *
      * @var jobSpec
      */
     public $jobSpec;
@@ -31,32 +24,38 @@ class jobs extends Model
 
     public function validate()
     {
+        if (null !== $this->jobSpec) {
+            $this->jobSpec->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
+
         if (null !== $this->jobSpec) {
-            $res['JobSpec'] = null !== $this->jobSpec ? $this->jobSpec->toMap() : null;
+            $res['JobSpec'] = null !== $this->jobSpec ? $this->jobSpec->toArray($noStream) : $this->jobSpec;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
+
         if (isset($map['JobSpec'])) {
             $model->jobSpec = jobSpec::fromMap($map['JobSpec']);
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\AttachSharedStoragesRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\AttachSharedStoragesResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\AttachSharedStoragesShrinkRequest;
@@ -109,11 +108,10 @@ use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateQueueResponse;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateQueueShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateUserResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class EHPC extends OpenApiClient
 {
@@ -138,46 +136,55 @@ class EHPC extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
+     * Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * When you call this operation, take note of the following items:
      * *   The file system that you want to attach must be created in advance in the same virtual private cloud (VPC) as the destination cluster. For more information, see [Create a file system](https://help.aliyun.com/document_detail/27530.html) and [Manage mount targets](https://help.aliyun.com/document_detail/27531.html).
      * *   E-HPC clusters support Apsara File Storage NAS file systems.
-     *  *
-     * @param AttachSharedStoragesRequest $tmpReq  AttachSharedStoragesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachSharedStoragesResponse AttachSharedStoragesResponse
+     * @param tmpReq - AttachSharedStoragesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachSharedStoragesResponse
+     *
+     * @param AttachSharedStoragesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return AttachSharedStoragesResponse
      */
     public function attachSharedStoragesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AttachSharedStoragesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sharedStorages)) {
-            $request->sharedStoragesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sharedStorages, 'SharedStorages', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sharedStorages) {
+            $request->sharedStoragesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sharedStorages, 'SharedStorages', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->sharedStoragesShrink)) {
-            $query['SharedStorages'] = $request->sharedStoragesShrink;
+
+        if (null !== $request->sharedStoragesShrink) {
+            @$query['SharedStorages'] = $request->sharedStoragesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachSharedStorages',
@@ -190,21 +197,28 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachSharedStoragesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachSharedStoragesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachSharedStoragesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
+     * Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * When you call this operation, take note of the following items:
      * *   The file system that you want to attach must be created in advance in the same virtual private cloud (VPC) as the destination cluster. For more information, see [Create a file system](https://help.aliyun.com/document_detail/27530.html) and [Manage mount targets](https://help.aliyun.com/document_detail/27531.html).
      * *   E-HPC clusters support Apsara File Storage NAS file systems.
-     *  *
-     * @param AttachSharedStoragesRequest $request AttachSharedStoragesRequest
      *
-     * @return AttachSharedStoragesResponse AttachSharedStoragesResponse
+     * @param request - AttachSharedStoragesRequest
+     * @returns AttachSharedStoragesResponse
+     *
+     * @param AttachSharedStoragesRequest $request
+     *
+     * @return AttachSharedStoragesResponse
      */
     public function attachSharedStorages($request)
     {
@@ -214,111 +228,145 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
-     * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
-     *  *
-     * @param CreateClusterRequest $tmpReq  CreateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
+     *
+     * @param tmpReq - CreateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateClusterResponse
      */
     public function createClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->additionalPackages)) {
-            $request->additionalPackagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->additionalPackages, 'AdditionalPackages', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->additionalPackages) {
+            $request->additionalPackagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->additionalPackages, 'AdditionalPackages', 'json');
         }
-        if (!Utils::isUnset($tmpReq->addons)) {
-            $request->addonsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addons, 'Addons', 'json');
+
+        if (null !== $tmpReq->addons) {
+            $request->addonsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addons, 'Addons', 'json');
         }
-        if (!Utils::isUnset($tmpReq->clusterCredentials)) {
-            $request->clusterCredentialsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterCredentials, 'ClusterCredentials', 'json');
+
+        if (null !== $tmpReq->clusterCredentials) {
+            $request->clusterCredentialsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clusterCredentials, 'ClusterCredentials', 'json');
         }
-        if (!Utils::isUnset($tmpReq->clusterCustomConfiguration)) {
-            $request->clusterCustomConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterCustomConfiguration, 'ClusterCustomConfiguration', 'json');
+
+        if (null !== $tmpReq->clusterCustomConfiguration) {
+            $request->clusterCustomConfigurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clusterCustomConfiguration, 'ClusterCustomConfiguration', 'json');
         }
-        if (!Utils::isUnset($tmpReq->manager)) {
-            $request->managerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->manager, 'Manager', 'json');
+
+        if (null !== $tmpReq->manager) {
+            $request->managerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->manager, 'Manager', 'json');
         }
-        if (!Utils::isUnset($tmpReq->queues)) {
-            $request->queuesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queues, 'Queues', 'json');
+
+        if (null !== $tmpReq->queues) {
+            $request->queuesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queues, 'Queues', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sharedStorages)) {
-            $request->sharedStoragesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sharedStorages, 'SharedStorages', 'json');
+
+        if (null !== $tmpReq->sharedStorages) {
+            $request->sharedStoragesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sharedStorages, 'SharedStorages', 'json');
         }
-        if (!Utils::isUnset($tmpReq->tags)) {
-            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+
+        if (null !== $tmpReq->tags) {
+            $request->tagsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->additionalPackagesShrink)) {
-            $query['AdditionalPackages'] = $request->additionalPackagesShrink;
+        if (null !== $request->additionalPackagesShrink) {
+            @$query['AdditionalPackages'] = $request->additionalPackagesShrink;
         }
-        if (!Utils::isUnset($request->addonsShrink)) {
-            $query['Addons'] = $request->addonsShrink;
+
+        if (null !== $request->addonsShrink) {
+            @$query['Addons'] = $request->addonsShrink;
         }
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->clusterCategory)) {
-            $query['ClusterCategory'] = $request->clusterCategory;
+
+        if (null !== $request->clusterCategory) {
+            @$query['ClusterCategory'] = $request->clusterCategory;
         }
-        if (!Utils::isUnset($request->clusterCredentialsShrink)) {
-            $query['ClusterCredentials'] = $request->clusterCredentialsShrink;
+
+        if (null !== $request->clusterCredentialsShrink) {
+            @$query['ClusterCredentials'] = $request->clusterCredentialsShrink;
         }
-        if (!Utils::isUnset($request->clusterCustomConfigurationShrink)) {
-            $query['ClusterCustomConfiguration'] = $request->clusterCustomConfigurationShrink;
+
+        if (null !== $request->clusterCustomConfigurationShrink) {
+            @$query['ClusterCustomConfiguration'] = $request->clusterCustomConfigurationShrink;
         }
-        if (!Utils::isUnset($request->clusterDescription)) {
-            $query['ClusterDescription'] = $request->clusterDescription;
+
+        if (null !== $request->clusterDescription) {
+            @$query['ClusterDescription'] = $request->clusterDescription;
         }
-        if (!Utils::isUnset($request->clusterMode)) {
-            $query['ClusterMode'] = $request->clusterMode;
+
+        if (null !== $request->clusterMode) {
+            @$query['ClusterMode'] = $request->clusterMode;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->clusterVSwitchId)) {
-            $query['ClusterVSwitchId'] = $request->clusterVSwitchId;
+
+        if (null !== $request->clusterVSwitchId) {
+            @$query['ClusterVSwitchId'] = $request->clusterVSwitchId;
         }
-        if (!Utils::isUnset($request->clusterVpcId)) {
-            $query['ClusterVpcId'] = $request->clusterVpcId;
+
+        if (null !== $request->clusterVpcId) {
+            @$query['ClusterVpcId'] = $request->clusterVpcId;
         }
-        if (!Utils::isUnset($request->deletionProtection)) {
-            $query['DeletionProtection'] = $request->deletionProtection;
+
+        if (null !== $request->deletionProtection) {
+            @$query['DeletionProtection'] = $request->deletionProtection;
         }
-        if (!Utils::isUnset($request->isEnterpriseSecurityGroup)) {
-            $query['IsEnterpriseSecurityGroup'] = $request->isEnterpriseSecurityGroup;
+
+        if (null !== $request->isEnterpriseSecurityGroup) {
+            @$query['IsEnterpriseSecurityGroup'] = $request->isEnterpriseSecurityGroup;
         }
-        if (!Utils::isUnset($request->managerShrink)) {
-            $query['Manager'] = $request->managerShrink;
+
+        if (null !== $request->managerShrink) {
+            @$query['Manager'] = $request->managerShrink;
         }
-        if (!Utils::isUnset($request->maxCoreCount)) {
-            $query['MaxCoreCount'] = $request->maxCoreCount;
+
+        if (null !== $request->maxCoreCount) {
+            @$query['MaxCoreCount'] = $request->maxCoreCount;
         }
-        if (!Utils::isUnset($request->maxCount)) {
-            $query['MaxCount'] = $request->maxCount;
+
+        if (null !== $request->maxCount) {
+            @$query['MaxCount'] = $request->maxCount;
         }
-        if (!Utils::isUnset($request->queuesShrink)) {
-            $query['Queues'] = $request->queuesShrink;
+
+        if (null !== $request->queuesShrink) {
+            @$query['Queues'] = $request->queuesShrink;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$query['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->sharedStoragesShrink)) {
-            $query['SharedStorages'] = $request->sharedStoragesShrink;
+
+        if (null !== $request->sharedStoragesShrink) {
+            @$query['SharedStorages'] = $request->sharedStoragesShrink;
         }
-        if (!Utils::isUnset($request->tagsShrink)) {
-            $query['Tags'] = $request->tagsShrink;
+
+        if (null !== $request->tagsShrink) {
+            @$query['Tags'] = $request->tagsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCluster',
@@ -331,19 +379,26 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
-     * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
-     *  *
-     * @param CreateClusterRequest $request CreateClusterRequest
+     * Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return CreateClusterResponse CreateClusterResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
+     *
+     * @param request - CreateClusterRequest
+     * @returns CreateClusterResponse
+     *
+     * @param CreateClusterRequest $request
+     *
+     * @return CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -353,35 +408,44 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Creates a job for a cluster.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of E-HPC.
-     *  *
-     * @param CreateJobRequest $tmpReq  CreateJobRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Creates a job for a cluster.
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of E-HPC.
+     *
+     * @param tmpReq - CreateJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateJobResponse
      */
     public function createJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobSpec)) {
-            $request->jobSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobSpec, 'JobSpec', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobSpec) {
+            $request->jobSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobSpec, 'JobSpec', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobName)) {
-            $query['JobName'] = $request->jobName;
+
+        if (null !== $request->jobName) {
+            @$query['JobName'] = $request->jobName;
         }
-        if (!Utils::isUnset($request->jobSpecShrink)) {
-            $query['JobSpec'] = $request->jobSpecShrink;
+
+        if (null !== $request->jobSpecShrink) {
+            @$query['JobSpec'] = $request->jobSpecShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateJob',
@@ -394,18 +458,25 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a job for a cluster.
-     *  *
-     * @description Before you call this operation, make sure that you understand the billing and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of E-HPC.
-     *  *
-     * @param CreateJobRequest $request CreateJobRequest
+     * Creates a job for a cluster.
      *
-     * @return CreateJobResponse CreateJobResponse
+     * @remarks
+     * Before you call this operation, make sure that you understand the billing and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of E-HPC.
+     *
+     * @param request - CreateJobRequest
+     * @returns CreateJobResponse
+     *
+     * @param CreateJobRequest $request
+     *
+     * @return CreateJobResponse
      */
     public function createJob($request)
     {
@@ -415,59 +486,80 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)
-     *  *
-     * @param CreateNodesRequest $tmpReq  CreateNodesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return CreateNodesResponse CreateNodesResponse
+     * @remarks
+     * ## [](#)
+     *
+     * @param tmpReq - CreateNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateNodesResponse
+     *
+     * @param CreateNodesRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateNodesResponse
      */
     public function createNodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->computeNode)) {
-            $request->computeNodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->computeNode, 'ComputeNode', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->computeNode) {
+            $request->computeNodeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->computeNode, 'ComputeNode', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->computeNodeShrink)) {
-            $query['ComputeNode'] = $request->computeNodeShrink;
+
+        if (null !== $request->computeNodeShrink) {
+            @$query['ComputeNode'] = $request->computeNodeShrink;
         }
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
         }
-        if (!Utils::isUnset($request->deploymentSetId)) {
-            $query['DeploymentSetId'] = $request->deploymentSetId;
+
+        if (null !== $request->deploymentSetId) {
+            @$query['DeploymentSetId'] = $request->deploymentSetId;
         }
-        if (!Utils::isUnset($request->HPCInterConnect)) {
-            $query['HPCInterConnect'] = $request->HPCInterConnect;
+
+        if (null !== $request->HPCInterConnect) {
+            @$query['HPCInterConnect'] = $request->HPCInterConnect;
         }
-        if (!Utils::isUnset($request->hostnamePrefix)) {
-            $query['HostnamePrefix'] = $request->hostnamePrefix;
+
+        if (null !== $request->hostnamePrefix) {
+            @$query['HostnamePrefix'] = $request->hostnamePrefix;
         }
-        if (!Utils::isUnset($request->hostnameSuffix)) {
-            $query['HostnameSuffix'] = $request->hostnameSuffix;
+
+        if (null !== $request->hostnameSuffix) {
+            @$query['HostnameSuffix'] = $request->hostnameSuffix;
         }
-        if (!Utils::isUnset($request->keepAlive)) {
-            $query['KeepAlive'] = $request->keepAlive;
+
+        if (null !== $request->keepAlive) {
+            @$query['KeepAlive'] = $request->keepAlive;
         }
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
+
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
         }
-        if (!Utils::isUnset($request->ramRole)) {
-            $query['RamRole'] = $request->ramRole;
+
+        if (null !== $request->ramRole) {
+            @$query['RamRole'] = $request->ramRole;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->reservedNodePoolId) {
+            @$query['ReservedNodePoolId'] = $request->reservedNodePoolId;
         }
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateNodes',
@@ -480,18 +572,25 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNodesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)
-     *  *
-     * @param CreateNodesRequest $request CreateNodesRequest
+     * Creates compute nodes for an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return CreateNodesResponse CreateNodesResponse
+     * @remarks
+     * ## [](#)
+     *
+     * @param request - CreateNodesRequest
+     * @returns CreateNodesResponse
+     *
+     * @param CreateNodesRequest $request
+     *
+     * @return CreateNodesResponse
      */
     public function createNodes($request)
     {
@@ -501,30 +600,37 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Creates a queue for an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param CreateQueueRequest $tmpReq  CreateQueueRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates a queue for an Enterprise High Performance Computing (E-HPC) cluster.
      *
-     * @return CreateQueueResponse CreateQueueResponse
+     * @param tmpReq - CreateQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateQueueResponse
+     *
+     * @param CreateQueueRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateQueueResponse
      */
     public function createQueueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateQueueShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queue)) {
-            $request->queueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queue, 'Queue', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queue) {
+            $request->queueShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queue, 'Queue', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->queueShrink)) {
-            $query['Queue'] = $request->queueShrink;
+
+        if (null !== $request->queueShrink) {
+            @$query['Queue'] = $request->queueShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateQueue',
@@ -537,16 +643,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateQueueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a queue for an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param CreateQueueRequest $request CreateQueueRequest
+     * Creates a queue for an Enterprise High Performance Computing (E-HPC) cluster.
      *
-     * @return CreateQueueResponse CreateQueueResponse
+     * @param request - CreateQueueRequest
+     * @returns CreateQueueResponse
+     *
+     * @param CreateQueueRequest $request
+     *
+     * @return CreateQueueResponse
      */
     public function createQueue($request)
     {
@@ -556,30 +668,37 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param CreateUsersRequest $tmpReq  CreateUsersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Adds users to an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return CreateUsersResponse CreateUsersResponse
+     * @param tmpReq - CreateUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateUsersResponse
+     *
+     * @param CreateUsersRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateUsersResponse
      */
     public function createUsersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateUsersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->user)) {
-            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->user) {
+            $request->userShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->userShrink)) {
-            $query['User'] = $request->userShrink;
+
+        if (null !== $request->userShrink) {
+            @$query['User'] = $request->userShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateUsers',
@@ -592,16 +711,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds users to an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param CreateUsersRequest $request CreateUsersRequest
+     * Adds users to an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return CreateUsersResponse CreateUsersResponse
+     * @param request - CreateUsersRequest
+     * @returns CreateUsersResponse
+     *
+     * @param CreateUsersRequest $request
+     *
+     * @return CreateUsersResponse
      */
     public function createUsers($request)
     {
@@ -611,26 +736,32 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Releases an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
+     * Releases an Enterprise High Performance Computing (E-HPC) cluster.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * Make sure that data of the cluster to be deleted is backed up before you call this operation.
      * > After a cluster is released, you cannot restore the data stored in the cluster. Exercise caution when you release a cluster.
-     *  *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @param request - DeleteClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCluster',
@@ -643,20 +774,27 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
+     * Releases an Enterprise High Performance Computing (E-HPC) cluster.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * Make sure that data of the cluster to be deleted is backed up before you call this operation.
      * > After a cluster is released, you cannot restore the data stored in the cluster. Exercise caution when you release a cluster.
-     *  *
-     * @param DeleteClusterRequest $request DeleteClusterRequest
      *
-     * @return DeleteClusterResponse DeleteClusterResponse
+     * @param request - DeleteClusterRequest
+     * @returns DeleteClusterResponse
+     *
+     * @param DeleteClusterRequest $request
+     *
+     * @return DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -666,33 +804,41 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes compute nodes from an Enterprise High Performance Computing (E-HPC) cluster at a time.
-     *  *
-     * @description ## [](#)Usage notes
-     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
-     *  *
-     * @param DeleteNodesRequest $tmpReq  DeleteNodesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes compute nodes from an Enterprise High Performance Computing (E-HPC) cluster at a time.
      *
-     * @return DeleteNodesResponse DeleteNodesResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
+     *
+     * @param tmpReq - DeleteNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteNodesResponse
+     *
+     * @param DeleteNodesRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteNodesResponse
      */
     public function deleteNodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instanceIds)) {
-            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceIds) {
+            $request->instanceIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceIdsShrink)) {
-            $query['InstanceIds'] = $request->instanceIdsShrink;
+
+        if (null !== $request->instanceIdsShrink) {
+            @$query['InstanceIds'] = $request->instanceIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteNodes',
@@ -705,19 +851,26 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNodesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes compute nodes from an Enterprise High Performance Computing (E-HPC) cluster at a time.
-     *  *
-     * @description ## [](#)Usage notes
-     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
-     *  *
-     * @param DeleteNodesRequest $request DeleteNodesRequest
+     * Deletes compute nodes from an Enterprise High Performance Computing (E-HPC) cluster at a time.
      *
-     * @return DeleteNodesResponse DeleteNodesResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
+     *
+     * @param request - DeleteNodesRequest
+     * @returns DeleteNodesResponse
+     *
+     * @param DeleteNodesRequest $request
+     *
+     * @return DeleteNodesResponse
      */
     public function deleteNodes($request)
     {
@@ -727,33 +880,41 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes queues from an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
-     * Before you delete a queue, you must delete all compute nodes in the queue.
-     *  *
-     * @param DeleteQueuesRequest $tmpReq  DeleteQueuesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes queues from an Enterprise High Performance Computing (E-HPC) cluster.
      *
-     * @return DeleteQueuesResponse DeleteQueuesResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Before you delete a queue, you must delete all compute nodes in the queue.
+     *
+     * @param tmpReq - DeleteQueuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteQueuesResponse
+     *
+     * @param DeleteQueuesRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteQueuesResponse
      */
     public function deleteQueuesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteQueuesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queueNames)) {
-            $request->queueNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queueNames, 'QueueNames', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queueNames) {
+            $request->queueNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queueNames, 'QueueNames', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->queueNamesShrink)) {
-            $query['QueueNames'] = $request->queueNamesShrink;
+
+        if (null !== $request->queueNamesShrink) {
+            @$query['QueueNames'] = $request->queueNamesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteQueues',
@@ -766,19 +927,26 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteQueuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes queues from an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
-     * Before you delete a queue, you must delete all compute nodes in the queue.
-     *  *
-     * @param DeleteQueuesRequest $request DeleteQueuesRequest
+     * Deletes queues from an Enterprise High Performance Computing (E-HPC) cluster.
      *
-     * @return DeleteQueuesResponse DeleteQueuesResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Before you delete a queue, you must delete all compute nodes in the queue.
+     *
+     * @param request - DeleteQueuesRequest
+     * @returns DeleteQueuesResponse
+     *
+     * @param DeleteQueuesRequest $request
+     *
+     * @return DeleteQueuesResponse
      */
     public function deleteQueues($request)
     {
@@ -788,24 +956,29 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Deletes users from a cluster.
-     *  *
-     * @param DeleteUsersRequest $tmpReq  DeleteUsersRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes users from a cluster.
      *
-     * @return DeleteUsersResponse DeleteUsersResponse
+     * @param tmpReq - DeleteUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteUsersResponse
+     *
+     * @param DeleteUsersRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteUsersResponse
      */
     public function deleteUsersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteUsersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->user)) {
-            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->user) {
+            $request->userShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteUsers',
@@ -818,16 +991,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes users from a cluster.
-     *  *
-     * @param DeleteUsersRequest $request DeleteUsersRequest
+     * Deletes users from a cluster.
      *
-     * @return DeleteUsersResponse DeleteUsersResponse
+     * @param request - DeleteUsersRequest
+     * @returns DeleteUsersResponse
+     *
+     * @param DeleteUsersRequest $request
+     *
+     * @return DeleteUsersResponse
      */
     public function deleteUsers($request)
     {
@@ -837,37 +1016,47 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an addon template.
-     *  *
-     * @param DescribeAddonTemplateRequest $request DescribeAddonTemplateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an addon template.
      *
-     * @return DescribeAddonTemplateResponse DescribeAddonTemplateResponse
+     * @param request - DescribeAddonTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAddonTemplateResponse
+     *
+     * @param DescribeAddonTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAddonTemplateResponse
      */
     public function describeAddonTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonName)) {
-            $query['AddonName'] = $request->addonName;
+        if (null !== $request->addonName) {
+            @$query['AddonName'] = $request->addonName;
         }
-        if (!Utils::isUnset($request->addonVersion)) {
-            $query['AddonVersion'] = $request->addonVersion;
+
+        if (null !== $request->addonVersion) {
+            @$query['AddonVersion'] = $request->addonVersion;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAddonTemplate',
@@ -880,16 +1069,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAddonTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAddonTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAddonTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an addon template.
-     *  *
-     * @param DescribeAddonTemplateRequest $request DescribeAddonTemplateRequest
+     * Queries the details of an addon template.
      *
-     * @return DescribeAddonTemplateResponse DescribeAddonTemplateResponse
+     * @param request - DescribeAddonTemplateRequest
+     * @returns DescribeAddonTemplateResponse
+     *
+     * @param DescribeAddonTemplateRequest $request
+     *
+     * @return DescribeAddonTemplateResponse
      */
     public function describeAddonTemplate($request)
     {
@@ -899,30 +1094,37 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Unmounts shared storage from the mount directory of a cluster.
-     *  *
-     * @param DetachSharedStoragesRequest $tmpReq  DetachSharedStoragesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Unmounts shared storage from the mount directory of a cluster.
      *
-     * @return DetachSharedStoragesResponse DetachSharedStoragesResponse
+     * @param tmpReq - DetachSharedStoragesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachSharedStoragesResponse
+     *
+     * @param DetachSharedStoragesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DetachSharedStoragesResponse
      */
     public function detachSharedStoragesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetachSharedStoragesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sharedStorages)) {
-            $request->sharedStoragesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sharedStorages, 'SharedStorages', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sharedStorages) {
+            $request->sharedStoragesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sharedStorages, 'SharedStorages', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->sharedStoragesShrink)) {
-            $query['SharedStorages'] = $request->sharedStoragesShrink;
+
+        if (null !== $request->sharedStoragesShrink) {
+            @$query['SharedStorages'] = $request->sharedStoragesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachSharedStorages',
@@ -935,16 +1137,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachSharedStoragesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachSharedStoragesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachSharedStoragesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unmounts shared storage from the mount directory of a cluster.
-     *  *
-     * @param DetachSharedStoragesRequest $request DetachSharedStoragesRequest
+     * Unmounts shared storage from the mount directory of a cluster.
      *
-     * @return DetachSharedStoragesResponse DetachSharedStoragesResponse
+     * @param request - DetachSharedStoragesRequest
+     * @returns DetachSharedStoragesResponse
+     *
+     * @param DetachSharedStoragesRequest $request
+     *
+     * @return DetachSharedStoragesResponse
      */
     public function detachSharedStorages($request)
     {
@@ -954,25 +1162,31 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an installed addon.
-     *  *
-     * @param GetAddonRequest $request GetAddonRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an installed addon.
      *
-     * @return GetAddonResponse GetAddonResponse
+     * @param request - GetAddonRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAddonResponse
+     *
+     * @param GetAddonRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetAddonResponse
      */
     public function getAddonWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonId)) {
-            $query['AddonId'] = $request->addonId;
+        if (null !== $request->addonId) {
+            @$query['AddonId'] = $request->addonId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAddon',
@@ -985,16 +1199,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAddonResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an installed addon.
-     *  *
-     * @param GetAddonRequest $request GetAddonRequest
+     * Queries the details of an installed addon.
      *
-     * @return GetAddonResponse GetAddonResponse
+     * @param request - GetAddonRequest
+     * @returns GetAddonResponse
+     *
+     * @param GetAddonRequest $request
+     *
+     * @return GetAddonResponse
      */
     public function getAddon($request)
     {
@@ -1004,22 +1224,27 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param GetClusterRequest $request GetClusterRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries information about an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @param request - GetClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetClusterResponse
+     *
+     * @param GetClusterRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetClusterResponse
      */
     public function getClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCluster',
@@ -1032,16 +1257,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param GetClusterRequest $request GetClusterRequest
+     * Queries information about an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return GetClusterResponse GetClusterResponse
+     * @param request - GetClusterRequest
+     * @returns GetClusterResponse
+     *
+     * @param GetClusterRequest $request
+     *
+     * @return GetClusterResponse
      */
     public function getCluster($request)
     {
@@ -1051,31 +1282,39 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Query logs based on a request ID. Logs for specific actions can be queried thanks to an Action-Stage-Method three-layer log splitting structure.
-     *  *
-     * @param GetCommonLogDetailRequest $request GetCommonLogDetailRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query logs based on a request ID. Logs for specific actions can be queried thanks to an Action-Stage-Method three-layer log splitting structure.
      *
-     * @return GetCommonLogDetailResponse GetCommonLogDetailResponse
+     * @param request - GetCommonLogDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCommonLogDetailResponse
+     *
+     * @param GetCommonLogDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetCommonLogDetailResponse
      */
     public function getCommonLogDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->from)) {
-            $query['From'] = $request->from;
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
         }
-        if (!Utils::isUnset($request->hiddenProcess)) {
-            $query['HiddenProcess'] = $request->hiddenProcess;
+
+        if (null !== $request->hiddenProcess) {
+            @$query['HiddenProcess'] = $request->hiddenProcess;
         }
-        if (!Utils::isUnset($request->logRequestId)) {
-            $query['LogRequestId'] = $request->logRequestId;
+
+        if (null !== $request->logRequestId) {
+            @$query['LogRequestId'] = $request->logRequestId;
         }
-        if (!Utils::isUnset($request->to)) {
-            $query['To'] = $request->to;
+
+        if (null !== $request->to) {
+            @$query['To'] = $request->to;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCommonLogDetail',
@@ -1088,16 +1327,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCommonLogDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCommonLogDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCommonLogDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query logs based on a request ID. Logs for specific actions can be queried thanks to an Action-Stage-Method three-layer log splitting structure.
-     *  *
-     * @param GetCommonLogDetailRequest $request GetCommonLogDetailRequest
+     * Query logs based on a request ID. Logs for specific actions can be queried thanks to an Action-Stage-Method three-layer log splitting structure.
      *
-     * @return GetCommonLogDetailResponse GetCommonLogDetailResponse
+     * @param request - GetCommonLogDetailRequest
+     * @returns GetCommonLogDetailResponse
+     *
+     * @param GetCommonLogDetailRequest $request
+     *
+     * @return GetCommonLogDetailResponse
      */
     public function getCommonLogDetail($request)
     {
@@ -1107,25 +1352,31 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the details of a job.
-     *  *
-     * @param GetJobRequest  $request GetJobRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Obtains the details of a job.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetJobResponse
+     *
+     * @param GetJobRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetJobResponse
      */
     public function getJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetJob',
@@ -1138,16 +1389,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of a job.
-     *  *
-     * @param GetJobRequest $request GetJobRequest
+     * Obtains the details of a job.
      *
-     * @return GetJobResponse GetJobResponse
+     * @param request - GetJobRequest
+     * @returns GetJobResponse
+     *
+     * @param GetJobRequest $request
+     *
+     * @return GetJobResponse
      */
     public function getJob($request)
     {
@@ -1157,37 +1414,47 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the output logs of a job, including standard output logs and error output logs.
-     *  *
-     * @description ## [](#)Usage notes
-     * Currently, only Slurm and PBS Pro schedulers for Standard Edition clusters are supported.
-     *  *
-     * @param GetJobLogRequest $request GetJobLogRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the output logs of a job, including standard output logs and error output logs.
      *
-     * @return GetJobLogResponse GetJobLogResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Currently, only Slurm and PBS Pro schedulers for Standard Edition clusters are supported.
+     *
+     * @param request - GetJobLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetJobLogResponse
+     *
+     * @param GetJobLogRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetJobLogResponse
      */
     public function getJobLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->logType)) {
-            $query['LogType'] = $request->logType;
+
+        if (null !== $request->logType) {
+            @$query['LogType'] = $request->logType;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->size)) {
-            $query['Size'] = $request->size;
+
+        if (null !== $request->size) {
+            @$query['Size'] = $request->size;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetJobLog',
@@ -1200,19 +1467,26 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the output logs of a job, including standard output logs and error output logs.
-     *  *
-     * @description ## [](#)Usage notes
-     * Currently, only Slurm and PBS Pro schedulers for Standard Edition clusters are supported.
-     *  *
-     * @param GetJobLogRequest $request GetJobLogRequest
+     * Queries the output logs of a job, including standard output logs and error output logs.
      *
-     * @return GetJobLogResponse GetJobLogResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Currently, only Slurm and PBS Pro schedulers for Standard Edition clusters are supported.
+     *
+     * @param request - GetJobLogRequest
+     * @returns GetJobLogResponse
+     *
+     * @param GetJobLogRequest $request
+     *
+     * @return GetJobLogResponse
      */
     public function getJobLog($request)
     {
@@ -1222,25 +1496,31 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param GetQueueRequest $request GetQueueRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return GetQueueResponse GetQueueResponse
+     * @param request - GetQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetQueueResponse
+     *
+     * @param GetQueueRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetQueueResponse
      */
     public function getQueueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->queueName)) {
-            $query['QueueName'] = $request->queueName;
+
+        if (null !== $request->queueName) {
+            @$query['QueueName'] = $request->queueName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetQueue',
@@ -1253,16 +1533,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetQueueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param GetQueueRequest $request GetQueueRequest
+     * Queries the details of a queue in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return GetQueueResponse GetQueueResponse
+     * @param request - GetQueueRequest
+     * @returns GetQueueResponse
+     *
+     * @param GetQueueRequest $request
+     *
+     * @return GetQueueResponse
      */
     public function getQueue($request)
     {
@@ -1272,41 +1558,51 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Installs an addon.
-     *  *
-     * @description ## [](#)Usage notes
+     * Installs an addon.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * Take note of the following items when you call this operation:
      * *   The cluster must be in the `Running` state.
      * *   Clusters fall into two types:
      *     *   Regular clusters on Alibaba Cloud Public Cloud
      *     *   Managed clusters on Alibaba Cloud Public Cloud
-     *  *
-     * @param InstallAddonRequest $request InstallAddonRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallAddonResponse InstallAddonResponse
+     * @param request - InstallAddonRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InstallAddonResponse
+     *
+     * @param InstallAddonRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InstallAddonResponse
      */
     public function installAddonWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonName)) {
-            $query['AddonName'] = $request->addonName;
+        if (null !== $request->addonName) {
+            @$query['AddonName'] = $request->addonName;
         }
-        if (!Utils::isUnset($request->addonVersion)) {
-            $query['AddonVersion'] = $request->addonVersion;
+
+        if (null !== $request->addonVersion) {
+            @$query['AddonVersion'] = $request->addonVersion;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->resourcesSpec)) {
-            $query['ResourcesSpec'] = $request->resourcesSpec;
+
+        if (null !== $request->resourcesSpec) {
+            @$query['ResourcesSpec'] = $request->resourcesSpec;
         }
-        if (!Utils::isUnset($request->servicesSpec)) {
-            $query['ServicesSpec'] = $request->servicesSpec;
+
+        if (null !== $request->servicesSpec) {
+            @$query['ServicesSpec'] = $request->servicesSpec;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallAddon',
@@ -1319,23 +1615,30 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InstallAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InstallAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallAddonResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Installs an addon.
-     *  *
-     * @description ## [](#)Usage notes
+     * Installs an addon.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * Take note of the following items when you call this operation:
      * *   The cluster must be in the `Running` state.
      * *   Clusters fall into two types:
      *     *   Regular clusters on Alibaba Cloud Public Cloud
      *     *   Managed clusters on Alibaba Cloud Public Cloud
-     *  *
-     * @param InstallAddonRequest $request InstallAddonRequest
      *
-     * @return InstallAddonResponse InstallAddonResponse
+     * @param request - InstallAddonRequest
+     * @returns InstallAddonResponse
+     *
+     * @param InstallAddonRequest $request
+     *
+     * @return InstallAddonResponse
      */
     public function installAddon($request)
     {
@@ -1345,24 +1648,29 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Installs software for a specified cluster.
-     *  *
-     * @param InstallSoftwaresRequest $tmpReq  InstallSoftwaresRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Installs software for a specified cluster.
      *
-     * @return InstallSoftwaresResponse InstallSoftwaresResponse
+     * @param tmpReq - InstallSoftwaresRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InstallSoftwaresResponse
+     *
+     * @param InstallSoftwaresRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return InstallSoftwaresResponse
      */
     public function installSoftwaresWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new InstallSoftwaresShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->additionalPackages)) {
-            $request->additionalPackagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->additionalPackages, 'AdditionalPackages', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->additionalPackages) {
+            $request->additionalPackagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->additionalPackages, 'AdditionalPackages', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InstallSoftwares',
@@ -1375,16 +1683,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InstallSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InstallSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InstallSoftwaresResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Installs software for a specified cluster.
-     *  *
-     * @param InstallSoftwaresRequest $request InstallSoftwaresRequest
+     * Installs software for a specified cluster.
      *
-     * @return InstallSoftwaresResponse InstallSoftwaresResponse
+     * @param request - InstallSoftwaresRequest
+     * @returns InstallSoftwaresResponse
+     *
+     * @param InstallSoftwaresRequest $request
+     *
+     * @return InstallSoftwaresResponse
      */
     public function installSoftwares($request)
     {
@@ -1394,34 +1708,43 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries supported addon templates.
-     *  *
-     * @param ListAddonTemplatesRequest $request ListAddonTemplatesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries supported addon templates.
      *
-     * @return ListAddonTemplatesResponse ListAddonTemplatesResponse
+     * @param request - ListAddonTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAddonTemplatesResponse
+     *
+     * @param ListAddonTemplatesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAddonTemplatesResponse
      */
     public function listAddonTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonNames)) {
-            $query['AddonNames'] = $request->addonNames;
+        if (null !== $request->addonNames) {
+            @$query['AddonNames'] = $request->addonNames;
         }
-        if (!Utils::isUnset($request->clusterCategory)) {
-            $query['ClusterCategory'] = $request->clusterCategory;
+
+        if (null !== $request->clusterCategory) {
+            @$query['ClusterCategory'] = $request->clusterCategory;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAddonTemplates',
@@ -1434,16 +1757,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAddonTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAddonTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAddonTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries supported addon templates.
-     *  *
-     * @param ListAddonTemplatesRequest $request ListAddonTemplatesRequest
+     * Queries supported addon templates.
      *
-     * @return ListAddonTemplatesResponse ListAddonTemplatesResponse
+     * @param request - ListAddonTemplatesRequest
+     * @returns ListAddonTemplatesResponse
+     *
+     * @param ListAddonTemplatesRequest $request
+     *
+     * @return ListAddonTemplatesResponse
      */
     public function listAddonTemplates($request)
     {
@@ -1453,36 +1782,45 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries installed addons of an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param ListAddonsRequest $tmpReq  ListAddonsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries installed addons of an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return ListAddonsResponse ListAddonsResponse
+     * @param tmpReq - ListAddonsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAddonsResponse
+     *
+     * @param ListAddonsRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAddonsResponse
      */
     public function listAddonsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAddonsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addonIds)) {
-            $request->addonIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addonIds, 'AddonIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->addonIds) {
+            $request->addonIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->addonIds, 'AddonIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->addonIdsShrink)) {
-            $query['AddonIds'] = $request->addonIdsShrink;
+        if (null !== $request->addonIdsShrink) {
+            @$query['AddonIds'] = $request->addonIdsShrink;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAddons',
@@ -1495,16 +1833,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAddonsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries installed addons of an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param ListAddonsRequest $request ListAddonsRequest
+     * Queries installed addons of an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return ListAddonsResponse ListAddonsResponse
+     * @param request - ListAddonsRequest
+     * @returns ListAddonsResponse
+     *
+     * @param ListAddonsRequest $request
+     *
+     * @return ListAddonsResponse
      */
     public function listAddons($request)
     {
@@ -1514,25 +1858,31 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the file systems that can be attached in a region.
-     *  *
-     * @param ListAvailableFileSystemsRequest $request ListAvailableFileSystemsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the file systems that can be attached in a region.
      *
-     * @return ListAvailableFileSystemsResponse ListAvailableFileSystemsResponse
+     * @param request - ListAvailableFileSystemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAvailableFileSystemsResponse
+     *
+     * @param ListAvailableFileSystemsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAvailableFileSystemsResponse
      */
     public function listAvailableFileSystemsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAvailableFileSystems',
@@ -1545,16 +1895,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAvailableFileSystemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAvailableFileSystemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAvailableFileSystemsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the file systems that can be attached in a region.
-     *  *
-     * @param ListAvailableFileSystemsRequest $request ListAvailableFileSystemsRequest
+     * Queries the file systems that can be attached in a region.
      *
-     * @return ListAvailableFileSystemsResponse ListAvailableFileSystemsResponse
+     * @param request - ListAvailableFileSystemsRequest
+     * @returns ListAvailableFileSystemsResponse
+     *
+     * @param ListAvailableFileSystemsRequest $request
+     *
+     * @return ListAvailableFileSystemsResponse
      */
     public function listAvailableFileSystems($request)
     {
@@ -1564,27 +1920,33 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries images that are available for Elastic High Performance Computing (E-HPC) clusters.
-     *  *
-     * @param ListAvailableImagesRequest $tmpReq  ListAvailableImagesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries images that are available for Elastic High Performance Computing (E-HPC) clusters.
      *
-     * @return ListAvailableImagesResponse ListAvailableImagesResponse
+     * @param tmpReq - ListAvailableImagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAvailableImagesResponse
+     *
+     * @param ListAvailableImagesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAvailableImagesResponse
      */
     public function listAvailableImagesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAvailableImagesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->directoryService)) {
-            $request->directoryServiceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->directoryService, 'DirectoryService', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->directoryService) {
+            $request->directoryServiceShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->directoryService, 'DirectoryService', 'json');
         }
-        if (!Utils::isUnset($tmpReq->scheduler)) {
-            $request->schedulerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduler, 'Scheduler', 'json');
+
+        if (null !== $tmpReq->scheduler) {
+            $request->schedulerShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->scheduler, 'Scheduler', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAvailableImages',
@@ -1597,16 +1959,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAvailableImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAvailableImagesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAvailableImagesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries images that are available for Elastic High Performance Computing (E-HPC) clusters.
-     *  *
-     * @param ListAvailableImagesRequest $request ListAvailableImagesRequest
+     * Queries images that are available for Elastic High Performance Computing (E-HPC) clusters.
      *
-     * @return ListAvailableImagesResponse ListAvailableImagesResponse
+     * @param request - ListAvailableImagesRequest
+     * @returns ListAvailableImagesResponse
+     *
+     * @param ListAvailableImagesRequest $request
+     *
+     * @return ListAvailableImagesResponse
      */
     public function listAvailableImages($request)
     {
@@ -1616,39 +1984,49 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries all clusters of a user in each region.
-     *  *
-     * @param ListClustersRequest $tmpReq  ListClustersRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries all clusters of a user in each region.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param tmpReq - ListClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListClustersResponse
      */
     public function listClustersWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListClustersShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->clusterIds)) {
-            $request->clusterIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterIds, 'ClusterIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->clusterIds) {
+            $request->clusterIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clusterIds, 'ClusterIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->clusterNames)) {
-            $request->clusterNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterNames, 'ClusterNames', 'json');
+
+        if (null !== $tmpReq->clusterNames) {
+            $request->clusterNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clusterNames, 'ClusterNames', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterIdsShrink)) {
-            $query['ClusterIds'] = $request->clusterIdsShrink;
+        if (null !== $request->clusterIdsShrink) {
+            @$query['ClusterIds'] = $request->clusterIdsShrink;
         }
-        if (!Utils::isUnset($request->clusterNamesShrink)) {
-            $query['ClusterNames'] = $request->clusterNamesShrink;
+
+        if (null !== $request->clusterNamesShrink) {
+            @$query['ClusterNames'] = $request->clusterNamesShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListClusters',
@@ -1661,16 +2039,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListClustersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all clusters of a user in each region.
-     *  *
-     * @param ListClustersRequest $request ListClustersRequest
+     * Queries all clusters of a user in each region.
      *
-     * @return ListClustersResponse ListClustersResponse
+     * @param request - ListClustersRequest
+     * @returns ListClustersResponse
+     *
+     * @param ListClustersRequest $request
+     *
+     * @return ListClustersResponse
      */
     public function listClusters($request)
     {
@@ -1680,60 +2064,77 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the logs of a cluster that are generated within a time range.
-     *  *
-     * @param ListCommonLogsRequest $tmpReq  ListCommonLogsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the logs of a cluster that are generated within a time range.
      *
-     * @return ListCommonLogsResponse ListCommonLogsResponse
+     * @param tmpReq - ListCommonLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCommonLogsResponse
+     *
+     * @param ListCommonLogsRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListCommonLogsResponse
      */
     public function listCommonLogsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListCommonLogsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->actionName)) {
-            $request->actionNameShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->actionName, 'ActionName', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->actionName) {
+            $request->actionNameShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionName, 'ActionName', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->actionNameShrink)) {
-            $query['ActionName'] = $request->actionNameShrink;
+        if (null !== $request->actionNameShrink) {
+            @$query['ActionName'] = $request->actionNameShrink;
         }
-        if (!Utils::isUnset($request->actionStatus)) {
-            $query['ActionStatus'] = $request->actionStatus;
+
+        if (null !== $request->actionStatus) {
+            @$query['ActionStatus'] = $request->actionStatus;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->from)) {
-            $query['From'] = $request->from;
+
+        if (null !== $request->from) {
+            @$query['From'] = $request->from;
         }
-        if (!Utils::isUnset($request->isReverse)) {
-            $query['IsReverse'] = $request->isReverse;
+
+        if (null !== $request->isReverse) {
+            @$query['IsReverse'] = $request->isReverse;
         }
-        if (!Utils::isUnset($request->logRequestId)) {
-            $query['LogRequestId'] = $request->logRequestId;
+
+        if (null !== $request->logRequestId) {
+            @$query['LogRequestId'] = $request->logRequestId;
         }
-        if (!Utils::isUnset($request->logType)) {
-            $query['LogType'] = $request->logType;
+
+        if (null !== $request->logType) {
+            @$query['LogType'] = $request->logType;
         }
-        if (!Utils::isUnset($request->operatorUid)) {
-            $query['OperatorUid'] = $request->operatorUid;
+
+        if (null !== $request->operatorUid) {
+            @$query['OperatorUid'] = $request->operatorUid;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->to)) {
-            $query['To'] = $request->to;
+
+        if (null !== $request->to) {
+            @$query['To'] = $request->to;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCommonLogs',
@@ -1746,16 +2147,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCommonLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCommonLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCommonLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the logs of a cluster that are generated within a time range.
-     *  *
-     * @param ListCommonLogsRequest $request ListCommonLogsRequest
+     * Queries the logs of a cluster that are generated within a time range.
      *
-     * @return ListCommonLogsResponse ListCommonLogsResponse
+     * @param request - ListCommonLogsRequest
+     * @returns ListCommonLogsResponse
+     *
+     * @param ListCommonLogsRequest $request
+     *
+     * @return ListCommonLogsResponse
      */
     public function listCommonLogs($request)
     {
@@ -1765,19 +2172,23 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the installed software of a cluster.
-     *  *
-     * @param ListInstalledSoftwaresRequest $request ListInstalledSoftwaresRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the installed software of a cluster.
      *
-     * @return ListInstalledSoftwaresResponse ListInstalledSoftwaresResponse
+     * @param request - ListInstalledSoftwaresRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstalledSoftwaresResponse
+     *
+     * @param ListInstalledSoftwaresRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListInstalledSoftwaresResponse
      */
     public function listInstalledSoftwaresWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstalledSoftwares',
@@ -1790,16 +2201,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstalledSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstalledSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstalledSoftwaresResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the installed software of a cluster.
-     *  *
-     * @param ListInstalledSoftwaresRequest $request ListInstalledSoftwaresRequest
+     * Queries the installed software of a cluster.
      *
-     * @return ListInstalledSoftwaresResponse ListInstalledSoftwaresResponse
+     * @param request - ListInstalledSoftwaresRequest
+     * @returns ListInstalledSoftwaresResponse
+     *
+     * @param ListInstalledSoftwaresRequest $request
+     *
+     * @return ListInstalledSoftwaresResponse
      */
     public function listInstalledSoftwares($request)
     {
@@ -1809,36 +2226,45 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the jobs in a cluster.
-     *  *
-     * @param ListJobsRequest $tmpReq  ListJobsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the jobs in a cluster.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param tmpReq - ListJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListJobsResponse
      */
     public function listJobsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobFilter)) {
-            $request->jobFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobFilter, 'JobFilter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobFilter) {
+            $request->jobFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobFilter, 'JobFilter', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobFilterShrink)) {
-            $query['JobFilter'] = $request->jobFilterShrink;
+
+        if (null !== $request->jobFilterShrink) {
+            @$query['JobFilter'] = $request->jobFilterShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListJobs',
@@ -1851,16 +2277,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the jobs in a cluster.
-     *  *
-     * @param ListJobsRequest $request ListJobsRequest
+     * Queries the jobs in a cluster.
      *
-     * @return ListJobsResponse ListJobsResponse
+     * @param request - ListJobsRequest
+     * @returns ListJobsResponse
+     *
+     * @param ListJobsRequest $request
+     *
+     * @return ListJobsResponse
      */
     public function listJobs($request)
     {
@@ -1870,60 +2302,77 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the nodes of an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param ListNodesRequest $tmpReq  ListNodesRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the nodes of an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param tmpReq - ListNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $tmpReq
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListNodesResponse
      */
     public function listNodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->hostnames)) {
-            $request->hostnamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hostnames, 'Hostnames', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->hostnames) {
+            $request->hostnamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->hostnames, 'Hostnames', 'json');
         }
-        if (!Utils::isUnset($tmpReq->privateIpAddress)) {
-            $request->privateIpAddressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->privateIpAddress, 'PrivateIpAddress', 'json');
+
+        if (null !== $tmpReq->privateIpAddress) {
+            $request->privateIpAddressShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->privateIpAddress, 'PrivateIpAddress', 'json');
         }
-        if (!Utils::isUnset($tmpReq->queueNames)) {
-            $request->queueNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queueNames, 'QueueNames', 'json');
+
+        if (null !== $tmpReq->queueNames) {
+            $request->queueNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queueNames, 'QueueNames', 'json');
         }
-        if (!Utils::isUnset($tmpReq->status)) {
-            $request->statusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->status, 'Status', 'json');
+
+        if (null !== $tmpReq->status) {
+            $request->statusShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->status, 'Status', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->hostnamesShrink)) {
-            $query['Hostnames'] = $request->hostnamesShrink;
+
+        if (null !== $request->hostnamesShrink) {
+            @$query['Hostnames'] = $request->hostnamesShrink;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->privateIpAddressShrink)) {
-            $query['PrivateIpAddress'] = $request->privateIpAddressShrink;
+
+        if (null !== $request->privateIpAddressShrink) {
+            @$query['PrivateIpAddress'] = $request->privateIpAddressShrink;
         }
-        if (!Utils::isUnset($request->queueNamesShrink)) {
-            $query['QueueNames'] = $request->queueNamesShrink;
+
+        if (null !== $request->queueNamesShrink) {
+            @$query['QueueNames'] = $request->queueNamesShrink;
         }
-        if (!Utils::isUnset($request->sequence)) {
-            $query['Sequence'] = $request->sequence;
+
+        if (null !== $request->sequence) {
+            @$query['Sequence'] = $request->sequence;
         }
-        if (!Utils::isUnset($request->sortBy)) {
-            $query['SortBy'] = $request->sortBy;
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
         }
-        if (!Utils::isUnset($request->statusShrink)) {
-            $query['Status'] = $request->statusShrink;
+
+        if (null !== $request->statusShrink) {
+            @$query['Status'] = $request->statusShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListNodes',
@@ -1936,16 +2385,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNodesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the nodes of an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param ListNodesRequest $request ListNodesRequest
+     * Queries the nodes of an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return ListNodesResponse ListNodesResponse
+     * @param request - ListNodesRequest
+     * @returns ListNodesResponse
+     *
+     * @param ListNodesRequest $request
+     *
+     * @return ListNodesResponse
      */
     public function listNodes($request)
     {
@@ -1955,30 +2410,37 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries queues in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param ListQueuesRequest $tmpReq  ListQueuesRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries queues in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return ListQueuesResponse ListQueuesResponse
+     * @param tmpReq - ListQueuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListQueuesResponse
+     *
+     * @param ListQueuesRequest $tmpReq
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListQueuesResponse
      */
     public function listQueuesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListQueuesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queueNames)) {
-            $request->queueNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queueNames, 'QueueNames', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queueNames) {
+            $request->queueNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queueNames, 'QueueNames', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->queueNamesShrink)) {
-            $query['QueueNames'] = $request->queueNamesShrink;
+
+        if (null !== $request->queueNamesShrink) {
+            @$query['QueueNames'] = $request->queueNamesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListQueues',
@@ -1991,16 +2453,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListQueuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListQueuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries queues in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param ListQueuesRequest $request ListQueuesRequest
+     * Queries queues in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return ListQueuesResponse ListQueuesResponse
+     * @param request - ListQueuesRequest
+     * @returns ListQueuesResponse
+     *
+     * @param ListQueuesRequest $request
+     *
+     * @return ListQueuesResponse
      */
     public function listQueues($request)
     {
@@ -2010,28 +2478,35 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the shared storage that is attached to a cluster.
-     *  *
-     * @param ListSharedStoragesRequest $request ListSharedStoragesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the shared storage that is attached to a cluster.
      *
-     * @return ListSharedStoragesResponse ListSharedStoragesResponse
+     * @param request - ListSharedStoragesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSharedStoragesResponse
+     *
+     * @param ListSharedStoragesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListSharedStoragesResponse
      */
     public function listSharedStoragesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->fileSystemId)) {
-            $query['FileSystemId'] = $request->fileSystemId;
+
+        if (null !== $request->fileSystemId) {
+            @$query['FileSystemId'] = $request->fileSystemId;
         }
-        if (!Utils::isUnset($request->fileSystemType)) {
-            $query['FileSystemType'] = $request->fileSystemType;
+
+        if (null !== $request->fileSystemType) {
+            @$query['FileSystemType'] = $request->fileSystemType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSharedStorages',
@@ -2044,16 +2519,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSharedStoragesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSharedStoragesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSharedStoragesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the shared storage that is attached to a cluster.
-     *  *
-     * @param ListSharedStoragesRequest $request ListSharedStoragesRequest
+     * Queries the shared storage that is attached to a cluster.
      *
-     * @return ListSharedStoragesResponse ListSharedStoragesResponse
+     * @param request - ListSharedStoragesRequest
+     * @returns ListSharedStoragesResponse
+     *
+     * @param ListSharedStoragesRequest $request
+     *
+     * @return ListSharedStoragesResponse
      */
     public function listSharedStorages($request)
     {
@@ -2063,19 +2544,23 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the software that can be installed in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param ListSoftwaresRequest $request ListSoftwaresRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the software that can be installed in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return ListSoftwaresResponse ListSoftwaresResponse
+     * @param request - ListSoftwaresRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSoftwaresResponse
+     *
+     * @param ListSoftwaresRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListSoftwaresResponse
      */
     public function listSoftwaresWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSoftwares',
@@ -2088,16 +2573,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSoftwaresResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the software that can be installed in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param ListSoftwaresRequest $request ListSoftwaresRequest
+     * Queries the software that can be installed in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return ListSoftwaresResponse ListSoftwaresResponse
+     * @param request - ListSoftwaresRequest
+     * @returns ListSoftwaresResponse
+     *
+     * @param ListSoftwaresRequest $request
+     *
+     * @return ListSoftwaresResponse
      */
     public function listSoftwares($request)
     {
@@ -2107,19 +2598,23 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Queries the users of a cluster.
-     *  *
-     * @param ListUsersRequest $request ListUsersRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the users of a cluster.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param request - ListUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUsers',
@@ -2132,16 +2627,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the users of a cluster.
-     *  *
-     * @param ListUsersRequest $request ListUsersRequest
+     * Queries the users of a cluster.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param request - ListUsersRequest
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     *
+     * @return ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -2151,30 +2652,37 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Stops uncompleted jobs in a batch in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param StopJobsRequest $tmpReq  StopJobsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Stops uncompleted jobs in a batch in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return StopJobsResponse StopJobsResponse
+     * @param tmpReq - StopJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopJobsResponse
+     *
+     * @param StopJobsRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return StopJobsResponse
      */
     public function stopJobsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new StopJobsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobIds)) {
-            $request->jobIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->jobIds) {
+            $request->jobIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->jobIds, 'JobIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->jobIdsShrink)) {
-            $query['JobIds'] = $request->jobIdsShrink;
+
+        if (null !== $request->jobIdsShrink) {
+            @$query['JobIds'] = $request->jobIdsShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopJobs',
@@ -2187,16 +2695,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops uncompleted jobs in a batch in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param StopJobsRequest $request StopJobsRequest
+     * Stops uncompleted jobs in a batch in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return StopJobsResponse StopJobsResponse
+     * @param request - StopJobsRequest
+     * @returns StopJobsResponse
+     *
+     * @param StopJobsRequest $request
+     *
+     * @return StopJobsResponse
      */
     public function stopJobs($request)
     {
@@ -2206,32 +2720,39 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Uninstalls an addon.
-     *  *
-     * @description ## [](#)Usage notes
+     * Uninstalls an addon.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * Take note of the following items when you call this operation:
      * *   The cluster must be in the `Running` state.
      * *   Clusters fall into the following types:
      *     *   Regular clusters on Alibaba Cloud Public Cloud
      *     *   Managed clusters on Alibaba Cloud Public Cloud
-     *  *
-     * @param UnInstallAddonRequest $request UnInstallAddonRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnInstallAddonResponse UnInstallAddonResponse
+     * @param request - UnInstallAddonRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnInstallAddonResponse
+     *
+     * @param UnInstallAddonRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnInstallAddonResponse
      */
     public function unInstallAddonWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addonId)) {
-            $query['AddonId'] = $request->addonId;
+        if (null !== $request->addonId) {
+            @$query['AddonId'] = $request->addonId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnInstallAddon',
@@ -2244,23 +2765,30 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnInstallAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnInstallAddonResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnInstallAddonResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Uninstalls an addon.
-     *  *
-     * @description ## [](#)Usage notes
+     * Uninstalls an addon.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * Take note of the following items when you call this operation:
      * *   The cluster must be in the `Running` state.
      * *   Clusters fall into the following types:
      *     *   Regular clusters on Alibaba Cloud Public Cloud
      *     *   Managed clusters on Alibaba Cloud Public Cloud
-     *  *
-     * @param UnInstallAddonRequest $request UnInstallAddonRequest
      *
-     * @return UnInstallAddonResponse UnInstallAddonResponse
+     * @param request - UnInstallAddonRequest
+     * @returns UnInstallAddonResponse
+     *
+     * @param UnInstallAddonRequest $request
+     *
+     * @return UnInstallAddonResponse
      */
     public function unInstallAddon($request)
     {
@@ -2270,24 +2798,29 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Uninstalls software systems from an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param UninstallSoftwaresRequest $tmpReq  UninstallSoftwaresRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Uninstalls software systems from an Enterprise High Performance Computing (E-HPC) cluster.
      *
-     * @return UninstallSoftwaresResponse UninstallSoftwaresResponse
+     * @param tmpReq - UninstallSoftwaresRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UninstallSoftwaresResponse
+     *
+     * @param UninstallSoftwaresRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UninstallSoftwaresResponse
      */
     public function uninstallSoftwaresWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UninstallSoftwaresShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->additionalPackages)) {
-            $request->additionalPackagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->additionalPackages, 'AdditionalPackages', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->additionalPackages) {
+            $request->additionalPackagesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->additionalPackages, 'AdditionalPackages', 'json');
         }
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UninstallSoftwares',
@@ -2300,16 +2833,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UninstallSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UninstallSoftwaresResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UninstallSoftwaresResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Uninstalls software systems from an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param UninstallSoftwaresRequest $request UninstallSoftwaresRequest
+     * Uninstalls software systems from an Enterprise High Performance Computing (E-HPC) cluster.
      *
-     * @return UninstallSoftwaresResponse UninstallSoftwaresResponse
+     * @param request - UninstallSoftwaresRequest
+     * @returns UninstallSoftwaresResponse
+     *
+     * @param UninstallSoftwaresRequest $request
+     *
+     * @return UninstallSoftwaresResponse
      */
     public function uninstallSoftwares($request)
     {
@@ -2319,72 +2858,93 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param UpdateClusterRequest $tmpReq  UpdateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return UpdateClusterResponse UpdateClusterResponse
+     * @param tmpReq - UpdateClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateClusterResponse
+     *
+     * @param UpdateClusterRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateClusterResponse
      */
     public function updateClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateClusterShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->clusterCustomConfiguration)) {
-            $request->clusterCustomConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterCustomConfiguration, 'ClusterCustomConfiguration', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->clusterCustomConfiguration) {
+            $request->clusterCustomConfigurationShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->clusterCustomConfiguration, 'ClusterCustomConfiguration', 'json');
         }
-        if (!Utils::isUnset($tmpReq->monitorSpec)) {
-            $request->monitorSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitorSpec, 'MonitorSpec', 'json');
+
+        if (null !== $tmpReq->monitorSpec) {
+            $request->monitorSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->monitorSpec, 'MonitorSpec', 'json');
         }
-        if (!Utils::isUnset($tmpReq->schedulerSpec)) {
-            $request->schedulerSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedulerSpec, 'SchedulerSpec', 'json');
+
+        if (null !== $tmpReq->schedulerSpec) {
+            $request->schedulerSpecShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->schedulerSpec, 'SchedulerSpec', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientVersion)) {
-            $query['ClientVersion'] = $request->clientVersion;
+        if (null !== $request->clientVersion) {
+            @$query['ClientVersion'] = $request->clientVersion;
         }
-        if (!Utils::isUnset($request->clusterCustomConfigurationShrink)) {
-            $query['ClusterCustomConfiguration'] = $request->clusterCustomConfigurationShrink;
+
+        if (null !== $request->clusterCustomConfigurationShrink) {
+            @$query['ClusterCustomConfiguration'] = $request->clusterCustomConfigurationShrink;
         }
-        if (!Utils::isUnset($request->clusterDescription)) {
-            $query['ClusterDescription'] = $request->clusterDescription;
+
+        if (null !== $request->clusterDescription) {
+            @$query['ClusterDescription'] = $request->clusterDescription;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterName)) {
-            $query['ClusterName'] = $request->clusterName;
+
+        if (null !== $request->clusterName) {
+            @$query['ClusterName'] = $request->clusterName;
         }
-        if (!Utils::isUnset($request->deletionProtection)) {
-            $query['DeletionProtection'] = $request->deletionProtection;
+
+        if (null !== $request->deletionProtection) {
+            @$query['DeletionProtection'] = $request->deletionProtection;
         }
-        if (!Utils::isUnset($request->enableScaleIn)) {
-            $query['EnableScaleIn'] = $request->enableScaleIn;
+
+        if (null !== $request->enableScaleIn) {
+            @$query['EnableScaleIn'] = $request->enableScaleIn;
         }
-        if (!Utils::isUnset($request->enableScaleOut)) {
-            $query['EnableScaleOut'] = $request->enableScaleOut;
+
+        if (null !== $request->enableScaleOut) {
+            @$query['EnableScaleOut'] = $request->enableScaleOut;
         }
-        if (!Utils::isUnset($request->growInterval)) {
-            $query['GrowInterval'] = $request->growInterval;
+
+        if (null !== $request->growInterval) {
+            @$query['GrowInterval'] = $request->growInterval;
         }
-        if (!Utils::isUnset($request->idleInterval)) {
-            $query['IdleInterval'] = $request->idleInterval;
+
+        if (null !== $request->idleInterval) {
+            @$query['IdleInterval'] = $request->idleInterval;
         }
-        if (!Utils::isUnset($request->maxCoreCount)) {
-            $query['MaxCoreCount'] = $request->maxCoreCount;
+
+        if (null !== $request->maxCoreCount) {
+            @$query['MaxCoreCount'] = $request->maxCoreCount;
         }
-        if (!Utils::isUnset($request->maxCount)) {
-            $query['MaxCount'] = $request->maxCount;
+
+        if (null !== $request->maxCount) {
+            @$query['MaxCount'] = $request->maxCount;
         }
-        if (!Utils::isUnset($request->monitorSpecShrink)) {
-            $query['MonitorSpec'] = $request->monitorSpecShrink;
+
+        if (null !== $request->monitorSpecShrink) {
+            @$query['MonitorSpec'] = $request->monitorSpecShrink;
         }
-        if (!Utils::isUnset($request->schedulerSpecShrink)) {
-            $query['SchedulerSpec'] = $request->schedulerSpecShrink;
+
+        if (null !== $request->schedulerSpecShrink) {
+            @$query['SchedulerSpec'] = $request->schedulerSpecShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateCluster',
@@ -2397,16 +2957,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param UpdateClusterRequest $request UpdateClusterRequest
+     * Modifies the configurations of an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return UpdateClusterResponse UpdateClusterResponse
+     * @param request - UpdateClusterRequest
+     * @returns UpdateClusterResponse
+     *
+     * @param UpdateClusterRequest $request
+     *
+     * @return UpdateClusterResponse
      */
     public function updateCluster($request)
     {
@@ -2416,33 +2982,41 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of compute nodes in an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
-     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
-     *  *
-     * @param UpdateNodesRequest $tmpReq  UpdateNodesRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Updates the configurations of compute nodes in an Enterprise High Performance Computing (E-HPC) cluster.
      *
-     * @return UpdateNodesResponse UpdateNodesResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
+     *
+     * @param tmpReq - UpdateNodesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateNodesResponse
+     *
+     * @param UpdateNodesRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateNodesResponse
      */
     public function updateNodesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateNodesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->instances)) {
-            $request->instancesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instances, 'Instances', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instances) {
+            $request->instancesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instances, 'Instances', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instancesShrink)) {
-            $query['Instances'] = $request->instancesShrink;
+
+        if (null !== $request->instancesShrink) {
+            @$query['Instances'] = $request->instancesShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateNodes',
@@ -2455,19 +3029,26 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateNodesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the configurations of compute nodes in an Enterprise High Performance Computing (E-HPC) cluster.
-     *  *
-     * @description ## [](#)Usage notes
-     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
-     *  *
-     * @param UpdateNodesRequest $request UpdateNodesRequest
+     * Updates the configurations of compute nodes in an Enterprise High Performance Computing (E-HPC) cluster.
      *
-     * @return UpdateNodesResponse UpdateNodesResponse
+     * @remarks
+     * ## [](#)Usage notes
+     * Before you delete a compute node, we recommend that you export all job data from the node to prevent data loss.
+     *
+     * @param request - UpdateNodesRequest
+     * @returns UpdateNodesResponse
+     *
+     * @param UpdateNodesRequest $request
+     *
+     * @return UpdateNodesResponse
      */
     public function updateNodes($request)
     {
@@ -2477,30 +3058,37 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param UpdateQueueRequest $tmpReq  UpdateQueueRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return UpdateQueueResponse UpdateQueueResponse
+     * @param tmpReq - UpdateQueueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateQueueResponse
+     *
+     * @param UpdateQueueRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateQueueResponse
      */
     public function updateQueueWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateQueueShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queue)) {
-            $request->queueShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queue, 'Queue', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->queue) {
+            $request->queueShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->queue, 'Queue', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->queueShrink)) {
-            $query['Queue'] = $request->queueShrink;
+
+        if (null !== $request->queueShrink) {
+            @$query['Queue'] = $request->queueShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateQueue',
@@ -2513,16 +3101,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateQueueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateQueueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
-     *  *
-     * @param UpdateQueueRequest $request UpdateQueueRequest
+     * Modifies the configurations of a queue in an Elastic High Performance Computing (E-HPC) cluster.
      *
-     * @return UpdateQueueResponse UpdateQueueResponse
+     * @param request - UpdateQueueRequest
+     * @returns UpdateQueueResponse
+     *
+     * @param UpdateQueueRequest $request
+     *
+     * @return UpdateQueueResponse
      */
     public function updateQueue($request)
     {
@@ -2532,31 +3126,39 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param request - UpdateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->group)) {
-            $query['Group'] = $request->group;
+
+        if (null !== $request->group) {
+            @$query['Group'] = $request->group;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateUser',
@@ -2569,16 +3171,22 @@ class EHPC extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
+     * Updates the information of a user in an Elastic High Performance Computing (E-HPC) cluster, including the user group and password.
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param request - UpdateUserRequest
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
      */
     public function updateUser($request)
     {

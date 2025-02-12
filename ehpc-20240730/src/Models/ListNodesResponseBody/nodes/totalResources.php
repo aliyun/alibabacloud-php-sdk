@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListNodesResponseBody\nodes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class totalResources extends Model
 {
     /**
-     * @description The number of vCPUs.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $cpu;
-
     /**
-     * @description The number of GPUs.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $gpu;
-
     /**
-     * @description The amount of memory. Unit: GiB.
-     *
-     * @example 1024
-     *
      * @var int
      */
     public $memory;
@@ -42,17 +28,20 @@ class totalResources extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
@@ -60,20 +49,22 @@ class totalResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return totalResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
