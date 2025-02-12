@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainSecurityProfileRequest extends Model
 {
     /**
-     * @description The domain name of the website.
-     *
-     * This parameter is required.
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
@@ -23,9 +18,10 @@ class DescribeDomainSecurityProfileRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
@@ -35,11 +31,11 @@ class DescribeDomainSecurityProfileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainSecurityProfileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

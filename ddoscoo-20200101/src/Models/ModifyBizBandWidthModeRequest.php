@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyBizBandWidthModeRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-zvp2ay9b****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The metering method of the burstable clean bandwidth feature. Valid values:
-     *
-     *   **month**: the metering method of monthly 95th percentile
-     *   **day**: the metering method of daily 95th percentile
-     *
-     * This parameter is required.
-     * @example month
-     *
      * @var string
      */
     public $mode;
@@ -37,14 +23,16 @@ class ModifyBizBandWidthModeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
@@ -52,17 +40,18 @@ class ModifyBizBandWidthModeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyBizBandWidthModeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }

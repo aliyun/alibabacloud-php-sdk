@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyWebRuleResponseBody extends Model
 {
     /**
-     * @example CB3261D2-7D1B-4ADA-9E98-A200B2CDA2DC
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class ModifyWebRuleResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class ModifyWebRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyWebRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

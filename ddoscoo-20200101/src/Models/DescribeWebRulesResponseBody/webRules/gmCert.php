@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebRulesResponseBody\webRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class gmCert extends Model
 {
     /**
-     * @description The ID of the SM certificate.
-     *
-     * @example 725****
-     *
      * @var string
      */
     public $certId;
-
     /**
-     * @description Indicates whether Enable SM Certificate-based Verification is turned on.
-     *
-     *   0: no
-     *   1: yes
-     *
-     * @example 1
-     *
      * @var int
      */
     public $gmEnable;
-
     /**
-     * @description Indicates whether Allow Access Only from SM Certificates-based Clients is turned on.
-     *
-     *   0: no
-     *   1: yes
-     *
-     * @example 1
-     *
      * @var int
      */
     public $gmOnly;
@@ -48,17 +28,20 @@ class gmCert extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
+
         if (null !== $this->gmEnable) {
             $res['GmEnable'] = $this->gmEnable;
         }
+
         if (null !== $this->gmOnly) {
             $res['GmOnly'] = $this->gmOnly;
         }
@@ -66,20 +49,22 @@ class gmCert extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return gmCert
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }
+
         if (isset($map['GmEnable'])) {
             $model->gmEnable = $map['GmEnable'];
         }
+
         if (isset($map['GmOnly'])) {
             $model->gmOnly = $map['GmOnly'];
         }

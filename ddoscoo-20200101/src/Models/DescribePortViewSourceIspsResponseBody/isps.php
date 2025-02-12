@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortViewSourceIspsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class isps extends Model
 {
     /**
-     * @description The total number of requests that are sent from the ISP.
-     *
-     * > This parameter does not indicate the accurate number of requests. You can use this parameter to calculate the proportion of requests from different ISPs.
-     * @example 3390671
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The ID of the ISP. For more information, see the ISP codes table.
-     *
-     * @example 100017
-     *
      * @var string
      */
     public $ispId;
@@ -33,14 +23,16 @@ class isps extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->ispId) {
             $res['IspId'] = $this->ispId;
         }
@@ -48,17 +40,18 @@ class isps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return isps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['IspId'])) {
             $model->ispId = $map['IspId'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortFlowListResponseBody\portFlowList;
-use AlibabaCloud\Tea\Model;
 
 class DescribePortFlowListResponseBody extends Model
 {
     /**
-     * @description The returned traffic data.
-     *
      * @var portFlowList[]
      */
     public $portFlowList;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example FFC77501-BDF8-4BC8-9BF5-B295FBC3189B
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribePortFlowListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->portFlowList)) {
+            Model::validateArray($this->portFlowList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->portFlowList) {
-            $res['PortFlowList'] = [];
-            if (null !== $this->portFlowList && \is_array($this->portFlowList)) {
-                $n = 0;
-                foreach ($this->portFlowList as $item) {
-                    $res['PortFlowList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->portFlowList)) {
+                $res['PortFlowList'] = [];
+                $n1                  = 0;
+                foreach ($this->portFlowList as $item1) {
+                    $res['PortFlowList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribePortFlowListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePortFlowListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PortFlowList'])) {
             if (!empty($map['PortFlowList'])) {
                 $model->portFlowList = [];
-                $n                   = 0;
-                foreach ($map['PortFlowList'] as $item) {
-                    $model->portFlowList[$n++] = null !== $item ? portFlowList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['PortFlowList'] as $item1) {
+                    $model->portFlowList[$n1++] = portFlowList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

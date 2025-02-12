@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainQPSListResponseBody\domainQPSList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainQPSListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the statistics on the QPS of the website.
-     *
      * @var domainQPSList[]
      */
     public $domainQPSList;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 327F2ABB-104D-437A-AAB5-D633E29A8C51
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeDomainQPSListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->domainQPSList)) {
+            Model::validateArray($this->domainQPSList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainQPSList) {
-            $res['DomainQPSList'] = [];
-            if (null !== $this->domainQPSList && \is_array($this->domainQPSList)) {
-                $n = 0;
-                foreach ($this->domainQPSList as $item) {
-                    $res['DomainQPSList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainQPSList)) {
+                $res['DomainQPSList'] = [];
+                $n1                   = 0;
+                foreach ($this->domainQPSList as $item1) {
+                    $res['DomainQPSList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeDomainQPSListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainQPSListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainQPSList'])) {
             if (!empty($map['DomainQPSList'])) {
                 $model->domainQPSList = [];
-                $n                    = 0;
-                foreach ($map['DomainQPSList'] as $item) {
-                    $model->domainQPSList[$n++] = null !== $item ? domainQPSList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['DomainQPSList'] as $item1) {
+                    $model->domainQPSList[$n1++] = domainQPSList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

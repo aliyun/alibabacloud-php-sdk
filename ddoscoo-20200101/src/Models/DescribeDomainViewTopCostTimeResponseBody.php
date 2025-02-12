@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewTopCostTimeResponseBody\urlList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainViewTopCostTimeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The URLs which require the longest time to respond to requests.
-     *
      * @var urlList[]
      */
     public $urlList;
@@ -31,20 +24,25 @@ class DescribeDomainViewTopCostTimeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->urlList)) {
+            Model::validateArray($this->urlList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->urlList) {
-            $res['UrlList'] = [];
-            if (null !== $this->urlList && \is_array($this->urlList)) {
-                $n = 0;
-                foreach ($this->urlList as $item) {
-                    $res['UrlList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->urlList)) {
+                $res['UrlList'] = [];
+                $n1             = 0;
+                foreach ($this->urlList as $item1) {
+                    $res['UrlList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribeDomainViewTopCostTimeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainViewTopCostTimeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UrlList'])) {
             if (!empty($map['UrlList'])) {
                 $model->urlList = [];
-                $n              = 0;
-                foreach ($map['UrlList'] as $item) {
-                    $model->urlList[$n++] = null !== $item ? urlList::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['UrlList'] as $item1) {
+                    $model->urlList[$n1++] = urlList::fromMap($item1);
                 }
             }
         }

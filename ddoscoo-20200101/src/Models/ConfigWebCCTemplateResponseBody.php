@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigWebCCTemplateResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ConfigWebCCTemplateResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ConfigWebCCTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigWebCCTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyFullLogTtlRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-     *
-     * @example default
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The log storage duration of a website. Valid values: **30** to **180**. Unit: days.
-     *
-     * This parameter is required.
-     * @example 30
-     *
      * @var int
      */
     public $ttl;
@@ -33,14 +23,16 @@ class ModifyFullLogTtlRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
         }
@@ -48,17 +40,18 @@ class ModifyFullLogTtlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyFullLogTtlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];
         }

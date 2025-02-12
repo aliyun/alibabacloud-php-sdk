@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeNetworkRuleAttributesResponseBody\networkRuleAttributes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNetworkRuleAttributesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
-     *
      * @var networkRuleAttributes[]
      */
     public $networkRuleAttributes;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example F9F2F77D-307C-4F15-8D02-AB5957EEBF97
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeNetworkRuleAttributesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->networkRuleAttributes)) {
+            Model::validateArray($this->networkRuleAttributes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkRuleAttributes) {
-            $res['NetworkRuleAttributes'] = [];
-            if (null !== $this->networkRuleAttributes && \is_array($this->networkRuleAttributes)) {
-                $n = 0;
-                foreach ($this->networkRuleAttributes as $item) {
-                    $res['NetworkRuleAttributes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->networkRuleAttributes)) {
+                $res['NetworkRuleAttributes'] = [];
+                $n1                           = 0;
+                foreach ($this->networkRuleAttributes as $item1) {
+                    $res['NetworkRuleAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeNetworkRuleAttributesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNetworkRuleAttributesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkRuleAttributes'])) {
             if (!empty($map['NetworkRuleAttributes'])) {
                 $model->networkRuleAttributes = [];
-                $n                            = 0;
-                foreach ($map['NetworkRuleAttributes'] as $item) {
-                    $model->networkRuleAttributes[$n++] = null !== $item ? networkRuleAttributes::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['NetworkRuleAttributes'] as $item1) {
+                    $model->networkRuleAttributes[$n1++] = networkRuleAttributes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

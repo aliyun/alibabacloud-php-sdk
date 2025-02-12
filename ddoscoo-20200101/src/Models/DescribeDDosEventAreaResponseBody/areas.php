@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDDosEventAreaResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class areas extends Model
 {
     /**
-     * @description The code or ID of the source region. For more information, see [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html). For example, **110000** indicates Beijing, China, and **us** indicates the United States.
-     *
-     * @example 110000
-     *
      * @var string
      */
     public $area;
-
     /**
-     * @description The number of request packets that were sent from the source region.
-     *
-     * @example 228
-     *
      * @var int
      */
     public $inPkts;
@@ -32,14 +23,16 @@ class areas extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->area) {
             $res['Area'] = $this->area;
         }
+
         if (null !== $this->inPkts) {
             $res['InPkts'] = $this->inPkts;
         }
@@ -47,17 +40,18 @@ class areas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return areas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Area'])) {
             $model->area = $map['Area'];
         }
+
         if (isset($map['InPkts'])) {
             $model->inPkts = $map['InPkts'];
         }

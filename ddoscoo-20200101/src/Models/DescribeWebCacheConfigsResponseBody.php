@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCacheConfigsResponseBody\domainCacheConfigs;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWebCacheConfigsResponseBody extends Model
 {
     /**
-     * @description An array that consists of Static Page Caching configurations.
-     *
      * @var domainCacheConfigs[]
      */
     public $domainCacheConfigs;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeWebCacheConfigsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->domainCacheConfigs)) {
+            Model::validateArray($this->domainCacheConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainCacheConfigs) {
-            $res['DomainCacheConfigs'] = [];
-            if (null !== $this->domainCacheConfigs && \is_array($this->domainCacheConfigs)) {
-                $n = 0;
-                foreach ($this->domainCacheConfigs as $item) {
-                    $res['DomainCacheConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainCacheConfigs)) {
+                $res['DomainCacheConfigs'] = [];
+                $n1                        = 0;
+                foreach ($this->domainCacheConfigs as $item1) {
+                    $res['DomainCacheConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeWebCacheConfigsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebCacheConfigsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainCacheConfigs'])) {
             if (!empty($map['DomainCacheConfigs'])) {
                 $model->domainCacheConfigs = [];
-                $n                         = 0;
-                foreach ($map['DomainCacheConfigs'] as $item) {
-                    $model->domainCacheConfigs[$n++] = null !== $item ? domainCacheConfigs::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['DomainCacheConfigs'] as $item1) {
+                    $model->domainCacheConfigs[$n1++] = domainCacheConfigs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

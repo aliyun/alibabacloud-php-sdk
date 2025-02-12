@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainBpsResponseBody\domainBps;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainBpsResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class DescribeDomainBpsResponseBody extends Model
      * @var domainBps[]
      */
     public $domainBps;
-
     /**
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +24,25 @@ class DescribeDomainBpsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->domainBps)) {
+            Model::validateArray($this->domainBps);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainBps) {
-            $res['DomainBps'] = [];
-            if (null !== $this->domainBps && \is_array($this->domainBps)) {
-                $n = 0;
-                foreach ($this->domainBps as $item) {
-                    $res['DomainBps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainBps)) {
+                $res['DomainBps'] = [];
+                $n1               = 0;
+                foreach ($this->domainBps as $item1) {
+                    $res['DomainBps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +50,24 @@ class DescribeDomainBpsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainBpsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainBps'])) {
             if (!empty($map['DomainBps'])) {
                 $model->domainBps = [];
-                $n                = 0;
-                foreach ($map['DomainBps'] as $item) {
-                    $model->domainBps[$n++] = null !== $item ? domainBps::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['DomainBps'] as $item1) {
+                    $model->domainBps[$n1++] = domainBps::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

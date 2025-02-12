@@ -4,43 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPortAutoCcStatusRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The mode of the Intelligent Protection policy. Valid values:
-     *
-     *   **normal**
-     *   **loose**
-     *   **strict**
-     *
-     * This parameter is required.
-     * @example normal
-     *
      * @var string
      */
     public $mode;
-
     /**
-     * @description Specifies the status of the Intelligent Protection policy. Valid values:
-     *
-     *   **on**: enables the policy.
-     *   **off**: disables the policy.
-     *
-     * This parameter is required.
-     * @example on
-     *
      * @var string
      */
     public $switch;
@@ -52,17 +28,20 @@ class ModifyPortAutoCcStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->switch) {
             $res['Switch'] = $this->switch;
         }
@@ -70,20 +49,22 @@ class ModifyPortAutoCcStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPortAutoCcStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['Switch'])) {
             $model->switch = $map['Switch'];
         }

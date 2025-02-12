@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeBlockStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeBlockStatusResponseBody\statusList\blockStatusList;
-use AlibabaCloud\Tea\Model;
 
 class statusList extends Model
 {
     /**
-     * @description An array that consists of details of the Diversion from Origin Server configuration.
-     *
      * @var blockStatusList[]
      */
     public $blockStatusList;
-
     /**
-     * @description The IP address of the instance.
-     *
-     * @example 203.XX.XX.88
-     *
      * @var string
      */
     public $ip;
@@ -31,20 +24,25 @@ class statusList extends Model
 
     public function validate()
     {
+        if (\is_array($this->blockStatusList)) {
+            Model::validateArray($this->blockStatusList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockStatusList) {
-            $res['BlockStatusList'] = [];
-            if (null !== $this->blockStatusList && \is_array($this->blockStatusList)) {
-                $n = 0;
-                foreach ($this->blockStatusList as $item) {
-                    $res['BlockStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->blockStatusList)) {
+                $res['BlockStatusList'] = [];
+                $n1                     = 0;
+                foreach ($this->blockStatusList as $item1) {
+                    $res['BlockStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -52,23 +50,24 @@ class statusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockStatusList'])) {
             if (!empty($map['BlockStatusList'])) {
                 $model->blockStatusList = [];
-                $n                      = 0;
-                foreach ($map['BlockStatusList'] as $item) {
-                    $model->blockStatusList[$n++] = null !== $item ? blockStatusList::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['BlockStatusList'] as $item1) {
+                    $model->blockStatusList[$n1++] = blockStatusList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }

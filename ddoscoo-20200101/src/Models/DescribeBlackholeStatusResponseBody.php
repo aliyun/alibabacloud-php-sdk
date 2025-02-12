@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeBlackholeStatusResponseBody\blackholeStatus;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBlackholeStatusResponseBody extends Model
 {
     /**
-     * @description An array that consists of the blackhole filtering status of the instance.
-     *
      * @var blackholeStatus[]
      */
     public $blackholeStatus;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeBlackholeStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->blackholeStatus)) {
+            Model::validateArray($this->blackholeStatus);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blackholeStatus) {
-            $res['BlackholeStatus'] = [];
-            if (null !== $this->blackholeStatus && \is_array($this->blackholeStatus)) {
-                $n = 0;
-                foreach ($this->blackholeStatus as $item) {
-                    $res['BlackholeStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->blackholeStatus)) {
+                $res['BlackholeStatus'] = [];
+                $n1                     = 0;
+                foreach ($this->blackholeStatus as $item1) {
+                    $res['BlackholeStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeBlackholeStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBlackholeStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlackholeStatus'])) {
             if (!empty($map['BlackholeStatus'])) {
                 $model->blackholeStatus = [];
-                $n                      = 0;
-                foreach ($map['BlackholeStatus'] as $item) {
-                    $model->blackholeStatus[$n++] = null !== $item ? blackholeStatus::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['BlackholeStatus'] as $item1) {
+                    $model->blackholeStatus[$n1++] = blackholeStatus::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainBpsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainBps extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $inBps;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $index;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $outBps;
@@ -36,17 +28,20 @@ class domainBps extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inBps) {
             $res['InBps'] = $this->inBps;
         }
+
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->outBps) {
             $res['OutBps'] = $this->outBps;
         }
@@ -54,20 +49,22 @@ class domainBps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainBps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InBps'])) {
             $model->inBps = $map['InBps'];
         }
+
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['OutBps'])) {
             $model->outBps = $map['OutBps'];
         }

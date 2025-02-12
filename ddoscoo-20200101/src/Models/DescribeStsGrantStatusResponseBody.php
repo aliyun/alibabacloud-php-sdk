@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeStsGrantStatusResponseBody\stsGrant;
-use AlibabaCloud\Tea\Model;
 
 class DescribeStsGrantStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The authorization status of Anti-DDoS Pro or Anti-DDoS Premium.
-     *
      * @var stsGrant
      */
     public $stsGrant;
@@ -31,32 +24,38 @@ class DescribeStsGrantStatusResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->stsGrant) {
+            $this->stsGrant->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->stsGrant) {
-            $res['StsGrant'] = null !== $this->stsGrant ? $this->stsGrant->toMap() : null;
+            $res['StsGrant'] = null !== $this->stsGrant ? $this->stsGrant->toArray($noStream) : $this->stsGrant;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeStsGrantStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StsGrant'])) {
             $model->stsGrant = stsGrant::fromMap($map['StsGrant']);
         }

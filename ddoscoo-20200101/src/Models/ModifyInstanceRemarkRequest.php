@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceRemarkRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The description of the instance.
-     *
-     * The value can contain letters, digits, and some special characters, such as`, . + - * / _` The value can be up to 500 characters in length.
-     *
-     * This parameter is required.
-     * @example new-remark
-     *
      * @var string
      */
     public $remark;
@@ -36,14 +23,16 @@ class ModifyInstanceRemarkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
         }
@@ -51,17 +40,18 @@ class ModifyInstanceRemarkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceRemarkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
         }

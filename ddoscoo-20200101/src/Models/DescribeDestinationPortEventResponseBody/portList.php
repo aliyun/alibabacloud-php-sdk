@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDestinationPortEventResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class portList extends Model
 {
     /**
-     * @description The destination port.
-     *
-     * @example 80
-     *
      * @var string
      */
     public $dstPort;
-
     /**
-     * @description The number of request packets received by the destination port.
-     *
-     * @example 8760950
-     *
      * @var int
      */
     public $inPkts;
@@ -32,14 +23,16 @@ class portList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dstPort) {
             $res['DstPort'] = $this->dstPort;
         }
+
         if (null !== $this->inPkts) {
             $res['InPkts'] = $this->inPkts;
         }
@@ -47,17 +40,18 @@ class portList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return portList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DstPort'])) {
             $model->dstPort = $map['DstPort'];
         }
+
         if (isset($map['InPkts'])) {
             $model->inPkts = $map['InPkts'];
         }

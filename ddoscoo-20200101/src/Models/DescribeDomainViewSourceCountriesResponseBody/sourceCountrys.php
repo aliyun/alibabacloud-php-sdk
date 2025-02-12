@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewSourceCountriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceCountrys extends Model
 {
     /**
-     * @description The total number of requests.
-     *
-     * @example 3390671
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The abbreviation of the country or area. For more information, see the **Codes of countries and areas** section of the [Codes of administrative regions in China and codes of countries and areas](https://help.aliyun.com/document_detail/167926.html) topic. For example, **cn** indicates China, and **us** indicates the United States.
-     *
-     * @example cn
-     *
      * @var string
      */
     public $countryId;
@@ -32,14 +23,16 @@ class sourceCountrys extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->countryId) {
             $res['CountryId'] = $this->countryId;
         }
@@ -47,17 +40,18 @@ class sourceCountrys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceCountrys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['CountryId'])) {
             $model->countryId = $map['CountryId'];
         }

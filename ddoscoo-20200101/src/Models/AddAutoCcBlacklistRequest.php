@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddAutoCcBlacklistRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example [{"src":"198.51.XX.XX"},{"src":"198.52.XX.XX"}]
-     *
      * @var string
      */
     public $blacklist;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 300
-     *
      * @var int
      */
     public $expireTime;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string
      */
     public $instanceId;
@@ -42,17 +28,20 @@ class AddAutoCcBlacklistRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blacklist) {
             $res['Blacklist'] = $this->blacklist;
         }
+
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -60,20 +49,22 @@ class AddAutoCcBlacklistRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddAutoCcBlacklistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Blacklist'])) {
             $model->blacklist = $map['Blacklist'];
         }
+
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

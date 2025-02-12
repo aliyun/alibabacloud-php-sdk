@@ -4,30 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyWebAccessModeRequest extends Model
 {
     /**
-     * @description The mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium. Valid values:
-     *
-     *   **0**: A record mode
-     *   **1**: anti-DDoS mode
-     *   **2**: origin redundancy mode
-     *
-     * This parameter is required.
-     * @example 2
-     *
      * @var int
      */
     public $accessMode;
-
     /**
-     * @description The domain name of the website.
-     *
-     * This parameter is required.
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $domain;
@@ -38,14 +23,16 @@ class ModifyWebAccessModeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessMode) {
             $res['AccessMode'] = $this->accessMode;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -53,17 +40,18 @@ class ModifyWebAccessModeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyWebAccessModeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessMode'])) {
             $model->accessMode = $map['AccessMode'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }

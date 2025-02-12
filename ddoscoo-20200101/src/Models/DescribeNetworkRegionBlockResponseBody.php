@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeNetworkRegionBlockResponseBody\config;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNetworkRegionBlockResponseBody extends Model
 {
     /**
-     * @description The configuration of blocked locations.
-     *
      * @var config
      */
     public $config;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeNetworkRegionBlockResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->config) {
+            $this->config->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
-            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
+            $res['Config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeNetworkRegionBlockResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNetworkRegionBlockResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = config::fromMap($map['Config']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

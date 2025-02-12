@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssociateWebCertResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 40F11005-A75C-4644-95F2-52A4E7D43E91
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AssociateWebCertResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AssociateWebCertResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssociateWebCertResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

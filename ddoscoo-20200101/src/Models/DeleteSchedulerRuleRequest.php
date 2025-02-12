@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSchedulerRuleRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-     *
-     * @example default
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The name of the scheduling rule that you want to delete.
-     *
-     * This parameter is required.
-     * @example testrule
-     *
      * @var string
      */
     public $ruleName;
@@ -33,14 +23,16 @@ class DeleteSchedulerRuleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
@@ -48,17 +40,18 @@ class DeleteSchedulerRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSchedulerRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }

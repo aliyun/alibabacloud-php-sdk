@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainH2FingerprintResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainH2Fp extends Model
 {
     /**
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @example 532501bc316d02c8b1a007db76f2c796
-     *
      * @var string
      */
     public $h2Fingerprint;
-
     /**
-     * @example 471755
-     *
      * @var int
      */
     public $pv;
@@ -36,17 +28,20 @@ class domainH2Fp extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->h2Fingerprint) {
             $res['H2Fingerprint'] = $this->h2Fingerprint;
         }
+
         if (null !== $this->pv) {
             $res['Pv'] = $this->pv;
         }
@@ -54,20 +49,22 @@ class domainH2Fp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainH2Fp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['H2Fingerprint'])) {
             $model->h2Fingerprint = $map['H2Fingerprint'];
         }
+
         if (isset($map['Pv'])) {
             $model->pv = $map['Pv'];
         }

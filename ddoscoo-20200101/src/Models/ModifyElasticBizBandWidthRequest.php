@@ -4,38 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyElasticBizBandWidthRequest extends Model
 {
     /**
-     * @description The burstable clean bandwidth. Unit: Mbit/s. The burstable clean bandwidth cannot exceed nine times the clean bandwidth of your Anti-DDoS Pro or Anti-DDoS Premium instance, and the sum of the clean bandwidth and the burstable clean bandwidth cannot exceed the maximum clean bandwidth that is supported by your instance. The value 0 indicates that the burstable clean bandwidth feature is disabled. You can disable the burstable clean bandwidth feature once a month.
-     *
-     * This parameter is required.
-     * @example 0
-     *
      * @var int
      */
     public $elasticBizBandwidth;
-
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-tl32morr****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The metering method of the burstable clean bandwidth feature. Valid values:
-     *
-     *   **month**: the metering method of monthly 95th percentile
-     *   **day**: the metering method of daily 95th percentile
-     *
-     * @example month
-     *
      * @var string
      */
     public $mode;
@@ -47,17 +28,20 @@ class ModifyElasticBizBandWidthRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticBizBandwidth) {
             $res['ElasticBizBandwidth'] = $this->elasticBizBandwidth;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
@@ -65,20 +49,22 @@ class ModifyElasticBizBandWidthRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyElasticBizBandWidthRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticBizBandwidth'])) {
             $model->elasticBizBandwidth = $map['ElasticBizBandwidth'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }

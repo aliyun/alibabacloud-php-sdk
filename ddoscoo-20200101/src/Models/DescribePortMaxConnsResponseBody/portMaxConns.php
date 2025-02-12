@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortMaxConnsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class portMaxConns extends Model
 {
     /**
-     * @description The maximum number of connections per second (CPS).
-     *
-     * @example 100
-     *
      * @var int
      */
     public $cps;
-
     /**
-     * @description The IP address of the instance.
-     *
-     * @example 203.***.***.117
-     *
      * @var string
      */
     public $ip;
-
     /**
-     * @description The port of the instance.
-     *
-     * @example 80
-     *
      * @var string
      */
     public $port;
@@ -42,17 +28,20 @@ class portMaxConns extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cps) {
             $res['Cps'] = $this->cps;
         }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -60,20 +49,22 @@ class portMaxConns extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return portMaxConns
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cps'])) {
             $model->cps = $map['Cps'];
         }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

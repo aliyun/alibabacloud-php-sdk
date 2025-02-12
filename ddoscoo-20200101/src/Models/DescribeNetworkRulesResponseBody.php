@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeNetworkRulesResponseBody\networkRules;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNetworkRulesResponseBody extends Model
 {
     /**
-     * @description The details of the port forwarding rule.
-     *
      * @var networkRules[]
      */
     public $networkRules;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 8597F235-FA5E-4FC7-BAD9-E4C0B01BC771
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of returned port forwarding rules.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -41,23 +29,29 @@ class DescribeNetworkRulesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->networkRules)) {
+            Model::validateArray($this->networkRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkRules) {
-            $res['NetworkRules'] = [];
-            if (null !== $this->networkRules && \is_array($this->networkRules)) {
-                $n = 0;
-                foreach ($this->networkRules as $item) {
-                    $res['NetworkRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->networkRules)) {
+                $res['NetworkRules'] = [];
+                $n1                  = 0;
+                foreach ($this->networkRules as $item1) {
+                    $res['NetworkRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +59,28 @@ class DescribeNetworkRulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNetworkRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkRules'])) {
             if (!empty($map['NetworkRules'])) {
                 $model->networkRules = [];
-                $n                   = 0;
-                foreach ($map['NetworkRules'] as $item) {
-                    $model->networkRules[$n++] = null !== $item ? networkRules::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['NetworkRules'] as $item1) {
+                    $model->networkRules[$n1++] = networkRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeBlockStatusResponseBody\statusList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBlockStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array that consists of details of the Diversion from Origin Server configurations of the instance.
-     *
      * @var statusList[]
      */
     public $statusList;
@@ -31,20 +24,25 @@ class DescribeBlockStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->statusList)) {
+            Model::validateArray($this->statusList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->statusList) {
-            $res['StatusList'] = [];
-            if (null !== $this->statusList && \is_array($this->statusList)) {
-                $n = 0;
-                foreach ($this->statusList as $item) {
-                    $res['StatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statusList)) {
+                $res['StatusList'] = [];
+                $n1                = 0;
+                foreach ($this->statusList as $item1) {
+                    $res['StatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribeBlockStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBlockStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
                 $model->statusList = [];
-                $n                 = 0;
-                foreach ($map['StatusList'] as $item) {
-                    $model->statusList[$n++] = null !== $item ? statusList::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['StatusList'] as $item1) {
+                    $model->statusList[$n1++] = statusList::fromMap($item1);
                 }
             }
         }

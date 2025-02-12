@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAttackAnalysisMaxQpsResponseBody extends Model
 {
     /**
-     * @description The peak queries per second (QPS) of DDoS attacks. Units: QPS.
-     *
-     * @example 41652
-     *
      * @var int
      */
     public $qps;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 8DFB602D-1AAC-46C4-90F2-C84086E7A6E4
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DescribeAttackAnalysisMaxQpsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qps) {
             $res['Qps'] = $this->qps;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DescribeAttackAnalysisMaxQpsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAttackAnalysisMaxQpsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Qps'])) {
             $model->qps = $map['Qps'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

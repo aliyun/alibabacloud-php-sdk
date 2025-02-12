@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSchedulerRulesResponseBody\schedulerRules;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSchedulerRulesResponseBody\schedulerRules\param\paramData;
-use AlibabaCloud\Tea\Model;
 
 class param extends Model
 {
@@ -13,10 +13,7 @@ class param extends Model
      * @var paramData
      */
     public $paramData;
-
     /**
-     * @example GA
-     *
      * @var string
      */
     public $paramType;
@@ -27,14 +24,19 @@ class param extends Model
 
     public function validate()
     {
+        if (null !== $this->paramData) {
+            $this->paramData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->paramData) {
-            $res['ParamData'] = null !== $this->paramData ? $this->paramData->toMap() : null;
+            $res['ParamData'] = null !== $this->paramData ? $this->paramData->toArray($noStream) : $this->paramData;
         }
+
         if (null !== $this->paramType) {
             $res['ParamType'] = $this->paramType;
         }
@@ -42,17 +44,18 @@ class param extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return param
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParamData'])) {
             $model->paramData = paramData::fromMap($map['ParamData']);
         }
+
         if (isset($map['ParamType'])) {
             $model->paramType = $map['ParamType'];
         }

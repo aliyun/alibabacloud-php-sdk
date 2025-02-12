@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddAutoCcWhitelistResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example AB5025DA-5C52-5207-B6AC-3F198758B678
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AddAutoCcWhitelistResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AddAutoCcWhitelistResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddAutoCcWhitelistResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortViewSourceCountriesResponseBody\sourceCountrys;
-use AlibabaCloud\Tea\Model;
 
 class DescribePortViewSourceCountriesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array consisting of countries or areas from which the requests are sent.
-     *
      * @var sourceCountrys[]
      */
     public $sourceCountrys;
@@ -31,20 +24,25 @@ class DescribePortViewSourceCountriesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->sourceCountrys)) {
+            Model::validateArray($this->sourceCountrys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sourceCountrys) {
-            $res['SourceCountrys'] = [];
-            if (null !== $this->sourceCountrys && \is_array($this->sourceCountrys)) {
-                $n = 0;
-                foreach ($this->sourceCountrys as $item) {
-                    $res['SourceCountrys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sourceCountrys)) {
+                $res['SourceCountrys'] = [];
+                $n1                    = 0;
+                foreach ($this->sourceCountrys as $item1) {
+                    $res['SourceCountrys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribePortViewSourceCountriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePortViewSourceCountriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SourceCountrys'])) {
             if (!empty($map['SourceCountrys'])) {
                 $model->sourceCountrys = [];
-                $n                     = 0;
-                foreach ($map['SourceCountrys'] as $item) {
-                    $model->sourceCountrys[$n++] = null !== $item ? sourceCountrys::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['SourceCountrys'] as $item1) {
+                    $model->sourceCountrys[$n1++] = sourceCountrys::fromMap($item1);
                 }
             }
         }

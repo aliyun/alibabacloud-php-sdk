@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigLayer4RealLimitRequest extends Model
 {
     /**
-     * @description The ID of the Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-XXXXX
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description Specifies the threshold of the clean bandwidth. Valid values: 0 to 15360. The value 0 indicates that rate limiting is never triggered. Unit: Mbit/s
-     *
-     * This parameter is required.
-     * @example 0
-     *
      * @var int
      */
     public $limitValue;
@@ -34,14 +23,16 @@ class ConfigLayer4RealLimitRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->limitValue) {
             $res['LimitValue'] = $this->limitValue;
         }
@@ -49,17 +40,18 @@ class ConfigLayer4RealLimitRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigLayer4RealLimitRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['LimitValue'])) {
             $model->limitValue = $map['LimitValue'];
         }

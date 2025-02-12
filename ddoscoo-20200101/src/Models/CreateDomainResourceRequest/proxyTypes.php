@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateDomainResourceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class proxyTypes extends Model
 {
     /**
-     * @description The port numbers.
-     *
-     * This parameter is required.
      * @var int[]
      */
     public $proxyPorts;
-
     /**
-     * @description The type of the protocol. Valid values:
-     *
-     *   **http**
-     *   **https**
-     *   **websocket**
-     *   **websockets**
-     *
-     * @example http
-     *
      * @var string
      */
     public $proxyType;
@@ -36,14 +23,25 @@ class proxyTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->proxyPorts)) {
+            Model::validateArray($this->proxyPorts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->proxyPorts) {
-            $res['ProxyPorts'] = $this->proxyPorts;
+            if (\is_array($this->proxyPorts)) {
+                $res['ProxyPorts'] = [];
+                $n1                = 0;
+                foreach ($this->proxyPorts as $item1) {
+                    $res['ProxyPorts'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->proxyType) {
             $res['ProxyType'] = $this->proxyType;
         }
@@ -51,19 +49,24 @@ class proxyTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return proxyTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProxyPorts'])) {
             if (!empty($map['ProxyPorts'])) {
-                $model->proxyPorts = $map['ProxyPorts'];
+                $model->proxyPorts = [];
+                $n1                = 0;
+                foreach ($map['ProxyPorts'] as $item1) {
+                    $model->proxyPorts[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ProxyType'])) {
             $model->proxyType = $map['ProxyType'];
         }

@@ -4,60 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceExtResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceExtSpecs extends Model
 {
     /**
-     * @description The function plan. Valid values:
-     *
-     *   **0**: Standard
-     *   **1**: Enhanced
-     *
-     * @example 0
-     *
      * @var int
      */
     public $functionVersion;
-
     /**
-     * @description The ID of the instance.
-     *
-     * @example ddoscoo-cn-i7m25564****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The clean bandwidth. Unit: Mbit/s.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $normalBandwidth;
-
     /**
-     * @description The type of the instance. Valid values:
-     *
-     *   **0**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Insurance mitigation plan
-     *   **1**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Unlimited mitigation plan
-     *   **2**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Chinese Mainland Acceleration (CMA) mitigation plan
-     *   **3**: Anti-DDoS Proxy (Outside Chinese Mainland) instance of the Secure Chinese Mainland Acceleration (Sec-CMA) mitigation plan
-     *   **9**: Anti-DDoS Proxy (Chinese Mainland) instance of the Profession mitigation plan
-     *
-     * @example 0
-     *
      * @var int
      */
     public $productPlan;
-
     /**
-     * @description The Internet service provider (ISP) line of the Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * @example coop-line-001
-     *
      * @var string
      */
     public $servicePartner;
@@ -71,23 +38,28 @@ class instanceExtSpecs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->functionVersion) {
             $res['FunctionVersion'] = $this->functionVersion;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->normalBandwidth) {
             $res['NormalBandwidth'] = $this->normalBandwidth;
         }
+
         if (null !== $this->productPlan) {
             $res['ProductPlan'] = $this->productPlan;
         }
+
         if (null !== $this->servicePartner) {
             $res['ServicePartner'] = $this->servicePartner;
         }
@@ -95,26 +67,30 @@ class instanceExtSpecs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceExtSpecs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FunctionVersion'])) {
             $model->functionVersion = $map['FunctionVersion'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NormalBandwidth'])) {
             $model->normalBandwidth = $map['NormalBandwidth'];
         }
+
         if (isset($map['ProductPlan'])) {
             $model->productPlan = $map['ProductPlan'];
         }
+
         if (isset($map['ServicePartner'])) {
             $model->servicePartner = $map['ServicePartner'];
         }

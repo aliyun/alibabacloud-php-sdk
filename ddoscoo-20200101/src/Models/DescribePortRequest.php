@@ -4,55 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePortRequest extends Model
 {
     /**
-     * @description The forwarding port to query. Valid values: **0** to **65535**.
-     *
-     * @example 55
-     *
      * @var int
      */
     public $frontendPort;
-
     /**
-     * @description The type of the forwarding protocol to query. Valid values:
-     *
-     *   **tcp**
-     *   **udp**
-     *
-     * @example tcp
-     *
      * @var string
      */
     public $frontendProtocol;
-
     /**
-     * @description The ID of the instance to query.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-7e225i41****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The page number. For example, if you want to obtain results on the first page, set the value to **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -66,23 +38,28 @@ class DescribePortRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->frontendPort) {
             $res['FrontendPort'] = $this->frontendPort;
         }
+
         if (null !== $this->frontendProtocol) {
             $res['FrontendProtocol'] = $this->frontendProtocol;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -90,26 +67,30 @@ class DescribePortRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePortRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FrontendPort'])) {
             $model->frontendPort = $map['FrontendPort'];
         }
+
         if (isset($map['FrontendProtocol'])) {
             $model->frontendProtocol = $map['FrontendProtocol'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }

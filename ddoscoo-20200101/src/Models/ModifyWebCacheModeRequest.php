@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyWebCacheModeRequest extends Model
 {
     /**
-     * @description The domain name of the website.
-     *
-     * This parameter is required.
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @description The cache mode of the Static Page Caching policy. Valid values:
-     *
-     *   **standard**: uses the standard cache mode.
-     *   **aggressive**: uses the enhanced cache mode.
-     *   **bypass**: caches no data.
-     *
-     * This parameter is required.
-     * @example standard
-     *
      * @var string
      */
     public $mode;
-
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-     *
-     * @example default
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -48,17 +28,20 @@ class ModifyWebCacheModeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -66,20 +49,22 @@ class ModifyWebCacheModeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyWebCacheModeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

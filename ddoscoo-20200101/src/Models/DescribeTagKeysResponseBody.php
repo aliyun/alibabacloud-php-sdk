@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagKeysResponseBody\tagKeys;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTagKeysResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries returned on each page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The details about the tag keys.
-     *
      * @var tagKeys[]
      */
     public $tagKeys;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -61,29 +39,37 @@ class DescribeTagKeysResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagKeys)) {
+            Model::validateArray($this->tagKeys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tagKeys) {
-            $res['TagKeys'] = [];
-            if (null !== $this->tagKeys && \is_array($this->tagKeys)) {
-                $n = 0;
-                foreach ($this->tagKeys as $item) {
-                    $res['TagKeys'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagKeys)) {
+                $res['TagKeys'] = [];
+                $n1             = 0;
+                foreach ($this->tagKeys as $item1) {
+                    $res['TagKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,32 +77,36 @@ class DescribeTagKeysResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTagKeysResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TagKeys'])) {
             if (!empty($map['TagKeys'])) {
                 $model->tagKeys = [];
-                $n              = 0;
-                foreach ($map['TagKeys'] as $item) {
-                    $model->tagKeys[$n++] = null !== $item ? tagKeys::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['TagKeys'] as $item1) {
+                    $model->tagKeys[$n1++] = tagKeys::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

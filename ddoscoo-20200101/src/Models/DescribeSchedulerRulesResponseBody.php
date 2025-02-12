@@ -4,26 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSchedulerRulesResponseBody\schedulerRules;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSchedulerRulesResponseBody extends Model
 {
     /**
-     * @example 11C55595-1757-4B17-9ACE-4ACB68C2D989
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var schedulerRules[]
      */
     public $schedulerRules;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $totalCount;
@@ -35,23 +29,29 @@ class DescribeSchedulerRulesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->schedulerRules)) {
+            Model::validateArray($this->schedulerRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->schedulerRules) {
-            $res['SchedulerRules'] = [];
-            if (null !== $this->schedulerRules && \is_array($this->schedulerRules)) {
-                $n = 0;
-                foreach ($this->schedulerRules as $item) {
-                    $res['SchedulerRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->schedulerRules)) {
+                $res['SchedulerRules'] = [];
+                $n1                    = 0;
+                foreach ($this->schedulerRules as $item1) {
+                    $res['SchedulerRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -59,26 +59,28 @@ class DescribeSchedulerRulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSchedulerRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SchedulerRules'])) {
             if (!empty($map['SchedulerRules'])) {
                 $model->schedulerRules = [];
-                $n                     = 0;
-                foreach ($map['SchedulerRules'] as $item) {
-                    $model->schedulerRules[$n++] = null !== $item ? schedulerRules::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['SchedulerRules'] as $item1) {
+                    $model->schedulerRules[$n1++] = schedulerRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

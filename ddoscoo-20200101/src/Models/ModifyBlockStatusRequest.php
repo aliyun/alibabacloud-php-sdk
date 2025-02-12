@@ -4,49 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyBlockStatusRequest extends Model
 {
     /**
-     * @description The blocking period. Valid values: **15** to **43200**. Unit: minutes.
-     *
-     * > If you set **Status** to **do**, you must also specify this parameter.
-     * @example 60
-     *
      * @var int
      */
     public $duration;
-
     /**
-     * @description The ID of the Anti-DDoS Proxy (Chinese Mainland) instance to manage.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description An array consisting of the Internet service provider (ISP) lines from which traffic is blocked.
-     *
-     * This parameter is required.
-     * @example ct
-     *
      * @var string[]
      */
     public $lines;
-
     /**
-     * @description Specifies the status of the Diversion from Origin Server policy. Valid values:
-     *
-     *   **do**: enables the policy.
-     *   **undo**: disables the policy.
-     *
-     * This parameter is required.
-     * @example do
-     *
      * @var string
      */
     public $status;
@@ -59,20 +33,33 @@ class ModifyBlockStatusRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->lines)) {
+            Model::validateArray($this->lines);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lines) {
-            $res['Lines'] = $this->lines;
+            if (\is_array($this->lines)) {
+                $res['Lines'] = [];
+                $n1           = 0;
+                foreach ($this->lines as $item1) {
+                    $res['Lines'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -80,25 +67,32 @@ class ModifyBlockStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyBlockStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lines'])) {
             if (!empty($map['Lines'])) {
-                $model->lines = $map['Lines'];
+                $model->lines = [];
+                $n1           = 0;
+                foreach ($map['Lines'] as $item1) {
+                    $model->lines[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

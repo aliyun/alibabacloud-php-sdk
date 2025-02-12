@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortViewSourceIspsResponseBody\isps;
-use AlibabaCloud\Tea\Model;
 
 class DescribePortViewSourceIspsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details of the ISP.
-     *
      * @var isps[]
      */
     public $isps;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribePortViewSourceIspsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->isps)) {
+            Model::validateArray($this->isps);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isps) {
-            $res['Isps'] = [];
-            if (null !== $this->isps && \is_array($this->isps)) {
-                $n = 0;
-                foreach ($this->isps as $item) {
-                    $res['Isps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->isps)) {
+                $res['Isps'] = [];
+                $n1          = 0;
+                foreach ($this->isps as $item1) {
+                    $res['Isps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribePortViewSourceIspsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePortViewSourceIspsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Isps'])) {
             if (!empty($map['Isps'])) {
                 $model->isps = [];
-                $n           = 0;
-                foreach ($map['Isps'] as $item) {
-                    $model->isps[$n++] = null !== $item ? isps::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Isps'] as $item1) {
+                    $model->isps[$n1++] = isps::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

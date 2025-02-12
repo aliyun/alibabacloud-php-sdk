@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeAutoCcBlacklistResponseBody\autoCcBlacklist;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAutoCcBlacklistResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details of the IP addresses in the blacklist of the instance.
-     *
      * @var autoCcBlacklist[]
      */
     public $autoCcBlacklist;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example E78C8472-0B15-42D5-AF22-A32A78818AB2
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of returned IP addresses in the blacklist.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -41,23 +29,29 @@ class DescribeAutoCcBlacklistResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->autoCcBlacklist)) {
+            Model::validateArray($this->autoCcBlacklist);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoCcBlacklist) {
-            $res['AutoCcBlacklist'] = [];
-            if (null !== $this->autoCcBlacklist && \is_array($this->autoCcBlacklist)) {
-                $n = 0;
-                foreach ($this->autoCcBlacklist as $item) {
-                    $res['AutoCcBlacklist'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->autoCcBlacklist)) {
+                $res['AutoCcBlacklist'] = [];
+                $n1                     = 0;
+                foreach ($this->autoCcBlacklist as $item1) {
+                    $res['AutoCcBlacklist'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +59,28 @@ class DescribeAutoCcBlacklistResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAutoCcBlacklistResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoCcBlacklist'])) {
             if (!empty($map['AutoCcBlacklist'])) {
                 $model->autoCcBlacklist = [];
-                $n                      = 0;
-                foreach ($map['AutoCcBlacklist'] as $item) {
-                    $model->autoCcBlacklist[$n++] = null !== $item ? autoCcBlacklist::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['AutoCcBlacklist'] as $item1) {
+                    $model->autoCcBlacklist[$n1++] = autoCcBlacklist::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AddAutoCcBlacklistRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AddAutoCcBlacklistResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\AddAutoCcWhitelistRequest;
@@ -336,6 +335,8 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyHttp2EnableRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyHttp2EnableResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyInstanceRemarkRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyInstanceRemarkResponse;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyInstanceRequest;
+use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyInstanceResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyNetworkRuleAttributeRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyNetworkRuleAttributeResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ModifyOcspStatusRequest;
@@ -384,11 +385,10 @@ use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\SwitchSchedulerRuleRequest;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\SwitchSchedulerRuleResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Ddoscoo extends OpenApiClient
 {
@@ -413,37 +413,45 @@ class Ddoscoo extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AddAutoCcBlacklistRequest $request AddAutoCcBlacklistRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - AddAutoCcBlacklistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddAutoCcBlacklistResponse
      *
-     * @return AddAutoCcBlacklistResponse AddAutoCcBlacklistResponse
+     * @param AddAutoCcBlacklistRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddAutoCcBlacklistResponse
      */
     public function addAutoCcBlacklistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->blacklist)) {
-            $query['Blacklist'] = $request->blacklist;
+        if (null !== $request->blacklist) {
+            @$query['Blacklist'] = $request->blacklist;
         }
-        if (!Utils::isUnset($request->expireTime)) {
-            $query['ExpireTime'] = $request->expireTime;
+
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddAutoCcBlacklist',
@@ -456,14 +464,20 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddAutoCcBlacklistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AddAutoCcBlacklistRequest $request AddAutoCcBlacklistRequest
+     * @param request - AddAutoCcBlacklistRequest
+     * @returns AddAutoCcBlacklistResponse
      *
-     * @return AddAutoCcBlacklistResponse AddAutoCcBlacklistResponse
+     * @param AddAutoCcBlacklistRequest $request
+     *
+     * @return AddAutoCcBlacklistResponse
      */
     public function addAutoCcBlacklist($request)
     {
@@ -473,33 +487,41 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+     * Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *
+     * @remarks
+     * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
      * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param AddAutoCcWhitelistRequest $request AddAutoCcWhitelistRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddAutoCcWhitelistResponse AddAutoCcWhitelistResponse
+     * @param request - AddAutoCcWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddAutoCcWhitelistResponse
+     *
+     * @param AddAutoCcWhitelistRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddAutoCcWhitelistResponse
      */
     public function addAutoCcWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->expireTime)) {
-            $query['ExpireTime'] = $request->expireTime;
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->whitelist)) {
-            $query['Whitelist'] = $request->whitelist;
+
+        if (null !== $request->whitelist) {
+            @$query['Whitelist'] = $request->whitelist;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddAutoCcWhitelist',
@@ -512,21 +534,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddAutoCcWhitelistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @description You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
+     * Adds IP addresses to the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *
+     * @remarks
+     * You can call the AddAutoCcWhitelist operation to add IP addresses to the whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance. This way, the Anti-DDoS Pro or Anti-DDoS Premium instance allows traffic from the IP addresses.
      * By default, the traffic from the IP addresses that you add to the whitelist is always allowed. If you no longer use the whitelist, you can call the [EmptyAutoCcWhitelist](https://help.aliyun.com/document_detail/157505.html) operation to remove the IP addresses from the whitelist.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param AddAutoCcWhitelistRequest $request AddAutoCcWhitelistRequest
      *
-     * @return AddAutoCcWhitelistResponse AddAutoCcWhitelistResponse
+     * @param request - AddAutoCcWhitelistRequest
+     * @returns AddAutoCcWhitelistResponse
+     *
+     * @param AddAutoCcWhitelistRequest $request
+     *
+     * @return AddAutoCcWhitelistResponse
      */
     public function addAutoCcWhitelist($request)
     {
@@ -536,40 +565,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Associates an SSL certificate with the forwarding rule of a website.
-     *  *
-     * @param AssociateWebCertRequest $request AssociateWebCertRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Associates an SSL certificate with the forwarding rule of a website.
      *
-     * @return AssociateWebCertResponse AssociateWebCertResponse
+     * @param request - AssociateWebCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssociateWebCertResponse
+     *
+     * @param AssociateWebCertRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return AssociateWebCertResponse
      */
     public function associateWebCertWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cert)) {
-            $body['Cert'] = $request->cert;
+        if (null !== $request->cert) {
+            @$body['Cert'] = $request->cert;
         }
-        if (!Utils::isUnset($request->certId)) {
-            $body['CertId'] = $request->certId;
+
+        if (null !== $request->certId) {
+            @$body['CertId'] = $request->certId;
         }
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $body['CertIdentifier'] = $request->certIdentifier;
+
+        if (null !== $request->certIdentifier) {
+            @$body['CertIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->certName)) {
-            $body['CertName'] = $request->certName;
+
+        if (null !== $request->certName) {
+            @$body['CertName'] = $request->certName;
         }
-        if (!Utils::isUnset($request->certRegion)) {
-            $body['CertRegion'] = $request->certRegion;
+
+        if (null !== $request->certRegion) {
+            @$body['CertRegion'] = $request->certRegion;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $body['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$body['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->key)) {
-            $body['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$body['Key'] = $request->key;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AssociateWebCert',
@@ -582,16 +622,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssociateWebCertResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssociateWebCertResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssociateWebCertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates an SSL certificate with the forwarding rule of a website.
-     *  *
-     * @param AssociateWebCertRequest $request AssociateWebCertRequest
+     * Associates an SSL certificate with the forwarding rule of a website.
      *
-     * @return AssociateWebCertResponse AssociateWebCertResponse
+     * @param request - AssociateWebCertRequest
+     * @returns AssociateWebCertResponse
+     *
+     * @param AssociateWebCertRequest $request
+     *
+     * @return AssociateWebCertResponse
      */
     public function associateWebCert($request)
     {
@@ -601,28 +647,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Adds an object to a scenario-specific custom policy for protection.
-     *  *
-     * @param AttachSceneDefenseObjectRequest $request AttachSceneDefenseObjectRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Adds an object to a scenario-specific custom policy for protection.
      *
-     * @return AttachSceneDefenseObjectResponse AttachSceneDefenseObjectResponse
+     * @param request - AttachSceneDefenseObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachSceneDefenseObjectResponse
+     *
+     * @param AttachSceneDefenseObjectRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AttachSceneDefenseObjectResponse
      */
     public function attachSceneDefenseObjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->objects)) {
-            $query['Objects'] = $request->objects;
+
+        if (null !== $request->objects) {
+            @$query['Objects'] = $request->objects;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AttachSceneDefenseObject',
@@ -635,16 +688,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachSceneDefenseObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachSceneDefenseObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachSceneDefenseObjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an object to a scenario-specific custom policy for protection.
-     *  *
-     * @param AttachSceneDefenseObjectRequest $request AttachSceneDefenseObjectRequest
+     * Adds an object to a scenario-specific custom policy for protection.
      *
-     * @return AttachSceneDefenseObjectResponse AttachSceneDefenseObjectResponse
+     * @param request - AttachSceneDefenseObjectRequest
+     * @returns AttachSceneDefenseObjectResponse
+     *
+     * @param AttachSceneDefenseObjectRequest $request
+     *
+     * @return AttachSceneDefenseObjectResponse
      */
     public function attachSceneDefenseObject($request)
     {
@@ -654,28 +713,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Configures the global mitigation policy feature, including the feature status and settings.
-     *  *
-     * @param ConfigDomainSecurityProfileRequest $request ConfigDomainSecurityProfileRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Configures the global mitigation policy feature, including the feature status and settings.
      *
-     * @return ConfigDomainSecurityProfileResponse ConfigDomainSecurityProfileResponse
+     * @param request - ConfigDomainSecurityProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigDomainSecurityProfileResponse
+     *
+     * @param ConfigDomainSecurityProfileRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ConfigDomainSecurityProfileResponse
      */
     public function configDomainSecurityProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cluster)) {
-            $query['Cluster'] = $request->cluster;
+        if (null !== $request->cluster) {
+            @$query['Cluster'] = $request->cluster;
         }
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigDomainSecurityProfile',
@@ -688,16 +754,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigDomainSecurityProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigDomainSecurityProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigDomainSecurityProfileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the global mitigation policy feature, including the feature status and settings.
-     *  *
-     * @param ConfigDomainSecurityProfileRequest $request ConfigDomainSecurityProfileRequest
+     * Configures the global mitigation policy feature, including the feature status and settings.
      *
-     * @return ConfigDomainSecurityProfileResponse ConfigDomainSecurityProfileResponse
+     * @param request - ConfigDomainSecurityProfileRequest
+     * @returns ConfigDomainSecurityProfileResponse
+     *
+     * @param ConfigDomainSecurityProfileRequest $request
+     *
+     * @return ConfigDomainSecurityProfileResponse
      */
     public function configDomainSecurityProfile($request)
     {
@@ -707,33 +779,42 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Configures a back-to-origin policy for the forwarding rule of a website.
-     *  *
-     * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
-     *  *
-     * @param ConfigL7RsPolicyRequest $request ConfigL7RsPolicyRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Configures a back-to-origin policy for the forwarding rule of a website.
      *
-     * @return ConfigL7RsPolicyResponse ConfigL7RsPolicyResponse
+     * @remarks
+     * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+     *
+     * @param request - ConfigL7RsPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigL7RsPolicyResponse
+     *
+     * @param ConfigL7RsPolicyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ConfigL7RsPolicyResponse
      */
     public function configL7RsPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->policy)) {
-            $query['Policy'] = $request->policy;
+
+        if (null !== $request->policy) {
+            @$query['Policy'] = $request->policy;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->upstreamRetry)) {
-            $query['UpstreamRetry'] = $request->upstreamRetry;
+
+        if (null !== $request->upstreamRetry) {
+            @$query['UpstreamRetry'] = $request->upstreamRetry;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigL7RsPolicy',
@@ -746,18 +827,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigL7RsPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigL7RsPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigL7RsPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures a back-to-origin policy for the forwarding rule of a website.
-     *  *
-     * @description If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
-     *  *
-     * @param ConfigL7RsPolicyRequest $request ConfigL7RsPolicyRequest
+     * Configures a back-to-origin policy for the forwarding rule of a website.
      *
-     * @return ConfigL7RsPolicyResponse ConfigL7RsPolicyResponse
+     * @remarks
+     * If multiple origin servers are configured for a website that is added to Anti-DDoS Pro or Anti-DDoS Premium, you can modify the load balancing algorithms for back-to-origin traffic based on back-to-origin policies. The IP hash algorithm is used by default. You can change the algorithm to the round-robin or least response time algorithm. For more information, see the description of the **Policy** parameter in the "Request parameters" section of this topic.
+     *
+     * @param request - ConfigL7RsPolicyRequest
+     * @returns ConfigL7RsPolicyResponse
+     *
+     * @param ConfigL7RsPolicyRequest $request
+     *
+     * @return ConfigL7RsPolicyResponse
      */
     public function configL7RsPolicy($request)
     {
@@ -767,25 +855,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Configures the settings for back-to-origin persistent connections for a domain name.
-     *  *
-     * @param ConfigL7UsKeepaliveRequest $request ConfigL7UsKeepaliveRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Configures the settings for back-to-origin persistent connections for a domain name.
      *
-     * @return ConfigL7UsKeepaliveResponse ConfigL7UsKeepaliveResponse
+     * @param request - ConfigL7UsKeepaliveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigL7UsKeepaliveResponse
+     *
+     * @param ConfigL7UsKeepaliveRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ConfigL7UsKeepaliveResponse
      */
     public function configL7UsKeepaliveWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->upstreamKeepalive)) {
-            $query['UpstreamKeepalive'] = $request->upstreamKeepalive;
+
+        if (null !== $request->upstreamKeepalive) {
+            @$query['UpstreamKeepalive'] = $request->upstreamKeepalive;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigL7UsKeepalive',
@@ -798,16 +892,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigL7UsKeepaliveResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigL7UsKeepaliveResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigL7UsKeepaliveResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the settings for back-to-origin persistent connections for a domain name.
-     *  *
-     * @param ConfigL7UsKeepaliveRequest $request ConfigL7UsKeepaliveRequest
+     * Configures the settings for back-to-origin persistent connections for a domain name.
      *
-     * @return ConfigL7UsKeepaliveResponse ConfigL7UsKeepaliveResponse
+     * @param request - ConfigL7UsKeepaliveRequest
+     * @returns ConfigL7UsKeepaliveResponse
+     *
+     * @param ConfigL7UsKeepaliveRequest $request
+     *
+     * @return ConfigL7UsKeepaliveResponse
      */
     public function configL7UsKeepalive($request)
     {
@@ -817,25 +917,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
-     *  *
-     * @param ConfigLayer4RealLimitRequest $request ConfigLayer4RealLimitRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
      *
-     * @return ConfigLayer4RealLimitResponse ConfigLayer4RealLimitResponse
+     * @param request - ConfigLayer4RealLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigLayer4RealLimitResponse
+     *
+     * @param ConfigLayer4RealLimitRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ConfigLayer4RealLimitResponse
      */
     public function configLayer4RealLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->limitValue)) {
-            $query['LimitValue'] = $request->limitValue;
+
+        if (null !== $request->limitValue) {
+            @$query['LimitValue'] = $request->limitValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigLayer4RealLimit',
@@ -848,16 +954,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigLayer4RealLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigLayer4RealLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigLayer4RealLimitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
-     *  *
-     * @param ConfigLayer4RealLimitRequest $request ConfigLayer4RealLimitRequest
+     * Specifies a threshold for the clean bandwidth of an Anti-DDoS Pro or Anti-DDoS premium instance. If the threshold is reached, rate limiting is triggered.
      *
-     * @return ConfigLayer4RealLimitResponse ConfigLayer4RealLimitResponse
+     * @param request - ConfigLayer4RealLimitRequest
+     * @returns ConfigLayer4RealLimitResponse
+     *
+     * @param ConfigLayer4RealLimitRequest $request
+     *
+     * @return ConfigLayer4RealLimitResponse
      */
     public function configLayer4RealLimit($request)
     {
@@ -867,22 +979,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Adds a description to a port forwarding rule.
-     *  *
-     * @param ConfigLayer4RemarkRequest $request ConfigLayer4RemarkRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Adds a description to a port forwarding rule.
      *
-     * @return ConfigLayer4RemarkResponse ConfigLayer4RemarkResponse
+     * @param request - ConfigLayer4RemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigLayer4RemarkResponse
+     *
+     * @param ConfigLayer4RemarkRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ConfigLayer4RemarkResponse
      */
     public function configLayer4RemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigLayer4Remark',
@@ -895,16 +1012,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigLayer4RemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigLayer4RemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigLayer4RemarkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a description to a port forwarding rule.
-     *  *
-     * @param ConfigLayer4RemarkRequest $request ConfigLayer4RemarkRequest
+     * Adds a description to a port forwarding rule.
      *
-     * @return ConfigLayer4RemarkResponse ConfigLayer4RemarkResponse
+     * @param request - ConfigLayer4RemarkRequest
+     * @returns ConfigLayer4RemarkResponse
+     *
+     * @param ConfigLayer4RemarkRequest $request
+     *
+     * @return ConfigLayer4RemarkResponse
      */
     public function configLayer4Remark($request)
     {
@@ -914,25 +1037,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
-     *  *
-     * @param ConfigLayer4RuleBakModeRequest $request ConfigLayer4RuleBakModeRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the origin redundancy mode for a port forwarding rule.
      *
-     * @return ConfigLayer4RuleBakModeResponse ConfigLayer4RuleBakModeResponse
+     * @param request - ConfigLayer4RuleBakModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigLayer4RuleBakModeResponse
+     *
+     * @param ConfigLayer4RuleBakModeRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ConfigLayer4RuleBakModeResponse
      */
     public function configLayer4RuleBakModeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bakMode)) {
-            $query['BakMode'] = $request->bakMode;
+        if (null !== $request->bakMode) {
+            @$query['BakMode'] = $request->bakMode;
         }
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigLayer4RuleBakMode',
@@ -945,16 +1074,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigLayer4RuleBakModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigLayer4RuleBakModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigLayer4RuleBakModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the origin redundancy mode for a port forwarding rule.
-     *  *
-     * @param ConfigLayer4RuleBakModeRequest $request ConfigLayer4RuleBakModeRequest
+     * Enables or disables the origin redundancy mode for a port forwarding rule.
      *
-     * @return ConfigLayer4RuleBakModeResponse ConfigLayer4RuleBakModeResponse
+     * @param request - ConfigLayer4RuleBakModeRequest
+     * @returns ConfigLayer4RuleBakModeResponse
+     *
+     * @param ConfigLayer4RuleBakModeRequest $request
+     *
+     * @return ConfigLayer4RuleBakModeResponse
      */
     public function configLayer4RuleBakMode($request)
     {
@@ -964,22 +1099,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
-     *  *
-     * @param ConfigLayer4RulePolicyRequest $request ConfigLayer4RulePolicyRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
      *
-     * @return ConfigLayer4RulePolicyResponse ConfigLayer4RulePolicyResponse
+     * @param request - ConfigLayer4RulePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigLayer4RulePolicyResponse
+     *
+     * @param ConfigLayer4RulePolicyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ConfigLayer4RulePolicyResponse
      */
     public function configLayer4RulePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigLayer4RulePolicy',
@@ -992,16 +1132,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigLayer4RulePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigLayer4RulePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigLayer4RulePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
-     *  *
-     * @param ConfigLayer4RulePolicyRequest $request ConfigLayer4RulePolicyRequest
+     * Configures the IP addresses of the primary and secondary origin servers for a port forwarding rule.
      *
-     * @return ConfigLayer4RulePolicyResponse ConfigLayer4RulePolicyResponse
+     * @param request - ConfigLayer4RulePolicyRequest
+     * @returns ConfigLayer4RulePolicyResponse
+     *
+     * @param ConfigLayer4RulePolicyRequest $request
+     *
+     * @return ConfigLayer4RulePolicyResponse
      */
     public function configLayer4RulePolicy($request)
     {
@@ -1011,25 +1157,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
-     *  *
-     * @param ConfigNetworkRegionBlockRequest $request ConfigNetworkRegionBlockRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Configures blocked locations for an Anti-DDoS Proxy instance.
      *
-     * @return ConfigNetworkRegionBlockResponse ConfigNetworkRegionBlockResponse
+     * @param request - ConfigNetworkRegionBlockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigNetworkRegionBlockResponse
+     *
+     * @param ConfigNetworkRegionBlockRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ConfigNetworkRegionBlockResponse
      */
     public function configNetworkRegionBlockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigNetworkRegionBlock',
@@ -1042,16 +1194,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigNetworkRegionBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigNetworkRegionBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigNetworkRegionBlockResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures blocked locations for an Anti-DDoS Proxy instance.
-     *  *
-     * @param ConfigNetworkRegionBlockRequest $request ConfigNetworkRegionBlockRequest
+     * Configures blocked locations for an Anti-DDoS Proxy instance.
      *
-     * @return ConfigNetworkRegionBlockResponse ConfigNetworkRegionBlockResponse
+     * @param request - ConfigNetworkRegionBlockRequest
+     * @returns ConfigNetworkRegionBlockResponse
+     *
+     * @param ConfigNetworkRegionBlockRequest $request
+     *
+     * @return ConfigNetworkRegionBlockResponse
      */
     public function configNetworkRegionBlock($request)
     {
@@ -1061,22 +1219,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
-     *  *
-     * @param ConfigNetworkRulesRequest $request ConfigNetworkRulesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
      *
-     * @return ConfigNetworkRulesResponse ConfigNetworkRulesResponse
+     * @param request - ConfigNetworkRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigNetworkRulesResponse
+     *
+     * @param ConfigNetworkRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ConfigNetworkRulesResponse
      */
     public function configNetworkRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->networkRules)) {
-            $query['NetworkRules'] = $request->networkRules;
+        if (null !== $request->networkRules) {
+            @$query['NetworkRules'] = $request->networkRules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigNetworkRules',
@@ -1089,16 +1252,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigNetworkRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
-     *  *
-     * @param ConfigNetworkRulesRequest $request ConfigNetworkRulesRequest
+     * Modifies the IP addresses of the origin server that is configured in a port forwarding rule.
      *
-     * @return ConfigNetworkRulesResponse ConfigNetworkRulesResponse
+     * @param request - ConfigNetworkRulesRequest
+     * @returns ConfigNetworkRulesResponse
+     *
+     * @param ConfigNetworkRulesRequest $request
+     *
+     * @return ConfigNetworkRulesResponse
      */
     public function configNetworkRules($request)
     {
@@ -1108,32 +1277,40 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
-     *  *
-     * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+     * Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+     *
+     * @remarks
+     * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ConfigUdpReflectRequest $request ConfigUdpReflectRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigUdpReflectResponse ConfigUdpReflectResponse
+     * @param request - ConfigUdpReflectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigUdpReflectResponse
+     *
+     * @param ConfigUdpReflectRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ConfigUdpReflectResponse
      */
     public function configUdpReflectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigUdpReflect',
@@ -1146,20 +1323,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigUdpReflectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigUdpReflectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigUdpReflectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
-     *  *
-     * @description You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
+     * Adds the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance to filter out the source ports of UDP traffic.
+     *
+     * @remarks
+     * You can call this operation to configure filtering policies to filter out UDP traffic from specific ports. This helps defend against UDP reflection attacks.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ConfigUdpReflectRequest $request ConfigUdpReflectRequest
      *
-     * @return ConfigUdpReflectResponse ConfigUdpReflectResponse
+     * @param request - ConfigUdpReflectRequest
+     * @returns ConfigUdpReflectResponse
+     *
+     * @param ConfigUdpReflectRequest $request
+     *
+     * @return ConfigUdpReflectResponse
      */
     public function configUdpReflect($request)
     {
@@ -1169,28 +1353,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 配置新版基于匹配条件的cc规则
-     *  *
-     * @param ConfigWebCCRuleV2Request $request ConfigWebCCRuleV2Request
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 配置新版基于匹配条件的cc规则.
      *
-     * @return ConfigWebCCRuleV2Response ConfigWebCCRuleV2Response
+     * @param request - ConfigWebCCRuleV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigWebCCRuleV2Response
+     *
+     * @param ConfigWebCCRuleV2Request $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ConfigWebCCRuleV2Response
      */
     public function configWebCCRuleV2WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->expires)) {
-            $query['Expires'] = $request->expires;
+
+        if (null !== $request->expires) {
+            @$query['Expires'] = $request->expires;
         }
-        if (!Utils::isUnset($request->ruleList)) {
-            $query['RuleList'] = $request->ruleList;
+
+        if (null !== $request->ruleList) {
+            @$query['RuleList'] = $request->ruleList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigWebCCRuleV2',
@@ -1203,16 +1394,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigWebCCRuleV2Response::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigWebCCRuleV2Response::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigWebCCRuleV2Response::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 配置新版基于匹配条件的cc规则
-     *  *
-     * @param ConfigWebCCRuleV2Request $request ConfigWebCCRuleV2Request
+     * 配置新版基于匹配条件的cc规则.
      *
-     * @return ConfigWebCCRuleV2Response ConfigWebCCRuleV2Response
+     * @param request - ConfigWebCCRuleV2Request
+     * @returns ConfigWebCCRuleV2Response
+     *
+     * @param ConfigWebCCRuleV2Request $request
+     *
+     * @return ConfigWebCCRuleV2Response
      */
     public function configWebCCRuleV2($request)
     {
@@ -1222,28 +1419,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Configures the mode of the Frequency Control policy for a website.
-     *  *
-     * @param ConfigWebCCTemplateRequest $request ConfigWebCCTemplateRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Configures the mode of the Frequency Control policy for a website.
      *
-     * @return ConfigWebCCTemplateResponse ConfigWebCCTemplateResponse
+     * @param request - ConfigWebCCTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigWebCCTemplateResponse
+     *
+     * @param ConfigWebCCTemplateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ConfigWebCCTemplateResponse
      */
     public function configWebCCTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->template)) {
-            $query['Template'] = $request->template;
+
+        if (null !== $request->template) {
+            @$query['Template'] = $request->template;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigWebCCTemplate',
@@ -1256,16 +1460,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigWebCCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigWebCCTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigWebCCTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the mode of the Frequency Control policy for a website.
-     *  *
-     * @param ConfigWebCCTemplateRequest $request ConfigWebCCTemplateRequest
+     * Configures the mode of the Frequency Control policy for a website.
      *
-     * @return ConfigWebCCTemplateResponse ConfigWebCCTemplateResponse
+     * @param request - ConfigWebCCTemplateRequest
+     * @returns ConfigWebCCTemplateResponse
+     *
+     * @param ConfigWebCCTemplateRequest $request
+     *
+     * @return ConfigWebCCTemplateResponse
      */
     public function configWebCCTemplate($request)
     {
@@ -1275,31 +1485,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Configures the IP address whitelist and blacklist for a website.
-     *  *
-     * @param ConfigWebIpSetRequest $request ConfigWebIpSetRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Configures the IP address whitelist and blacklist for a website.
      *
-     * @return ConfigWebIpSetResponse ConfigWebIpSetResponse
+     * @param request - ConfigWebIpSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigWebIpSetResponse
+     *
+     * @param ConfigWebIpSetRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ConfigWebIpSetResponse
      */
     public function configWebIpSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->blackList)) {
-            $query['BlackList'] = $request->blackList;
+        if (null !== $request->blackList) {
+            @$query['BlackList'] = $request->blackList;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->whiteList)) {
-            $query['WhiteList'] = $request->whiteList;
+
+        if (null !== $request->whiteList) {
+            @$query['WhiteList'] = $request->whiteList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigWebIpSet',
@@ -1312,16 +1530,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigWebIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigWebIpSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigWebIpSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the IP address whitelist and blacklist for a website.
-     *  *
-     * @param ConfigWebIpSetRequest $request ConfigWebIpSetRequest
+     * Configures the IP address whitelist and blacklist for a website.
      *
-     * @return ConfigWebIpSetResponse ConfigWebIpSetResponse
+     * @param request - ConfigWebIpSetRequest
+     * @returns ConfigWebIpSetResponse
+     *
+     * @param ConfigWebIpSetRequest $request
+     *
+     * @return ConfigWebIpSetResponse
      */
     public function configWebIpSet($request)
     {
@@ -1331,28 +1555,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
-     *  *
-     * @param CreateAsyncTaskRequest $request CreateAsyncTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
      *
-     * @return CreateAsyncTaskResponse CreateAsyncTaskResponse
+     * @param request - CreateAsyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAsyncTaskResponse
+     *
+     * @param CreateAsyncTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateAsyncTaskResponse
      */
     public function createAsyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->taskParams)) {
-            $query['TaskParams'] = $request->taskParams;
+
+        if (null !== $request->taskParams) {
+            @$query['TaskParams'] = $request->taskParams;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAsyncTask',
@@ -1365,16 +1596,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
-     *  *
-     * @param CreateAsyncTaskRequest $request CreateAsyncTaskRequest
+     * Creates an asynchronous export task to export forwarding rules for websites, port forwarding rules, session persistence and health check settings, DDoS mitigation policies, the IP address blacklist, or the IP address whitelist.
      *
-     * @return CreateAsyncTaskResponse CreateAsyncTaskResponse
+     * @param request - CreateAsyncTaskRequest
+     * @returns CreateAsyncTaskResponse
+     *
+     * @param CreateAsyncTaskRequest $request
+     *
+     * @return CreateAsyncTaskResponse
      */
     public function createAsyncTask($request)
     {
@@ -1384,37 +1621,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Creates a forwarding rule for a website.
-     *  *
-     * @param CreateDomainResourceRequest $request CreateDomainResourceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a forwarding rule for a website.
      *
-     * @return CreateDomainResourceResponse CreateDomainResourceResponse
+     * @param request - CreateDomainResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDomainResourceResponse
+     *
+     * @param CreateDomainResourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateDomainResourceResponse
      */
     public function createDomainResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->httpsExt)) {
-            $query['HttpsExt'] = $request->httpsExt;
+
+        if (null !== $request->httpsExt) {
+            @$query['HttpsExt'] = $request->httpsExt;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->proxyTypes)) {
-            $query['ProxyTypes'] = $request->proxyTypes;
+
+        if (null !== $request->proxyTypes) {
+            @$query['ProxyTypes'] = $request->proxyTypes;
         }
-        if (!Utils::isUnset($request->realServers)) {
-            $query['RealServers'] = $request->realServers;
+
+        if (null !== $request->realServers) {
+            @$query['RealServers'] = $request->realServers;
         }
-        if (!Utils::isUnset($request->rsType)) {
-            $query['RsType'] = $request->rsType;
+
+        if (null !== $request->rsType) {
+            @$query['RsType'] = $request->rsType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDomainResource',
@@ -1427,16 +1674,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDomainResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a forwarding rule for a website.
-     *  *
-     * @param CreateDomainResourceRequest $request CreateDomainResourceRequest
+     * Creates a forwarding rule for a website.
      *
-     * @return CreateDomainResourceResponse CreateDomainResourceResponse
+     * @param request - CreateDomainResourceRequest
+     * @returns CreateDomainResourceResponse
+     *
+     * @param CreateDomainResourceRequest $request
+     *
+     * @return CreateDomainResourceResponse
      */
     public function createDomainResource($request)
     {
@@ -1446,22 +1699,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Creates a port forwarding rule.
-     *  *
-     * @param CreateNetworkRulesRequest $request CreateNetworkRulesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Creates a port forwarding rule.
      *
-     * @return CreateNetworkRulesResponse CreateNetworkRulesResponse
+     * @param request - CreateNetworkRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateNetworkRulesResponse
+     *
+     * @param CreateNetworkRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateNetworkRulesResponse
      */
     public function createNetworkRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->networkRules)) {
-            $query['NetworkRules'] = $request->networkRules;
+        if (null !== $request->networkRules) {
+            @$query['NetworkRules'] = $request->networkRules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateNetworkRules',
@@ -1474,16 +1732,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNetworkRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a port forwarding rule.
-     *  *
-     * @param CreateNetworkRulesRequest $request CreateNetworkRulesRequest
+     * Creates a port forwarding rule.
      *
-     * @return CreateNetworkRulesResponse CreateNetworkRulesResponse
+     * @param request - CreateNetworkRulesRequest
+     * @returns CreateNetworkRulesResponse
+     *
+     * @param CreateNetworkRulesRequest $request
+     *
+     * @return CreateNetworkRulesResponse
      */
     public function createNetworkRules($request)
     {
@@ -1493,39 +1757,50 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Creates a port forwarding rule.
-     *  *
-     * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *  *
-     * @param CreatePortRequest $request CreatePortRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a port forwarding rule.
      *
-     * @return CreatePortResponse CreatePortResponse
+     * @remarks
+     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     *
+     * @param request - CreatePortRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePortResponse
+     *
+     * @param CreatePortRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreatePortResponse
      */
     public function createPortWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backendPort)) {
-            $query['BackendPort'] = $request->backendPort;
+        if (null !== $request->backendPort) {
+            @$query['BackendPort'] = $request->backendPort;
         }
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->frontendProtocol)) {
-            $query['FrontendProtocol'] = $request->frontendProtocol;
+
+        if (null !== $request->frontendProtocol) {
+            @$query['FrontendProtocol'] = $request->frontendProtocol;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->proxyEnable)) {
-            $query['ProxyEnable'] = $request->proxyEnable;
+
+        if (null !== $request->proxyEnable) {
+            @$query['ProxyEnable'] = $request->proxyEnable;
         }
-        if (!Utils::isUnset($request->realServers)) {
-            $query['RealServers'] = $request->realServers;
+
+        if (null !== $request->realServers) {
+            @$query['RealServers'] = $request->realServers;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePort',
@@ -1538,18 +1813,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePortResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePortResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePortResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a port forwarding rule.
-     *  *
-     * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *  *
-     * @param CreatePortRequest $request CreatePortRequest
+     * Creates a port forwarding rule.
      *
-     * @return CreatePortResponse CreatePortResponse
+     * @remarks
+     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     *
+     * @param request - CreatePortRequest
+     * @returns CreatePortResponse
+     *
+     * @param CreatePortRequest $request
+     *
+     * @return CreatePortResponse
      */
     public function createPort($request)
     {
@@ -1559,31 +1841,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scenario-specific custom policy.
-     *  *
-     * @param CreateSceneDefensePolicyRequest $request CreateSceneDefensePolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates a scenario-specific custom policy.
      *
-     * @return CreateSceneDefensePolicyResponse CreateSceneDefensePolicyResponse
+     * @param request - CreateSceneDefensePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSceneDefensePolicyResponse
+     *
+     * @param CreateSceneDefensePolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateSceneDefensePolicyResponse
      */
     public function createSceneDefensePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->template)) {
-            $query['Template'] = $request->template;
+
+        if (null !== $request->template) {
+            @$query['Template'] = $request->template;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSceneDefensePolicy',
@@ -1596,16 +1886,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSceneDefensePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a scenario-specific custom policy.
-     *  *
-     * @param CreateSceneDefensePolicyRequest $request CreateSceneDefensePolicyRequest
+     * Creates a scenario-specific custom policy.
      *
-     * @return CreateSceneDefensePolicyResponse CreateSceneDefensePolicyResponse
+     * @param request - CreateSceneDefensePolicyRequest
+     * @returns CreateSceneDefensePolicyResponse
+     *
+     * @param CreateSceneDefensePolicyRequest $request
+     *
+     * @return CreateSceneDefensePolicyResponse
      */
     public function createSceneDefensePolicy($request)
     {
@@ -1615,34 +1911,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scheduling rule for Sec-Traffic Manager.
-     *  *
-     * @param CreateSchedulerRuleRequest $request CreateSchedulerRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a scheduling rule for Sec-Traffic Manager.
      *
-     * @return CreateSchedulerRuleResponse CreateSchedulerRuleResponse
+     * @param request - CreateSchedulerRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSchedulerRuleResponse
+     *
+     * @param CreateSchedulerRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSchedulerRuleResponse
      */
     public function createSchedulerRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+
+        if (null !== $request->rules) {
+            @$query['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSchedulerRule',
@@ -1655,16 +1960,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSchedulerRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a scheduling rule for Sec-Traffic Manager.
-     *  *
-     * @param CreateSchedulerRuleRequest $request CreateSchedulerRuleRequest
+     * Creates a scheduling rule for Sec-Traffic Manager.
      *
-     * @return CreateSchedulerRuleResponse CreateSchedulerRuleResponse
+     * @param request - CreateSchedulerRuleRequest
+     * @returns CreateSchedulerRuleResponse
+     *
+     * @param CreateSchedulerRuleRequest $request
+     *
+     * @return CreateSchedulerRuleResponse
      */
     public function createSchedulerRule($request)
     {
@@ -1674,39 +1985,48 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
-     *  *
-     * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
-     * >  Anti-DDoS Proxy (Outside Chinese Mainland) does not support the tag feature.
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateTagResourcesRequest $request CreateTagResourcesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Adds tags to multiple Anti-DDoS Proxy instances at a time.
      *
-     * @return CreateTagResourcesResponse CreateTagResourcesResponse
+     * @remarks
+     * You can call the CreateTagResources operation to add tags to multiple Anti-DDoS Proxy instances at a time.
+     * ### [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CreateTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTagResourcesResponse
+     *
+     * @param CreateTagResourcesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateTagResourcesResponse
      */
     public function createTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateTagResources',
@@ -1719,21 +2039,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
-     *  *
-     * @description You can call the CreateTagResources operation to add a tag to multiple Anti-DDoS Proxy (Chinese Mainland) instances at a time.
-     * >  Anti-DDoS Proxy (Outside Chinese Mainland) does not support the tag feature.
-     * ### [](#qps-)QPS limits
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateTagResourcesRequest $request CreateTagResourcesRequest
+     * Adds tags to multiple Anti-DDoS Proxy instances at a time.
      *
-     * @return CreateTagResourcesResponse CreateTagResourcesResponse
+     * @remarks
+     * You can call the CreateTagResources operation to add tags to multiple Anti-DDoS Proxy instances at a time.
+     * ### [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CreateTagResourcesRequest
+     * @returns CreateTagResourcesResponse
+     *
+     * @param CreateTagResourcesRequest $request
+     *
+     * @return CreateTagResourcesResponse
      */
     public function createTagResources($request)
     {
@@ -1742,51 +2068,64 @@ class Ddoscoo extends OpenApiClient
         return $this->createTagResourcesWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Creates a custom frequency control rule for a website.
+     *
      * @deprecated openAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
-     *  *
-     * @summary Creates a custom frequency control rule for a website.
-     *  *
-     * Deprecated
      *
-     * @param CreateWebCCRuleRequest $request CreateWebCCRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateWebCCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWebCCRuleResponse
      *
-     * @return CreateWebCCRuleResponse CreateWebCCRuleResponse
+     * @param CreateWebCCRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateWebCCRuleResponse
      */
     public function createWebCCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->act)) {
-            $query['Act'] = $request->act;
+        if (null !== $request->act) {
+            @$query['Act'] = $request->act;
         }
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
-        if (!Utils::isUnset($request->uri)) {
-            $query['Uri'] = $request->uri;
+
+        if (null !== $request->uri) {
+            @$query['Uri'] = $request->uri;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateWebCCRule',
@@ -1799,20 +2138,26 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWebCCRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Creates a custom frequency control rule for a website.
+     *
      * @deprecated openAPI CreateWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
-     *  *
-     * @summary Creates a custom frequency control rule for a website.
-     *  *
-     * Deprecated
      *
-     * @param CreateWebCCRuleRequest $request CreateWebCCRuleRequest
+     * @param request - CreateWebCCRuleRequest
+     * @returns CreateWebCCRuleResponse
      *
-     * @return CreateWebCCRuleResponse CreateWebCCRuleResponse
+     * @param CreateWebCCRuleRequest $request
+     *
+     * @return CreateWebCCRuleResponse
      */
     public function createWebCCRule($request)
     {
@@ -1822,40 +2167,51 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Creates a forwarding rule for a website.
-     *  *
-     * @param CreateWebRuleRequest $request CreateWebRuleRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a forwarding rule for a website.
      *
-     * @return CreateWebRuleResponse CreateWebRuleResponse
+     * @param request - CreateWebRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWebRuleResponse
+     *
+     * @param CreateWebRuleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateWebRuleResponse
      */
     public function createWebRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defenseId)) {
-            $query['DefenseId'] = $request->defenseId;
+        if (null !== $request->defenseId) {
+            @$query['DefenseId'] = $request->defenseId;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->httpsExt)) {
-            $query['HttpsExt'] = $request->httpsExt;
+
+        if (null !== $request->httpsExt) {
+            @$query['HttpsExt'] = $request->httpsExt;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->rsType)) {
-            $query['RsType'] = $request->rsType;
+
+        if (null !== $request->rsType) {
+            @$query['RsType'] = $request->rsType;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+
+        if (null !== $request->rules) {
+            @$query['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateWebRule',
@@ -1868,16 +2224,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWebRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a forwarding rule for a website.
-     *  *
-     * @param CreateWebRuleRequest $request CreateWebRuleRequest
+     * Creates a forwarding rule for a website.
      *
-     * @return CreateWebRuleResponse CreateWebRuleResponse
+     * @param request - CreateWebRuleRequest
+     * @returns CreateWebRuleResponse
+     *
+     * @param CreateWebRuleRequest $request
+     *
+     * @return CreateWebRuleResponse
      */
     public function createWebRule($request)
     {
@@ -1887,25 +2249,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an asynchronous export task.
-     *  *
-     * @param DeleteAsyncTaskRequest $request DeleteAsyncTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes an asynchronous export task.
      *
-     * @return DeleteAsyncTaskResponse DeleteAsyncTaskResponse
+     * @param request - DeleteAsyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAsyncTaskResponse
+     *
+     * @param DeleteAsyncTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAsyncTaskResponse
      */
     public function deleteAsyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAsyncTask',
@@ -1918,16 +2286,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAsyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAsyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an asynchronous export task.
-     *  *
-     * @param DeleteAsyncTaskRequest $request DeleteAsyncTaskRequest
+     * Deletes an asynchronous export task.
      *
-     * @return DeleteAsyncTaskResponse DeleteAsyncTaskResponse
+     * @param request - DeleteAsyncTaskRequest
+     * @returns DeleteAsyncTaskResponse
+     *
+     * @param DeleteAsyncTaskRequest $request
+     *
+     * @return DeleteAsyncTaskResponse
      */
     public function deleteAsyncTask($request)
     {
@@ -1937,25 +2311,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DeleteAutoCcBlacklistRequest $request DeleteAutoCcBlacklistRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DeleteAutoCcBlacklistResponse DeleteAutoCcBlacklistResponse
+     * @param request - DeleteAutoCcBlacklistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAutoCcBlacklistResponse
+     *
+     * @param DeleteAutoCcBlacklistRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteAutoCcBlacklistResponse
      */
     public function deleteAutoCcBlacklistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->blacklist)) {
-            $query['Blacklist'] = $request->blacklist;
+        if (null !== $request->blacklist) {
+            @$query['Blacklist'] = $request->blacklist;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAutoCcBlacklist',
@@ -1968,16 +2352,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAutoCcBlacklistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DeleteAutoCcBlacklistRequest $request DeleteAutoCcBlacklistRequest
+     * Removes IP addresses from the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DeleteAutoCcBlacklistResponse DeleteAutoCcBlacklistResponse
+     * @param request - DeleteAutoCcBlacklistRequest
+     * @returns DeleteAutoCcBlacklistResponse
+     *
+     * @param DeleteAutoCcBlacklistRequest $request
+     *
+     * @return DeleteAutoCcBlacklistResponse
      */
     public function deleteAutoCcBlacklist($request)
     {
@@ -1987,25 +2377,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DeleteAutoCcWhitelistRequest $request DeleteAutoCcWhitelistRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DeleteAutoCcWhitelistResponse DeleteAutoCcWhitelistResponse
+     * @param request - DeleteAutoCcWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAutoCcWhitelistResponse
+     *
+     * @param DeleteAutoCcWhitelistRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteAutoCcWhitelistResponse
      */
     public function deleteAutoCcWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->whitelist)) {
-            $query['Whitelist'] = $request->whitelist;
+
+        if (null !== $request->whitelist) {
+            @$query['Whitelist'] = $request->whitelist;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAutoCcWhitelist',
@@ -2018,16 +2414,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAutoCcWhitelistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DeleteAutoCcWhitelistRequest $request DeleteAutoCcWhitelistRequest
+     * Removes IP addresses from the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DeleteAutoCcWhitelistResponse DeleteAutoCcWhitelistResponse
+     * @param request - DeleteAutoCcWhitelistRequest
+     * @returns DeleteAutoCcWhitelistResponse
+     *
+     * @param DeleteAutoCcWhitelistRequest $request
+     *
+     * @return DeleteAutoCcWhitelistResponse
      */
     public function deleteAutoCcWhitelist($request)
     {
@@ -2037,22 +2439,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a specified forwarding rule of a website.
-     *  *
-     * @param DeleteDomainResourceRequest $request DeleteDomainResourceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes a specified forwarding rule of a website.
      *
-     * @return DeleteDomainResourceResponse DeleteDomainResourceResponse
+     * @param request - DeleteDomainResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDomainResourceResponse
+     *
+     * @param DeleteDomainResourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDomainResourceResponse
      */
     public function deleteDomainResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomainResource',
@@ -2065,16 +2472,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDomainResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a specified forwarding rule of a website.
-     *  *
-     * @param DeleteDomainResourceRequest $request DeleteDomainResourceRequest
+     * Deletes a specified forwarding rule of a website.
      *
-     * @return DeleteDomainResourceResponse DeleteDomainResourceResponse
+     * @param request - DeleteDomainResourceRequest
+     * @returns DeleteDomainResourceResponse
+     *
+     * @param DeleteDomainResourceRequest $request
+     *
+     * @return DeleteDomainResourceResponse
      */
     public function deleteDomainResource($request)
     {
@@ -2084,22 +2497,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
-     *  *
-     * @param DeleteNetworkRuleRequest $request DeleteNetworkRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
      *
-     * @return DeleteNetworkRuleResponse DeleteNetworkRuleResponse
+     * @param request - DeleteNetworkRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteNetworkRuleResponse
+     *
+     * @param DeleteNetworkRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteNetworkRuleResponse
      */
     public function deleteNetworkRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->networkRule)) {
-            $query['NetworkRule'] = $request->networkRule;
+        if (null !== $request->networkRule) {
+            @$query['NetworkRule'] = $request->networkRule;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteNetworkRule',
@@ -2112,16 +2530,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNetworkRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
-     *  *
-     * @param DeleteNetworkRuleRequest $request DeleteNetworkRuleRequest
+     * Deletes a port forwarding rule. You can delete only one port forwarding rule at a time.
      *
-     * @return DeleteNetworkRuleResponse DeleteNetworkRuleResponse
+     * @param request - DeleteNetworkRuleRequest
+     * @returns DeleteNetworkRuleResponse
+     *
+     * @param DeleteNetworkRuleRequest $request
+     *
+     * @return DeleteNetworkRuleResponse
      */
     public function deleteNetworkRule($request)
     {
@@ -2131,37 +2555,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the specified port forwarding rule.
-     *  *
-     * @description After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
-     * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *  *
-     * @param DeletePortRequest $request DeletePortRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes the specified port forwarding rule.
      *
-     * @return DeletePortResponse DeletePortResponse
+     * @remarks
+     * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+     * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     *
+     * @param request - DeletePortRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePortResponse
+     *
+     * @param DeletePortRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeletePortResponse
      */
     public function deletePortWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backendPort)) {
-            $query['BackendPort'] = $request->backendPort;
+        if (null !== $request->backendPort) {
+            @$query['BackendPort'] = $request->backendPort;
         }
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->frontendProtocol)) {
-            $query['FrontendProtocol'] = $request->frontendProtocol;
+
+        if (null !== $request->frontendProtocol) {
+            @$query['FrontendProtocol'] = $request->frontendProtocol;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->realServers)) {
-            $query['RealServers'] = $request->realServers;
+
+        if (null !== $request->realServers) {
+            @$query['RealServers'] = $request->realServers;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePort',
@@ -2174,19 +2608,26 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePortResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePortResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePortResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the specified port forwarding rule.
-     *  *
-     * @description After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
-     * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *  *
-     * @param DeletePortRequest $request DeletePortRequest
+     * Deletes the specified port forwarding rule.
      *
-     * @return DeletePortResponse DeletePortResponse
+     * @remarks
+     * After you delete a port forwarding rule, the Anti-DDoS Pro or Anti-DDoS Premium instance no longer forwards service traffic on the Layer 4 port. Before you delete a specific port forwarding rule, make sure that the service traffic destined for the Layer 4 port is redirected to the origin server. This can prevent negative impacts on your services.
+     * > You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     *
+     * @param request - DeletePortRequest
+     * @returns DeletePortResponse
+     *
+     * @param DeletePortRequest $request
+     *
+     * @return DeletePortResponse
      */
     public function deletePort($request)
     {
@@ -2196,22 +2637,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scenario-specific custom policy.
-     *  *
-     * @param DeleteSceneDefensePolicyRequest $request DeleteSceneDefensePolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes a scenario-specific custom policy.
      *
-     * @return DeleteSceneDefensePolicyResponse DeleteSceneDefensePolicyResponse
+     * @param request - DeleteSceneDefensePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSceneDefensePolicyResponse
+     *
+     * @param DeleteSceneDefensePolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteSceneDefensePolicyResponse
      */
     public function deleteSceneDefensePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSceneDefensePolicy',
@@ -2224,16 +2670,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSceneDefensePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a scenario-specific custom policy.
-     *  *
-     * @param DeleteSceneDefensePolicyRequest $request DeleteSceneDefensePolicyRequest
+     * Deletes a scenario-specific custom policy.
      *
-     * @return DeleteSceneDefensePolicyResponse DeleteSceneDefensePolicyResponse
+     * @param request - DeleteSceneDefensePolicyRequest
+     * @returns DeleteSceneDefensePolicyResponse
+     *
+     * @param DeleteSceneDefensePolicyRequest $request
+     *
+     * @return DeleteSceneDefensePolicyResponse
      */
     public function deleteSceneDefensePolicy($request)
     {
@@ -2243,25 +2695,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scheduling rule of Sec-Traffic Manager.
-     *  *
-     * @param DeleteSchedulerRuleRequest $request DeleteSchedulerRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a scheduling rule of Sec-Traffic Manager.
      *
-     * @return DeleteSchedulerRuleResponse DeleteSchedulerRuleResponse
+     * @param request - DeleteSchedulerRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSchedulerRuleResponse
+     *
+     * @param DeleteSchedulerRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteSchedulerRuleResponse
      */
     public function deleteSchedulerRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSchedulerRule',
@@ -2274,16 +2732,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSchedulerRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a scheduling rule of Sec-Traffic Manager.
-     *  *
-     * @param DeleteSchedulerRuleRequest $request DeleteSchedulerRuleRequest
+     * Deletes a scheduling rule of Sec-Traffic Manager.
      *
-     * @return DeleteSchedulerRuleResponse DeleteSchedulerRuleResponse
+     * @param request - DeleteSchedulerRuleRequest
+     * @returns DeleteSchedulerRuleResponse
+     *
+     * @param DeleteSchedulerRuleRequest $request
+     *
+     * @return DeleteSchedulerRuleResponse
      */
     public function deleteSchedulerRule($request)
     {
@@ -2293,42 +2757,53 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-     *  *
-     * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+     * Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+     *
+     * @remarks
+     * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
      * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteTagResourcesRequest $request DeleteTagResourcesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTagResourcesResponse DeleteTagResourcesResponse
+     * @param request - DeleteTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTagResourcesResponse
+     *
+     * @param DeleteTagResourcesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteTagResourcesResponse
      */
     public function deleteTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTagResources',
@@ -2341,21 +2816,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
-     *  *
-     * @description You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+     * Removes tags from Anti-DDoS Proxy (Chinese Mainland) instances.
+     *
+     * @remarks
+     * You can call the DeleteTagResources operation to remove tags from Anti-DDoS Proxy (Chinese Mainland) instances.
      * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteTagResourcesRequest $request DeleteTagResourcesRequest
      *
-     * @return DeleteTagResourcesResponse DeleteTagResourcesResponse
+     * @param request - DeleteTagResourcesRequest
+     * @returns DeleteTagResourcesResponse
+     *
+     * @param DeleteTagResourcesRequest $request
+     *
+     * @return DeleteTagResourcesResponse
      */
     public function deleteTagResources($request)
     {
@@ -2364,33 +2846,40 @@ class Ddoscoo extends OpenApiClient
         return $this->deleteTagResourcesWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Deletes a custom frequency control rule of a website.
+     *
      * @deprecated openAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead
-     *  *
-     * @summary Deletes a custom frequency control rule of a website.
-     *  *
-     * Deprecated
      *
-     * @param DeleteWebCCRuleRequest $request DeleteWebCCRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteWebCCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWebCCRuleResponse
      *
-     * @return DeleteWebCCRuleResponse DeleteWebCCRuleResponse
+     * @param DeleteWebCCRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteWebCCRuleResponse
      */
     public function deleteWebCCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWebCCRule',
@@ -2403,20 +2892,26 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWebCCRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Deletes a custom frequency control rule of a website.
+     *
      * @deprecated openAPI DeleteWebCCRule is deprecated, please use ddoscoo::2020-01-01::DeleteWebCCRuleV2 instead
-     *  *
-     * @summary Deletes a custom frequency control rule of a website.
-     *  *
-     * Deprecated
      *
-     * @param DeleteWebCCRuleRequest $request DeleteWebCCRuleRequest
+     * @param request - DeleteWebCCRuleRequest
+     * @returns DeleteWebCCRuleResponse
      *
-     * @return DeleteWebCCRuleResponse DeleteWebCCRuleResponse
+     * @param DeleteWebCCRuleRequest $request
+     *
+     * @return DeleteWebCCRuleResponse
      */
     public function deleteWebCCRule($request)
     {
@@ -2426,28 +2921,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes custom frequency control rules of a website.
-     *  *
-     * @param DeleteWebCCRuleV2Request $request DeleteWebCCRuleV2Request
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes custom frequency control rules of a website.
      *
-     * @return DeleteWebCCRuleV2Response DeleteWebCCRuleV2Response
+     * @param request - DeleteWebCCRuleV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWebCCRuleV2Response
+     *
+     * @param DeleteWebCCRuleV2Request $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteWebCCRuleV2Response
      */
     public function deleteWebCCRuleV2WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->ruleNames)) {
-            $query['RuleNames'] = $request->ruleNames;
+
+        if (null !== $request->ruleNames) {
+            @$query['RuleNames'] = $request->ruleNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWebCCRuleV2',
@@ -2460,16 +2962,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWebCCRuleV2Response::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWebCCRuleV2Response::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWebCCRuleV2Response::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes custom frequency control rules of a website.
-     *  *
-     * @param DeleteWebCCRuleV2Request $request DeleteWebCCRuleV2Request
+     * Deletes custom frequency control rules of a website.
      *
-     * @return DeleteWebCCRuleV2Response DeleteWebCCRuleV2Response
+     * @param request - DeleteWebCCRuleV2Request
+     * @returns DeleteWebCCRuleV2Response
+     *
+     * @param DeleteWebCCRuleV2Request $request
+     *
+     * @return DeleteWebCCRuleV2Response
      */
     public function deleteWebCCRuleV2($request)
     {
@@ -2479,32 +2987,40 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the custom rules of the Static Page Caching policy for a website.
-     *  *
-     * @description You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+     * Deletes the custom rules of the Static Page Caching policy for a website.
+     *
+     * @remarks
+     * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteWebCacheCustomRuleRequest $request DeleteWebCacheCustomRuleRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteWebCacheCustomRuleResponse DeleteWebCacheCustomRuleResponse
+     * @param request - DeleteWebCacheCustomRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWebCacheCustomRuleResponse
+     *
+     * @param DeleteWebCacheCustomRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteWebCacheCustomRuleResponse
      */
     public function deleteWebCacheCustomRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleNames)) {
-            $query['RuleNames'] = $request->ruleNames;
+
+        if (null !== $request->ruleNames) {
+            @$query['RuleNames'] = $request->ruleNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWebCacheCustomRule',
@@ -2517,20 +3033,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWebCacheCustomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWebCacheCustomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWebCacheCustomRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the custom rules of the Static Page Caching policy for a website.
-     *  *
-     * @description You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
+     * Deletes the custom rules of the Static Page Caching policy for a website.
+     *
+     * @remarks
+     * You can call the DeleteWebCacheCustomRule operation to delete the custom rules of the Static Page Caching policy for a website.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteWebCacheCustomRuleRequest $request DeleteWebCacheCustomRuleRequest
      *
-     * @return DeleteWebCacheCustomRuleResponse DeleteWebCacheCustomRuleResponse
+     * @param request - DeleteWebCacheCustomRuleRequest
+     * @returns DeleteWebCacheCustomRuleResponse
+     *
+     * @param DeleteWebCacheCustomRuleRequest $request
+     *
+     * @return DeleteWebCacheCustomRuleResponse
      */
     public function deleteWebCacheCustomRule($request)
     {
@@ -2540,28 +3063,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the accurate access control rules that are created for a website.
-     *  *
-     * @param DeleteWebPreciseAccessRuleRequest $request DeleteWebPreciseAccessRuleRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes the accurate access control rules that are created for a website.
      *
-     * @return DeleteWebPreciseAccessRuleResponse DeleteWebPreciseAccessRuleResponse
+     * @param request - DeleteWebPreciseAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWebPreciseAccessRuleResponse
+     *
+     * @param DeleteWebPreciseAccessRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteWebPreciseAccessRuleResponse
      */
     public function deleteWebPreciseAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleNames)) {
-            $query['RuleNames'] = $request->ruleNames;
+
+        if (null !== $request->ruleNames) {
+            @$query['RuleNames'] = $request->ruleNames;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWebPreciseAccessRule',
@@ -2574,16 +3104,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWebPreciseAccessRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the accurate access control rules that are created for a website.
-     *  *
-     * @param DeleteWebPreciseAccessRuleRequest $request DeleteWebPreciseAccessRuleRequest
+     * Deletes the accurate access control rules that are created for a website.
      *
-     * @return DeleteWebPreciseAccessRuleResponse DeleteWebPreciseAccessRuleResponse
+     * @param request - DeleteWebPreciseAccessRuleRequest
+     * @returns DeleteWebPreciseAccessRuleResponse
+     *
+     * @param DeleteWebPreciseAccessRuleRequest $request
+     *
+     * @return DeleteWebPreciseAccessRuleResponse
      */
     public function deleteWebPreciseAccessRule($request)
     {
@@ -2593,25 +3129,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a forwarding rule of a website.
-     *  *
-     * @param DeleteWebRuleRequest $request DeleteWebRuleRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a forwarding rule of a website.
      *
-     * @return DeleteWebRuleResponse DeleteWebRuleResponse
+     * @param request - DeleteWebRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWebRuleResponse
+     *
+     * @param DeleteWebRuleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteWebRuleResponse
      */
     public function deleteWebRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWebRule',
@@ -2624,16 +3166,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWebRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a forwarding rule of a website.
-     *  *
-     * @param DeleteWebRuleRequest $request DeleteWebRuleRequest
+     * Deletes a forwarding rule of a website.
      *
-     * @return DeleteWebRuleResponse DeleteWebRuleResponse
+     * @param request - DeleteWebRuleRequest
+     * @returns DeleteWebRuleResponse
+     *
+     * @param DeleteWebRuleRequest $request
+     *
+     * @return DeleteWebRuleResponse
      */
     public function deleteWebRule($request)
     {
@@ -2643,32 +3191,40 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-     *  *
-     * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+     * Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+     *
+     * @remarks
+     * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeAsyncTasksRequest $request DescribeAsyncTasksRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAsyncTasksResponse DescribeAsyncTasksResponse
+     * @param request - DescribeAsyncTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAsyncTasksResponse
+     *
+     * @param DescribeAsyncTasksRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeAsyncTasksResponse
      */
     public function describeAsyncTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAsyncTasks',
@@ -2681,20 +3237,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAsyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAsyncTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
-     *  *
-     * @description You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+     * Queries the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
+     *
+     * @remarks
+     * You can call the DescribeAsyncTasks operation to query the details of asynchronous export tasks, such as the IDs, start time, end time, status, parameters, and results.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeAsyncTasksRequest $request DescribeAsyncTasksRequest
      *
-     * @return DescribeAsyncTasksResponse DescribeAsyncTasksResponse
+     * @param request - DescribeAsyncTasksRequest
+     * @returns DescribeAsyncTasksResponse
+     *
+     * @param DescribeAsyncTasksRequest $request
+     *
+     * @return DescribeAsyncTasksResponse
      */
     public function describeAsyncTasks($request)
     {
@@ -2704,25 +3267,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
-     *  *
-     * @param DescribeAttackAnalysisMaxQpsRequest $request DescribeAttackAnalysisMaxQpsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the peak QPS of DDoS attacks within the specific period of time.
      *
-     * @return DescribeAttackAnalysisMaxQpsResponse DescribeAttackAnalysisMaxQpsResponse
+     * @param request - DescribeAttackAnalysisMaxQpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAttackAnalysisMaxQpsResponse
+     *
+     * @param DescribeAttackAnalysisMaxQpsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAttackAnalysisMaxQpsResponse
      */
     public function describeAttackAnalysisMaxQpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAttackAnalysisMaxQps',
@@ -2735,16 +3304,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAttackAnalysisMaxQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAttackAnalysisMaxQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAttackAnalysisMaxQpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the peak QPS of DDoS attacks within the specific period of time.
-     *  *
-     * @param DescribeAttackAnalysisMaxQpsRequest $request DescribeAttackAnalysisMaxQpsRequest
+     * Queries the peak QPS of DDoS attacks within the specific period of time.
      *
-     * @return DescribeAttackAnalysisMaxQpsResponse DescribeAttackAnalysisMaxQpsResponse
+     * @param request - DescribeAttackAnalysisMaxQpsRequest
+     * @returns DescribeAttackAnalysisMaxQpsResponse
+     *
+     * @param DescribeAttackAnalysisMaxQpsRequest $request
+     *
+     * @return DescribeAttackAnalysisMaxQpsResponse
      */
     public function describeAttackAnalysisMaxQps($request)
     {
@@ -2754,31 +3329,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeAutoCcBlacklistRequest $request DescribeAutoCcBlacklistRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeAutoCcBlacklistResponse DescribeAutoCcBlacklistResponse
+     * @param request - DescribeAutoCcBlacklistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAutoCcBlacklistResponse
+     *
+     * @param DescribeAutoCcBlacklistRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAutoCcBlacklistResponse
      */
     public function describeAutoCcBlacklistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAutoCcBlacklist',
@@ -2791,16 +3378,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAutoCcBlacklistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeAutoCcBlacklistRequest $request DescribeAutoCcBlacklistRequest
+     * Queries IP addresses in the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeAutoCcBlacklistResponse DescribeAutoCcBlacklistResponse
+     * @param request - DescribeAutoCcBlacklistRequest
+     * @returns DescribeAutoCcBlacklistResponse
+     *
+     * @param DescribeAutoCcBlacklistRequest $request
+     *
+     * @return DescribeAutoCcBlacklistResponse
      */
     public function describeAutoCcBlacklist($request)
     {
@@ -2810,25 +3403,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeAutoCcListCountRequest $request DescribeAutoCcListCountRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeAutoCcListCountResponse DescribeAutoCcListCountResponse
+     * @param request - DescribeAutoCcListCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAutoCcListCountResponse
+     *
+     * @param DescribeAutoCcListCountRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAutoCcListCountResponse
      */
     public function describeAutoCcListCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->queryType)) {
-            $query['QueryType'] = $request->queryType;
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAutoCcListCount',
@@ -2841,16 +3440,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAutoCcListCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAutoCcListCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAutoCcListCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeAutoCcListCountRequest $request DescribeAutoCcListCountRequest
+     * Queries the numbers of IP addresses in the IP address whitelist and IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeAutoCcListCountResponse DescribeAutoCcListCountResponse
+     * @param request - DescribeAutoCcListCountRequest
+     * @returns DescribeAutoCcListCountResponse
+     *
+     * @param DescribeAutoCcListCountRequest $request
+     *
+     * @return DescribeAutoCcListCountResponse
      */
     public function describeAutoCcListCount($request)
     {
@@ -2860,31 +3465,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeAutoCcWhitelistRequest $request DescribeAutoCcWhitelistRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeAutoCcWhitelistResponse DescribeAutoCcWhitelistResponse
+     * @param request - DescribeAutoCcWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAutoCcWhitelistResponse
+     *
+     * @param DescribeAutoCcWhitelistRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeAutoCcWhitelistResponse
      */
     public function describeAutoCcWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAutoCcWhitelist',
@@ -2897,16 +3510,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAutoCcWhitelistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeAutoCcWhitelistRequest $request DescribeAutoCcWhitelistRequest
+     * Queries IP addresses in the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeAutoCcWhitelistResponse DescribeAutoCcWhitelistResponse
+     * @param request - DescribeAutoCcWhitelistRequest
+     * @returns DescribeAutoCcWhitelistResponse
+     *
+     * @param DescribeAutoCcWhitelistRequest $request
+     *
+     * @return DescribeAutoCcWhitelistResponse
      */
     public function describeAutoCcWhitelist($request)
     {
@@ -2916,28 +3535,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
-     *  *
-     * @param DescribeBackSourceCidrRequest $request DescribeBackSourceCidrRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
      *
-     * @return DescribeBackSourceCidrResponse DescribeBackSourceCidrResponse
+     * @param request - DescribeBackSourceCidrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBackSourceCidrResponse
+     *
+     * @param DescribeBackSourceCidrRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeBackSourceCidrResponse
      */
     public function describeBackSourceCidrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ipVersion)) {
-            $query['IpVersion'] = $request->ipVersion;
+        if (null !== $request->ipVersion) {
+            @$query['IpVersion'] = $request->ipVersion;
         }
-        if (!Utils::isUnset($request->line)) {
-            $query['Line'] = $request->line;
+
+        if (null !== $request->line) {
+            @$query['Line'] = $request->line;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackSourceCidr',
@@ -2950,16 +3576,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBackSourceCidrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBackSourceCidrResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackSourceCidrResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
-     *  *
-     * @param DescribeBackSourceCidrRequest $request DescribeBackSourceCidrRequest
+     * Queries the back-to-origin CIDR blocks of Anti-DDoS Proxy.
      *
-     * @return DescribeBackSourceCidrResponse DescribeBackSourceCidrResponse
+     * @param request - DescribeBackSourceCidrRequest
+     * @returns DescribeBackSourceCidrResponse
+     *
+     * @param DescribeBackSourceCidrRequest $request
+     *
+     * @return DescribeBackSourceCidrResponse
      */
     public function describeBackSourceCidr($request)
     {
@@ -2969,22 +3601,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @param DescribeBlackholeStatusRequest $request DescribeBlackholeStatusRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
      *
-     * @return DescribeBlackholeStatusResponse DescribeBlackholeStatusResponse
+     * @param request - DescribeBlackholeStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBlackholeStatusResponse
+     *
+     * @param DescribeBlackholeStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeBlackholeStatusResponse
      */
     public function describeBlackholeStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBlackholeStatus',
@@ -2997,16 +3634,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBlackholeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBlackholeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBlackholeStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @param DescribeBlackholeStatusRequest $request DescribeBlackholeStatusRequest
+     * Queries the blackhole filtering status of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
      *
-     * @return DescribeBlackholeStatusResponse DescribeBlackholeStatusResponse
+     * @param request - DescribeBlackholeStatusRequest
+     * @returns DescribeBlackholeStatusResponse
+     *
+     * @param DescribeBlackholeStatusRequest $request
+     *
+     * @return DescribeBlackholeStatusResponse
      */
     public function describeBlackholeStatus($request)
     {
@@ -3016,30 +3659,37 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-     *  *
-     * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+     * Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+     *
+     * @remarks
+     * You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
      * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeBlockStatusRequest $request DescribeBlockStatusRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBlockStatusResponse DescribeBlockStatusResponse
+     * @param request - DescribeBlockStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBlockStatusResponse
+     *
+     * @param DescribeBlockStatusRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeBlockStatusResponse
      */
     public function describeBlockStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBlockStatus',
@@ -3052,21 +3702,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBlockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBlockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBlockStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
-     *  *
-     * @description You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+     * Queries the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
+     *
+     * @remarks
+     * You can call this operation to query the Diversion from Origin Server configurations of one or more Anti-DDoS Proxy (Chinese Mainland) instances.
      * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeBlockStatusRequest $request DescribeBlockStatusRequest
      *
-     * @return DescribeBlockStatusResponse DescribeBlockStatusResponse
+     * @param request - DescribeBlockStatusRequest
+     * @returns DescribeBlockStatusResponse
+     *
+     * @param DescribeBlockStatusRequest $request
+     *
+     * @return DescribeBlockStatusResponse
      */
     public function describeBlockStatus($request)
     {
@@ -3076,25 +3733,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
-     *  *
-     * @param DescribeCertsRequest $request DescribeCertsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
      *
-     * @return DescribeCertsResponse DescribeCertsResponse
+     * @param request - DescribeCertsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCertsResponse
+     *
+     * @param DescribeCertsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeCertsResponse
      */
     public function describeCertsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCerts',
@@ -3107,16 +3770,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCertsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
-     *  *
-     * @param DescribeCertsRequest $request DescribeCertsRequest
+     * Queries information about all certificates that can be associated with the current domain name instead of the certificate currently in use. To query the information about the certificate that is currently in use, you can call the DescribeWebRules operation and view the values of the CertName and CertRegion response parameters.
      *
-     * @return DescribeCertsResponse DescribeCertsResponse
+     * @param request - DescribeCertsRequest
+     * @returns DescribeCertsResponse
+     *
+     * @param DescribeCertsRequest $request
+     *
+     * @return DescribeCertsResponse
      */
     public function describeCerts($request)
     {
@@ -3126,23 +3795,29 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeCnameReusesRequest $request DescribeCnameReusesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeCnameReusesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCnameReusesResponse
      *
-     * @return DescribeCnameReusesResponse DescribeCnameReusesResponse
+     * @param DescribeCnameReusesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeCnameReusesResponse
      */
     public function describeCnameReusesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domains)) {
-            $query['Domains'] = $request->domains;
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCnameReuses',
@@ -3155,14 +3830,20 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCnameReusesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCnameReusesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCnameReusesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeCnameReusesRequest $request DescribeCnameReusesRequest
+     * @param request - DescribeCnameReusesRequest
+     * @returns DescribeCnameReusesResponse
      *
-     * @return DescribeCnameReusesResponse DescribeCnameReusesResponse
+     * @param DescribeCnameReusesRequest $request
+     *
+     * @return DescribeCnameReusesResponse
      */
     public function describeCnameReuses($request)
     {
@@ -3172,37 +3853,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
-     *  *
-     * @param DescribeDDoSEventsRequest $request DescribeDDoSEventsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the attack events launched against one or more Anti-DDoS Proxy instances.
      *
-     * @return DescribeDDoSEventsResponse DescribeDDoSEventsResponse
+     * @param request - DescribeDDoSEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDoSEventsResponse
+     *
+     * @param DescribeDDoSEventsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDDoSEventsResponse
      */
     public function describeDDoSEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDoSEvents',
@@ -3215,16 +3906,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDoSEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDoSEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDoSEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attack events launched against one or more Anti-DDoS Proxy instances.
-     *  *
-     * @param DescribeDDoSEventsRequest $request DescribeDDoSEventsRequest
+     * Queries the attack events launched against one or more Anti-DDoS Proxy instances.
      *
-     * @return DescribeDDoSEventsResponse DescribeDDoSEventsResponse
+     * @param request - DescribeDDoSEventsRequest
+     * @returns DescribeDDoSEventsResponse
+     *
+     * @param DescribeDDoSEventsRequest $request
+     *
+     * @return DescribeDDoSEventsResponse
      */
     public function describeDDoSEvents($request)
     {
@@ -3234,38 +3931,48 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Query DDoS attacks by IP address.
-     *  *
-     * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+     * Query DDoS attacks by IP address.
+     *
+     * @remarks
+     * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDDosAllEventListRequest $request DescribeDDosAllEventListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDDosAllEventListResponse DescribeDDosAllEventListResponse
+     * @param request - DescribeDDosAllEventListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDosAllEventListResponse
+     *
+     * @param DescribeDDosAllEventListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDDosAllEventListResponse
      */
     public function describeDDosAllEventListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDosAllEventList',
@@ -3278,20 +3985,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDosAllEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDosAllEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDosAllEventListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query DDoS attacks by IP address.
-     *  *
-     * @description You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
+     * Query DDoS attacks by IP address.
+     *
+     * @remarks
+     * You can call the DescribeDDosAllEventList operation to query DDoS attack events within a specific time range by page. The information about a DDoS attack event includes the start time and end time of the attack, attack event type, attacked object, peak bandwidth of attack traffic, and peak packet forwarding rate.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDDosAllEventListRequest $request DescribeDDosAllEventListRequest
      *
-     * @return DescribeDDosAllEventListResponse DescribeDDosAllEventListResponse
+     * @param request - DescribeDDosAllEventListRequest
+     * @returns DescribeDDosAllEventListResponse
+     *
+     * @param DescribeDDosAllEventListRequest $request
+     *
+     * @return DescribeDDosAllEventListResponse
      */
     public function describeDDosAllEventList($request)
     {
@@ -3301,33 +4015,42 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the source region from which a volumetric attack is initiated.
-     *  *
-     * @description > This operation is suitable only for volumetric attacks.
-     *  *
-     * @param DescribeDDosEventAreaRequest $request DescribeDDosEventAreaRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the source region from which a volumetric attack is initiated.
      *
-     * @return DescribeDDosEventAreaResponse DescribeDDosEventAreaResponse
+     * @remarks
+     * > This operation is suitable only for volumetric attacks.
+     *
+     * @param request - DescribeDDosEventAreaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDosEventAreaResponse
+     *
+     * @param DescribeDDosEventAreaRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDDosEventAreaResponse
      */
     public function describeDDosEventAreaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->range)) {
-            $query['Range'] = $request->range;
+
+        if (null !== $request->range) {
+            @$query['Range'] = $request->range;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDosEventArea',
@@ -3340,18 +4063,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDosEventAreaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDosEventAreaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDosEventAreaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the source region from which a volumetric attack is initiated.
-     *  *
-     * @description > This operation is suitable only for volumetric attacks.
-     *  *
-     * @param DescribeDDosEventAreaRequest $request DescribeDDosEventAreaRequest
+     * Queries the source region from which a volumetric attack is initiated.
      *
-     * @return DescribeDDosEventAreaResponse DescribeDDosEventAreaResponse
+     * @remarks
+     * > This operation is suitable only for volumetric attacks.
+     *
+     * @param request - DescribeDDosEventAreaRequest
+     * @returns DescribeDDosEventAreaResponse
+     *
+     * @param DescribeDDosEventAreaRequest $request
+     *
+     * @return DescribeDDosEventAreaResponse
      */
     public function describeDDosEventArea($request)
     {
@@ -3361,30 +4091,38 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attack type details of a volumetric attack.
-     *  *
-     * @description > This operation is suitable only for volumetric attacks.
-     *  *
-     * @param DescribeDDosEventAttackTypeRequest $request DescribeDDosEventAttackTypeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the attack type details of a volumetric attack.
      *
-     * @return DescribeDDosEventAttackTypeResponse DescribeDDosEventAttackTypeResponse
+     * @remarks
+     * > This operation is suitable only for volumetric attacks.
+     *
+     * @param request - DescribeDDosEventAttackTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDosEventAttackTypeResponse
+     *
+     * @param DescribeDDosEventAttackTypeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDDosEventAttackTypeResponse
      */
     public function describeDDosEventAttackTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDosEventAttackType',
@@ -3397,18 +4135,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDosEventAttackTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDosEventAttackTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDosEventAttackTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attack type details of a volumetric attack.
-     *  *
-     * @description > This operation is suitable only for volumetric attacks.
-     *  *
-     * @param DescribeDDosEventAttackTypeRequest $request DescribeDDosEventAttackTypeRequest
+     * Queries the attack type details of a volumetric attack.
      *
-     * @return DescribeDDosEventAttackTypeResponse DescribeDDosEventAttackTypeResponse
+     * @remarks
+     * > This operation is suitable only for volumetric attacks.
+     *
+     * @param request - DescribeDDosEventAttackTypeRequest
+     * @returns DescribeDDosEventAttackTypeResponse
+     *
+     * @param DescribeDDosEventAttackTypeRequest $request
+     *
+     * @return DescribeDDosEventAttackTypeResponse
      */
     public function describeDDosEventAttackType($request)
     {
@@ -3418,33 +4163,42 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
-     *  *
-     * @description > This operation is suitable only for volumetric attacks.
-     *  *
-     * @param DescribeDDosEventIspRequest $request DescribeDDosEventIspRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the Internet service provider (ISP) information about a volumetric attack.
      *
-     * @return DescribeDDosEventIspResponse DescribeDDosEventIspResponse
+     * @remarks
+     * > This operation is suitable only for volumetric attacks.
+     *
+     * @param request - DescribeDDosEventIspRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDosEventIspResponse
+     *
+     * @param DescribeDDosEventIspRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDDosEventIspResponse
      */
     public function describeDDosEventIspWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->range)) {
-            $query['Range'] = $request->range;
+
+        if (null !== $request->range) {
+            @$query['Range'] = $request->range;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDosEventIsp',
@@ -3457,18 +4211,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDosEventIspResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDosEventIspResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDosEventIspResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Internet service provider (ISP) information about a volumetric attack.
-     *  *
-     * @description > This operation is suitable only for volumetric attacks.
-     *  *
-     * @param DescribeDDosEventIspRequest $request DescribeDDosEventIspRequest
+     * Queries the Internet service provider (ISP) information about a volumetric attack.
      *
-     * @return DescribeDDosEventIspResponse DescribeDDosEventIspResponse
+     * @remarks
+     * > This operation is suitable only for volumetric attacks.
+     *
+     * @param request - DescribeDDosEventIspRequest
+     * @returns DescribeDDosEventIspResponse
+     *
+     * @param DescribeDDosEventIspRequest $request
+     *
+     * @return DescribeDDosEventIspResponse
      */
     public function describeDDosEventIsp($request)
     {
@@ -3478,25 +4239,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
-     *  *
-     * @param DescribeDDosEventMaxRequest $request DescribeDDosEventMaxRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
      *
-     * @return DescribeDDosEventMaxResponse DescribeDDosEventMaxResponse
+     * @param request - DescribeDDosEventMaxRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDosEventMaxResponse
+     *
+     * @param DescribeDDosEventMaxRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDDosEventMaxResponse
      */
     public function describeDDosEventMaxWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDosEventMax',
@@ -3509,16 +4276,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDosEventMaxResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDosEventMaxResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDosEventMaxResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
-     *  *
-     * @param DescribeDDosEventMaxRequest $request DescribeDDosEventMaxRequest
+     * Queries the peaks of volumetric attacks (bit/s), connection flood attacks (CPS), and resource exhaustion attacks on websites (QPS).
      *
-     * @return DescribeDDosEventMaxResponse DescribeDDosEventMaxResponse
+     * @param request - DescribeDDosEventMaxRequest
+     * @returns DescribeDDosEventMaxResponse
+     *
+     * @param DescribeDDosEventMaxRequest $request
+     *
+     * @return DescribeDDosEventMaxResponse
      */
     public function describeDDosEventMax($request)
     {
@@ -3528,33 +4301,42 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the source IP address from which a volumetric attack is initiated.
-     *  *
-     * @description > This operation is suitable only for volumetric attacks.
-     *  *
-     * @param DescribeDDosEventSrcIpRequest $request DescribeDDosEventSrcIpRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the source IP address from which a volumetric attack is initiated.
      *
-     * @return DescribeDDosEventSrcIpResponse DescribeDDosEventSrcIpResponse
+     * @remarks
+     * > This operation is suitable only for volumetric attacks.
+     *
+     * @param request - DescribeDDosEventSrcIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDosEventSrcIpResponse
+     *
+     * @param DescribeDDosEventSrcIpRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDDosEventSrcIpResponse
      */
     public function describeDDosEventSrcIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->range)) {
-            $query['Range'] = $request->range;
+
+        if (null !== $request->range) {
+            @$query['Range'] = $request->range;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDosEventSrcIp',
@@ -3567,18 +4349,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDosEventSrcIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDosEventSrcIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDosEventSrcIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the source IP address from which a volumetric attack is initiated.
-     *  *
-     * @description > This operation is suitable only for volumetric attacks.
-     *  *
-     * @param DescribeDDosEventSrcIpRequest $request DescribeDDosEventSrcIpRequest
+     * Queries the source IP address from which a volumetric attack is initiated.
      *
-     * @return DescribeDDosEventSrcIpResponse DescribeDDosEventSrcIpResponse
+     * @remarks
+     * > This operation is suitable only for volumetric attacks.
+     *
+     * @param request - DescribeDDosEventSrcIpRequest
+     * @returns DescribeDDosEventSrcIpResponse
+     *
+     * @param DescribeDDosEventSrcIpRequest $request
+     *
+     * @return DescribeDDosEventSrcIpResponse
      */
     public function describeDDosEventSrcIp($request)
     {
@@ -3588,27 +4377,33 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
-     *  *
-     * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
+     * Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+     *
+     * @remarks
+     * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
      * >  This operation is suitable only for Anti-DDoS Proxy (Outside Chinese Mainland).
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDefenseCountStatisticsRequest $request DescribeDefenseCountStatisticsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDefenseCountStatisticsResponse DescribeDefenseCountStatisticsResponse
+     * @param request - DescribeDefenseCountStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseCountStatisticsResponse
+     *
+     * @param DescribeDefenseCountStatisticsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDefenseCountStatisticsResponse
      */
     public function describeDefenseCountStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseCountStatistics',
@@ -3621,21 +4416,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseCountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseCountStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseCountStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
-     *  *
-     * @description You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
+     * Queries the statistics on advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance.
+     *
+     * @remarks
+     * You can call the DescribeDefenseCountStatistics operation to query the information about advanced mitigation sessions of an Anti-DDoS Proxy (Outside Chinese Mainland) instance. For example, you can query the number of advanced mitigation sessions that are used within the current calendar month and the number of remaining advanced mitigation sessions.
      * >  This operation is suitable only for Anti-DDoS Proxy (Outside Chinese Mainland).
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDefenseCountStatisticsRequest $request DescribeDefenseCountStatisticsRequest
      *
-     * @return DescribeDefenseCountStatisticsResponse DescribeDefenseCountStatisticsResponse
+     * @param request - DescribeDefenseCountStatisticsRequest
+     * @returns DescribeDefenseCountStatisticsResponse
+     *
+     * @param DescribeDefenseCountStatisticsRequest $request
+     *
+     * @return DescribeDefenseCountStatisticsResponse
      */
     public function describeDefenseCountStatistics($request)
     {
@@ -3645,39 +4447,50 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
-     *  *
-     * @description > This operation is suitable only for Anti-DDoS Premium.
-     *  *
-     * @param DescribeDefenseRecordsRequest $request DescribeDefenseRecordsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the advanced mitigation logs of Anti-DDoS Premium.
      *
-     * @return DescribeDefenseRecordsResponse DescribeDefenseRecordsResponse
+     * @remarks
+     * > This operation is suitable only for Anti-DDoS Premium.
+     *
+     * @param request - DescribeDefenseRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseRecordsResponse
+     *
+     * @param DescribeDefenseRecordsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDefenseRecordsResponse
      */
     public function describeDefenseRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseRecords',
@@ -3690,18 +4503,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the advanced mitigation logs of Anti-DDoS Premium.
-     *  *
-     * @description > This operation is suitable only for Anti-DDoS Premium.
-     *  *
-     * @param DescribeDefenseRecordsRequest $request DescribeDefenseRecordsRequest
+     * Queries the advanced mitigation logs of Anti-DDoS Premium.
      *
-     * @return DescribeDefenseRecordsResponse DescribeDefenseRecordsResponse
+     * @remarks
+     * > This operation is suitable only for Anti-DDoS Premium.
+     *
+     * @param request - DescribeDefenseRecordsRequest
+     * @returns DescribeDefenseRecordsResponse
+     *
+     * @param DescribeDefenseRecordsRequest $request
+     *
+     * @return DescribeDefenseRecordsResponse
      */
     public function describeDefenseRecords($request)
     {
@@ -3711,34 +4531,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
-     *  *
-     * @param DescribeDestinationPortEventRequest $request DescribeDestinationPortEventRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
      *
-     * @return DescribeDestinationPortEventResponse DescribeDestinationPortEventResponse
+     * @param request - DescribeDestinationPortEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDestinationPortEventResponse
+     *
+     * @param DescribeDestinationPortEventRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDestinationPortEventResponse
      */
     public function describeDestinationPortEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->range)) {
-            $query['Range'] = $request->range;
+
+        if (null !== $request->range) {
+            @$query['Range'] = $request->range;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDestinationPortEvent',
@@ -3751,16 +4580,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDestinationPortEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDestinationPortEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDestinationPortEventResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
-     *  *
-     * @param DescribeDestinationPortEventRequest $request DescribeDestinationPortEventRequest
+     * Queries the number of request packets received by the destination ports of the attacked IP address that is protected by Anti-DDoS Proxy.
      *
-     * @return DescribeDestinationPortEventResponse DescribeDestinationPortEventResponse
+     * @param request - DescribeDestinationPortEventRequest
+     * @returns DescribeDestinationPortEventResponse
+     *
+     * @param DescribeDestinationPortEventRequest $request
+     *
+     * @return DescribeDestinationPortEventResponse
      */
     public function describeDestinationPortEvent($request)
     {
@@ -3770,37 +4605,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attack events launched against a website.
-     *  *
-     * @param DescribeDomainAttackEventsRequest $request DescribeDomainAttackEventsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the attack events launched against a website.
      *
-     * @return DescribeDomainAttackEventsResponse DescribeDomainAttackEventsResponse
+     * @param request - DescribeDomainAttackEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainAttackEventsResponse
+     *
+     * @param DescribeDomainAttackEventsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDomainAttackEventsResponse
      */
     public function describeDomainAttackEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainAttackEvents',
@@ -3813,16 +4658,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainAttackEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainAttackEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainAttackEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attack events launched against a website.
-     *  *
-     * @param DescribeDomainAttackEventsRequest $request DescribeDomainAttackEventsRequest
+     * Queries the attack events launched against a website.
      *
-     * @return DescribeDomainAttackEventsResponse DescribeDomainAttackEventsResponse
+     * @param request - DescribeDomainAttackEventsRequest
+     * @returns DescribeDomainAttackEventsResponse
+     *
+     * @param DescribeDomainAttackEventsRequest $request
+     *
+     * @return DescribeDomainAttackEventsResponse
      */
     public function describeDomainAttackEvents($request)
     {
@@ -3832,34 +4683,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询域名业务带宽流量
-     *  *
-     * @param DescribeDomainBpsRequest $request DescribeDomainBpsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the bandwidths of a website.
      *
-     * @return DescribeDomainBpsResponse DescribeDomainBpsResponse
+     * @param request - DescribeDomainBpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainBpsResponse
+     *
+     * @param DescribeDomainBpsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeDomainBpsResponse
      */
     public function describeDomainBpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainBps',
@@ -3872,16 +4732,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainBpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainBpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainBpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询域名业务带宽流量
-     *  *
-     * @param DescribeDomainBpsRequest $request DescribeDomainBpsRequest
+     * Queries the bandwidths of a website.
      *
-     * @return DescribeDomainBpsResponse DescribeDomainBpsResponse
+     * @param request - DescribeDomainBpsRequest
+     * @returns DescribeDomainBpsResponse
+     *
+     * @param DescribeDomainBpsRequest $request
+     *
+     * @return DescribeDomainBpsResponse
      */
     public function describeDomainBps($request)
     {
@@ -3891,31 +4757,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询HTTP2指纹
-     *  *
-     * @param DescribeDomainH2FingerprintRequest $request DescribeDomainH2FingerprintRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about HTTP/2 fingerprints of a website.
      *
-     * @return DescribeDomainH2FingerprintResponse DescribeDomainH2FingerprintResponse
+     * @param request - DescribeDomainH2FingerprintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainH2FingerprintResponse
+     *
+     * @param DescribeDomainH2FingerprintRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDomainH2FingerprintResponse
      */
     public function describeDomainH2FingerprintWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainH2Fingerprint',
@@ -3928,16 +4802,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainH2FingerprintResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainH2FingerprintResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainH2FingerprintResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询HTTP2指纹
-     *  *
-     * @param DescribeDomainH2FingerprintRequest $request DescribeDomainH2FingerprintRequest
+     * Queries the information about HTTP/2 fingerprints of a website.
      *
-     * @return DescribeDomainH2FingerprintResponse DescribeDomainH2FingerprintResponse
+     * @param request - DescribeDomainH2FingerprintRequest
+     * @returns DescribeDomainH2FingerprintResponse
+     *
+     * @param DescribeDomainH2FingerprintRequest $request
+     *
+     * @return DescribeDomainH2FingerprintResponse
      */
     public function describeDomainH2Fingerprint($request)
     {
@@ -3947,31 +4827,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
-     *  *
-     * @param DescribeDomainOverviewRequest $request DescribeDomainOverviewRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
      *
-     * @return DescribeDomainOverviewResponse DescribeDomainOverviewResponse
+     * @param request - DescribeDomainOverviewRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainOverviewResponse
+     *
+     * @param DescribeDomainOverviewRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDomainOverviewResponse
      */
     public function describeDomainOverviewWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainOverview',
@@ -3984,16 +4872,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainOverviewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
-     *  *
-     * @param DescribeDomainOverviewRequest $request DescribeDomainOverviewRequest
+     * Queries the attack overview of a website, such as the peak HTTP and HTTPS traffic.
      *
-     * @return DescribeDomainOverviewResponse DescribeDomainOverviewResponse
+     * @param request - DescribeDomainOverviewRequest
+     * @returns DescribeDomainOverviewResponse
+     *
+     * @param DescribeDomainOverviewRequest $request
+     *
+     * @return DescribeDomainOverviewResponse
      */
     public function describeDomainOverview($request)
     {
@@ -4003,34 +4897,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on the queries per second (QPS) of a website.
-     *  *
-     * @param DescribeDomainQPSListRequest $request DescribeDomainQPSListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on the queries per second (QPS) of a website.
      *
-     * @return DescribeDomainQPSListResponse DescribeDomainQPSListResponse
+     * @param request - DescribeDomainQPSListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainQPSListResponse
+     *
+     * @param DescribeDomainQPSListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDomainQPSListResponse
      */
     public function describeDomainQPSListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainQPSList',
@@ -4043,16 +4946,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainQPSListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainQPSListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainQPSListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on the queries per second (QPS) of a website.
-     *  *
-     * @param DescribeDomainQPSListRequest $request DescribeDomainQPSListRequest
+     * Queries the statistics on the queries per second (QPS) of a website.
      *
-     * @return DescribeDomainQPSListResponse DescribeDomainQPSListResponse
+     * @param request - DescribeDomainQPSListRequest
+     * @returns DescribeDomainQPSListResponse
+     *
+     * @param DescribeDomainQPSListRequest $request
+     *
+     * @return DescribeDomainQPSListResponse
      */
     public function describeDomainQPSList($request)
     {
@@ -4062,39 +4971,49 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a forwarding rule.
-     *  *
-     * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+     * Queries the configurations of a forwarding rule.
+     *
+     * @remarks
+     * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
      * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
      * ### Limits
      * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDomainResourceRequest $request DescribeDomainResourceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDomainResourceResponse DescribeDomainResourceResponse
+     * @param request - DescribeDomainResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainResourceResponse
+     *
+     * @param DescribeDomainResourceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeDomainResourceResponse
      */
     public function describeDomainResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryDomainPattern)) {
-            $query['QueryDomainPattern'] = $request->queryDomainPattern;
+
+        if (null !== $request->queryDomainPattern) {
+            @$query['QueryDomainPattern'] = $request->queryDomainPattern;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainResource',
@@ -4107,21 +5026,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of a forwarding rule.
-     *  *
-     * @description You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
+     * Queries the configurations of a forwarding rule.
+     *
+     * @remarks
+     * You can call the DescribeDomainResource operation to query the configurations of the forwarding rules that you create for a website by page. The configurations include the domain name-related configurations, protocol-related configurations, HTTPS-related configurations, and configurations that are used to mitigate HTTP flood attacks.
      * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
      * ### Limits
      * You can call this operation up to 50 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDomainResourceRequest $request DescribeDomainResourceRequest
      *
-     * @return DescribeDomainResourceResponse DescribeDomainResourceResponse
+     * @param request - DescribeDomainResourceRequest
+     * @returns DescribeDomainResourceResponse
+     *
+     * @param DescribeDomainResourceRequest $request
+     *
+     * @return DescribeDomainResourceResponse
      */
     public function describeDomainResource($request)
     {
@@ -4131,22 +5057,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the global mitigation policy for a domain name.
-     *  *
-     * @param DescribeDomainSecurityProfileRequest $request DescribeDomainSecurityProfileRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the global mitigation policy for a domain name.
      *
-     * @return DescribeDomainSecurityProfileResponse DescribeDomainSecurityProfileResponse
+     * @param request - DescribeDomainSecurityProfileRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainSecurityProfileResponse
+     *
+     * @param DescribeDomainSecurityProfileRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDomainSecurityProfileResponse
      */
     public function describeDomainSecurityProfileWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainSecurityProfile',
@@ -4159,16 +5090,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainSecurityProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainSecurityProfileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainSecurityProfileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the global mitigation policy for a domain name.
-     *  *
-     * @param DescribeDomainSecurityProfileRequest $request DescribeDomainSecurityProfileRequest
+     * Queries the global mitigation policy for a domain name.
      *
-     * @return DescribeDomainSecurityProfileResponse DescribeDomainSecurityProfileResponse
+     * @param request - DescribeDomainSecurityProfileRequest
+     * @returns DescribeDomainSecurityProfileResponse
+     *
+     * @param DescribeDomainSecurityProfileRequest $request
+     *
+     * @return DescribeDomainSecurityProfileResponse
      */
     public function describeDomainSecurityProfile($request)
     {
@@ -4178,31 +5115,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
-     *  *
-     * @param DescribeDomainStatusCodeCountRequest $request DescribeDomainStatusCodeCountRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on HTTP status codes of a website within a specified period of time.
      *
-     * @return DescribeDomainStatusCodeCountResponse DescribeDomainStatusCodeCountResponse
+     * @param request - DescribeDomainStatusCodeCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainStatusCodeCountResponse
+     *
+     * @param DescribeDomainStatusCodeCountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDomainStatusCodeCountResponse
      */
     public function describeDomainStatusCodeCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainStatusCodeCount',
@@ -4215,16 +5160,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainStatusCodeCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainStatusCodeCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainStatusCodeCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on HTTP status codes of a website within a specified period of time.
-     *  *
-     * @param DescribeDomainStatusCodeCountRequest $request DescribeDomainStatusCodeCountRequest
+     * Queries the statistics on HTTP status codes of a website within a specified period of time.
      *
-     * @return DescribeDomainStatusCodeCountResponse DescribeDomainStatusCodeCountResponse
+     * @param request - DescribeDomainStatusCodeCountRequest
+     * @returns DescribeDomainStatusCodeCountResponse
+     *
+     * @param DescribeDomainStatusCodeCountRequest $request
+     *
+     * @return DescribeDomainStatusCodeCountResponse
      */
     public function describeDomainStatusCodeCount($request)
     {
@@ -4234,37 +5185,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on HTTP status codes of a website.
-     *  *
-     * @param DescribeDomainStatusCodeListRequest $request DescribeDomainStatusCodeListRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on HTTP status codes of a website.
      *
-     * @return DescribeDomainStatusCodeListResponse DescribeDomainStatusCodeListResponse
+     * @param request - DescribeDomainStatusCodeListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainStatusCodeListResponse
+     *
+     * @param DescribeDomainStatusCodeListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDomainStatusCodeListResponse
      */
     public function describeDomainStatusCodeListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->queryType)) {
-            $query['QueryType'] = $request->queryType;
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainStatusCodeList',
@@ -4277,16 +5238,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainStatusCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainStatusCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainStatusCodeListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on HTTP status codes of a website.
-     *  *
-     * @param DescribeDomainStatusCodeListRequest $request DescribeDomainStatusCodeListRequest
+     * Queries the statistics on HTTP status codes of a website.
      *
-     * @return DescribeDomainStatusCodeListResponse DescribeDomainStatusCodeListResponse
+     * @param request - DescribeDomainStatusCodeListRequest
+     * @returns DescribeDomainStatusCodeListResponse
+     *
+     * @param DescribeDomainStatusCodeListRequest $request
+     *
+     * @return DescribeDomainStatusCodeListResponse
      */
     public function describeDomainStatusCodeList($request)
     {
@@ -4296,28 +5263,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
-     *  *
-     * @param DescribeDomainTopAttackListRequest $request DescribeDomainTopAttackListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
      *
-     * @return DescribeDomainTopAttackListResponse DescribeDomainTopAttackListResponse
+     * @param request - DescribeDomainTopAttackListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainTopAttackListResponse
+     *
+     * @param DescribeDomainTopAttackListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDomainTopAttackListResponse
      */
     public function describeDomainTopAttackListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainTopAttackList',
@@ -4330,16 +5304,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainTopAttackListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainTopAttackListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainTopAttackListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
-     *  *
-     * @param DescribeDomainTopAttackListRequest $request DescribeDomainTopAttackListRequest
+     * Queries the peak queries per second (QPS) information about a website, such as the attack QPS and total QPS, within a specific period of time.
      *
-     * @return DescribeDomainTopAttackListResponse DescribeDomainTopAttackListResponse
+     * @param request - DescribeDomainTopAttackListRequest
+     * @returns DescribeDomainTopAttackListResponse
+     *
+     * @param DescribeDomainTopAttackListRequest $request
+     *
+     * @return DescribeDomainTopAttackListResponse
      */
     public function describeDomainTopAttackList($request)
     {
@@ -4349,37 +5329,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询域名 top fingerprint
-     *  *
-     * @param DescribeDomainTopFingerprintRequest $request DescribeDomainTopFingerprintRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the fingerprints of top N clients that access a website.
      *
-     * @return DescribeDomainTopFingerprintResponse DescribeDomainTopFingerprintResponse
+     * @param request - DescribeDomainTopFingerprintRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainTopFingerprintResponse
+     *
+     * @param DescribeDomainTopFingerprintRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDomainTopFingerprintResponse
      */
     public function describeDomainTopFingerprintWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainTopFingerprint',
@@ -4392,16 +5382,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainTopFingerprintResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainTopFingerprintResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainTopFingerprintResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询域名 top fingerprint
-     *  *
-     * @param DescribeDomainTopFingerprintRequest $request DescribeDomainTopFingerprintRequest
+     * Queries the information about the fingerprints of top N clients that access a website.
      *
-     * @return DescribeDomainTopFingerprintResponse DescribeDomainTopFingerprintResponse
+     * @param request - DescribeDomainTopFingerprintRequest
+     * @returns DescribeDomainTopFingerprintResponse
+     *
+     * @param DescribeDomainTopFingerprintRequest $request
+     *
+     * @return DescribeDomainTopFingerprintResponse
      */
     public function describeDomainTopFingerprint($request)
     {
@@ -4411,34 +5407,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询域名 top HttpMethod
-     *  *
-     * @param DescribeDomainTopHttpMethodRequest $request DescribeDomainTopHttpMethodRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the information about top N HTTP methods of a website.
      *
-     * @return DescribeDomainTopHttpMethodResponse DescribeDomainTopHttpMethodResponse
+     * @param request - DescribeDomainTopHttpMethodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainTopHttpMethodResponse
+     *
+     * @param DescribeDomainTopHttpMethodRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDomainTopHttpMethodResponse
      */
     public function describeDomainTopHttpMethodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainTopHttpMethod',
@@ -4451,16 +5456,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainTopHttpMethodResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainTopHttpMethodResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainTopHttpMethodResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询域名 top HttpMethod
-     *  *
-     * @param DescribeDomainTopHttpMethodRequest $request DescribeDomainTopHttpMethodRequest
+     * Queries the information about top N HTTP methods of a website.
      *
-     * @return DescribeDomainTopHttpMethodResponse DescribeDomainTopHttpMethodResponse
+     * @param request - DescribeDomainTopHttpMethodRequest
+     * @returns DescribeDomainTopHttpMethodResponse
+     *
+     * @param DescribeDomainTopHttpMethodRequest $request
+     *
+     * @return DescribeDomainTopHttpMethodResponse
      */
     public function describeDomainTopHttpMethod($request)
     {
@@ -4470,34 +5481,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询域名top referer
-     *  *
-     * @param DescribeDomainTopRefererRequest $request DescribeDomainTopRefererRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about top N referers of a website.
      *
-     * @return DescribeDomainTopRefererResponse DescribeDomainTopRefererResponse
+     * @param request - DescribeDomainTopRefererRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainTopRefererResponse
+     *
+     * @param DescribeDomainTopRefererRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDomainTopRefererResponse
      */
     public function describeDomainTopRefererWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainTopReferer',
@@ -4510,16 +5530,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainTopRefererResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainTopRefererResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainTopRefererResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询域名top referer
-     *  *
-     * @param DescribeDomainTopRefererRequest $request DescribeDomainTopRefererRequest
+     * Queries the information about top N referers of a website.
      *
-     * @return DescribeDomainTopRefererResponse DescribeDomainTopRefererResponse
+     * @param request - DescribeDomainTopRefererRequest
+     * @returns DescribeDomainTopRefererResponse
+     *
+     * @param DescribeDomainTopRefererRequest $request
+     *
+     * @return DescribeDomainTopRefererResponse
      */
     public function describeDomainTopReferer($request)
     {
@@ -4529,34 +5555,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary 查询top user agent
-     *  *
-     * @param DescribeDomainTopUserAgentRequest $request DescribeDomainTopUserAgentRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about top user agents of a website.
      *
-     * @return DescribeDomainTopUserAgentResponse DescribeDomainTopUserAgentResponse
+     * @param request - DescribeDomainTopUserAgentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainTopUserAgentResponse
+     *
+     * @param DescribeDomainTopUserAgentRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDomainTopUserAgentResponse
      */
     public function describeDomainTopUserAgentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainTopUserAgent',
@@ -4569,16 +5604,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainTopUserAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainTopUserAgentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainTopUserAgentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询top user agent
-     *  *
-     * @param DescribeDomainTopUserAgentRequest $request DescribeDomainTopUserAgentRequest
+     * Queries the information about top user agents of a website.
      *
-     * @return DescribeDomainTopUserAgentResponse DescribeDomainTopUserAgentResponse
+     * @param request - DescribeDomainTopUserAgentRequest
+     * @returns DescribeDomainTopUserAgentResponse
+     *
+     * @param DescribeDomainTopUserAgentRequest $request
+     *
+     * @return DescribeDomainTopUserAgentResponse
      */
     public function describeDomainTopUserAgent($request)
     {
@@ -4588,31 +5629,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
-     *  *
-     * @param DescribeDomainViewSourceCountriesRequest $request DescribeDomainViewSourceCountriesRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the areas and countries from which requests are sent to a website within a specified period of time.
      *
-     * @return DescribeDomainViewSourceCountriesResponse DescribeDomainViewSourceCountriesResponse
+     * @param request - DescribeDomainViewSourceCountriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainViewSourceCountriesResponse
+     *
+     * @param DescribeDomainViewSourceCountriesRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDomainViewSourceCountriesResponse
      */
     public function describeDomainViewSourceCountriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainViewSourceCountries',
@@ -4625,16 +5674,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainViewSourceCountriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainViewSourceCountriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainViewSourceCountriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the areas and countries from which requests are sent to a website within a specified period of time.
-     *  *
-     * @param DescribeDomainViewSourceCountriesRequest $request DescribeDomainViewSourceCountriesRequest
+     * Queries the areas and countries from which requests are sent to a website within a specified period of time.
      *
-     * @return DescribeDomainViewSourceCountriesResponse DescribeDomainViewSourceCountriesResponse
+     * @param request - DescribeDomainViewSourceCountriesRequest
+     * @returns DescribeDomainViewSourceCountriesResponse
+     *
+     * @param DescribeDomainViewSourceCountriesRequest $request
+     *
+     * @return DescribeDomainViewSourceCountriesResponse
      */
     public function describeDomainViewSourceCountries($request)
     {
@@ -4644,31 +5699,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
-     *  *
-     * @param DescribeDomainViewSourceProvincesRequest $request DescribeDomainViewSourceProvincesRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
      *
-     * @return DescribeDomainViewSourceProvincesResponse DescribeDomainViewSourceProvincesResponse
+     * @param request - DescribeDomainViewSourceProvincesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainViewSourceProvincesResponse
+     *
+     * @param DescribeDomainViewSourceProvincesRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDomainViewSourceProvincesResponse
      */
     public function describeDomainViewSourceProvincesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainViewSourceProvinces',
@@ -4681,16 +5744,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainViewSourceProvincesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainViewSourceProvincesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainViewSourceProvincesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
-     *  *
-     * @param DescribeDomainViewSourceProvincesRequest $request DescribeDomainViewSourceProvincesRequest
+     * Queries the administrative regions in China from which requests are sent to a website within a specified period of time.
      *
-     * @return DescribeDomainViewSourceProvincesResponse DescribeDomainViewSourceProvincesResponse
+     * @param request - DescribeDomainViewSourceProvincesRequest
+     * @returns DescribeDomainViewSourceProvincesResponse
+     *
+     * @param DescribeDomainViewSourceProvincesRequest $request
+     *
+     * @return DescribeDomainViewSourceProvincesResponse
      */
     public function describeDomainViewSourceProvinces($request)
     {
@@ -4700,34 +5769,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
-     *  *
-     * @param DescribeDomainViewTopCostTimeRequest $request DescribeDomainViewTopCostTimeRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
      *
-     * @return DescribeDomainViewTopCostTimeResponse DescribeDomainViewTopCostTimeResponse
+     * @param request - DescribeDomainViewTopCostTimeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainViewTopCostTimeResponse
+     *
+     * @param DescribeDomainViewTopCostTimeRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDomainViewTopCostTimeResponse
      */
     public function describeDomainViewTopCostTimeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->top)) {
-            $query['Top'] = $request->top;
+
+        if (null !== $request->top) {
+            @$query['Top'] = $request->top;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainViewTopCostTime',
@@ -4740,16 +5818,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainViewTopCostTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainViewTopCostTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainViewTopCostTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
-     *  *
-     * @param DescribeDomainViewTopCostTimeRequest $request DescribeDomainViewTopCostTimeRequest
+     * Queries the top N URLs that require the longest time to respond to requests within a specified period of time.
      *
-     * @return DescribeDomainViewTopCostTimeResponse DescribeDomainViewTopCostTimeResponse
+     * @param request - DescribeDomainViewTopCostTimeRequest
+     * @returns DescribeDomainViewTopCostTimeResponse
+     *
+     * @param DescribeDomainViewTopCostTimeRequest $request
+     *
+     * @return DescribeDomainViewTopCostTimeResponse
      */
     public function describeDomainViewTopCostTime($request)
     {
@@ -4759,34 +5843,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top N URLs that receive the most requests within a specified period of time.
-     *  *
-     * @param DescribeDomainViewTopUrlRequest $request DescribeDomainViewTopUrlRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the top N URLs that receive the most requests within a specified period of time.
      *
-     * @return DescribeDomainViewTopUrlResponse DescribeDomainViewTopUrlResponse
+     * @param request - DescribeDomainViewTopUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainViewTopUrlResponse
+     *
+     * @param DescribeDomainViewTopUrlRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDomainViewTopUrlResponse
      */
     public function describeDomainViewTopUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->top)) {
-            $query['Top'] = $request->top;
+
+        if (null !== $request->top) {
+            @$query['Top'] = $request->top;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainViewTopUrl',
@@ -4799,16 +5892,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainViewTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainViewTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainViewTopUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top N URLs that receive the most requests within a specified period of time.
-     *  *
-     * @param DescribeDomainViewTopUrlRequest $request DescribeDomainViewTopUrlRequest
+     * Queries the top N URLs that receive the most requests within a specified period of time.
      *
-     * @return DescribeDomainViewTopUrlResponse DescribeDomainViewTopUrlResponse
+     * @param request - DescribeDomainViewTopUrlRequest
+     * @returns DescribeDomainViewTopUrlResponse
+     *
+     * @param DescribeDomainViewTopUrlRequest $request
+     *
+     * @return DescribeDomainViewTopUrlResponse
      */
     public function describeDomainViewTopUrl($request)
     {
@@ -4818,25 +5917,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries domain names for which forwarding rules are created.
-     *  *
-     * @param DescribeDomainsRequest $request DescribeDomainsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries domain names for which forwarding rules are created.
      *
-     * @return DescribeDomainsResponse DescribeDomainsResponse
+     * @param request - DescribeDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainsResponse
+     *
+     * @param DescribeDomainsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDomainsResponse
      */
     public function describeDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomains',
@@ -4849,16 +5954,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries domain names for which forwarding rules are created.
-     *  *
-     * @param DescribeDomainsRequest $request DescribeDomainsRequest
+     * Queries domain names for which forwarding rules are created.
      *
-     * @return DescribeDomainsResponse DescribeDomainsResponse
+     * @param request - DescribeDomainsRequest
+     * @returns DescribeDomainsResponse
+     *
+     * @param DescribeDomainsRequest $request
+     *
+     * @return DescribeDomainsResponse
      */
     public function describeDomains($request)
     {
@@ -4868,24 +5979,30 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param DescribeElasticBandwidthSpecRequest $request DescribeElasticBandwidthSpecRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
      *
-     * @return DescribeElasticBandwidthSpecResponse DescribeElasticBandwidthSpecResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - DescribeElasticBandwidthSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeElasticBandwidthSpecResponse
+     *
+     * @param DescribeElasticBandwidthSpecRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeElasticBandwidthSpecResponse
      */
     public function describeElasticBandwidthSpecWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeElasticBandwidthSpec',
@@ -4898,18 +6015,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeElasticBandwidthSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeElasticBandwidthSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeElasticBandwidthSpecResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param DescribeElasticBandwidthSpecRequest $request DescribeElasticBandwidthSpecRequest
+     * Queries the available burstable protection bandwidths of an Anti-DDoS Proxy (Chinese Mainland) instance.
      *
-     * @return DescribeElasticBandwidthSpecResponse DescribeElasticBandwidthSpecResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - DescribeElasticBandwidthSpecRequest
+     * @returns DescribeElasticBandwidthSpecResponse
+     *
+     * @param DescribeElasticBandwidthSpecRequest $request
+     *
+     * @return DescribeElasticBandwidthSpecResponse
      */
     public function describeElasticBandwidthSpec($request)
     {
@@ -4919,34 +6043,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
-     *  *
-     * @param DescribeElasticQpsRequest $request DescribeElasticQpsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
      *
-     * @return DescribeElasticQpsResponse DescribeElasticQpsResponse
+     * @param request - DescribeElasticQpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeElasticQpsResponse
+     *
+     * @param DescribeElasticQpsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeElasticQpsResponse
      */
     public function describeElasticQpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeElasticQps',
@@ -4959,16 +6092,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeElasticQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeElasticQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeElasticQpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
-     *  *
-     * @param DescribeElasticQpsRequest $request DescribeElasticQpsRequest
+     * Queries the line chart of the bills for the burstable QPS of an Anti-DDoS Proxy instance.
      *
-     * @return DescribeElasticQpsResponse DescribeElasticQpsResponse
+     * @param request - DescribeElasticQpsRequest
+     * @returns DescribeElasticQpsResponse
+     *
+     * @param DescribeElasticQpsRequest $request
+     *
+     * @return DescribeElasticQpsResponse
      */
     public function describeElasticQps($request)
     {
@@ -4978,28 +6117,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the burstable QPS details of an Anti-DDoS Proxy instance.
-     *  *
-     * @param DescribeElasticQpsRecordRequest $request DescribeElasticQpsRecordRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the burstable QPS details of an Anti-DDoS Proxy instance.
      *
-     * @return DescribeElasticQpsRecordResponse DescribeElasticQpsRecordResponse
+     * @param request - DescribeElasticQpsRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeElasticQpsRecordResponse
+     *
+     * @param DescribeElasticQpsRecordRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeElasticQpsRecordResponse
      */
     public function describeElasticQpsRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeElasticQpsRecord',
@@ -5012,16 +6158,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeElasticQpsRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeElasticQpsRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeElasticQpsRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the burstable QPS details of an Anti-DDoS Proxy instance.
-     *  *
-     * @param DescribeElasticQpsRecordRequest $request DescribeElasticQpsRecordRequest
+     * Queries the burstable QPS details of an Anti-DDoS Proxy instance.
      *
-     * @return DescribeElasticQpsRecordResponse DescribeElasticQpsRecordResponse
+     * @param request - DescribeElasticQpsRecordRequest
+     * @returns DescribeElasticQpsRecordResponse
+     *
+     * @param DescribeElasticQpsRecordRequest $request
+     *
+     * @return DescribeElasticQpsRecordResponse
      */
     public function describeElasticQpsRecord($request)
     {
@@ -5031,25 +6183,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the custom header that is specified for a domain name.
-     *  *
-     * @param DescribeHeadersRequest $request DescribeHeadersRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the custom header that is specified for a domain name.
      *
-     * @return DescribeHeadersResponse DescribeHeadersResponse
+     * @param request - DescribeHeadersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHeadersResponse
+     *
+     * @param DescribeHeadersRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeHeadersResponse
      */
     public function describeHeadersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHeaders',
@@ -5062,16 +6220,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHeadersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the custom header that is specified for a domain name.
-     *  *
-     * @param DescribeHeadersRequest $request DescribeHeadersRequest
+     * Queries the custom header that is specified for a domain name.
      *
-     * @return DescribeHeadersResponse DescribeHeadersResponse
+     * @param request - DescribeHeadersRequest
+     * @returns DescribeHeadersResponse
+     *
+     * @param DescribeHeadersRequest $request
+     *
+     * @return DescribeHeadersResponse
      */
     public function describeHeaders($request)
     {
@@ -5081,22 +6245,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
-     *  *
-     * @param DescribeHealthCheckListRequest $request DescribeHealthCheckListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
      *
-     * @return DescribeHealthCheckListResponse DescribeHealthCheckListResponse
+     * @param request - DescribeHealthCheckListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHealthCheckListResponse
+     *
+     * @param DescribeHealthCheckListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeHealthCheckListResponse
      */
     public function describeHealthCheckListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->networkRules)) {
-            $query['NetworkRules'] = $request->networkRules;
+        if (null !== $request->networkRules) {
+            @$query['NetworkRules'] = $request->networkRules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHealthCheckList',
@@ -5109,16 +6278,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHealthCheckListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHealthCheckListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHealthCheckListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
-     *  *
-     * @param DescribeHealthCheckListRequest $request DescribeHealthCheckListRequest
+     * Queries the Layer 4 or Layer 7 health check configurations of a port forwarding rule.
      *
-     * @return DescribeHealthCheckListResponse DescribeHealthCheckListResponse
+     * @param request - DescribeHealthCheckListRequest
+     * @returns DescribeHealthCheckListResponse
+     *
+     * @param DescribeHealthCheckListRequest $request
+     *
+     * @return DescribeHealthCheckListResponse
      */
     public function describeHealthCheckList($request)
     {
@@ -5128,22 +6303,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the health status of an origin server.
-     *  *
-     * @param DescribeHealthCheckStatusRequest $request DescribeHealthCheckStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the health status of an origin server.
      *
-     * @return DescribeHealthCheckStatusResponse DescribeHealthCheckStatusResponse
+     * @param request - DescribeHealthCheckStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHealthCheckStatusResponse
+     *
+     * @param DescribeHealthCheckStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeHealthCheckStatusResponse
      */
     public function describeHealthCheckStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->networkRules)) {
-            $query['NetworkRules'] = $request->networkRules;
+        if (null !== $request->networkRules) {
+            @$query['NetworkRules'] = $request->networkRules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHealthCheckStatus',
@@ -5156,16 +6336,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHealthCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHealthCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHealthCheckStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the health status of an origin server.
-     *  *
-     * @param DescribeHealthCheckStatusRequest $request DescribeHealthCheckStatusRequest
+     * Queries the health status of an origin server.
      *
-     * @return DescribeHealthCheckStatusResponse DescribeHealthCheckStatusResponse
+     * @param request - DescribeHealthCheckStatusRequest
+     * @returns DescribeHealthCheckStatusResponse
+     *
+     * @param DescribeHealthCheckStatusRequest $request
+     *
+     * @return DescribeHealthCheckStatusResponse
      */
     public function describeHealthCheckStatus($request)
     {
@@ -5175,26 +6361,32 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+     * Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+     *
+     * @remarks
+     * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeInstanceDetailsRequest $request DescribeInstanceDetailsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceDetailsResponse DescribeInstanceDetailsResponse
+     * @param request - DescribeInstanceDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceDetailsResponse
+     *
+     * @param DescribeInstanceDetailsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInstanceDetailsResponse
      */
     public function describeInstanceDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceDetails',
@@ -5207,20 +6399,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @description You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
+     * Queries the IP addresses and Internet service provider (ISP) lines of Anti-DDoS Pro or Anti-DDoS Premium instances.
+     *
+     * @remarks
+     * You can call the DescribeInstanceDetails operation to query the information about the IP addresses and ISP lines of the instances. The information includes the IP address, status, and protection line.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeInstanceDetailsRequest $request DescribeInstanceDetailsRequest
      *
-     * @return DescribeInstanceDetailsResponse DescribeInstanceDetailsResponse
+     * @param request - DescribeInstanceDetailsRequest
+     * @returns DescribeInstanceDetailsResponse
+     *
+     * @param DescribeInstanceDetailsRequest $request
+     *
+     * @return DescribeInstanceDetailsResponse
      */
     public function describeInstanceDetails($request)
     {
@@ -5230,28 +6429,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
-     *  *
-     * @param DescribeInstanceExtRequest $request DescribeInstanceExtRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
      *
-     * @return DescribeInstanceExtResponse DescribeInstanceExtResponse
+     * @param request - DescribeInstanceExtRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceExtResponse
+     *
+     * @param DescribeInstanceExtRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInstanceExtResponse
      */
     public function describeInstanceExtWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceExt',
@@ -5264,16 +6470,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceExtResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceExtResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceExtResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
-     *  *
-     * @param DescribeInstanceExtRequest $request DescribeInstanceExtRequest
+     * Queries the information about Anti-DDoS Pro and Anti-DDoS Premium instances.
      *
-     * @return DescribeInstanceExtResponse DescribeInstanceExtResponse
+     * @param request - DescribeInstanceExtRequest
+     * @returns DescribeInstanceExtResponse
+     *
+     * @param DescribeInstanceExtRequest $request
+     *
+     * @return DescribeInstanceExtResponse
      */
     public function describeInstanceExt($request)
     {
@@ -5283,28 +6495,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary The description of the instance.
-     *  *
-     * @param DescribeInstanceIdsRequest $request DescribeInstanceIdsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * The description of the instance.
      *
-     * @return DescribeInstanceIdsResponse DescribeInstanceIdsResponse
+     * @param request - DescribeInstanceIdsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceIdsResponse
+     *
+     * @param DescribeInstanceIdsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeInstanceIdsResponse
      */
     public function describeInstanceIdsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->edition)) {
-            $query['Edition'] = $request->edition;
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceIds',
@@ -5317,16 +6536,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceIdsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary The description of the instance.
-     *  *
-     * @param DescribeInstanceIdsRequest $request DescribeInstanceIdsRequest
+     * The description of the instance.
      *
-     * @return DescribeInstanceIdsResponse DescribeInstanceIdsResponse
+     * @param request - DescribeInstanceIdsRequest
+     * @returns DescribeInstanceIdsResponse
+     *
+     * @param DescribeInstanceIdsRequest $request
+     *
+     * @return DescribeInstanceIdsResponse
      */
     public function describeInstanceIds($request)
     {
@@ -5336,26 +6561,32 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+     * Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
+     *
+     * @remarks
+     * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSpecsResponse DescribeInstanceSpecsResponse
+     * @param request - DescribeInstanceSpecsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceSpecsResponse
+     *
+     * @param DescribeInstanceSpecsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeInstanceSpecsResponse
      */
     public function describeInstanceSpecsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceSpecs',
@@ -5368,20 +6599,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceSpecsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceSpecsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @description You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
+     * Queries the specifications of Anti-DDoS Pro or Anti-DDoS Premium instances.
+     *
+     * @remarks
+     * You can call the DescribeInstanceSpecs operation to query the specifications of multiple Anti-DDoS Pro or Anti-DDoS Premium instances at a time. The specifications include the clean bandwidth, protection bandwidth, function plan, and the numbers of domain names and ports that can be protected.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeInstanceSpecsRequest $request DescribeInstanceSpecsRequest
      *
-     * @return DescribeInstanceSpecsResponse DescribeInstanceSpecsResponse
+     * @param request - DescribeInstanceSpecsRequest
+     * @returns DescribeInstanceSpecsResponse
+     *
+     * @param DescribeInstanceSpecsRequest $request
+     *
+     * @return DescribeInstanceSpecsResponse
      */
     public function describeInstanceSpecs($request)
     {
@@ -5391,22 +6629,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
-     *  *
-     * @param DescribeInstanceStatisticsRequest $request DescribeInstanceStatisticsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
      *
-     * @return DescribeInstanceStatisticsResponse DescribeInstanceStatisticsResponse
+     * @param request - DescribeInstanceStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceStatisticsResponse
+     *
+     * @param DescribeInstanceStatisticsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeInstanceStatisticsResponse
      */
     public function describeInstanceStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceStatistics',
@@ -5419,16 +6662,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
-     *  *
-     * @param DescribeInstanceStatisticsRequest $request DescribeInstanceStatisticsRequest
+     * Queries the statistics on one or more Anti-DDoS Proxy instances, such as the numbers of protected domain names and ports.
      *
-     * @return DescribeInstanceStatisticsResponse DescribeInstanceStatisticsResponse
+     * @param request - DescribeInstanceStatisticsRequest
+     * @returns DescribeInstanceStatisticsResponse
+     *
+     * @param DescribeInstanceStatisticsRequest $request
+     *
+     * @return DescribeInstanceStatisticsResponse
      */
     public function describeInstanceStatistics($request)
     {
@@ -5438,25 +6687,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of a specified Anti-DDoS Proxy instance.
-     *  *
-     * @param DescribeInstanceStatusRequest $request DescribeInstanceStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the status of a specified Anti-DDoS Proxy instance.
      *
-     * @return DescribeInstanceStatusResponse DescribeInstanceStatusResponse
+     * @param request - DescribeInstanceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceStatusResponse
+     *
+     * @param DescribeInstanceStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeInstanceStatusResponse
      */
     public function describeInstanceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceStatus',
@@ -5469,16 +6724,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of a specified Anti-DDoS Proxy instance.
-     *  *
-     * @param DescribeInstanceStatusRequest $request DescribeInstanceStatusRequest
+     * Queries the status of a specified Anti-DDoS Proxy instance.
      *
-     * @return DescribeInstanceStatusResponse DescribeInstanceStatusResponse
+     * @param request - DescribeInstanceStatusRequest
+     * @returns DescribeInstanceStatusResponse
+     *
+     * @param DescribeInstanceStatusRequest $request
+     *
+     * @return DescribeInstanceStatusResponse
      */
     public function describeInstanceStatus($request)
     {
@@ -5488,55 +6749,72 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
-     *  *
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @remarks
+     * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @param request - DescribeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->edition)) {
-            $query['Edition'] = $request->edition;
+        if (null !== $request->edition) {
+            @$query['Edition'] = $request->edition;
         }
-        if (!Utils::isUnset($request->enabled)) {
-            $query['Enabled'] = $request->enabled;
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
-        if (!Utils::isUnset($request->expireEndTime)) {
-            $query['ExpireEndTime'] = $request->expireEndTime;
+
+        if (null !== $request->expireEndTime) {
+            @$query['ExpireEndTime'] = $request->expireEndTime;
         }
-        if (!Utils::isUnset($request->expireStartTime)) {
-            $query['ExpireStartTime'] = $request->expireStartTime;
+
+        if (null !== $request->expireStartTime) {
+            @$query['ExpireStartTime'] = $request->expireStartTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstances',
@@ -5549,16 +6827,23 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @description You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
-     *  *
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
+     * @remarks
+     * You can call the DescribeInstances operation to query the details of Anti-DDoS Pro or Anti-DDoS Premium instances within the Alibaba Cloud account by page. The details include the ID, mitigation plan, expiration time, and forwarding status.
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @param request - DescribeInstancesRequest
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -5568,28 +6853,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the back-to-origin policies for the forwarding rule of a website.
-     *  *
-     * @param DescribeL7RsPolicyRequest $request DescribeL7RsPolicyRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the back-to-origin policies for the forwarding rule of a website.
      *
-     * @return DescribeL7RsPolicyResponse DescribeL7RsPolicyResponse
+     * @param request - DescribeL7RsPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeL7RsPolicyResponse
+     *
+     * @param DescribeL7RsPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeL7RsPolicyResponse
      */
     public function describeL7RsPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->realServers)) {
-            $query['RealServers'] = $request->realServers;
+
+        if (null !== $request->realServers) {
+            @$query['RealServers'] = $request->realServers;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeL7RsPolicy',
@@ -5602,16 +6894,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeL7RsPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeL7RsPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeL7RsPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the back-to-origin policies for the forwarding rule of a website.
-     *  *
-     * @param DescribeL7RsPolicyRequest $request DescribeL7RsPolicyRequest
+     * Queries the back-to-origin policies for the forwarding rule of a website.
      *
-     * @return DescribeL7RsPolicyResponse DescribeL7RsPolicyResponse
+     * @param request - DescribeL7RsPolicyRequest
+     * @returns DescribeL7RsPolicyResponse
+     *
+     * @param DescribeL7RsPolicyRequest $request
+     *
+     * @return DescribeL7RsPolicyResponse
      */
     public function describeL7RsPolicy($request)
     {
@@ -5621,22 +6919,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
-     *  *
-     * @param DescribeL7UsKeepaliveRequest $request DescribeL7UsKeepaliveRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration of back-to-origin persistent connections of a domain name.
      *
-     * @return DescribeL7UsKeepaliveResponse DescribeL7UsKeepaliveResponse
+     * @param request - DescribeL7UsKeepaliveRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeL7UsKeepaliveResponse
+     *
+     * @param DescribeL7UsKeepaliveRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeL7UsKeepaliveResponse
      */
     public function describeL7UsKeepaliveWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeL7UsKeepalive',
@@ -5649,16 +6952,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeL7UsKeepaliveResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeL7UsKeepaliveResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeL7UsKeepaliveResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configuration of back-to-origin persistent connections of a domain name.
-     *  *
-     * @param DescribeL7UsKeepaliveRequest $request DescribeL7UsKeepaliveRequest
+     * Queries the configuration of back-to-origin persistent connections of a domain name.
      *
-     * @return DescribeL7UsKeepaliveResponse DescribeL7UsKeepaliveResponse
+     * @param request - DescribeL7UsKeepaliveRequest
+     * @returns DescribeL7UsKeepaliveResponse
+     *
+     * @param DescribeL7UsKeepaliveRequest $request
+     *
+     * @return DescribeL7UsKeepaliveResponse
      */
     public function describeL7UsKeepalive($request)
     {
@@ -5668,22 +6977,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the back-to-origin settings of a port forwarding rule.
-     *  *
-     * @param DescribeLayer4RulePolicyRequest $request DescribeLayer4RulePolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the back-to-origin settings of a port forwarding rule.
      *
-     * @return DescribeLayer4RulePolicyResponse DescribeLayer4RulePolicyResponse
+     * @param request - DescribeLayer4RulePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeLayer4RulePolicyResponse
+     *
+     * @param DescribeLayer4RulePolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeLayer4RulePolicyResponse
      */
     public function describeLayer4RulePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->listeners)) {
-            $query['Listeners'] = $request->listeners;
+        if (null !== $request->listeners) {
+            @$query['Listeners'] = $request->listeners;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeLayer4RulePolicy',
@@ -5696,16 +7010,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeLayer4RulePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLayer4RulePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLayer4RulePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the back-to-origin settings of a port forwarding rule.
-     *  *
-     * @param DescribeLayer4RulePolicyRequest $request DescribeLayer4RulePolicyRequest
+     * Queries the back-to-origin settings of a port forwarding rule.
      *
-     * @return DescribeLayer4RulePolicyResponse DescribeLayer4RulePolicyResponse
+     * @param request - DescribeLayer4RulePolicyRequest
+     * @returns DescribeLayer4RulePolicyResponse
+     *
+     * @param DescribeLayer4RulePolicyRequest $request
+     *
+     * @return DescribeLayer4RulePolicyResponse
      */
     public function describeLayer4RulePolicy($request)
     {
@@ -5715,22 +7035,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param DescribeLogStoreExistStatusRequest $request DescribeLogStoreExistStatusRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
      *
-     * @return DescribeLogStoreExistStatusResponse DescribeLogStoreExistStatusResponse
+     * @param request - DescribeLogStoreExistStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeLogStoreExistStatusResponse
+     *
+     * @param DescribeLogStoreExistStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeLogStoreExistStatusResponse
      */
     public function describeLogStoreExistStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeLogStoreExistStatus',
@@ -5743,16 +7068,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeLogStoreExistStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLogStoreExistStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLogStoreExistStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param DescribeLogStoreExistStatusRequest $request DescribeLogStoreExistStatusRequest
+     * Checks whether a Logstore is created for Anti-DDoS Pro or Anti-DDoS Premium.
      *
-     * @return DescribeLogStoreExistStatusResponse DescribeLogStoreExistStatusResponse
+     * @param request - DescribeLogStoreExistStatusRequest
+     * @returns DescribeLogStoreExistStatusResponse
+     *
+     * @param DescribeLogStoreExistStatusRequest $request
+     *
+     * @return DescribeLogStoreExistStatusResponse
      */
     public function describeLogStoreExistStatus($request)
     {
@@ -5762,22 +7093,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeNetworkRegionBlockRequest $request DescribeNetworkRegionBlockRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeNetworkRegionBlockResponse DescribeNetworkRegionBlockResponse
+     * @param request - DescribeNetworkRegionBlockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeNetworkRegionBlockResponse
+     *
+     * @param DescribeNetworkRegionBlockRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeNetworkRegionBlockResponse
      */
     public function describeNetworkRegionBlockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeNetworkRegionBlock',
@@ -5790,16 +7126,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNetworkRegionBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNetworkRegionBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNetworkRegionBlockResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeNetworkRegionBlockRequest $request DescribeNetworkRegionBlockRequest
+     * Queries the blocked locations that are configured for an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeNetworkRegionBlockResponse DescribeNetworkRegionBlockResponse
+     * @param request - DescribeNetworkRegionBlockRequest
+     * @returns DescribeNetworkRegionBlockResponse
+     *
+     * @param DescribeNetworkRegionBlockRequest $request
+     *
+     * @return DescribeNetworkRegionBlockResponse
      */
     public function describeNetworkRegionBlock($request)
     {
@@ -5809,22 +7151,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
-     *  *
-     * @param DescribeNetworkRuleAttributesRequest $request DescribeNetworkRuleAttributesRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
      *
-     * @return DescribeNetworkRuleAttributesResponse DescribeNetworkRuleAttributesResponse
+     * @param request - DescribeNetworkRuleAttributesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeNetworkRuleAttributesResponse
+     *
+     * @param DescribeNetworkRuleAttributesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeNetworkRuleAttributesResponse
      */
     public function describeNetworkRuleAttributesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->networkRules)) {
-            $query['NetworkRules'] = $request->networkRules;
+        if (null !== $request->networkRules) {
+            @$query['NetworkRules'] = $request->networkRules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeNetworkRuleAttributes',
@@ -5837,16 +7184,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNetworkRuleAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNetworkRuleAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNetworkRuleAttributesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
-     *  *
-     * @param DescribeNetworkRuleAttributesRequest $request DescribeNetworkRuleAttributesRequest
+     * Queries the mitigation settings of the port forwarding rule for a non-website service. The mitigation settings include session persistence and DDoS mitigation policies.
      *
-     * @return DescribeNetworkRuleAttributesResponse DescribeNetworkRuleAttributesResponse
+     * @param request - DescribeNetworkRuleAttributesRequest
+     * @returns DescribeNetworkRuleAttributesResponse
+     *
+     * @param DescribeNetworkRuleAttributesRequest $request
+     *
+     * @return DescribeNetworkRuleAttributesResponse
      */
     public function describeNetworkRuleAttributes($request)
     {
@@ -5856,34 +7209,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries port forwarding rules.
-     *  *
-     * @param DescribeNetworkRulesRequest $request DescribeNetworkRulesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries port forwarding rules.
      *
-     * @return DescribeNetworkRulesResponse DescribeNetworkRulesResponse
+     * @param request - DescribeNetworkRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeNetworkRulesResponse
+     *
+     * @param DescribeNetworkRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeNetworkRulesResponse
      */
     public function describeNetworkRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->forwardProtocol)) {
-            $query['ForwardProtocol'] = $request->forwardProtocol;
+        if (null !== $request->forwardProtocol) {
+            @$query['ForwardProtocol'] = $request->forwardProtocol;
         }
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeNetworkRules',
@@ -5896,16 +7258,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNetworkRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries port forwarding rules.
-     *  *
-     * @param DescribeNetworkRulesRequest $request DescribeNetworkRulesRequest
+     * Queries port forwarding rules.
      *
-     * @return DescribeNetworkRulesResponse DescribeNetworkRulesResponse
+     * @param request - DescribeNetworkRulesRequest
+     * @returns DescribeNetworkRulesResponse
+     *
+     * @param DescribeNetworkRulesRequest $request
+     *
+     * @return DescribeNetworkRulesResponse
      */
     public function describeNetworkRules($request)
     {
@@ -5915,43 +7283,55 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the operation logs of Anti-DDoS Pro.
-     *  *
-     * @description > This operation is suitable only for Anti-DDoS Pro.
-     * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
-     *  *
-     * @param DescribeOpEntitiesRequest $request DescribeOpEntitiesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the operation logs of Anti-DDoS Proxy (Chinese Mainland).
      *
-     * @return DescribeOpEntitiesResponse DescribeOpEntitiesResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     * You can query operations performed on Anti-DDoS Proxy (Chinese Mainland), such as configuring the burstable protection bandwidth, deactivating blackhole filtering, configuring the near-origin traffic diversion feature, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+     *
+     * @param request - DescribeOpEntitiesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeOpEntitiesResponse
+     *
+     * @param DescribeOpEntitiesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeOpEntitiesResponse
      */
     public function describeOpEntitiesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->entityObject)) {
-            $query['EntityObject'] = $request->entityObject;
+
+        if (null !== $request->entityObject) {
+            @$query['EntityObject'] = $request->entityObject;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeOpEntities',
@@ -5964,19 +7344,26 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeOpEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeOpEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOpEntitiesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the operation logs of Anti-DDoS Pro.
-     *  *
-     * @description > This operation is suitable only for Anti-DDoS Pro.
-     * You can query operations performed on Anti-DDoS Pro, such as configuring burstable protection bandwidth, deactivating blackhole filtering, configuring the Diversion from Origin Server policy, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
-     *  *
-     * @param DescribeOpEntitiesRequest $request DescribeOpEntitiesRequest
+     * Queries the operation logs of Anti-DDoS Proxy (Chinese Mainland).
      *
-     * @return DescribeOpEntitiesResponse DescribeOpEntitiesResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     * You can query operations performed on Anti-DDoS Proxy (Chinese Mainland), such as configuring the burstable protection bandwidth, deactivating blackhole filtering, configuring the near-origin traffic diversion feature, using Anti-DDoS plans, changing the IP addresses of Elastic Compute Service (ECS) instances, and clearing all logs.
+     *
+     * @param request - DescribeOpEntitiesRequest
+     * @returns DescribeOpEntitiesResponse
+     *
+     * @param DescribeOpEntitiesRequest $request
+     *
+     * @return DescribeOpEntitiesResponse
      */
     public function describeOpEntities($request)
     {
@@ -5986,36 +7373,46 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *  *
-     * @param DescribePortRequest $request DescribePortRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribePortResponse DescribePortResponse
+     * @remarks
+     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     *
+     * @param request - DescribePortRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortResponse
+     *
+     * @param DescribePortRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribePortResponse
      */
     public function describePortWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->frontendProtocol)) {
-            $query['FrontendProtocol'] = $request->frontendProtocol;
+
+        if (null !== $request->frontendProtocol) {
+            @$query['FrontendProtocol'] = $request->frontendProtocol;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePort',
@@ -6028,18 +7425,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @description You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *  *
-     * @param DescribePortRequest $request DescribePortRequest
+     * Queries the port forwarding rules that are created for an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribePortResponse DescribePortResponse
+     * @remarks
+     * You can call this operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     *
+     * @param request - DescribePortRequest
+     * @returns DescribePortResponse
+     *
+     * @param DescribePortRequest $request
+     *
+     * @return DescribePortResponse
      */
     public function describePort($request)
     {
@@ -6049,35 +7453,44 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-     *  *
-     * @description You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     * Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+     *
+     * @remarks
+     * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribePortAttackMaxFlowRequest $request DescribePortAttackMaxFlowRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePortAttackMaxFlowResponse DescribePortAttackMaxFlowResponse
+     * @param request - DescribePortAttackMaxFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortAttackMaxFlowResponse
+     *
+     * @param DescribePortAttackMaxFlowRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePortAttackMaxFlowResponse
      */
     public function describePortAttackMaxFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortAttackMaxFlow',
@@ -6090,20 +7503,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortAttackMaxFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortAttackMaxFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortAttackMaxFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-     *  *
-     * @description You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     * Queries the peak attack traffic bandwidth and peak attack traffic packet rates of one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
+     *
+     * @remarks
+     * You can call this operation to query the peak bandwidth and peak packet rate of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribePortAttackMaxFlowRequest $request DescribePortAttackMaxFlowRequest
      *
-     * @return DescribePortAttackMaxFlowResponse DescribePortAttackMaxFlowResponse
+     * @param request - DescribePortAttackMaxFlowRequest
+     * @returns DescribePortAttackMaxFlowResponse
+     *
+     * @param DescribePortAttackMaxFlowRequest $request
+     *
+     * @return DescribePortAttackMaxFlowResponse
      */
     public function describePortAttackMaxFlow($request)
     {
@@ -6113,22 +7533,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of the Intelligent Protection policy for non-website services.
-     *  *
-     * @param DescribePortAutoCcStatusRequest $request DescribePortAutoCcStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of the Intelligent Protection policy for non-website services.
      *
-     * @return DescribePortAutoCcStatusResponse DescribePortAutoCcStatusResponse
+     * @param request - DescribePortAutoCcStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortAutoCcStatusResponse
+     *
+     * @param DescribePortAutoCcStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribePortAutoCcStatusResponse
      */
     public function describePortAutoCcStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortAutoCcStatus',
@@ -6141,16 +7566,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortAutoCcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortAutoCcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortAutoCcStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of the Intelligent Protection policy for non-website services.
-     *  *
-     * @param DescribePortAutoCcStatusRequest $request DescribePortAutoCcStatusRequest
+     * Queries the configurations of the Intelligent Protection policy for non-website services.
      *
-     * @return DescribePortAutoCcStatusResponse DescribePortAutoCcStatusResponse
+     * @param request - DescribePortAutoCcStatusRequest
+     * @returns DescribePortAutoCcStatusResponse
+     *
+     * @param DescribePortAutoCcStatusRequest $request
+     *
+     * @return DescribePortAutoCcStatusResponse
      */
     public function describePortAutoCcStatus($request)
     {
@@ -6160,31 +7591,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribePortCcAttackTopIPRequest $request DescribePortCcAttackTopIPRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribePortCcAttackTopIPResponse DescribePortCcAttackTopIPResponse
+     * @param request - DescribePortCcAttackTopIPRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortCcAttackTopIPResponse
+     *
+     * @param DescribePortCcAttackTopIPRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribePortCcAttackTopIPResponse
      */
     public function describePortCcAttackTopIPWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortCcAttackTopIP',
@@ -6197,16 +7636,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortCcAttackTopIPResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortCcAttackTopIPResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortCcAttackTopIPResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribePortCcAttackTopIPRequest $request DescribePortCcAttackTopIPRequest
+     * Queries the top source IP addresses of the volumetric attack events for the Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribePortCcAttackTopIPResponse DescribePortCcAttackTopIPResponse
+     * @param request - DescribePortCcAttackTopIPRequest
+     * @returns DescribePortCcAttackTopIPResponse
+     *
+     * @param DescribePortCcAttackTopIPRequest $request
+     *
+     * @return DescribePortCcAttackTopIPResponse
      */
     public function describePortCcAttackTopIP($request)
     {
@@ -6216,34 +7661,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
-     *  *
-     * @param DescribePortConnsCountRequest $request DescribePortConnsCountRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
      *
-     * @return DescribePortConnsCountResponse DescribePortConnsCountResponse
+     * @param request - DescribePortConnsCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortConnsCountResponse
+     *
+     * @param DescribePortConnsCountRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribePortConnsCountResponse
      */
     public function describePortConnsCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortConnsCount',
@@ -6256,16 +7710,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortConnsCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortConnsCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortConnsCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
-     *  *
-     * @param DescribePortConnsCountRequest $request DescribePortConnsCountRequest
+     * The statistics on the connections established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances are queried.
      *
-     * @return DescribePortConnsCountResponse DescribePortConnsCountResponse
+     * @param request - DescribePortConnsCountRequest
+     * @returns DescribePortConnsCountResponse
+     *
+     * @param DescribePortConnsCountRequest $request
+     *
+     * @return DescribePortConnsCountResponse
      */
     public function describePortConnsCount($request)
     {
@@ -6275,37 +7735,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
-     *  *
-     * @param DescribePortConnsListRequest $request DescribePortConnsListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
      *
-     * @return DescribePortConnsListResponse DescribePortConnsListResponse
+     * @param request - DescribePortConnsListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortConnsListResponse
+     *
+     * @param DescribePortConnsListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribePortConnsListResponse
      */
     public function describePortConnsListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortConnsList',
@@ -6318,16 +7788,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortConnsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortConnsListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortConnsListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
-     *  *
-     * @param DescribePortConnsListRequest $request DescribePortConnsListRequest
+     * Queries the connections established over the ports of one or more Anti-DDoS Proxy instances.
      *
-     * @return DescribePortConnsListResponse DescribePortConnsListResponse
+     * @param request - DescribePortConnsListRequest
+     * @returns DescribePortConnsListResponse
+     *
+     * @param DescribePortConnsListRequest $request
+     *
+     * @return DescribePortConnsListResponse
      */
     public function describePortConnsList($request)
     {
@@ -6337,34 +7813,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @param DescribePortFlowListRequest $request DescribePortFlowListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
      *
-     * @return DescribePortFlowListResponse DescribePortFlowListResponse
+     * @param request - DescribePortFlowListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortFlowListResponse
+     *
+     * @param DescribePortFlowListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribePortFlowListResponse
      */
     public function describePortFlowListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortFlowList',
@@ -6377,16 +7862,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortFlowListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortFlowListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortFlowListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @param DescribePortFlowListRequest $request DescribePortFlowListRequest
+     * Queries the traffic data of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
      *
-     * @return DescribePortFlowListResponse DescribePortFlowListResponse
+     * @param request - DescribePortFlowListRequest
+     * @returns DescribePortFlowListResponse
+     *
+     * @param DescribePortFlowListRequest $request
+     *
+     * @return DescribePortFlowListResponse
      */
     public function describePortFlowList($request)
     {
@@ -6396,31 +7887,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @param DescribePortMaxConnsRequest $request DescribePortMaxConnsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
      *
-     * @return DescribePortMaxConnsResponse DescribePortMaxConnsResponse
+     * @param request - DescribePortMaxConnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortMaxConnsResponse
+     *
+     * @param DescribePortMaxConnsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribePortMaxConnsResponse
      */
     public function describePortMaxConnsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortMaxConns',
@@ -6433,16 +7932,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortMaxConnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortMaxConnsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortMaxConnsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
-     *  *
-     * @param DescribePortMaxConnsRequest $request DescribePortMaxConnsRequest
+     * Queries the maximum number of connections that can be established over the ports of one or more Anti-DDoS Pro or Anti-DDoS Premium instances.
      *
-     * @return DescribePortMaxConnsResponse DescribePortMaxConnsResponse
+     * @param request - DescribePortMaxConnsRequest
+     * @returns DescribePortMaxConnsResponse
+     *
+     * @param DescribePortMaxConnsRequest $request
+     *
+     * @return DescribePortMaxConnsResponse
      */
     public function describePortMaxConns($request)
     {
@@ -6452,31 +7957,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-     *  *
-     * @param DescribePortViewSourceCountriesRequest $request DescribePortViewSourceCountriesRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
      *
-     * @return DescribePortViewSourceCountriesResponse DescribePortViewSourceCountriesResponse
+     * @param request - DescribePortViewSourceCountriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortViewSourceCountriesResponse
+     *
+     * @param DescribePortViewSourceCountriesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribePortViewSourceCountriesResponse
      */
     public function describePortViewSourceCountriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortViewSourceCountries',
@@ -6489,16 +8002,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortViewSourceCountriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortViewSourceCountriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortViewSourceCountriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-     *  *
-     * @param DescribePortViewSourceCountriesRequest $request DescribePortViewSourceCountriesRequest
+     * Queries the areas and countries from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
      *
-     * @return DescribePortViewSourceCountriesResponse DescribePortViewSourceCountriesResponse
+     * @param request - DescribePortViewSourceCountriesRequest
+     * @returns DescribePortViewSourceCountriesResponse
+     *
+     * @param DescribePortViewSourceCountriesRequest $request
+     *
+     * @return DescribePortViewSourceCountriesResponse
      */
     public function describePortViewSourceCountries($request)
     {
@@ -6508,36 +8027,45 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-     *  *
-     * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     * Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+     *
+     * @remarks
+     * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
      * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribePortViewSourceIspsRequest $request DescribePortViewSourceIspsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePortViewSourceIspsResponse DescribePortViewSourceIspsResponse
+     * @param request - DescribePortViewSourceIspsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortViewSourceIspsResponse
+     *
+     * @param DescribePortViewSourceIspsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribePortViewSourceIspsResponse
      */
     public function describePortViewSourceIspsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortViewSourceIsps',
@@ -6550,21 +8078,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortViewSourceIspsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortViewSourceIspsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortViewSourceIspsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
-     *  *
-     * @description You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
+     * Queries the Internet service providers (ISPs) from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within the specified period of time.
+     *
+     * @remarks
+     * You can call the DescribePortViewSourceIsps operation to query the ISPs from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
      * > The data returned for this operation cannot reflect the actual traffic volume because Layer 4 identity authentication algorithms are updated for Anti-DDoS Pro and Anti-DDoS Premium. You can call this operation to calculate only the proportion of requests sent from different ISPs. If you want to query the request traffic volume, we recommend that you call the [DescribePortFlowList](https://help.aliyun.com/document_detail/157460.html) operation.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribePortViewSourceIspsRequest $request DescribePortViewSourceIspsRequest
      *
-     * @return DescribePortViewSourceIspsResponse DescribePortViewSourceIspsResponse
+     * @param request - DescribePortViewSourceIspsRequest
+     * @returns DescribePortViewSourceIspsResponse
+     *
+     * @param DescribePortViewSourceIspsRequest $request
+     *
+     * @return DescribePortViewSourceIspsResponse
      */
     public function describePortViewSourceIsps($request)
     {
@@ -6574,31 +8109,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-     *  *
-     * @param DescribePortViewSourceProvincesRequest $request DescribePortViewSourceProvincesRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
      *
-     * @return DescribePortViewSourceProvincesResponse DescribePortViewSourceProvincesResponse
+     * @param request - DescribePortViewSourceProvincesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePortViewSourceProvincesResponse
+     *
+     * @param DescribePortViewSourceProvincesRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribePortViewSourceProvincesResponse
      */
     public function describePortViewSourceProvincesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePortViewSourceProvinces',
@@ -6611,16 +8154,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePortViewSourceProvincesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePortViewSourceProvincesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePortViewSourceProvincesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
-     *  *
-     * @param DescribePortViewSourceProvincesRequest $request DescribePortViewSourceProvincesRequest
+     * Queries the administrative regions in China from which requests are sent to one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specified period of time.
      *
-     * @return DescribePortViewSourceProvincesResponse DescribePortViewSourceProvincesResponse
+     * @param request - DescribePortViewSourceProvincesRequest
+     * @returns DescribePortViewSourceProvincesResponse
+     *
+     * @param DescribePortViewSourceProvincesRequest $request
+     *
+     * @return DescribePortViewSourceProvincesResponse
      */
     public function describePortViewSourceProvinces($request)
     {
@@ -6630,30 +8179,37 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the protected objects of a scenario-specific custom policy.
-     *  *
-     * @description You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+     * Queries the protected objects of a scenario-specific custom policy.
+     *
+     * @remarks
+     * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
      * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](https://help.aliyun.com/document_detail/159779.html) operation.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeSceneDefenseObjectsRequest $request DescribeSceneDefenseObjectsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSceneDefenseObjectsResponse DescribeSceneDefenseObjectsResponse
+     * @param request - DescribeSceneDefenseObjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSceneDefenseObjectsResponse
+     *
+     * @param DescribeSceneDefenseObjectsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSceneDefenseObjectsResponse
      */
     public function describeSceneDefenseObjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSceneDefenseObjects',
@@ -6666,21 +8222,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSceneDefenseObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSceneDefenseObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSceneDefenseObjectsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the protected objects of a scenario-specific custom policy.
-     *  *
-     * @description You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
+     * Queries the protected objects of a scenario-specific custom policy.
+     *
+     * @remarks
+     * You can call the DescribeSceneDefenseObjects operation to query the protected objects of a scenario-specific custom policy.
      * Before you call this operation, make sure that you have created a scenario-specific custom policy by calling the [CreateSceneDefensePolicy](https://help.aliyun.com/document_detail/159779.html) operation.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeSceneDefenseObjectsRequest $request DescribeSceneDefenseObjectsRequest
      *
-     * @return DescribeSceneDefenseObjectsResponse DescribeSceneDefenseObjectsResponse
+     * @param request - DescribeSceneDefenseObjectsRequest
+     * @returns DescribeSceneDefenseObjectsResponse
+     *
+     * @param DescribeSceneDefenseObjectsRequest $request
+     *
+     * @return DescribeSceneDefenseObjectsResponse
      */
     public function describeSceneDefenseObjects($request)
     {
@@ -6690,32 +8253,40 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a scenario-specific custom policy.
-     *  *
-     * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+     * Queries the configurations of a scenario-specific custom policy.
+     *
+     * @remarks
+     * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeSceneDefensePoliciesRequest $request DescribeSceneDefensePoliciesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSceneDefensePoliciesResponse DescribeSceneDefensePoliciesResponse
+     * @param request - DescribeSceneDefensePoliciesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSceneDefensePoliciesResponse
+     *
+     * @param DescribeSceneDefensePoliciesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeSceneDefensePoliciesResponse
      */
     public function describeSceneDefensePoliciesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->template)) {
-            $query['Template'] = $request->template;
+
+        if (null !== $request->template) {
+            @$query['Template'] = $request->template;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSceneDefensePolicies',
@@ -6728,20 +8299,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSceneDefensePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSceneDefensePoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSceneDefensePoliciesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of a scenario-specific custom policy.
-     *  *
-     * @description You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
+     * Queries the configurations of a scenario-specific custom policy.
+     *
+     * @remarks
+     * You can call the DescribeSceneDefensePolicies operation to query the configurations of a scenario-specific custom policy that is created. For example, you can query the status, protected objects, and protection rules of the policy.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeSceneDefensePoliciesRequest $request DescribeSceneDefensePoliciesRequest
      *
-     * @return DescribeSceneDefensePoliciesResponse DescribeSceneDefensePoliciesResponse
+     * @param request - DescribeSceneDefensePoliciesRequest
+     * @returns DescribeSceneDefensePoliciesResponse
+     *
+     * @param DescribeSceneDefensePoliciesRequest $request
+     *
+     * @return DescribeSceneDefensePoliciesResponse
      */
     public function describeSceneDefensePolicies($request)
     {
@@ -6751,29 +8329,37 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param DescribeSchedulerRulesRequest $request DescribeSchedulerRulesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSchedulerRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSchedulerRulesResponse
      *
-     * @return DescribeSchedulerRulesResponse DescribeSchedulerRulesResponse
+     * @param DescribeSchedulerRulesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSchedulerRulesResponse
      */
     public function describeSchedulerRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSchedulerRules',
@@ -6786,14 +8372,20 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSchedulerRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSchedulerRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSchedulerRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSchedulerRulesRequest $request DescribeSchedulerRulesRequest
+     * @param request - DescribeSchedulerRulesRequest
+     * @returns DescribeSchedulerRulesResponse
      *
-     * @return DescribeSchedulerRulesResponse DescribeSchedulerRulesResponse
+     * @param DescribeSchedulerRulesRequest $request
+     *
+     * @return DescribeSchedulerRulesResponse
      */
     public function describeSchedulerRules($request)
     {
@@ -6803,37 +8395,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the destination rate limit events.
-     *  *
-     * @param DescribeSlaEventListRequest $request DescribeSlaEventListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the destination rate limit events.
      *
-     * @return DescribeSlaEventListResponse DescribeSlaEventListResponse
+     * @param request - DescribeSlaEventListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlaEventListResponse
+     *
+     * @param DescribeSlaEventListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeSlaEventListResponse
      */
     public function describeSlaEventListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlaEventList',
@@ -6846,16 +8448,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlaEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlaEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlaEventListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the destination rate limit events.
-     *  *
-     * @param DescribeSlaEventListRequest $request DescribeSlaEventListRequest
+     * Queries the destination rate limit events.
      *
-     * @return DescribeSlaEventListResponse DescribeSlaEventListResponse
+     * @param request - DescribeSlaEventListRequest
+     * @returns DescribeSlaEventListResponse
+     *
+     * @param DescribeSlaEventListRequest $request
+     *
+     * @return DescribeSlaEventListResponse
      */
     public function describeSlaEventList($request)
     {
@@ -6865,22 +8473,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
-     *  *
-     * @param DescribeSlsAuthStatusRequest $request DescribeSlsAuthStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
      *
-     * @return DescribeSlsAuthStatusResponse DescribeSlsAuthStatusResponse
+     * @param request - DescribeSlsAuthStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlsAuthStatusResponse
+     *
+     * @param DescribeSlsAuthStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSlsAuthStatusResponse
      */
     public function describeSlsAuthStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlsAuthStatus',
@@ -6893,16 +8506,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlsAuthStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
-     *  *
-     * @param DescribeSlsAuthStatusRequest $request DescribeSlsAuthStatusRequest
+     * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access Log Service.
      *
-     * @return DescribeSlsAuthStatusResponse DescribeSlsAuthStatusResponse
+     * @param request - DescribeSlsAuthStatusRequest
+     * @returns DescribeSlsAuthStatusResponse
+     *
+     * @param DescribeSlsAuthStatusRequest $request
+     *
+     * @return DescribeSlsAuthStatusResponse
      */
     public function describeSlsAuthStatus($request)
     {
@@ -6912,22 +8531,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
-     *  *
-     * @param DescribeSlsLogstoreInfoRequest $request DescribeSlsLogstoreInfoRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
      *
-     * @return DescribeSlsLogstoreInfoResponse DescribeSlsLogstoreInfoResponse
+     * @param request - DescribeSlsLogstoreInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlsLogstoreInfoResponse
+     *
+     * @param DescribeSlsLogstoreInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeSlsLogstoreInfoResponse
      */
     public function describeSlsLogstoreInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlsLogstoreInfo',
@@ -6940,16 +8564,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlsLogstoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlsLogstoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlsLogstoreInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
-     *  *
-     * @param DescribeSlsLogstoreInfoRequest $request DescribeSlsLogstoreInfoRequest
+     * Queries the information about the Logstore of the Anti-DDoS Pro or Anti-DDoS Premium instance, such as the log storage capacity and log storage duration.
      *
-     * @return DescribeSlsLogstoreInfoResponse DescribeSlsLogstoreInfoResponse
+     * @param request - DescribeSlsLogstoreInfoRequest
+     * @returns DescribeSlsLogstoreInfoResponse
+     *
+     * @param DescribeSlsLogstoreInfoRequest $request
+     *
+     * @return DescribeSlsLogstoreInfoResponse
      */
     public function describeSlsLogstoreInfo($request)
     {
@@ -6959,22 +8589,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether Log Service is activated.
-     *  *
-     * @param DescribeSlsOpenStatusRequest $request DescribeSlsOpenStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Checks whether Log Service is activated.
      *
-     * @return DescribeSlsOpenStatusResponse DescribeSlsOpenStatusResponse
+     * @param request - DescribeSlsOpenStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlsOpenStatusResponse
+     *
+     * @param DescribeSlsOpenStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSlsOpenStatusResponse
      */
     public function describeSlsOpenStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlsOpenStatus',
@@ -6987,16 +8622,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlsOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlsOpenStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlsOpenStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether Log Service is activated.
-     *  *
-     * @param DescribeSlsOpenStatusRequest $request DescribeSlsOpenStatusRequest
+     * Checks whether Log Service is activated.
      *
-     * @return DescribeSlsOpenStatusResponse DescribeSlsOpenStatusResponse
+     * @param request - DescribeSlsOpenStatusRequest
+     * @returns DescribeSlsOpenStatusResponse
+     *
+     * @param DescribeSlsOpenStatusRequest $request
+     *
+     * @return DescribeSlsOpenStatusResponse
      */
     public function describeSlsOpenStatus($request)
     {
@@ -7006,29 +8647,36 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
-     *  *
-     * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+     * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+     *
+     * @remarks
+     * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeStsGrantStatusRequest $request DescribeStsGrantStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStsGrantStatusResponse DescribeStsGrantStatusResponse
+     * @param request - DescribeStsGrantStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeStsGrantStatusResponse
+     *
+     * @param DescribeStsGrantStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeStsGrantStatusResponse
      */
     public function describeStsGrantStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->role)) {
-            $query['Role'] = $request->role;
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeStsGrantStatus',
@@ -7041,20 +8689,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeStsGrantStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeStsGrantStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeStsGrantStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
-     *  *
-     * @description You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
+     * Queries whether Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
+     *
+     * @remarks
+     * You can call the DescribeStsGrantStatus operation to query whether Anti-DDoS Pro or Anti-DDoS Premium of the current Alibaba Cloud account is authorized to access other cloud services.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeStsGrantStatusRequest $request DescribeStsGrantStatusRequest
      *
-     * @return DescribeStsGrantStatusResponse DescribeStsGrantStatusResponse
+     * @param request - DescribeStsGrantStatusRequest
+     * @returns DescribeStsGrantStatusResponse
+     *
+     * @param DescribeStsGrantStatusRequest $request
+     *
+     * @return DescribeStsGrantStatusResponse
      */
     public function describeStsGrantStatus($request)
     {
@@ -7064,42 +8719,53 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of the bills for the burstable clean bandwidth.
-     *  *
-     * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+     * Queries the details of the bills for the burstable clean bandwidth.
+     *
+     * @remarks
+     * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
      * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeSystemLogRequest $request DescribeSystemLogRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSystemLogResponse DescribeSystemLogResponse
+     * @param request - DescribeSystemLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSystemLogResponse
+     *
+     * @param DescribeSystemLogRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeSystemLogResponse
      */
     public function describeSystemLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->entityObject)) {
-            $query['EntityObject'] = $request->entityObject;
+
+        if (null !== $request->entityObject) {
+            @$query['EntityObject'] = $request->entityObject;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSystemLog',
@@ -7112,21 +8778,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSystemLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSystemLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSystemLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of the bills for the burstable clean bandwidth.
-     *  *
-     * @description You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
+     * Queries the details of the bills for the burstable clean bandwidth.
+     *
+     * @remarks
+     * You can call the DescribeSystemLog operation to query the system logs of Anti-DDoS Pro or Anti-DDoS Premium. The system logs contain only billing logs for the burstable clean bandwidth.
      * If you have enabled the burstable clean bandwidth feature, you can call this operation to query the details of the bills of the burstable clean bandwidth.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeSystemLogRequest $request DescribeSystemLogRequest
      *
-     * @return DescribeSystemLogResponse DescribeSystemLogResponse
+     * @param request - DescribeSystemLogRequest
+     * @returns DescribeSystemLogResponse
+     *
+     * @param DescribeSystemLogRequest $request
+     *
+     * @return DescribeSystemLogResponse
      */
     public function describeSystemLog($request)
     {
@@ -7136,39 +8809,49 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
-     *  *
-     * @description You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
+     * Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
+     *
+     * @remarks
+     * You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
      * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeTagKeysRequest $request DescribeTagKeysRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagKeysResponse DescribeTagKeysResponse
+     * @param request - DescribeTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTagKeysResponse
+     *
+     * @param DescribeTagKeysRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeTagKeysResponse
      */
     public function describeTagKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTagKeys',
@@ -7181,21 +8864,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
-     *  *
-     * @description You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
+     * Queries all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added.
+     *
+     * @remarks
+     * You can call this operation to query all tag keys and the number of Anti-DDoS Proxy (Chinese Mainland) instances to which each tag key is added by page.
      * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeTagKeysRequest $request DescribeTagKeysRequest
      *
-     * @return DescribeTagKeysResponse DescribeTagKeysResponse
+     * @param request - DescribeTagKeysRequest
+     * @returns DescribeTagKeysResponse
+     *
+     * @param DescribeTagKeysRequest $request
+     *
+     * @return DescribeTagKeysResponse
      */
     public function describeTagKeys($request)
     {
@@ -7205,42 +8895,53 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *  *
-     * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+     * Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+     *
+     * @remarks
+     * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
      * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeTagResourcesRequest $request DescribeTagResourcesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagResourcesResponse DescribeTagResourcesResponse
+     * @param request - DescribeTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTagResourcesResponse
+     *
+     * @param DescribeTagResourcesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeTagResourcesResponse
      */
     public function describeTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTagResources',
@@ -7253,21 +8954,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *  *
-     * @description You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+     * Queries the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
+     *
+     * @remarks
+     * You can call the DescribeTagResources operation to query the information about the tags that are added to an Anti-DDoS Proxy (Chinese Mainland) instance.
      * >  Only Anti-DDoS Proxy (Chinese Mainland) supports tags.
      * ### [](#qps-)QPS limits
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeTagResourcesRequest $request DescribeTagResourcesRequest
      *
-     * @return DescribeTagResourcesResponse DescribeTagResourcesResponse
+     * @param request - DescribeTagResourcesRequest
+     * @returns DescribeTagResourcesResponse
+     *
+     * @param DescribeTagResourcesRequest $request
+     *
+     * @return DescribeTagResourcesResponse
      */
     public function describeTagResources($request)
     {
@@ -7277,31 +8985,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-     *  *
-     * @param DescribeTotalAttackMaxFlowRequest $request DescribeTotalAttackMaxFlowRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
      *
-     * @return DescribeTotalAttackMaxFlowResponse DescribeTotalAttackMaxFlowResponse
+     * @param request - DescribeTotalAttackMaxFlowRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTotalAttackMaxFlowResponse
+     *
+     * @param DescribeTotalAttackMaxFlowRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeTotalAttackMaxFlowResponse
      */
     public function describeTotalAttackMaxFlowWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTotalAttackMaxFlow',
@@ -7314,16 +9030,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTotalAttackMaxFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTotalAttackMaxFlowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTotalAttackMaxFlowResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
-     *  *
-     * @param DescribeTotalAttackMaxFlowRequest $request DescribeTotalAttackMaxFlowRequest
+     * Queries the peak bandwidth and peak packet rates of attack traffic on one or more Anti-DDoS Pro or Anti-DDoS Premium instances within a specific period of time.
      *
-     * @return DescribeTotalAttackMaxFlowResponse DescribeTotalAttackMaxFlowResponse
+     * @param request - DescribeTotalAttackMaxFlowRequest
+     * @returns DescribeTotalAttackMaxFlowResponse
+     *
+     * @param DescribeTotalAttackMaxFlowRequest $request
+     *
+     * @return DescribeTotalAttackMaxFlowResponse
      */
     public function describeTotalAttackMaxFlow($request)
     {
@@ -7333,25 +9055,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeUdpReflectRequest $request DescribeUdpReflectRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeUdpReflectResponse DescribeUdpReflectResponse
+     * @param request - DescribeUdpReflectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUdpReflectResponse
+     *
+     * @param DescribeUdpReflectRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeUdpReflectResponse
      */
     public function describeUdpReflectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUdpReflect',
@@ -7364,16 +9092,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUdpReflectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUdpReflectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUdpReflectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param DescribeUdpReflectRequest $request DescribeUdpReflectRequest
+     * Queries the source ports of UDP traffic that are filtered out by the filtering policies for UDP reflection attacks on an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return DescribeUdpReflectResponse DescribeUdpReflectResponse
+     * @param request - DescribeUdpReflectRequest
+     * @returns DescribeUdpReflectResponse
+     *
+     * @param DescribeUdpReflectRequest $request
+     *
+     * @return DescribeUdpReflectResponse
      */
     public function describeUdpReflect($request)
     {
@@ -7383,22 +9117,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
-     *  *
-     * @param DescribeUnBlackholeCountRequest $request DescribeUnBlackholeCountRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
      *
-     * @return DescribeUnBlackholeCountResponse DescribeUnBlackholeCountResponse
+     * @param request - DescribeUnBlackholeCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUnBlackholeCountResponse
+     *
+     * @param DescribeUnBlackholeCountRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeUnBlackholeCountResponse
      */
     public function describeUnBlackholeCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUnBlackholeCount',
@@ -7411,16 +9150,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUnBlackholeCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUnBlackholeCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUnBlackholeCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
-     *  *
-     * @param DescribeUnBlackholeCountRequest $request DescribeUnBlackholeCountRequest
+     * Queries the total quota and remaining quota that allow you to deactivate blackhole filtering.
      *
-     * @return DescribeUnBlackholeCountResponse DescribeUnBlackholeCountResponse
+     * @param request - DescribeUnBlackholeCountRequest
+     * @returns DescribeUnBlackholeCountResponse
+     *
+     * @param DescribeUnBlackholeCountRequest $request
+     *
+     * @return DescribeUnBlackholeCountResponse
      */
     public function describeUnBlackholeCount($request)
     {
@@ -7430,24 +9175,30 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param DescribeUnBlockCountRequest $request DescribeUnBlockCountRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
      *
-     * @return DescribeUnBlockCountResponse DescribeUnBlockCountResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - DescribeUnBlockCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUnBlockCountResponse
+     *
+     * @param DescribeUnBlockCountRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeUnBlockCountResponse
      */
     public function describeUnBlockCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUnBlockCount',
@@ -7460,18 +9211,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUnBlockCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUnBlockCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUnBlockCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param DescribeUnBlockCountRequest $request DescribeUnBlockCountRequest
+     * Queries the total number and the remaining number of times that you can enable the near-origin traffic diversion feature.
      *
-     * @return DescribeUnBlockCountResponse DescribeUnBlockCountResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - DescribeUnBlockCountRequest
+     * @returns DescribeUnBlockCountResponse
+     *
+     * @param DescribeUnBlockCountRequest $request
+     *
+     * @return DescribeUnBlockCountResponse
      */
     public function describeUnBlockCount($request)
     {
@@ -7481,32 +9239,40 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the log analysis feature is enabled for all domain names.
-     *  *
-     * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Checks whether the log analysis feature is enabled for all domain names.
+     *
+     * @remarks
+     * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeWebAccessLogDispatchStatusRequest $request DescribeWebAccessLogDispatchStatusRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebAccessLogDispatchStatusResponse DescribeWebAccessLogDispatchStatusResponse
+     * @param request - DescribeWebAccessLogDispatchStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebAccessLogDispatchStatusResponse
+     *
+     * @param DescribeWebAccessLogDispatchStatusRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeWebAccessLogDispatchStatusResponse
      */
     public function describeWebAccessLogDispatchStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebAccessLogDispatchStatus',
@@ -7519,20 +9285,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebAccessLogDispatchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebAccessLogDispatchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebAccessLogDispatchStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether the log analysis feature is enabled for all domain names.
-     *  *
-     * @description You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
+     * Checks whether the log analysis feature is enabled for all domain names.
+     *
+     * @remarks
+     * You can call the DescribeWebAccessLogDispatchStatus operation to check whether the log analysis feature is enabled for all domain names that are added to your Anti-DDoS Pro or Anti-DDoS Premium instance.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeWebAccessLogDispatchStatusRequest $request DescribeWebAccessLogDispatchStatusRequest
      *
-     * @return DescribeWebAccessLogDispatchStatusResponse DescribeWebAccessLogDispatchStatusResponse
+     * @param request - DescribeWebAccessLogDispatchStatusRequest
+     * @returns DescribeWebAccessLogDispatchStatusResponse
+     *
+     * @param DescribeWebAccessLogDispatchStatusRequest $request
+     *
+     * @return DescribeWebAccessLogDispatchStatusResponse
      */
     public function describeWebAccessLogDispatchStatus($request)
     {
@@ -7542,22 +9315,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the remaining quota that allows you to clear the Logstore.
-     *  *
-     * @param DescribeWebAccessLogEmptyCountRequest $request DescribeWebAccessLogEmptyCountRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the remaining quota that allows you to clear the Logstore.
      *
-     * @return DescribeWebAccessLogEmptyCountResponse DescribeWebAccessLogEmptyCountResponse
+     * @param request - DescribeWebAccessLogEmptyCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebAccessLogEmptyCountResponse
+     *
+     * @param DescribeWebAccessLogEmptyCountRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeWebAccessLogEmptyCountResponse
      */
     public function describeWebAccessLogEmptyCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebAccessLogEmptyCount',
@@ -7570,16 +9348,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebAccessLogEmptyCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebAccessLogEmptyCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebAccessLogEmptyCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the remaining quota that allows you to clear the Logstore.
-     *  *
-     * @param DescribeWebAccessLogEmptyCountRequest $request DescribeWebAccessLogEmptyCountRequest
+     * Queries the remaining quota that allows you to clear the Logstore.
      *
-     * @return DescribeWebAccessLogEmptyCountResponse DescribeWebAccessLogEmptyCountResponse
+     * @param request - DescribeWebAccessLogEmptyCountRequest
+     * @returns DescribeWebAccessLogEmptyCountResponse
+     *
+     * @param DescribeWebAccessLogEmptyCountRequest $request
+     *
+     * @return DescribeWebAccessLogEmptyCountResponse
      */
     public function describeWebAccessLogEmptyCount($request)
     {
@@ -7589,25 +9373,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
-     *  *
-     * @param DescribeWebAccessLogStatusRequest $request DescribeWebAccessLogStatusRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
      *
-     * @return DescribeWebAccessLogStatusResponse DescribeWebAccessLogStatusResponse
+     * @param request - DescribeWebAccessLogStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebAccessLogStatusResponse
+     *
+     * @param DescribeWebAccessLogStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeWebAccessLogStatusResponse
      */
     public function describeWebAccessLogStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebAccessLogStatus',
@@ -7620,16 +9410,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebAccessLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebAccessLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebAccessLogStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
-     *  *
-     * @param DescribeWebAccessLogStatusRequest $request DescribeWebAccessLogStatusRequest
+     * Queries the information about the Log Analysis feature for a website, such as the feature status and the Log Service project and Logstore that are used.
      *
-     * @return DescribeWebAccessLogStatusResponse DescribeWebAccessLogStatusResponse
+     * @param request - DescribeWebAccessLogStatusRequest
+     * @returns DescribeWebAccessLogStatusResponse
+     *
+     * @param DescribeWebAccessLogStatusRequest $request
+     *
+     * @return DescribeWebAccessLogStatusResponse
      */
     public function describeWebAccessLogStatus($request)
     {
@@ -7639,22 +9435,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param DescribeWebAccessModeRequest $request DescribeWebAccessModeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
      *
-     * @return DescribeWebAccessModeResponse DescribeWebAccessModeResponse
+     * @param request - DescribeWebAccessModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebAccessModeResponse
+     *
+     * @param DescribeWebAccessModeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeWebAccessModeResponse
      */
     public function describeWebAccessModeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domains)) {
-            $query['Domains'] = $request->domains;
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebAccessMode',
@@ -7667,16 +9468,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebAccessModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param DescribeWebAccessModeRequest $request DescribeWebAccessModeRequest
+     * Queries the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
      *
-     * @return DescribeWebAccessModeResponse DescribeWebAccessModeResponse
+     * @param request - DescribeWebAccessModeRequest
+     * @returns DescribeWebAccessModeResponse
+     *
+     * @param DescribeWebAccessModeRequest $request
+     *
+     * @return DescribeWebAccessModeResponse
      */
     public function describeWebAccessMode($request)
     {
@@ -7686,25 +9493,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
-     *  *
-     * @param DescribeWebAreaBlockConfigsRequest $request DescribeWebAreaBlockConfigsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the Location Blacklist (Domain Names) configurations for websites.
      *
-     * @return DescribeWebAreaBlockConfigsResponse DescribeWebAreaBlockConfigsResponse
+     * @param request - DescribeWebAreaBlockConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebAreaBlockConfigsResponse
+     *
+     * @param DescribeWebAreaBlockConfigsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeWebAreaBlockConfigsResponse
      */
     public function describeWebAreaBlockConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domains)) {
-            $query['Domains'] = $request->domains;
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebAreaBlockConfigs',
@@ -7717,16 +9530,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebAreaBlockConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebAreaBlockConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebAreaBlockConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Location Blacklist (Domain Names) configurations for websites.
-     *  *
-     * @param DescribeWebAreaBlockConfigsRequest $request DescribeWebAreaBlockConfigsRequest
+     * Queries the Location Blacklist (Domain Names) configurations for websites.
      *
-     * @return DescribeWebAreaBlockConfigsResponse DescribeWebAreaBlockConfigsResponse
+     * @param request - DescribeWebAreaBlockConfigsRequest
+     * @returns DescribeWebAreaBlockConfigsResponse
+     *
+     * @param DescribeWebAreaBlockConfigsRequest $request
+     *
+     * @return DescribeWebAreaBlockConfigsResponse
      */
     public function describeWebAreaBlockConfigs($request)
     {
@@ -7735,36 +9554,44 @@ class Ddoscoo extends OpenApiClient
         return $this->describeWebAreaBlockConfigsWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Queries the custom frequency control rules that are created for a website.
+     *
      * @deprecated openAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
-     *  *
-     * @summary Queries the custom frequency control rules that are created for a website.
-     *  *
-     * Deprecated
      *
-     * @param DescribeWebCCRulesRequest $request DescribeWebCCRulesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeWebCCRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebCCRulesResponse
      *
-     * @return DescribeWebCCRulesResponse DescribeWebCCRulesResponse
+     * @param DescribeWebCCRulesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeWebCCRulesResponse
      */
     public function describeWebCCRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebCCRules',
@@ -7777,20 +9604,26 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebCCRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebCCRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebCCRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Queries the custom frequency control rules that are created for a website.
+     *
      * @deprecated openAPI DescribeWebCCRules is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
-     *  *
-     * @summary Queries the custom frequency control rules that are created for a website.
-     *  *
-     * Deprecated
      *
-     * @param DescribeWebCCRulesRequest $request DescribeWebCCRulesRequest
+     * @param request - DescribeWebCCRulesRequest
+     * @returns DescribeWebCCRulesResponse
      *
-     * @return DescribeWebCCRulesResponse DescribeWebCCRulesResponse
+     * @param DescribeWebCCRulesRequest $request
+     *
+     * @return DescribeWebCCRulesResponse
      */
     public function describeWebCCRules($request)
     {
@@ -7800,31 +9633,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the custom frequency control rules that are created for a website.
-     *  *
-     * @param DescribeWebCCRulesV2Request $request DescribeWebCCRulesV2Request
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the custom frequency control rules that are created for a website.
      *
-     * @return DescribeWebCCRulesV2Response DescribeWebCCRulesV2Response
+     * @param request - DescribeWebCCRulesV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebCCRulesV2Response
+     *
+     * @param DescribeWebCCRulesV2Request $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeWebCCRulesV2Response
      */
     public function describeWebCCRulesV2WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $query['Owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$query['Owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebCCRulesV2',
@@ -7837,16 +9678,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebCCRulesV2Response::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebCCRulesV2Response::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebCCRulesV2Response::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the custom frequency control rules that are created for a website.
-     *  *
-     * @param DescribeWebCCRulesV2Request $request DescribeWebCCRulesV2Request
+     * Queries the custom frequency control rules that are created for a website.
      *
-     * @return DescribeWebCCRulesV2Response DescribeWebCCRulesV2Response
+     * @param request - DescribeWebCCRulesV2Request
+     * @returns DescribeWebCCRulesV2Response
+     *
+     * @param DescribeWebCCRulesV2Request $request
+     *
+     * @return DescribeWebCCRulesV2Response
      */
     public function describeWebCCRulesV2($request)
     {
@@ -7856,29 +9703,36 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Static Page Caching configuration of websites.
-     *  *
-     * @description You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+     * Queries the Static Page Caching configuration of websites.
+     *
+     * @remarks
+     * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeWebCacheConfigsRequest $request DescribeWebCacheConfigsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebCacheConfigsResponse DescribeWebCacheConfigsResponse
+     * @param request - DescribeWebCacheConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebCacheConfigsResponse
+     *
+     * @param DescribeWebCacheConfigsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeWebCacheConfigsResponse
      */
     public function describeWebCacheConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domains)) {
-            $query['Domains'] = $request->domains;
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebCacheConfigs',
@@ -7891,20 +9745,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebCacheConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebCacheConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebCacheConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Static Page Caching configuration of websites.
-     *  *
-     * @description You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
+     * Queries the Static Page Caching configuration of websites.
+     *
+     * @remarks
+     * You can call the DescribeWebCacheConfigs operation to query the Static Page Caching configurations of websites. The configurations include cache modes and custom caching rules.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeWebCacheConfigsRequest $request DescribeWebCacheConfigsRequest
      *
-     * @return DescribeWebCacheConfigsResponse DescribeWebCacheConfigsResponse
+     * @param request - DescribeWebCacheConfigsRequest
+     * @returns DescribeWebCacheConfigsResponse
+     *
+     * @param DescribeWebCacheConfigsRequest $request
+     *
+     * @return DescribeWebCacheConfigsResponse
      */
     public function describeWebCacheConfigs($request)
     {
@@ -7914,25 +9775,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of each mitigation policy for a website.
-     *  *
-     * @param DescribeWebCcProtectSwitchRequest $request DescribeWebCcProtectSwitchRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the status of each mitigation policy for a website.
      *
-     * @return DescribeWebCcProtectSwitchResponse DescribeWebCcProtectSwitchResponse
+     * @param request - DescribeWebCcProtectSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebCcProtectSwitchResponse
+     *
+     * @param DescribeWebCcProtectSwitchRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeWebCcProtectSwitchResponse
      */
     public function describeWebCcProtectSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domains)) {
-            $query['Domains'] = $request->domains;
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebCcProtectSwitch',
@@ -7945,16 +9812,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebCcProtectSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebCcProtectSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebCcProtectSwitchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of each mitigation policy for a website.
-     *  *
-     * @param DescribeWebCcProtectSwitchRequest $request DescribeWebCcProtectSwitchRequest
+     * Queries the status of each mitigation policy for a website.
      *
-     * @return DescribeWebCcProtectSwitchResponse DescribeWebCcProtectSwitchResponse
+     * @param request - DescribeWebCcProtectSwitchRequest
+     * @returns DescribeWebCcProtectSwitchResponse
+     *
+     * @param DescribeWebCcProtectSwitchRequest $request
+     *
+     * @return DescribeWebCcProtectSwitchResponse
      */
     public function describeWebCcProtectSwitch($request)
     {
@@ -7964,22 +9837,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the supported custom ports of a website.
-     *  *
-     * @param DescribeWebCustomPortsRequest $request DescribeWebCustomPortsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the supported custom ports of a website.
      *
-     * @return DescribeWebCustomPortsResponse DescribeWebCustomPortsResponse
+     * @param request - DescribeWebCustomPortsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebCustomPortsResponse
+     *
+     * @param DescribeWebCustomPortsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeWebCustomPortsResponse
      */
     public function describeWebCustomPortsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebCustomPorts',
@@ -7992,16 +9870,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebCustomPortsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebCustomPortsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebCustomPortsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the supported custom ports of a website.
-     *  *
-     * @param DescribeWebCustomPortsRequest $request DescribeWebCustomPortsRequest
+     * Queries the supported custom ports of a website.
      *
-     * @return DescribeWebCustomPortsResponse DescribeWebCustomPortsResponse
+     * @param request - DescribeWebCustomPortsRequest
+     * @returns DescribeWebCustomPortsResponse
+     *
+     * @param DescribeWebCustomPortsRequest $request
+     *
+     * @return DescribeWebCustomPortsResponse
      */
     public function describeWebCustomPorts($request)
     {
@@ -8011,25 +9895,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
-     *  *
-     * @param DescribeWebInstanceRelationsRequest $request DescribeWebInstanceRelationsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
      *
-     * @return DescribeWebInstanceRelationsResponse DescribeWebInstanceRelationsResponse
+     * @param request - DescribeWebInstanceRelationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebInstanceRelationsResponse
+     *
+     * @param DescribeWebInstanceRelationsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeWebInstanceRelationsResponse
      */
     public function describeWebInstanceRelationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domains)) {
-            $query['Domains'] = $request->domains;
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebInstanceRelations',
@@ -8042,16 +9932,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebInstanceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebInstanceRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebInstanceRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
-     *  *
-     * @param DescribeWebInstanceRelationsRequest $request DescribeWebInstanceRelationsRequest
+     * Queries the information about Anti-DDoS Pro or Anti-DDoS Premium instances to which a website service is added.
      *
-     * @return DescribeWebInstanceRelationsResponse DescribeWebInstanceRelationsResponse
+     * @param request - DescribeWebInstanceRelationsRequest
+     * @returns DescribeWebInstanceRelationsResponse
+     *
+     * @param DescribeWebInstanceRelationsRequest $request
+     *
+     * @return DescribeWebInstanceRelationsResponse
      */
     public function describeWebInstanceRelations($request)
     {
@@ -8061,25 +9957,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the accurate access control rules that are created for websites.
-     *  *
-     * @param DescribeWebPreciseAccessRuleRequest $request DescribeWebPreciseAccessRuleRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the accurate access control rules that are created for websites.
      *
-     * @return DescribeWebPreciseAccessRuleResponse DescribeWebPreciseAccessRuleResponse
+     * @param request - DescribeWebPreciseAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebPreciseAccessRuleResponse
+     *
+     * @param DescribeWebPreciseAccessRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeWebPreciseAccessRuleResponse
      */
     public function describeWebPreciseAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domains)) {
-            $query['Domains'] = $request->domains;
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebPreciseAccessRule',
@@ -8092,16 +9994,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebPreciseAccessRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the accurate access control rules that are created for websites.
-     *  *
-     * @param DescribeWebPreciseAccessRuleRequest $request DescribeWebPreciseAccessRuleRequest
+     * Queries the accurate access control rules that are created for websites.
      *
-     * @return DescribeWebPreciseAccessRuleResponse DescribeWebPreciseAccessRuleResponse
+     * @param request - DescribeWebPreciseAccessRuleRequest
+     * @returns DescribeWebPreciseAccessRuleResponse
+     *
+     * @param DescribeWebPreciseAccessRuleRequest $request
+     *
+     * @return DescribeWebPreciseAccessRuleResponse
      */
     public function describeWebPreciseAccessRule($request)
     {
@@ -8111,37 +10019,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
-     *  *
-     * @param DescribeWebReportTopIpRequest $request DescribeWebReportTopIpRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
      *
-     * @return DescribeWebReportTopIpResponse DescribeWebReportTopIpResponse
+     * @param request - DescribeWebReportTopIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebReportTopIpResponse
+     *
+     * @param DescribeWebReportTopIpRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeWebReportTopIpResponse
      */
     public function describeWebReportTopIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->queryType)) {
-            $query['QueryType'] = $request->queryType;
+
+        if (null !== $request->queryType) {
+            @$query['QueryType'] = $request->queryType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->top)) {
-            $query['Top'] = $request->top;
+
+        if (null !== $request->top) {
+            @$query['Top'] = $request->top;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebReportTopIp',
@@ -8154,16 +10072,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebReportTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebReportTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebReportTopIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
-     *  *
-     * @param DescribeWebReportTopIpRequest $request DescribeWebReportTopIpRequest
+     * Queries the top source IP addresses of the web resource exhaustion attacks for the Anti-DDoS Proxy instance.
      *
-     * @return DescribeWebReportTopIpResponse DescribeWebReportTopIpResponse
+     * @param request - DescribeWebReportTopIpRequest
+     * @returns DescribeWebReportTopIpResponse
+     *
+     * @param DescribeWebReportTopIpRequest $request
+     *
+     * @return DescribeWebReportTopIpResponse
      */
     public function describeWebReportTopIp($request)
     {
@@ -8173,45 +10097,57 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Query Configuration of Website Business Forwarding Rules.
-     *  *
-     * @description This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
+     * Query Configuration of Website Business Forwarding Rules.
+     *
+     * @remarks
+     * This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
      * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
      * ### QPS Limit
      * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
-     *  *
-     * @param DescribeWebRulesRequest $request DescribeWebRulesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWebRulesResponse DescribeWebRulesResponse
+     * @param request - DescribeWebRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWebRulesResponse
+     *
+     * @param DescribeWebRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeWebRulesResponse
      */
     public function describeWebRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cname)) {
-            $query['Cname'] = $request->cname;
+        if (null !== $request->cname) {
+            @$query['Cname'] = $request->cname;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryDomainPattern)) {
-            $query['QueryDomainPattern'] = $request->queryDomainPattern;
+
+        if (null !== $request->queryDomainPattern) {
+            @$query['QueryDomainPattern'] = $request->queryDomainPattern;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWebRules',
@@ -8224,21 +10160,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWebRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWebRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWebRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query Configuration of Website Business Forwarding Rules.
-     *  *
-     * @description This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
+     * Query Configuration of Website Business Forwarding Rules.
+     *
+     * @remarks
+     * This interface is used for paginated querying of the configurations of website business forwarding rules you have created, such as forwarding protocol types, source server addresses, HTTPS configurations, IP blacklist configurations, and more.
      * Before calling this interface, you must have already called [CreateWebRule](~~CreateWebRule~~) to create website business forwarding rules.
      * ### QPS Limit
      * The per-user QPS limit for this interface is 50 times/second. Exceeding this limit will result in API calls being throttled, which may impact your business; please use it reasonably.
-     *  *
-     * @param DescribeWebRulesRequest $request DescribeWebRulesRequest
      *
-     * @return DescribeWebRulesResponse DescribeWebRulesResponse
+     * @param request - DescribeWebRulesRequest
+     * @returns DescribeWebRulesResponse
+     *
+     * @param DescribeWebRulesRequest $request
+     *
+     * @return DescribeWebRulesResponse
      */
     public function describeWebRules($request)
     {
@@ -8248,28 +10191,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Removes a protected object from a scenario-specific custom policy.
-     *  *
-     * @param DetachSceneDefenseObjectRequest $request DetachSceneDefenseObjectRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Removes a protected object from a scenario-specific custom policy.
      *
-     * @return DetachSceneDefenseObjectResponse DetachSceneDefenseObjectResponse
+     * @param request - DetachSceneDefenseObjectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachSceneDefenseObjectResponse
+     *
+     * @param DetachSceneDefenseObjectRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DetachSceneDefenseObjectResponse
      */
     public function detachSceneDefenseObjectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->objectType)) {
-            $query['ObjectType'] = $request->objectType;
+        if (null !== $request->objectType) {
+            @$query['ObjectType'] = $request->objectType;
         }
-        if (!Utils::isUnset($request->objects)) {
-            $query['Objects'] = $request->objects;
+
+        if (null !== $request->objects) {
+            @$query['Objects'] = $request->objects;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetachSceneDefenseObject',
@@ -8282,16 +10232,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachSceneDefenseObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachSceneDefenseObjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachSceneDefenseObjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a protected object from a scenario-specific custom policy.
-     *  *
-     * @param DetachSceneDefenseObjectRequest $request DetachSceneDefenseObjectRequest
+     * Removes a protected object from a scenario-specific custom policy.
      *
-     * @return DetachSceneDefenseObjectResponse DetachSceneDefenseObjectResponse
+     * @param request - DetachSceneDefenseObjectRequest
+     * @returns DetachSceneDefenseObjectResponse
+     *
+     * @param DetachSceneDefenseObjectRequest $request
+     *
+     * @return DetachSceneDefenseObjectResponse
      */
     public function detachSceneDefenseObject($request)
     {
@@ -8301,22 +10257,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Disables a scenario-specific custom policy.
-     *  *
-     * @param DisableSceneDefensePolicyRequest $request DisableSceneDefensePolicyRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Disables a scenario-specific custom policy.
      *
-     * @return DisableSceneDefensePolicyResponse DisableSceneDefensePolicyResponse
+     * @param request - DisableSceneDefensePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableSceneDefensePolicyResponse
+     *
+     * @param DisableSceneDefensePolicyRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableSceneDefensePolicyResponse
      */
     public function disableSceneDefensePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableSceneDefensePolicy',
@@ -8329,16 +10290,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableSceneDefensePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables a scenario-specific custom policy.
-     *  *
-     * @param DisableSceneDefensePolicyRequest $request DisableSceneDefensePolicyRequest
+     * Disables a scenario-specific custom policy.
      *
-     * @return DisableSceneDefensePolicyResponse DisableSceneDefensePolicyResponse
+     * @param request - DisableSceneDefensePolicyRequest
+     * @returns DisableSceneDefensePolicyResponse
+     *
+     * @param DisableSceneDefensePolicyRequest $request
+     *
+     * @return DisableSceneDefensePolicyResponse
      */
     public function disableSceneDefensePolicy($request)
     {
@@ -8348,25 +10315,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Disables the log analysis feature for a website.
-     *  *
-     * @param DisableWebAccessLogConfigRequest $request DisableWebAccessLogConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Disables the log analysis feature for a website.
      *
-     * @return DisableWebAccessLogConfigResponse DisableWebAccessLogConfigResponse
+     * @param request - DisableWebAccessLogConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableWebAccessLogConfigResponse
+     *
+     * @param DisableWebAccessLogConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DisableWebAccessLogConfigResponse
      */
     public function disableWebAccessLogConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableWebAccessLogConfig',
@@ -8379,16 +10352,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableWebAccessLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableWebAccessLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableWebAccessLogConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables the log analysis feature for a website.
-     *  *
-     * @param DisableWebAccessLogConfigRequest $request DisableWebAccessLogConfigRequest
+     * Disables the log analysis feature for a website.
      *
-     * @return DisableWebAccessLogConfigResponse DisableWebAccessLogConfigResponse
+     * @param request - DisableWebAccessLogConfigRequest
+     * @returns DisableWebAccessLogConfigResponse
+     *
+     * @param DisableWebAccessLogConfigRequest $request
+     *
+     * @return DisableWebAccessLogConfigResponse
      */
     public function disableWebAccessLogConfig($request)
     {
@@ -8398,25 +10377,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Disables frequency control for a website.
-     *  *
-     * @param DisableWebCCRequest $request DisableWebCCRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Disables frequency control for a website.
      *
-     * @return DisableWebCCResponse DisableWebCCResponse
+     * @param request - DisableWebCCRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableWebCCResponse
+     *
+     * @param DisableWebCCRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DisableWebCCResponse
      */
     public function disableWebCCWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableWebCC',
@@ -8429,16 +10414,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableWebCCResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableWebCCResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableWebCCResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables frequency control for a website.
-     *  *
-     * @param DisableWebCCRequest $request DisableWebCCRequest
+     * Disables frequency control for a website.
      *
-     * @return DisableWebCCResponse DisableWebCCResponse
+     * @param request - DisableWebCCRequest
+     * @returns DisableWebCCResponse
+     *
+     * @param DisableWebCCRequest $request
+     *
+     * @return DisableWebCCResponse
      */
     public function disableWebCC($request)
     {
@@ -8448,25 +10439,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Disables custom frequency control rules for a website.
-     *  *
-     * @param DisableWebCCRuleRequest $request DisableWebCCRuleRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Disables custom frequency control rules for a website.
      *
-     * @return DisableWebCCRuleResponse DisableWebCCRuleResponse
+     * @param request - DisableWebCCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableWebCCRuleResponse
+     *
+     * @param DisableWebCCRuleRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DisableWebCCRuleResponse
      */
     public function disableWebCCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableWebCCRule',
@@ -8479,16 +10476,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableWebCCRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables custom frequency control rules for a website.
-     *  *
-     * @param DisableWebCCRuleRequest $request DisableWebCCRuleRequest
+     * Disables custom frequency control rules for a website.
      *
-     * @return DisableWebCCRuleResponse DisableWebCCRuleResponse
+     * @param request - DisableWebCCRuleRequest
+     * @returns DisableWebCCRuleResponse
+     *
+     * @param DisableWebCCRuleRequest $request
+     *
+     * @return DisableWebCCRuleResponse
      */
     public function disableWebCCRule($request)
     {
@@ -8498,22 +10501,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param EmptyAutoCcBlacklistRequest $request EmptyAutoCcBlacklistRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return EmptyAutoCcBlacklistResponse EmptyAutoCcBlacklistResponse
+     * @param request - EmptyAutoCcBlacklistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EmptyAutoCcBlacklistResponse
+     *
+     * @param EmptyAutoCcBlacklistRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return EmptyAutoCcBlacklistResponse
      */
     public function emptyAutoCcBlacklistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EmptyAutoCcBlacklist',
@@ -8526,16 +10534,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EmptyAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EmptyAutoCcBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EmptyAutoCcBlacklistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param EmptyAutoCcBlacklistRequest $request EmptyAutoCcBlacklistRequest
+     * Clears the IP address blacklist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return EmptyAutoCcBlacklistResponse EmptyAutoCcBlacklistResponse
+     * @param request - EmptyAutoCcBlacklistRequest
+     * @returns EmptyAutoCcBlacklistResponse
+     *
+     * @param EmptyAutoCcBlacklistRequest $request
+     *
+     * @return EmptyAutoCcBlacklistResponse
      */
     public function emptyAutoCcBlacklist($request)
     {
@@ -8545,22 +10559,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param EmptyAutoCcWhitelistRequest $request EmptyAutoCcWhitelistRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return EmptyAutoCcWhitelistResponse EmptyAutoCcWhitelistResponse
+     * @param request - EmptyAutoCcWhitelistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EmptyAutoCcWhitelistResponse
+     *
+     * @param EmptyAutoCcWhitelistRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return EmptyAutoCcWhitelistResponse
      */
     public function emptyAutoCcWhitelistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EmptyAutoCcWhitelist',
@@ -8573,16 +10592,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EmptyAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EmptyAutoCcWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EmptyAutoCcWhitelistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param EmptyAutoCcWhitelistRequest $request EmptyAutoCcWhitelistRequest
+     * Clears the IP address whitelist of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return EmptyAutoCcWhitelistResponse EmptyAutoCcWhitelistResponse
+     * @param request - EmptyAutoCcWhitelistRequest
+     * @returns EmptyAutoCcWhitelistResponse
+     *
+     * @param EmptyAutoCcWhitelistRequest $request
+     *
+     * @return EmptyAutoCcWhitelistResponse
      */
     public function emptyAutoCcWhitelist($request)
     {
@@ -8592,22 +10617,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param EmptySlsLogstoreRequest $request EmptySlsLogstoreRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
      *
-     * @return EmptySlsLogstoreResponse EmptySlsLogstoreResponse
+     * @param request - EmptySlsLogstoreRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EmptySlsLogstoreResponse
+     *
+     * @param EmptySlsLogstoreRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EmptySlsLogstoreResponse
      */
     public function emptySlsLogstoreWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EmptySlsLogstore',
@@ -8620,16 +10650,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EmptySlsLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EmptySlsLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EmptySlsLogstoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param EmptySlsLogstoreRequest $request EmptySlsLogstoreRequest
+     * Clears the Logstore of Anti-DDoS Pro or Anti-DDoS Premium.
      *
-     * @return EmptySlsLogstoreResponse EmptySlsLogstoreResponse
+     * @param request - EmptySlsLogstoreRequest
+     * @returns EmptySlsLogstoreResponse
+     *
+     * @param EmptySlsLogstoreRequest $request
+     *
+     * @return EmptySlsLogstoreResponse
      */
     public function emptySlsLogstore($request)
     {
@@ -8639,22 +10675,27 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables a scenario-specific custom policy.
-     *  *
-     * @param EnableSceneDefensePolicyRequest $request EnableSceneDefensePolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Enables a scenario-specific custom policy.
      *
-     * @return EnableSceneDefensePolicyResponse EnableSceneDefensePolicyResponse
+     * @param request - EnableSceneDefensePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableSceneDefensePolicyResponse
+     *
+     * @param EnableSceneDefensePolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EnableSceneDefensePolicyResponse
      */
     public function enableSceneDefensePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableSceneDefensePolicy',
@@ -8667,16 +10708,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableSceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableSceneDefensePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables a scenario-specific custom policy.
-     *  *
-     * @param EnableSceneDefensePolicyRequest $request EnableSceneDefensePolicyRequest
+     * Enables a scenario-specific custom policy.
      *
-     * @return EnableSceneDefensePolicyResponse EnableSceneDefensePolicyResponse
+     * @param request - EnableSceneDefensePolicyRequest
+     * @returns EnableSceneDefensePolicyResponse
+     *
+     * @param EnableSceneDefensePolicyRequest $request
+     *
+     * @return EnableSceneDefensePolicyResponse
      */
     public function enableSceneDefensePolicy($request)
     {
@@ -8686,25 +10733,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables the log analysis feature for a website.
-     *  *
-     * @param EnableWebAccessLogConfigRequest $request EnableWebAccessLogConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Enables the log analysis feature for a website.
      *
-     * @return EnableWebAccessLogConfigResponse EnableWebAccessLogConfigResponse
+     * @param request - EnableWebAccessLogConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableWebAccessLogConfigResponse
+     *
+     * @param EnableWebAccessLogConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return EnableWebAccessLogConfigResponse
      */
     public function enableWebAccessLogConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableWebAccessLogConfig',
@@ -8717,16 +10770,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableWebAccessLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableWebAccessLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableWebAccessLogConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the log analysis feature for a website.
-     *  *
-     * @param EnableWebAccessLogConfigRequest $request EnableWebAccessLogConfigRequest
+     * Enables the log analysis feature for a website.
      *
-     * @return EnableWebAccessLogConfigResponse EnableWebAccessLogConfigResponse
+     * @param request - EnableWebAccessLogConfigRequest
+     * @returns EnableWebAccessLogConfigResponse
+     *
+     * @param EnableWebAccessLogConfigRequest $request
+     *
+     * @return EnableWebAccessLogConfigResponse
      */
     public function enableWebAccessLogConfig($request)
     {
@@ -8736,25 +10795,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables the Frequency Control policy for a website.
-     *  *
-     * @param EnableWebCCRequest $request EnableWebCCRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Enables the Frequency Control policy for a website.
      *
-     * @return EnableWebCCResponse EnableWebCCResponse
+     * @param request - EnableWebCCRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableWebCCResponse
+     *
+     * @param EnableWebCCRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return EnableWebCCResponse
      */
     public function enableWebCCWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableWebCC',
@@ -8767,16 +10832,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableWebCCResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableWebCCResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableWebCCResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the Frequency Control policy for a website.
-     *  *
-     * @param EnableWebCCRequest $request EnableWebCCRequest
+     * Enables the Frequency Control policy for a website.
      *
-     * @return EnableWebCCResponse EnableWebCCResponse
+     * @param request - EnableWebCCRequest
+     * @returns EnableWebCCResponse
+     *
+     * @param EnableWebCCRequest $request
+     *
+     * @return EnableWebCCResponse
      */
     public function enableWebCC($request)
     {
@@ -8786,25 +10857,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables custom frequency control rules for a website.
-     *  *
-     * @param EnableWebCCRuleRequest $request EnableWebCCRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Enables custom frequency control rules for a website.
      *
-     * @return EnableWebCCRuleResponse EnableWebCCRuleResponse
+     * @param request - EnableWebCCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableWebCCRuleResponse
+     *
+     * @param EnableWebCCRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return EnableWebCCRuleResponse
      */
     public function enableWebCCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableWebCCRule',
@@ -8817,16 +10894,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableWebCCRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables custom frequency control rules for a website.
-     *  *
-     * @param EnableWebCCRuleRequest $request EnableWebCCRuleRequest
+     * Enables custom frequency control rules for a website.
      *
-     * @return EnableWebCCRuleResponse EnableWebCCRuleResponse
+     * @param request - EnableWebCCRuleRequest
+     * @returns EnableWebCCRuleResponse
+     *
+     * @param EnableWebCCRuleRequest $request
+     *
+     * @return EnableWebCCRuleResponse
      */
     public function enableWebCCRule($request)
     {
@@ -8836,27 +10919,34 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-     *  *
-     * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
-     *  *
-     * @param ModifyBizBandWidthModeRequest $request ModifyBizBandWidthModeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Switches between the metering methods of the burstable clean bandwidth feature.
      *
-     * @return ModifyBizBandWidthModeResponse ModifyBizBandWidthModeResponse
+     * @remarks
+     * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+     *
+     * @param request - ModifyBizBandWidthModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyBizBandWidthModeResponse
+     *
+     * @param ModifyBizBandWidthModeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyBizBandWidthModeResponse
      */
     public function modifyBizBandWidthModeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyBizBandWidthMode',
@@ -8869,18 +10959,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyBizBandWidthModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyBizBandWidthModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyBizBandWidthModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-     *  *
-     * @description You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
-     *  *
-     * @param ModifyBizBandWidthModeRequest $request ModifyBizBandWidthModeRequest
+     * Switches between the metering methods of the burstable clean bandwidth feature.
      *
-     * @return ModifyBizBandWidthModeResponse ModifyBizBandWidthModeResponse
+     * @remarks
+     * You can switch between the metering methods of the burstable clean bandwidth feature. The new metering method takes effect from 00:00 on the first day of the next month. You can change the metering method up to three times each calendar month. The most recent metering method that you select takes effect in the next month. You cannot change the metering method on the last day of each calendar month.
+     *
+     * @param request - ModifyBizBandWidthModeRequest
+     * @returns ModifyBizBandWidthModeResponse
+     *
+     * @param ModifyBizBandWidthModeRequest $request
+     *
+     * @return ModifyBizBandWidthModeResponse
      */
     public function modifyBizBandWidthMode($request)
     {
@@ -8890,25 +10987,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Deactivates blackhole filtering that is triggered on an instance.
-     *  *
-     * @param ModifyBlackholeStatusRequest $request ModifyBlackholeStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deactivates blackhole filtering that is triggered on an instance.
      *
-     * @return ModifyBlackholeStatusResponse ModifyBlackholeStatusResponse
+     * @param request - ModifyBlackholeStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyBlackholeStatusResponse
+     *
+     * @param ModifyBlackholeStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyBlackholeStatusResponse
      */
     public function modifyBlackholeStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->blackholeStatus)) {
-            $query['BlackholeStatus'] = $request->blackholeStatus;
+        if (null !== $request->blackholeStatus) {
+            @$query['BlackholeStatus'] = $request->blackholeStatus;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyBlackholeStatus',
@@ -8921,16 +11024,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyBlackholeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyBlackholeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyBlackholeStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deactivates blackhole filtering that is triggered on an instance.
-     *  *
-     * @param ModifyBlackholeStatusRequest $request ModifyBlackholeStatusRequest
+     * Deactivates blackhole filtering that is triggered on an instance.
      *
-     * @return ModifyBlackholeStatusResponse ModifyBlackholeStatusResponse
+     * @param request - ModifyBlackholeStatusRequest
+     * @returns ModifyBlackholeStatusResponse
+     *
+     * @param ModifyBlackholeStatusRequest $request
+     *
+     * @return ModifyBlackholeStatusResponse
      */
     public function modifyBlackholeStatus($request)
     {
@@ -8940,33 +11049,42 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param ModifyBlockStatusRequest $request ModifyBlockStatusRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
      *
-     * @return ModifyBlockStatusResponse ModifyBlockStatusResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - ModifyBlockStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyBlockStatusResponse
+     *
+     * @param ModifyBlockStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyBlockStatusResponse
      */
     public function modifyBlockStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lines)) {
-            $query['Lines'] = $request->lines;
+
+        if (null !== $request->lines) {
+            @$query['Lines'] = $request->lines;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyBlockStatus',
@@ -8979,18 +11097,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyBlockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyBlockStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyBlockStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param ModifyBlockStatusRequest $request ModifyBlockStatusRequest
+     * Modifies the Diversion from Origin Server configuration of an Anti-DDoS Proxy (Chinese Mainland) instance.
      *
-     * @return ModifyBlockStatusResponse ModifyBlockStatusResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - ModifyBlockStatusRequest
+     * @returns ModifyBlockStatusResponse
+     *
+     * @param ModifyBlockStatusRequest $request
+     *
+     * @return ModifyBlockStatusResponse
      */
     public function modifyBlockStatus($request)
     {
@@ -9000,33 +11125,42 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables CNAME reuse for a website.
-     *  *
-     * @description > This operation is suitable only for Anti-DDoS Premium.
-     *  *
-     * @param ModifyCnameReuseRequest $request ModifyCnameReuseRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Enables or disables CNAME reuse for a website.
      *
-     * @return ModifyCnameReuseResponse ModifyCnameReuseResponse
+     * @remarks
+     * > This operation is suitable only for Anti-DDoS Premium.
+     *
+     * @param request - ModifyCnameReuseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyCnameReuseResponse
+     *
+     * @param ModifyCnameReuseRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyCnameReuseResponse
      */
     public function modifyCnameReuseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cname)) {
-            $query['Cname'] = $request->cname;
+        if (null !== $request->cname) {
+            @$query['Cname'] = $request->cname;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyCnameReuse',
@@ -9039,18 +11173,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyCnameReuseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyCnameReuseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCnameReuseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables CNAME reuse for a website.
-     *  *
-     * @description > This operation is suitable only for Anti-DDoS Premium.
-     *  *
-     * @param ModifyCnameReuseRequest $request ModifyCnameReuseRequest
+     * Enables or disables CNAME reuse for a website.
      *
-     * @return ModifyCnameReuseResponse ModifyCnameReuseResponse
+     * @remarks
+     * > This operation is suitable only for Anti-DDoS Premium.
+     *
+     * @param request - ModifyCnameReuseRequest
+     * @returns ModifyCnameReuseResponse
+     *
+     * @param ModifyCnameReuseRequest $request
+     *
+     * @return ModifyCnameReuseResponse
      */
     public function modifyCnameReuse($request)
     {
@@ -9060,37 +11201,47 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the forwarding rule of a website.
-     *  *
-     * @param ModifyDomainResourceRequest $request ModifyDomainResourceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modifies the forwarding rule of a website.
      *
-     * @return ModifyDomainResourceResponse ModifyDomainResourceResponse
+     * @param request - ModifyDomainResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDomainResourceResponse
+     *
+     * @param ModifyDomainResourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyDomainResourceResponse
      */
     public function modifyDomainResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->httpsExt)) {
-            $query['HttpsExt'] = $request->httpsExt;
+
+        if (null !== $request->httpsExt) {
+            @$query['HttpsExt'] = $request->httpsExt;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->proxyTypes)) {
-            $query['ProxyTypes'] = $request->proxyTypes;
+
+        if (null !== $request->proxyTypes) {
+            @$query['ProxyTypes'] = $request->proxyTypes;
         }
-        if (!Utils::isUnset($request->realServers)) {
-            $query['RealServers'] = $request->realServers;
+
+        if (null !== $request->realServers) {
+            @$query['RealServers'] = $request->realServers;
         }
-        if (!Utils::isUnset($request->rsType)) {
-            $query['RsType'] = $request->rsType;
+
+        if (null !== $request->rsType) {
+            @$query['RsType'] = $request->rsType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDomainResource',
@@ -9103,16 +11254,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDomainResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDomainResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the forwarding rule of a website.
-     *  *
-     * @param ModifyDomainResourceRequest $request ModifyDomainResourceRequest
+     * Modifies the forwarding rule of a website.
      *
-     * @return ModifyDomainResourceResponse ModifyDomainResourceResponse
+     * @param request - ModifyDomainResourceRequest
+     * @returns ModifyDomainResourceResponse
+     *
+     * @param ModifyDomainResourceRequest $request
+     *
+     * @return ModifyDomainResourceResponse
      */
     public function modifyDomainResource($request)
     {
@@ -9122,27 +11279,34 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param ModifyElasticBandWidthRequest $request ModifyElasticBandWidthRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
      *
-     * @return ModifyElasticBandWidthResponse ModifyElasticBandWidthResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - ModifyElasticBandWidthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyElasticBandWidthResponse
+     *
+     * @param ModifyElasticBandWidthRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyElasticBandWidthResponse
      */
     public function modifyElasticBandWidthWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->elasticBandwidth)) {
-            $query['ElasticBandwidth'] = $request->elasticBandwidth;
+        if (null !== $request->elasticBandwidth) {
+            @$query['ElasticBandwidth'] = $request->elasticBandwidth;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyElasticBandWidth',
@@ -9155,18 +11319,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyElasticBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyElasticBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyElasticBandWidthResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param ModifyElasticBandWidthRequest $request ModifyElasticBandWidthRequest
+     * Modifies the burstable protection bandwidth of a specified Anti-DDoS Proxy (Chinese Mainland) instance.
      *
-     * @return ModifyElasticBandWidthResponse ModifyElasticBandWidthResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - ModifyElasticBandWidthRequest
+     * @returns ModifyElasticBandWidthResponse
+     *
+     * @param ModifyElasticBandWidthRequest $request
+     *
+     * @return ModifyElasticBandWidthResponse
      */
     public function modifyElasticBandWidth($request)
     {
@@ -9176,30 +11347,38 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
-     *  *
-     * @param ModifyElasticBizBandWidthRequest $request ModifyElasticBizBandWidthRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return ModifyElasticBizBandWidthResponse ModifyElasticBizBandWidthResponse
+     * @remarks
+     * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+     *
+     * @param request - ModifyElasticBizBandWidthRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyElasticBizBandWidthResponse
+     *
+     * @param ModifyElasticBizBandWidthRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyElasticBizBandWidthResponse
      */
     public function modifyElasticBizBandWidthWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->elasticBizBandwidth)) {
-            $query['ElasticBizBandwidth'] = $request->elasticBizBandwidth;
+        if (null !== $request->elasticBizBandwidth) {
+            @$query['ElasticBizBandwidth'] = $request->elasticBizBandwidth;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyElasticBizBandWidth',
@@ -9212,18 +11391,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyElasticBizBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyElasticBizBandWidthResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyElasticBizBandWidthResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @description Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
-     *  *
-     * @param ModifyElasticBizBandWidthRequest $request ModifyElasticBizBandWidthRequest
+     * Modifies the burstable clean bandwidth for an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return ModifyElasticBizBandWidthResponse ModifyElasticBizBandWidthResponse
+     * @remarks
+     * Before you call this operation, make sure that you have fully understood the billing method and [pricing](https://help.aliyun.com/document_detail/283754.html) of the burstable clean bandwidth feature. After you call this operation for the first time, the modification immediately takes effect.
+     *
+     * @param request - ModifyElasticBizBandWidthRequest
+     * @returns ModifyElasticBizBandWidthResponse
+     *
+     * @param ModifyElasticBizBandWidthRequest $request
+     *
+     * @return ModifyElasticBizBandWidthResponse
      */
     public function modifyElasticBizBandWidth($request)
     {
@@ -9233,30 +11419,38 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
-     *  *
-     * @description You can enable burstable QPS only for IPv4 instances.
-     *  *
-     * @param ModifyElasticBizQpsRequest $request ModifyElasticBizQpsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
      *
-     * @return ModifyElasticBizQpsResponse ModifyElasticBizQpsResponse
+     * @remarks
+     * You can enable burstable QPS only for IPv4 instances.
+     *
+     * @param request - ModifyElasticBizQpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyElasticBizQpsResponse
+     *
+     * @param ModifyElasticBizQpsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyElasticBizQpsResponse
      */
     public function modifyElasticBizQpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->opsElasticQps)) {
-            $query['OpsElasticQps'] = $request->opsElasticQps;
+
+        if (null !== $request->opsElasticQps) {
+            @$query['OpsElasticQps'] = $request->opsElasticQps;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyElasticBizQps',
@@ -9269,18 +11463,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyElasticBizQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyElasticBizQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyElasticBizQpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
-     *  *
-     * @description You can enable burstable QPS only for IPv4 instances.
-     *  *
-     * @param ModifyElasticBizQpsRequest $request ModifyElasticBizQpsRequest
+     * Configures the burstable QPS and mode of an Anti-DDoS Proxy instance.
      *
-     * @return ModifyElasticBizQpsResponse ModifyElasticBizQpsResponse
+     * @remarks
+     * You can enable burstable QPS only for IPv4 instances.
+     *
+     * @param request - ModifyElasticBizQpsRequest
+     * @returns ModifyElasticBizQpsResponse
+     *
+     * @param ModifyElasticBizQpsRequest $request
+     *
+     * @return ModifyElasticBizQpsResponse
      */
     public function modifyElasticBizQps($request)
     {
@@ -9290,25 +11491,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the log storage duration for Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param ModifyFullLogTtlRequest $request ModifyFullLogTtlRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Modifies the log storage duration for Anti-DDoS Proxy.
      *
-     * @return ModifyFullLogTtlResponse ModifyFullLogTtlResponse
+     * @param request - ModifyFullLogTtlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyFullLogTtlResponse
+     *
+     * @param ModifyFullLogTtlRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyFullLogTtlResponse
      */
     public function modifyFullLogTtlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyFullLogTtl',
@@ -9321,16 +11528,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyFullLogTtlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyFullLogTtlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyFullLogTtlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the log storage duration for Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param ModifyFullLogTtlRequest $request ModifyFullLogTtlRequest
+     * Modifies the log storage duration for Anti-DDoS Proxy.
      *
-     * @return ModifyFullLogTtlResponse ModifyFullLogTtlResponse
+     * @param request - ModifyFullLogTtlRequest
+     * @returns ModifyFullLogTtlResponse
+     *
+     * @param ModifyFullLogTtlRequest $request
+     *
+     * @return ModifyFullLogTtlResponse
      */
     public function modifyFullLogTtl($request)
     {
@@ -9340,28 +11553,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param ModifyHeadersRequest $request ModifyHeadersRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return ModifyHeadersResponse ModifyHeadersResponse
+     * @param request - ModifyHeadersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHeadersResponse
+     *
+     * @param ModifyHeadersRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyHeadersResponse
      */
     public function modifyHeadersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customHeaders)) {
-            $query['CustomHeaders'] = $request->customHeaders;
+        if (null !== $request->customHeaders) {
+            @$query['CustomHeaders'] = $request->customHeaders;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHeaders',
@@ -9374,16 +11594,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHeadersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHeadersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param ModifyHeadersRequest $request ModifyHeadersRequest
+     * Modifies the custom header of a domain name that is added to an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return ModifyHeadersResponse ModifyHeadersResponse
+     * @param request - ModifyHeadersRequest
+     * @returns ModifyHeadersResponse
+     *
+     * @param ModifyHeadersRequest $request
+     *
+     * @return ModifyHeadersResponse
      */
     public function modifyHeaders($request)
     {
@@ -9393,31 +11619,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
-     *  *
-     * @param ModifyHealthCheckConfigRequest $request ModifyHealthCheckConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
      *
-     * @return ModifyHealthCheckConfigResponse ModifyHealthCheckConfigResponse
+     * @param request - ModifyHealthCheckConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHealthCheckConfigResponse
+     *
+     * @param ModifyHealthCheckConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyHealthCheckConfigResponse
      */
     public function modifyHealthCheckConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->forwardProtocol)) {
-            $query['ForwardProtocol'] = $request->forwardProtocol;
+        if (null !== $request->forwardProtocol) {
+            @$query['ForwardProtocol'] = $request->forwardProtocol;
         }
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->healthCheck)) {
-            $query['HealthCheck'] = $request->healthCheck;
+
+        if (null !== $request->healthCheck) {
+            @$query['HealthCheck'] = $request->healthCheck;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHealthCheckConfig',
@@ -9430,16 +11664,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHealthCheckConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHealthCheckConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHealthCheckConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
-     *  *
-     * @param ModifyHealthCheckConfigRequest $request ModifyHealthCheckConfigRequest
+     * Modifies the Layer 4 or Layer 7 health check configuration of a port forwarding rule.
      *
-     * @return ModifyHealthCheckConfigResponse ModifyHealthCheckConfigResponse
+     * @param request - ModifyHealthCheckConfigRequest
+     * @returns ModifyHealthCheckConfigResponse
+     *
+     * @param ModifyHealthCheckConfigRequest $request
+     *
+     * @return ModifyHealthCheckConfigResponse
      */
     public function modifyHealthCheckConfig($request)
     {
@@ -9449,30 +11689,38 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables HTTP/2 for the forwarding rule of a website.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param ModifyHttp2EnableRequest $request ModifyHttp2EnableRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Enables or disables HTTP/2 for the forwarding rule of a website.
      *
-     * @return ModifyHttp2EnableResponse ModifyHttp2EnableResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - ModifyHttp2EnableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHttp2EnableResponse
+     *
+     * @param ModifyHttp2EnableRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyHttp2EnableResponse
      */
     public function modifyHttp2EnableWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHttp2Enable',
@@ -9485,18 +11733,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHttp2EnableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHttp2EnableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHttp2EnableResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables HTTP/2 for the forwarding rule of a website.
-     *  *
-     * @description >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
-     *  *
-     * @param ModifyHttp2EnableRequest $request ModifyHttp2EnableRequest
+     * Enables or disables HTTP/2 for the forwarding rule of a website.
      *
-     * @return ModifyHttp2EnableResponse ModifyHttp2EnableResponse
+     * @remarks
+     * >  This operation is suitable only for Anti-DDoS Proxy (Chinese Mainland).
+     *
+     * @param request - ModifyHttp2EnableRequest
+     * @returns ModifyHttp2EnableResponse
+     *
+     * @param ModifyHttp2EnableRequest $request
+     *
+     * @return ModifyHttp2EnableResponse
      */
     public function modifyHttp2Enable($request)
     {
@@ -9506,25 +11761,145 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param ModifyInstanceRemarkRequest $request ModifyInstanceRemarkRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 实例变配  类似bss的变配.
      *
-     * @return ModifyInstanceRemarkResponse ModifyInstanceRemarkResponse
+     * @param request - ModifyInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyInstanceResponse
+     *
+     * @param ModifyInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyInstanceResponse
+     */
+    public function modifyInstanceWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->addressType) {
+            @$query['AddressType'] = $request->addressType;
+        }
+
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
+        }
+
+        if (null !== $request->baseBandwidth) {
+            @$query['BaseBandwidth'] = $request->baseBandwidth;
+        }
+
+        if (null !== $request->domainCount) {
+            @$query['DomainCount'] = $request->domainCount;
+        }
+
+        if (null !== $request->editionSale) {
+            @$query['EditionSale'] = $request->editionSale;
+        }
+
+        if (null !== $request->functionVersion) {
+            @$query['FunctionVersion'] = $request->functionVersion;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->modifyType) {
+            @$query['ModifyType'] = $request->modifyType;
+        }
+
+        if (null !== $request->normalBandwidth) {
+            @$query['NormalBandwidth'] = $request->normalBandwidth;
+        }
+
+        if (null !== $request->normalQps) {
+            @$query['NormalQps'] = $request->normalQps;
+        }
+
+        if (null !== $request->portCount) {
+            @$query['PortCount'] = $request->portCount;
+        }
+
+        if (null !== $request->productPlan) {
+            @$query['ProductPlan'] = $request->productPlan;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        if (null !== $request->serviceBandwidth) {
+            @$query['ServiceBandwidth'] = $request->serviceBandwidth;
+        }
+
+        if (null !== $request->servicePartner) {
+            @$query['ServicePartner'] = $request->servicePartner;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstance',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ModifyInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 实例变配  类似bss的变配.
+     *
+     * @param request - ModifyInstanceRequest
+     * @returns ModifyInstanceResponse
+     *
+     * @param ModifyInstanceRequest $request
+     *
+     * @return ModifyInstanceResponse
+     */
+    public function modifyInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+     *
+     * @param request - ModifyInstanceRemarkRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyInstanceRemarkResponse
+     *
+     * @param ModifyInstanceRemarkRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyInstanceRemarkResponse
      */
     public function modifyInstanceRemarkWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyInstanceRemark',
@@ -9537,16 +11912,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyInstanceRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyInstanceRemarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceRemarkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
-     *  *
-     * @param ModifyInstanceRemarkRequest $request ModifyInstanceRemarkRequest
+     * Modifies the description of an Anti-DDoS Pro or Anti-DDoS Premium instance.
      *
-     * @return ModifyInstanceRemarkResponse ModifyInstanceRemarkResponse
+     * @param request - ModifyInstanceRemarkRequest
+     * @returns ModifyInstanceRemarkResponse
+     *
+     * @param ModifyInstanceRemarkRequest $request
+     *
+     * @return ModifyInstanceRemarkResponse
      */
     public function modifyInstanceRemark($request)
     {
@@ -9556,31 +11937,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
-     *  *
-     * @param ModifyNetworkRuleAttributeRequest $request ModifyNetworkRuleAttributeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
      *
-     * @return ModifyNetworkRuleAttributeResponse ModifyNetworkRuleAttributeResponse
+     * @param request - ModifyNetworkRuleAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyNetworkRuleAttributeResponse
+     *
+     * @param ModifyNetworkRuleAttributeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyNetworkRuleAttributeResponse
      */
     public function modifyNetworkRuleAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->forwardProtocol)) {
-            $query['ForwardProtocol'] = $request->forwardProtocol;
+
+        if (null !== $request->forwardProtocol) {
+            @$query['ForwardProtocol'] = $request->forwardProtocol;
         }
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyNetworkRuleAttribute',
@@ -9593,16 +11982,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyNetworkRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyNetworkRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyNetworkRuleAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
-     *  *
-     * @param ModifyNetworkRuleAttributeRequest $request ModifyNetworkRuleAttributeRequest
+     * Modifies the session persistence and DDoS mitigation policy settings of a port forwarding rule.
      *
-     * @return ModifyNetworkRuleAttributeResponse ModifyNetworkRuleAttributeResponse
+     * @param request - ModifyNetworkRuleAttributeRequest
+     * @returns ModifyNetworkRuleAttributeResponse
+     *
+     * @param ModifyNetworkRuleAttributeRequest $request
+     *
+     * @return ModifyNetworkRuleAttributeResponse
      */
     public function modifyNetworkRuleAttribute($request)
     {
@@ -9612,27 +12007,34 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
-     *  *
-     * @description This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
-     *  *
-     * @param ModifyOcspStatusRequest $request ModifyOcspStatusRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
      *
-     * @return ModifyOcspStatusResponse ModifyOcspStatusResponse
+     * @remarks
+     * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+     *
+     * @param request - ModifyOcspStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyOcspStatusResponse
+     *
+     * @param ModifyOcspStatusRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyOcspStatusResponse
      */
     public function modifyOcspStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyOcspStatus',
@@ -9645,18 +12047,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyOcspStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyOcspStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyOcspStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
-     *  *
-     * @description This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
-     *  *
-     * @param ModifyOcspStatusRequest $request ModifyOcspStatusRequest
+     * Specifies whether to enable the Online Certificate Status Protocol (OCSP) feature.
      *
-     * @return ModifyOcspStatusResponse ModifyOcspStatusResponse
+     * @remarks
+     * This feature is available only for a website that supports HTTPS. If HTTPS is selected for Protocol, we recommend that you enable this feature.
+     *
+     * @param request - ModifyOcspStatusRequest
+     * @returns ModifyOcspStatusResponse
+     *
+     * @param ModifyOcspStatusRequest $request
+     *
+     * @return ModifyOcspStatusResponse
      */
     public function modifyOcspStatus($request)
     {
@@ -9666,39 +12075,50 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a port forwarding rule.
-     *  *
-     * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *  *
-     * @param ModifyPortRequest $request ModifyPortRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Modifies a port forwarding rule.
      *
-     * @return ModifyPortResponse ModifyPortResponse
+     * @remarks
+     * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     *
+     * @param request - ModifyPortRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyPortResponse
+     *
+     * @param ModifyPortRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ModifyPortResponse
      */
     public function modifyPortWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backendPort)) {
-            $query['BackendPort'] = $request->backendPort;
+        if (null !== $request->backendPort) {
+            @$query['BackendPort'] = $request->backendPort;
         }
-        if (!Utils::isUnset($request->frontendPort)) {
-            $query['FrontendPort'] = $request->frontendPort;
+
+        if (null !== $request->frontendPort) {
+            @$query['FrontendPort'] = $request->frontendPort;
         }
-        if (!Utils::isUnset($request->frontendProtocol)) {
-            $query['FrontendProtocol'] = $request->frontendProtocol;
+
+        if (null !== $request->frontendProtocol) {
+            @$query['FrontendProtocol'] = $request->frontendProtocol;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->proxyEnable)) {
-            $query['ProxyEnable'] = $request->proxyEnable;
+
+        if (null !== $request->proxyEnable) {
+            @$query['ProxyEnable'] = $request->proxyEnable;
         }
-        if (!Utils::isUnset($request->realServers)) {
-            $query['RealServers'] = $request->realServers;
+
+        if (null !== $request->realServers) {
+            @$query['RealServers'] = $request->realServers;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyPort',
@@ -9711,18 +12131,25 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyPortResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPortResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPortResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a port forwarding rule.
-     *  *
-     * @description You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
-     *  *
-     * @param ModifyPortRequest $request ModifyPortRequest
+     * Modifies a port forwarding rule.
      *
-     * @return ModifyPortResponse ModifyPortResponse
+     * @remarks
+     * You can call the ModifyPort operation by using Terraform. For more information about Terraform, see [What is Terraform?](https://help.aliyun.com/document_detail/95820.html).
+     *
+     * @param request - ModifyPortRequest
+     * @returns ModifyPortResponse
+     *
+     * @param ModifyPortRequest $request
+     *
+     * @return ModifyPortResponse
      */
     public function modifyPort($request)
     {
@@ -9732,28 +12159,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the Intelligent Protection configuration of a non-website service.
-     *  *
-     * @param ModifyPortAutoCcStatusRequest $request ModifyPortAutoCcStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies the Intelligent Protection configuration of a non-website service.
      *
-     * @return ModifyPortAutoCcStatusResponse ModifyPortAutoCcStatusResponse
+     * @param request - ModifyPortAutoCcStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyPortAutoCcStatusResponse
+     *
+     * @param ModifyPortAutoCcStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyPortAutoCcStatusResponse
      */
     public function modifyPortAutoCcStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->switch_)) {
-            $query['Switch'] = $request->switch_;
+
+        if (null !== $request->switch) {
+            @$query['Switch'] = $request->switch;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyPortAutoCcStatus',
@@ -9766,16 +12200,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyPortAutoCcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPortAutoCcStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPortAutoCcStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the Intelligent Protection configuration of a non-website service.
-     *  *
-     * @param ModifyPortAutoCcStatusRequest $request ModifyPortAutoCcStatusRequest
+     * Modifies the Intelligent Protection configuration of a non-website service.
      *
-     * @return ModifyPortAutoCcStatusResponse ModifyPortAutoCcStatusResponse
+     * @param request - ModifyPortAutoCcStatusRequest
+     * @returns ModifyPortAutoCcStatusResponse
+     *
+     * @param ModifyPortAutoCcStatusRequest $request
+     *
+     * @return ModifyPortAutoCcStatusResponse
      */
     public function modifyPortAutoCcStatus($request)
     {
@@ -9785,25 +12225,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-     *  *
-     * @param ModifyQpsModeRequest $request ModifyQpsModeRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Switches between the metering methods of the burstable clean bandwidth feature.
      *
-     * @return ModifyQpsModeResponse ModifyQpsModeResponse
+     * @param request - ModifyQpsModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyQpsModeResponse
+     *
+     * @param ModifyQpsModeRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyQpsModeResponse
      */
     public function modifyQpsModeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyQpsMode',
@@ -9816,16 +12262,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyQpsModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyQpsModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyQpsModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Switches between the metering methods of the burstable clean bandwidth feature.
-     *  *
-     * @param ModifyQpsModeRequest $request ModifyQpsModeRequest
+     * Switches between the metering methods of the burstable clean bandwidth feature.
      *
-     * @return ModifyQpsModeResponse ModifyQpsModeResponse
+     * @param request - ModifyQpsModeRequest
+     * @returns ModifyQpsModeResponse
+     *
+     * @param ModifyQpsModeRequest $request
+     *
+     * @return ModifyQpsModeResponse
      */
     public function modifyQpsMode($request)
     {
@@ -9835,34 +12287,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a scenario-specific custom policy.
-     *  *
-     * @param ModifySceneDefensePolicyRequest $request ModifySceneDefensePolicyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Modifies a scenario-specific custom policy.
      *
-     * @return ModifySceneDefensePolicyResponse ModifySceneDefensePolicyResponse
+     * @param request - ModifySceneDefensePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifySceneDefensePolicyResponse
+     *
+     * @param ModifySceneDefensePolicyRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifySceneDefensePolicyResponse
      */
     public function modifySceneDefensePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->template)) {
-            $query['Template'] = $request->template;
+
+        if (null !== $request->template) {
+            @$query['Template'] = $request->template;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifySceneDefensePolicy',
@@ -9875,16 +12336,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifySceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySceneDefensePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySceneDefensePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a scenario-specific custom policy.
-     *  *
-     * @param ModifySceneDefensePolicyRequest $request ModifySceneDefensePolicyRequest
+     * Modifies a scenario-specific custom policy.
      *
-     * @return ModifySceneDefensePolicyResponse ModifySceneDefensePolicyResponse
+     * @param request - ModifySceneDefensePolicyRequest
+     * @returns ModifySceneDefensePolicyResponse
+     *
+     * @param ModifySceneDefensePolicyRequest $request
+     *
+     * @return ModifySceneDefensePolicyResponse
      */
     public function modifySceneDefensePolicy($request)
     {
@@ -9894,34 +12361,43 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the scheduling rule of Sec-Traffic Manager.
-     *  *
-     * @param ModifySchedulerRuleRequest $request ModifySchedulerRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the scheduling rule of Sec-Traffic Manager.
      *
-     * @return ModifySchedulerRuleResponse ModifySchedulerRuleResponse
+     * @param request - ModifySchedulerRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifySchedulerRuleResponse
+     *
+     * @param ModifySchedulerRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifySchedulerRuleResponse
      */
     public function modifySchedulerRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+
+        if (null !== $request->rules) {
+            @$query['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifySchedulerRule',
@@ -9934,16 +12410,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifySchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySchedulerRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the scheduling rule of Sec-Traffic Manager.
-     *  *
-     * @param ModifySchedulerRuleRequest $request ModifySchedulerRuleRequest
+     * Modifies the scheduling rule of Sec-Traffic Manager.
      *
-     * @return ModifySchedulerRuleResponse ModifySchedulerRuleResponse
+     * @param request - ModifySchedulerRuleRequest
+     * @returns ModifySchedulerRuleResponse
+     *
+     * @param ModifySchedulerRuleRequest $request
+     *
+     * @return ModifySchedulerRuleResponse
      */
     public function modifySchedulerRule($request)
     {
@@ -9953,28 +12435,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
-     *  *
-     * @param ModifyTlsConfigRequest $request ModifyTlsConfigRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
      *
-     * @return ModifyTlsConfigResponse ModifyTlsConfigResponse
+     * @param request - ModifyTlsConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyTlsConfigResponse
+     *
+     * @param ModifyTlsConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyTlsConfigResponse
      */
     public function modifyTlsConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyTlsConfig',
@@ -9987,16 +12476,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyTlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyTlsConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyTlsConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
-     *  *
-     * @param ModifyTlsConfigRequest $request ModifyTlsConfigRequest
+     * Modifies the Transport Layer Security (TLS) policy configuration for the forwarding rule of a website.
      *
-     * @return ModifyTlsConfigResponse ModifyTlsConfigResponse
+     * @param request - ModifyTlsConfigRequest
+     * @returns ModifyTlsConfigResponse
+     *
+     * @param ModifyTlsConfigRequest $request
+     *
+     * @return ModifyTlsConfigResponse
      */
     public function modifyTlsConfig($request)
     {
@@ -10006,28 +12501,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Changes the mode of the intelligent protection feature for a website.
-     *  *
-     * @param ModifyWebAIProtectModeRequest $request ModifyWebAIProtectModeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Changes the mode of the intelligent protection feature for a website.
      *
-     * @return ModifyWebAIProtectModeResponse ModifyWebAIProtectModeResponse
+     * @param request - ModifyWebAIProtectModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebAIProtectModeResponse
+     *
+     * @param ModifyWebAIProtectModeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyWebAIProtectModeResponse
      */
     public function modifyWebAIProtectModeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebAIProtectMode',
@@ -10040,16 +12542,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebAIProtectModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebAIProtectModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebAIProtectModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the mode of the intelligent protection feature for a website.
-     *  *
-     * @param ModifyWebAIProtectModeRequest $request ModifyWebAIProtectModeRequest
+     * Changes the mode of the intelligent protection feature for a website.
      *
-     * @return ModifyWebAIProtectModeResponse ModifyWebAIProtectModeResponse
+     * @param request - ModifyWebAIProtectModeRequest
+     * @returns ModifyWebAIProtectModeResponse
+     *
+     * @param ModifyWebAIProtectModeRequest $request
+     *
+     * @return ModifyWebAIProtectModeResponse
      */
     public function modifyWebAIProtectMode($request)
     {
@@ -10059,28 +12567,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the Intelligent Protection policy for a website.
-     *  *
-     * @param ModifyWebAIProtectSwitchRequest $request ModifyWebAIProtectSwitchRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the Intelligent Protection policy for a website.
      *
-     * @return ModifyWebAIProtectSwitchResponse ModifyWebAIProtectSwitchResponse
+     * @param request - ModifyWebAIProtectSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebAIProtectSwitchResponse
+     *
+     * @param ModifyWebAIProtectSwitchRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyWebAIProtectSwitchResponse
      */
     public function modifyWebAIProtectSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebAIProtectSwitch',
@@ -10093,16 +12608,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebAIProtectSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebAIProtectSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebAIProtectSwitchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the Intelligent Protection policy for a website.
-     *  *
-     * @param ModifyWebAIProtectSwitchRequest $request ModifyWebAIProtectSwitchRequest
+     * Enables or disables the Intelligent Protection policy for a website.
      *
-     * @return ModifyWebAIProtectSwitchResponse ModifyWebAIProtectSwitchResponse
+     * @param request - ModifyWebAIProtectSwitchRequest
+     * @returns ModifyWebAIProtectSwitchResponse
+     *
+     * @param ModifyWebAIProtectSwitchRequest $request
+     *
+     * @return ModifyWebAIProtectSwitchResponse
      */
     public function modifyWebAIProtectSwitch($request)
     {
@@ -10112,25 +12633,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param ModifyWebAccessModeRequest $request ModifyWebAccessModeRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
      *
-     * @return ModifyWebAccessModeResponse ModifyWebAccessModeResponse
+     * @param request - ModifyWebAccessModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebAccessModeResponse
+     *
+     * @param ModifyWebAccessModeRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyWebAccessModeResponse
      */
     public function modifyWebAccessModeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessMode)) {
-            $query['AccessMode'] = $request->accessMode;
+        if (null !== $request->accessMode) {
+            @$query['AccessMode'] = $request->accessMode;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebAccessMode',
@@ -10143,16 +12670,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebAccessModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebAccessModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
-     *  *
-     * @param ModifyWebAccessModeRequest $request ModifyWebAccessModeRequest
+     * Changes the mode in which a website service is added to Anti-DDoS Pro or Anti-DDoS Premium.
      *
-     * @return ModifyWebAccessModeResponse ModifyWebAccessModeResponse
+     * @param request - ModifyWebAccessModeRequest
+     * @returns ModifyWebAccessModeResponse
+     *
+     * @param ModifyWebAccessModeRequest $request
+     *
+     * @return ModifyWebAccessModeResponse
      */
     public function modifyWebAccessMode($request)
     {
@@ -10162,28 +12695,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
-     *  *
-     * @param ModifyWebAreaBlockRequest $request ModifyWebAreaBlockRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
      *
-     * @return ModifyWebAreaBlockResponse ModifyWebAreaBlockResponse
+     * @param request - ModifyWebAreaBlockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebAreaBlockResponse
+     *
+     * @param ModifyWebAreaBlockRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyWebAreaBlockResponse
      */
     public function modifyWebAreaBlockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->regions)) {
-            $query['Regions'] = $request->regions;
+
+        if (null !== $request->regions) {
+            @$query['Regions'] = $request->regions;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebAreaBlock',
@@ -10196,16 +12736,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebAreaBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebAreaBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebAreaBlockResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
-     *  *
-     * @param ModifyWebAreaBlockRequest $request ModifyWebAreaBlockRequest
+     * Modifies the blocked locations that are configured in the Location Blacklist (Domain Names) policy for a website.
      *
-     * @return ModifyWebAreaBlockResponse ModifyWebAreaBlockResponse
+     * @param request - ModifyWebAreaBlockRequest
+     * @returns ModifyWebAreaBlockResponse
+     *
+     * @param ModifyWebAreaBlockRequest $request
+     *
+     * @return ModifyWebAreaBlockResponse
      */
     public function modifyWebAreaBlock($request)
     {
@@ -10215,32 +12761,40 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
-     *  *
-     * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+     * Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+     *
+     * @remarks
+     * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyWebAreaBlockSwitchRequest $request ModifyWebAreaBlockSwitchRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebAreaBlockSwitchResponse ModifyWebAreaBlockSwitchResponse
+     * @param request - ModifyWebAreaBlockSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebAreaBlockSwitchResponse
+     *
+     * @param ModifyWebAreaBlockSwitchRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyWebAreaBlockSwitchResponse
      */
     public function modifyWebAreaBlockSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebAreaBlockSwitch',
@@ -10253,20 +12807,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebAreaBlockSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebAreaBlockSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebAreaBlockSwitchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
-     *  *
-     * @description You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
+     * Enables or disables the Location Blacklist (Domain Names) policy for a domain name.
+     *
+     * @remarks
+     * You can call the ModifyWebAreaBlockSwitch operation to enable or disable the Location Blacklist (Domain Names) policy for a domain name.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyWebAreaBlockSwitchRequest $request ModifyWebAreaBlockSwitchRequest
      *
-     * @return ModifyWebAreaBlockSwitchResponse ModifyWebAreaBlockSwitchResponse
+     * @param request - ModifyWebAreaBlockSwitchRequest
+     * @returns ModifyWebAreaBlockSwitchResponse
+     *
+     * @param ModifyWebAreaBlockSwitchRequest $request
+     *
+     * @return ModifyWebAreaBlockSwitchResponse
      */
     public function modifyWebAreaBlockSwitch($request)
     {
@@ -10276,25 +12837,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the HTTP flood mitigation feature for a website.
-     *  *
-     * @param ModifyWebCCGlobalSwitchRequest $request ModifyWebCCGlobalSwitchRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the HTTP flood mitigation feature for a website.
      *
-     * @return ModifyWebCCGlobalSwitchResponse ModifyWebCCGlobalSwitchResponse
+     * @param request - ModifyWebCCGlobalSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebCCGlobalSwitchResponse
+     *
+     * @param ModifyWebCCGlobalSwitchRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyWebCCGlobalSwitchResponse
      */
     public function modifyWebCCGlobalSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ccGlobalSwitch)) {
-            $query['CcGlobalSwitch'] = $request->ccGlobalSwitch;
+        if (null !== $request->ccGlobalSwitch) {
+            @$query['CcGlobalSwitch'] = $request->ccGlobalSwitch;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebCCGlobalSwitch',
@@ -10307,16 +12874,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebCCGlobalSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebCCGlobalSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebCCGlobalSwitchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the HTTP flood mitigation feature for a website.
-     *  *
-     * @param ModifyWebCCGlobalSwitchRequest $request ModifyWebCCGlobalSwitchRequest
+     * Enables or disables the HTTP flood mitigation feature for a website.
      *
-     * @return ModifyWebCCGlobalSwitchResponse ModifyWebCCGlobalSwitchResponse
+     * @param request - ModifyWebCCGlobalSwitchRequest
+     * @returns ModifyWebCCGlobalSwitchResponse
+     *
+     * @param ModifyWebCCGlobalSwitchRequest $request
+     *
+     * @return ModifyWebCCGlobalSwitchResponse
      */
     public function modifyWebCCGlobalSwitch($request)
     {
@@ -10325,51 +12898,64 @@ class Ddoscoo extends OpenApiClient
         return $this->modifyWebCCGlobalSwitchWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
+     * Modifies the custom frequency control rule of a website.
+     *
      * @deprecated openAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
-     *  *
-     * @summary Modifies the custom frequency control rule of a website.
-     *  *
-     * Deprecated
      *
-     * @param ModifyWebCCRuleRequest $request ModifyWebCCRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyWebCCRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebCCRuleResponse
      *
-     * @return ModifyWebCCRuleResponse ModifyWebCCRuleResponse
+     * @param ModifyWebCCRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyWebCCRuleResponse
      */
     public function modifyWebCCRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->act)) {
-            $query['Act'] = $request->act;
+        if (null !== $request->act) {
+            @$query['Act'] = $request->act;
         }
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
+
+        if (null !== $request->count) {
+            @$query['Count'] = $request->count;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->ttl)) {
-            $query['Ttl'] = $request->ttl;
+
+        if (null !== $request->ttl) {
+            @$query['Ttl'] = $request->ttl;
         }
-        if (!Utils::isUnset($request->uri)) {
-            $query['Uri'] = $request->uri;
+
+        if (null !== $request->uri) {
+            @$query['Uri'] = $request->uri;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebCCRule',
@@ -10382,20 +12968,26 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebCCRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebCCRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
+     * Modifies the custom frequency control rule of a website.
+     *
      * @deprecated openAPI ModifyWebCCRule is deprecated, please use ddoscoo::2020-01-01::ConfigWebCCRuleV2 instead
-     *  *
-     * @summary Modifies the custom frequency control rule of a website.
-     *  *
-     * Deprecated
      *
-     * @param ModifyWebCCRuleRequest $request ModifyWebCCRuleRequest
+     * @param request - ModifyWebCCRuleRequest
+     * @returns ModifyWebCCRuleResponse
      *
-     * @return ModifyWebCCRuleResponse ModifyWebCCRuleResponse
+     * @param ModifyWebCCRuleRequest $request
+     *
+     * @return ModifyWebCCRuleResponse
      */
     public function modifyWebCCRule($request)
     {
@@ -10405,28 +12997,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the custom rule of the Static Page Caching policy for a website.
-     *  *
-     * @param ModifyWebCacheCustomRuleRequest $request ModifyWebCacheCustomRuleRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Modifies the custom rule of the Static Page Caching policy for a website.
      *
-     * @return ModifyWebCacheCustomRuleResponse ModifyWebCacheCustomRuleResponse
+     * @param request - ModifyWebCacheCustomRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebCacheCustomRuleResponse
+     *
+     * @param ModifyWebCacheCustomRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyWebCacheCustomRuleResponse
      */
     public function modifyWebCacheCustomRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+
+        if (null !== $request->rules) {
+            @$query['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebCacheCustomRule',
@@ -10439,16 +13038,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebCacheCustomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebCacheCustomRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebCacheCustomRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the custom rule of the Static Page Caching policy for a website.
-     *  *
-     * @param ModifyWebCacheCustomRuleRequest $request ModifyWebCacheCustomRuleRequest
+     * Modifies the custom rule of the Static Page Caching policy for a website.
      *
-     * @return ModifyWebCacheCustomRuleResponse ModifyWebCacheCustomRuleResponse
+     * @param request - ModifyWebCacheCustomRuleRequest
+     * @returns ModifyWebCacheCustomRuleResponse
+     *
+     * @param ModifyWebCacheCustomRuleRequest $request
+     *
+     * @return ModifyWebCacheCustomRuleResponse
      */
     public function modifyWebCacheCustomRule($request)
     {
@@ -10458,28 +13063,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Changes the cache mode of the Static Page Caching policy for a website.
-     *  *
-     * @param ModifyWebCacheModeRequest $request ModifyWebCacheModeRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Changes the cache mode of the Static Page Caching policy for a website.
      *
-     * @return ModifyWebCacheModeResponse ModifyWebCacheModeResponse
+     * @param request - ModifyWebCacheModeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebCacheModeResponse
+     *
+     * @param ModifyWebCacheModeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyWebCacheModeResponse
      */
     public function modifyWebCacheModeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebCacheMode',
@@ -10492,16 +13104,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebCacheModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebCacheModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebCacheModeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the cache mode of the Static Page Caching policy for a website.
-     *  *
-     * @param ModifyWebCacheModeRequest $request ModifyWebCacheModeRequest
+     * Changes the cache mode of the Static Page Caching policy for a website.
      *
-     * @return ModifyWebCacheModeResponse ModifyWebCacheModeResponse
+     * @param request - ModifyWebCacheModeRequest
+     * @returns ModifyWebCacheModeResponse
+     *
+     * @param ModifyWebCacheModeRequest $request
+     *
+     * @return ModifyWebCacheModeResponse
      */
     public function modifyWebCacheMode($request)
     {
@@ -10511,32 +13129,40 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the Static Page Caching policy for a website.
-     *  *
-     * @description You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+     * Enables or disables the Static Page Caching policy for a website.
+     *
+     * @remarks
+     * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyWebCacheSwitchRequest $request ModifyWebCacheSwitchRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyWebCacheSwitchResponse ModifyWebCacheSwitchResponse
+     * @param request - ModifyWebCacheSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebCacheSwitchResponse
+     *
+     * @param ModifyWebCacheSwitchRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyWebCacheSwitchResponse
      */
     public function modifyWebCacheSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebCacheSwitch',
@@ -10549,20 +13175,27 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebCacheSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebCacheSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebCacheSwitchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the Static Page Caching policy for a website.
-     *  *
-     * @description You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
+     * Enables or disables the Static Page Caching policy for a website.
+     *
+     * @remarks
+     * You can call the ModifyWebCacheSwitch operation to enable or disable the Static Page Caching policy for a website.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyWebCacheSwitchRequest $request ModifyWebCacheSwitchRequest
      *
-     * @return ModifyWebCacheSwitchResponse ModifyWebCacheSwitchResponse
+     * @param request - ModifyWebCacheSwitchRequest
+     * @returns ModifyWebCacheSwitchResponse
+     *
+     * @param ModifyWebCacheSwitchRequest $request
+     *
+     * @return ModifyWebCacheSwitchResponse
      */
     public function modifyWebCacheSwitch($request)
     {
@@ -10572,28 +13205,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
-     *  *
-     * @param ModifyWebIpSetSwitchRequest $request ModifyWebIpSetSwitchRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
      *
-     * @return ModifyWebIpSetSwitchResponse ModifyWebIpSetSwitchResponse
+     * @param request - ModifyWebIpSetSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebIpSetSwitchResponse
+     *
+     * @param ModifyWebIpSetSwitchRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyWebIpSetSwitchResponse
      */
     public function modifyWebIpSetSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebIpSetSwitch',
@@ -10606,16 +13246,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebIpSetSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebIpSetSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebIpSetSwitchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
-     *  *
-     * @param ModifyWebIpSetSwitchRequest $request ModifyWebIpSetSwitchRequest
+     * Enables or disables the Black Lists and White Lists (Domain Names) policy for a domain name.
      *
-     * @return ModifyWebIpSetSwitchResponse ModifyWebIpSetSwitchResponse
+     * @param request - ModifyWebIpSetSwitchRequest
+     * @returns ModifyWebIpSetSwitchResponse
+     *
+     * @param ModifyWebIpSetSwitchRequest $request
+     *
+     * @return ModifyWebIpSetSwitchResponse
      */
     public function modifyWebIpSetSwitch($request)
     {
@@ -10625,31 +13271,39 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Creates or modifies an accurate access control rule of a website.
-     *  *
-     * @param ModifyWebPreciseAccessRuleRequest $request ModifyWebPreciseAccessRuleRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates or modifies an accurate access control rule of a website.
      *
-     * @return ModifyWebPreciseAccessRuleResponse ModifyWebPreciseAccessRuleResponse
+     * @param request - ModifyWebPreciseAccessRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebPreciseAccessRuleResponse
+     *
+     * @param ModifyWebPreciseAccessRuleRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyWebPreciseAccessRuleResponse
      */
     public function modifyWebPreciseAccessRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->expires)) {
-            $query['Expires'] = $request->expires;
+
+        if (null !== $request->expires) {
+            @$query['Expires'] = $request->expires;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+
+        if (null !== $request->rules) {
+            @$query['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebPreciseAccessRule',
@@ -10662,16 +13316,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebPreciseAccessRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebPreciseAccessRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates or modifies an accurate access control rule of a website.
-     *  *
-     * @param ModifyWebPreciseAccessRuleRequest $request ModifyWebPreciseAccessRuleRequest
+     * Creates or modifies an accurate access control rule of a website.
      *
-     * @return ModifyWebPreciseAccessRuleResponse ModifyWebPreciseAccessRuleResponse
+     * @param request - ModifyWebPreciseAccessRuleRequest
+     * @returns ModifyWebPreciseAccessRuleResponse
+     *
+     * @param ModifyWebPreciseAccessRuleRequest $request
+     *
+     * @return ModifyWebPreciseAccessRuleResponse
      */
     public function modifyWebPreciseAccessRule($request)
     {
@@ -10681,28 +13341,35 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables accurate access control for a website.
-     *  *
-     * @param ModifyWebPreciseAccessSwitchRequest $request ModifyWebPreciseAccessSwitchRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Enables or disables accurate access control for a website.
      *
-     * @return ModifyWebPreciseAccessSwitchResponse ModifyWebPreciseAccessSwitchResponse
+     * @param request - ModifyWebPreciseAccessSwitchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebPreciseAccessSwitchResponse
+     *
+     * @param ModifyWebPreciseAccessSwitchRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyWebPreciseAccessSwitchResponse
      */
     public function modifyWebPreciseAccessSwitchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->config)) {
-            $query['Config'] = $request->config;
+        if (null !== $request->config) {
+            @$query['Config'] = $request->config;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebPreciseAccessSwitch',
@@ -10715,16 +13382,22 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebPreciseAccessSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebPreciseAccessSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebPreciseAccessSwitchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables accurate access control for a website.
-     *  *
-     * @param ModifyWebPreciseAccessSwitchRequest $request ModifyWebPreciseAccessSwitchRequest
+     * Enables or disables accurate access control for a website.
      *
-     * @return ModifyWebPreciseAccessSwitchResponse ModifyWebPreciseAccessSwitchResponse
+     * @param request - ModifyWebPreciseAccessSwitchRequest
+     * @returns ModifyWebPreciseAccessSwitchResponse
+     *
+     * @param ModifyWebPreciseAccessSwitchRequest $request
+     *
+     * @return ModifyWebPreciseAccessSwitchResponse
      */
     public function modifyWebPreciseAccessSwitch($request)
     {
@@ -10734,38 +13407,49 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @param ModifyWebRuleRequest $request ModifyWebRuleRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyWebRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyWebRuleResponse
      *
-     * @return ModifyWebRuleResponse ModifyWebRuleResponse
+     * @param ModifyWebRuleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ModifyWebRuleResponse
      */
     public function modifyWebRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->httpsExt)) {
-            $query['HttpsExt'] = $request->httpsExt;
+
+        if (null !== $request->httpsExt) {
+            @$query['HttpsExt'] = $request->httpsExt;
         }
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->proxyTypes)) {
-            $query['ProxyTypes'] = $request->proxyTypes;
+
+        if (null !== $request->proxyTypes) {
+            @$query['ProxyTypes'] = $request->proxyTypes;
         }
-        if (!Utils::isUnset($request->realServers)) {
-            $query['RealServers'] = $request->realServers;
+
+        if (null !== $request->realServers) {
+            @$query['RealServers'] = $request->realServers;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->rsType)) {
-            $query['RsType'] = $request->rsType;
+
+        if (null !== $request->rsType) {
+            @$query['RsType'] = $request->rsType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyWebRule',
@@ -10778,14 +13462,20 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyWebRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyWebRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyWebRuleRequest $request ModifyWebRuleRequest
+     * @param request - ModifyWebRuleRequest
+     * @returns ModifyWebRuleResponse
      *
-     * @return ModifyWebRuleResponse ModifyWebRuleResponse
+     * @param ModifyWebRuleRequest $request
+     *
+     * @return ModifyWebRuleResponse
      */
     public function modifyWebRule($request)
     {
@@ -10795,25 +13485,31 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the instance that you want to release.
+     * The ID of the instance that you want to release.
      * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
-     *  *
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *  *
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @remarks
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @param request - ReleaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReleaseInstance',
@@ -10826,19 +13522,26 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary The ID of the instance that you want to release.
+     * The ID of the instance that you want to release.
      * > You can release only expired instances. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/91478.html) operation to query the IDs and expiration status of all instances.
-     *  *
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *  *
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @remarks
+     * The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @param request - ReleaseInstanceRequest
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstance($request)
     {
@@ -10848,33 +13551,41 @@ class Ddoscoo extends OpenApiClient
     }
 
     /**
-     * @summary Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
-     *  *
-     * @description You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+     * Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
+     *
+     * @remarks
+     * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
      * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param SwitchSchedulerRuleRequest $request SwitchSchedulerRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchSchedulerRuleResponse SwitchSchedulerRuleResponse
+     * @param request - SwitchSchedulerRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SwitchSchedulerRuleResponse
+     *
+     * @param SwitchSchedulerRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SwitchSchedulerRuleResponse
      */
     public function switchSchedulerRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->switchData)) {
-            $query['SwitchData'] = $request->switchData;
+
+        if (null !== $request->switchData) {
+            @$query['SwitchData'] = $request->switchData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SwitchSchedulerRule',
@@ -10887,21 +13598,28 @@ class Ddoscoo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SwitchSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SwitchSchedulerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SwitchSchedulerRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
-     *  *
-     * @description You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
+     * Switches service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switches service traffic back to the associated cloud resources.
+     *
+     * @remarks
+     * You can call the SwitchSchedulerRule operation to modify the resources to which service traffic is switched for a scheduling rule. For example, you can switch service traffic to an Anti-DDoS Pro or Anti-DDoS Premium instance for scrubbing or switch the service traffic back to the associated cloud resources.
      * Before you call this operation, you must have created a scheduling rule by calling the [CreateSchedulerRule](https://help.aliyun.com/document_detail/157479.html) operation.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param SwitchSchedulerRuleRequest $request SwitchSchedulerRuleRequest
      *
-     * @return SwitchSchedulerRuleResponse SwitchSchedulerRuleResponse
+     * @param request - SwitchSchedulerRuleRequest
+     * @returns SwitchSchedulerRuleResponse
+     *
+     * @param SwitchSchedulerRuleRequest $request
+     *
+     * @return SwitchSchedulerRuleResponse
      */
     public function switchSchedulerRule($request)
     {

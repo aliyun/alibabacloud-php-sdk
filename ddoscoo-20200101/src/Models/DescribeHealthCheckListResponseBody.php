@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHealthCheckListResponseBody\healthCheckList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeHealthCheckListResponseBody extends Model
 {
     /**
-     * @description An array that consists of information about the health check configuration.
-     *
      * @var healthCheckList[]
      */
     public $healthCheckList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 83B4AF42-E8EE-4DC9-BD73-87B7733A36F9
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeHealthCheckListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->healthCheckList)) {
+            Model::validateArray($this->healthCheckList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->healthCheckList) {
-            $res['HealthCheckList'] = [];
-            if (null !== $this->healthCheckList && \is_array($this->healthCheckList)) {
-                $n = 0;
-                foreach ($this->healthCheckList as $item) {
-                    $res['HealthCheckList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->healthCheckList)) {
+                $res['HealthCheckList'] = [];
+                $n1                     = 0;
+                foreach ($this->healthCheckList as $item1) {
+                    $res['HealthCheckList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeHealthCheckListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHealthCheckListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HealthCheckList'])) {
             if (!empty($map['HealthCheckList'])) {
                 $model->healthCheckList = [];
-                $n                      = 0;
-                foreach ($map['HealthCheckList'] as $item) {
-                    $model->healthCheckList[$n++] = null !== $item ? healthCheckList::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['HealthCheckList'] as $item1) {
+                    $model->healthCheckList[$n1++] = healthCheckList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainH2FingerprintResponseBody\domainH2Fp;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainH2FingerprintResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class DescribeDomainH2FingerprintResponseBody extends Model
      * @var domainH2Fp[]
      */
     public $domainH2Fp;
-
     /**
-     * @example 112777CC-2AD6-46FC-A263-00B931406FCD
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +24,25 @@ class DescribeDomainH2FingerprintResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->domainH2Fp)) {
+            Model::validateArray($this->domainH2Fp);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainH2Fp) {
-            $res['DomainH2Fp'] = [];
-            if (null !== $this->domainH2Fp && \is_array($this->domainH2Fp)) {
-                $n = 0;
-                foreach ($this->domainH2Fp as $item) {
-                    $res['DomainH2Fp'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainH2Fp)) {
+                $res['DomainH2Fp'] = [];
+                $n1                = 0;
+                foreach ($this->domainH2Fp as $item1) {
+                    $res['DomainH2Fp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +50,24 @@ class DescribeDomainH2FingerprintResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainH2FingerprintResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainH2Fp'])) {
             if (!empty($map['DomainH2Fp'])) {
                 $model->domainH2Fp = [];
-                $n                 = 0;
-                foreach ($map['DomainH2Fp'] as $item) {
-                    $model->domainH2Fp[$n++] = null !== $item ? domainH2Fp::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['DomainH2Fp'] as $item1) {
+                    $model->domainH2Fp[$n1++] = domainH2Fp::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

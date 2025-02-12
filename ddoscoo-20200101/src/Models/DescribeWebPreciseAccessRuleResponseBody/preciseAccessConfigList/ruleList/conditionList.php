@@ -4,48 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebPreciseAccessRuleResponseBody\preciseAccessConfigList\ruleList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class conditionList extends Model
 {
     /**
-     * @description The match content.
-     *
-     * @example 1.1.1.1
-     *
      * @var string
      */
     public $content;
-
     /**
      * @var string[]
      */
     public $contentList;
-
     /**
-     * @description The match field.
-     *
-     * @example ip
-     *
      * @var string
      */
     public $field;
-
     /**
-     * @description The custom HTTP request header.
-     *
-     * >  This parameter takes effect only when **Field** is set to **header**.
-     * @example null
-     *
      * @var string
      */
     public $headerName;
-
     /**
-     * @description The logical operator.
-     *
-     * @example belong
-     *
      * @var string
      */
     public $matchMethod;
@@ -59,23 +38,37 @@ class conditionList extends Model
 
     public function validate()
     {
+        if (\is_array($this->contentList)) {
+            Model::validateArray($this->contentList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->contentList) {
-            $res['ContentList'] = $this->contentList;
+            if (\is_array($this->contentList)) {
+                $res['ContentList'] = [];
+                $n1                 = 0;
+                foreach ($this->contentList as $item1) {
+                    $res['ContentList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
+
         if (null !== $this->headerName) {
             $res['HeaderName'] = $this->headerName;
         }
+
         if (null !== $this->matchMethod) {
             $res['MatchMethod'] = $this->matchMethod;
         }
@@ -83,28 +76,36 @@ class conditionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['ContentList'])) {
             if (!empty($map['ContentList'])) {
-                $model->contentList = $map['ContentList'];
+                $model->contentList = [];
+                $n1                 = 0;
+                foreach ($map['ContentList'] as $item1) {
+                    $model->contentList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
+
         if (isset($map['HeaderName'])) {
             $model->headerName = $map['HeaderName'];
         }
+
         if (isset($map['MatchMethod'])) {
             $model->matchMethod = $map['MatchMethod'];
         }

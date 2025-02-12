@@ -4,57 +4,28 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebPreciseAccessRuleResponseBody\preciseAccessConfigList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebPreciseAccessRuleResponseBody\preciseAccessConfigList\ruleList\conditionList;
-use AlibabaCloud\Tea\Model;
 
 class ruleList extends Model
 {
     /**
-     * @description The action triggered if the rule is matched. Valid values:
-     *
-     *   **accept**: The requests that match the rule are allowed.
-     *   **block**: The requests that match the rule are blocked.
-     *   **challenge**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
-     *
-     * @example accept
-     *
      * @var string
      */
     public $action;
-
     /**
-     * @description The match conditions.
-     *
      * @var conditionList[]
      */
     public $conditionList;
-
     /**
-     * @description The validity period of the rule. Unit: seconds. This parameter takes effect only when **action** of a rule is **block**. Access requests that match the rule are blocked within the specified validity period of the rule. The value **0** indicates that the whitelist takes effect all the time.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $expires;
-
     /**
-     * @description The name of the scheduling rule.
-     *
-     * @example testrule
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The source of the rule. Valid values:
-     *
-     *   **manual** (default): manually created.
-     *   **auto**: automatically generated.
-     *
-     * @example manual
-     *
      * @var string
      */
     public $owner;
@@ -68,29 +39,37 @@ class ruleList extends Model
 
     public function validate()
     {
+        if (\is_array($this->conditionList)) {
+            Model::validateArray($this->conditionList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->conditionList) {
-            $res['ConditionList'] = [];
-            if (null !== $this->conditionList && \is_array($this->conditionList)) {
-                $n = 0;
-                foreach ($this->conditionList as $item) {
-                    $res['ConditionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditionList)) {
+                $res['ConditionList'] = [];
+                $n1                   = 0;
+                foreach ($this->conditionList as $item1) {
+                    $res['ConditionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->expires) {
             $res['Expires'] = $this->expires;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
@@ -98,32 +77,36 @@ class ruleList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['ConditionList'])) {
             if (!empty($map['ConditionList'])) {
                 $model->conditionList = [];
-                $n                    = 0;
-                foreach ($map['ConditionList'] as $item) {
-                    $model->conditionList[$n++] = null !== $item ? conditionList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['ConditionList'] as $item1) {
+                    $model->conditionList[$n1++] = conditionList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Expires'])) {
             $model->expires = $map['Expires'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }

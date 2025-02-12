@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceDetailsResponseBody\instanceDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceDetailsResponseBody extends Model
 {
     /**
-     * @description The IP address and ISP line information about the Anti-DDoS Proxy instance.
-     *
      * @var instanceDetails[]
      */
     public $instanceDetails;
-
     /**
-     * @description The request ID.
-     *
-     * @example 3C814429-21A5-4673-827E-FDD19DC75681
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeInstanceDetailsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceDetails)) {
+            Model::validateArray($this->instanceDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceDetails) {
-            $res['InstanceDetails'] = [];
-            if (null !== $this->instanceDetails && \is_array($this->instanceDetails)) {
-                $n = 0;
-                foreach ($this->instanceDetails as $item) {
-                    $res['InstanceDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceDetails)) {
+                $res['InstanceDetails'] = [];
+                $n1                     = 0;
+                foreach ($this->instanceDetails as $item1) {
+                    $res['InstanceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeInstanceDetailsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceDetailsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceDetails'])) {
             if (!empty($map['InstanceDetails'])) {
                 $model->instanceDetails = [];
-                $n                      = 0;
-                foreach ($map['InstanceDetails'] as $item) {
-                    $model->instanceDetails[$n++] = null !== $item ? instanceDetails::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['InstanceDetails'] as $item1) {
+                    $model->instanceDetails[$n1++] = instanceDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeNetworkRuleAttributesResponseBody\networkRuleAttributes\config;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeNetworkRuleAttributesResponseBody\networkRuleAttributes\config\cc\sblack;
-use AlibabaCloud\Tea\Model;
 
 class cc extends Model
 {
     /**
-     * @description The protection policy that a source IP address is added to the blacklist when the number of connections initiated from the IP address frequently exceeds the limit.
-     *
      * @var sblack[]
      */
     public $sblack;
@@ -21,17 +19,21 @@ class cc extends Model
 
     public function validate()
     {
+        if (\is_array($this->sblack)) {
+            Model::validateArray($this->sblack);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sblack) {
-            $res['Sblack'] = [];
-            if (null !== $this->sblack && \is_array($this->sblack)) {
-                $n = 0;
-                foreach ($this->sblack as $item) {
-                    $res['Sblack'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sblack)) {
+                $res['Sblack'] = [];
+                $n1            = 0;
+                foreach ($this->sblack as $item1) {
+                    $res['Sblack'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class cc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Sblack'])) {
             if (!empty($map['Sblack'])) {
                 $model->sblack = [];
-                $n             = 0;
-                foreach ($map['Sblack'] as $item) {
-                    $model->sblack[$n++] = null !== $item ? sblack::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Sblack'] as $item1) {
+                    $model->sblack[$n1++] = sblack::fromMap($item1);
                 }
             }
         }

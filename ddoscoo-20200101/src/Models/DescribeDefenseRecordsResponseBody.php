@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDefenseRecordsResponseBody\defenseRecords;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDefenseRecordsResponseBody extends Model
 {
     /**
-     * @description An array that consists of details of the log of an advanced mitigation session.
-     *
      * @var defenseRecords[]
      */
     public $defenseRecords;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of advanced mitigation sessions.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -41,23 +29,29 @@ class DescribeDefenseRecordsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->defenseRecords)) {
+            Model::validateArray($this->defenseRecords);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defenseRecords) {
-            $res['DefenseRecords'] = [];
-            if (null !== $this->defenseRecords && \is_array($this->defenseRecords)) {
-                $n = 0;
-                foreach ($this->defenseRecords as $item) {
-                    $res['DefenseRecords'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->defenseRecords)) {
+                $res['DefenseRecords'] = [];
+                $n1                    = 0;
+                foreach ($this->defenseRecords as $item1) {
+                    $res['DefenseRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +59,28 @@ class DescribeDefenseRecordsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDefenseRecordsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefenseRecords'])) {
             if (!empty($map['DefenseRecords'])) {
                 $model->defenseRecords = [];
-                $n                     = 0;
-                foreach ($map['DefenseRecords'] as $item) {
-                    $model->defenseRecords[$n++] = null !== $item ? defenseRecords::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['DefenseRecords'] as $item1) {
+                    $model->defenseRecords[$n1++] = defenseRecords::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

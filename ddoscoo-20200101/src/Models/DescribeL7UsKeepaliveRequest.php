@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeL7UsKeepaliveRequest extends Model
 {
     /**
-     * @description The domain name of the website.
-     *
-     * >  A forwarding rule must be configured for the domain name. You can call the [DescribeDomains](https://help.aliyun.com/document_detail/91724.html) operation to query all domain names.
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $domain;
@@ -23,9 +18,10 @@ class DescribeL7UsKeepaliveRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
@@ -35,11 +31,11 @@ class DescribeL7UsKeepaliveRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeL7UsKeepaliveRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

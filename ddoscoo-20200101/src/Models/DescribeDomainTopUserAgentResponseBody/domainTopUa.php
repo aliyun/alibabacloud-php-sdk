@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopUserAgentResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainTopUa extends Model
 {
     /**
-     * @example www.example.com
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @example 22121
-     *
      * @var int
      */
     public $pv;
-
     /**
-     * @example TW96aWxsYS81LjAgKFgxMTsgTGludXggeDg2XzY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvOTYuMC40NjY0LjExMCACYWZhcmkvNTM3LjM2
-     *
      * @var string
      */
     public $userAgent;
@@ -36,17 +28,20 @@ class domainTopUa extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->pv) {
             $res['Pv'] = $this->pv;
         }
+
         if (null !== $this->userAgent) {
             $res['UserAgent'] = $this->userAgent;
         }
@@ -54,20 +49,22 @@ class domainTopUa extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainTopUa
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Pv'])) {
             $model->pv = $map['Pv'];
         }
+
         if (isset($map['UserAgent'])) {
             $model->userAgent = $map['UserAgent'];
         }

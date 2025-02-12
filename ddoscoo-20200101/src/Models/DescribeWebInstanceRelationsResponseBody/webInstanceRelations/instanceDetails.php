@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebInstanceRelationsResponseBody\webInstanceRelations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceDetails extends Model
 {
     /**
-     * @description The IP addresses of the instance.
-     *
      * @var string[]
      */
     public $eipList;
-
     /**
-     * @description The function plan of the instance. Valid values:
-     *
-     *   **default**: Standard function plan
-     *   **enhance**: Enhanced function plan
-     *
-     * @example enhance
-     *
      * @var string
      */
     public $functionVersion;
-
     /**
-     * @description The ID of the instance.
-     *
-     * @example ddoscoo-cn-0pp163pd****
-     *
      * @var string
      */
     public $instanceId;
@@ -43,17 +28,29 @@ class instanceDetails extends Model
 
     public function validate()
     {
+        if (\is_array($this->eipList)) {
+            Model::validateArray($this->eipList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eipList) {
-            $res['EipList'] = $this->eipList;
+            if (\is_array($this->eipList)) {
+                $res['EipList'] = [];
+                $n1             = 0;
+                foreach ($this->eipList as $item1) {
+                    $res['EipList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->functionVersion) {
             $res['FunctionVersion'] = $this->functionVersion;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -61,22 +58,28 @@ class instanceDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipList'])) {
             if (!empty($map['EipList'])) {
-                $model->eipList = $map['EipList'];
+                $model->eipList = [];
+                $n1             = 0;
+                foreach ($map['EipList'] as $item1) {
+                    $model->eipList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['FunctionVersion'])) {
             $model->functionVersion = $map['FunctionVersion'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

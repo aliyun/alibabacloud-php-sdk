@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCcProtectSwitchResponseBody\protectSwitchList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWebCcProtectSwitchResponseBody extends Model
 {
     /**
-     * @description The status of each mitigation policy for the website.
-     *
      * @var protectSwitchList[]
      */
     public $protectSwitchList;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 3ADD9EED-CA4B-488C-BC82-01B0B899363D
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->protectSwitchList)) {
+            Model::validateArray($this->protectSwitchList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->protectSwitchList) {
-            $res['ProtectSwitchList'] = [];
-            if (null !== $this->protectSwitchList && \is_array($this->protectSwitchList)) {
-                $n = 0;
-                foreach ($this->protectSwitchList as $item) {
-                    $res['ProtectSwitchList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->protectSwitchList)) {
+                $res['ProtectSwitchList'] = [];
+                $n1                       = 0;
+                foreach ($this->protectSwitchList as $item1) {
+                    $res['ProtectSwitchList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeWebCcProtectSwitchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebCcProtectSwitchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProtectSwitchList'])) {
             if (!empty($map['ProtectSwitchList'])) {
                 $model->protectSwitchList = [];
-                $n                        = 0;
-                foreach ($map['ProtectSwitchList'] as $item) {
-                    $model->protectSwitchList[$n++] = null !== $item ? protectSwitchList::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['ProtectSwitchList'] as $item1) {
+                    $model->protectSwitchList[$n1++] = protectSwitchList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

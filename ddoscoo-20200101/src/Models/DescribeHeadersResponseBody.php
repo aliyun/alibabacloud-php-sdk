@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeHeadersResponseBody\customHeader;
-use AlibabaCloud\Tea\Model;
 
 class DescribeHeadersResponseBody extends Model
 {
     /**
-     * @description The information about the custom header.
-     *
      * @var customHeader
      */
     public $customHeader;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 48BC7BA5-69BE-5C31-A080-AFF2431AE48D
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeHeadersResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->customHeader) {
+            $this->customHeader->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customHeader) {
-            $res['CustomHeader'] = null !== $this->customHeader ? $this->customHeader->toMap() : null;
+            $res['CustomHeader'] = null !== $this->customHeader ? $this->customHeader->toArray($noStream) : $this->customHeader;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeHeadersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHeadersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomHeader'])) {
             $model->customHeader = customHeader::fromMap($map['CustomHeader']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

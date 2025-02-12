@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortConnsListResponseBody\connsList;
-use AlibabaCloud\Tea\Model;
 
 class DescribePortConnsListResponseBody extends Model
 {
     /**
-     * @description Details about the connections established over the port.
-     *
      * @var connsList[]
      */
     public $connsList;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 6D48AED0-41DB-5D9B-B484-3B6AAD312AD1
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribePortConnsListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->connsList)) {
+            Model::validateArray($this->connsList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connsList) {
-            $res['ConnsList'] = [];
-            if (null !== $this->connsList && \is_array($this->connsList)) {
-                $n = 0;
-                foreach ($this->connsList as $item) {
-                    $res['ConnsList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->connsList)) {
+                $res['ConnsList'] = [];
+                $n1               = 0;
+                foreach ($this->connsList as $item1) {
+                    $res['ConnsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribePortConnsListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePortConnsListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnsList'])) {
             if (!empty($map['ConnsList'])) {
                 $model->connsList = [];
-                $n                = 0;
-                foreach ($map['ConnsList'] as $item) {
-                    $model->connsList[$n++] = null !== $item ? connsList::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['ConnsList'] as $item1) {
+                    $model->connsList[$n1++] = connsList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

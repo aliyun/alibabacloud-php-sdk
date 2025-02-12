@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAutoCcWhitelistRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The IP addresses that you want to manage. This parameter is a JSON string. This parameter is a JSON string. The string contains the following field:
-     *
-     *   **src**: the IP address. This field is required and must be of the string type.
-     *
-     * This parameter is required.
-     * @example [{"src":"1.1.1.1"},{"src":"2.2.2.2"}]
-     *
      * @var string
      */
     public $whitelist;
@@ -36,14 +23,16 @@ class DeleteAutoCcWhitelistRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->whitelist) {
             $res['Whitelist'] = $this->whitelist;
         }
@@ -51,17 +40,18 @@ class DeleteAutoCcWhitelistRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAutoCcWhitelistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Whitelist'])) {
             $model->whitelist = $map['Whitelist'];
         }

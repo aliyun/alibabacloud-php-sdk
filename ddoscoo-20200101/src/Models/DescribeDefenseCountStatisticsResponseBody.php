@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDefenseCountStatisticsResponseBody\defenseCountStatistics;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDefenseCountStatisticsResponseBody extends Model
 {
     /**
-     * @description The statistics on the number of advanced mitigation sessions.
-     *
      * @var defenseCountStatistics
      */
     public $defenseCountStatistics;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 310A41FD-0990-5610-92E0-A6A55D7C6444
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeDefenseCountStatisticsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->defenseCountStatistics) {
+            $this->defenseCountStatistics->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defenseCountStatistics) {
-            $res['DefenseCountStatistics'] = null !== $this->defenseCountStatistics ? $this->defenseCountStatistics->toMap() : null;
+            $res['DefenseCountStatistics'] = null !== $this->defenseCountStatistics ? $this->defenseCountStatistics->toArray($noStream) : $this->defenseCountStatistics;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeDefenseCountStatisticsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDefenseCountStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefenseCountStatistics'])) {
             $model->defenseCountStatistics = defenseCountStatistics::fromMap($map['DefenseCountStatistics']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

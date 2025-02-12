@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeL7UsKeepaliveResponseBody\rsKeepalive;
-use AlibabaCloud\Tea\Model;
 
 class DescribeL7UsKeepaliveResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 39499F01-19D9-4EA4-A0E9-C6014BA5CDBE
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The value of the Back-to-origin Persistent Connections parameter.
-     *
      * @var rsKeepalive
      */
     public $rsKeepalive;
@@ -31,32 +24,38 @@ class DescribeL7UsKeepaliveResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->rsKeepalive) {
+            $this->rsKeepalive->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->rsKeepalive) {
-            $res['RsKeepalive'] = null !== $this->rsKeepalive ? $this->rsKeepalive->toMap() : null;
+            $res['RsKeepalive'] = null !== $this->rsKeepalive ? $this->rsKeepalive->toArray($noStream) : $this->rsKeepalive;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeL7UsKeepaliveResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RsKeepalive'])) {
             $model->rsKeepalive = rsKeepalive::fromMap($map['RsKeepalive']);
         }

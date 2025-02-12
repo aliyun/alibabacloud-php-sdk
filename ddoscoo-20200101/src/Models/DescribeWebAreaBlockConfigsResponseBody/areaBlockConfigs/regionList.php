@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebAreaBlockConfigsResponseBody\areaBlockConfigs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regionList extends Model
 {
     /**
-     * @description Indicates whether the location is blocked. Valid values:
-     *
-     *   **0**: yes
-     *   **1**: no
-     *
-     * @example 0
-     *
      * @var int
      */
     public $block;
-
     /**
-     * @description The name of the location.
-     *
-     * @example CN-SHANGHAI
-     *
      * @var string
      */
     public $region;
@@ -35,14 +23,16 @@ class regionList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->block) {
             $res['Block'] = $this->block;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -50,17 +40,18 @@ class regionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Block'])) {
             $model->block = $map['Block'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

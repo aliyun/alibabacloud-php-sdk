@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainH2FingerprintRequest extends Model
 {
     /**
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @example 1726318200
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $limit;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1716435180
-     *
      * @var int
      */
     public $startTime;
@@ -48,20 +33,24 @@ class DescribeDomainH2FingerprintRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -69,23 +58,26 @@ class DescribeDomainH2FingerprintRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainH2FingerprintRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

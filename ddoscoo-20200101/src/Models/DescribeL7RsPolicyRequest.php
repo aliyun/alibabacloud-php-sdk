@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeL7RsPolicyRequest extends Model
 {
     /**
-     * @description The domain name of the website to query.
-     *
-     * This parameter is required.
-     * @example example.com
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @description An array that consists of N addresses of origin servers to query. The maximum value of N is 200. You can specify up to 200 addresses.
-     *
-     * @example 1.***.***.1
-     *
      * @var string[]
      */
     public $realServers;
-
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-     *
-     * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
-     * @example rg-acfm2pz25js****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -44,17 +28,29 @@ class DescribeL7RsPolicyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->realServers)) {
+            Model::validateArray($this->realServers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->realServers) {
-            $res['RealServers'] = $this->realServers;
+            if (\is_array($this->realServers)) {
+                $res['RealServers'] = [];
+                $n1                 = 0;
+                foreach ($this->realServers as $item1) {
+                    $res['RealServers'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -62,22 +58,28 @@ class DescribeL7RsPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeL7RsPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['RealServers'])) {
             if (!empty($map['RealServers'])) {
-                $model->realServers = $map['RealServers'];
+                $model->realServers = [];
+                $n1                 = 0;
+                foreach ($map['RealServers'] as $item1) {
+                    $model->realServers[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

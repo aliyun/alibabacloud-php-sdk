@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCCRulesResponseBody\webCCRules;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWebCCRulesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EAED912D-909E-45F0-AF74-AC0CCDCAE314
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of custom frequency control rules.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
-
     /**
-     * @description The custom frequency control rule.
-     *
      * @var webCCRules[]
      */
     public $webCCRules;
@@ -41,23 +29,29 @@ class DescribeWebCCRulesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->webCCRules)) {
+            Model::validateArray($this->webCCRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->webCCRules) {
-            $res['WebCCRules'] = [];
-            if (null !== $this->webCCRules && \is_array($this->webCCRules)) {
-                $n = 0;
-                foreach ($this->webCCRules as $item) {
-                    $res['WebCCRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->webCCRules)) {
+                $res['WebCCRules'] = [];
+                $n1                = 0;
+                foreach ($this->webCCRules as $item1) {
+                    $res['WebCCRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +59,28 @@ class DescribeWebCCRulesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebCCRulesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['WebCCRules'])) {
             if (!empty($map['WebCCRules'])) {
                 $model->webCCRules = [];
-                $n                 = 0;
-                foreach ($map['WebCCRules'] as $item) {
-                    $model->webCCRules[$n++] = null !== $item ? webCCRules::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['WebCCRules'] as $item1) {
+                    $model->webCCRules[$n1++] = webCCRules::fromMap($item1);
                 }
             }
         }

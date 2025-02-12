@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeElasticBandwidthSpecResponseBody extends Model
 {
     /**
-     * @description An array that consists of the available burstable protection bandwidths. Unit: Gbit/s.
-     *
      * @var string[]
      */
     public $elasticBandwidthSpec;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,25 @@ class DescribeElasticBandwidthSpecResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->elasticBandwidthSpec)) {
+            Model::validateArray($this->elasticBandwidthSpec);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticBandwidthSpec) {
-            $res['ElasticBandwidthSpec'] = $this->elasticBandwidthSpec;
+            if (\is_array($this->elasticBandwidthSpec)) {
+                $res['ElasticBandwidthSpec'] = [];
+                $n1                          = 0;
+                foreach ($this->elasticBandwidthSpec as $item1) {
+                    $res['ElasticBandwidthSpec'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +49,24 @@ class DescribeElasticBandwidthSpecResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeElasticBandwidthSpecResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticBandwidthSpec'])) {
             if (!empty($map['ElasticBandwidthSpec'])) {
-                $model->elasticBandwidthSpec = $map['ElasticBandwidthSpec'];
+                $model->elasticBandwidthSpec = [];
+                $n1                          = 0;
+                foreach ($map['ElasticBandwidthSpec'] as $item1) {
+                    $model->elasticBandwidthSpec[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

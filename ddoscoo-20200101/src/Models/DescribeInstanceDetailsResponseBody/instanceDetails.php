@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceDetailsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeInstanceDetailsResponseBody\instanceDetails\eipInfos;
-use AlibabaCloud\Tea\Model;
 
 class instanceDetails extends Model
 {
     /**
-     * @description The IP address information about the Anti-DDoS Proxy instance.
-     *
      * @var eipInfos[]
      */
     public $eipInfos;
-
     /**
-     * @description The ID of the instance.
-     *
-     * @example ddoscoo-cn-zvp2eibz****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The protection line of the instance.
-     *
-     * @example coop-line-001
-     *
      * @var string
      */
     public $line;
@@ -41,23 +29,29 @@ class instanceDetails extends Model
 
     public function validate()
     {
+        if (\is_array($this->eipInfos)) {
+            Model::validateArray($this->eipInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eipInfos) {
-            $res['EipInfos'] = [];
-            if (null !== $this->eipInfos && \is_array($this->eipInfos)) {
-                $n = 0;
-                foreach ($this->eipInfos as $item) {
-                    $res['EipInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->eipInfos)) {
+                $res['EipInfos'] = [];
+                $n1              = 0;
+                foreach ($this->eipInfos as $item1) {
+                    $res['EipInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->line) {
             $res['Line'] = $this->line;
         }
@@ -65,26 +59,28 @@ class instanceDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipInfos'])) {
             if (!empty($map['EipInfos'])) {
                 $model->eipInfos = [];
-                $n               = 0;
-                foreach ($map['EipInfos'] as $item) {
-                    $model->eipInfos[$n++] = null !== $item ? eipInfos::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['EipInfos'] as $item1) {
+                    $model->eipInfos[$n1++] = eipInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
         }

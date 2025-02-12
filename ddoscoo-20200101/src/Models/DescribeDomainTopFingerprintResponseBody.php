@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainTopFingerprintResponseBody\domainTopFp;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainTopFingerprintResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class DescribeDomainTopFingerprintResponseBody extends Model
      * @var domainTopFp[]
      */
     public $domainTopFp;
-
     /**
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +24,25 @@ class DescribeDomainTopFingerprintResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->domainTopFp)) {
+            Model::validateArray($this->domainTopFp);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainTopFp) {
-            $res['DomainTopFp'] = [];
-            if (null !== $this->domainTopFp && \is_array($this->domainTopFp)) {
-                $n = 0;
-                foreach ($this->domainTopFp as $item) {
-                    $res['DomainTopFp'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainTopFp)) {
+                $res['DomainTopFp'] = [];
+                $n1                 = 0;
+                foreach ($this->domainTopFp as $item1) {
+                    $res['DomainTopFp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +50,24 @@ class DescribeDomainTopFingerprintResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainTopFingerprintResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainTopFp'])) {
             if (!empty($map['DomainTopFp'])) {
                 $model->domainTopFp = [];
-                $n                  = 0;
-                foreach ($map['DomainTopFp'] as $item) {
-                    $model->domainTopFp[$n++] = null !== $item ? domainTopFp::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['DomainTopFp'] as $item1) {
+                    $model->domainTopFp[$n1++] = domainTopFp::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

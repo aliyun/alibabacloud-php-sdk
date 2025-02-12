@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetachSceneDefenseObjectRequest extends Model
 {
     /**
-     * @description The type of the object. Set the value to **Domain**, which indicates a domain name.
-     *
-     * @example Domain
-     *
      * @var string
      */
     public $objectType;
-
     /**
-     * @description The protection asset that you want to remove from a policy. Separate multiple protection assets with commas (,).
-     *
-     * This parameter is required.
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $objects;
-
     /**
-     * @description The ID of the policy.
-     *
-     * This parameter is required.
-     * @example 321a-fd31-df51-****
-     *
      * @var string
      */
     public $policyId;
@@ -44,17 +28,20 @@ class DetachSceneDefenseObjectRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->objectType) {
             $res['ObjectType'] = $this->objectType;
         }
+
         if (null !== $this->objects) {
             $res['Objects'] = $this->objects;
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
@@ -62,20 +49,22 @@ class DetachSceneDefenseObjectRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetachSceneDefenseObjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ObjectType'])) {
             $model->objectType = $map['ObjectType'];
         }
+
         if (isset($map['Objects'])) {
             $model->objects = $map['Objects'];
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }

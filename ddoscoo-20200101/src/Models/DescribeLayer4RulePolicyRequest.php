@@ -4,22 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeLayer4RulePolicyRequest extends Model
 {
     /**
-     * @description The port forwarding rule that you want to query.
-     *
-     * Each port forwarding rule contains the following fields:
-     *
-     *   **InstanceId**: the ID of the instance. This field is required and must be of the string type.
-     *   **Protocol**: the forwarding protocol. This field is required and must be of the string type. Valid values: **tcp** and **udp**.
-     *   **FrontendPort**: the forwarding port. This field is required and must be of the integer type.
-     *
-     * This parameter is required.
-     * @example [{\\"InstanceId\\":\\"ddosDip-sg-4hr2b3l****\\",\\"FrontendPort\\":2020,\\"Protocol\\":\\"udp\\"}]
-     *
      * @var string
      */
     public $listeners;
@@ -29,9 +18,10 @@ class DescribeLayer4RulePolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listeners) {
@@ -41,11 +31,11 @@ class DescribeLayer4RulePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeLayer4RulePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

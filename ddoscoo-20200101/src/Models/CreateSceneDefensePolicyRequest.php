@@ -4,49 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSceneDefensePolicyRequest extends Model
 {
     /**
-     * @description The end time of the policy. This value is a UNIX timestamp. Units: milliseconds.
-     *
-     * This parameter is required.
-     * @example 1586016000000
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description The name of the policy.
-     *
-     * This parameter is required.
-     * @example testpolicy
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The start time of the policy. This value is a UNIX timestamp. Units: milliseconds.
-     *
-     * This parameter is required.
-     * @example 1585670400000
-     *
      * @var int
      */
     public $startTime;
-
     /**
-     * @description The template of the policy. Valid values:
-     *
-     *   **promotion**: important activity
-     *   **bypass**: all traffic forwarded
-     *
-     * This parameter is required.
-     * @example promotion
-     *
      * @var string
      */
     public $template;
@@ -59,20 +33,24 @@ class CreateSceneDefensePolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
@@ -80,23 +58,26 @@ class CreateSceneDefensePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSceneDefensePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }

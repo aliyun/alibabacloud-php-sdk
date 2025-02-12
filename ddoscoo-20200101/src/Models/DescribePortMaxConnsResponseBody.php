@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortMaxConnsResponseBody\portMaxConns;
-use AlibabaCloud\Tea\Model;
 
 class DescribePortMaxConnsResponseBody extends Model
 {
     /**
-     * @description An array consisting of the details of the maximum number of connections that are established over a port of the instance.
-     *
      * @var portMaxConns[]
      */
     public $portMaxConns;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 08F79110-2AF5-4FA7-998E-7C5E75EACF9C
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribePortMaxConnsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->portMaxConns)) {
+            Model::validateArray($this->portMaxConns);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->portMaxConns) {
-            $res['PortMaxConns'] = [];
-            if (null !== $this->portMaxConns && \is_array($this->portMaxConns)) {
-                $n = 0;
-                foreach ($this->portMaxConns as $item) {
-                    $res['PortMaxConns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->portMaxConns)) {
+                $res['PortMaxConns'] = [];
+                $n1                  = 0;
+                foreach ($this->portMaxConns as $item1) {
+                    $res['PortMaxConns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribePortMaxConnsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePortMaxConnsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PortMaxConns'])) {
             if (!empty($map['PortMaxConns'])) {
                 $model->portMaxConns = [];
-                $n                   = 0;
-                foreach ($map['PortMaxConns'] as $item) {
-                    $model->portMaxConns[$n++] = null !== $item ? portMaxConns::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['PortMaxConns'] as $item1) {
+                    $model->portMaxConns[$n1++] = portMaxConns::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

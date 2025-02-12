@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeStsGrantStatusRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management.
-     *
-     * If you do not configure this parameter, the instance belongs to the default resource group.
-     * @example rg-acfm2pz25js****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The name of the RAM role to query. Set the value to **AliyunDDoSCOODefaultRole**, which indicates the default role of Anti-DDoS Pro or Anti-DDoS Premium.
-     *
-     * This parameter is required.
-     * @example AliyunDDoSCOODefaultRole
-     *
      * @var string
      */
     public $role;
@@ -34,14 +23,16 @@ class DescribeStsGrantStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -49,17 +40,18 @@ class DescribeStsGrantStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeStsGrantStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

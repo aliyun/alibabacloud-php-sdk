@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeBlockStatusResponseBody\statusList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class blockStatusList extends Model
 {
     /**
-     * @description The blocking status of the network traffic. Valid values:
-     *
-     *   **areablock**: Network traffic is blocked.
-     *   **normal**: Network traffic is not blocked.
-     *
-     * @example areablock
-     *
      * @var string
      */
     public $blockStatus;
-
     /**
-     * @description The end time of the blocking. This value is a UNIX timestamp. Unit: seconds.
-     *
-     * @example 1540196323
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @description The Internet service provider (ISP) line from which the traffic is blocked. Valid values:
-     *
-     *   **ct**: China Telecom (International)
-     *   **cut**: China Unicom (International)
-     *
-     * @example cut
-     *
      * @var string
      */
     public $line;
-
     /**
-     * @description The start time of the blocking. This value is a UNIX timestamp. Unit: seconds.
-     *
-     * @example 1540195323
-     *
      * @var int
      */
     public $startTime;
@@ -58,20 +33,24 @@ class blockStatusList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockStatus) {
             $res['BlockStatus'] = $this->blockStatus;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->line) {
             $res['Line'] = $this->line;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -79,23 +58,26 @@ class blockStatusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return blockStatusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockStatus'])) {
             $model->blockStatus = $map['BlockStatus'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

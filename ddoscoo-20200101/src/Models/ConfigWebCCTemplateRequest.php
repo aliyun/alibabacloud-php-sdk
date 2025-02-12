@@ -4,40 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigWebCCTemplateRequest extends Model
 {
     /**
-     * @description The domain name of the website.
-     *
-     * This parameter is required.
-     * @example www.aliyun.com
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-     *
-     * @example default
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The mode of the Frequency Control policy. Valid values:
-     *
-     *   **default**: Normal
-     *   **gf_under_attack**: Emergency
-     *   **gf_sos_verify**: Strict
-     *   **gf_sos_enhance**: Super Strict
-     *
-     * This parameter is required.
-     * @example default
-     *
      * @var string
      */
     public $template;
@@ -49,17 +28,20 @@ class ConfigWebCCTemplateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
@@ -67,20 +49,22 @@ class ConfigWebCCTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigWebCCTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }

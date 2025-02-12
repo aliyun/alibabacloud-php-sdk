@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribePortCcAttackTopIPResponseBody\topIp;
-use AlibabaCloud\Tea\Model;
 
 class DescribePortCcAttackTopIPResponseBody extends Model
 {
     /**
-     * @description The request ID, which is used to locate and troubleshoot issues.
-     *
-     * @example 24F36D81-5E2D-52E5-9DB6-A3ED23CF271A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The top IP addresses from which most attacks are initiated.
-     *
      * @var topIp[]
      */
     public $topIp;
@@ -31,20 +24,25 @@ class DescribePortCcAttackTopIPResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->topIp)) {
+            Model::validateArray($this->topIp);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->topIp) {
-            $res['TopIp'] = [];
-            if (null !== $this->topIp && \is_array($this->topIp)) {
-                $n = 0;
-                foreach ($this->topIp as $item) {
-                    $res['TopIp'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->topIp)) {
+                $res['TopIp'] = [];
+                $n1           = 0;
+                foreach ($this->topIp as $item1) {
+                    $res['TopIp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribePortCcAttackTopIPResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePortCcAttackTopIPResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TopIp'])) {
             if (!empty($map['TopIp'])) {
                 $model->topIp = [];
-                $n            = 0;
-                foreach ($map['TopIp'] as $item) {
-                    $model->topIp[$n++] = null !== $item ? topIp::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['TopIp'] as $item1) {
+                    $model->topIp[$n1++] = topIp::fromMap($item1);
                 }
             }
         }

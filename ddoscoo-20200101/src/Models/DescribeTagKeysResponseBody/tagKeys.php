@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeTagKeysResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tagKeys extends Model
 {
     /**
-     * @description The number of Anti-DDoS Proxy (Chinese Mainland) instances to which the tag key is added.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $tagCount;
-
     /**
-     * @description The tag key.
-     *
-     * @example aa1
-     *
      * @var string
      */
     public $tagKey;
@@ -32,14 +23,16 @@ class tagKeys extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagCount) {
             $res['TagCount'] = $this->tagCount;
         }
+
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
@@ -47,17 +40,18 @@ class tagKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagCount'])) {
             $model->tagCount = $map['TagCount'];
         }
+
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }

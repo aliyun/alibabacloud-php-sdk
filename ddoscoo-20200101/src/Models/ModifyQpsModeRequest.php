@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyQpsModeRequest extends Model
 {
     /**
-     * @description The region ID of the Anti-DDoS Pro instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-7e225i41****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The metering method of QPS. Valid values:
-     *
-     *   **month**: monthly 95th percentile QPS.
-     *   **day**: daily 95th percentile QPS.
-     *
-     * This parameter is required.
-     * @example month
-     *
      * @var string
      */
     public $mode;
@@ -37,14 +23,16 @@ class ModifyQpsModeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
@@ -52,17 +40,18 @@ class ModifyQpsModeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyQpsModeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }

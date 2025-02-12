@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebInstanceRelationsResponseBody\webInstanceRelations;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWebInstanceRelationsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0222382B-5FE5-4FF7-BC9B-97EE31D58818
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the instances to which a website service is added.
-     *
      * @var webInstanceRelations[]
      */
     public $webInstanceRelations;
@@ -31,20 +24,25 @@ class DescribeWebInstanceRelationsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->webInstanceRelations)) {
+            Model::validateArray($this->webInstanceRelations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->webInstanceRelations) {
-            $res['WebInstanceRelations'] = [];
-            if (null !== $this->webInstanceRelations && \is_array($this->webInstanceRelations)) {
-                $n = 0;
-                foreach ($this->webInstanceRelations as $item) {
-                    $res['WebInstanceRelations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->webInstanceRelations)) {
+                $res['WebInstanceRelations'] = [];
+                $n1                          = 0;
+                foreach ($this->webInstanceRelations as $item1) {
+                    $res['WebInstanceRelations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribeWebInstanceRelationsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebInstanceRelationsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WebInstanceRelations'])) {
             if (!empty($map['WebInstanceRelations'])) {
                 $model->webInstanceRelations = [];
-                $n                           = 0;
-                foreach ($map['WebInstanceRelations'] as $item) {
-                    $model->webInstanceRelations[$n++] = null !== $item ? webInstanceRelations::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['WebInstanceRelations'] as $item1) {
+                    $model->webInstanceRelations[$n1++] = webInstanceRelations::fromMap($item1);
                 }
             }
         }

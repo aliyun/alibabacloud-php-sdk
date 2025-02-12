@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDDosEventAreaResponseBody\areas;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDDosEventAreaResponseBody extends Model
 {
     /**
-     * @description The information about the source region from which the volumetric attack was initiated.
-     *
      * @var areas[]
      */
     public $areas;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 11710C9F-BC5E-481A-BEC5-C6D8FBFCA827
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeDDosEventAreaResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->areas)) {
+            Model::validateArray($this->areas);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->areas) {
-            $res['Areas'] = [];
-            if (null !== $this->areas && \is_array($this->areas)) {
-                $n = 0;
-                foreach ($this->areas as $item) {
-                    $res['Areas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->areas)) {
+                $res['Areas'] = [];
+                $n1           = 0;
+                foreach ($this->areas as $item1) {
+                    $res['Areas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeDDosEventAreaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDDosEventAreaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Areas'])) {
             if (!empty($map['Areas'])) {
                 $model->areas = [];
-                $n            = 0;
-                foreach ($map['Areas'] as $item) {
-                    $model->areas[$n++] = null !== $item ? areas::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Areas'] as $item1) {
+                    $model->areas[$n1++] = areas::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

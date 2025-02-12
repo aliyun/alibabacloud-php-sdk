@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDomainViewSourceProvincesResponseBody\sourceProvinces;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainViewSourceProvincesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array consisting of the details of the administrative region in China from which the requests are sent.
-     *
      * @var sourceProvinces[]
      */
     public $sourceProvinces;
@@ -31,20 +24,25 @@ class DescribeDomainViewSourceProvincesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->sourceProvinces)) {
+            Model::validateArray($this->sourceProvinces);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sourceProvinces) {
-            $res['SourceProvinces'] = [];
-            if (null !== $this->sourceProvinces && \is_array($this->sourceProvinces)) {
-                $n = 0;
-                foreach ($this->sourceProvinces as $item) {
-                    $res['SourceProvinces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sourceProvinces)) {
+                $res['SourceProvinces'] = [];
+                $n1                     = 0;
+                foreach ($this->sourceProvinces as $item1) {
+                    $res['SourceProvinces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribeDomainViewSourceProvincesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainViewSourceProvincesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SourceProvinces'])) {
             if (!empty($map['SourceProvinces'])) {
                 $model->sourceProvinces = [];
-                $n                      = 0;
-                foreach ($map['SourceProvinces'] as $item) {
-                    $model->sourceProvinces[$n++] = null !== $item ? sourceProvinces::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['SourceProvinces'] as $item1) {
+                    $model->sourceProvinces[$n1++] = sourceProvinces::fromMap($item1);
                 }
             }
         }

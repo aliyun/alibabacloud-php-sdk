@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeWebCacheConfigsRequest extends Model
 {
     /**
-     * @description An array consisting of domain names for which you want to query the Static Page Caching configurations.
-     *
-     * This parameter is required.
-     * @example www.aliyun.com
-     *
      * @var string[]
      */
     public $domains;
-
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management.
-     *
-     * If you do not configure this parameter, the instance belongs to the default resource group.
-     * @example rg-acfm2pz25js****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,14 +23,25 @@ class DescribeWebCacheConfigsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->domains)) {
+            Model::validateArray($this->domains);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
+            if (\is_array($this->domains)) {
+                $res['Domains'] = [];
+                $n1             = 0;
+                foreach ($this->domains as $item1) {
+                    $res['Domains'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -49,19 +49,24 @@ class DescribeWebCacheConfigsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebCacheConfigsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
-                $model->domains = $map['Domains'];
+                $model->domains = [];
+                $n1             = 0;
+                foreach ($map['Domains'] as $item1) {
+                    $model->domains[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

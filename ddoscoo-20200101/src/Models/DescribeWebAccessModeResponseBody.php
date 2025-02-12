@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebAccessModeResponseBody\domainModes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWebAccessModeResponseBody extends Model
 {
     /**
-     * @description An array consisting of the modes in which the website service is added.
-     *
      * @var domainModes[]
      */
     public $domainModes;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeWebAccessModeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->domainModes)) {
+            Model::validateArray($this->domainModes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainModes) {
-            $res['DomainModes'] = [];
-            if (null !== $this->domainModes && \is_array($this->domainModes)) {
-                $n = 0;
-                foreach ($this->domainModes as $item) {
-                    $res['DomainModes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domainModes)) {
+                $res['DomainModes'] = [];
+                $n1                 = 0;
+                foreach ($this->domainModes as $item1) {
+                    $res['DomainModes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeWebAccessModeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebAccessModeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainModes'])) {
             if (!empty($map['DomainModes'])) {
                 $model->domainModes = [];
-                $n                  = 0;
-                foreach ($map['DomainModes'] as $item) {
-                    $model->domainModes[$n++] = null !== $item ? domainModes::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['DomainModes'] as $item1) {
+                    $model->domainModes[$n1++] = domainModes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

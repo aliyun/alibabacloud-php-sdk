@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyWebCCGlobalSwitchResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 5AE2FC86-C840-41AE-9F1A-3A2747C7C1DF
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyWebCCGlobalSwitchResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyWebCCGlobalSwitchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyWebCCGlobalSwitchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

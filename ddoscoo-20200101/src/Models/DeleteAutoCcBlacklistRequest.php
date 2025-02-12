@@ -4,66 +4,69 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAutoCcBlacklistRequest extends Model
 {
     /**
-     * @description The IP addresses that you want to manage. This parameter is a JSON string. The string contains the following fields:
-     *
-     *   **src**: the IP address. This field is required and must be of the STRING type.
-     *
-     * This parameter is required.
-     * @example [{"src":"198.51.XX.XX"},{"src":"198.52.XX.XX"}]
-     *
      * @var string
      */
     public $blacklist;
-
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string
      */
     public $instanceId;
+    /**
+     * @var string
+     */
+    public $queryType;
     protected $_name = [
         'blacklist'  => 'Blacklist',
         'instanceId' => 'InstanceId',
+        'queryType'  => 'QueryType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blacklist) {
             $res['Blacklist'] = $this->blacklist;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->queryType) {
+            $res['QueryType'] = $this->queryType;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAutoCcBlacklistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Blacklist'])) {
             $model->blacklist = $map['Blacklist'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['QueryType'])) {
+            $model->queryType = $map['QueryType'];
         }
 
         return $model;

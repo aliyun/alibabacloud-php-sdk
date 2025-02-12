@@ -4,44 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeNetworkRuleAttributesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeNetworkRuleAttributesResponseBody\networkRuleAttributes\config;
-use AlibabaCloud\Tea\Model;
 
 class networkRuleAttributes extends Model
 {
     /**
-     * @description The mitigation settings of the port forwarding rule.
-     *
      * @var config
      */
     public $config;
-
     /**
-     * @description The forwarding port.
-     *
-     * @example 8080
-     *
      * @var int
      */
     public $frontendPort;
-
     /**
-     * @description The ID of the instance.
-     *
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The forwarding protocol. Valid values:
-     *
-     *   **tcp**
-     *   **udp**
-     *
-     * @example tcp
-     *
      * @var string
      */
     public $protocol;
@@ -54,20 +34,27 @@ class networkRuleAttributes extends Model
 
     public function validate()
     {
+        if (null !== $this->config) {
+            $this->config->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
-            $res['Config'] = null !== $this->config ? $this->config->toMap() : null;
+            $res['Config'] = null !== $this->config ? $this->config->toArray($noStream) : $this->config;
         }
+
         if (null !== $this->frontendPort) {
             $res['FrontendPort'] = $this->frontendPort;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -75,23 +62,26 @@ class networkRuleAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkRuleAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = config::fromMap($map['Config']);
         }
+
         if (isset($map['FrontendPort'])) {
             $model->frontendPort = $map['FrontendPort'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

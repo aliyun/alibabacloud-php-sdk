@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigDomainSecurityProfileResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 9728769F-9466-534E-BE12-CAB29A675828
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ConfigDomainSecurityProfileResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ConfigDomainSecurityProfileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigDomainSecurityProfileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,75 +4,35 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCCRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class webCCRules extends Model
 {
     /**
-     * @description The action triggered if the rule is matched. Valid values:
-     *
-     *   **close**: The requests that match the rule are blocked.
-     *   **captcha**: Completely Automated Public Turing test to tell Computers and Humans Apart (CAPTCHA) verification for the requests that match the rule is implemented.
-     *
-     * @example close
-     *
      * @var string
      */
     public $act;
-
     /**
-     * @description The number of requests that are allowed from a single IP address. Valid values: **2** to **2000**.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The check interval. Valid values: **5** to **10800**. Unit: seconds.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $interval;
-
     /**
-     * @description The match mode. Valid values:
-     *
-     *   **prefix**: prefix match.
-     *   **match**: exact match.
-     *
-     * @example prefix
-     *
      * @var string
      */
     public $mode;
-
     /**
-     * @description The name of the rule.
-     *
-     * @example wq
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The validity period. Valid values: **1** to **1440**. Unit: minutes.
-     *
-     * @example 60
-     *
      * @var int
      */
     public $ttl;
-
     /**
-     * @description The check path.
-     *
-     * @example /hello
-     *
      * @var string
      */
     public $uri;
@@ -88,29 +48,36 @@ class webCCRules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->act) {
             $res['Act'] = $this->act;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ttl) {
             $res['Ttl'] = $this->ttl;
         }
+
         if (null !== $this->uri) {
             $res['Uri'] = $this->uri;
         }
@@ -118,32 +85,38 @@ class webCCRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return webCCRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Act'])) {
             $model->act = $map['Act'];
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Ttl'])) {
             $model->ttl = $map['Ttl'];
         }
+
         if (isset($map['Uri'])) {
             $model->uri = $map['Uri'];
         }

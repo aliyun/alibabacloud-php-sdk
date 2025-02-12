@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSchedulerRulesResponseBody\schedulerRules\param;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class paramData extends Model
 {
     /**
-     * @example ga-bp1htlajy5509rc99****
-     *
      * @var string
      */
     public $cloudInstanceId;
@@ -20,9 +18,10 @@ class paramData extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cloudInstanceId) {
@@ -32,11 +31,11 @@ class paramData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return paramData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

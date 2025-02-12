@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableSceneDefensePolicyRequest extends Model
 {
     /**
-     * @description The ID of the policy that you want to enable.
-     *
-     * This parameter is required.
-     * @example 321a-fd31-df51-****
-     *
      * @var string
      */
     public $policyId;
@@ -23,9 +18,10 @@ class EnableSceneDefensePolicyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyId) {
@@ -35,11 +31,11 @@ class EnableSceneDefensePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableSceneDefensePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

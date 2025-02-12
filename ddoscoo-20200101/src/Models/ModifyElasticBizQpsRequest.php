@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyElasticBizQpsRequest extends Model
 {
     /**
-     * @description The ID of the Anti-DDoS Proxy instance.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The metering method for the burstable QPS. Valid values:
-     *
-     *   **month**: monthly 95th percentile
-     *   **day**: daily 95th percentile QPS
-     *
-     * This parameter is required.
-     * @example month
-     *
      * @var string
      */
     public $mode;
-
     /**
-     * @description The burstable QPS value.
-     *
-     * >  The default value is 300,000 for the Chinese mainland and 150,000 for regions outside the Chinese mainland.
-     * @example 300000
-     *
      * @var int
      */
     public $opsElasticQps;
@@ -48,17 +28,20 @@ class ModifyElasticBizQpsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->opsElasticQps) {
             $res['OpsElasticQps'] = $this->opsElasticQps;
         }
@@ -66,20 +49,22 @@ class ModifyElasticBizQpsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyElasticBizQpsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['OpsElasticQps'])) {
             $model->opsElasticQps = $map['OpsElasticQps'];
         }

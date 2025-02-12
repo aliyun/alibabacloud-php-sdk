@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeElasticQpsRecordResponseBody\elasticQpsList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeElasticQpsRecordResponseBody extends Model
 {
     /**
-     * @description The QPS information about the instance.
-     *
      * @var elasticQpsList[]
      */
     public $elasticQpsList;
-
     /**
-     * @description The request ID, which is used to locate and troubleshoot issues.
-     *
-     * @example F68B34E2-570C-508D-95FD-DFB6611D518F
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeElasticQpsRecordResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->elasticQpsList)) {
+            Model::validateArray($this->elasticQpsList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticQpsList) {
-            $res['ElasticQpsList'] = [];
-            if (null !== $this->elasticQpsList && \is_array($this->elasticQpsList)) {
-                $n = 0;
-                foreach ($this->elasticQpsList as $item) {
-                    $res['ElasticQpsList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->elasticQpsList)) {
+                $res['ElasticQpsList'] = [];
+                $n1                    = 0;
+                foreach ($this->elasticQpsList as $item1) {
+                    $res['ElasticQpsList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeElasticQpsRecordResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeElasticQpsRecordResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticQpsList'])) {
             if (!empty($map['ElasticQpsList'])) {
                 $model->elasticQpsList = [];
-                $n                     = 0;
-                foreach ($map['ElasticQpsList'] as $item) {
-                    $model->elasticQpsList[$n++] = null !== $item ? elasticQpsList::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ElasticQpsList'] as $item1) {
+                    $model->elasticQpsList[$n1++] = elasticQpsList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

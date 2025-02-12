@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSceneDefensePoliciesResponseBody\policies;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSceneDefensePoliciesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the configurations of the scenario-specific custom policy.
-     *
      * @var policies[]
      */
     public $policies;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example F65DF043-E0EB-4796-9467-23DDCDF92C1D
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -44,23 +29,29 @@ class DescribeSceneDefensePoliciesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->policies)) {
+            Model::validateArray($this->policies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policies) {
-            $res['Policies'] = [];
-            if (null !== $this->policies && \is_array($this->policies)) {
-                $n = 0;
-                foreach ($this->policies as $item) {
-                    $res['Policies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->policies)) {
+                $res['Policies'] = [];
+                $n1              = 0;
+                foreach ($this->policies as $item1) {
+                    $res['Policies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -68,26 +59,28 @@ class DescribeSceneDefensePoliciesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSceneDefensePoliciesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Policies'])) {
             if (!empty($map['Policies'])) {
                 $model->policies = [];
-                $n               = 0;
-                foreach ($map['Policies'] as $item) {
-                    $model->policies[$n++] = null !== $item ? policies::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Policies'] as $item1) {
+                    $model->policies[$n1++] = policies::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

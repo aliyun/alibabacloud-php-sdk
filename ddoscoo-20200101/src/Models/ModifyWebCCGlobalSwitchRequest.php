@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyWebCCGlobalSwitchRequest extends Model
 {
     /**
-     * @description Specifies whether the HTTP flood mitigation feature is enabled. Valid values:
-     *
-     *   **open**
-     *   **close**
-     *
-     * This parameter is required.
-     * @example open
-     *
      * @var string
      */
     public $ccGlobalSwitch;
-
     /**
-     * @description The domain name of the website.
-     *
-     * This parameter is required.
-     * @example example.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
@@ -37,14 +23,16 @@ class ModifyWebCCGlobalSwitchRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ccGlobalSwitch) {
             $res['CcGlobalSwitch'] = $this->ccGlobalSwitch;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
@@ -52,17 +40,18 @@ class ModifyWebCCGlobalSwitchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyWebCCGlobalSwitchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CcGlobalSwitch'])) {
             $model->ccGlobalSwitch = $map['CcGlobalSwitch'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }

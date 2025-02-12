@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyWebAreaBlockSwitchResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 6623EA1F-30FB-5BC8-BEC9-74D55F6F08F1
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyWebAreaBlockSwitchResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyWebAreaBlockSwitchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyWebAreaBlockSwitchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

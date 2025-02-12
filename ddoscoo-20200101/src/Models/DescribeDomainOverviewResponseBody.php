@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainOverviewResponseBody extends Model
 {
     /**
-     * @description The peak queries per second (QPS) during HTTP traffic scrubbing. Unit: QPS.
-     *
-     * @example 41652
-     *
      * @var int
      */
     public $maxHttp;
-
     /**
-     * @description The peak QPS during HTTPS traffic scrubbing. Unit: QPS.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $maxHttps;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example C33EB3D5-AF96-43CA-9C7E-37A81BC06A1E
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class DescribeDomainOverviewResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxHttp) {
             $res['MaxHttp'] = $this->maxHttp;
         }
+
         if (null !== $this->maxHttps) {
             $res['MaxHttps'] = $this->maxHttps;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class DescribeDomainOverviewResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainOverviewResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxHttp'])) {
             $model->maxHttp = $map['MaxHttp'];
         }
+
         if (isset($map['MaxHttps'])) {
             $model->maxHttps = $map['MaxHttps'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

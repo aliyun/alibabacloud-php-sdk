@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConfigLayer4RuleBakModeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example CC042262-15A3-4A49-ADF0-130968EA47BC
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ConfigLayer4RuleBakModeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ConfigLayer4RuleBakModeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConfigLayer4RuleBakModeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

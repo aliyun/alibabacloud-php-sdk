@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeDestinationPortEventResponseBody\portList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDestinationPortEventResponseBody extends Model
 {
     /**
-     * @description The ports.
-     *
      * @var portList[]
      */
     public $portList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9E7F6B2C-03F2-462F-9076-B782CF0DD502
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeDestinationPortEventResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->portList)) {
+            Model::validateArray($this->portList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->portList) {
-            $res['PortList'] = [];
-            if (null !== $this->portList && \is_array($this->portList)) {
-                $n = 0;
-                foreach ($this->portList as $item) {
-                    $res['PortList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->portList)) {
+                $res['PortList'] = [];
+                $n1              = 0;
+                foreach ($this->portList as $item1) {
+                    $res['PortList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeDestinationPortEventResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDestinationPortEventResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PortList'])) {
             if (!empty($map['PortList'])) {
                 $model->portList = [];
-                $n               = 0;
-                foreach ($map['PortList'] as $item) {
-                    $model->portList[$n++] = null !== $item ? portList::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['PortList'] as $item1) {
+                    $model->portList[$n1++] = portList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

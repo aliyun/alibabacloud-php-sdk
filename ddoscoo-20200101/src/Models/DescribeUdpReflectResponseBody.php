@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUdpReflectResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example F97A8766-FB4D-411A-9CD5-2CFF701B592F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array consisting of the source ports of the UDP traffic that are filtered out by the filtering policies for UDP reflection attacks.
-     *
      * @var string[]
      */
     public $udpSports;
@@ -30,35 +23,51 @@ class DescribeUdpReflectResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->udpSports)) {
+            Model::validateArray($this->udpSports);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->udpSports) {
-            $res['UdpSports'] = $this->udpSports;
+            if (\is_array($this->udpSports)) {
+                $res['UdpSports'] = [];
+                $n1               = 0;
+                foreach ($this->udpSports as $item1) {
+                    $res['UdpSports'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUdpReflectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UdpSports'])) {
             if (!empty($map['UdpSports'])) {
-                $model->udpSports = $map['UdpSports'];
+                $model->udpSports = [];
+                $n1               = 0;
+                foreach ($map['UdpSports'] as $item1) {
+                    $model->udpSports[$n1++] = $item1;
+                }
             }
         }
 

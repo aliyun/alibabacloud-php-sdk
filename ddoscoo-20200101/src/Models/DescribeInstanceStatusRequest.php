@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceStatusRequest extends Model
 {
     /**
-     * @description The ID of the Anti-DDoS Proxy instance to query.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-6ja1y6p5****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The type of the Anti-DDoS Proxy instance to query. Valid values:
-     *
-     *   **1**: an Anti-DDoS Proxy (Chinese Mainland) instance
-     *   **2**: an Anti-DDoS Proxy (Outside Chinese Mainland) instance
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $productType;
@@ -37,14 +23,16 @@ class DescribeInstanceStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -52,17 +40,18 @@ class DescribeInstanceStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

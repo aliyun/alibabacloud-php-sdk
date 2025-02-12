@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCustomPortsResponseBody\webCustomPorts;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWebCustomPortsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0bcf28g5-d57c-11e7-9bs0-d89d6717dxbc
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array consisting of information about supported custom ports that are used by a website.
-     *
      * @var webCustomPorts[]
      */
     public $webCustomPorts;
@@ -31,20 +24,25 @@ class DescribeWebCustomPortsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->webCustomPorts)) {
+            Model::validateArray($this->webCustomPorts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->webCustomPorts) {
-            $res['WebCustomPorts'] = [];
-            if (null !== $this->webCustomPorts && \is_array($this->webCustomPorts)) {
-                $n = 0;
-                foreach ($this->webCustomPorts as $item) {
-                    $res['WebCustomPorts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->webCustomPorts)) {
+                $res['WebCustomPorts'] = [];
+                $n1                    = 0;
+                foreach ($this->webCustomPorts as $item1) {
+                    $res['WebCustomPorts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribeWebCustomPortsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebCustomPortsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WebCustomPorts'])) {
             if (!empty($map['WebCustomPorts'])) {
                 $model->webCustomPorts = [];
-                $n                     = 0;
-                foreach ($map['WebCustomPorts'] as $item) {
-                    $model->webCustomPorts[$n++] = null !== $item ? webCustomPorts::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['WebCustomPorts'] as $item1) {
+                    $model->webCustomPorts[$n1++] = webCustomPorts::fromMap($item1);
                 }
             }
         }

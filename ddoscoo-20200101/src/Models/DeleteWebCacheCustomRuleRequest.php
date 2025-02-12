@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteWebCacheCustomRuleRequest extends Model
 {
     /**
-     * @description The domain name for which you want to delete the custom rules of the Static Page Caching policy.
-     *
-     * This parameter is required.
-     * @example www.aliyundoc.com
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management.
-     *
-     * If you do not configure this parameter, the instance belongs to the default resource group.
-     * @example rg-acfm2pz25js****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description An array consisting of the names of the rules that you want to delete.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string[]
      */
     public $ruleNames;
@@ -45,41 +28,59 @@ class DeleteWebCacheCustomRuleRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->ruleNames)) {
+            Model::validateArray($this->ruleNames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->ruleNames) {
-            $res['RuleNames'] = $this->ruleNames;
+            if (\is_array($this->ruleNames)) {
+                $res['RuleNames'] = [];
+                $n1               = 0;
+                foreach ($this->ruleNames as $item1) {
+                    $res['RuleNames'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteWebCacheCustomRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['RuleNames'])) {
             if (!empty($map['RuleNames'])) {
-                $model->ruleNames = $map['RuleNames'];
+                $model->ruleNames = [];
+                $n1               = 0;
+                foreach ($map['RuleNames'] as $item1) {
+                    $model->ruleNames[$n1++] = $item1;
+                }
             }
         }
 

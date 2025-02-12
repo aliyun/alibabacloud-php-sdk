@@ -4,54 +4,28 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ddoscoo\V20200101\Models\CreateTagResourcesRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class CreateTagResourcesRequest extends Model
 {
     /**
-     * @description The region ID of the instance. Set the value to **cn-hangzhou**, which indicates an Anti-DDoS Proxy (Chinese Mainland) instance.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management.
-     *
-     * If you do not specify this parameter, the instance belongs to the default resource group.
-     * @example rg-acfm2pz25js****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The IDs of the Anti-DDoS Proxy (Chinese Mainland) instances to which you want to add the tag.
-     *
-     * This parameter is required.
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string[]
      */
     public $resourceIds;
-
     /**
-     * @description The type of the resource to which the tag belongs. Set the value to **INSTANCE**, which indicates an Anti-DDoS Pro instance.
-     *
-     * This parameter is required.
-     * @example INSTANCE
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description An array that consists of the tags to add.
-     *
      * @var tags[]
      */
     public $tags;
@@ -65,29 +39,46 @@ class CreateTagResourcesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceIds)) {
+            Model::validateArray($this->resourceIds);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceIds) {
-            $res['ResourceIds'] = $this->resourceIds;
+            if (\is_array($this->resourceIds)) {
+                $res['ResourceIds'] = [];
+                $n1                 = 0;
+                foreach ($this->resourceIds as $item1) {
+                    $res['ResourceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -95,34 +86,42 @@ class CreateTagResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
-                $model->resourceIds = $map['ResourceIds'];
+                $model->resourceIds = [];
+                $n1                 = 0;
+                foreach ($map['ResourceIds'] as $item1) {
+                    $model->resourceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }

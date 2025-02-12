@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeSchedulerRulesResponseBody\schedulerRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rules extends Model
 {
@@ -12,52 +12,31 @@ class rules extends Model
      * @var string
      */
     public $line;
-
     /**
-     * @example 100
-     *
      * @var int
      */
     public $priority;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @example 60
-     *
      * @var int
      */
     public $restoreDelay;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $status;
-
     /**
-     * @example A
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @example 203.***.***.39
-     *
      * @var string
      */
     public $value;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $valueType;
@@ -74,32 +53,40 @@ class rules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->line) {
             $res['Line'] = $this->line;
         }
+
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->restoreDelay) {
             $res['RestoreDelay'] = $this->restoreDelay;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+
         if (null !== $this->valueType) {
             $res['ValueType'] = $this->valueType;
         }
@@ -107,35 +94,42 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Line'])) {
             $model->line = $map['Line'];
         }
+
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RestoreDelay'])) {
             $model->restoreDelay = $map['RestoreDelay'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
+
         if (isset($map['ValueType'])) {
             $model->valueType = $map['ValueType'];
         }

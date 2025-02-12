@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeStsGrantStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stsGrant extends Model
 {
     /**
-     * @description The authorization status. Valid values:
-     *
-     *   **0**: Anti-DDoS Pro or Anti-DDoS Premium is not authorized to access other cloud services.
-     *   **1**: Anti-DDoS Pro or Anti-DDoS Premium is authorized to access other cloud services.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -25,9 +18,10 @@ class stsGrant extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
@@ -37,11 +31,11 @@ class stsGrant extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stsGrant
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

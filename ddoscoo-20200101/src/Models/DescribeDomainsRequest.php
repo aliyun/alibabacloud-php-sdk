@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDomainsRequest extends Model
 {
     /**
-     * @description The ID of the instance that you want to query.
-     *
-     * > You can call the [DescribeInstanceIds](https://help.aliyun.com/document_detail/157459.html) operation to query the IDs of all instances.
-     * @example ddoscoo-cn-mp91j1ao****
-     *
      * @var string[]
      */
     public $instanceIds;
-
     /**
-     * @description The ID of the resource group to which the instance belongs in Resource Management. This parameter is empty by default, which indicates that the instance belongs to the default resource group.
-     *
-     * For more information about resource groups, see [Create a resource group](https://help.aliyun.com/document_detail/94485.html).
-     * @example rg-acfm2pz25js****
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,14 +23,25 @@ class DescribeDomainsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1                 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -49,19 +49,24 @@ class DescribeDomainsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1                 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }

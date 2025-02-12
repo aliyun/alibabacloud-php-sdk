@@ -4,52 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ddoscoo\V20200101\Models\DescribeWebCCRulesV2ResponseBody\webCCRules\ruleDetail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class condition extends Model
 {
     /**
-     * @description The match content.
-     *
-     * @example 192.0.XX.XX
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description The match content when the match method is Equals to One of Multiple Values.
-     *
-     * @example ["2","3","ad"]
-     *
      * @var string
      */
     public $contentList;
-
     /**
-     * @description The match field.
-     *
-     * @example ip
-     *
      * @var string
      */
     public $field;
-
     /**
-     * @description The custom HTTP request header.
-     *
-     * >  This parameter takes effect only when **Field** is set to **header**.
-     * @example null
-     *
      * @var string
      */
     public $headerName;
-
     /**
-     * @description The match method.
-     *
-     * @example belong
-     *
      * @var string
      */
     public $matchMethod;
@@ -63,23 +38,28 @@ class condition extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->contentList) {
             $res['ContentList'] = $this->contentList;
         }
+
         if (null !== $this->field) {
             $res['Field'] = $this->field;
         }
+
         if (null !== $this->headerName) {
             $res['HeaderName'] = $this->headerName;
         }
+
         if (null !== $this->matchMethod) {
             $res['MatchMethod'] = $this->matchMethod;
         }
@@ -87,26 +67,30 @@ class condition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return condition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['ContentList'])) {
             $model->contentList = $map['ContentList'];
         }
+
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
         }
+
         if (isset($map['HeaderName'])) {
             $model->headerName = $map['HeaderName'];
         }
+
         if (isset($map['MatchMethod'])) {
             $model->matchMethod = $map['MatchMethod'];
         }
