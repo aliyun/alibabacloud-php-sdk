@@ -11,6 +11,8 @@ use AlibabaCloud\SDK\IQS\V20240712\Models\CommonQueryBySceneRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\CommonQueryBySceneResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaResponse;
+use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionRequest;
+use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionNovaRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionNovaResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\GeoCodeRequest;
@@ -205,6 +207,80 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->commonQueryBySceneWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 根据起终点坐标检索符合条件的驾车路线规划方案.
+     *
+     * @param request - DrivingDirectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DrivingDirectionResponse
+     *
+     * @param DrivingDirectionRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DrivingDirectionResponse
+     */
+    public function drivingDirectionWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->destinationLatitude) {
+            @$query['destinationLatitude'] = $request->destinationLatitude;
+        }
+
+        if (null !== $request->destinationLongitude) {
+            @$query['destinationLongitude'] = $request->destinationLongitude;
+        }
+
+        if (null !== $request->originLatitude) {
+            @$query['originLatitude'] = $request->originLatitude;
+        }
+
+        if (null !== $request->originLongitude) {
+            @$query['originLongitude'] = $request->originLongitude;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DrivingDirection',
+            'version'     => '2024-07-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ipaas/v1/direction/driving',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DrivingDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DrivingDirectionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 根据起终点坐标检索符合条件的驾车路线规划方案.
+     *
+     * @param request - DrivingDirectionRequest
+     * @returns DrivingDirectionResponse
+     *
+     * @param DrivingDirectionRequest $request
+     *
+     * @return DrivingDirectionResponse
+     */
+    public function drivingDirection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->drivingDirectionWithOptions($request, $headers, $runtime);
     }
 
     /**
