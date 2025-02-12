@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Supportplan\V20210706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProductByGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cidXcezGVQJjiWy2PzXylGwvg==
-     *
      * @var string
      */
     public $openGroupId;
@@ -22,9 +18,10 @@ class ListProductByGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->openGroupId) {
@@ -34,11 +31,11 @@ class ListProductByGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProductByGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

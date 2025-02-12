@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Supportplan\V20210706\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListEnterpriseDingtalkGroupsResponse extends Model
+class AddEnterpriseGroupMemberToTaskGroupResponse extends Model
 {
     /**
      * @var string[]
@@ -17,7 +17,7 @@ class ListEnterpriseDingtalkGroupsResponse extends Model
      */
     public $statusCode;
     /**
-     * @var ListEnterpriseDingtalkGroupsResponseBody
+     * @var AddEnterpriseGroupMemberToTaskGroupResponseBody
      */
     public $body;
     protected $_name = [
@@ -82,7 +82,7 @@ class ListEnterpriseDingtalkGroupsResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ListEnterpriseDingtalkGroupsResponseBody::fromMap($map['body']);
+            $model->body = AddEnterpriseGroupMemberToTaskGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

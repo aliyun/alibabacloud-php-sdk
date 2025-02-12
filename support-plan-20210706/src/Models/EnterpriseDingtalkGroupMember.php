@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Supportplan\V20210706\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnterpriseDingtalkGroupMember extends Model
 {
     /**
-     * @description 代表资源名称的资源属性字段
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isAdmin;
-
     /**
-     * @description 代表资源组的资源属性字段
-     *
-     * @example 130xxxxxxxx
-     *
      * @var string
      */
     public $mobile;
-
     /**
-     * @description 代表创建时间的资源属性字段
-     *
-     * @example 张三
-     *
      * @var string
      */
     public $name;
@@ -42,17 +28,20 @@ class EnterpriseDingtalkGroupMember extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isAdmin) {
             $res['IsAdmin'] = $this->isAdmin;
         }
+
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -60,20 +49,22 @@ class EnterpriseDingtalkGroupMember extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnterpriseDingtalkGroupMember
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsAdmin'])) {
             $model->isAdmin = $map['IsAdmin'];
         }
+
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

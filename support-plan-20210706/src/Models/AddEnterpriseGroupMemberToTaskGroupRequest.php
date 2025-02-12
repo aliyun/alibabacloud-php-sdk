@@ -6,14 +6,19 @@ namespace AlibabaCloud\SDK\Supportplan\V20210706\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ListEnterpriseDingtalkGroupCustomerMembersRequest extends Model
+class AddEnterpriseGroupMemberToTaskGroupRequest extends Model
 {
     /**
      * @var string
      */
-    public $openGroupId;
+    public $taskOrderId;
+    /**
+     * @var string
+     */
+    public $userId;
     protected $_name = [
-        'openGroupId' => 'OpenGroupId',
+        'taskOrderId' => 'TaskOrderId',
+        'userId'      => 'UserId',
     ];
 
     public function validate()
@@ -24,8 +29,12 @@ class ListEnterpriseDingtalkGroupCustomerMembersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->openGroupId) {
-            $res['OpenGroupId'] = $this->openGroupId;
+        if (null !== $this->taskOrderId) {
+            $res['TaskOrderId'] = $this->taskOrderId;
+        }
+
+        if (null !== $this->userId) {
+            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -39,8 +48,12 @@ class ListEnterpriseDingtalkGroupCustomerMembersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OpenGroupId'])) {
-            $model->openGroupId = $map['OpenGroupId'];
+        if (isset($map['TaskOrderId'])) {
+            $model->taskOrderId = $map['TaskOrderId'];
+        }
+
+        if (isset($map['UserId'])) {
+            $model->userId = $map['UserId'];
         }
 
         return $model;
