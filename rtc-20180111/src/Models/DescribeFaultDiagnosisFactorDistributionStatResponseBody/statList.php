@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisFactorDistributionStatResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class statList extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $factorId;
-
     /**
-     * @example 100
-     *
      * @var int
      */
     public $userCount;
-
     /**
-     * @example 0.9239
-     *
      * @var float
      */
     public $userRatio;
@@ -36,17 +28,20 @@ class statList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->factorId) {
             $res['FactorId'] = $this->factorId;
         }
+
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
         }
+
         if (null !== $this->userRatio) {
             $res['UserRatio'] = $this->userRatio;
         }
@@ -54,20 +49,22 @@ class statList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FactorId'])) {
             $model->factorId = $map['FactorId'];
         }
+
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];
         }
+
         if (isset($map['UserRatio'])) {
             $model->userRatio = $map['UserRatio'];
         }

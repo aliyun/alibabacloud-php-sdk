@@ -4,43 +4,27 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRecordTemplatesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example yourAppId
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description 1
-     *
      * @var int
      */
     public $ownerId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNum;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 76dasgb****
-     *
      * @var string[]
      */
     public $templateIds;
@@ -54,53 +38,75 @@ class DescribeRecordTemplatesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->templateIds)) {
+            Model::validateArray($this->templateIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->templateIds) {
-            $res['TemplateIds'] = $this->templateIds;
+            if (\is_array($this->templateIds)) {
+                $res['TemplateIds'] = [];
+                $n1                 = 0;
+                foreach ($this->templateIds as $item1) {
+                    $res['TemplateIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRecordTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TemplateIds'])) {
             if (!empty($map['TemplateIds'])) {
-                $model->templateIds = $map['TemplateIds'];
+                $model->templateIds = [];
+                $n1                 = 0;
+                foreach ($map['TemplateIds'] as $item1) {
+                    $model->templateIds[$n1++] = $item1;
+                }
             }
         }
 

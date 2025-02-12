@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody\channelMetricInfo\channelMetric;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelMetricResponseBody\channelMetricInfo\duration;
-use AlibabaCloud\Tea\Model;
 
 class channelMetricInfo extends Model
 {
@@ -14,7 +14,6 @@ class channelMetricInfo extends Model
      * @var channelMetric
      */
     public $channelMetric;
-
     /**
      * @var duration
      */
@@ -26,32 +25,41 @@ class channelMetricInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->channelMetric) {
+            $this->channelMetric->validate();
+        }
+        if (null !== $this->duration) {
+            $this->duration->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelMetric) {
-            $res['ChannelMetric'] = null !== $this->channelMetric ? $this->channelMetric->toMap() : null;
+            $res['ChannelMetric'] = null !== $this->channelMetric ? $this->channelMetric->toArray($noStream) : $this->channelMetric;
         }
+
         if (null !== $this->duration) {
-            $res['Duration'] = null !== $this->duration ? $this->duration->toMap() : null;
+            $res['Duration'] = null !== $this->duration ? $this->duration->toArray($noStream) : $this->duration;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return channelMetricInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelMetric'])) {
             $model->channelMetric = channelMetric::fromMap($map['ChannelMetric']);
         }
+
         if (isset($map['Duration'])) {
             $model->duration = duration::fromMap($map['Duration']);
         }

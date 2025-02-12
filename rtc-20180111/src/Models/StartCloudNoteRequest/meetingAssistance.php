@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class meetingAssistance extends Model
 {
@@ -12,10 +12,7 @@ class meetingAssistance extends Model
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $meetingAssistanceType;
@@ -26,35 +23,51 @@ class meetingAssistance extends Model
 
     public function validate()
     {
+        if (\is_array($this->meetingAssistanceType)) {
+            Model::validateArray($this->meetingAssistanceType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->meetingAssistanceType) {
-            $res['MeetingAssistanceType'] = $this->meetingAssistanceType;
+            if (\is_array($this->meetingAssistanceType)) {
+                $res['MeetingAssistanceType'] = [];
+                $n1                           = 0;
+                foreach ($this->meetingAssistanceType as $item1) {
+                    $res['MeetingAssistanceType'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return meetingAssistance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['MeetingAssistanceType'])) {
             if (!empty($map['MeetingAssistanceType'])) {
-                $model->meetingAssistanceType = $map['MeetingAssistanceType'];
+                $model->meetingAssistanceType = [];
+                $n1                           = 0;
+                foreach ($map['MeetingAssistanceType'] as $item1) {
+                    $model->meetingAssistanceType[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,55 +4,34 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCloudNotesShrinkRequest extends Model
 {
     /**
-     * @description APP ID。
-     *
-     * This parameter is required.
-     * @example testappid
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @example 311
-     *
      * @var string
      */
     public $channelId;
-
     /**
-     * @example 1712376532000
-     *
      * @var int
      */
     public $endTs;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 1712376032000
-     *
      * @var int
      */
     public $startTs;
-
     /**
      * @var string
      */
@@ -69,29 +48,36 @@ class DescribeCloudNotesShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->endTs) {
             $res['EndTs'] = $this->endTs;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->startTs) {
             $res['StartTs'] = $this->startTs;
         }
+
         if (null !== $this->taskIdsShrink) {
             $res['TaskIds'] = $this->taskIdsShrink;
         }
@@ -99,32 +85,38 @@ class DescribeCloudNotesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudNotesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['EndTs'])) {
             $model->endTs = $map['EndTs'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['StartTs'])) {
             $model->startTs = $map['StartTs'];
         }
+
         if (isset($map['TaskIds'])) {
             $model->taskIdsShrink = $map['TaskIds'];
         }

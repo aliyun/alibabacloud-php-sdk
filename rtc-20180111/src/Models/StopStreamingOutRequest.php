@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopStreamingOutRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example eo85****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example testid
-     *
      * @var string
      */
     public $channelId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $taskId;
@@ -42,17 +28,20 @@ class StopStreamingOutRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -60,20 +49,22 @@ class StopStreamingOutRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopStreamingOutRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

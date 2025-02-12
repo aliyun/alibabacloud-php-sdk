@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskRequest\userPanes\images;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskRequest\userPanes\texts;
-use AlibabaCloud\Tea\Model;
 
 class userPanes extends Model
 {
@@ -14,29 +14,19 @@ class userPanes extends Model
      * @var images[]
      */
     public $images;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $paneId;
-
     /**
-     * @example camera
-     *
      * @var string
      */
     public $sourceType;
-
     /**
      * @var texts[]
      */
     public $texts;
-
     /**
-     * @example TestId
-     *
      * @var string
      */
     public $userId;
@@ -50,35 +40,46 @@ class userPanes extends Model
 
     public function validate()
     {
+        if (\is_array($this->images)) {
+            Model::validateArray($this->images);
+        }
+        if (\is_array($this->texts)) {
+            Model::validateArray($this->texts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->images) {
-            $res['Images'] = [];
-            if (null !== $this->images && \is_array($this->images)) {
-                $n = 0;
-                foreach ($this->images as $item) {
-                    $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->images)) {
+                $res['Images'] = [];
+                $n1            = 0;
+                foreach ($this->images as $item1) {
+                    $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->paneId) {
             $res['PaneId'] = $this->paneId;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
+
         if (null !== $this->texts) {
-            $res['Texts'] = [];
-            if (null !== $this->texts && \is_array($this->texts)) {
-                $n = 0;
-                foreach ($this->texts as $item) {
-                    $res['Texts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->texts)) {
+                $res['Texts'] = [];
+                $n1           = 0;
+                foreach ($this->texts as $item1) {
+                    $res['Texts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -86,38 +87,42 @@ class userPanes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userPanes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n             = 0;
-                foreach ($map['Images'] as $item) {
-                    $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Images'] as $item1) {
+                    $model->images[$n1++] = images::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PaneId'])) {
             $model->paneId = $map['PaneId'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }
+
         if (isset($map['Texts'])) {
             if (!empty($map['Texts'])) {
                 $model->texts = [];
-                $n            = 0;
-                foreach ($map['Texts'] as $item) {
-                    $model->texts[$n++] = null !== $item ? texts::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Texts'] as $item1) {
+                    $model->texts[$n1++] = texts::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

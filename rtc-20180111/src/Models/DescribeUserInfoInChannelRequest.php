@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUserInfoInChannelRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 4eah****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1234
-     *
      * @var string
      */
     public $channelId;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example testId
-     *
      * @var string
      */
     public $userId;
@@ -48,20 +33,24 @@ class DescribeUserInfoInChannelRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -69,23 +58,26 @@ class DescribeUserInfoInChannelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserInfoInChannelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

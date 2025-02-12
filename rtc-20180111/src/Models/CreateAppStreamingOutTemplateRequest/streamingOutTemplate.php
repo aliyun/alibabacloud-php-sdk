@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\CreateAppStreamingOutTemplateRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class streamingOutTemplate extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $layoutIds;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $mediaEncode;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 模版
-     *
      * @var string
      */
     public $name;
@@ -40,17 +28,29 @@ class streamingOutTemplate extends Model
 
     public function validate()
     {
+        if (\is_array($this->layoutIds)) {
+            Model::validateArray($this->layoutIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layoutIds) {
-            $res['LayoutIds'] = $this->layoutIds;
+            if (\is_array($this->layoutIds)) {
+                $res['LayoutIds'] = [];
+                $n1               = 0;
+                foreach ($this->layoutIds as $item1) {
+                    $res['LayoutIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->mediaEncode) {
             $res['MediaEncode'] = $this->mediaEncode;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -58,22 +58,28 @@ class streamingOutTemplate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return streamingOutTemplate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LayoutIds'])) {
             if (!empty($map['LayoutIds'])) {
-                $model->layoutIds = $map['LayoutIds'];
+                $model->layoutIds = [];
+                $n1               = 0;
+                foreach ($map['LayoutIds'] as $item1) {
+                    $model->layoutIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MediaEncode'])) {
             $model->mediaEncode = $map['MediaEncode'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

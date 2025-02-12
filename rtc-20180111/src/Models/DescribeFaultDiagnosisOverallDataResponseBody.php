@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisOverallDataResponseBody\metricData;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeFaultDiagnosisOverallDataResponseBody\overallData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeFaultDiagnosisOverallDataResponseBody extends Model
 {
@@ -14,15 +14,11 @@ class DescribeFaultDiagnosisOverallDataResponseBody extends Model
      * @var metricData
      */
     public $metricData;
-
     /**
      * @var overallData
      */
     public $overallData;
-
     /**
-     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
-     *
      * @var string
      */
     public $requestId;
@@ -34,17 +30,26 @@ class DescribeFaultDiagnosisOverallDataResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->metricData) {
+            $this->metricData->validate();
+        }
+        if (null !== $this->overallData) {
+            $this->overallData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metricData) {
-            $res['MetricData'] = null !== $this->metricData ? $this->metricData->toMap() : null;
+            $res['MetricData'] = null !== $this->metricData ? $this->metricData->toArray($noStream) : $this->metricData;
         }
+
         if (null !== $this->overallData) {
-            $res['OverallData'] = null !== $this->overallData ? $this->overallData->toMap() : null;
+            $res['OverallData'] = null !== $this->overallData ? $this->overallData->toArray($noStream) : $this->overallData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,20 +57,22 @@ class DescribeFaultDiagnosisOverallDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeFaultDiagnosisOverallDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MetricData'])) {
             $model->metricData = metricData::fromMap($map['MetricData']);
         }
+
         if (isset($map['OverallData'])) {
             $model->overallData = overallData::fromMap($map['OverallData']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

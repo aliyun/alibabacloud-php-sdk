@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyMPULayoutRequest\panes;
-use AlibabaCloud\Tea\Model;
 
 class ModifyMPULayoutRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example yourAppId
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @example 3
-     *
      * @var int
      */
     public $audioMixCount;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10117
-     *
      * @var int
      */
     public $layoutId;
-
     /**
-     * @example LayoutName
-     *
      * @var string
      */
     public $name;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
      * @var panes[]
      */
@@ -61,32 +44,41 @@ class ModifyMPULayoutRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->panes)) {
+            Model::validateArray($this->panes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->audioMixCount) {
             $res['AudioMixCount'] = $this->audioMixCount;
         }
+
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->panes) {
-            $res['Panes'] = [];
-            if (null !== $this->panes && \is_array($this->panes)) {
-                $n = 0;
-                foreach ($this->panes as $item) {
-                    $res['Panes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->panes)) {
+                $res['Panes'] = [];
+                $n1           = 0;
+                foreach ($this->panes as $item1) {
+                    $res['Panes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -94,35 +86,40 @@ class ModifyMPULayoutRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyMPULayoutRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AudioMixCount'])) {
             $model->audioMixCount = $map['AudioMixCount'];
         }
+
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {
                 $model->panes = [];
-                $n            = 0;
-                foreach ($map['Panes'] as $item) {
-                    $model->panes[$n++] = null !== $item ? panes::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Panes'] as $item1) {
+                    $model->panes[$n1++] = panes::fromMap($item1);
                 }
             }
         }

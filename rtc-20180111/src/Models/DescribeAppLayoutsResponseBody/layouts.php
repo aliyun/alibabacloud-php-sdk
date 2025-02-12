@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppLayoutsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppLayoutsResponseBody\layouts\panes;
-use AlibabaCloud\Tea\Model;
 
 class layouts extends Model
 {
     /**
-     * @example 167466539798442****
-     *
      * @var string
      */
     public $layoutId;
-
     /**
-     * @example 测试
-     *
      * @var string
      */
     public $name;
-
     /**
      * @var panes[]
      */
@@ -35,23 +29,29 @@ class layouts extends Model
 
     public function validate()
     {
+        if (\is_array($this->panes)) {
+            Model::validateArray($this->panes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->panes) {
-            $res['Panes'] = [];
-            if (null !== $this->panes && \is_array($this->panes)) {
-                $n = 0;
-                foreach ($this->panes as $item) {
-                    $res['Panes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->panes)) {
+                $res['Panes'] = [];
+                $n1           = 0;
+                foreach ($this->panes as $item1) {
+                    $res['Panes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -59,26 +59,28 @@ class layouts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return layouts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {
                 $model->panes = [];
-                $n            = 0;
-                foreach ($map['Panes'] as $item) {
-                    $model->panes[$n++] = null !== $item ? panes::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Panes'] as $item1) {
+                    $model->panes[$n1++] = panes::fromMap($item1);
                 }
             }
         }

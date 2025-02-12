@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableAutoLiveStreamRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example eo85****
-     *
      * @var string
      */
     public $appId;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $ruleId;
@@ -38,17 +28,20 @@ class DisableAutoLiveStreamRuleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -56,20 +49,22 @@ class DisableAutoLiveStreamRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableAutoLiveStreamRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

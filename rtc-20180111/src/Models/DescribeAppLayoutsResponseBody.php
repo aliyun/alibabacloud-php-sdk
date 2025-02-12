@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppLayoutsResponseBody\layouts;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAppLayoutsResponseBody extends Model
 {
@@ -13,24 +13,15 @@ class DescribeAppLayoutsResponseBody extends Model
      * @var layouts[]
      */
     public $layouts;
-
     /**
-     * @example 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $totalNum;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $totalPage;
@@ -43,26 +34,33 @@ class DescribeAppLayoutsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->layouts)) {
+            Model::validateArray($this->layouts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layouts) {
-            $res['Layouts'] = [];
-            if (null !== $this->layouts && \is_array($this->layouts)) {
-                $n = 0;
-                foreach ($this->layouts as $item) {
-                    $res['Layouts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->layouts)) {
+                $res['Layouts'] = [];
+                $n1             = 0;
+                foreach ($this->layouts as $item1) {
+                    $res['Layouts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalNum) {
             $res['TotalNum'] = $this->totalNum;
         }
+
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
         }
@@ -70,29 +68,32 @@ class DescribeAppLayoutsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAppLayoutsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Layouts'])) {
             if (!empty($map['Layouts'])) {
                 $model->layouts = [];
-                $n              = 0;
-                foreach ($map['Layouts'] as $item) {
-                    $model->layouts[$n++] = null !== $item ? layouts::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Layouts'] as $item1) {
+                    $model->layouts[$n1++] = layouts::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalNum'])) {
             $model->totalNum = $map['TotalNum'];
         }
+
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
         }

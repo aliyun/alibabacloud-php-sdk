@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelListResponseBody\channelList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeRtcChannelListResponseBody\channelList\channelList\callArea;
-use AlibabaCloud\Tea\Model;
 
 class channelList extends Model
 {
@@ -13,31 +13,19 @@ class channelList extends Model
      * @var callArea
      */
     public $callArea;
-
     /**
-     * @example testChannel
-     *
      * @var string
      */
     public $channelId;
-
     /**
-     * @example 2018-01-29T02:00:00Z
-     *
      * @var string
      */
     public $endTime;
-
     /**
-     * @example 2018-01-29T01:00:00Z
-     *
      * @var string
      */
     public $startTime;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $totalUserCnt;
@@ -51,23 +39,31 @@ class channelList extends Model
 
     public function validate()
     {
+        if (null !== $this->callArea) {
+            $this->callArea->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->callArea) {
-            $res['CallArea'] = null !== $this->callArea ? $this->callArea->toMap() : null;
+            $res['CallArea'] = null !== $this->callArea ? $this->callArea->toArray($noStream) : $this->callArea;
         }
+
         if (null !== $this->channelId) {
             $res['ChannelId'] = $this->channelId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->totalUserCnt) {
             $res['TotalUserCnt'] = $this->totalUserCnt;
         }
@@ -75,26 +71,30 @@ class channelList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return channelList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CallArea'])) {
             $model->callArea = callArea::fromMap($map['CallArea']);
         }
+
         if (isset($map['ChannelId'])) {
             $model->channelId = $map['ChannelId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TotalUserCnt'])) {
             $model->totalUserCnt = $map['TotalUserCnt'];
         }

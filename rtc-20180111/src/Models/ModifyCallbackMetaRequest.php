@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\ModifyCallbackMetaRequest\callback;
-use AlibabaCloud\Tea\Model;
 
 class ModifyCallbackMetaRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 223***JQb
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var callback
      */
     public $callback;
-
     /**
      * @var int
      */
@@ -37,17 +29,23 @@ class ModifyCallbackMetaRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->callback) {
+            $this->callback->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->callback) {
-            $res['Callback'] = null !== $this->callback ? $this->callback->toMap() : null;
+            $res['Callback'] = null !== $this->callback ? $this->callback->toArray($noStream) : $this->callback;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -55,20 +53,22 @@ class ModifyCallbackMetaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCallbackMetaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Callback'])) {
             $model->callback = callback::fromMap($map['Callback']);
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

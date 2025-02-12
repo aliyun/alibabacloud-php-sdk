@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DeleteAppStreamingOutTemplateRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class streamingOutTemplate extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example xd4c****
-     *
      * @var string
      */
     public $templateId;
@@ -22,9 +18,10 @@ class streamingOutTemplate extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateId) {
@@ -34,11 +31,11 @@ class streamingOutTemplate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return streamingOutTemplate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

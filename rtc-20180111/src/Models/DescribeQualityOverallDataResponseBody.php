@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeQualityOverallDataResponseBody\qualityOverallData;
-use AlibabaCloud\Tea\Model;
 
 class DescribeQualityOverallDataResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class DescribeQualityOverallDataResponseBody extends Model
      * @var qualityOverallData[]
      */
     public $qualityOverallData;
-
     /**
-     * @example 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +24,25 @@ class DescribeQualityOverallDataResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->qualityOverallData)) {
+            Model::validateArray($this->qualityOverallData);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qualityOverallData) {
-            $res['QualityOverallData'] = [];
-            if (null !== $this->qualityOverallData && \is_array($this->qualityOverallData)) {
-                $n = 0;
-                foreach ($this->qualityOverallData as $item) {
-                    $res['QualityOverallData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->qualityOverallData)) {
+                $res['QualityOverallData'] = [];
+                $n1                        = 0;
+                foreach ($this->qualityOverallData as $item1) {
+                    $res['QualityOverallData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +50,24 @@ class DescribeQualityOverallDataResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeQualityOverallDataResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QualityOverallData'])) {
             if (!empty($map['QualityOverallData'])) {
                 $model->qualityOverallData = [];
-                $n                         = 0;
-                foreach ($map['QualityOverallData'] as $item) {
-                    $model->qualityOverallData[$n++] = null !== $item ? qualityOverallData::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['QualityOverallData'] as $item1) {
+                    $model->qualityOverallData[$n1++] = qualityOverallData::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,62 +4,39 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTemplateRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class watermarks extends Model
 {
     /**
-     * @example 0
-     *
      * @var float
      */
     public $alpha;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $display;
-
     /**
-     * @example 0.2456
-     *
      * @var float
      */
     public $height;
-
     /**
-     * @example https://www.example.com/image.jpg
-     *
      * @var string
      */
     public $url;
-
     /**
-     * @example 0.2456
-     *
      * @var float
      */
     public $width;
-
     /**
-     * @example 0.7576
-     *
      * @var float
      */
     public $x;
-
     /**
-     * @example 0.7576
-     *
      * @var float
      */
     public $y;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $ZOrder;
@@ -76,32 +53,40 @@ class watermarks extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alpha) {
             $res['Alpha'] = $this->alpha;
         }
+
         if (null !== $this->display) {
             $res['Display'] = $this->display;
         }
+
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
+
         if (null !== $this->x) {
             $res['X'] = $this->x;
         }
+
         if (null !== $this->y) {
             $res['Y'] = $this->y;
         }
+
         if (null !== $this->ZOrder) {
             $res['ZOrder'] = $this->ZOrder;
         }
@@ -109,35 +94,42 @@ class watermarks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return watermarks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Alpha'])) {
             $model->alpha = $map['Alpha'];
         }
+
         if (isset($map['Display'])) {
             $model->display = $map['Display'];
         }
+
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }
+
         if (isset($map['X'])) {
             $model->x = $map['X'];
         }
+
         if (isset($map['Y'])) {
             $model->y = $map['Y'];
         }
+
         if (isset($map['ZOrder'])) {
             $model->ZOrder = $map['ZOrder'];
         }

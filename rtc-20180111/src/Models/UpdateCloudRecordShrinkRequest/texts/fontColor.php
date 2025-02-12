@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordShrinkRequest\texts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fontColor extends Model
 {
     /**
-     * @example 255
-     *
      * @var int
      */
     public $b;
-
     /**
-     * @example 255
-     *
      * @var int
      */
     public $g;
-
     /**
-     * @example 255
-     *
      * @var int
      */
     public $r;
@@ -36,17 +28,20 @@ class fontColor extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->b) {
             $res['B'] = $this->b;
         }
+
         if (null !== $this->g) {
             $res['G'] = $this->g;
         }
+
         if (null !== $this->r) {
             $res['R'] = $this->r;
         }
@@ -54,20 +49,22 @@ class fontColor extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fontColor
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['B'])) {
             $model->b = $map['B'];
         }
+
         if (isset($map['G'])) {
             $model->g = $map['G'];
         }
+
         if (isset($map['R'])) {
             $model->r = $map['R'];
         }

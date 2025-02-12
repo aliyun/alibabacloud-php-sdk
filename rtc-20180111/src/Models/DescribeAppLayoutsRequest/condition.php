@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeAppLayoutsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class condition extends Model
 {
     /**
-     * @example 167466539798442****
-     *
      * @var string
      */
     public $layoutId;
-
     /**
-     * @example 测试
-     *
      * @var string
      */
     public $name;
@@ -28,14 +23,16 @@ class condition extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -43,17 +40,18 @@ class condition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return condition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

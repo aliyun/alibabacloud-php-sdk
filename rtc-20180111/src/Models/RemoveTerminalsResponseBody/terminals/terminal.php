@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveTerminalsResponseBody\terminals;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class terminal extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $code;
-
     /**
-     * @example 1811****
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @example Success
-     *
      * @var string
      */
     public $message;
@@ -36,17 +28,20 @@ class terminal extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -54,20 +49,22 @@ class terminal extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return terminal
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

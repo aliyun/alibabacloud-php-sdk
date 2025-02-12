@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeUserInfoInChannelResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class property extends Model
 {
     /**
-     * @example 1557909133
-     *
      * @var int
      */
     public $join;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $role;
-
     /**
-     * @example xa744sxx8rtobgj****
-     *
      * @var string
      */
     public $session;
@@ -36,17 +28,20 @@ class property extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->join) {
             $res['Join'] = $this->join;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->session) {
             $res['Session'] = $this->session;
         }
@@ -54,20 +49,22 @@ class property extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return property
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Join'])) {
             $model->join = $map['Join'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['Session'])) {
             $model->session = $map['Session'];
         }

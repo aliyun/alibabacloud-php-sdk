@@ -4,32 +4,23 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoListResponseBody\layouts;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeMPULayoutInfoListResponseBody\layouts\layout\panes;
-use AlibabaCloud\Tea\Model;
 
 class layout extends Model
 {
     /**
-     * @example 3
-     *
      * @var int
      */
     public $audioMixCount;
-
     /**
-     * @example 2
-     *
      * @var int
      */
     public $layoutId;
-
     /**
-     * @example LayoutName
-     *
      * @var string
      */
     public $name;
-
     /**
      * @var panes
      */
@@ -43,44 +34,54 @@ class layout extends Model
 
     public function validate()
     {
+        if (null !== $this->panes) {
+            $this->panes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioMixCount) {
             $res['AudioMixCount'] = $this->audioMixCount;
         }
+
         if (null !== $this->layoutId) {
             $res['LayoutId'] = $this->layoutId;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->panes) {
-            $res['Panes'] = null !== $this->panes ? $this->panes->toMap() : null;
+            $res['Panes'] = null !== $this->panes ? $this->panes->toArray($noStream) : $this->panes;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return layout
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioMixCount'])) {
             $model->audioMixCount = $map['AudioMixCount'];
         }
+
         if (isset($map['LayoutId'])) {
             $model->layoutId = $map['LayoutId'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Panes'])) {
             $model->panes = panes::fromMap($map['Panes']);
         }

@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelAreaDistributionStatDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class areaStatList extends Model
 {
     /**
-     * @example 浙江省
-     *
      * @var string
      */
     public $areaName;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $callUserCount;
-
     /**
-     * @example 0.9999
-     *
      * @var string
      */
     public $highQualityTransmissionRate;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pubUserCount;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $subUserCount;
@@ -52,23 +38,28 @@ class areaStatList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->areaName) {
             $res['AreaName'] = $this->areaName;
         }
+
         if (null !== $this->callUserCount) {
             $res['CallUserCount'] = $this->callUserCount;
         }
+
         if (null !== $this->highQualityTransmissionRate) {
             $res['HighQualityTransmissionRate'] = $this->highQualityTransmissionRate;
         }
+
         if (null !== $this->pubUserCount) {
             $res['PubUserCount'] = $this->pubUserCount;
         }
+
         if (null !== $this->subUserCount) {
             $res['SubUserCount'] = $this->subUserCount;
         }
@@ -76,26 +67,30 @@ class areaStatList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return areaStatList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AreaName'])) {
             $model->areaName = $map['AreaName'];
         }
+
         if (isset($map['CallUserCount'])) {
             $model->callUserCount = $map['CallUserCount'];
         }
+
         if (isset($map['HighQualityTransmissionRate'])) {
             $model->highQualityTransmissionRate = $map['HighQualityTransmissionRate'];
         }
+
         if (isset($map['PubUserCount'])) {
             $model->pubUserCount = $map['PubUserCount'];
         }
+
         if (isset($map['SubUserCount'])) {
             $model->subUserCount = $map['SubUserCount'];
         }
