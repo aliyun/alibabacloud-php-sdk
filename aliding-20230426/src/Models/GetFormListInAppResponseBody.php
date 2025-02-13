@@ -4,54 +4,36 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetFormListInAppResponseBody extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
      * @var data[]
      */
     public $data;
-
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $totalCount;
-
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $vendorRequestId;
-
     /**
-     * @example dingtalk
-     *
      * @var string
      */
     public $vendorType;
@@ -67,35 +49,45 @@ class GetFormListInAppResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['currentPage'] = $this->currentPage;
         }
+
         if (null !== $this->data) {
-            $res['data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['data'] = [];
+                $n1          = 0;
+                foreach ($this->data as $item1) {
+                    $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
+
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
+
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -103,38 +95,44 @@ class GetFormListInAppResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFormListInAppResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['currentPage'])) {
             $model->currentPage = $map['currentPage'];
         }
+
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
-                $n           = 0;
-                foreach ($map['data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['data'] as $item1) {
+                    $model->data[$n1++] = data::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }
+
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
+
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

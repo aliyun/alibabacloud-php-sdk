@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRelatedWorkspacesShrinkRequest extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $includeRecent;
-
     /**
      * @var string
      */
@@ -26,14 +23,16 @@ class GetRelatedWorkspacesShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->includeRecent) {
             $res['IncludeRecent'] = $this->includeRecent;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -41,17 +40,18 @@ class GetRelatedWorkspacesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRelatedWorkspacesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IncludeRecent'])) {
             $model->includeRecent = $map['IncludeRecent'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

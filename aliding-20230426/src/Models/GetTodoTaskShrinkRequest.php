@@ -4,19 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTodoTaskShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example OPJpwtxxxx
-     *
      * @var string
      */
     public $taskId;
-
     /**
      * @var string
      */
@@ -28,14 +23,16 @@ class GetTodoTaskShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -43,17 +40,18 @@ class GetTodoTaskShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTodoTaskShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

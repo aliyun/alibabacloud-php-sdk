@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesResponseBody\dentries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class thumbnail extends Model
 {
     /**
-     * @example 64
-     *
      * @var int
      */
     public $height;
-
     /**
-     * @example url
-     *
      * @var string
      */
     public $url;
-
     /**
-     * @example 64
-     *
      * @var int
      */
     public $width;
@@ -36,17 +28,20 @@ class thumbnail extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->height) {
             $res['Height'] = $this->height;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
+
         if (null !== $this->width) {
             $res['Width'] = $this->width;
         }
@@ -54,20 +49,22 @@ class thumbnail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return thumbnail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Height'])) {
             $model->height = $map['Height'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
+
         if (isset($map['Width'])) {
             $model->width = $map['Width'];
         }

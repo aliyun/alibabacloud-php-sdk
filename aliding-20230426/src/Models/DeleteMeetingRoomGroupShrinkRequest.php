@@ -4,19 +4,14 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMeetingRoomGroupShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 172
-     *
      * @var string
      */
     public $groupId;
-
     /**
      * @var string
      */
@@ -28,14 +23,16 @@ class DeleteMeetingRoomGroupShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -43,17 +40,18 @@ class DeleteMeetingRoomGroupShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMeetingRoomGroupShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

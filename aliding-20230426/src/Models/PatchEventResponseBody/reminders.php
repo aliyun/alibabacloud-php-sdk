@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reminders extends Model
 {
     /**
-     * @example dingtalk
-     *
      * @var string
      */
     public $method;
-
     /**
-     * @example 15
-     *
      * @var string
      */
     public $minutes;
@@ -28,14 +23,16 @@ class reminders extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->minutes) {
             $res['Minutes'] = $this->minutes;
         }
@@ -43,17 +40,18 @@ class reminders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reminders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['Minutes'])) {
             $model->minutes = $map['Minutes'];
         }

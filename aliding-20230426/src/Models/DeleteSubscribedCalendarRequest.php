@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSubscribedCalendarRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example MzM5Mxxx
-     *
      * @var string
      */
     public $calendarId;
@@ -22,9 +18,10 @@ class DeleteSubscribedCalendarRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->calendarId) {
@@ -34,11 +31,11 @@ class DeleteSubscribedCalendarRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSubscribedCalendarRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateSubscribedCalendarsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class subscribeScope extends Model
 {
@@ -18,29 +18,43 @@ class subscribeScope extends Model
 
     public function validate()
     {
+        if (\is_array($this->userIds)) {
+            Model::validateArray($this->userIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userIds) {
-            $res['UserIds'] = $this->userIds;
+            if (\is_array($this->userIds)) {
+                $res['UserIds'] = [];
+                $n1             = 0;
+                foreach ($this->userIds as $item1) {
+                    $res['UserIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subscribeScope
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
-                $model->userIds = $map['UserIds'];
+                $model->userIds = [];
+                $n1             = 0;
+                foreach ($map['UserIds'] as $item1) {
+                    $model->userIds[$n1++] = $item1;
+                }
             }
         }
 

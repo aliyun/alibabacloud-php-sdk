@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartMinutesShrinkRequest extends Model
 {
@@ -12,28 +12,15 @@ class StartMinutesShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 61289fxxx
-     *
      * @var string
      */
     public $conferenceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 012345
-     *
      * @var string
      */
     public $ownerUserId;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $recordAudio;
@@ -46,20 +33,24 @@ class StartMinutesShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->conferenceId) {
             $res['conferenceId'] = $this->conferenceId;
         }
+
         if (null !== $this->ownerUserId) {
             $res['ownerUserId'] = $this->ownerUserId;
         }
+
         if (null !== $this->recordAudio) {
             $res['recordAudio'] = $this->recordAudio;
         }
@@ -67,23 +58,26 @@ class StartMinutesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartMinutesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['conferenceId'])) {
             $model->conferenceId = $map['conferenceId'];
         }
+
         if (isset($map['ownerUserId'])) {
             $model->ownerUserId = $map['ownerUserId'];
         }
+
         if (isset($map['recordAudio'])) {
             $model->recordAudio = $map['recordAudio'];
         }

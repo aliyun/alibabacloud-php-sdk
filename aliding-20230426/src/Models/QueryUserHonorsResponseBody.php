@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryUserHonorsResponseBody\honors;
-use AlibabaCloud\Tea\Model;
 
 class QueryUserHonorsResponseBody extends Model
 {
@@ -13,19 +13,11 @@ class QueryUserHonorsResponseBody extends Model
      * @var honors[]
      */
     public $honors;
-
     /**
-     * @example http-trigger-nodejs10.luoni-old.1431999136518149.cn-hangzhou.fc.devsapp.net
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
@@ -37,23 +29,29 @@ class QueryUserHonorsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->honors)) {
+            Model::validateArray($this->honors);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->honors) {
-            $res['honors'] = [];
-            if (null !== $this->honors && \is_array($this->honors)) {
-                $n = 0;
-                foreach ($this->honors as $item) {
-                    $res['honors'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->honors)) {
+                $res['honors'] = [];
+                $n1            = 0;
+                foreach ($this->honors as $item1) {
+                    $res['honors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -61,26 +59,28 @@ class QueryUserHonorsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryUserHonorsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['honors'])) {
             if (!empty($map['honors'])) {
                 $model->honors = [];
-                $n             = 0;
-                foreach ($map['honors'] as $item) {
-                    $model->honors[$n++] = null !== $item ? honors::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['honors'] as $item1) {
+                    $model->honors[$n1++] = honors::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

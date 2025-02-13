@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserShrinkRequest extends Model
 {
@@ -12,10 +12,7 @@ class GetUserShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
-
     /**
-     * @example zh_CN
-     *
      * @var string
      */
     public $language;
@@ -26,14 +23,16 @@ class GetUserShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->language) {
             $res['language'] = $this->language;
         }
@@ -41,17 +40,18 @@ class GetUserShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['language'])) {
             $model->language = $map['language'];
         }

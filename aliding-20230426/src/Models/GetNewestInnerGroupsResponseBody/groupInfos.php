@@ -4,31 +4,22 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetNewestInnerGroupsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groupInfos extends Model
 {
     /**
-     * @example @lADOADma*****QKA
-     *
      * @var string
      */
     public $icon;
-
     /**
-     * @example 10
-     *
      * @var string
      */
     public $memberAmount;
-
     /**
-     * @example cid1e******==
-     *
      * @var string
      */
     public $openConversationId;
-
     /**
      * @var string
      */
@@ -42,20 +33,24 @@ class groupInfos extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
+
         if (null !== $this->memberAmount) {
             $res['MemberAmount'] = $this->memberAmount;
         }
+
         if (null !== $this->openConversationId) {
             $res['OpenConversationId'] = $this->openConversationId;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -63,23 +58,26 @@ class groupInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groupInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
+
         if (isset($map['MemberAmount'])) {
             $model->memberAmount = $map['MemberAmount'];
         }
+
         if (isset($map['OpenConversationId'])) {
             $model->openConversationId = $map['OpenConversationId'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

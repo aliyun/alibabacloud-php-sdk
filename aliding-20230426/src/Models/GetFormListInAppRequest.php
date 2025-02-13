@@ -4,45 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFormListInAppRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example APP_PBKT0xxx
-     *
      * @var string
      */
     public $appType;
-
     /**
-     * @example receipt
-     *
      * @var string
      */
     public $formTypes;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example hexxxx
-     *
      * @var string
      */
     public $systemToken;
@@ -56,23 +38,28 @@ class GetFormListInAppRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
+
         if (null !== $this->formTypes) {
             $res['FormTypes'] = $this->formTypes;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
@@ -80,26 +67,30 @@ class GetFormListInAppRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFormListInAppRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
+
         if (isset($map['FormTypes'])) {
             $model->formTypes = $map['FormTypes'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }

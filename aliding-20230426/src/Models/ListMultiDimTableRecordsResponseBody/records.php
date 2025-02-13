@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsResponseBody\records\createdBy;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListMultiDimTableRecordsResponseBody\records\lastModifiedBy;
-use AlibabaCloud\Tea\Model;
 
 class records extends Model
 {
@@ -14,36 +14,23 @@ class records extends Model
      * @var createdBy
      */
     public $createdBy;
-
     /**
-     * @example xxx
-     *
      * @var int
      */
     public $createdTime;
-
     /**
-     * @example title,shortTitle
-     *
      * @var mixed[]
      */
     public $fields;
-
     /**
-     * @example 123
-     *
      * @var string
      */
     public $id;
-
     /**
      * @var lastModifiedBy
      */
     public $lastModifiedBy;
-
     /**
-     * @example xxx
-     *
      * @var int
      */
     public $lastModifiedTime;
@@ -58,26 +45,46 @@ class records extends Model
 
     public function validate()
     {
+        if (null !== $this->createdBy) {
+            $this->createdBy->validate();
+        }
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        if (null !== $this->lastModifiedBy) {
+            $this->lastModifiedBy->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createdBy) {
-            $res['CreatedBy'] = null !== $this->createdBy ? $this->createdBy->toMap() : null;
+            $res['CreatedBy'] = null !== $this->createdBy ? $this->createdBy->toArray($noStream) : $this->createdBy;
         }
+
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
+
         if (null !== $this->fields) {
-            $res['Fields'] = $this->fields;
+            if (\is_array($this->fields)) {
+                $res['Fields'] = [];
+                foreach ($this->fields as $key1 => $value1) {
+                    $res['Fields'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->lastModifiedBy) {
-            $res['LastModifiedBy'] = null !== $this->lastModifiedBy ? $this->lastModifiedBy->toMap() : null;
+            $res['LastModifiedBy'] = null !== $this->lastModifiedBy ? $this->lastModifiedBy->toArray($noStream) : $this->lastModifiedBy;
         }
+
         if (null !== $this->lastModifiedTime) {
             $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
@@ -85,29 +92,39 @@ class records extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return records
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreatedBy'])) {
             $model->createdBy = createdBy::fromMap($map['CreatedBy']);
         }
+
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
+
         if (isset($map['Fields'])) {
-            $model->fields = $map['Fields'];
+            if (!empty($map['Fields'])) {
+                $model->fields = [];
+                foreach ($map['Fields'] as $key1 => $value1) {
+                    $model->fields[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['LastModifiedBy'])) {
             $model->lastModifiedBy = lastModifiedBy::fromMap($map['LastModifiedBy']);
         }
+
         if (isset($map['LastModifiedTime'])) {
             $model->lastModifiedTime = $map['LastModifiedTime'];
         }

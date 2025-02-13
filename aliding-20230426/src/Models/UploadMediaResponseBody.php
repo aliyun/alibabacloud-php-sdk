@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadMediaResponseBody extends Model
 {
     /**
-     * @example abcd1234
-     *
      * @var string
      */
     public $mediaId;
-
     /**
-     * @description requestId
-     *
-     * @example abcd-1234-wxyz-9876
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,16 @@ class UploadMediaResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaId) {
             $res['mediaId'] = $this->mediaId;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -45,17 +40,18 @@ class UploadMediaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadMediaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['mediaId'])) {
             $model->mediaId = $map['mediaId'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

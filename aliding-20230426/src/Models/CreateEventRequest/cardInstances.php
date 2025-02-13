@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cardInstances extends Model
 {
@@ -12,7 +12,6 @@ class cardInstances extends Model
      * @var string
      */
     public $outTrackId;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class cardInstances extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outTrackId) {
             $res['OutTrackId'] = $this->outTrackId;
         }
+
         if (null !== $this->scenario) {
             $res['Scenario'] = $this->scenario;
         }
@@ -39,17 +40,18 @@ class cardInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cardInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OutTrackId'])) {
             $model->outTrackId = $map['OutTrackId'];
         }
+
         if (isset($map['Scenario'])) {
             $model->scenario = $map['Scenario'];
         }

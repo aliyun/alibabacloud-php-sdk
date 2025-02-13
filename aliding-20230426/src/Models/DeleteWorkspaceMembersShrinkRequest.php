@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteWorkspaceMembersShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $membersShrink;
-
     /**
      * @var string
      */
     public $tenantContextShrink;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $workspaceId;
@@ -36,17 +28,20 @@ class DeleteWorkspaceMembersShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->membersShrink) {
             $res['Members'] = $this->membersShrink;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
         }
@@ -54,20 +49,22 @@ class DeleteWorkspaceMembersShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteWorkspaceMembersShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Members'])) {
             $model->membersShrink = $map['Members'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];
         }

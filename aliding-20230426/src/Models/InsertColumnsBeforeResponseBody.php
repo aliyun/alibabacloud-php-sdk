@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InsertColumnsBeforeResponseBody extends Model
 {
     /**
-     * @example stxxxx
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,16 @@ class InsertColumnsBeforeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -45,17 +40,18 @@ class InsertColumnsBeforeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InsertColumnsBeforeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

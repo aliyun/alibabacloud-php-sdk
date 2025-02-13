@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetMultipartFileUploadInfosResponseBody\multipartHeaderSignatureInfos\headerSignatureInfo;
-use AlibabaCloud\Tea\Model;
 
 class multipartHeaderSignatureInfos extends Model
 {
@@ -13,10 +13,7 @@ class multipartHeaderSignatureInfos extends Model
      * @var headerSignatureInfo
      */
     public $headerSignatureInfo;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $partNumber;
@@ -27,14 +24,19 @@ class multipartHeaderSignatureInfos extends Model
 
     public function validate()
     {
+        if (null !== $this->headerSignatureInfo) {
+            $this->headerSignatureInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headerSignatureInfo) {
-            $res['HeaderSignatureInfo'] = null !== $this->headerSignatureInfo ? $this->headerSignatureInfo->toMap() : null;
+            $res['HeaderSignatureInfo'] = null !== $this->headerSignatureInfo ? $this->headerSignatureInfo->toArray($noStream) : $this->headerSignatureInfo;
         }
+
         if (null !== $this->partNumber) {
             $res['PartNumber'] = $this->partNumber;
         }
@@ -42,17 +44,18 @@ class multipartHeaderSignatureInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return multipartHeaderSignatureInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HeaderSignatureInfo'])) {
             $model->headerSignatureInfo = headerSignatureInfo::fromMap($map['HeaderSignatureInfo']);
         }
+
         if (isset($map['PartNumber'])) {
             $model->partNumber = $map['PartNumber'];
         }

@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryUserHonorsResponseBody\honors;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class grantHistory extends Model
 {
     /**
-     * @example 12312312312312312
-     *
      * @var int
      */
     public $grantTime;
-
     /**
-     * @example 363784
-     *
      * @var string
      */
     public $senderUserid;
@@ -28,14 +23,16 @@ class grantHistory extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->grantTime) {
             $res['grantTime'] = $this->grantTime;
         }
+
         if (null !== $this->senderUserid) {
             $res['senderUserid'] = $this->senderUserid;
         }
@@ -43,17 +40,18 @@ class grantHistory extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return grantHistory
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['grantTime'])) {
             $model->grantTime = $map['grantTime'];
         }
+
         if (isset($map['senderUserid'])) {
             $model->senderUserid = $map['senderUserid'];
         }

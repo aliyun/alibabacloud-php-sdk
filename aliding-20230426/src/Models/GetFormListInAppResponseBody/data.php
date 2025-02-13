@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFormListInAppResponseBody\data\title;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 012345
-     *
      * @var string
      */
     public $creator;
-
     /**
-     * @example receipt
-     *
      * @var string
      */
     public $formType;
-
     /**
-     * @example FORM-BAxxxxx
-     *
      * @var string
      */
     public $formUuid;
-
     /**
-     * @example 2023-02-22 15:27:07
-     *
      * @var string
      */
     public $gmtCreate;
-
     /**
      * @var title
      */
@@ -51,50 +39,62 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->title) {
+            $this->title->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+
         if (null !== $this->formType) {
             $res['FormType'] = $this->formType;
         }
+
         if (null !== $this->formUuid) {
             $res['FormUuid'] = $this->formUuid;
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+
         if (null !== $this->title) {
-            $res['Title'] = null !== $this->title ? $this->title->toMap() : null;
+            $res['Title'] = null !== $this->title ? $this->title->toArray($noStream) : $this->title;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+
         if (isset($map['FormType'])) {
             $model->formType = $map['FormType'];
         }
+
         if (isset($map['FormUuid'])) {
             $model->formUuid = $map['FormUuid'];
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+
         if (isset($map['Title'])) {
             $model->title = title::fromMap($map['Title']);
         }

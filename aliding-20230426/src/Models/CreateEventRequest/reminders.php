@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateEventRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reminders extends Model
 {
     /**
-     * @example dingtalk
-     *
      * @var string
      */
     public $method;
-
     /**
-     * @example 15
-     *
      * @var int
      */
     public $minutes;
@@ -28,14 +23,16 @@ class reminders extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->method) {
             $res['method'] = $this->method;
         }
+
         if (null !== $this->minutes) {
             $res['minutes'] = $this->minutes;
         }
@@ -43,17 +40,18 @@ class reminders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reminders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['method'])) {
             $model->method = $map['method'];
         }
+
         if (isset($map['minutes'])) {
             $model->minutes = $map['minutes'];
         }

@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DentryAppPropertiesValue extends Model
 {
     /**
-     * @example dentry_name
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example dentry_value
-     *
      * @var string
      */
     public $value;
-
     /**
-     * @example PUBLIC
-     *
      * @var string
      */
     public $visibility;
@@ -36,17 +28,20 @@ class DentryAppPropertiesValue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+
         if (null !== $this->visibility) {
             $res['Visibility'] = $this->visibility;
         }
@@ -54,20 +49,22 @@ class DentryAppPropertiesValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DentryAppPropertiesValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
+
         if (isset($map['Visibility'])) {
             $model->visibility = $map['Visibility'];
         }

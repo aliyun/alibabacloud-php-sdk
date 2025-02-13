@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetFileDownloadInfoResponseBody\headerSignatureInfo;
-use AlibabaCloud\Tea\Model;
 
 class GetFileDownloadInfoResponseBody extends Model
 {
@@ -13,31 +13,19 @@ class GetFileDownloadInfoResponseBody extends Model
      * @var headerSignatureInfo
      */
     public $headerSignatureInfo;
-
     /**
-     * @example HEADER_SIGNATURE
-     *
      * @var string
      */
     public $protocol;
-
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $vendorRequestId;
-
     /**
-     * @example dingtalk
-     *
      * @var string
      */
     public $vendorType;
@@ -51,23 +39,31 @@ class GetFileDownloadInfoResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->headerSignatureInfo) {
+            $this->headerSignatureInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headerSignatureInfo) {
-            $res['headerSignatureInfo'] = null !== $this->headerSignatureInfo ? $this->headerSignatureInfo->toMap() : null;
+            $res['headerSignatureInfo'] = null !== $this->headerSignatureInfo ? $this->headerSignatureInfo->toArray($noStream) : $this->headerSignatureInfo;
         }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
+
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -75,26 +71,30 @@ class GetFileDownloadInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileDownloadInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['headerSignatureInfo'])) {
             $model->headerSignatureInfo = headerSignatureInfo::fromMap($map['headerSignatureInfo']);
         }
+
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
+
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

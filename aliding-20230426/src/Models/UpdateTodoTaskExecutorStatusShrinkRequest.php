@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTodoTaskExecutorStatusShrinkRequest extends Model
 {
@@ -12,24 +12,15 @@ class UpdateTodoTaskExecutorStatusShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
-
     /**
      * @var string
      */
     public $executorStatusListShrink;
-
     /**
-     * @example xxxx
-     *
      * @var string
      */
     public $operatorId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 15002141
-     *
      * @var string
      */
     public $taskId;
@@ -42,20 +33,24 @@ class UpdateTodoTaskExecutorStatusShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->executorStatusListShrink) {
             $res['executorStatusList'] = $this->executorStatusListShrink;
         }
+
         if (null !== $this->operatorId) {
             $res['operatorId'] = $this->operatorId;
         }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
@@ -63,23 +58,26 @@ class UpdateTodoTaskExecutorStatusShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTodoTaskExecutorStatusShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['executorStatusList'])) {
             $model->executorStatusListShrink = $map['executorStatusList'];
         }
+
         if (isset($map['operatorId'])) {
             $model->operatorId = $map['operatorId'];
         }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }

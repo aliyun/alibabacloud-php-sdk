@@ -4,65 +4,35 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTableDataByFormInstanceIdTableIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example APP_PBKT0xxx
-     *
      * @var string
      */
     public $appType;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example FORM_PBKT0xxx
-     *
      * @var string
      */
     public $formInstanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example FORM-xxxxx
-     *
      * @var string
      */
     public $formUuid;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example hexxxx
-     *
      * @var string
      */
     public $systemToken;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1111
-     *
      * @var string
      */
     public $tableFieldId;
@@ -78,29 +48,36 @@ class ListTableDataByFormInstanceIdTableIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
+
         if (null !== $this->formInstanceId) {
             $res['FormInstanceId'] = $this->formInstanceId;
         }
+
         if (null !== $this->formUuid) {
             $res['FormUuid'] = $this->formUuid;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
+
         if (null !== $this->tableFieldId) {
             $res['TableFieldId'] = $this->tableFieldId;
         }
@@ -108,32 +85,38 @@ class ListTableDataByFormInstanceIdTableIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTableDataByFormInstanceIdTableIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
+
         if (isset($map['FormInstanceId'])) {
             $model->formInstanceId = $map['FormInstanceId'];
         }
+
         if (isset($map['FormUuid'])) {
             $model->formUuid = $map['FormUuid'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }
+
         if (isset($map['TableFieldId'])) {
             $model->tableFieldId = $map['TableFieldId'];
         }

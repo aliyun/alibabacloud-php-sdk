@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetTemplateListByUserIdResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class templateList extends Model
 {
@@ -12,22 +12,15 @@ class templateList extends Model
      * @var string
      */
     public $iconUrl;
-
     /**
      * @var string
      */
     public $name;
-
     /**
-     * @example 11111
-     *
      * @var string
      */
     public $reportCode;
-
     /**
-     * @example https://scsss/sss
-     *
      * @var string
      */
     public $url;
@@ -40,20 +33,24 @@ class templateList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->iconUrl) {
             $res['IconUrl'] = $this->iconUrl;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->reportCode) {
             $res['ReportCode'] = $this->reportCode;
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -61,23 +58,26 @@ class templateList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return templateList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IconUrl'])) {
             $model->iconUrl = $map['IconUrl'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ReportCode'])) {
             $model->reportCode = $map['ReportCode'];
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

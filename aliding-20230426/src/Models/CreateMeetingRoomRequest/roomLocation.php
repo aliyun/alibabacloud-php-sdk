@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateMeetingRoomRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class roomLocation extends Model
 {
@@ -12,7 +12,6 @@ class roomLocation extends Model
      * @var string
      */
     public $desc;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class roomLocation extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -39,17 +40,18 @@ class roomLocation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roomLocation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

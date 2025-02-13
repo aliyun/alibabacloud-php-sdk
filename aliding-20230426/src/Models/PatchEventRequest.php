@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\attendees;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\cardInstances;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\end;
@@ -11,7 +12,6 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\location;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\recurrence;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\reminders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\start;
-use AlibabaCloud\Tea\Model;
 
 class PatchEventRequest extends Model
 {
@@ -19,72 +19,50 @@ class PatchEventRequest extends Model
      * @var attendees[]
      */
     public $attendees;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example primary
-     *
      * @var string
      */
     public $calendarId;
-
     /**
      * @var cardInstances[]
      */
     public $cardInstances;
-
     /**
      * @var string
      */
     public $description;
-
     /**
      * @var end
      */
     public $end;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example iiiP35sJadba8aBSgjrwPRKgiEiF
-     *
      * @var string
      */
     public $eventId;
-
     /**
      * @var string[]
      */
     public $extra;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isAllDay;
-
     /**
      * @var location
      */
     public $location;
-
     /**
      * @var recurrence
      */
     public $recurrence;
-
     /**
      * @var reminders[]
      */
     public $reminders;
-
     /**
      * @var start
      */
     public $start;
-
     /**
      * @var string
      */
@@ -107,65 +85,107 @@ class PatchEventRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->attendees)) {
+            Model::validateArray($this->attendees);
+        }
+        if (\is_array($this->cardInstances)) {
+            Model::validateArray($this->cardInstances);
+        }
+        if (null !== $this->end) {
+            $this->end->validate();
+        }
+        if (\is_array($this->extra)) {
+            Model::validateArray($this->extra);
+        }
+        if (null !== $this->location) {
+            $this->location->validate();
+        }
+        if (null !== $this->recurrence) {
+            $this->recurrence->validate();
+        }
+        if (\is_array($this->reminders)) {
+            Model::validateArray($this->reminders);
+        }
+        if (null !== $this->start) {
+            $this->start->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attendees) {
-            $res['Attendees'] = [];
-            if (null !== $this->attendees && \is_array($this->attendees)) {
-                $n = 0;
-                foreach ($this->attendees as $item) {
-                    $res['Attendees'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->attendees)) {
+                $res['Attendees'] = [];
+                $n1               = 0;
+                foreach ($this->attendees as $item1) {
+                    $res['Attendees'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->calendarId) {
             $res['CalendarId'] = $this->calendarId;
         }
+
         if (null !== $this->cardInstances) {
-            $res['CardInstances'] = [];
-            if (null !== $this->cardInstances && \is_array($this->cardInstances)) {
-                $n = 0;
-                foreach ($this->cardInstances as $item) {
-                    $res['CardInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cardInstances)) {
+                $res['CardInstances'] = [];
+                $n1                   = 0;
+                foreach ($this->cardInstances as $item1) {
+                    $res['CardInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->end) {
-            $res['End'] = null !== $this->end ? $this->end->toMap() : null;
+            $res['End'] = null !== $this->end ? $this->end->toArray($noStream) : $this->end;
         }
+
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
+
         if (null !== $this->extra) {
-            $res['Extra'] = $this->extra;
-        }
-        if (null !== $this->isAllDay) {
-            $res['IsAllDay'] = $this->isAllDay;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = null !== $this->location ? $this->location->toMap() : null;
-        }
-        if (null !== $this->recurrence) {
-            $res['Recurrence'] = null !== $this->recurrence ? $this->recurrence->toMap() : null;
-        }
-        if (null !== $this->reminders) {
-            $res['Reminders'] = [];
-            if (null !== $this->reminders && \is_array($this->reminders)) {
-                $n = 0;
-                foreach ($this->reminders as $item) {
-                    $res['Reminders'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->extra)) {
+                $res['Extra'] = [];
+                foreach ($this->extra as $key1 => $value1) {
+                    $res['Extra'][$key1] = $value1;
                 }
             }
         }
-        if (null !== $this->start) {
-            $res['Start'] = null !== $this->start ? $this->start->toMap() : null;
+
+        if (null !== $this->isAllDay) {
+            $res['IsAllDay'] = $this->isAllDay;
         }
+
+        if (null !== $this->location) {
+            $res['Location'] = null !== $this->location ? $this->location->toArray($noStream) : $this->location;
+        }
+
+        if (null !== $this->recurrence) {
+            $res['Recurrence'] = null !== $this->recurrence ? $this->recurrence->toArray($noStream) : $this->recurrence;
+        }
+
+        if (null !== $this->reminders) {
+            if (\is_array($this->reminders)) {
+                $res['Reminders'] = [];
+                $n1               = 0;
+                foreach ($this->reminders as $item1) {
+                    $res['Reminders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->start) {
+            $res['Start'] = null !== $this->start ? $this->start->toArray($noStream) : $this->start;
+        }
+
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
         }
@@ -173,68 +193,85 @@ class PatchEventRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PatchEventRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attendees'])) {
             if (!empty($map['Attendees'])) {
                 $model->attendees = [];
-                $n                = 0;
-                foreach ($map['Attendees'] as $item) {
-                    $model->attendees[$n++] = null !== $item ? attendees::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Attendees'] as $item1) {
+                    $model->attendees[$n1++] = attendees::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CalendarId'])) {
             $model->calendarId = $map['CalendarId'];
         }
+
         if (isset($map['CardInstances'])) {
             if (!empty($map['CardInstances'])) {
                 $model->cardInstances = [];
-                $n                    = 0;
-                foreach ($map['CardInstances'] as $item) {
-                    $model->cardInstances[$n++] = null !== $item ? cardInstances::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['CardInstances'] as $item1) {
+                    $model->cardInstances[$n1++] = cardInstances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['End'])) {
             $model->end = end::fromMap($map['End']);
         }
+
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
+
         if (isset($map['Extra'])) {
-            $model->extra = $map['Extra'];
-        }
-        if (isset($map['IsAllDay'])) {
-            $model->isAllDay = $map['IsAllDay'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = location::fromMap($map['Location']);
-        }
-        if (isset($map['Recurrence'])) {
-            $model->recurrence = recurrence::fromMap($map['Recurrence']);
-        }
-        if (isset($map['Reminders'])) {
-            if (!empty($map['Reminders'])) {
-                $model->reminders = [];
-                $n                = 0;
-                foreach ($map['Reminders'] as $item) {
-                    $model->reminders[$n++] = null !== $item ? reminders::fromMap($item) : $item;
+            if (!empty($map['Extra'])) {
+                $model->extra = [];
+                foreach ($map['Extra'] as $key1 => $value1) {
+                    $model->extra[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['IsAllDay'])) {
+            $model->isAllDay = $map['IsAllDay'];
+        }
+
+        if (isset($map['Location'])) {
+            $model->location = location::fromMap($map['Location']);
+        }
+
+        if (isset($map['Recurrence'])) {
+            $model->recurrence = recurrence::fromMap($map['Recurrence']);
+        }
+
+        if (isset($map['Reminders'])) {
+            if (!empty($map['Reminders'])) {
+                $model->reminders = [];
+                $n1               = 0;
+                foreach ($map['Reminders'] as $item1) {
+                    $model->reminders[$n1++] = reminders::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['Start'])) {
             $model->start = start::fromMap($map['Start']);
         }
+
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
         }

@@ -4,30 +4,20 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class CreateSheetRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example Sheet1
-     *
      * @var string
      */
     public $name;
-
     /**
      * @var tenantContext
      */
     public $tenantContext;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example stxxxx
-     *
      * @var string
      */
     public $workbookId;
@@ -39,17 +29,23 @@ class CreateSheetRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->workbookId) {
             $res['WorkbookId'] = $this->workbookId;
         }
@@ -57,20 +53,22 @@ class CreateSheetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSheetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['WorkbookId'])) {
             $model->workbookId = $map['WorkbookId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\InitMultipartFileUploadRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InitMultipartFileUploadRequest\option\preCheckParam;
-use AlibabaCloud\Tea\Model;
 
 class option extends Model
 {
@@ -13,17 +13,11 @@ class option extends Model
      * @var preCheckParam
      */
     public $preCheckParam;
-
     /**
-     * @example ZHANGJIAKOU
-     *
      * @var string
      */
     public $preferRegion;
-
     /**
-     * @example DINGTALK
-     *
      * @var string
      */
     public $storageDriver;
@@ -35,17 +29,23 @@ class option extends Model
 
     public function validate()
     {
+        if (null !== $this->preCheckParam) {
+            $this->preCheckParam->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->preCheckParam) {
-            $res['PreCheckParam'] = null !== $this->preCheckParam ? $this->preCheckParam->toMap() : null;
+            $res['PreCheckParam'] = null !== $this->preCheckParam ? $this->preCheckParam->toArray($noStream) : $this->preCheckParam;
         }
+
         if (null !== $this->preferRegion) {
             $res['PreferRegion'] = $this->preferRegion;
         }
+
         if (null !== $this->storageDriver) {
             $res['StorageDriver'] = $this->storageDriver;
         }
@@ -53,20 +53,22 @@ class option extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return option
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PreCheckParam'])) {
             $model->preCheckParam = preCheckParam::fromMap($map['PreCheckParam']);
         }
+
         if (isset($map['PreferRegion'])) {
             $model->preferRegion = $map['PreferRegion'];
         }
+
         if (isset($map['StorageDriver'])) {
             $model->storageDriver = $map['StorageDriver'];
         }

@@ -4,46 +4,31 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateStatusRequest extends Model
 {
     /**
-     * @example APP_PBKT0MFBEBTDO8T7SLVP
-     *
      * @var string
      */
     public $appType;
-
     /**
      * @var int[]
      */
     public $errorLines;
-
     /**
-     * @example seq-123
-     *
      * @var string
      */
     public $importSequence;
-
     /**
-     * @example zh_CN
-     *
      * @var string
      */
     public $language;
-
     /**
-     * @example running
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @example hexxxx
-     *
      * @var string
      */
     public $systemToken;
@@ -58,26 +43,41 @@ class UpdateStatusRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->errorLines)) {
+            Model::validateArray($this->errorLines);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appType) {
             $res['AppType'] = $this->appType;
         }
+
         if (null !== $this->errorLines) {
-            $res['ErrorLines'] = $this->errorLines;
+            if (\is_array($this->errorLines)) {
+                $res['ErrorLines'] = [];
+                $n1                = 0;
+                foreach ($this->errorLines as $item1) {
+                    $res['ErrorLines'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->importSequence) {
             $res['ImportSequence'] = $this->importSequence;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->systemToken) {
             $res['SystemToken'] = $this->systemToken;
         }
@@ -85,31 +85,40 @@ class UpdateStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppType'])) {
             $model->appType = $map['AppType'];
         }
+
         if (isset($map['ErrorLines'])) {
             if (!empty($map['ErrorLines'])) {
-                $model->errorLines = $map['ErrorLines'];
+                $model->errorLines = [];
+                $n1                = 0;
+                foreach ($map['ErrorLines'] as $item1) {
+                    $model->errorLines[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ImportSequence'])) {
             $model->importSequence = $map['ImportSequence'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['SystemToken'])) {
             $model->systemToken = $map['SystemToken'];
         }

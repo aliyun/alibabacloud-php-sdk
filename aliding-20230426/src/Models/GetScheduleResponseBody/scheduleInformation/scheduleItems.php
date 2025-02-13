@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleResponseBody\scheduleInformation;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleResponseBody\scheduleInformation\scheduleItems\end;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetScheduleResponseBody\scheduleInformation\scheduleItems\start;
-use AlibabaCloud\Tea\Model;
 
 class scheduleItems extends Model
 {
@@ -14,15 +14,11 @@ class scheduleItems extends Model
      * @var end
      */
     public $end;
-
     /**
      * @var start
      */
     public $start;
-
     /**
-     * @example BUSY
-     *
      * @var string
      */
     public $status;
@@ -34,17 +30,26 @@ class scheduleItems extends Model
 
     public function validate()
     {
+        if (null !== $this->end) {
+            $this->end->validate();
+        }
+        if (null !== $this->start) {
+            $this->start->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->end) {
-            $res['End'] = null !== $this->end ? $this->end->toMap() : null;
+            $res['End'] = null !== $this->end ? $this->end->toArray($noStream) : $this->end;
         }
+
         if (null !== $this->start) {
-            $res['Start'] = null !== $this->start ? $this->start->toMap() : null;
+            $res['Start'] = null !== $this->start ? $this->start->toArray($noStream) : $this->start;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,20 +57,22 @@ class scheduleItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scheduleItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['End'])) {
             $model->end = end::fromMap($map['End']);
         }
+
         if (isset($map['Start'])) {
             $model->start = start::fromMap($map['Start']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

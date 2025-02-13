@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\QueryReportDetailResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
@@ -12,26 +12,18 @@ class content extends Model
      * @var string[]
      */
     public $images;
-
     /**
      * @var string
      */
     public $key;
-
     /**
-     * @example 0
-     *
      * @var string
      */
     public $sort;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $type;
-
     /**
      * @var string
      */
@@ -46,23 +38,37 @@ class content extends Model
 
     public function validate()
     {
+        if (\is_array($this->images)) {
+            Model::validateArray($this->images);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->images) {
-            $res['Images'] = $this->images;
+            if (\is_array($this->images)) {
+                $res['Images'] = [];
+                $n1            = 0;
+                foreach ($this->images as $item1) {
+                    $res['Images'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -70,28 +76,36 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
-                $model->images = $map['Images'];
+                $model->images = [];
+                $n1            = 0;
+                foreach ($map['Images'] as $item1) {
+                    $model->images[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

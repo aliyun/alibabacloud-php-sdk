@@ -4,47 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteColumnsShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $column;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $columnCount;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example Sheet1
-     *
      * @var string
      */
     public $sheetId;
-
     /**
      * @var string
      */
     public $tenantContextShrink;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example stxxxx
-     *
      * @var string
      */
     public $workbookId;
@@ -58,23 +38,28 @@ class DeleteColumnsShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->column) {
             $res['Column'] = $this->column;
         }
+
         if (null !== $this->columnCount) {
             $res['ColumnCount'] = $this->columnCount;
         }
+
         if (null !== $this->sheetId) {
             $res['SheetId'] = $this->sheetId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->workbookId) {
             $res['WorkbookId'] = $this->workbookId;
         }
@@ -82,26 +67,30 @@ class DeleteColumnsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteColumnsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Column'])) {
             $model->column = $map['Column'];
         }
+
         if (isset($map['ColumnCount'])) {
             $model->columnCount = $map['ColumnCount'];
         }
+
         if (isset($map['SheetId'])) {
             $model->sheetId = $map['SheetId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['WorkbookId'])) {
             $model->workbookId = $map['WorkbookId'];
         }

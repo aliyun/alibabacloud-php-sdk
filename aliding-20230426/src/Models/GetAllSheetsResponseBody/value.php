@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetAllSheetsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class value extends Model
 {
     /**
-     * @example stxxxx
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @example Sheet1
-     *
      * @var string
      */
     public $name;
@@ -28,14 +23,16 @@ class value extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -43,17 +40,18 @@ class value extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return value
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

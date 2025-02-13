@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\AddMeetingRoomsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class meetingRoomsToAdd extends Model
 {
     /**
-     * @example 4002fxxxxx
-     *
      * @var string
      */
     public $roomId;
@@ -20,9 +18,10 @@ class meetingRoomsToAdd extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roomId) {
@@ -32,11 +31,11 @@ class meetingRoomsToAdd extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return meetingRoomsToAdd
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

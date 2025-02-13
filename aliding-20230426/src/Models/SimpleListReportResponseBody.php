@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SimpleListReportResponseBody\dataList;
-use AlibabaCloud\Tea\Model;
 
 class SimpleListReportResponseBody extends Model
 {
@@ -13,33 +13,19 @@ class SimpleListReportResponseBody extends Model
      * @var dataList[]
      */
     public $dataList;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $hasMore;
-
     /**
-     * @example 12312131231
-     *
      * @var int
      */
     public $nextCursor;
-
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $size;
@@ -53,29 +39,37 @@ class SimpleListReportResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataList)) {
+            Model::validateArray($this->dataList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataList) {
-            $res['dataList'] = [];
-            if (null !== $this->dataList && \is_array($this->dataList)) {
-                $n = 0;
-                foreach ($this->dataList as $item) {
-                    $res['dataList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataList)) {
+                $res['dataList'] = [];
+                $n1              = 0;
+                foreach ($this->dataList as $item1) {
+                    $res['dataList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->hasMore) {
             $res['hasMore'] = $this->hasMore;
         }
+
         if (null !== $this->nextCursor) {
             $res['nextCursor'] = $this->nextCursor;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->size) {
             $res['size'] = $this->size;
         }
@@ -83,32 +77,36 @@ class SimpleListReportResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SimpleListReportResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dataList'])) {
             if (!empty($map['dataList'])) {
                 $model->dataList = [];
-                $n               = 0;
-                foreach ($map['dataList'] as $item) {
-                    $model->dataList[$n++] = null !== $item ? dataList::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['dataList'] as $item1) {
+                    $model->dataList[$n1++] = dataList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['hasMore'])) {
             $model->hasMore = $map['hasMore'];
         }
+
         if (isset($map['nextCursor'])) {
             $model->nextCursor = $map['nextCursor'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['size'])) {
             $model->size = $map['size'];
         }

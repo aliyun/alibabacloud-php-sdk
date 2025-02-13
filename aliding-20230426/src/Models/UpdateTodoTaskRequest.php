@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class UpdateTodoTaskRequest extends Model
 {
@@ -13,54 +13,31 @@ class UpdateTodoTaskRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
-
     /**
-     * @example 应用可以调用该接口发起一个钉钉待办任务，该待办事项会出现在钉钉客户端“待办”页面，需要注意的是，通过开放接口发起的待办，目前仅支持直接跳转ISV应用详情页（ISV在调该接口时需传入自身应用详情页链接）。
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $done;
-
     /**
-     * @example 1617675000000
-     *
      * @var int
      */
     public $dueTime;
-
     /**
-     * @example []
-     *
      * @var string[]
      */
     public $executorIds;
-
     /**
-     * @example []
-     *
      * @var string[]
      */
     public $participantIds;
-
     /**
-     * @example 更新钉钉待办
-     *
      * @var string
      */
     public $subject;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example taskId
-     *
      * @var string
      */
     public $taskId;
@@ -77,32 +54,61 @@ class UpdateTodoTaskRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        if (\is_array($this->executorIds)) {
+            Model::validateArray($this->executorIds);
+        }
+        if (\is_array($this->participantIds)) {
+            Model::validateArray($this->participantIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->done) {
             $res['done'] = $this->done;
         }
+
         if (null !== $this->dueTime) {
             $res['dueTime'] = $this->dueTime;
         }
+
         if (null !== $this->executorIds) {
-            $res['executorIds'] = $this->executorIds;
+            if (\is_array($this->executorIds)) {
+                $res['executorIds'] = [];
+                $n1                 = 0;
+                foreach ($this->executorIds as $item1) {
+                    $res['executorIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->participantIds) {
-            $res['participantIds'] = $this->participantIds;
+            if (\is_array($this->participantIds)) {
+                $res['participantIds'] = [];
+                $n1                    = 0;
+                foreach ($this->participantIds as $item1) {
+                    $res['participantIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->subject) {
             $res['subject'] = $this->subject;
         }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
@@ -110,39 +116,54 @@ class UpdateTodoTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTodoTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['done'])) {
             $model->done = $map['done'];
         }
+
         if (isset($map['dueTime'])) {
             $model->dueTime = $map['dueTime'];
         }
+
         if (isset($map['executorIds'])) {
             if (!empty($map['executorIds'])) {
-                $model->executorIds = $map['executorIds'];
+                $model->executorIds = [];
+                $n1                 = 0;
+                foreach ($map['executorIds'] as $item1) {
+                    $model->executorIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['participantIds'])) {
             if (!empty($map['participantIds'])) {
-                $model->participantIds = $map['participantIds'];
+                $model->participantIds = [];
+                $n1                    = 0;
+                foreach ($map['participantIds'] as $item1) {
+                    $model->participantIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['subject'])) {
             $model->subject = $map['subject'];
         }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }

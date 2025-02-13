@@ -4,39 +4,24 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\AddRecordPermissionRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class AddRecordPermissionRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example minutes
-     *
      * @var string
      */
     public $bizType;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1dddwrqrq
-     *
      * @var string
      */
     public $conferenceId;
-
     /**
      * @var tenantContext
      */
     public $tenantContext;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 012345
-     *
      * @var string
      */
     public $userId;
@@ -49,20 +34,27 @@ class AddRecordPermissionRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
+
         if (null !== $this->conferenceId) {
             $res['ConferenceId'] = $this->conferenceId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -70,23 +62,26 @@ class AddRecordPermissionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddRecordPermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
+
         if (isset($map['ConferenceId'])) {
             $model->conferenceId = $map['ConferenceId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }

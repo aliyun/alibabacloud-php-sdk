@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddMeetingRoomsShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example primary
-     *
      * @var string
      */
     public $calendarId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example U5Kxxxxx
-     *
      * @var string
      */
     public $eventId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $meetingRoomsToAddShrink;
@@ -40,17 +28,20 @@ class AddMeetingRoomsShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->calendarId) {
             $res['CalendarId'] = $this->calendarId;
         }
+
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
+
         if (null !== $this->meetingRoomsToAddShrink) {
             $res['MeetingRoomsToAdd'] = $this->meetingRoomsToAddShrink;
         }
@@ -58,20 +49,22 @@ class AddMeetingRoomsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddMeetingRoomsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CalendarId'])) {
             $model->calendarId = $map['CalendarId'];
         }
+
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
+
         if (isset($map['MeetingRoomsToAdd'])) {
             $model->meetingRoomsToAddShrink = $map['MeetingRoomsToAdd'];
         }

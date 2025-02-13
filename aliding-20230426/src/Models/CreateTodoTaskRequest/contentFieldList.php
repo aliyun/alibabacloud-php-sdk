@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class contentFieldList extends Model
 {
     /**
-     * @description fieldKey
-     *
-     * @example fieldKey
-     *
      * @var string
      */
     public $fieldKey;
-
     /**
-     * @description fieldValue
-     *
-     * @example fieldValue
-     *
      * @var string
      */
     public $fieldValue;
@@ -32,14 +23,16 @@ class contentFieldList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldKey) {
             $res['fieldKey'] = $this->fieldKey;
         }
+
         if (null !== $this->fieldValue) {
             $res['fieldValue'] = $this->fieldValue;
         }
@@ -47,17 +40,18 @@ class contentFieldList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contentFieldList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fieldKey'])) {
             $model->fieldKey = $map['fieldKey'];
         }
+
         if (isset($map['fieldValue'])) {
             $model->fieldValue = $map['fieldValue'];
         }

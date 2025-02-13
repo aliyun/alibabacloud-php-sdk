@@ -4,33 +4,24 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionResponseBody\tasks\activity;
-use AlibabaCloud\Tea\Model;
 
 class tasks extends Model
 {
     /**
-     * @example manager123
-     *
      * @var string
      */
     public $actionerId;
-
     /**
      * @var activity
      */
     public $activity;
-
     /**
-     * @example running
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @example 792
-     *
      * @var int
      */
     public $taskId;
@@ -43,20 +34,27 @@ class tasks extends Model
 
     public function validate()
     {
+        if (null !== $this->activity) {
+            $this->activity->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionerId) {
             $res['ActionerId'] = $this->actionerId;
         }
+
         if (null !== $this->activity) {
-            $res['Activity'] = null !== $this->activity ? $this->activity->toMap() : null;
+            $res['Activity'] = null !== $this->activity ? $this->activity->toArray($noStream) : $this->activity;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -64,23 +62,26 @@ class tasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionerId'])) {
             $model->actionerId = $map['ActionerId'];
         }
+
         if (isset($map['Activity'])) {
             $model->activity = activity::fromMap($map['Activity']);
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

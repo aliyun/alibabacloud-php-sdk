@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SendBannerShrinkRequest extends Model
 {
@@ -12,21 +12,14 @@ class SendBannerShrinkRequest extends Model
      * @var string
      */
     public $contentShrink;
-
     /**
-     * @example 1693881641000L
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @example 1693881641000L
-     *
      * @var int
      */
     public $startTime;
-
     /**
      * @var string
      */
@@ -40,20 +33,24 @@ class SendBannerShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentShrink) {
             $res['Content'] = $this->contentShrink;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -61,23 +58,26 @@ class SendBannerShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SendBannerShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->contentShrink = $map['Content'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

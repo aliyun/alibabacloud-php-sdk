@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSpaceDirectoriesShrinkRequest extends Model
 {
     /**
-     * @example asdasd
-     *
      * @var string
      */
     public $dentryId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example 123123
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example qweqwe
-     *
      * @var string
      */
     public $spaceId;
-
     /**
      * @var string
      */
@@ -54,23 +38,28 @@ class GetSpaceDirectoriesShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dentryId) {
             $res['DentryId'] = $this->dentryId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -78,26 +67,30 @@ class GetSpaceDirectoriesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSpaceDirectoriesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryId'])) {
             $model->dentryId = $map['DentryId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

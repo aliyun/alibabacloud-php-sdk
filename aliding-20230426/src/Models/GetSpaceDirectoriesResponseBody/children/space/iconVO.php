@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesResponseBody\children\space;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class iconVO extends Model
 {
     /**
-     * @example https://img.alicdn.com/imgextra/i1/xxxxx.png
-     *
      * @var string
      */
     public $icon;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $type;
@@ -28,14 +23,16 @@ class iconVO extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->icon) {
             $res['Icon'] = $this->icon;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -43,17 +40,18 @@ class iconVO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return iconVO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Icon'])) {
             $model->icon = $map['Icon'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

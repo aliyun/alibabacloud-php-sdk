@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInnerGroupMembersRequest extends Model
 {
     /**
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example UZr*****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example cidB8Pzg****FIWPv2PMA==
-     *
      * @var string
      */
     public $openConversationId;
@@ -36,17 +28,20 @@ class GetInnerGroupMembersRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->openConversationId) {
             $res['OpenConversationId'] = $this->openConversationId;
         }
@@ -54,20 +49,22 @@ class GetInnerGroupMembersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInnerGroupMembersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OpenConversationId'])) {
             $model->openConversationId = $map['OpenConversationId'];
         }

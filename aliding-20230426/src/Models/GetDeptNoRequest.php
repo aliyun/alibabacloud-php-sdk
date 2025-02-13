@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDeptNoRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class GetDeptNoRequest extends Model
 {
@@ -13,12 +13,7 @@ class GetDeptNoRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 012345
-     *
      * @var string
      */
     public $deptId;
@@ -29,14 +24,19 @@ class GetDeptNoRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->deptId) {
             $res['deptId'] = $this->deptId;
         }
@@ -44,17 +44,18 @@ class GetDeptNoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeptNoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['deptId'])) {
             $model->deptId = $map['deptId'];
         }

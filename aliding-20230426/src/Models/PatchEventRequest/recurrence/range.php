@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\PatchEventRequest\recurrence;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class range extends Model
 {
     /**
-     * @example 2021-12-31T10:15:30+08:00
-     *
      * @var string
      */
     public $endDate;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $numberOfOccurrences;
-
     /**
-     * @example endDate
-     *
      * @var string
      */
     public $type;
@@ -36,17 +28,20 @@ class range extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
         }
+
         if (null !== $this->numberOfOccurrences) {
             $res['numberOfOccurrences'] = $this->numberOfOccurrences;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -54,20 +49,22 @@ class range extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return range
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
         }
+
         if (isset($map['numberOfOccurrences'])) {
             $model->numberOfOccurrences = $map['numberOfOccurrences'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

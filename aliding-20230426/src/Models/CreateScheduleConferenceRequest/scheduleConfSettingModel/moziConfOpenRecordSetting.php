@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class moziConfOpenRecordSetting extends Model
 {
@@ -12,24 +12,15 @@ class moziConfOpenRecordSetting extends Model
      * @var bool
      */
     public $isFollowHost;
-
     /**
-     * @example grid
-     *
      * @var string
      */
     public $mode;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $recordAutoStart;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $recordAutoStartType;
@@ -42,20 +33,24 @@ class moziConfOpenRecordSetting extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isFollowHost) {
             $res['IsFollowHost'] = $this->isFollowHost;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->recordAutoStart) {
             $res['RecordAutoStart'] = $this->recordAutoStart;
         }
+
         if (null !== $this->recordAutoStartType) {
             $res['RecordAutoStartType'] = $this->recordAutoStartType;
         }
@@ -63,23 +58,26 @@ class moziConfOpenRecordSetting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return moziConfOpenRecordSetting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsFollowHost'])) {
             $model->isFollowHost = $map['IsFollowHost'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['RecordAutoStart'])) {
             $model->recordAutoStart = $map['RecordAutoStart'];
         }
+
         if (isset($map['RecordAutoStartType'])) {
             $model->recordAutoStartType = $map['RecordAutoStartType'];
         }

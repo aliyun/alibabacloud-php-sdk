@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetReportTemplateByNameResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class defaultReceivers extends Model
 {
@@ -12,10 +12,7 @@ class defaultReceivers extends Model
      * @var string
      */
     public $userName;
-
     /**
-     * @example 1234
-     *
      * @var string
      */
     public $userid;
@@ -26,14 +23,16 @@ class defaultReceivers extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->userid) {
             $res['Userid'] = $this->userid;
         }
@@ -41,17 +40,18 @@ class defaultReceivers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return defaultReceivers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['Userid'])) {
             $model->userid = $map['Userid'];
         }

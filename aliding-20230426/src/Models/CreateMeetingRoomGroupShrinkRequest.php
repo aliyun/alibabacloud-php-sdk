@@ -4,26 +4,18 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMeetingRoomGroupShrinkRequest extends Model
 {
     /**
-     * @example 测试分组
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 172L
-     *
      * @var int
      */
     public $parentGroupId;
-
     /**
      * @var string
      */
@@ -36,17 +28,20 @@ class CreateMeetingRoomGroupShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->parentGroupId) {
             $res['ParentGroupId'] = $this->parentGroupId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
@@ -54,20 +49,22 @@ class CreateMeetingRoomGroupShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMeetingRoomGroupShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['ParentGroupId'])) {
             $model->parentGroupId = $map['ParentGroupId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }

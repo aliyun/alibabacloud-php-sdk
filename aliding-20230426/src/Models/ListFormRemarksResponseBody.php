@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFormRemarksResponseBody extends Model
 {
     /**
-     * @example {}
-     *
      * @var mixed[]
      */
     public $formRemarkVoMap;
-
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $vendorRequestId;
-
     /**
-     * @example dingtalk
-     *
      * @var string
      */
     public $vendorType;
@@ -44,20 +33,32 @@ class ListFormRemarksResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->formRemarkVoMap)) {
+            Model::validateArray($this->formRemarkVoMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->formRemarkVoMap) {
-            $res['formRemarkVoMap'] = $this->formRemarkVoMap;
+            if (\is_array($this->formRemarkVoMap)) {
+                $res['formRemarkVoMap'] = [];
+                foreach ($this->formRemarkVoMap as $key1 => $value1) {
+                    $res['formRemarkVoMap'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->vendorRequestId) {
             $res['vendorRequestId'] = $this->vendorRequestId;
         }
+
         if (null !== $this->vendorType) {
             $res['vendorType'] = $this->vendorType;
         }
@@ -65,23 +66,31 @@ class ListFormRemarksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFormRemarksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['formRemarkVoMap'])) {
-            $model->formRemarkVoMap = $map['formRemarkVoMap'];
+            if (!empty($map['formRemarkVoMap'])) {
+                $model->formRemarkVoMap = [];
+                foreach ($map['formRemarkVoMap'] as $key1 => $value1) {
+                    $model->formRemarkVoMap[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['vendorRequestId'])) {
             $model->vendorRequestId = $map['vendorRequestId'];
         }
+
         if (isset($map['vendorType'])) {
             $model->vendorType = $map['vendorType'];
         }

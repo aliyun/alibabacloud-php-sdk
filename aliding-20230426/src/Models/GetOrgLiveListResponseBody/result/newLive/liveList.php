@@ -4,60 +4,39 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListResponseBody\result\newLive;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class liveList extends Model
 {
     /**
-     * @example nickName
-     *
      * @var string
      */
     public $anchorNickname;
-
     /**
      * @var string
      */
     public $anchorUnionId;
-
     /**
-     * @example ersqqdddf
-     *
      * @var string
      */
     public $anchorUserId;
-
     /**
-     * @example 1398324600000
-     *
      * @var int
      */
     public $liveEndTime;
-
     /**
-     * @example 1398321600000
-     *
      * @var int
      */
     public $liveStartTime;
-
     /**
-     * @example 4d38xxxxx
-     *
      * @var string
      */
     public $liveUuid;
-
     /**
-     * @example 群OpenConversationId
-     *
      * @var string[]
      */
     public $shareOpenConversationIds;
-
     /**
-     * @example 直播标题
-     *
      * @var string
      */
     public $title;
@@ -74,32 +53,49 @@ class liveList extends Model
 
     public function validate()
     {
+        if (\is_array($this->shareOpenConversationIds)) {
+            Model::validateArray($this->shareOpenConversationIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anchorNickname) {
             $res['AnchorNickname'] = $this->anchorNickname;
         }
+
         if (null !== $this->anchorUnionId) {
             $res['AnchorUnionId'] = $this->anchorUnionId;
         }
+
         if (null !== $this->anchorUserId) {
             $res['AnchorUserId'] = $this->anchorUserId;
         }
+
         if (null !== $this->liveEndTime) {
             $res['LiveEndTime'] = $this->liveEndTime;
         }
+
         if (null !== $this->liveStartTime) {
             $res['LiveStartTime'] = $this->liveStartTime;
         }
+
         if (null !== $this->liveUuid) {
             $res['LiveUuid'] = $this->liveUuid;
         }
+
         if (null !== $this->shareOpenConversationIds) {
-            $res['ShareOpenConversationIds'] = $this->shareOpenConversationIds;
+            if (\is_array($this->shareOpenConversationIds)) {
+                $res['ShareOpenConversationIds'] = [];
+                $n1                              = 0;
+                foreach ($this->shareOpenConversationIds as $item1) {
+                    $res['ShareOpenConversationIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
@@ -107,37 +103,48 @@ class liveList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return liveList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnchorNickname'])) {
             $model->anchorNickname = $map['AnchorNickname'];
         }
+
         if (isset($map['AnchorUnionId'])) {
             $model->anchorUnionId = $map['AnchorUnionId'];
         }
+
         if (isset($map['AnchorUserId'])) {
             $model->anchorUserId = $map['AnchorUserId'];
         }
+
         if (isset($map['LiveEndTime'])) {
             $model->liveEndTime = $map['LiveEndTime'];
         }
+
         if (isset($map['LiveStartTime'])) {
             $model->liveStartTime = $map['LiveStartTime'];
         }
+
         if (isset($map['LiveUuid'])) {
             $model->liveUuid = $map['LiveUuid'];
         }
+
         if (isset($map['ShareOpenConversationIds'])) {
             if (!empty($map['ShareOpenConversationIds'])) {
-                $model->shareOpenConversationIds = $map['ShareOpenConversationIds'];
+                $model->shareOpenConversationIds = [];
+                $n1                              = 0;
+                foreach ($map['ShareOpenConversationIds'] as $item1) {
+                    $model->shareOpenConversationIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }

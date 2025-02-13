@@ -4,65 +4,40 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\ListDentriesRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class ListDentriesRequest extends Model
 {
     /**
-     * @example 50
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example next_token
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example ASC
-     *
      * @var string
      */
     public $order;
-
     /**
-     * @example MODIFIED_TIME
-     *
      * @var string
      */
     public $orderBy;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $parentId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 854xxxxx
-     *
      * @var string
      */
     public $spaceId;
-
     /**
      * @var tenantContext
      */
     public $tenantContext;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $withThumbnail;
@@ -79,32 +54,43 @@ class ListDentriesRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
+
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
+
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->withThumbnail) {
             $res['WithThumbnail'] = $this->withThumbnail;
         }
@@ -112,35 +98,42 @@ class ListDentriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDentriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
+
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }
+
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['WithThumbnail'])) {
             $model->withThumbnail = $map['WithThumbnail'];
         }

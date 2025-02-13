@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryScheduleConferenceShrinkRequest extends Model
 {
@@ -12,12 +12,7 @@ class QueryScheduleConferenceShrinkRequest extends Model
      * @var string
      */
     public $tenantContextShrink;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 2a489c68-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-     *
      * @var string
      */
     public $scheduleConferenceId;
@@ -28,14 +23,16 @@ class QueryScheduleConferenceShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->scheduleConferenceId) {
             $res['scheduleConferenceId'] = $this->scheduleConferenceId;
         }
@@ -43,17 +40,18 @@ class QueryScheduleConferenceShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryScheduleConferenceShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['scheduleConferenceId'])) {
             $model->scheduleConferenceId = $map['scheduleConferenceId'];
         }

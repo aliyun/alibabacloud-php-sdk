@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GrantHonorResponseBody extends Model
 {
@@ -12,16 +12,10 @@ class GrantHonorResponseBody extends Model
      * @var string[]
      */
     public $failedUserIds;
-
     /**
-     * @description requestId
-     *
-     * @example 45b4d029-ab94-4672-aa0f-bd79590374cb
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var string[]
      */
@@ -34,43 +28,74 @@ class GrantHonorResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->failedUserIds)) {
+            Model::validateArray($this->failedUserIds);
+        }
+        if (\is_array($this->successUserIds)) {
+            Model::validateArray($this->successUserIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedUserIds) {
-            $res['failedUserIds'] = $this->failedUserIds;
+            if (\is_array($this->failedUserIds)) {
+                $res['failedUserIds'] = [];
+                $n1                   = 0;
+                foreach ($this->failedUserIds as $item1) {
+                    $res['failedUserIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->successUserIds) {
-            $res['successUserIds'] = $this->successUserIds;
+            if (\is_array($this->successUserIds)) {
+                $res['successUserIds'] = [];
+                $n1                    = 0;
+                foreach ($this->successUserIds as $item1) {
+                    $res['successUserIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GrantHonorResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['failedUserIds'])) {
             if (!empty($map['failedUserIds'])) {
-                $model->failedUserIds = $map['failedUserIds'];
+                $model->failedUserIds = [];
+                $n1                   = 0;
+                foreach ($map['failedUserIds'] as $item1) {
+                    $model->failedUserIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['successUserIds'])) {
             if (!empty($map['successUserIds'])) {
-                $model->successUserIds = $map['successUserIds'];
+                $model->successUserIds = [];
+                $n1                    = 0;
+                foreach ($map['successUserIds'] as $item1) {
+                    $model->successUserIds[$n1++] = $item1;
+                }
             }
         }
 

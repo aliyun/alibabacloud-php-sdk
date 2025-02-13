@@ -4,103 +4,69 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDataSecondGenerationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDataSecondGenerationResponseBody\data\modifyUser;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SearchFormDataSecondGenerationResponseBody\data\originator;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 2021-05-01 10:10:10
-     *
      * @var string
      */
     public $createTimeGMT;
-
     /**
-     * @example 012345
-     *
      * @var string
      */
     public $creatorUserId;
-
     /**
      * @var mixed[]
      */
     public $formData;
-
     /**
-     * @example FINST-xxxx
-     *
      * @var string
      */
     public $formInstanceId;
-
     /**
-     * @example FORM-xxxx
-     *
      * @var string
      */
     public $formUuid;
-
     /**
-     * @example 1023
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @example {}
-     *
      * @var string
      */
     public $instanceValue;
-
     /**
-     * @example 2021-05-01 10:10:10
-     *
      * @var string
      */
     public $modifiedTimeGMT;
-
     /**
      * @var string
      */
     public $modifier;
-
     /**
      * @var modifyUser
      */
     public $modifyUser;
-
     /**
      * @var originator
      */
     public $originator;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $sequence;
-
     /**
-     * @example sagc1b3090d
-     *
      * @var string
      */
     public $serialNumber;
-
     /**
      * @var string
      */
     public $title;
-
     /**
-     * @example 3
-     *
      * @var int
      */
     public $version;
@@ -124,53 +90,82 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->formData)) {
+            Model::validateArray($this->formData);
+        }
+        if (null !== $this->modifyUser) {
+            $this->modifyUser->validate();
+        }
+        if (null !== $this->originator) {
+            $this->originator->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTimeGMT) {
             $res['CreateTimeGMT'] = $this->createTimeGMT;
         }
+
         if (null !== $this->creatorUserId) {
             $res['CreatorUserId'] = $this->creatorUserId;
         }
+
         if (null !== $this->formData) {
-            $res['FormData'] = $this->formData;
+            if (\is_array($this->formData)) {
+                $res['FormData'] = [];
+                foreach ($this->formData as $key1 => $value1) {
+                    $res['FormData'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->formInstanceId) {
             $res['FormInstanceId'] = $this->formInstanceId;
         }
+
         if (null !== $this->formUuid) {
             $res['FormUuid'] = $this->formUuid;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->instanceValue) {
             $res['InstanceValue'] = $this->instanceValue;
         }
+
         if (null !== $this->modifiedTimeGMT) {
             $res['ModifiedTimeGMT'] = $this->modifiedTimeGMT;
         }
+
         if (null !== $this->modifier) {
             $res['Modifier'] = $this->modifier;
         }
+
         if (null !== $this->modifyUser) {
-            $res['ModifyUser'] = null !== $this->modifyUser ? $this->modifyUser->toMap() : null;
+            $res['ModifyUser'] = null !== $this->modifyUser ? $this->modifyUser->toArray($noStream) : $this->modifyUser;
         }
+
         if (null !== $this->originator) {
-            $res['Originator'] = null !== $this->originator ? $this->originator->toMap() : null;
+            $res['Originator'] = null !== $this->originator ? $this->originator->toArray($noStream) : $this->originator;
         }
+
         if (null !== $this->sequence) {
             $res['Sequence'] = $this->sequence;
         }
+
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
+
         if (null !== $this->title) {
             $res['Title'] = $this->title;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -178,56 +173,75 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTimeGMT'])) {
             $model->createTimeGMT = $map['CreateTimeGMT'];
         }
+
         if (isset($map['CreatorUserId'])) {
             $model->creatorUserId = $map['CreatorUserId'];
         }
+
         if (isset($map['FormData'])) {
-            $model->formData = $map['FormData'];
+            if (!empty($map['FormData'])) {
+                $model->formData = [];
+                foreach ($map['FormData'] as $key1 => $value1) {
+                    $model->formData[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['FormInstanceId'])) {
             $model->formInstanceId = $map['FormInstanceId'];
         }
+
         if (isset($map['FormUuid'])) {
             $model->formUuid = $map['FormUuid'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['InstanceValue'])) {
             $model->instanceValue = $map['InstanceValue'];
         }
+
         if (isset($map['ModifiedTimeGMT'])) {
             $model->modifiedTimeGMT = $map['ModifiedTimeGMT'];
         }
+
         if (isset($map['Modifier'])) {
             $model->modifier = $map['Modifier'];
         }
+
         if (isset($map['ModifyUser'])) {
             $model->modifyUser = modifyUser::fromMap($map['ModifyUser']);
         }
+
         if (isset($map['Originator'])) {
             $model->originator = originator::fromMap($map['Originator']);
         }
+
         if (isset($map['Sequence'])) {
             $model->sequence = $map['Sequence'];
         }
+
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }
+
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

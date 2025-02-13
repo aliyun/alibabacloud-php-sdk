@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceMembersResponseBody\memberModels;
-use AlibabaCloud\Tea\Model;
 
 class QueryConferenceMembersResponseBody extends Model
 {
@@ -13,26 +13,15 @@ class QueryConferenceMembersResponseBody extends Model
      * @var memberModels[]
      */
     public $memberModels;
-
     /**
-     * @example 123000000
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $totalCount;
@@ -45,26 +34,33 @@ class QueryConferenceMembersResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->memberModels)) {
+            Model::validateArray($this->memberModels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->memberModels) {
-            $res['memberModels'] = [];
-            if (null !== $this->memberModels && \is_array($this->memberModels)) {
-                $n = 0;
-                foreach ($this->memberModels as $item) {
-                    $res['memberModels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->memberModels)) {
+                $res['memberModels'] = [];
+                $n1                  = 0;
+                foreach ($this->memberModels as $item1) {
+                    $res['memberModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
@@ -72,29 +68,32 @@ class QueryConferenceMembersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryConferenceMembersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['memberModels'])) {
             if (!empty($map['memberModels'])) {
                 $model->memberModels = [];
-                $n                   = 0;
-                foreach ($map['memberModels'] as $item) {
-                    $model->memberModels[$n++] = null !== $item ? memberModels::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['memberModels'] as $item1) {
+                    $model->memberModels[$n1++] = memberModels::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }

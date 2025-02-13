@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetSpaceDirectoriesResponseBody\children;
-use AlibabaCloud\Tea\Model;
 
 class GetSpaceDirectoriesResponseBody extends Model
 {
@@ -13,26 +13,15 @@ class GetSpaceDirectoriesResponseBody extends Model
      * @var children[]
      */
     public $children;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $hasMore;
-
     /**
-     * @example 1296
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description requestId
-     *
-     * @example 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
-     *
      * @var string
      */
     public $requestId;
@@ -45,26 +34,33 @@ class GetSpaceDirectoriesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->children)) {
+            Model::validateArray($this->children);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->children) {
-            $res['children'] = [];
-            if (null !== $this->children && \is_array($this->children)) {
-                $n = 0;
-                foreach ($this->children as $item) {
-                    $res['children'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->children)) {
+                $res['children'] = [];
+                $n1              = 0;
+                foreach ($this->children as $item1) {
+                    $res['children'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->hasMore) {
             $res['hasMore'] = $this->hasMore;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -72,29 +68,32 @@ class GetSpaceDirectoriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSpaceDirectoriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['children'])) {
             if (!empty($map['children'])) {
                 $model->children = [];
-                $n               = 0;
-                foreach ($map['children'] as $item) {
-                    $model->children[$n++] = null !== $item ? children::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['children'] as $item1) {
+                    $model->children[$n1++] = children::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['hasMore'])) {
             $model->hasMore = $map['hasMore'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

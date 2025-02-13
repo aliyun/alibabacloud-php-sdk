@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\ListTicketOperateRecordResponseBody\records;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class operator extends Model
 {
     /**
-     * @example 贤文
-     *
      * @var string
      */
     public $nickName;
-
     /**
-     * @example 012345
-     *
      * @var string
      */
     public $unionId;
@@ -28,14 +23,16 @@ class operator extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nickName) {
             $res['NickName'] = $this->nickName;
         }
+
         if (null !== $this->unionId) {
             $res['UnionId'] = $this->unionId;
         }
@@ -43,17 +40,18 @@ class operator extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operator
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NickName'])) {
             $model->nickName = $map['NickName'];
         }
+
         if (isset($map['UnionId'])) {
             $model->unionId = $map['UnionId'];
         }

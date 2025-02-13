@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVideoConferenceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $confTitle;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $inviteCaller;
-
     /**
      * @var string[]
      */
@@ -34,41 +28,59 @@ class CreateVideoConferenceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->inviteUserIds)) {
+            Model::validateArray($this->inviteUserIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->confTitle) {
             $res['ConfTitle'] = $this->confTitle;
         }
+
         if (null !== $this->inviteCaller) {
             $res['InviteCaller'] = $this->inviteCaller;
         }
+
         if (null !== $this->inviteUserIds) {
-            $res['InviteUserIds'] = $this->inviteUserIds;
+            if (\is_array($this->inviteUserIds)) {
+                $res['InviteUserIds'] = [];
+                $n1                   = 0;
+                foreach ($this->inviteUserIds as $item1) {
+                    $res['InviteUserIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVideoConferenceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfTitle'])) {
             $model->confTitle = $map['ConfTitle'];
         }
+
         if (isset($map['InviteCaller'])) {
             $model->inviteCaller = $map['InviteCaller'];
         }
+
         if (isset($map['InviteUserIds'])) {
             if (!empty($map['InviteUserIds'])) {
-                $model->inviteUserIds = $map['InviteUserIds'];
+                $model->inviteUserIds = [];
+                $n1                   = 0;
+                foreach ($map['InviteUserIds'] as $item1) {
+                    $model->inviteUserIds[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,37 +4,27 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CommitFileShrinkRequest extends Model
 {
     /**
-     * @example None
-     *
      * @var string
      */
     public $name;
-
     /**
      * @var string
      */
     public $optionShrink;
-
     /**
-     * @example dentryUuid
-     *
      * @var string
      */
     public $parentDentryUuid;
-
     /**
      * @var string
      */
     public $tenantContextShrink;
-
     /**
-     * @example upload_key
-     *
      * @var string
      */
     public $uploadKey;
@@ -48,23 +38,28 @@ class CommitFileShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->optionShrink) {
             $res['Option'] = $this->optionShrink;
         }
+
         if (null !== $this->parentDentryUuid) {
             $res['ParentDentryUuid'] = $this->parentDentryUuid;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->uploadKey) {
             $res['UploadKey'] = $this->uploadKey;
         }
@@ -72,26 +67,30 @@ class CommitFileShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CommitFileShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Option'])) {
             $model->optionShrink = $map['Option'];
         }
+
         if (isset($map['ParentDentryUuid'])) {
             $model->parentDentryUuid = $map['ParentDentryUuid'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['UploadKey'])) {
             $model->uploadKey = $map['UploadKey'];
         }

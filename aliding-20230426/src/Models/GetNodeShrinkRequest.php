@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetNodeShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example a9E05BDRVQ9K600yf1NplNDxV63zgkYA
-     *
      * @var string
      */
     public $nodeId;
-
     /**
      * @var string
      */
     public $tenantContextShrink;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $withPermissionRole;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $withStatisticalInfo;
@@ -44,20 +33,24 @@ class GetNodeShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
         }
+
         if (null !== $this->withPermissionRole) {
             $res['WithPermissionRole'] = $this->withPermissionRole;
         }
+
         if (null !== $this->withStatisticalInfo) {
             $res['WithStatisticalInfo'] = $this->withStatisticalInfo;
         }
@@ -65,23 +58,26 @@ class GetNodeShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNodeShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
         }
+
         if (isset($map['WithPermissionRole'])) {
             $model->withPermissionRole = $map['WithPermissionRole'];
         }
+
         if (isset($map['WithStatisticalInfo'])) {
             $model->withStatisticalInfo = $map['WithStatisticalInfo'];
         }

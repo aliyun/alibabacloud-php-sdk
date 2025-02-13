@@ -4,63 +4,37 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportRequest\contents;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateReportRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class CreateReportRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example []
-     *
      * @var contents[]
      */
     public $contents;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example client
-     *
      * @var string
      */
     public $ddFrom;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example sdfafdsfsafdfsaf
-     *
      * @var string
      */
     public $templateId;
-
     /**
      * @var tenantContext
      */
     public $tenantContext;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $toChat;
-
     /**
-     * @example []
-     *
      * @var string[]
      */
     public $toCids;
-
     /**
-     * @example [123,456]
-     *
      * @var string[]
      */
     public $toUserids;
@@ -76,79 +50,124 @@ class CreateReportRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->contents)) {
+            Model::validateArray($this->contents);
+        }
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        if (\is_array($this->toCids)) {
+            Model::validateArray($this->toCids);
+        }
+        if (\is_array($this->toUserids)) {
+            Model::validateArray($this->toUserids);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contents) {
-            $res['Contents'] = [];
-            if (null !== $this->contents && \is_array($this->contents)) {
-                $n = 0;
-                foreach ($this->contents as $item) {
-                    $res['Contents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contents)) {
+                $res['Contents'] = [];
+                $n1              = 0;
+                foreach ($this->contents as $item1) {
+                    $res['Contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->ddFrom) {
             $res['DdFrom'] = $this->ddFrom;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->toChat) {
             $res['ToChat'] = $this->toChat;
         }
+
         if (null !== $this->toCids) {
-            $res['ToCids'] = $this->toCids;
+            if (\is_array($this->toCids)) {
+                $res['ToCids'] = [];
+                $n1            = 0;
+                foreach ($this->toCids as $item1) {
+                    $res['ToCids'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->toUserids) {
-            $res['ToUserids'] = $this->toUserids;
+            if (\is_array($this->toUserids)) {
+                $res['ToUserids'] = [];
+                $n1               = 0;
+                foreach ($this->toUserids as $item1) {
+                    $res['ToUserids'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateReportRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
-                $n               = 0;
-                foreach ($map['Contents'] as $item) {
-                    $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Contents'] as $item1) {
+                    $model->contents[$n1++] = contents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DdFrom'])) {
             $model->ddFrom = $map['DdFrom'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['ToChat'])) {
             $model->toChat = $map['ToChat'];
         }
+
         if (isset($map['ToCids'])) {
             if (!empty($map['ToCids'])) {
-                $model->toCids = $map['ToCids'];
+                $model->toCids = [];
+                $n1            = 0;
+                foreach ($map['ToCids'] as $item1) {
+                    $model->toCids[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ToUserids'])) {
             if (!empty($map['ToUserids'])) {
-                $model->toUserids = $map['ToUserids'];
+                $model->toUserids = [];
+                $n1               = 0;
+                foreach ($map['ToUserids'] as $item1) {
+                    $model->toUserids[$n1++] = $item1;
+                }
             }
         }
 

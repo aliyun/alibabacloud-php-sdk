@@ -4,18 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CheckAlibabaStaffRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class CheckAlibabaStaffRequest extends Model
 {
     /**
-     * @example 156****9665
-     *
      * @var string
      */
     public $mobile;
-
     /**
      * @var tenantContext
      */
@@ -27,32 +24,38 @@ class CheckAlibabaStaffRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckAlibabaStaffRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

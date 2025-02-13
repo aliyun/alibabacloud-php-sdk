@@ -4,35 +4,24 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetDocContentRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class GetDocContentRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example dentry_uuid
-     *
      * @var string
      */
     public $dentryUuid;
-
     /**
-     * @example markdown
-     *
      * @var string
      */
     public $targetFormat;
-
     /**
      * @var tenantContext
      */
     public $tenantContext;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $userToken;
@@ -45,20 +34,27 @@ class GetDocContentRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dentryUuid) {
             $res['DentryUuid'] = $this->dentryUuid;
         }
+
         if (null !== $this->targetFormat) {
             $res['TargetFormat'] = $this->targetFormat;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
+
         if (null !== $this->userToken) {
             $res['userToken'] = $this->userToken;
         }
@@ -66,23 +62,26 @@ class GetDocContentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDocContentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DentryUuid'])) {
             $model->dentryUuid = $map['DentryUuid'];
         }
+
         if (isset($map['TargetFormat'])) {
             $model->targetFormat = $map['TargetFormat'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }
+
         if (isset($map['userToken'])) {
             $model->userToken = $map['userToken'];
         }

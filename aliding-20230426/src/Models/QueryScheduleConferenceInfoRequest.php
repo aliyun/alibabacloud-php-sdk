@@ -4,32 +4,23 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryScheduleConferenceInfoRequest\tenantContext;
-use AlibabaCloud\Tea\Model;
 
 class QueryScheduleConferenceInfoRequest extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example 19
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example 636cf59f2b032f014ae32902
-     *
      * @var string
      */
     public $scheduleConferenceId;
-
     /**
      * @var tenantContext
      */
@@ -43,44 +34,54 @@ class QueryScheduleConferenceInfoRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tenantContext) {
+            $this->tenantContext->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->scheduleConferenceId) {
             $res['ScheduleConferenceId'] = $this->scheduleConferenceId;
         }
+
         if (null !== $this->tenantContext) {
-            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toMap() : null;
+            $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryScheduleConferenceInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ScheduleConferenceId'])) {
             $model->scheduleConferenceId = $map['ScheduleConferenceId'];
         }
+
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
         }

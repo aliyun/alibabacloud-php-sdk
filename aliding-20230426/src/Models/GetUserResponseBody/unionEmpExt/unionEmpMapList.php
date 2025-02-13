@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models\GetUserResponseBody\unionEmpExt;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class unionEmpMapList extends Model
 {
     /**
-     * @example dingxxx
-     *
      * @var string
      */
     public $cropId;
-
     /**
-     * @example zhangsan
-     *
      * @var string
      */
     public $userid;
@@ -28,14 +23,16 @@ class unionEmpMapList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cropId) {
             $res['cropId'] = $this->cropId;
         }
+
         if (null !== $this->userid) {
             $res['userid'] = $this->userid;
         }
@@ -43,17 +40,18 @@ class unionEmpMapList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return unionEmpMapList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cropId'])) {
             $model->cropId = $map['cropId'];
         }
+
         if (isset($map['userid'])) {
             $model->userid = $map['userid'];
         }
