@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeNamespacesResponseBody\namespaces;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceUsed extends Model
 {
     /**
-     * @example 2
-     *
      * @var float
      */
     public $cpu;
-
     /**
      * @var float
      */
     public $cu;
-
     /**
-     * @example 4
-     *
      * @var float
      */
     public $memoryGB;
@@ -34,17 +28,20 @@ class resourceUsed extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->cu) {
             $res['Cu'] = $this->cu;
         }
+
         if (null !== $this->memoryGB) {
             $res['MemoryGB'] = $this->memoryGB;
         }
@@ -52,20 +49,22 @@ class resourceUsed extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceUsed
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['Cu'])) {
             $model->cu = $map['Cu'];
         }
+
         if (isset($map['MemoryGB'])) {
             $model->memoryGB = $map['MemoryGB'];
         }

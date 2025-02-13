@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\CreateInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class haResourceSpec extends Model
 {
@@ -12,7 +12,6 @@ class haResourceSpec extends Model
      * @var int
      */
     public $cpu;
-
     /**
      * @var int
      */
@@ -24,14 +23,16 @@ class haResourceSpec extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->memoryGB) {
             $res['MemoryGB'] = $this->memoryGB;
         }
@@ -39,17 +40,18 @@ class haResourceSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return haResourceSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['MemoryGB'])) {
             $model->memoryGB = $map['MemoryGB'];
         }

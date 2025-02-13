@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPrepayInstanceSpecShrinkRequest extends Model
 {
@@ -12,43 +12,27 @@ class ModifyPrepayInstanceSpecShrinkRequest extends Model
      * @var bool
      */
     public $ha;
-
     /**
      * @var string
      */
     public $haResourceSpecShrink;
-
     /**
      * @var string
      */
     public $haVSwitchIdsShrink;
-
     /**
      * @var string
      */
     public $haZoneId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example f-cn-wwo36qj4g06
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $region;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $resourceSpecShrink;
@@ -64,29 +48,36 @@ class ModifyPrepayInstanceSpecShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ha) {
             $res['Ha'] = $this->ha;
         }
+
         if (null !== $this->haResourceSpecShrink) {
             $res['HaResourceSpec'] = $this->haResourceSpecShrink;
         }
+
         if (null !== $this->haVSwitchIdsShrink) {
             $res['HaVSwitchIds'] = $this->haVSwitchIdsShrink;
         }
+
         if (null !== $this->haZoneId) {
             $res['HaZoneId'] = $this->haZoneId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->resourceSpecShrink) {
             $res['ResourceSpec'] = $this->resourceSpecShrink;
         }
@@ -94,32 +85,38 @@ class ModifyPrepayInstanceSpecShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPrepayInstanceSpecShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ha'])) {
             $model->ha = $map['Ha'];
         }
+
         if (isset($map['HaResourceSpec'])) {
             $model->haResourceSpecShrink = $map['HaResourceSpec'];
         }
+
         if (isset($map['HaVSwitchIds'])) {
             $model->haVSwitchIdsShrink = $map['HaVSwitchIds'];
         }
+
         if (isset($map['HaZoneId'])) {
             $model->haZoneId = $map['HaZoneId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['ResourceSpec'])) {
             $model->resourceSpecShrink = $map['ResourceSpec'];
         }

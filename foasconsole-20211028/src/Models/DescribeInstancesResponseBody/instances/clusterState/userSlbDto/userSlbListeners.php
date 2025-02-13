@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterState\userSlbDto;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userSlbListeners extends Model
 {
@@ -12,7 +12,6 @@ class userSlbListeners extends Model
      * @var string
      */
     public $listenersStatus;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class userSlbListeners extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->listenersStatus) {
             $res['ListenersStatus'] = $this->listenersStatus;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -39,17 +40,18 @@ class userSlbListeners extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userSlbListeners
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ListenersStatus'])) {
             $model->listenersStatus = $map['ListenersStatus'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }

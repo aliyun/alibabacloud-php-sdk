@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertInstanceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertInstanceRequest\namespaceResourceSpecs\resourceSpec;
-use AlibabaCloud\Tea\Model;
 
 class namespaceResourceSpecs extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ns-1
-     *
      * @var string
      */
     public $namespace;
-
     /**
-     * @description This parameter is required.
-     *
      * @var resourceSpec
      */
     public $resourceSpec;
@@ -31,32 +24,38 @@ class namespaceResourceSpecs extends Model
 
     public function validate()
     {
+        if (null !== $this->resourceSpec) {
+            $this->resourceSpec->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->resourceSpec) {
-            $res['ResourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toMap() : null;
+            $res['ResourceSpec'] = null !== $this->resourceSpec ? $this->resourceSpec->toArray($noStream) : $this->resourceSpec;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return namespaceResourceSpecs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['ResourceSpec'])) {
             $model->resourceSpec = resourceSpec::fromMap($map['ResourceSpec']);
         }

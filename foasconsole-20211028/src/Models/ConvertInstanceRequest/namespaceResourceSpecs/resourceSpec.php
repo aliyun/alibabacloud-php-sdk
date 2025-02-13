@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\ConvertInstanceRequest\namespaceResourceSpecs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceSpec extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $cpu;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $memoryGB;
@@ -32,14 +23,16 @@ class resourceSpec extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->memoryGB) {
             $res['MemoryGB'] = $this->memoryGB;
         }
@@ -47,17 +40,18 @@ class resourceSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['MemoryGB'])) {
             $model->memoryGB = $map['MemoryGB'];
         }
