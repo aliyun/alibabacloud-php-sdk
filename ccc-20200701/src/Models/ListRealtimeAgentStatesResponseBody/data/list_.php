@@ -19,6 +19,10 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $breakCode;
+    /**
+     * @var string
+     */
     public $callType;
     /**
      * @var string
@@ -71,6 +75,7 @@ class list_ extends Model
     protected $_name = [
         'agentId'            => 'AgentId',
         'agentName'          => 'AgentName',
+        'breakCode'          => 'BreakCode',
         'callType'           => 'CallType',
         'counterParty'       => 'CounterParty',
         'duration'           => 'Duration',
@@ -106,6 +111,10 @@ class list_ extends Model
 
         if (null !== $this->agentName) {
             $res['AgentName'] = $this->agentName;
+        }
+
+        if (null !== $this->breakCode) {
+            $res['BreakCode'] = $this->breakCode;
         }
 
         if (null !== $this->callType) {
@@ -189,6 +198,10 @@ class list_ extends Model
 
         if (isset($map['AgentName'])) {
             $model->agentName = $map['AgentName'];
+        }
+
+        if (isset($map['BreakCode'])) {
+            $model->breakCode = $map['BreakCode'];
         }
 
         if (isset($map['CallType'])) {

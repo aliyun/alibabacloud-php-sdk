@@ -1,3 +1,7 @@
+2025-02-13 Version: 2.34.1
+- Update API ListRealtimeAgentStates: update response param.
+
+
 2025-02-07 Version: 2.34.0
 - Support API CreateChatMediaUrl.
 - Support API ProcessCustomIMCallback.
