@@ -19352,6 +19352,10 @@ class Dmsenterprise extends OpenApiClient
             @$query['DbName'] = $request->dbName;
         }
 
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
         if (null !== $request->tid) {
             @$query['Tid'] = $request->tid;
         }
@@ -20856,6 +20860,10 @@ class Dmsenterprise extends OpenApiClient
 
         if (null !== $request->uid) {
             @$query['Uid'] = $request->uid;
+        }
+
+        if (null !== $request->uidString) {
+            @$query['UidString'] = $request->uidString;
         }
 
         if (null !== $request->userNick) {

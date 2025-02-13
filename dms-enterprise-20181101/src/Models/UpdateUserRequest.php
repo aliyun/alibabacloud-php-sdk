@@ -35,6 +35,10 @@ class UpdateUserRequest extends Model
     /**
      * @var string
      */
+    public $uidString;
+    /**
+     * @var string
+     */
     public $userNick;
     protected $_name = [
         'maxExecuteCount' => 'MaxExecuteCount',
@@ -43,6 +47,7 @@ class UpdateUserRequest extends Model
         'roleNames'       => 'RoleNames',
         'tid'             => 'Tid',
         'uid'             => 'Uid',
+        'uidString'       => 'UidString',
         'userNick'        => 'UserNick',
     ];
 
@@ -76,6 +81,10 @@ class UpdateUserRequest extends Model
 
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
+        }
+
+        if (null !== $this->uidString) {
+            $res['UidString'] = $this->uidString;
         }
 
         if (null !== $this->userNick) {
@@ -115,6 +124,10 @@ class UpdateUserRequest extends Model
 
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
+        }
+
+        if (isset($map['UidString'])) {
+            $model->uidString = $map['UidString'];
         }
 
         if (isset($map['UserNick'])) {

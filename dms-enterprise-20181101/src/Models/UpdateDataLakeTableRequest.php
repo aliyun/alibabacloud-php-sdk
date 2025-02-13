@@ -25,6 +25,10 @@ class UpdateDataLakeTableRequest extends Model
      */
     public $tableInput;
     /**
+     * @var string
+     */
+    public $tableName;
+    /**
      * @var int
      */
     public $tid;
@@ -33,6 +37,7 @@ class UpdateDataLakeTableRequest extends Model
         'dataRegion'  => 'DataRegion',
         'dbName'      => 'DbName',
         'tableInput'  => 'TableInput',
+        'tableName'   => 'TableName',
         'tid'         => 'Tid',
     ];
 
@@ -61,6 +66,10 @@ class UpdateDataLakeTableRequest extends Model
 
         if (null !== $this->tableInput) {
             $res['TableInput'] = null !== $this->tableInput ? $this->tableInput->toArray($noStream) : $this->tableInput;
+        }
+
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         if (null !== $this->tid) {
@@ -92,6 +101,10 @@ class UpdateDataLakeTableRequest extends Model
 
         if (isset($map['TableInput'])) {
             $model->tableInput = OpenStructDLTableInput::fromMap($map['TableInput']);
+        }
+
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         if (isset($map['Tid'])) {

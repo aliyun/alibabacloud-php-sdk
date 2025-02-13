@@ -25,6 +25,10 @@ class UpdateDataLakeTableShrinkRequest extends Model
      */
     public $tableInputShrink;
     /**
+     * @var string
+     */
+    public $tableName;
+    /**
      * @var int
      */
     public $tid;
@@ -33,6 +37,7 @@ class UpdateDataLakeTableShrinkRequest extends Model
         'dataRegion'       => 'DataRegion',
         'dbName'           => 'DbName',
         'tableInputShrink' => 'TableInput',
+        'tableName'        => 'TableName',
         'tid'              => 'Tid',
     ];
 
@@ -58,6 +63,10 @@ class UpdateDataLakeTableShrinkRequest extends Model
 
         if (null !== $this->tableInputShrink) {
             $res['TableInput'] = $this->tableInputShrink;
+        }
+
+        if (null !== $this->tableName) {
+            $res['TableName'] = $this->tableName;
         }
 
         if (null !== $this->tid) {
@@ -89,6 +98,10 @@ class UpdateDataLakeTableShrinkRequest extends Model
 
         if (isset($map['TableInput'])) {
             $model->tableInputShrink = $map['TableInput'];
+        }
+
+        if (isset($map['TableName'])) {
+            $model->tableName = $map['TableName'];
         }
 
         if (isset($map['Tid'])) {
