@@ -55,6 +55,10 @@ class CreateOrUpdateAlertRuleRequest extends Model
      */
     public $autoAddTargetConfig;
     /**
+     * @var int
+     */
+    public $checkCycle;
+    /**
      * @var string
      */
     public $clusterId;
@@ -138,6 +142,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
         'annotations'           => 'Annotations',
         'autoAddNewApplication' => 'AutoAddNewApplication',
         'autoAddTargetConfig'   => 'AutoAddTargetConfig',
+        'checkCycle'            => 'CheckCycle',
         'clusterId'             => 'ClusterId',
         'dataConfig'            => 'DataConfig',
         'duration'              => 'Duration',
@@ -214,6 +219,10 @@ class CreateOrUpdateAlertRuleRequest extends Model
 
         if (null !== $this->autoAddTargetConfig) {
             $res['AutoAddTargetConfig'] = $this->autoAddTargetConfig;
+        }
+
+        if (null !== $this->checkCycle) {
+            $res['CheckCycle'] = $this->checkCycle;
         }
 
         if (null !== $this->clusterId) {
@@ -353,6 +362,10 @@ class CreateOrUpdateAlertRuleRequest extends Model
 
         if (isset($map['AutoAddTargetConfig'])) {
             $model->autoAddTargetConfig = $map['AutoAddTargetConfig'];
+        }
+
+        if (isset($map['CheckCycle'])) {
+            $model->checkCycle = $map['CheckCycle'];
         }
 
         if (isset($map['ClusterId'])) {

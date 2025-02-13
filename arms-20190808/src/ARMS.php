@@ -1025,8 +1025,12 @@ class ARMS extends OpenApiClient
         return $this->addPrometheusInstanceWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
      * Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *
+     * @deprecated OpenAPI AddPrometheusIntegration is deprecated
      *
      * @param request - AddPrometheusIntegrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1078,8 +1082,12 @@ class ARMS extends OpenApiClient
         return AddPrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
      * Adds an exporter to a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *
+     * @deprecated OpenAPI AddPrometheusIntegration is deprecated
      *
      * @param request - AddPrometheusIntegrationRequest
      * @returns AddPrometheusIntegrationResponse
@@ -2845,6 +2853,10 @@ class ARMS extends OpenApiClient
 
         if (null !== $request->autoAddTargetConfig) {
             @$body['AutoAddTargetConfig'] = $request->autoAddTargetConfig;
+        }
+
+        if (null !== $request->checkCycle) {
+            @$body['CheckCycle'] = $request->checkCycle;
         }
 
         if (null !== $request->clusterId) {
@@ -6109,8 +6121,12 @@ class ARMS extends OpenApiClient
         return $this->deletePrometheusGlobalViewWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
      * Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *
+     * @deprecated OpenAPI DeletePrometheusIntegration is deprecated
      *
      * @param request - DeletePrometheusIntegrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6162,8 +6178,12 @@ class ARMS extends OpenApiClient
         return DeletePrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
      * Deletes an exporter from a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *
+     * @deprecated OpenAPI DeletePrometheusIntegration is deprecated
      *
      * @param request - DeletePrometheusIntegrationRequest
      * @returns DeletePrometheusIntegrationResponse
@@ -9237,8 +9257,12 @@ class ARMS extends OpenApiClient
         return $this->getPrometheusInstanceWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
      * Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *
+     * @deprecated OpenAPI GetPrometheusIntegration is deprecated
      *
      * @param request - GetPrometheusIntegrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9290,8 +9314,12 @@ class ARMS extends OpenApiClient
         return GetPrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
      * Queries the information about an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *
+     * @deprecated OpenAPI GetPrometheusIntegration is deprecated
      *
      * @param request - GetPrometheusIntegrationRequest
      * @returns GetPrometheusIntegrationResponse
@@ -9798,6 +9826,10 @@ class ARMS extends OpenApiClient
 
         if (null !== $request->appName) {
             @$query['AppName'] = $request->appName;
+        }
+
+        if (null !== $request->appType) {
+            @$query['AppType'] = $request->appType;
         }
 
         if (null !== $request->regionId) {
@@ -11856,7 +11888,7 @@ class ARMS extends OpenApiClient
     /**
      * 查询Cms安装信息.
      *
-     * @deprecated openAPI ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead
+     * @deprecated OpenAPI ListCmsInstances is deprecated
      *
      * @param request - ListCmsInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11909,7 +11941,7 @@ class ARMS extends OpenApiClient
     /**
      * 查询Cms安装信息.
      *
-     * @deprecated openAPI ListCmsInstances is deprecated, please use ARMS::2019-08-08::ListEnvironmentAddons instead
+     * @deprecated OpenAPI ListCmsInstances is deprecated
      *
      * @param request - ListCmsInstancesRequest
      * @returns ListCmsInstancesResponse
@@ -13663,8 +13695,12 @@ class ARMS extends OpenApiClient
         return $this->listPrometheusInstancesWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
      * Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
+     *
+     * @deprecated OpenAPI ListPrometheusIntegration is deprecated
      *
      * @param request - ListPrometheusIntegrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13712,8 +13748,12 @@ class ARMS extends OpenApiClient
         return ListPrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
      * Queries a list of exporters that are integrated into a Prometheus instance. Only aliyun-cs and ecs instances are supported.
+     *
+     * @deprecated OpenAPI ListPrometheusIntegration is deprecated
      *
      * @param request - ListPrometheusIntegrationRequest
      * @returns ListPrometheusIntegrationResponse
@@ -18323,8 +18363,12 @@ class ARMS extends OpenApiClient
         return $this->updatePrometheusInstanceWithOptions($request, $runtime);
     }
 
+    // Deprecated
+
     /**
      * Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *
+     * @deprecated OpenAPI UpdatePrometheusIntegration is deprecated
      *
      * @param request - UpdatePrometheusIntegrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18380,8 +18424,12 @@ class ARMS extends OpenApiClient
         return UpdatePrometheusIntegrationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
+
     /**
      * Modifies the configurations of an exporter that is integrated into a Prometheus instance for Container Service or a Prometheus instance for ECS.
+     *
+     * @deprecated OpenAPI UpdatePrometheusIntegration is deprecated
      *
      * @param request - UpdatePrometheusIntegrationRequest
      * @returns UpdatePrometheusIntegrationResponse

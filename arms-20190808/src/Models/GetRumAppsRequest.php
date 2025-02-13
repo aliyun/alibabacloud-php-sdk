@@ -24,6 +24,10 @@ class GetRumAppsRequest extends Model
     /**
      * @var string
      */
+    public $appType;
+    /**
+     * @var string
+     */
     public $regionId;
     /**
      * @var string
@@ -41,6 +45,7 @@ class GetRumAppsRequest extends Model
         'appGroup'        => 'AppGroup',
         'appId'           => 'AppId',
         'appName'         => 'AppName',
+        'appType'         => 'AppType',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tags'            => 'Tags',
@@ -68,6 +73,10 @@ class GetRumAppsRequest extends Model
 
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
         }
 
         if (null !== $this->regionId) {
@@ -113,6 +122,10 @@ class GetRumAppsRequest extends Model
 
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
         }
 
         if (isset($map['RegionId'])) {

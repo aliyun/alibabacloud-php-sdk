@@ -1,3 +1,8 @@
+2025-02-13 Version: 8.0.2
+- Update API CreateOrUpdateAlertRule: add param CheckCycle.
+- Update API GetRumApps: add param AppType.
+
+
 2025-01-21 Version: 8.0.1
 - Update API CreateRumApp: add param Workspace.
 - Update API GetRumAppInfo: add param Workspace.

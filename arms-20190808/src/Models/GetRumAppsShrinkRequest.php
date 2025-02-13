@@ -23,6 +23,10 @@ class GetRumAppsShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appType;
+    /**
+     * @var string
+     */
     public $regionId;
     /**
      * @var string
@@ -40,6 +44,7 @@ class GetRumAppsShrinkRequest extends Model
         'appGroup'        => 'AppGroup',
         'appId'           => 'AppId',
         'appName'         => 'AppName',
+        'appType'         => 'AppType',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'tagsShrink'      => 'Tags',
@@ -64,6 +69,10 @@ class GetRumAppsShrinkRequest extends Model
 
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
         }
 
         if (null !== $this->regionId) {
@@ -103,6 +112,10 @@ class GetRumAppsShrinkRequest extends Model
 
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
         }
 
         if (isset($map['RegionId'])) {
