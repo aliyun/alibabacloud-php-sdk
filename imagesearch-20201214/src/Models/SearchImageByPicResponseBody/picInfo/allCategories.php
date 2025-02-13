@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicResponseBody\picInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class allCategories extends Model
 {
     /**
-     * @description The ID of the category.
-     *
-     * @example 88888888
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the category.
-     *
-     * @example other
-     *
      * @var string
      */
     public $name;
@@ -32,14 +23,16 @@ class allCategories extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,17 +40,18 @@ class allCategories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return allCategories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class IncreaseListResponse extends Model
+class CompareSimilarByImageResponse extends Model
 {
     /**
      * @var string[]
@@ -17,7 +17,7 @@ class IncreaseListResponse extends Model
      */
     public $statusCode;
     /**
-     * @var IncreaseListResponseBody
+     * @var CompareSimilarByImageResponseBody
      */
     public $body;
     protected $_name = [
@@ -82,7 +82,7 @@ class IncreaseListResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = IncreaseListResponseBody::fromMap($map['body']);
+            $model->body = CompareSimilarByImageResponseBody::fromMap($map['body']);
         }
 
         return $model;

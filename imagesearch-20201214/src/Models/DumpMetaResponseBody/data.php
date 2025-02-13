@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\DumpMetaResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The status of the export task.
-     *
-     *   PROCESSING: in progress
-     *   FAIL: failed
-     *   SUCCESS: successful
-     *
-     * @example PROCESSING
-     *
      * @var string
      */
     public $dumpMetaStatus;
-
     /**
-     * @description The ID of the export task.
-     *
-     * @example 500
-     *
      * @var string
      */
     public $id;
@@ -36,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dumpMetaStatus) {
             $res['DumpMetaStatus'] = $this->dumpMetaStatus;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -51,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DumpMetaStatus'])) {
             $model->dumpMetaStatus = $map['DumpMetaStatus'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

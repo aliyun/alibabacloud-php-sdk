@@ -4,41 +4,25 @@
 
 namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicResponseBody\picInfo\allCategories;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\SearchImageByPicResponseBody\picInfo\multiRegion;
-use AlibabaCloud\Tea\Model;
 
 class picInfo extends Model
 {
     /**
-     * @description The categories that are supported by the system.
-     *
      * @var allCategories[]
      */
     public $allCategories;
-
     /**
-     * @description The category selected by the system. If a category is specified in the request, the specified category prevails.
-     *
-     * @example 88888888
-     *
      * @var int
      */
     public $categoryId;
-
     /**
-     * @description The recognized subjects.
-     *
-     * >  To use this feature, you must upgrade the SDK to version 3.1.1.
      * @var multiRegion[]
      */
     public $multiRegion;
-
     /**
-     * @description The result of subject recognition. The subject area of the image, in the format of x1,x2,y1,y2. Specifically, x1 and y1 specify the upper-left pixel, and x2 and y2 specify the lower-right pixel. If a subject area is specified in the request, the specified subject area prevails.
-     *
-     * @example 280,486,232,351
-     *
      * @var string
      */
     public $region;
@@ -51,32 +35,42 @@ class picInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->allCategories)) {
+            Model::validateArray($this->allCategories);
+        }
+        if (\is_array($this->multiRegion)) {
+            Model::validateArray($this->multiRegion);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allCategories) {
-            $res['AllCategories'] = [];
-            if (null !== $this->allCategories && \is_array($this->allCategories)) {
-                $n = 0;
-                foreach ($this->allCategories as $item) {
-                    $res['AllCategories'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->allCategories)) {
+                $res['AllCategories'] = [];
+                $n1                   = 0;
+                foreach ($this->allCategories as $item1) {
+                    $res['AllCategories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
         }
+
         if (null !== $this->multiRegion) {
-            $res['MultiRegion'] = [];
-            if (null !== $this->multiRegion && \is_array($this->multiRegion)) {
-                $n = 0;
-                foreach ($this->multiRegion as $item) {
-                    $res['MultiRegion'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->multiRegion)) {
+                $res['MultiRegion'] = [];
+                $n1                 = 0;
+                foreach ($this->multiRegion as $item1) {
+                    $res['MultiRegion'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -84,35 +78,38 @@ class picInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return picInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllCategories'])) {
             if (!empty($map['AllCategories'])) {
                 $model->allCategories = [];
-                $n                    = 0;
-                foreach ($map['AllCategories'] as $item) {
-                    $model->allCategories[$n++] = null !== $item ? allCategories::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['AllCategories'] as $item1) {
+                    $model->allCategories[$n1++] = allCategories::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
         }
+
         if (isset($map['MultiRegion'])) {
             if (!empty($map['MultiRegion'])) {
                 $model->multiRegion = [];
-                $n                  = 0;
-                foreach ($map['MultiRegion'] as $item) {
-                    $model->multiRegion[$n++] = null !== $item ? multiRegion::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['MultiRegion'] as $item1) {
+                    $model->multiRegion[$n1++] = multiRegion::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

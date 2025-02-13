@@ -6,29 +6,24 @@ namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class DumpMetaListRequest extends Model
+class CompareSimilarByImageRequest extends Model
 {
-    /**
-     * @var int
-     */
-    public $id;
     /**
      * @var string
      */
     public $instanceName;
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $primaryPicContent;
     /**
-     * @var int
+     * @var string
      */
-    public $pageSize;
+    public $secondaryPicContent;
     protected $_name = [
-        'id'           => 'Id',
-        'instanceName' => 'InstanceName',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'instanceName'        => 'InstanceName',
+        'primaryPicContent'   => 'PrimaryPicContent',
+        'secondaryPicContent' => 'SecondaryPicContent',
     ];
 
     public function validate()
@@ -39,20 +34,16 @@ class DumpMetaListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
-
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
 
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->primaryPicContent) {
+            $res['PrimaryPicContent'] = $this->primaryPicContent;
         }
 
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
+        if (null !== $this->secondaryPicContent) {
+            $res['SecondaryPicContent'] = $this->secondaryPicContent;
         }
 
         return $res;
@@ -66,20 +57,16 @@ class DumpMetaListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
-
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
 
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['PrimaryPicContent'])) {
+            $model->primaryPicContent = $map['PrimaryPicContent'];
         }
 
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
+        if (isset($map['SecondaryPicContent'])) {
+            $model->secondaryPicContent = $map['SecondaryPicContent'];
         }
 
         return $model;

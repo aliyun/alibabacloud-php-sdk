@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ImageSearch\V20201214\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ImageSearch\V20201214\Models\DumpMetaListResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class DumpMetaListResponseBody extends Model
 {
     /**
-     * @description The information about the task that is used to export metadata.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example B3137727-7D6E-488C-BA21-0E034C38A879
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DumpMetaListResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DumpMetaListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DumpMetaListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
