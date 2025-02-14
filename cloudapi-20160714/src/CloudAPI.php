@@ -12121,6 +12121,14 @@ class CloudAPI extends OpenApiClient
             @$query['IntranetDomain'] = $request->intranetDomain;
         }
 
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
         if (null !== $request->securityToken) {
             @$query['SecurityToken'] = $request->securityToken;
         }

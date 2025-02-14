@@ -13,6 +13,14 @@ class ListPrivateDNSRequest extends Model
      */
     public $intranetDomain;
     /**
+     * @var int
+     */
+    public $pageNumber;
+    /**
+     * @var int
+     */
+    public $pageSize;
+    /**
      * @var string
      */
     public $securityToken;
@@ -22,6 +30,8 @@ class ListPrivateDNSRequest extends Model
     public $type;
     protected $_name = [
         'intranetDomain' => 'IntranetDomain',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
         'securityToken'  => 'SecurityToken',
         'type'           => 'Type',
     ];
@@ -36,6 +46,14 @@ class ListPrivateDNSRequest extends Model
         $res = [];
         if (null !== $this->intranetDomain) {
             $res['IntranetDomain'] = $this->intranetDomain;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
 
         if (null !== $this->securityToken) {
@@ -59,6 +77,14 @@ class ListPrivateDNSRequest extends Model
         $model = new self();
         if (isset($map['IntranetDomain'])) {
             $model->intranetDomain = $map['IntranetDomain'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
 
         if (isset($map['SecurityToken'])) {
