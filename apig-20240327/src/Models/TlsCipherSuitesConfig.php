@@ -4,67 +4,72 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\SDK\APIG\V20240327\Models\TlsCipherSuitesConfig\cipherSuites;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\TlsCipherSuitesConfig\tlsCipherSuite;
 
 class TlsCipherSuitesConfig extends Model
 {
     /**
-     * @var cipherSuites[]
-     */
-    public $cipherSuites;
-
-    /**
      * @var string
      */
     public $configType;
+    /**
+     * @var tlsCipherSuite[]
+     */
+    public $tlsCipherSuite;
     protected $_name = [
-        'cipherSuites' => 'cipherSuites',
-        'configType'   => 'configType',
+        'configType'     => 'configType',
+        'tlsCipherSuite' => 'tlsCipherSuite',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tlsCipherSuite)) {
+            Model::validateArray($this->tlsCipherSuite);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->cipherSuites) {
-            $res['cipherSuites'] = [];
-            if (null !== $this->cipherSuites && \is_array($this->cipherSuites)) {
-                $n = 0;
-                foreach ($this->cipherSuites as $item) {
-                    $res['cipherSuites'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->configType) {
             $res['configType'] = $this->configType;
+        }
+
+        if (null !== $this->tlsCipherSuite) {
+            if (\is_array($this->tlsCipherSuite)) {
+                $res['tlsCipherSuite'] = [];
+                $n1                    = 0;
+                foreach ($this->tlsCipherSuite as $item1) {
+                    $res['tlsCipherSuite'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TlsCipherSuitesConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['cipherSuites'])) {
-            if (!empty($map['cipherSuites'])) {
-                $model->cipherSuites = [];
-                $n                   = 0;
-                foreach ($map['cipherSuites'] as $item) {
-                    $model->cipherSuites[$n++] = null !== $item ? cipherSuites::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['configType'])) {
             $model->configType = $map['configType'];
+        }
+
+        if (isset($map['tlsCipherSuite'])) {
+            if (!empty($map['tlsCipherSuite'])) {
+                $model->tlsCipherSuite = [];
+                $n1                    = 0;
+                foreach ($map['tlsCipherSuite'] as $item1) {
+                    $model->tlsCipherSuite[$n1++] = tlsCipherSuite::fromMap($item1);
+                }
+            }
         }
 
         return $model;

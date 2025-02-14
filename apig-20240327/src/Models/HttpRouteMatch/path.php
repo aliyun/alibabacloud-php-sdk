@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpRouteMatch;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class path extends Model
 {
     /**
-     * @example Prefix
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @example /user
-     *
      * @var string
      */
     public $value;
@@ -28,14 +23,16 @@ class path extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -43,17 +40,18 @@ class path extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return path
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

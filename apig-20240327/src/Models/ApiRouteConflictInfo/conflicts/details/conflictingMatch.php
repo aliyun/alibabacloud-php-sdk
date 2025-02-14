@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ApiRouteConflictInfo\conflicts\details;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ApiRouteConflictInfo\conflicts\details\conflictingMatch\operationInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpRouteMatch;
-use AlibabaCloud\Tea\Model;
 
 class conflictingMatch extends Model
 {
@@ -14,7 +14,6 @@ class conflictingMatch extends Model
      * @var HttpRouteMatch
      */
     public $match;
-
     /**
      * @var operationInfo
      */
@@ -26,32 +25,41 @@ class conflictingMatch extends Model
 
     public function validate()
     {
+        if (null !== $this->match) {
+            $this->match->validate();
+        }
+        if (null !== $this->operationInfo) {
+            $this->operationInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->match) {
-            $res['match'] = null !== $this->match ? $this->match->toMap() : null;
+            $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
         }
+
         if (null !== $this->operationInfo) {
-            $res['operationInfo'] = null !== $this->operationInfo ? $this->operationInfo->toMap() : null;
+            $res['operationInfo'] = null !== $this->operationInfo ? $this->operationInfo->toArray($noStream) : $this->operationInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conflictingMatch
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['match'])) {
             $model->match = HttpRouteMatch::fromMap($map['match']);
         }
+
         if (isset($map['operationInfo'])) {
             $model->operationInfo = operationInfo::fromMap($map['operationInfo']);
         }

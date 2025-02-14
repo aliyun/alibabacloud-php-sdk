@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ApiRouteConflictInfo\conflicts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routeInfo extends Model
 {
@@ -12,7 +12,6 @@ class routeInfo extends Model
      * @var string
      */
     public $name;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class routeInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->routeId) {
             $res['routeId'] = $this->routeId;
         }
@@ -39,17 +40,18 @@ class routeInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['routeId'])) {
             $model->routeId = $map['routeId'];
         }

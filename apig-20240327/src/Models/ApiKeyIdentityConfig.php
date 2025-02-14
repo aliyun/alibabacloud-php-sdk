@@ -4,53 +4,58 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ApiKeyIdentityConfig\apikeySource;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ApiKeyIdentityConfig\credentials;
 
 class ApiKeyIdentityConfig extends Model
 {
     /**
-     * @var string
-     */
-    public $apikey;
-
-    /**
      * @var apikeySource
      */
     public $apikeySource;
-
     /**
-     * @var string
+     * @var credentials[]
      */
-    public $generateMode;
-
+    public $credentials;
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'apikey'       => 'apikey',
         'apikeySource' => 'apikeySource',
-        'generateMode' => 'generateMode',
+        'credentials'  => 'credentials',
         'type'         => 'type',
     ];
 
     public function validate()
     {
+        if (null !== $this->apikeySource) {
+            $this->apikeySource->validate();
+        }
+        if (\is_array($this->credentials)) {
+            Model::validateArray($this->credentials);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->apikey) {
-            $res['apikey'] = $this->apikey;
-        }
         if (null !== $this->apikeySource) {
-            $res['apikeySource'] = null !== $this->apikeySource ? $this->apikeySource->toMap() : null;
+            $res['apikeySource'] = null !== $this->apikeySource ? $this->apikeySource->toArray($noStream) : $this->apikeySource;
         }
-        if (null !== $this->generateMode) {
-            $res['generateMode'] = $this->generateMode;
+
+        if (null !== $this->credentials) {
+            if (\is_array($this->credentials)) {
+                $res['credentials'] = [];
+                $n1                 = 0;
+                foreach ($this->credentials as $item1) {
+                    $res['credentials'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -58,23 +63,28 @@ class ApiKeyIdentityConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApiKeyIdentityConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['apikey'])) {
-            $model->apikey = $map['apikey'];
-        }
         if (isset($map['apikeySource'])) {
             $model->apikeySource = apikeySource::fromMap($map['apikeySource']);
         }
-        if (isset($map['generateMode'])) {
-            $model->generateMode = $map['generateMode'];
+
+        if (isset($map['credentials'])) {
+            if (!empty($map['credentials'])) {
+                $model->credentials = [];
+                $n1                 = 0;
+                foreach ($map['credentials'] as $item1) {
+                    $model->credentials[$n1++] = credentials::fromMap($item1);
+                }
+            }
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

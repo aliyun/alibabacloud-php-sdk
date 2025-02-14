@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class HttpApiBackendMatchConditions extends Model
 {
@@ -12,10 +12,7 @@ class HttpApiBackendMatchConditions extends Model
      * @var HttpApiBackendMatchCondition[]
      */
     public $conditions;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $default;
@@ -26,20 +23,25 @@ class HttpApiBackendMatchConditions extends Model
 
     public function validate()
     {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditions) {
-            $res['conditions'] = [];
-            if (null !== $this->conditions && \is_array($this->conditions)) {
-                $n = 0;
-                foreach ($this->conditions as $item) {
-                    $res['conditions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditions)) {
+                $res['conditions'] = [];
+                $n1                = 0;
+                foreach ($this->conditions as $item1) {
+                    $res['conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->default) {
             $res['default'] = $this->default;
         }
@@ -47,23 +49,24 @@ class HttpApiBackendMatchConditions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HttpApiBackendMatchConditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['conditions'])) {
             if (!empty($map['conditions'])) {
                 $model->conditions = [];
-                $n                 = 0;
-                foreach ($map['conditions'] as $item) {
-                    $model->conditions[$n++] = null !== $item ? HttpApiBackendMatchCondition::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['conditions'] as $item1) {
+                    $model->conditions[$n1++] = HttpApiBackendMatchCondition::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['default'])) {
             $model->default = $map['default'];
         }

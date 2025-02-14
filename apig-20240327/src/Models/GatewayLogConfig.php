@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GatewayLogConfig\slsConfig;
-use AlibabaCloud\Tea\Model;
 
 class GatewayLogConfig extends Model
 {
@@ -19,23 +19,27 @@ class GatewayLogConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->slsConfig) {
+            $this->slsConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->slsConfig) {
-            $res['slsConfig'] = null !== $this->slsConfig ? $this->slsConfig->toMap() : null;
+            $res['slsConfig'] = null !== $this->slsConfig ? $this->slsConfig->toArray($noStream) : $this->slsConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GatewayLogConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

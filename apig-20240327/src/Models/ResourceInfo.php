@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResourceInfo extends Model
 {
@@ -12,17 +12,14 @@ class ResourceInfo extends Model
      * @var string
      */
     public $resourceId;
-
     /**
      * @var string
      */
     public $resourceName;
-
     /**
      * @var string
      */
     public $resourceType;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class ResourceInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceName) {
             $res['resourceName'] = $this->resourceName;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
+
         if (null !== $this->resourceVersion) {
             $res['resourceVersion'] = $this->resourceVersion;
         }
@@ -57,23 +58,26 @@ class ResourceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResourceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resourceId'])) {
             $model->resourceId = $map['resourceId'];
         }
+
         if (isset($map['resourceName'])) {
             $model->resourceName = $map['resourceName'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }
+
         if (isset($map['resourceVersion'])) {
             $model->resourceVersion = $map['resourceVersion'];
         }

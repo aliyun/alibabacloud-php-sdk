@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\JwtIdentityConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class jwtPayloadConfig extends Model
 {
@@ -12,7 +12,6 @@ class jwtPayloadConfig extends Model
      * @var string
      */
     public $payloadKeyName;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class jwtPayloadConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->payloadKeyName) {
             $res['payloadKeyName'] = $this->payloadKeyName;
         }
+
         if (null !== $this->payloadKeyValue) {
             $res['payloadKeyValue'] = $this->payloadKeyValue;
         }
@@ -39,17 +40,18 @@ class jwtPayloadConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jwtPayloadConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['payloadKeyName'])) {
             $model->payloadKeyName = $map['payloadKeyName'];
         }
+
         if (isset($map['payloadKeyValue'])) {
             $model->payloadKeyValue = $map['payloadKeyValue'];
         }

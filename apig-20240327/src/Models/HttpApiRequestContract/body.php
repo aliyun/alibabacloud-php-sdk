@@ -4,29 +4,22 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiRequestContract;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class body extends Model
 {
     /**
-     * @example application/json
-     *
      * @var string
      */
     public $contentType;
-
     /**
      * @var string
      */
     public $description;
-
     /**
-     * @example {"key":"value"}
-     *
      * @var string
      */
     public $example;
-
     /**
      * @var string
      */
@@ -40,20 +33,24 @@ class body extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contentType) {
             $res['contentType'] = $this->contentType;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->example) {
             $res['example'] = $this->example;
         }
+
         if (null !== $this->jsonSchema) {
             $res['jsonSchema'] = $this->jsonSchema;
         }
@@ -61,23 +58,26 @@ class body extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return body
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['contentType'])) {
             $model->contentType = $map['contentType'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['example'])) {
             $model->example = $map['example'];
         }
+
         if (isset($map['jsonSchema'])) {
             $model->jsonSchema = $map['jsonSchema'];
         }

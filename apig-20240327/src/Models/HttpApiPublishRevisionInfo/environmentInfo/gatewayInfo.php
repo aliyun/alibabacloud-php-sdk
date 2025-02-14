@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\environmentInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class gatewayInfo extends Model
 {
     /**
-     * @example gw-xxx
-     *
      * @var string
      */
     public $gatewayId;
-
     /**
-     * @example 实例1
-     *
      * @var string
      */
     public $name;
@@ -28,14 +23,16 @@ class gatewayInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -43,17 +40,18 @@ class gatewayInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return gatewayInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

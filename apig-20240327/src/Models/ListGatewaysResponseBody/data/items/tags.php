@@ -4,54 +4,56 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
      * @var string
      */
-    public $tagKey;
-
+    public $key;
     /**
      * @var string
      */
-    public $tagValue;
+    public $value;
     protected $_name = [
-        'tagKey'   => 'tagKey',
-        'tagValue' => 'tagValue',
+        'key'   => 'key',
+        'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->tagKey) {
-            $res['tagKey'] = $this->tagKey;
+        if (null !== $this->key) {
+            $res['key'] = $this->key;
         }
-        if (null !== $this->tagValue) {
-            $res['tagValue'] = $this->tagValue;
+
+        if (null !== $this->value) {
+            $res['value'] = $this->value;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['tagKey'])) {
-            $model->tagKey = $map['tagKey'];
+        if (isset($map['key'])) {
+            $model->key = $map['key'];
         }
-        if (isset($map['tagValue'])) {
-            $model->tagValue = $map['tagValue'];
+
+        if (isset($map['value'])) {
+            $model->value = $map['value'];
         }
 
         return $model;

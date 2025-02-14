@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AuthorizationResourceInfo extends Model
 {
@@ -12,12 +12,10 @@ class AuthorizationResourceInfo extends Model
      * @var string
      */
     public $environmentId;
-
     /**
      * @var string
      */
     public $parentResourceId;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class AuthorizationResourceInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
+
         if (null !== $this->parentResourceId) {
             $res['parentResourceId'] = $this->parentResourceId;
         }
+
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
         }
@@ -48,20 +49,22 @@ class AuthorizationResourceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuthorizationResourceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }
+
         if (isset($map['parentResourceId'])) {
             $model->parentResourceId = $map['parentResourceId'];
         }
+
         if (isset($map['resourceId'])) {
             $model->resourceId = $map['resourceId'];
         }

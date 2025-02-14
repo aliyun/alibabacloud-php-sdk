@@ -4,81 +4,45 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateDomainRequest extends Model
 {
     /**
-     * @description Cloud Shield CA certificate identifier.
-     *
-     * @example 123455-cn-hangzhou
-     *
      * @var string
      */
-    public $caCertIndentifier;
-
+    public $caCertIdentifier;
     /**
-     * @description Cloud Shield certificate identifier.
-     *
-     * @example 123458-cn-hangzhou
-     *
      * @var string
      */
-    public $certIndentifier;
-
+    public $certIdentifier;
     /**
-     * @description Set the HTTPS protocol type, whether to enable forced HTTPS redirection.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $forceHttps;
-
     /**
-     * @description HTTP/2 settings.
-     *
-     * @example Open
-     *
      * @var string
      */
     public $http2Option;
-
     /**
-     * @description The protocol type supported by the domain.
-     *
-     * This parameter is required.
-     * @example HTTP
-     *
      * @var string
      */
     public $protocol;
-
     /**
      * @var TlsCipherSuitesConfig
      */
     public $tlsCipherSuitesConfig;
-
     /**
-     * @description Maximum TLS protocol version, supports up to TLS 1.3.
-     *
-     * @example TLS 1.3
-     *
      * @var string
      */
     public $tlsMax;
-
     /**
-     * @description Minimum TLS protocol version, supports down to TLS 1.0.
-     *
-     * @example TLS 1.0
-     *
      * @var string
      */
     public $tlsMin;
     protected $_name = [
-        'caCertIndentifier'     => 'caCertIndentifier',
-        'certIndentifier'       => 'certIndentifier',
+        'caCertIdentifier'      => 'caCertIdentifier',
+        'certIdentifier'        => 'certIdentifier',
         'forceHttps'            => 'forceHttps',
         'http2Option'           => 'http2Option',
         'protocol'              => 'protocol',
@@ -89,32 +53,43 @@ class UpdateDomainRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->tlsCipherSuitesConfig) {
+            $this->tlsCipherSuitesConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->caCertIndentifier) {
-            $res['caCertIndentifier'] = $this->caCertIndentifier;
+        if (null !== $this->caCertIdentifier) {
+            $res['caCertIdentifier'] = $this->caCertIdentifier;
         }
-        if (null !== $this->certIndentifier) {
-            $res['certIndentifier'] = $this->certIndentifier;
+
+        if (null !== $this->certIdentifier) {
+            $res['certIdentifier'] = $this->certIdentifier;
         }
+
         if (null !== $this->forceHttps) {
             $res['forceHttps'] = $this->forceHttps;
         }
+
         if (null !== $this->http2Option) {
             $res['http2Option'] = $this->http2Option;
         }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
+
         if (null !== $this->tlsCipherSuitesConfig) {
-            $res['tlsCipherSuitesConfig'] = null !== $this->tlsCipherSuitesConfig ? $this->tlsCipherSuitesConfig->toMap() : null;
+            $res['tlsCipherSuitesConfig'] = null !== $this->tlsCipherSuitesConfig ? $this->tlsCipherSuitesConfig->toArray($noStream) : $this->tlsCipherSuitesConfig;
         }
+
         if (null !== $this->tlsMax) {
             $res['tlsMax'] = $this->tlsMax;
         }
+
         if (null !== $this->tlsMin) {
             $res['tlsMin'] = $this->tlsMin;
         }
@@ -122,35 +97,42 @@ class UpdateDomainRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateDomainRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['caCertIndentifier'])) {
-            $model->caCertIndentifier = $map['caCertIndentifier'];
+        if (isset($map['caCertIdentifier'])) {
+            $model->caCertIdentifier = $map['caCertIdentifier'];
         }
-        if (isset($map['certIndentifier'])) {
-            $model->certIndentifier = $map['certIndentifier'];
+
+        if (isset($map['certIdentifier'])) {
+            $model->certIdentifier = $map['certIdentifier'];
         }
+
         if (isset($map['forceHttps'])) {
             $model->forceHttps = $map['forceHttps'];
         }
+
         if (isset($map['http2Option'])) {
             $model->http2Option = $map['http2Option'];
         }
+
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
+
         if (isset($map['tlsCipherSuitesConfig'])) {
             $model->tlsCipherSuitesConfig = TlsCipherSuitesConfig::fromMap($map['tlsCipherSuitesConfig']);
         }
+
         if (isset($map['tlsMax'])) {
             $model->tlsMax = $map['tlsMax'];
         }
+
         if (isset($map['tlsMin'])) {
             $model->tlsMin = $map['tlsMin'];
         }
