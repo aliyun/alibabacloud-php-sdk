@@ -10,25 +10,9 @@ use AlibabaCloud\SDK\IQS\V20240712\Models\BicyclingDirectionNovaResponseBody\dat
 class BicyclingDirectionNovaResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $code;
-    /**
      * @var data
      */
     public $data;
-    /**
-     * @var int
-     */
-    public $errorCode;
-    /**
-     * @var string
-     */
-    public $errorMessage;
-    /**
-     * @var string
-     */
-    public $message;
     /**
      * @var string
      */
@@ -38,13 +22,9 @@ class BicyclingDirectionNovaResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'         => 'code',
-        'data'         => 'data',
-        'errorCode'    => 'errorCode',
-        'errorMessage' => 'errorMessage',
-        'message'      => 'message',
-        'requestId'    => 'requestId',
-        'success'      => 'success',
+        'data'      => 'data',
+        'requestId' => 'requestId',
+        'success'   => 'success',
     ];
 
     public function validate()
@@ -58,24 +38,8 @@ class BicyclingDirectionNovaResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['code'] = $this->code;
-        }
-
         if (null !== $this->data) {
             $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
-        }
-
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
-        }
-
-        if (null !== $this->errorMessage) {
-            $res['errorMessage'] = $this->errorMessage;
-        }
-
-        if (null !== $this->message) {
-            $res['message'] = $this->message;
         }
 
         if (null !== $this->requestId) {
@@ -97,24 +61,8 @@ class BicyclingDirectionNovaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['code'])) {
-            $model->code = $map['code'];
-        }
-
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
-        }
-
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
-        }
-
-        if (isset($map['errorMessage'])) {
-            $model->errorMessage = $map['errorMessage'];
-        }
-
-        if (isset($map['message'])) {
-            $model->message = $map['message'];
         }
 
         if (isset($map['requestId'])) {

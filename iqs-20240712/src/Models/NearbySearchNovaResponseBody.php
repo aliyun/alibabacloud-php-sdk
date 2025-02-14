@@ -10,25 +10,9 @@ use AlibabaCloud\SDK\IQS\V20240712\Models\NearbySearchNovaResponseBody\data;
 class NearbySearchNovaResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $code;
-    /**
      * @var data[]
      */
     public $data;
-    /**
-     * @var int
-     */
-    public $errorCode;
-    /**
-     * @var string
-     */
-    public $errorMessage;
-    /**
-     * @var string
-     */
-    public $message;
     /**
      * @var string
      */
@@ -38,13 +22,9 @@ class NearbySearchNovaResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'         => 'code',
-        'data'         => 'data',
-        'errorCode'    => 'errorCode',
-        'errorMessage' => 'errorMessage',
-        'message'      => 'message',
-        'requestId'    => 'requestId',
-        'success'      => 'success',
+        'data'      => 'data',
+        'requestId' => 'requestId',
+        'success'   => 'success',
     ];
 
     public function validate()
@@ -58,10 +38,6 @@ class NearbySearchNovaResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['code'] = $this->code;
-        }
-
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['data'] = [];
@@ -70,18 +46,6 @@ class NearbySearchNovaResponseBody extends Model
                     $res['data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
-        }
-
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
-        }
-
-        if (null !== $this->errorMessage) {
-            $res['errorMessage'] = $this->errorMessage;
-        }
-
-        if (null !== $this->message) {
-            $res['message'] = $this->message;
         }
 
         if (null !== $this->requestId) {
@@ -103,10 +67,6 @@ class NearbySearchNovaResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['code'])) {
-            $model->code = $map['code'];
-        }
-
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
@@ -115,18 +75,6 @@ class NearbySearchNovaResponseBody extends Model
                     $model->data[$n1++] = data::fromMap($item1);
                 }
             }
-        }
-
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
-        }
-
-        if (isset($map['errorMessage'])) {
-            $model->errorMessage = $map['errorMessage'];
-        }
-
-        if (isset($map['message'])) {
-            $model->message = $map['message'];
         }
 
         if (isset($map['requestId'])) {
