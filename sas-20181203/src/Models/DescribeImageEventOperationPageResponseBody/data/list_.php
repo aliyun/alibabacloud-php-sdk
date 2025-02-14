@@ -40,6 +40,10 @@ class list_ extends Model
      * @var string
      */
     public $scenarios;
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'conditions'    => 'Conditions',
         'eventKey'      => 'EventKey',
@@ -49,6 +53,7 @@ class list_ extends Model
         'note'          => 'Note',
         'operationCode' => 'OperationCode',
         'scenarios'     => 'Scenarios',
+        'source'        => 'Source',
     ];
 
     public function validate()
@@ -89,6 +94,10 @@ class list_ extends Model
 
         if (null !== $this->scenarios) {
             $res['Scenarios'] = $this->scenarios;
+        }
+
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -132,6 +141,10 @@ class list_ extends Model
 
         if (isset($map['Scenarios'])) {
             $model->scenarios = $map['Scenarios'];
+        }
+
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;
