@@ -17,6 +17,10 @@ class GenerateAIAgentCallRequest extends Model
      */
     public $expire;
     /**
+     * @var string
+     */
+    public $sessionId;
+    /**
      * @var AIAgentTemplateConfig
      */
     public $templateConfig;
@@ -31,6 +35,7 @@ class GenerateAIAgentCallRequest extends Model
     protected $_name = [
         'AIAgentId'      => 'AIAgentId',
         'expire'         => 'Expire',
+        'sessionId'      => 'SessionId',
         'templateConfig' => 'TemplateConfig',
         'userData'       => 'UserData',
         'userId'         => 'UserId',
@@ -53,6 +58,10 @@ class GenerateAIAgentCallRequest extends Model
 
         if (null !== $this->expire) {
             $res['Expire'] = $this->expire;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         if (null !== $this->templateConfig) {
@@ -84,6 +93,10 @@ class GenerateAIAgentCallRequest extends Model
 
         if (isset($map['Expire'])) {
             $model->expire = $map['Expire'];
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         if (isset($map['TemplateConfig'])) {

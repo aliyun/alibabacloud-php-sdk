@@ -17,6 +17,10 @@ class licenseConfigs extends Model
      */
     public $featureIds;
     /**
+     * @var bool
+     */
+    public $isTrial;
+    /**
      * @var int
      */
     public $sdkId;
@@ -39,6 +43,7 @@ class licenseConfigs extends Model
     protected $_name = [
         'businessType'    => 'BusinessType',
         'featureIds'      => 'FeatureIds',
+        'isTrial'         => 'IsTrial',
         'sdkId'           => 'SdkId',
         'sdkName'         => 'SdkName',
         'subscription'    => 'Subscription',
@@ -60,6 +65,10 @@ class licenseConfigs extends Model
 
         if (null !== $this->featureIds) {
             $res['FeatureIds'] = $this->featureIds;
+        }
+
+        if (null !== $this->isTrial) {
+            $res['IsTrial'] = $this->isTrial;
         }
 
         if (null !== $this->sdkId) {
@@ -99,6 +108,10 @@ class licenseConfigs extends Model
 
         if (isset($map['FeatureIds'])) {
             $model->featureIds = $map['FeatureIds'];
+        }
+
+        if (isset($map['IsTrial'])) {
+            $model->isTrial = $map['IsTrial'];
         }
 
         if (isset($map['SdkId'])) {

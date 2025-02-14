@@ -22,7 +22,7 @@ class AddMediaConnectFlowOutputResponseBody extends Model
      */
     public $requestId;
     /**
-     * @var string
+     * @var int
      */
     public $retCode;
     protected $_name = [

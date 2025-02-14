@@ -52,14 +52,6 @@ class AddMediaConnectFlowInputRequest extends Model
      * @var string
      */
     public $srtPbkeyLen;
-    /**
-     * @var string
-     */
-    public $srtPbkeylen;
-    /**
-     * @var string
-     */
-    public $srtPbkeyssen;
     protected $_name = [
         'cidrs'          => 'Cidrs',
         'flowId'         => 'FlowId',
@@ -72,8 +64,6 @@ class AddMediaConnectFlowInputRequest extends Model
         'srtLatency'     => 'SrtLatency',
         'srtPassphrase'  => 'SrtPassphrase',
         'srtPbkeyLen'    => 'SrtPbkeyLen',
-        'srtPbkeylen'    => 'SrtPbkeylen',
-        'srtPbkeyssen'   => 'SrtPbkeyssen',
     ];
 
     public function validate()
@@ -126,14 +116,6 @@ class AddMediaConnectFlowInputRequest extends Model
 
         if (null !== $this->srtPbkeyLen) {
             $res['SrtPbkeyLen'] = $this->srtPbkeyLen;
-        }
-
-        if (null !== $this->srtPbkeylen) {
-            $res['SrtPbkeylen'] = $this->srtPbkeylen;
-        }
-
-        if (null !== $this->srtPbkeyssen) {
-            $res['SrtPbkeyssen'] = $this->srtPbkeyssen;
         }
 
         return $res;
@@ -189,14 +171,6 @@ class AddMediaConnectFlowInputRequest extends Model
 
         if (isset($map['SrtPbkeyLen'])) {
             $model->srtPbkeyLen = $map['SrtPbkeyLen'];
-        }
-
-        if (isset($map['SrtPbkeylen'])) {
-            $model->srtPbkeylen = $map['SrtPbkeylen'];
-        }
-
-        if (isset($map['SrtPbkeyssen'])) {
-            $model->srtPbkeyssen = $map['SrtPbkeyssen'];
         }
 
         return $model;

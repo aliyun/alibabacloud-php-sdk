@@ -21,6 +21,10 @@ class instance extends Model
     /**
      * @var string
      */
+    public $sessionId;
+    /**
+     * @var string
+     */
     public $status;
     /**
      * @var AIAgentTemplateConfig
@@ -33,6 +37,7 @@ class instance extends Model
     protected $_name = [
         'callLogUrl'     => 'CallLogUrl',
         'runtimeConfig'  => 'RuntimeConfig',
+        'sessionId'      => 'SessionId',
         'status'         => 'Status',
         'templateConfig' => 'TemplateConfig',
         'userData'       => 'UserData',
@@ -58,6 +63,10 @@ class instance extends Model
 
         if (null !== $this->runtimeConfig) {
             $res['RuntimeConfig'] = null !== $this->runtimeConfig ? $this->runtimeConfig->toArray($noStream) : $this->runtimeConfig;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         if (null !== $this->status) {
@@ -89,6 +98,10 @@ class instance extends Model
 
         if (isset($map['RuntimeConfig'])) {
             $model->runtimeConfig = AIAgentRuntimeConfig::fromMap($map['RuntimeConfig']);
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         if (isset($map['Status'])) {

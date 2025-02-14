@@ -10,6 +10,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig\avatarChat3D\llm
 class avatarChat3D extends Model
 {
     /**
+     * @var string
+     */
+    public $asrLanguageId;
+    /**
      * @var int
      */
     public $asrMaxSilence;
@@ -90,6 +94,7 @@ class avatarChat3D extends Model
      */
     public $workflowOverrideParams;
     protected $_name = [
+        'asrLanguageId'            => 'AsrLanguageId',
         'asrMaxSilence'            => 'AsrMaxSilence',
         'avatarId'                 => 'AvatarId',
         'bailianAppParams'         => 'BailianAppParams',
@@ -126,6 +131,10 @@ class avatarChat3D extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->asrLanguageId) {
+            $res['AsrLanguageId'] = $this->asrLanguageId;
+        }
+
         if (null !== $this->asrMaxSilence) {
             $res['AsrMaxSilence'] = $this->asrMaxSilence;
         }
@@ -229,6 +238,10 @@ class avatarChat3D extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsrLanguageId'])) {
+            $model->asrLanguageId = $map['AsrLanguageId'];
+        }
+
         if (isset($map['AsrMaxSilence'])) {
             $model->asrMaxSilence = $map['AsrMaxSilence'];
         }

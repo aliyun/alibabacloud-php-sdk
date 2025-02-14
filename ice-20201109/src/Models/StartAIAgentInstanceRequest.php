@@ -17,6 +17,10 @@ class StartAIAgentInstanceRequest extends Model
      */
     public $runtimeConfig;
     /**
+     * @var string
+     */
+    public $sessionId;
+    /**
      * @var AIAgentTemplateConfig
      */
     public $templateConfig;
@@ -27,6 +31,7 @@ class StartAIAgentInstanceRequest extends Model
     protected $_name = [
         'AIAgentId'      => 'AIAgentId',
         'runtimeConfig'  => 'RuntimeConfig',
+        'sessionId'      => 'SessionId',
         'templateConfig' => 'TemplateConfig',
         'userData'       => 'UserData',
     ];
@@ -51,6 +56,10 @@ class StartAIAgentInstanceRequest extends Model
 
         if (null !== $this->runtimeConfig) {
             $res['RuntimeConfig'] = null !== $this->runtimeConfig ? $this->runtimeConfig->toArray($noStream) : $this->runtimeConfig;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         if (null !== $this->templateConfig) {
@@ -78,6 +87,10 @@ class StartAIAgentInstanceRequest extends Model
 
         if (isset($map['RuntimeConfig'])) {
             $model->runtimeConfig = AIAgentRuntimeConfig::fromMap($map['RuntimeConfig']);
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         if (isset($map['TemplateConfig'])) {

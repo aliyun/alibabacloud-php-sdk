@@ -19,6 +19,10 @@ class SubmitASRJobRequest extends Model
     /**
      * @var string
      */
+    public $editingConfig;
+    /**
+     * @var string
+     */
     public $inputFile;
     /**
      * @var string
@@ -33,12 +37,13 @@ class SubmitASRJobRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'description' => 'Description',
-        'duration'    => 'Duration',
-        'inputFile'   => 'InputFile',
-        'startTime'   => 'StartTime',
-        'title'       => 'Title',
-        'userData'    => 'UserData',
+        'description'   => 'Description',
+        'duration'      => 'Duration',
+        'editingConfig' => 'EditingConfig',
+        'inputFile'     => 'InputFile',
+        'startTime'     => 'StartTime',
+        'title'         => 'Title',
+        'userData'      => 'UserData',
     ];
 
     public function validate()
@@ -55,6 +60,10 @@ class SubmitASRJobRequest extends Model
 
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+
+        if (null !== $this->editingConfig) {
+            $res['EditingConfig'] = $this->editingConfig;
         }
 
         if (null !== $this->inputFile) {
@@ -90,6 +99,10 @@ class SubmitASRJobRequest extends Model
 
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+
+        if (isset($map['EditingConfig'])) {
+            $model->editingConfig = $map['EditingConfig'];
         }
 
         if (isset($map['InputFile'])) {

@@ -31,19 +31,44 @@ class SubmitVideoTranslationJobRequest extends Model
     /**
      * @var string
      */
+    public $signature;
+    /**
+     * @var string
+     */
+    public $signatureMehtod;
+    /**
+     * @var string
+     */
+    public $signatureNonce;
+    /**
+     * @var string
+     */
+    public $signatureType;
+    /**
+     * @var string
+     */
+    public $signatureVersion;
+    /**
+     * @var string
+     */
     public $title;
     /**
      * @var string
      */
     public $userData;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'description'   => 'Description',
-        'editingConfig' => 'EditingConfig',
-        'inputConfig'   => 'InputConfig',
-        'outputConfig'  => 'OutputConfig',
-        'title'         => 'Title',
-        'userData'      => 'UserData',
+        'clientToken'      => 'ClientToken',
+        'description'      => 'Description',
+        'editingConfig'    => 'EditingConfig',
+        'inputConfig'      => 'InputConfig',
+        'outputConfig'     => 'OutputConfig',
+        'signature'        => 'Signature',
+        'signatureMehtod'  => 'SignatureMehtod',
+        'signatureNonce'   => 'SignatureNonce',
+        'signatureType'    => 'SignatureType',
+        'signatureVersion' => 'SignatureVersion',
+        'title'            => 'Title',
+        'userData'         => 'UserData',
     ];
 
     public function validate()
@@ -72,6 +97,26 @@ class SubmitVideoTranslationJobRequest extends Model
 
         if (null !== $this->outputConfig) {
             $res['OutputConfig'] = $this->outputConfig;
+        }
+
+        if (null !== $this->signature) {
+            $res['Signature'] = $this->signature;
+        }
+
+        if (null !== $this->signatureMehtod) {
+            $res['SignatureMehtod'] = $this->signatureMehtod;
+        }
+
+        if (null !== $this->signatureNonce) {
+            $res['SignatureNonce'] = $this->signatureNonce;
+        }
+
+        if (null !== $this->signatureType) {
+            $res['SignatureType'] = $this->signatureType;
+        }
+
+        if (null !== $this->signatureVersion) {
+            $res['SignatureVersion'] = $this->signatureVersion;
         }
 
         if (null !== $this->title) {
@@ -111,6 +156,26 @@ class SubmitVideoTranslationJobRequest extends Model
 
         if (isset($map['OutputConfig'])) {
             $model->outputConfig = $map['OutputConfig'];
+        }
+
+        if (isset($map['Signature'])) {
+            $model->signature = $map['Signature'];
+        }
+
+        if (isset($map['SignatureMehtod'])) {
+            $model->signatureMehtod = $map['SignatureMehtod'];
+        }
+
+        if (isset($map['SignatureNonce'])) {
+            $model->signatureNonce = $map['SignatureNonce'];
+        }
+
+        if (isset($map['SignatureType'])) {
+            $model->signatureType = $map['SignatureType'];
+        }
+
+        if (isset($map['SignatureVersion'])) {
+            $model->signatureVersion = $map['SignatureVersion'];
         }
 
         if (isset($map['Title'])) {

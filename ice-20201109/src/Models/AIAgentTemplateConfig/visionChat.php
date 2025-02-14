@@ -10,6 +10,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig\visionChat\llmHi
 class visionChat extends Model
 {
     /**
+     * @var string
+     */
+    public $asrLanguageId;
+    /**
      * @var int
      */
     public $asrMaxSilence;
@@ -86,6 +90,7 @@ class visionChat extends Model
      */
     public $workflowOverrideParams;
     protected $_name = [
+        'asrLanguageId'            => 'AsrLanguageId',
         'asrMaxSilence'            => 'AsrMaxSilence',
         'bailianAppParams'         => 'BailianAppParams',
         'enableIntelligentSegment' => 'EnableIntelligentSegment',
@@ -121,6 +126,10 @@ class visionChat extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->asrLanguageId) {
+            $res['AsrLanguageId'] = $this->asrLanguageId;
+        }
+
         if (null !== $this->asrMaxSilence) {
             $res['AsrMaxSilence'] = $this->asrMaxSilence;
         }
@@ -220,6 +229,10 @@ class visionChat extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsrLanguageId'])) {
+            $model->asrLanguageId = $map['AsrLanguageId'];
+        }
+
         if (isset($map['AsrMaxSilence'])) {
             $model->asrMaxSilence = $map['AsrMaxSilence'];
         }

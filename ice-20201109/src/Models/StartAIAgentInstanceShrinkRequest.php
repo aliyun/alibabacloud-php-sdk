@@ -19,6 +19,10 @@ class StartAIAgentInstanceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $sessionId;
+    /**
+     * @var string
+     */
     public $templateConfigShrink;
     /**
      * @var string
@@ -27,6 +31,7 @@ class StartAIAgentInstanceShrinkRequest extends Model
     protected $_name = [
         'AIAgentId'            => 'AIAgentId',
         'runtimeConfigShrink'  => 'RuntimeConfig',
+        'sessionId'            => 'SessionId',
         'templateConfigShrink' => 'TemplateConfig',
         'userData'             => 'UserData',
     ];
@@ -45,6 +50,10 @@ class StartAIAgentInstanceShrinkRequest extends Model
 
         if (null !== $this->runtimeConfigShrink) {
             $res['RuntimeConfig'] = $this->runtimeConfigShrink;
+        }
+
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
 
         if (null !== $this->templateConfigShrink) {
@@ -72,6 +81,10 @@ class StartAIAgentInstanceShrinkRequest extends Model
 
         if (isset($map['RuntimeConfig'])) {
             $model->runtimeConfigShrink = $map['RuntimeConfig'];
+        }
+
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
 
         if (isset($map['TemplateConfig'])) {

@@ -31,10 +31,6 @@ class AddMediaConnectFlowOutputRequest extends Model
     /**
      * @var string
      */
-    public $pairChannelId;
-    /**
-     * @var string
-     */
     public $pairFlowId;
     /**
      * @var string
@@ -62,7 +58,6 @@ class AddMediaConnectFlowOutputRequest extends Model
         'outputName'     => 'OutputName',
         'outputProtocol' => 'OutputProtocol',
         'outputToUrl'    => 'OutputToUrl',
-        'pairChannelId'  => 'PairChannelId',
         'pairFlowId'     => 'PairFlowId',
         'pairInputName'  => 'PairInputName',
         'playerLimit'    => 'PlayerLimit',
@@ -97,10 +92,6 @@ class AddMediaConnectFlowOutputRequest extends Model
 
         if (null !== $this->outputToUrl) {
             $res['OutputToUrl'] = $this->outputToUrl;
-        }
-
-        if (null !== $this->pairChannelId) {
-            $res['PairChannelId'] = $this->pairChannelId;
         }
 
         if (null !== $this->pairFlowId) {
@@ -156,10 +147,6 @@ class AddMediaConnectFlowOutputRequest extends Model
 
         if (isset($map['OutputToUrl'])) {
             $model->outputToUrl = $map['OutputToUrl'];
-        }
-
-        if (isset($map['PairChannelId'])) {
-            $model->pairChannelId = $map['PairChannelId'];
         }
 
         if (isset($map['PairFlowId'])) {

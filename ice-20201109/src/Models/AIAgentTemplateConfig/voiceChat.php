@@ -10,6 +10,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig\voiceChat\llmHis
 class voiceChat extends Model
 {
     /**
+     * @var string
+     */
+    public $asrLanguageId;
+    /**
      * @var int
      */
     public $asrMaxSilence;
@@ -94,6 +98,7 @@ class voiceChat extends Model
      */
     public $workflowOverrideParams;
     protected $_name = [
+        'asrLanguageId'            => 'AsrLanguageId',
         'asrMaxSilence'            => 'AsrMaxSilence',
         'avatarUrl'                => 'AvatarUrl',
         'avatarUrlType'            => 'AvatarUrlType',
@@ -131,6 +136,10 @@ class voiceChat extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->asrLanguageId) {
+            $res['AsrLanguageId'] = $this->asrLanguageId;
+        }
+
         if (null !== $this->asrMaxSilence) {
             $res['AsrMaxSilence'] = $this->asrMaxSilence;
         }
@@ -238,6 +247,10 @@ class voiceChat extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AsrLanguageId'])) {
+            $model->asrLanguageId = $map['AsrLanguageId'];
+        }
+
         if (isset($map['AsrMaxSilence'])) {
             $model->asrMaxSilence = $map['AsrMaxSilence'];
         }

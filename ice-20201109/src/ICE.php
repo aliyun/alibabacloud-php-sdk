@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\ICE\V20201109;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddAdInsertionRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\AddAdInsertionResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddCategoryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddCategoryResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddEditingProjectMaterialsRequest;
@@ -21,6 +23,9 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchIndexRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AlterSearchIndexResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\BatchCreateVodPackagingAssetRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\BatchCreateVodPackagingAssetResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\BatchCreateVodPackagingAssetShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchGetMediaInfosResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelDNAJobRequest;
@@ -73,8 +78,20 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadStreamRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadStreamResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingAssetRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingAssetResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingAssetShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingConfigurationRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingConfigurationResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingConfigurationShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingGroupRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingGroupResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAdInsertionRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAdInsertionResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAIAgentDialogueRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAIAgentDialogueResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAvatarTrainingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryRequest;
@@ -112,6 +129,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteLiveTranscodeTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaConnectFlowInputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaConnectFlowInputResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaConnectFlowOutputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaConnectFlowOutputResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaConnectFlowRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaConnectFlowResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteMediaFromSearchLibRequest;
@@ -134,6 +155,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSourceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteSourceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingAssetRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingAssetResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingConfigurationRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingConfigurationResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingGroupRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteVodPackagingGroupResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeMeterImsEditUsageRequest;
@@ -162,6 +189,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateKMSDataKeyResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateMessageChatTokenRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateMessageChatTokenResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarTrainingJobRequest;
@@ -211,6 +242,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetLiveTranscodeTemplateResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowInputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowInputResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowOutputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowOutputResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConvertJobRequest;
@@ -261,10 +296,20 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetUrlUploadInfosRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetUrlUploadInfosResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetVideoListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetVideoListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetVodPackagingAssetRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetVodPackagingAssetResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetVodPackagingConfigurationRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetVodPackagingConfigurationResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetVodPackagingGroupRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetVodPackagingGroupResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\InsertMediaToSearchLibResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAdInsertionsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAdInsertionsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentDialoguesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentDialoguesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAlertsRequest;
@@ -354,6 +399,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingAssetsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingAssetsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingConfigurationsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingConfigurationsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingGroupsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListVodPackagingGroupsResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightExtractJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightExtractJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightJobListRequest;
@@ -408,6 +459,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentDataChannelMessageRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentDataChannelMessageResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentSpeechRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentSpeechResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentTextRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentTextResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveSnapshotJobCommandRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveSnapshotJobCommandResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveTranscodeJobCommandRequest;
@@ -464,6 +517,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicChartJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicImageJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicImageJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDynamicImageJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitHighlightExtractionJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitHighlightExtractionJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitIProductionJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitIProductionJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitIProductionJobShrinkRequest;
@@ -528,6 +583,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAdInsertionRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAdInsertionResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAIAgentInstanceShrinkRequest;
@@ -562,6 +619,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLiveTranscodeTemplateShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaConnectFlowInputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaConnectFlowInputResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaConnectFlowOutputRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaConnectFlowOutputResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaConnectFlowStatusRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaConnectFlowStatusResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaInfoRequest;
@@ -683,6 +744,100 @@ class ICE extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * 添加广告插入配置.
+     *
+     * @param request - AddAdInsertionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddAdInsertionResponse
+     *
+     * @param AddAdInsertionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddAdInsertionResponse
+     */
+    public function addAdInsertionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->adMarkerPassthrough) {
+            @$body['AdMarkerPassthrough'] = $request->adMarkerPassthrough;
+        }
+
+        if (null !== $request->adsUrl) {
+            @$body['AdsUrl'] = $request->adsUrl;
+        }
+
+        if (null !== $request->cdnAdSegmentUrlPrefix) {
+            @$body['CdnAdSegmentUrlPrefix'] = $request->cdnAdSegmentUrlPrefix;
+        }
+
+        if (null !== $request->cdnContentSegmentUrlPrefix) {
+            @$body['CdnContentSegmentUrlPrefix'] = $request->cdnContentSegmentUrlPrefix;
+        }
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->configAliases) {
+            @$body['ConfigAliases'] = $request->configAliases;
+        }
+
+        if (null !== $request->contentUrlPrefix) {
+            @$body['ContentUrlPrefix'] = $request->contentUrlPrefix;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->personalizationThreshold) {
+            @$body['PersonalizationThreshold'] = $request->personalizationThreshold;
+        }
+
+        if (null !== $request->slateAdUrl) {
+            @$body['SlateAdUrl'] = $request->slateAdUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAdInsertion',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddAdInsertionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return AddAdInsertionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 添加广告插入配置.
+     *
+     * @param request - AddAdInsertionRequest
+     * @returns AddAdInsertionResponse
+     *
+     * @param AddAdInsertionRequest $request
+     *
+     * @return AddAdInsertionResponse
+     */
+    public function addAdInsertion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAdInsertionWithOptions($request, $runtime);
     }
 
     /**
@@ -878,7 +1033,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 为MediaConnect实例添加input.
+     * Add input for MediaConnect instance.
+     *
+     * @remarks
+     * - If the provided Flow instance ID does not exist, the interface will return an error.
+     * - A Flow instance can only have one Input.
+     * ### Description of Input Types
+     * - RTMP-PUSH: Creates an input of the RTMP listening type. You can push to the URL returned by the interface using the RTMP protocol.
+     * - RTMP-PULL: Creates an input of the RTMP origin-pull type. The Flow will pull the RTMP live stream from the source you specify.
+     * - SRT-Listener: Creates an input of the SRT listening type. You can push to the URL returned by the interface using the SRT protocol.
+     * - SRT-Caller: Creates an input of the SRT origin-pull type. The Flow will pull the SRT live stream from the source you specify.
+     * - Flow: Uses the output of another upstream Flow instance as the input. You need to specify both the instance ID and the output name of the paired Flow. The output of the upstream Flow instance must be of the SRT-Listener/RTMP-PULL type. When cascading between Flow instances, a dedicated line is used by default, which can be utilized for cross-regional distribution among multiple Flows.
      *
      * @param request - AddMediaConnectFlowInputRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -937,14 +1102,6 @@ class ICE extends OpenApiClient
             @$query['SrtPbkeyLen'] = $request->srtPbkeyLen;
         }
 
-        if (null !== $request->srtPbkeylen) {
-            @$query['SrtPbkeylen'] = $request->srtPbkeylen;
-        }
-
-        if (null !== $request->srtPbkeyssen) {
-            @$query['SrtPbkeyssen'] = $request->srtPbkeyssen;
-        }
-
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
@@ -967,7 +1124,17 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 为MediaConnect实例添加input.
+     * Add input for MediaConnect instance.
+     *
+     * @remarks
+     * - If the provided Flow instance ID does not exist, the interface will return an error.
+     * - A Flow instance can only have one Input.
+     * ### Description of Input Types
+     * - RTMP-PUSH: Creates an input of the RTMP listening type. You can push to the URL returned by the interface using the RTMP protocol.
+     * - RTMP-PULL: Creates an input of the RTMP origin-pull type. The Flow will pull the RTMP live stream from the source you specify.
+     * - SRT-Listener: Creates an input of the SRT listening type. You can push to the URL returned by the interface using the SRT protocol.
+     * - SRT-Caller: Creates an input of the SRT origin-pull type. The Flow will pull the SRT live stream from the source you specify.
+     * - Flow: Uses the output of another upstream Flow instance as the input. You need to specify both the instance ID and the output name of the paired Flow. The output of the upstream Flow instance must be of the SRT-Listener/RTMP-PULL type. When cascading between Flow instances, a dedicated line is used by default, which can be utilized for cross-regional distribution among multiple Flows.
      *
      * @param request - AddMediaConnectFlowInputRequest
      * @returns AddMediaConnectFlowInputResponse
@@ -984,7 +1151,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 为MediaConnect实例添加output.
+     * Add output for MediaConnect instance.
+     *
+     * @remarks
+     * - If the provided Flow instance ID does not exist, the interface will return an error.
+     * - A Flow instance can have up to 4 outputs.
+     * - The output names under the same Flow instance cannot be duplicated.
+     * - You can set a maximum number of simultaneous players for each output. New plays will fail once this limit is exceeded. Each output supports up to 5 streams.
+     * ### Description of Output Types
+     * - RTMP-PUSH: Creates an output of the RTMP push type. The Flow will use the RTMP protocol to push the live stream to the origin you set.
+     * - RTMP-PULL: Creates an output of the RTMP pull type. You can use the RTMP protocol to pull the stream from the URL returned by the interface.
+     * - SRT-Caller: Creates an output of the SRT push type. The Flow will use the SRT protocol to push the live stream to the origin you set.
+     * - SRT-Listener: Creates an output of the SRT pull type. You can use the SRT protocol to pull the stream from the URL returned by the interface.
+     * - Flow: Uses the input of another downstream Flow instance as the output. You need to specify both the instance ID and the input name of the paired Flow. The input type of the downstream Flow instance must be a listening type, i.e., SRT-Listener/RTMP-PUSH. This instance will push the live stream to the downstream Flow. When cascading between Flow instances, a dedicated line is used by default, which can be used for cross-regional distribution among multiple Flows.
      *
      * @param request - AddMediaConnectFlowOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1017,10 +1196,6 @@ class ICE extends OpenApiClient
 
         if (null !== $request->outputToUrl) {
             @$query['OutputToUrl'] = $request->outputToUrl;
-        }
-
-        if (null !== $request->pairChannelId) {
-            @$query['PairChannelId'] = $request->pairChannelId;
         }
 
         if (null !== $request->pairFlowId) {
@@ -1069,7 +1244,19 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 为MediaConnect实例添加output.
+     * Add output for MediaConnect instance.
+     *
+     * @remarks
+     * - If the provided Flow instance ID does not exist, the interface will return an error.
+     * - A Flow instance can have up to 4 outputs.
+     * - The output names under the same Flow instance cannot be duplicated.
+     * - You can set a maximum number of simultaneous players for each output. New plays will fail once this limit is exceeded. Each output supports up to 5 streams.
+     * ### Description of Output Types
+     * - RTMP-PUSH: Creates an output of the RTMP push type. The Flow will use the RTMP protocol to push the live stream to the origin you set.
+     * - RTMP-PULL: Creates an output of the RTMP pull type. You can use the RTMP protocol to pull the stream from the URL returned by the interface.
+     * - SRT-Caller: Creates an output of the SRT push type. The Flow will use the SRT protocol to push the live stream to the origin you set.
+     * - SRT-Listener: Creates an output of the SRT pull type. You can use the SRT protocol to pull the stream from the URL returned by the interface.
+     * - Flow: Uses the input of another downstream Flow instance as the output. You need to specify both the instance ID and the input name of the paired Flow. The input type of the downstream Flow instance must be a listening type, i.e., SRT-Listener/RTMP-PUSH. This instance will push the live stream to the downstream Flow. When cascading between Flow instances, a dedicated line is used by default, which can be used for cross-regional distribution among multiple Flows.
      *
      * @param request - AddMediaConnectFlowOutputRequest
      * @returns AddMediaConnectFlowOutputResponse
@@ -1313,6 +1500,74 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->alterSearchIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * 批量创建vod打包资产.
+     *
+     * @param tmpReq - BatchCreateVodPackagingAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchCreateVodPackagingAssetResponse
+     *
+     * @param BatchCreateVodPackagingAssetRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchCreateVodPackagingAssetResponse
+     */
+    public function batchCreateVodPackagingAssetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new BatchCreateVodPackagingAssetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->assets) {
+            $request->assetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->assets, 'Assets', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->assetsShrink) {
+            @$query['Assets'] = $request->assetsShrink;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCreateVodPackagingAsset',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BatchCreateVodPackagingAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return BatchCreateVodPackagingAssetResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 批量创建vod打包资产.
+     *
+     * @param request - BatchCreateVodPackagingAssetRequest
+     * @returns BatchCreateVodPackagingAssetResponse
+     *
+     * @param BatchCreateVodPackagingAssetRequest $request
+     *
+     * @return BatchCreateVodPackagingAssetResponse
+     */
+    public function batchCreateVodPackagingAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateVodPackagingAssetWithOptions($request, $runtime);
     }
 
     /**
@@ -2540,7 +2795,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建MediaConnect Flow.
+     * Create MediaConnect Flow.
+     *
+     * @remarks
+     * - The name of the Flow cannot be duplicated within the same region.
+     * - When the interface responds normally, it will return the Flow instance ID. Please keep it properly.
      *
      * @param request - CreateMediaConnectFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2585,7 +2844,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 创建MediaConnect Flow.
+     * Create MediaConnect Flow.
+     *
+     * @remarks
+     * - The name of the Flow cannot be duplicated within the same region.
+     * - When the interface responds normally, it will return the Flow instance ID. Please keep it properly.
      *
      * @param request - CreateMediaConnectFlowRequest
      * @returns CreateMediaConnectFlowResponse
@@ -3212,6 +3475,228 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 创建vod打包资产.
+     *
+     * @param tmpReq - CreateVodPackagingAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVodPackagingAssetResponse
+     *
+     * @param CreateVodPackagingAssetRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateVodPackagingAssetResponse
+     */
+    public function createVodPackagingAssetWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateVodPackagingAssetShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->input) {
+            $request->inputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->assetName) {
+            @$query['AssetName'] = $request->assetName;
+        }
+
+        if (null !== $request->contentId) {
+            @$query['ContentId'] = $request->contentId;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->inputShrink) {
+            @$query['Input'] = $request->inputShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVodPackagingAsset',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVodPackagingAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateVodPackagingAssetResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建vod打包资产.
+     *
+     * @param request - CreateVodPackagingAssetRequest
+     * @returns CreateVodPackagingAssetResponse
+     *
+     * @param CreateVodPackagingAssetRequest $request
+     *
+     * @return CreateVodPackagingAssetResponse
+     */
+    public function createVodPackagingAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVodPackagingAssetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建点播打包配置.
+     *
+     * @param tmpReq - CreateVodPackagingConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVodPackagingConfigurationResponse
+     *
+     * @param CreateVodPackagingConfigurationRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateVodPackagingConfigurationResponse
+     */
+    public function createVodPackagingConfigurationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateVodPackagingConfigurationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->packageConfig) {
+            $request->packageConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->packageConfig, 'PackageConfig', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->configurationName) {
+            @$query['ConfigurationName'] = $request->configurationName;
+        }
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->packageConfigShrink) {
+            @$query['PackageConfig'] = $request->packageConfigShrink;
+        }
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVodPackagingConfiguration',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVodPackagingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateVodPackagingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建点播打包配置.
+     *
+     * @param request - CreateVodPackagingConfigurationRequest
+     * @returns CreateVodPackagingConfigurationResponse
+     *
+     * @param CreateVodPackagingConfigurationRequest $request
+     *
+     * @return CreateVodPackagingConfigurationResponse
+     */
+    public function createVodPackagingConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVodPackagingConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 创建点播打包组.
+     *
+     * @param request - CreateVodPackagingGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVodPackagingGroupResponse
+     *
+     * @param CreateVodPackagingGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateVodPackagingGroupResponse
+     */
+    public function createVodPackagingGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVodPackagingGroup',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVodPackagingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateVodPackagingGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建点播打包组.
+     *
+     * @param request - CreateVodPackagingGroupRequest
+     * @returns CreateVodPackagingGroupResponse
+     *
+     * @param CreateVodPackagingGroupRequest $request
+     *
+     * @return CreateVodPackagingGroupResponse
+     */
+    public function createVodPackagingGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVodPackagingGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
      *
      * @param request - DecryptKMSDataKeyRequest
@@ -3267,6 +3752,126 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->decryptKMSDataKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除智能体的对话历史记录。
+     *
+     * @param request - DeleteAIAgentDialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAIAgentDialogueResponse
+     *
+     * @param DeleteAIAgentDialogueRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteAIAgentDialogueResponse
+     */
+    public function deleteAIAgentDialogueWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dialogueId) {
+            @$query['DialogueId'] = $request->dialogueId;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAIAgentDialogue',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAIAgentDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteAIAgentDialogueResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除智能体的对话历史记录。
+     *
+     * @param request - DeleteAIAgentDialogueRequest
+     * @returns DeleteAIAgentDialogueResponse
+     *
+     * @param DeleteAIAgentDialogueRequest $request
+     *
+     * @return DeleteAIAgentDialogueResponse
+     */
+    public function deleteAIAgentDialogue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAIAgentDialogueWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除广告插入配置.
+     *
+     * @param request - DeleteAdInsertionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAdInsertionResponse
+     *
+     * @param DeleteAdInsertionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteAdInsertionResponse
+     */
+    public function deleteAdInsertionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAdInsertion',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAdInsertionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteAdInsertionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除广告插入配置.
+     *
+     * @param request - DeleteAdInsertionRequest
+     * @returns DeleteAdInsertionResponse
+     *
+     * @param DeleteAdInsertionRequest $request
+     *
+     * @return DeleteAdInsertionResponse
+     */
+    public function deleteAdInsertion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAdInsertionWithOptions($request, $runtime);
     }
 
     /**
@@ -4394,7 +4999,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 根据实例id删除MediaConnect实例.
+     * Delete MediaConnect instance by instance ID.
+     *
+     * @remarks
+     * - When the input Flow instance ID does not exist, the interface will return an error.
+     * - When deleting a Flow instance, all Inputs and Outputs bound to this Flow will also be deleted.
+     * - You cannot delete a Flow instance that is in the online state.
      *
      * @param request - DeleteMediaConnectFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4435,7 +5045,12 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 根据实例id删除MediaConnect实例.
+     * Delete MediaConnect instance by instance ID.
+     *
+     * @remarks
+     * - When the input Flow instance ID does not exist, the interface will return an error.
+     * - When deleting a Flow instance, all Inputs and Outputs bound to this Flow will also be deleted.
+     * - You cannot delete a Flow instance that is in the online state.
      *
      * @param request - DeleteMediaConnectFlowRequest
      * @returns DeleteMediaConnectFlowResponse
@@ -4449,6 +5064,144 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteMediaConnectFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete the input of a specific MediaConnect instance.
+     *
+     * @remarks
+     * - If the provided Flow instance ID does not exist, the interface will return an error.
+     * - When the Flow instance status is online, the input cannot be deleted.
+     * - Only after all outputs under the Flow instance have been deleted can the input be deleted.
+     *
+     * @param request - DeleteMediaConnectFlowInputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMediaConnectFlowInputResponse
+     *
+     * @param DeleteMediaConnectFlowInputRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteMediaConnectFlowInputResponse
+     */
+    public function deleteMediaConnectFlowInputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaConnectFlowInput',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMediaConnectFlowInputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteMediaConnectFlowInputResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Delete the input of a specific MediaConnect instance.
+     *
+     * @remarks
+     * - If the provided Flow instance ID does not exist, the interface will return an error.
+     * - When the Flow instance status is online, the input cannot be deleted.
+     * - Only after all outputs under the Flow instance have been deleted can the input be deleted.
+     *
+     * @param request - DeleteMediaConnectFlowInputRequest
+     * @returns DeleteMediaConnectFlowInputResponse
+     *
+     * @param DeleteMediaConnectFlowInputRequest $request
+     *
+     * @return DeleteMediaConnectFlowInputResponse
+     */
+    public function deleteMediaConnectFlowInput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaConnectFlowInputWithOptions($request, $runtime);
+    }
+
+    /**
+     * Delete a specific MediaConnect output.
+     *
+     * @remarks
+     * - When the provided Flow instance ID does not exist, the interface will return an error.
+     * - When the Flow instance status is online, the output cannot be deleted.
+     *
+     * @param request - DeleteMediaConnectFlowOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMediaConnectFlowOutputResponse
+     *
+     * @param DeleteMediaConnectFlowOutputRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteMediaConnectFlowOutputResponse
+     */
+    public function deleteMediaConnectFlowOutputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->outputName) {
+            @$query['OutputName'] = $request->outputName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMediaConnectFlowOutput',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMediaConnectFlowOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteMediaConnectFlowOutputResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Delete a specific MediaConnect output.
+     *
+     * @remarks
+     * - When the provided Flow instance ID does not exist, the interface will return an error.
+     * - When the Flow instance status is online, the output cannot be deleted.
+     *
+     * @param request - DeleteMediaConnectFlowOutputRequest
+     * @returns DeleteMediaConnectFlowOutputResponse
+     *
+     * @param DeleteMediaConnectFlowOutputRequest $request
+     *
+     * @return DeleteMediaConnectFlowOutputResponse
+     */
+    public function deleteMediaConnectFlowOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMediaConnectFlowOutputWithOptions($request, $runtime);
     }
 
     /**
@@ -5089,6 +5842,180 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除点播打包资产.
+     *
+     * @param request - DeleteVodPackagingAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVodPackagingAssetResponse
+     *
+     * @param DeleteVodPackagingAssetRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteVodPackagingAssetResponse
+     */
+    public function deleteVodPackagingAssetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetName) {
+            @$query['AssetName'] = $request->assetName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVodPackagingAsset',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVodPackagingAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteVodPackagingAssetResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除点播打包资产.
+     *
+     * @param request - DeleteVodPackagingAssetRequest
+     * @returns DeleteVodPackagingAssetResponse
+     *
+     * @param DeleteVodPackagingAssetRequest $request
+     *
+     * @return DeleteVodPackagingAssetResponse
+     */
+    public function deleteVodPackagingAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVodPackagingAssetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除点播打包配置.
+     *
+     * @param request - DeleteVodPackagingConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVodPackagingConfigurationResponse
+     *
+     * @param DeleteVodPackagingConfigurationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteVodPackagingConfigurationResponse
+     */
+    public function deleteVodPackagingConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configurationName) {
+            @$query['ConfigurationName'] = $request->configurationName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVodPackagingConfiguration',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVodPackagingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteVodPackagingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除点播打包配置.
+     *
+     * @param request - DeleteVodPackagingConfigurationRequest
+     * @returns DeleteVodPackagingConfigurationResponse
+     *
+     * @param DeleteVodPackagingConfigurationRequest $request
+     *
+     * @return DeleteVodPackagingConfigurationResponse
+     */
+    public function deleteVodPackagingConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVodPackagingConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除点播打包组.
+     *
+     * @param request - DeleteVodPackagingGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVodPackagingGroupResponse
+     *
+     * @param DeleteVodPackagingGroupRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteVodPackagingGroupResponse
+     */
+    public function deleteVodPackagingGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVodPackagingGroup',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVodPackagingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteVodPackagingGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除点播打包组.
+     *
+     * @param request - DeleteVodPackagingGroupRequest
+     * @returns DeleteVodPackagingGroupResponse
+     *
+     * @param DeleteVodPackagingGroupRequest $request
+     *
+     * @return DeleteVodPackagingGroupResponse
+     */
+    public function deleteVodPackagingGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVodPackagingGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -5913,6 +6840,10 @@ class ICE extends OpenApiClient
             @$query['Expire'] = $request->expire;
         }
 
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
         if (null !== $request->templateConfigShrink) {
             @$query['TemplateConfig'] = $request->templateConfigShrink;
         }
@@ -6007,6 +6938,134 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateKMSDataKeyWithOptions($runtime);
+    }
+
+    /**
+     * 生成直播互动消息所需的token.
+     *
+     * @param request - GenerateMessageChatTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateMessageChatTokenResponse
+     *
+     * @param GenerateMessageChatTokenRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GenerateMessageChatTokenResponse
+     */
+    public function generateMessageChatTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->AIAgentId) {
+            @$query['AIAgentId'] = $request->AIAgentId;
+        }
+
+        if (null !== $request->expire) {
+            @$query['Expire'] = $request->expire;
+        }
+
+        if (null !== $request->role) {
+            @$query['Role'] = $request->role;
+        }
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateMessageChatToken',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateMessageChatTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GenerateMessageChatTokenResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 生成直播互动消息所需的token.
+     *
+     * @param request - GenerateMessageChatTokenRequest
+     * @returns GenerateMessageChatTokenResponse
+     *
+     * @param GenerateMessageChatTokenRequest $request
+     *
+     * @return GenerateMessageChatTokenResponse
+     */
+    public function generateMessageChatToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateMessageChatTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取广告插入配置.
+     *
+     * @param request - GetAdInsertionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAdInsertionResponse
+     *
+     * @param GetAdInsertionRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetAdInsertionResponse
+     */
+    public function getAdInsertionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAdInsertion',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAdInsertionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetAdInsertionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取广告插入配置.
+     *
+     * @param request - GetAdInsertionRequest
+     * @returns GetAdInsertionResponse
+     *
+     * @param GetAdInsertionRequest $request
+     *
+     * @return GetAdInsertionResponse
+     */
+    public function getAdInsertion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAdInsertionWithOptions($request, $runtime);
     }
 
     /**
@@ -7584,7 +8643,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 根据实例Id获取对应MediaConnect的详细信息.
+     * Retrieve detailed information of the corresponding MediaConnect based on the instance ID.
+     *
+     * @remarks
+     * - When the input Flow instance ID does not exist, the interface will return an error.
+     * - The StartTime returned by the interface is only valid when the Flow status is online.
      *
      * @param request - GetMediaConnectFlowRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7625,7 +8688,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 根据实例Id获取对应MediaConnect的详细信息.
+     * Retrieve detailed information of the corresponding MediaConnect based on the instance ID.
+     *
+     * @remarks
+     * - When the input Flow instance ID does not exist, the interface will return an error.
+     * - The StartTime returned by the interface is only valid when the Flow status is online.
      *
      * @param request - GetMediaConnectFlowRequest
      * @returns GetMediaConnectFlowResponse
@@ -7639,6 +8706,138 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getMediaConnectFlowWithOptions($request, $runtime);
+    }
+
+    /**
+     * Get input information under a MediaConnect instance.
+     *
+     * @remarks
+     * - When the provided Flow instance ID does not exist, the interface will return an error.
+     *
+     * @param request - GetMediaConnectFlowInputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMediaConnectFlowInputResponse
+     *
+     * @param GetMediaConnectFlowInputRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetMediaConnectFlowInputResponse
+     */
+    public function getMediaConnectFlowInputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaConnectFlowInput',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMediaConnectFlowInputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetMediaConnectFlowInputResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Get input information under a MediaConnect instance.
+     *
+     * @remarks
+     * - When the provided Flow instance ID does not exist, the interface will return an error.
+     *
+     * @param request - GetMediaConnectFlowInputRequest
+     * @returns GetMediaConnectFlowInputResponse
+     *
+     * @param GetMediaConnectFlowInputRequest $request
+     *
+     * @return GetMediaConnectFlowInputResponse
+     */
+    public function getMediaConnectFlowInput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaConnectFlowInputWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieve detailed information of a specific output based on outputName.
+     *
+     * @remarks
+     * - When the provided Flow instance ID does not exist, the interface will return an error.
+     *
+     * @param request - GetMediaConnectFlowOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMediaConnectFlowOutputResponse
+     *
+     * @param GetMediaConnectFlowOutputRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetMediaConnectFlowOutputResponse
+     */
+    public function getMediaConnectFlowOutputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->outputName) {
+            @$query['OutputName'] = $request->outputName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMediaConnectFlowOutput',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMediaConnectFlowOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetMediaConnectFlowOutputResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieve detailed information of a specific output based on outputName.
+     *
+     * @remarks
+     * - When the provided Flow instance ID does not exist, the interface will return an error.
+     *
+     * @param request - GetMediaConnectFlowOutputRequest
+     * @returns GetMediaConnectFlowOutputResponse
+     *
+     * @param GetMediaConnectFlowOutputRequest $request
+     *
+     * @return GetMediaConnectFlowOutputResponse
+     */
+    public function getMediaConnectFlowOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMediaConnectFlowOutputWithOptions($request, $runtime);
     }
 
     /**
@@ -9154,6 +10353,180 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 查询点播打包资产.
+     *
+     * @param request - GetVodPackagingAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVodPackagingAssetResponse
+     *
+     * @param GetVodPackagingAssetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetVodPackagingAssetResponse
+     */
+    public function getVodPackagingAssetWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->assetName) {
+            @$query['AssetName'] = $request->assetName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVodPackagingAsset',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVodPackagingAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetVodPackagingAssetResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询点播打包资产.
+     *
+     * @param request - GetVodPackagingAssetRequest
+     * @returns GetVodPackagingAssetResponse
+     *
+     * @param GetVodPackagingAssetRequest $request
+     *
+     * @return GetVodPackagingAssetResponse
+     */
+    public function getVodPackagingAsset($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVodPackagingAssetWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询打包模板配置.
+     *
+     * @param request - GetVodPackagingConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVodPackagingConfigurationResponse
+     *
+     * @param GetVodPackagingConfigurationRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetVodPackagingConfigurationResponse
+     */
+    public function getVodPackagingConfigurationWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->configurationName) {
+            @$query['ConfigurationName'] = $request->configurationName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVodPackagingConfiguration',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVodPackagingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetVodPackagingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询打包模板配置.
+     *
+     * @param request - GetVodPackagingConfigurationRequest
+     * @returns GetVodPackagingConfigurationResponse
+     *
+     * @param GetVodPackagingConfigurationRequest $request
+     *
+     * @return GetVodPackagingConfigurationResponse
+     */
+    public function getVodPackagingConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVodPackagingConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取点播打包组.
+     *
+     * @param request - GetVodPackagingGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVodPackagingGroupResponse
+     *
+     * @param GetVodPackagingGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetVodPackagingGroupResponse
+     */
+    public function getVodPackagingGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVodPackagingGroup',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVodPackagingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetVodPackagingGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取点播打包组.
+     *
+     * @param request - GetVodPackagingGroupRequest
+     * @returns GetVodPackagingGroupResponse
+     *
+     * @param GetVodPackagingGroupRequest $request
+     *
+     * @return GetVodPackagingGroupResponse
+     */
+    public function getVodPackagingGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVodPackagingGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
      *
      * @param request - GetWorkflowTaskRequest
@@ -9286,6 +10659,84 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 列出智能体的对话历史记录。
+     *
+     * @param request - ListAIAgentDialoguesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAIAgentDialoguesResponse
+     *
+     * @param ListAIAgentDialoguesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAIAgentDialoguesResponse
+     */
+    public function listAIAgentDialoguesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
+        }
+
+        if (null !== $request->order) {
+            @$query['Order'] = $request->order;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAIAgentDialogues',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAIAgentDialoguesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListAIAgentDialoguesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列出智能体的对话历史记录。
+     *
+     * @param request - ListAIAgentDialoguesRequest
+     * @returns ListAIAgentDialoguesResponse
+     *
+     * @param ListAIAgentDialoguesRequest $request
+     *
+     * @return ListAIAgentDialoguesResponse
+     */
+    public function listAIAgentDialogues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAIAgentDialoguesWithOptions($request, $runtime);
+    }
+
+    /**
      * 列出实例.
      *
      * @param request - ListAIAgentInstanceRequest
@@ -9357,6 +10808,84 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAIAgentInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取广告插入配置列表.
+     *
+     * @param request - ListAdInsertionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAdInsertionsResponse
+     *
+     * @param ListAdInsertionsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAdInsertionsResponse
+     */
+    public function listAdInsertionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAdInsertions',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAdInsertionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListAdInsertionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取广告插入配置列表.
+     *
+     * @param request - ListAdInsertionsRequest
+     * @returns ListAdInsertionsResponse
+     *
+     * @param ListAdInsertionsRequest $request
+     *
+     * @return ListAdInsertionsResponse
+     */
+    public function listAdInsertions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAdInsertionsWithOptions($request, $runtime);
     }
 
     /**
@@ -12652,6 +14181,224 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 列举点播打包资产.
+     *
+     * @param request - ListVodPackagingAssetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVodPackagingAssetsResponse
+     *
+     * @param ListVodPackagingAssetsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListVodPackagingAssetsResponse
+     */
+    public function listVodPackagingAssetsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVodPackagingAssets',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVodPackagingAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListVodPackagingAssetsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列举点播打包资产.
+     *
+     * @param request - ListVodPackagingAssetsRequest
+     * @returns ListVodPackagingAssetsResponse
+     *
+     * @param ListVodPackagingAssetsRequest $request
+     *
+     * @return ListVodPackagingAssetsResponse
+     */
+    public function listVodPackagingAssets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVodPackagingAssetsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列举点播打包配置列表.
+     *
+     * @param request - ListVodPackagingConfigurationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVodPackagingConfigurationsResponse
+     *
+     * @param ListVodPackagingConfigurationsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListVodPackagingConfigurationsResponse
+     */
+    public function listVodPackagingConfigurationsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
+        }
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVodPackagingConfigurations',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVodPackagingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListVodPackagingConfigurationsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列举点播打包配置列表.
+     *
+     * @param request - ListVodPackagingConfigurationsRequest
+     * @returns ListVodPackagingConfigurationsResponse
+     *
+     * @param ListVodPackagingConfigurationsRequest $request
+     *
+     * @return ListVodPackagingConfigurationsResponse
+     */
+    public function listVodPackagingConfigurations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVodPackagingConfigurationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 列举点播打包组.
+     *
+     * @param request - ListVodPackagingGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVodPackagingGroupsResponse
+     *
+     * @param ListVodPackagingGroupsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListVodPackagingGroupsResponse
+     */
+    public function listVodPackagingGroupsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->sortBy) {
+            @$query['SortBy'] = $request->sortBy;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVodPackagingGroups',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVodPackagingGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListVodPackagingGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列举点播打包组.
+     *
+     * @param request - ListVodPackagingGroupsRequest
+     * @returns ListVodPackagingGroupsResponse
+     *
+     * @param ListVodPackagingGroupsRequest $request
+     *
+     * @return ListVodPackagingGroupsResponse
+     */
+    public function listVodPackagingGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listVodPackagingGroupsWithOptions($request, $runtime);
+    }
+
+    /**
      * 查询版权水印提取任务
      *
      * @param request - QueryCopyrightExtractJobRequest
@@ -14714,6 +16461,68 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * 传入消息作为LLM输入。
+     *
+     * @param request - SendAIAgentTextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendAIAgentTextResponse
+     *
+     * @param SendAIAgentTextRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SendAIAgentTextResponse
+     */
+    public function sendAIAgentTextWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendAIAgentText',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendAIAgentTextResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SendAIAgentTextResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 传入消息作为LLM输入。
+     *
+     * @param request - SendAIAgentTextRequest
+     * @returns SendAIAgentTextResponse
+     *
+     * @param SendAIAgentTextRequest $request
+     *
+     * @return SendAIAgentTextResponse
+     */
+    public function sendAIAgentText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendAIAgentTextWithOptions($request, $runtime);
+    }
+
+    /**
      * Sends a command to process a live stream snapshot job.
      *
      * @param request - SendLiveSnapshotJobCommandRequest
@@ -15213,6 +17022,10 @@ class ICE extends OpenApiClient
             @$query['RuntimeConfig'] = $request->runtimeConfigShrink;
         }
 
+        if (null !== $request->sessionId) {
+            @$query['SessionId'] = $request->sessionId;
+        }
+
         if (null !== $request->templateConfigShrink) {
             @$query['TemplateConfig'] = $request->templateConfigShrink;
         }
@@ -15671,6 +17484,10 @@ class ICE extends OpenApiClient
 
         if (null !== $request->duration) {
             @$query['Duration'] = $request->duration;
+        }
+
+        if (null !== $request->editingConfig) {
+            @$query['EditingConfig'] = $request->editingConfig;
         }
 
         if (null !== $request->inputFile) {
@@ -16601,6 +18418,78 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitDynamicImageJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * 提交高光提取任务
+     *
+     * @param request - SubmitHighlightExtractionJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitHighlightExtractionJobResponse
+     *
+     * @param SubmitHighlightExtractionJobRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitHighlightExtractionJobResponse
+     */
+    public function submitHighlightExtractionJobWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
+        }
+
+        if (null !== $request->outputConfig) {
+            @$query['OutputConfig'] = $request->outputConfig;
+        }
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
+        }
+
+        $body = [];
+        if (null !== $request->inputConfig) {
+            @$body['InputConfig'] = $request->inputConfig;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitHighlightExtractionJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitHighlightExtractionJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SubmitHighlightExtractionJobResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 提交高光提取任务
+     *
+     * @param request - SubmitHighlightExtractionJobRequest
+     * @returns SubmitHighlightExtractionJobResponse
+     *
+     * @param SubmitHighlightExtractionJobRequest $request
+     *
+     * @return SubmitHighlightExtractionJobResponse
+     */
+    public function submitHighlightExtractionJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitHighlightExtractionJobWithOptions($request, $runtime);
     }
 
     /**
@@ -18664,6 +20553,26 @@ class ICE extends OpenApiClient
             @$query['OutputConfig'] = $request->outputConfig;
         }
 
+        if (null !== $request->signature) {
+            @$query['Signature'] = $request->signature;
+        }
+
+        if (null !== $request->signatureMehtod) {
+            @$query['SignatureMehtod'] = $request->signatureMehtod;
+        }
+
+        if (null !== $request->signatureNonce) {
+            @$query['SignatureNonce'] = $request->signatureNonce;
+        }
+
+        if (null !== $request->signatureType) {
+            @$query['SignatureType'] = $request->signatureType;
+        }
+
+        if (null !== $request->signatureVersion) {
+            @$query['SignatureVersion'] = $request->signatureVersion;
+        }
+
         if (null !== $request->title) {
             @$query['Title'] = $request->title;
         }
@@ -18849,6 +20758,96 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAIAgentInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新广告插入配置.
+     *
+     * @param request - UpdateAdInsertionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAdInsertionResponse
+     *
+     * @param UpdateAdInsertionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateAdInsertionResponse
+     */
+    public function updateAdInsertionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->adMarkerPassthrough) {
+            @$body['AdMarkerPassthrough'] = $request->adMarkerPassthrough;
+        }
+
+        if (null !== $request->adsUrl) {
+            @$body['AdsUrl'] = $request->adsUrl;
+        }
+
+        if (null !== $request->cdnAdSegmentUrlPrefix) {
+            @$body['CdnAdSegmentUrlPrefix'] = $request->cdnAdSegmentUrlPrefix;
+        }
+
+        if (null !== $request->cdnContentSegmentUrlPrefix) {
+            @$body['CdnContentSegmentUrlPrefix'] = $request->cdnContentSegmentUrlPrefix;
+        }
+
+        if (null !== $request->configAliases) {
+            @$body['ConfigAliases'] = $request->configAliases;
+        }
+
+        if (null !== $request->contentUrlPrefix) {
+            @$body['ContentUrlPrefix'] = $request->contentUrlPrefix;
+        }
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
+        }
+
+        if (null !== $request->personalizationThreshold) {
+            @$body['PersonalizationThreshold'] = $request->personalizationThreshold;
+        }
+
+        if (null !== $request->slateAdUrl) {
+            @$body['SlateAdUrl'] = $request->slateAdUrl;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAdInsertion',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAdInsertionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateAdInsertionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新广告插入配置.
+     *
+     * @param request - UpdateAdInsertionRequest
+     * @returns UpdateAdInsertionResponse
+     *
+     * @param UpdateAdInsertionRequest $request
+     *
+     * @return UpdateAdInsertionResponse
+     */
+    public function updateAdInsertion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAdInsertionWithOptions($request, $runtime);
     }
 
     /**
@@ -19916,7 +21915,191 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 修改MediaConnect实例状态
+     * Modify the input information of a specific MediaConnect flow.
+     *
+     * @remarks
+     * - The input can only be modified when the Flow instance status is offline.
+     * - The input type cannot be modified.
+     *
+     * @param request - UpdateMediaConnectFlowInputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMediaConnectFlowInputResponse
+     *
+     * @param UpdateMediaConnectFlowInputRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateMediaConnectFlowInputResponse
+     */
+    public function updateMediaConnectFlowInputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cidrs) {
+            @$query['Cidrs'] = $request->cidrs;
+        }
+
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->inputFromUrl) {
+            @$query['InputFromUrl'] = $request->inputFromUrl;
+        }
+
+        if (null !== $request->maxBitrate) {
+            @$query['MaxBitrate'] = $request->maxBitrate;
+        }
+
+        if (null !== $request->srtLatency) {
+            @$query['SrtLatency'] = $request->srtLatency;
+        }
+
+        if (null !== $request->srtPassphrase) {
+            @$query['SrtPassphrase'] = $request->srtPassphrase;
+        }
+
+        if (null !== $request->srtPbkeyLen) {
+            @$query['SrtPbkeyLen'] = $request->srtPbkeyLen;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaConnectFlowInput',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMediaConnectFlowInputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateMediaConnectFlowInputResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Modify the input information of a specific MediaConnect flow.
+     *
+     * @remarks
+     * - The input can only be modified when the Flow instance status is offline.
+     * - The input type cannot be modified.
+     *
+     * @param request - UpdateMediaConnectFlowInputRequest
+     * @returns UpdateMediaConnectFlowInputResponse
+     *
+     * @param UpdateMediaConnectFlowInputRequest $request
+     *
+     * @return UpdateMediaConnectFlowInputResponse
+     */
+    public function updateMediaConnectFlowInput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMediaConnectFlowInputWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modify information of a specific output in MediaConnect.
+     *
+     * @remarks
+     * - The output can only be modified when the Flow instance status is offline.
+     * - The output type cannot be modified.
+     *
+     * @param request - UpdateMediaConnectFlowOutputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMediaConnectFlowOutputResponse
+     *
+     * @param UpdateMediaConnectFlowOutputRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateMediaConnectFlowOutputResponse
+     */
+    public function updateMediaConnectFlowOutputWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->cidrs) {
+            @$query['Cidrs'] = $request->cidrs;
+        }
+
+        if (null !== $request->flowId) {
+            @$query['FlowId'] = $request->flowId;
+        }
+
+        if (null !== $request->outputName) {
+            @$query['OutputName'] = $request->outputName;
+        }
+
+        if (null !== $request->outputToUrl) {
+            @$query['OutputToUrl'] = $request->outputToUrl;
+        }
+
+        if (null !== $request->playerLimit) {
+            @$query['PlayerLimit'] = $request->playerLimit;
+        }
+
+        if (null !== $request->srtLatency) {
+            @$query['SrtLatency'] = $request->srtLatency;
+        }
+
+        if (null !== $request->srtPassphrase) {
+            @$query['SrtPassphrase'] = $request->srtPassphrase;
+        }
+
+        if (null !== $request->srtPbkeyLen) {
+            @$query['SrtPbkeyLen'] = $request->srtPbkeyLen;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateMediaConnectFlowOutput',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMediaConnectFlowOutputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateMediaConnectFlowOutputResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Modify information of a specific output in MediaConnect.
+     *
+     * @remarks
+     * - The output can only be modified when the Flow instance status is offline.
+     * - The output type cannot be modified.
+     *
+     * @param request - UpdateMediaConnectFlowOutputRequest
+     * @returns UpdateMediaConnectFlowOutputResponse
+     *
+     * @param UpdateMediaConnectFlowOutputRequest $request
+     *
+     * @return UpdateMediaConnectFlowOutputResponse
+     */
+    public function updateMediaConnectFlowOutput($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateMediaConnectFlowOutputWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modify MediaConnect Instance Status.
      *
      * @param request - UpdateMediaConnectFlowStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19961,7 +22144,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * 修改MediaConnect实例状态
+     * Modify MediaConnect Instance Status.
      *
      * @param request - UpdateMediaConnectFlowStatusRequest
      * @returns UpdateMediaConnectFlowStatusResponse
