@@ -1,3 +1,11 @@
+2025-02-14 Version: 4.0.1
+- Update API BicyclingDirectionNova: add param showPolyline.
+- Update API DrivingDirectionNova: add param showPolyline.
+- Update API ElectrobikeDirectionNova: add param showPolyline.
+- Update API TransitIntegratedDirection: add param showPolyline.
+- Update API WalkingDirectionNova: add param showPolyline.
+
+
 2025-02-14 Version: 4.0.0
 - Update API BicyclingDirectionNova: update response param.
 - Update API DrivingDirectionNova: update response param.

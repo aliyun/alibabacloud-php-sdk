@@ -32,6 +32,10 @@ class DrivingDirectionNovaRequest extends Model
      * @var string
      */
     public $plate;
+    /**
+     * @var bool
+     */
+    public $showPolyline;
     protected $_name = [
         'carType'              => 'carType',
         'destinationLatitude'  => 'destinationLatitude',
@@ -39,6 +43,7 @@ class DrivingDirectionNovaRequest extends Model
         'originLatitude'       => 'originLatitude',
         'originLongitude'      => 'originLongitude',
         'plate'                => 'plate',
+        'showPolyline'         => 'showPolyline',
     ];
 
     public function validate()
@@ -71,6 +76,10 @@ class DrivingDirectionNovaRequest extends Model
 
         if (null !== $this->plate) {
             $res['plate'] = $this->plate;
+        }
+
+        if (null !== $this->showPolyline) {
+            $res['showPolyline'] = $this->showPolyline;
         }
 
         return $res;
@@ -106,6 +115,10 @@ class DrivingDirectionNovaRequest extends Model
 
         if (isset($map['plate'])) {
             $model->plate = $map['plate'];
+        }
+
+        if (isset($map['showPolyline'])) {
+            $model->showPolyline = $map['showPolyline'];
         }
 
         return $model;

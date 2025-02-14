@@ -112,6 +112,10 @@ class IQS extends OpenApiClient
             @$query['originLongitude'] = $request->originLongitude;
         }
 
+        if (null !== $request->showPolyline) {
+            @$query['showPolyline'] = $request->showPolyline;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => Utils::query($query),
@@ -325,6 +329,10 @@ class IQS extends OpenApiClient
             @$query['plate'] = $request->plate;
         }
 
+        if (null !== $request->showPolyline) {
+            @$query['showPolyline'] = $request->showPolyline;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => Utils::query($query),
@@ -397,6 +405,10 @@ class IQS extends OpenApiClient
 
         if (null !== $request->originLongitude) {
             @$query['originLongitude'] = $request->originLongitude;
+        }
+
+        if (null !== $request->showPolyline) {
+            @$query['showPolyline'] = $request->showPolyline;
         }
 
         $req = new OpenApiRequest([
@@ -1131,6 +1143,10 @@ class IQS extends OpenApiClient
             @$query['originLongitude'] = $request->originLongitude;
         }
 
+        if (null !== $request->showPolyline) {
+            @$query['showPolyline'] = $request->showPolyline;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => Utils::query($query),
@@ -1203,6 +1219,10 @@ class IQS extends OpenApiClient
 
         if (null !== $request->originLongitude) {
             @$query['originLongitude'] = $request->originLongitude;
+        }
+
+        if (null !== $request->showPolyline) {
+            @$query['showPolyline'] = $request->showPolyline;
         }
 
         $req = new OpenApiRequest([

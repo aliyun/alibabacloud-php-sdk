@@ -32,6 +32,10 @@ class TransitIntegratedDirectionRequest extends Model
      * @var string
      */
     public $originLongitude;
+    /**
+     * @var bool
+     */
+    public $showPolyline;
     protected $_name = [
         'destinationCity'      => 'destinationCity',
         'destinationLatitude'  => 'destinationLatitude',
@@ -39,6 +43,7 @@ class TransitIntegratedDirectionRequest extends Model
         'originCity'           => 'originCity',
         'originLatitude'       => 'originLatitude',
         'originLongitude'      => 'originLongitude',
+        'showPolyline'         => 'showPolyline',
     ];
 
     public function validate()
@@ -71,6 +76,10 @@ class TransitIntegratedDirectionRequest extends Model
 
         if (null !== $this->originLongitude) {
             $res['originLongitude'] = $this->originLongitude;
+        }
+
+        if (null !== $this->showPolyline) {
+            $res['showPolyline'] = $this->showPolyline;
         }
 
         return $res;
@@ -106,6 +115,10 @@ class TransitIntegratedDirectionRequest extends Model
 
         if (isset($map['originLongitude'])) {
             $model->originLongitude = $map['originLongitude'];
+        }
+
+        if (isset($map['showPolyline'])) {
+            $model->showPolyline = $map['showPolyline'];
         }
 
         return $model;
