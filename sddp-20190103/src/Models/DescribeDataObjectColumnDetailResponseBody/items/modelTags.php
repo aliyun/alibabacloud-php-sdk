@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectColumnDetailResponseBody\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modelTags extends Model
 {
     /**
-     * @example 101
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @example personal sensitive information
-     *
      * @var string
      */
     public $name;
@@ -28,14 +23,16 @@ class modelTags extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -43,17 +40,18 @@ class modelTags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modelTags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

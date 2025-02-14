@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyEventStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 8491DBFD-48C0-4E11-B6FC-6F38921244A9
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyEventStatusResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyEventStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyEventStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

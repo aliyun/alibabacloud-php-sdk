@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeConfigsResponseBody\configList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeConfigsResponseBody extends Model
 {
     /**
-     * @description An array that consists of common configuration items for alerts.
-     *
      * @var configList[]
      */
     public $configList;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeConfigsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->configList)) {
+            Model::validateArray($this->configList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configList) {
-            $res['ConfigList'] = [];
-            if (null !== $this->configList && \is_array($this->configList)) {
-                $n = 0;
-                foreach ($this->configList as $item) {
-                    $res['ConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->configList)) {
+                $res['ConfigList'] = [];
+                $n1                = 0;
+                foreach ($this->configList as $item1) {
+                    $res['ConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeConfigsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeConfigsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigList'])) {
             if (!empty($map['ConfigList'])) {
                 $model->configList = [];
-                $n                 = 0;
-                foreach ($map['ConfigList'] as $item) {
-                    $model->configList[$n++] = null !== $item ? configList::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['ConfigList'] as $item1) {
+                    $model->configList[$n1++] = configList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

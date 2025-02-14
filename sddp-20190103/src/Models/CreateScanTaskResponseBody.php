@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateScanTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the custom scan task.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateScanTaskResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateScanTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateScanTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

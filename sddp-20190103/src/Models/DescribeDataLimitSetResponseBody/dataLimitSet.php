@@ -4,69 +4,34 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitSetResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitSetResponseBody\dataLimitSet\dataLimitList;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitSetResponseBody\dataLimitSet\ossBucketList;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitSetResponseBody\dataLimitSet\regionList;
-use AlibabaCloud\Tea\Model;
 
 class dataLimitSet extends Model
 {
     /**
-     * @description An array that consists of data assets that DSC is authorized to scan.
-     *
      * @var dataLimitList[]
      */
     public $dataLimitList;
-
     /**
-     * @description An array consisting of the OSS objects that DSC is authorized to scan.
-     *
      * @var ossBucketList[]
      */
     public $ossBucketList;
-
     /**
-     * @description An array consisting of the regions in which the data assets can be scanned.
-     *
      * @var regionList[]
      */
     public $regionList;
-
     /**
-     * @description The type of service to which the data asset belongs. Valid values:
-     *
-     *   **1**: MaxCompute
-     *   **2**: OSS
-     *   **3**: AnalyticDB for MySQL
-     *   **4**: Tablestore
-     *   **5**: ApsaraDB RDS
-     *
-     * @example 2
-     *
      * @var int
      */
     public $resourceType;
-
     /**
-     * @description The service to which the data asset belongs. Valid values:
-     *
-     *   **ODPS**
-     *   **OSS**
-     *   **ADS**
-     *   **OTS**
-     *   **RDS**
-     *
-     * @example OSS
-     *
      * @var string
      */
     public $resourceTypeCode;
-
     /**
-     * @description The total number of data objects in the data assets.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -81,44 +46,59 @@ class dataLimitSet extends Model
 
     public function validate()
     {
+        if (\is_array($this->dataLimitList)) {
+            Model::validateArray($this->dataLimitList);
+        }
+        if (\is_array($this->ossBucketList)) {
+            Model::validateArray($this->ossBucketList);
+        }
+        if (\is_array($this->regionList)) {
+            Model::validateArray($this->regionList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataLimitList) {
-            $res['DataLimitList'] = [];
-            if (null !== $this->dataLimitList && \is_array($this->dataLimitList)) {
-                $n = 0;
-                foreach ($this->dataLimitList as $item) {
-                    $res['DataLimitList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dataLimitList)) {
+                $res['DataLimitList'] = [];
+                $n1                   = 0;
+                foreach ($this->dataLimitList as $item1) {
+                    $res['DataLimitList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->ossBucketList) {
-            $res['OssBucketList'] = [];
-            if (null !== $this->ossBucketList && \is_array($this->ossBucketList)) {
-                $n = 0;
-                foreach ($this->ossBucketList as $item) {
-                    $res['OssBucketList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ossBucketList)) {
+                $res['OssBucketList'] = [];
+                $n1                   = 0;
+                foreach ($this->ossBucketList as $item1) {
+                    $res['OssBucketList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->regionList) {
-            $res['RegionList'] = [];
-            if (null !== $this->regionList && \is_array($this->regionList)) {
-                $n = 0;
-                foreach ($this->regionList as $item) {
-                    $res['RegionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->regionList)) {
+                $res['RegionList'] = [];
+                $n1                = 0;
+                foreach ($this->regionList as $item1) {
+                    $res['RegionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->resourceTypeCode) {
             $res['ResourceTypeCode'] = $this->resourceTypeCode;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -126,47 +106,52 @@ class dataLimitSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataLimitSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataLimitList'])) {
             if (!empty($map['DataLimitList'])) {
                 $model->dataLimitList = [];
-                $n                    = 0;
-                foreach ($map['DataLimitList'] as $item) {
-                    $model->dataLimitList[$n++] = null !== $item ? dataLimitList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['DataLimitList'] as $item1) {
+                    $model->dataLimitList[$n1++] = dataLimitList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OssBucketList'])) {
             if (!empty($map['OssBucketList'])) {
                 $model->ossBucketList = [];
-                $n                    = 0;
-                foreach ($map['OssBucketList'] as $item) {
-                    $model->ossBucketList[$n++] = null !== $item ? ossBucketList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['OssBucketList'] as $item1) {
+                    $model->ossBucketList[$n1++] = ossBucketList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RegionList'])) {
             if (!empty($map['RegionList'])) {
                 $model->regionList = [];
-                $n                 = 0;
-                foreach ($map['RegionList'] as $item) {
-                    $model->regionList[$n++] = null !== $item ? regionList::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['RegionList'] as $item1) {
+                    $model->regionList[$n1++] = regionList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['ResourceTypeCode'])) {
             $model->resourceTypeCode = $map['ResourceTypeCode'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

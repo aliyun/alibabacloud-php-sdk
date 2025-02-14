@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailResponseBody\event;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailResponseBody\event\detail\chart;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailResponseBody\event\detail\content;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailResponseBody\event\detail\resourceInfo;
-use AlibabaCloud\Tea\Model;
 
 class detail extends Model
 {
     /**
-     * @description The baseline behavior chart of the anomalous event.
-     *
      * @var chart[]
      */
     public $chart;
-
     /**
-     * @description The content in the anomalous event.
-     *
      * @var content[]
      */
     public $content;
-
     /**
-     * @description An array that consists of the source from which the information of the anomalous event is recorded.
-     *
      * @var resourceInfo[]
      */
     public $resourceInfo;
@@ -39,35 +31,47 @@ class detail extends Model
 
     public function validate()
     {
+        if (\is_array($this->chart)) {
+            Model::validateArray($this->chart);
+        }
+        if (\is_array($this->content)) {
+            Model::validateArray($this->content);
+        }
+        if (\is_array($this->resourceInfo)) {
+            Model::validateArray($this->resourceInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chart) {
-            $res['Chart'] = [];
-            if (null !== $this->chart && \is_array($this->chart)) {
-                $n = 0;
-                foreach ($this->chart as $item) {
-                    $res['Chart'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->chart)) {
+                $res['Chart'] = [];
+                $n1           = 0;
+                foreach ($this->chart as $item1) {
+                    $res['Chart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->content) {
-            $res['Content'] = [];
-            if (null !== $this->content && \is_array($this->content)) {
-                $n = 0;
-                foreach ($this->content as $item) {
-                    $res['Content'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->content)) {
+                $res['Content'] = [];
+                $n1             = 0;
+                foreach ($this->content as $item1) {
+                    $res['Content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->resourceInfo) {
-            $res['ResourceInfo'] = [];
-            if (null !== $this->resourceInfo && \is_array($this->resourceInfo)) {
-                $n = 0;
-                foreach ($this->resourceInfo as $item) {
-                    $res['ResourceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceInfo)) {
+                $res['ResourceInfo'] = [];
+                $n1                  = 0;
+                foreach ($this->resourceInfo as $item1) {
+                    $res['ResourceInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -75,38 +79,40 @@ class detail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Chart'])) {
             if (!empty($map['Chart'])) {
                 $model->chart = [];
-                $n            = 0;
-                foreach ($map['Chart'] as $item) {
-                    $model->chart[$n++] = null !== $item ? chart::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Chart'] as $item1) {
+                    $model->chart[$n1++] = chart::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
-                $n              = 0;
-                foreach ($map['Content'] as $item) {
-                    $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Content'] as $item1) {
+                    $model->content[$n1++] = content::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ResourceInfo'])) {
             if (!empty($map['ResourceInfo'])) {
                 $model->resourceInfo = [];
-                $n                   = 0;
-                foreach ($map['ResourceInfo'] as $item) {
-                    $model->resourceInfo[$n++] = null !== $item ? resourceInfo::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['ResourceInfo'] as $item1) {
+                    $model->resourceInfo[$n1++] = resourceInfo::fromMap($item1);
                 }
             }
         }

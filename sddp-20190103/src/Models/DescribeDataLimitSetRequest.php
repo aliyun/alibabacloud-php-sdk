@@ -4,52 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDataLimitSetRequest extends Model
 {
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $featureType;
-
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh_cn**: Simplified Chinese (default)
-     *   **en_us**: English
-     *
-     * @example zh_cn
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The parent asset ID of the data asset.
-     *
-     * You can call the [DescribeDataLimitDetail](~~DescribeDataLimitDetail~~) or [DescribeDataLimits](~~DescribeDataLimits~~) operation to obtain the parent asset ID of the data asset from the value of the **ParentId** parameter.
-     * @example db
-     *
      * @var string
      */
     public $parentId;
-
     /**
-     * @description The type of service to which the data asset belongs. Valid values:
-     *
-     *   **1**: MaxCompute
-     *   **2**: OSS
-     *   **3**: AnalyticDB for MySQL
-     *   **4**: Tablestore
-     *   **5**: ApsaraDB RDS
-     *
-     * @example 2
-     *
      * @var int
      */
     public $resourceType;
@@ -62,20 +33,24 @@ class DescribeDataLimitSetRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->featureType) {
             $res['FeatureType'] = $this->featureType;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -83,23 +58,26 @@ class DescribeDataLimitSetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDataLimitSetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FeatureType'])) {
             $model->featureType = $map['FeatureType'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRiskLevelsResponseBody\riskLevelList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRiskLevelsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 136082B3-B21F-5E9D-B68E-991FFD205D24
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array that consists of sensitivity levels.
-     *
      * @var riskLevelList[]
      */
     public $riskLevelList;
@@ -31,20 +24,25 @@ class DescribeRiskLevelsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->riskLevelList)) {
+            Model::validateArray($this->riskLevelList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->riskLevelList) {
-            $res['RiskLevelList'] = [];
-            if (null !== $this->riskLevelList && \is_array($this->riskLevelList)) {
-                $n = 0;
-                foreach ($this->riskLevelList as $item) {
-                    $res['RiskLevelList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->riskLevelList)) {
+                $res['RiskLevelList'] = [];
+                $n1                   = 0;
+                foreach ($this->riskLevelList as $item1) {
+                    $res['RiskLevelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribeRiskLevelsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRiskLevelsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RiskLevelList'])) {
             if (!empty($map['RiskLevelList'])) {
                 $model->riskLevelList = [];
-                $n                    = 0;
-                foreach ($map['RiskLevelList'] as $item) {
-                    $model->riskLevelList[$n++] = null !== $item ? riskLevelList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['RiskLevelList'] as $item1) {
+                    $model->riskLevelList[$n1++] = riskLevelList::fromMap($item1);
                 }
             }
         }

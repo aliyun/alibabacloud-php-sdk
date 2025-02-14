@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCategoryTemplateListRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
      * @var int
      */
     public $featureType;
-
     /**
-     * @example zh_cn
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $usageScenario;
@@ -50,23 +38,28 @@ class DescribeCategoryTemplateListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->featureType) {
             $res['FeatureType'] = $this->featureType;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->usageScenario) {
             $res['UsageScenario'] = $this->usageScenario;
         }
@@ -74,26 +67,30 @@ class DescribeCategoryTemplateListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCategoryTemplateListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['FeatureType'])) {
             $model->featureType = $map['FeatureType'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['UsageScenario'])) {
             $model->usageScenario = $map['UsageScenario'];
         }

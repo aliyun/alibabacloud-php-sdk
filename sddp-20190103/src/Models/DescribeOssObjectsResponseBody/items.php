@@ -4,164 +4,76 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectsResponseBody\items\ruleList;
-use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
-     * @description The name of the bucket.
-     *
-     * @example oss-duplicate-***
-     *
      * @var string
      */
     public $bucketName;
-
     /**
-     * @description The type of the OSS object. Valid values include **900001**, **800015**, or **800005**, which indicates the MP4 file, PDF file, or OSS configuration file, respectively.
-     *
-     * @example 900001
-     *
      * @var int
      */
     public $category;
-
     /**
-     * @description The name of the file type.
-     *
-     * @example MP4 file
-     *
      * @var string
      */
     public $categoryName;
-
     /**
-     * @description The code of the file type.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $fileCategoryCode;
-
     /**
-     * @description The name of the file type.
-     *
-     * @example text file
-     *
      * @var string
      */
     public $fileCategoryName;
-
     /**
-     * @description The file ID of the OSS object.
-     *
-     * @example file-22***
-     *
      * @var string
      */
     public $fileId;
-
     /**
-     * @description The ID of the OSS object.
-     *
-     * @example 17383
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @description The ID of the instance to which the OSS object belongs.
-     *
-     * @example 1232122
-     *
      * @var int
      */
     public $instanceId;
-
     /**
-     * @description The time when the file was last modified.
-     *
-     * @example 1536751124000
-     *
      * @var int
      */
     public $lastModifiedTime;
-
     /**
-     * @description The name of the OSS object.
-     *
-     * @example obj_id
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The region ID of the OSS object.
-     *
-     * @example cn-***
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the sensitivity level of the OSS object. Valid values:
-     *
-     *   **1**: N/A, which indicates that no sensitive data is detected.
-     *   **2**: S1, which indicates the low sensitivity level.
-     *   **3**: S2, which indicates the medium sensitivity level.
-     *   **4**: S3, which indicates the high sensitivity level.
-     *   **5**: S4, which indicates the highest sensitivity level.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $riskLevelId;
-
     /**
-     * @description The name of the sensitivity level for the OSS object.
-     *
-     * @example Medium sensitivity level
-     *
      * @var string
      */
     public $riskLevelName;
-
     /**
-     * @description The number of rules that are hit.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $ruleCount;
-
     /**
-     * @description A list of rules.
-     *
      * @var ruleList[]
      */
     public $ruleList;
-
     /**
-     * @description The number of fields that are hit.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $sensitiveCount;
-
     /**
-     * @description The size of the file. Unit: bytes.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $size;
@@ -187,65 +99,85 @@ class items extends Model
 
     public function validate()
     {
+        if (\is_array($this->ruleList)) {
+            Model::validateArray($this->ruleList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->categoryName) {
             $res['CategoryName'] = $this->categoryName;
         }
+
         if (null !== $this->fileCategoryCode) {
             $res['FileCategoryCode'] = $this->fileCategoryCode;
         }
+
         if (null !== $this->fileCategoryName) {
             $res['FileCategoryName'] = $this->fileCategoryName;
         }
+
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lastModifiedTime) {
             $res['LastModifiedTime'] = $this->lastModifiedTime;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->riskLevelId) {
             $res['RiskLevelId'] = $this->riskLevelId;
         }
+
         if (null !== $this->riskLevelName) {
             $res['RiskLevelName'] = $this->riskLevelName;
         }
+
         if (null !== $this->ruleCount) {
             $res['RuleCount'] = $this->ruleCount;
         }
+
         if (null !== $this->ruleList) {
-            $res['RuleList'] = [];
-            if (null !== $this->ruleList && \is_array($this->ruleList)) {
-                $n = 0;
-                foreach ($this->ruleList as $item) {
-                    $res['RuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ruleList)) {
+                $res['RuleList'] = [];
+                $n1              = 0;
+                foreach ($this->ruleList as $item1) {
+                    $res['RuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->sensitiveCount) {
             $res['SensitiveCount'] = $this->sensitiveCount;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -253,68 +185,84 @@ class items extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return items
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['CategoryName'])) {
             $model->categoryName = $map['CategoryName'];
         }
+
         if (isset($map['FileCategoryCode'])) {
             $model->fileCategoryCode = $map['FileCategoryCode'];
         }
+
         if (isset($map['FileCategoryName'])) {
             $model->fileCategoryName = $map['FileCategoryName'];
         }
+
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['LastModifiedTime'])) {
             $model->lastModifiedTime = $map['LastModifiedTime'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RiskLevelId'])) {
             $model->riskLevelId = $map['RiskLevelId'];
         }
+
         if (isset($map['RiskLevelName'])) {
             $model->riskLevelName = $map['RiskLevelName'];
         }
+
         if (isset($map['RuleCount'])) {
             $model->ruleCount = $map['RuleCount'];
         }
+
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n               = 0;
-                foreach ($map['RuleList'] as $item) {
-                    $model->ruleList[$n++] = null !== $item ? ruleList::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['RuleList'] as $item1) {
+                    $model->ruleList[$n1++] = ruleList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SensitiveCount'])) {
             $model->sensitiveCount = $map['SensitiveCount'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

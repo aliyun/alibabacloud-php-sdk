@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDocTypesResponseBody\docTypeList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDocTypesResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class DescribeDocTypesResponseBody extends Model
      * @var docTypeList[]
      */
     public $docTypeList;
-
     /**
-     * @example 769FB3C1-F4C9-4******
-     *
      * @var string
      */
     public $requestId;
@@ -27,20 +24,25 @@ class DescribeDocTypesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->docTypeList)) {
+            Model::validateArray($this->docTypeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docTypeList) {
-            $res['DocTypeList'] = [];
-            if (null !== $this->docTypeList && \is_array($this->docTypeList)) {
-                $n = 0;
-                foreach ($this->docTypeList as $item) {
-                    $res['DocTypeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->docTypeList)) {
+                $res['DocTypeList'] = [];
+                $n1                 = 0;
+                foreach ($this->docTypeList as $item1) {
+                    $res['DocTypeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,23 +50,24 @@ class DescribeDocTypesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDocTypesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DocTypeList'])) {
             if (!empty($map['DocTypeList'])) {
                 $model->docTypeList = [];
-                $n                  = 0;
-                foreach ($map['DocTypeList'] as $item) {
-                    $model->docTypeList[$n++] = null !== $item ? docTypeList::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['DocTypeList'] as $item1) {
+                    $model->docTypeList[$n1++] = docTypeList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

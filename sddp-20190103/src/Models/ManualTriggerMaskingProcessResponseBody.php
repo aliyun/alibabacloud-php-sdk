@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ManualTriggerMaskingProcessResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 769FB3C1-F4C9-4******
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ManualTriggerMaskingProcessResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ManualTriggerMaskingProcessResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ManualTriggerMaskingProcessResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,32 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectDetailResponseBody\ossObjectDetail\ruleList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modelTags extends Model
 {
     /**
-     * @description The tag ID.
-     *
-     *   **101**: sensitive personal information
-     *   **102**: personal information
-     *   **103**: important information
-     *
-     * @example 101
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The tag name.
-     *
-     *   Sensitive personal information
-     *   Personal information
-     *   Important information
-     *
-     * @example personal sensitive data
-     *
      * @var string
      */
     public $name;
@@ -40,14 +23,16 @@ class modelTags extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -55,17 +40,18 @@ class modelTags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modelTags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

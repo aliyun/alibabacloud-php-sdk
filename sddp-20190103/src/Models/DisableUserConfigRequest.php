@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableUserConfigRequest extends Model
 {
     /**
-     * @description The code of the configuration item. You can call the [DescribeConfigs](~~DescribeConfigs~~) operation to obtain the code of the configuration item.
-     *
-     * @example access_failed_cnt
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $featureType;
-
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh_cn**: Chinese (default)
-     *   **en_us**: English
-     *
-     * @example zh_cn
-     *
      * @var string
      */
     public $lang;
@@ -45,17 +28,20 @@ class DisableUserConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->featureType) {
             $res['FeatureType'] = $this->featureType;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -63,20 +49,22 @@ class DisableUserConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableUserConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['FeatureType'])) {
             $model->featureType = $map['FeatureType'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataLimitSetResponseBody\dataLimitSet;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDataLimitSetResponseBody extends Model
 {
     /**
-     * @description The information about the data asset.
-     *
      * @var dataLimitSet
      */
     public $dataLimitSet;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeDataLimitSetResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->dataLimitSet) {
+            $this->dataLimitSet->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataLimitSet) {
-            $res['DataLimitSet'] = null !== $this->dataLimitSet ? $this->dataLimitSet->toMap() : null;
+            $res['DataLimitSet'] = null !== $this->dataLimitSet ? $this->dataLimitSet->toArray($noStream) : $this->dataLimitSet;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeDataLimitSetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDataLimitSetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataLimitSet'])) {
             $model->dataLimitSet = dataLimitSet::fromMap($map['DataLimitSet']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

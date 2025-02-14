@@ -4,88 +4,55 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeParentInstanceRequest extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $authStatus;
-
     /**
-     * @example 3
-     *
      * @var int
      */
     public $checkStatus;
-
     /**
-     * @example Running
-     *
      * @var string
      */
     public $clusterStatus;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @example db_test
-     *
      * @var string
      */
     public $dbName;
-
     /**
-     * @example MySQL
-     *
      * @var string
      */
     public $engineType;
-
     /**
-     * @example rm-azfxx
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example zh_cn
-     *
      * @var string
      */
     public $lang;
-
     /**
      * @var int
      */
     public $memberAccount;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 5
-     *
      * @var int
      */
     public $resourceType;
-
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $serviceRegionId;
@@ -106,44 +73,56 @@ class DescribeParentInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authStatus) {
             $res['AuthStatus'] = $this->authStatus;
         }
+
         if (null !== $this->checkStatus) {
             $res['CheckStatus'] = $this->checkStatus;
         }
+
         if (null !== $this->clusterStatus) {
             $res['ClusterStatus'] = $this->clusterStatus;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->engineType) {
             $res['EngineType'] = $this->engineType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->memberAccount) {
             $res['MemberAccount'] = $this->memberAccount;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->serviceRegionId) {
             $res['ServiceRegionId'] = $this->serviceRegionId;
         }
@@ -151,47 +130,58 @@ class DescribeParentInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeParentInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthStatus'])) {
             $model->authStatus = $map['AuthStatus'];
         }
+
         if (isset($map['CheckStatus'])) {
             $model->checkStatus = $map['CheckStatus'];
         }
+
         if (isset($map['ClusterStatus'])) {
             $model->clusterStatus = $map['ClusterStatus'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['EngineType'])) {
             $model->engineType = $map['EngineType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['MemberAccount'])) {
             $model->memberAccount = $map['MemberAccount'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['ServiceRegionId'])) {
             $model->serviceRegionId = $map['ServiceRegionId'];
         }

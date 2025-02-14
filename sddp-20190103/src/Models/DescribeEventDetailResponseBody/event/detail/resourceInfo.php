@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailResponseBody\event\detail;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceInfo extends Model
 {
     /**
-     * @description The source title.
-     *
-     * @example Risk
-     *
      * @var string
      */
     public $label;
-
     /**
-     * @description The source description.
-     *
-     * @example Based on the record of authentication by using an unusual terminal, an attacker may have obtained the access permission of the account, or an employee accessed data from a personal terminal.
-     *
      * @var string
      */
     public $value;
@@ -32,14 +23,16 @@ class resourceInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +40,18 @@ class resourceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

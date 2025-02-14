@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeTemplateAllRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleList extends Model
 {
     /**
-     * @example 376
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @example Model Name
-     *
      * @var string
      */
     public $name;
@@ -28,14 +23,16 @@ class ruleList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -43,17 +40,18 @@ class ruleList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

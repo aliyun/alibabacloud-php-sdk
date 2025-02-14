@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeUserStatusResponseBody\userStatus;
-use AlibabaCloud\Tea\Model;
 
 class DescribeUserStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the current account.
-     *
      * @var userStatus
      */
     public $userStatus;
@@ -31,32 +24,38 @@ class DescribeUserStatusResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->userStatus) {
+            $this->userStatus->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userStatus) {
-            $res['UserStatus'] = null !== $this->userStatus ? $this->userStatus->toMap() : null;
+            $res['UserStatus'] = null !== $this->userStatus ? $this->userStatus->toArray($noStream) : $this->userStatus;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserStatus'])) {
             $model->userStatus = userStatus::fromMap($map['UserStatus']);
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateConfigRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateConfigResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\CreateDataLimitRequest;
@@ -107,21 +106,16 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\ScanOssObjectV1Response;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\ScanOssObjectV1ShrinkRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\StopMaskingProcessRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\StopMaskingProcessResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Sddp extends OpenApiClient
 {
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'Sddp';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
             'cn-hongkong' => 'sddp-api.cn-hongkong.aliyuncs.com',
@@ -143,52 +137,64 @@ class Sddp extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Modifies the configurations of a common configuration item for alerts.
-     *  *
-     * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+     * Modifies the configurations of a common configuration item for alerts.
+     *
+     * @remarks
+     * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateConfigRequest $request CreateConfigRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateConfigResponse CreateConfigResponse
+     * @param request - CreateConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateConfigResponse
+     *
+     * @param CreateConfigRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateConfigResponse
      */
     public function createConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateConfig',
@@ -201,7 +207,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -209,15 +215,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a common configuration item for alerts.
-     *  *
-     * @description You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
+     * Modifies the configurations of a common configuration item for alerts.
+     *
+     * @remarks
+     * You can call this operation to create or restore configurations based on the codes of common configuration items. This allows you to manage the configurations of common configuration items.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateConfigRequest $request CreateConfigRequest
      *
-     * @return CreateConfigResponse CreateConfigResponse
+     * @param request - CreateConfigRequest
+     * @returns CreateConfigResponse
+     *
+     * @param CreateConfigRequest $request
+     *
+     * @return CreateConfigResponse
      */
     public function createConfig($request)
     {
@@ -227,80 +237,104 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
-     *  *
-     * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-     * # Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateDataLimitRequest $request CreateDataLimitRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
      *
-     * @return CreateDataLimitResponse CreateDataLimitResponse
+     * @remarks
+     * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+     * ## [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CreateDataLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataLimitResponse
+     *
+     * @param CreateDataLimitRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDataLimitResponse
      */
     public function createDataLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditStatus)) {
-            $query['AuditStatus'] = $request->auditStatus;
+        if (null !== $request->auditStatus) {
+            @$query['AuditStatus'] = $request->auditStatus;
         }
-        if (!Utils::isUnset($request->autoScan)) {
-            $query['AutoScan'] = $request->autoScan;
+
+        if (null !== $request->autoScan) {
+            @$query['AutoScan'] = $request->autoScan;
         }
-        if (!Utils::isUnset($request->certificatePermission)) {
-            $query['CertificatePermission'] = $request->certificatePermission;
+
+        if (null !== $request->certificatePermission) {
+            @$query['CertificatePermission'] = $request->certificatePermission;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->engineType)) {
-            $query['EngineType'] = $request->engineType;
+
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
         }
-        if (!Utils::isUnset($request->eventStatus)) {
-            $query['EventStatus'] = $request->eventStatus;
+
+        if (null !== $request->eventStatus) {
+            @$query['EventStatus'] = $request->eventStatus;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->instantlyScan)) {
-            $query['InstantlyScan'] = $request->instantlyScan;
+
+        if (null !== $request->instantlyScan) {
+            @$query['InstantlyScan'] = $request->instantlyScan;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->logStoreDay)) {
-            $query['LogStoreDay'] = $request->logStoreDay;
+
+        if (null !== $request->logStoreDay) {
+            @$query['LogStoreDay'] = $request->logStoreDay;
         }
-        if (!Utils::isUnset($request->ocrStatus)) {
-            $query['OcrStatus'] = $request->ocrStatus;
+
+        if (null !== $request->ocrStatus) {
+            @$query['OcrStatus'] = $request->ocrStatus;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->samplingSize)) {
-            $query['SamplingSize'] = $request->samplingSize;
+
+        if (null !== $request->samplingSize) {
+            @$query['SamplingSize'] = $request->samplingSize;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDataLimit',
@@ -313,7 +347,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -321,15 +355,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
-     *  *
-     * @description You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
-     * # Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateDataLimitRequest $request CreateDataLimitRequest
+     * Authorizes Data Security Center (DSC) to scan data assets. The data assets can be a database, a project, or a bucket.
      *
-     * @return CreateDataLimitResponse CreateDataLimitResponse
+     * @remarks
+     * You can call this operation to authorize DSC to scan data assets to ensure the security of the data assets.
+     * ## [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CreateDataLimitRequest
+     * @returns CreateDataLimitResponse
+     *
+     * @param CreateDataLimitRequest $request
+     *
+     * @return CreateDataLimitResponse
      */
     public function createDataLimit($request)
     {
@@ -339,70 +377,99 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom sensitive data detection rule.
-     *  *
-     * @param CreateRuleRequest $request CreateRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates a custom sensitive data detection rule.
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @param request - CreateRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRuleResponse
+     *
+     * @param CreateRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateRuleResponse
      */
     public function createRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->contentCategory)) {
-            $query['ContentCategory'] = $request->contentCategory;
+
+        if (null !== $request->contentCategory) {
+            @$query['ContentCategory'] = $request->contentCategory;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->matchType)) {
-            $query['MatchType'] = $request->matchType;
+
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->modelRuleIds) {
+            @$query['ModelRuleIds'] = $request->modelRuleIds;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->statExpress)) {
-            $query['StatExpress'] = $request->statExpress;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->statExpress) {
+            @$query['StatExpress'] = $request->statExpress;
         }
-        if (!Utils::isUnset($request->supportForm)) {
-            $query['SupportForm'] = $request->supportForm;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->target)) {
-            $query['Target'] = $request->target;
+
+        if (null !== $request->supportForm) {
+            @$query['SupportForm'] = $request->supportForm;
         }
-        if (!Utils::isUnset($request->warnLevel)) {
-            $query['WarnLevel'] = $request->warnLevel;
+
+        if (null !== $request->target) {
+            @$query['Target'] = $request->target;
         }
+
+        if (null !== $request->templateRuleIds) {
+            @$query['TemplateRuleIds'] = $request->templateRuleIds;
+        }
+
+        if (null !== $request->warnLevel) {
+            @$query['WarnLevel'] = $request->warnLevel;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateRule',
@@ -415,7 +482,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -423,11 +490,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom sensitive data detection rule.
-     *  *
-     * @param CreateRuleRequest $request CreateRuleRequest
+     * Creates a custom sensitive data detection rule.
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @param request - CreateRuleRequest
+     * @returns CreateRuleResponse
+     *
+     * @param CreateRuleRequest $request
+     *
+     * @return CreateRuleResponse
      */
     public function createRule($request)
     {
@@ -437,62 +507,80 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
-     *  *
-     * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+     * Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+     *
+     * @remarks
+     * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateScanTaskRequest $request CreateScanTaskRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateScanTaskResponse CreateScanTaskResponse
+     * @param request - CreateScanTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateScanTaskResponse
+     *
+     * @param CreateScanTaskRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateScanTaskResponse
      */
     public function createScanTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dataLimitId)) {
-            $query['DataLimitId'] = $request->dataLimitId;
+        if (null !== $request->dataLimitId) {
+            @$query['DataLimitId'] = $request->dataLimitId;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->intervalDay)) {
-            $query['IntervalDay'] = $request->intervalDay;
+
+        if (null !== $request->intervalDay) {
+            @$query['IntervalDay'] = $request->intervalDay;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->ossScanPath)) {
-            $query['OssScanPath'] = $request->ossScanPath;
+
+        if (null !== $request->ossScanPath) {
+            @$query['OssScanPath'] = $request->ossScanPath;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->runHour)) {
-            $query['RunHour'] = $request->runHour;
+
+        if (null !== $request->runHour) {
+            @$query['RunHour'] = $request->runHour;
         }
-        if (!Utils::isUnset($request->runMinute)) {
-            $query['RunMinute'] = $request->runMinute;
+
+        if (null !== $request->runMinute) {
+            @$query['RunMinute'] = $request->runMinute;
         }
-        if (!Utils::isUnset($request->scanRange)) {
-            $query['ScanRange'] = $request->scanRange;
+
+        if (null !== $request->scanRange) {
+            @$query['ScanRange'] = $request->scanRange;
         }
-        if (!Utils::isUnset($request->scanRangeContent)) {
-            $query['ScanRangeContent'] = $request->scanRangeContent;
+
+        if (null !== $request->scanRangeContent) {
+            @$query['ScanRangeContent'] = $request->scanRangeContent;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$query['TaskName'] = $request->taskName;
         }
-        if (!Utils::isUnset($request->taskUserName)) {
-            $query['TaskUserName'] = $request->taskUserName;
+
+        if (null !== $request->taskUserName) {
+            @$query['TaskUserName'] = $request->taskUserName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateScanTask',
@@ -505,7 +593,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -513,15 +601,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
-     *  *
-     * @description You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
+     * Creates a custom scan task. The custom scan task is used to scan data assets on which Data Security Center (DSC) is granted the scan permissions for sensitive data.
+     *
+     * @remarks
+     * You can call this operation to create a custom scan task for authorized data assets. You can customize the interval between two consecutive scan tasks and the time when the scan task is executed next time.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateScanTaskRequest $request CreateScanTaskRequest
      *
-     * @return CreateScanTaskResponse CreateScanTaskResponse
+     * @param request - CreateScanTaskRequest
+     * @returns CreateScanTaskResponse
+     *
+     * @param CreateScanTaskRequest $request
+     *
+     * @return CreateScanTaskResponse
      */
     public function createScanTask($request)
     {
@@ -531,32 +623,40 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
-     *  *
-     * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+     * Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+     *
+     * @remarks
+     * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateSlrRoleRequest $request CreateSlrRoleRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSlrRoleResponse CreateSlrRoleResponse
+     * @param request - CreateSlrRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSlrRoleResponse
+     *
+     * @param CreateSlrRoleRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSlrRoleResponse
      */
     public function createSlrRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSlrRole',
@@ -569,7 +669,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSlrRoleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -577,15 +677,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
-     *  *
-     * @description You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
+     * Creates a service-linked role for Data Security Center (DSC) to grant DSC the permissions to access data assets in other services.
+     *
+     * @remarks
+     * You can call this operation to allow DSC to access the data assets in services such as Object Storage Service (OSS), ApsaraDB RDS, and MaxCompute. After you call this operation, the system automatically creates a service-linked role named AliyunServiceRoleForSDDP and attaches the AliyunServiceRolePolicyForSDDP policy to the role.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreateSlrRoleRequest $request CreateSlrRoleRequest
      *
-     * @return CreateSlrRoleResponse CreateSlrRoleResponse
+     * @param request - CreateSlrRoleRequest
+     * @returns CreateSlrRoleResponse
+     *
+     * @param CreateSlrRoleRequest $request
+     *
+     * @return CreateSlrRoleResponse
      */
     public function createSlrRole($request)
     {
@@ -595,35 +699,44 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
-     *  *
-     * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+     * Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+     *
+     * @remarks
+     * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteDataLimitRequest $request DeleteDataLimitRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataLimitResponse DeleteDataLimitResponse
+     * @param request - DeleteDataLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataLimitResponse
+     *
+     * @param DeleteDataLimitRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteDataLimitResponse
      */
     public function deleteDataLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDataLimit',
@@ -636,7 +749,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -644,15 +757,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
-     *  *
-     * @description You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
+     * Revokes the scan permissions on a data asset. The data asset can be a database, an instance, or a bucket.
+     *
+     * @remarks
+     * You can call this operation to revoke the permissions on a data asset from Data Security Center (DSC).
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteDataLimitRequest $request DeleteDataLimitRequest
      *
-     * @return DeleteDataLimitResponse DeleteDataLimitResponse
+     * @param request - DeleteDataLimitRequest
+     * @returns DeleteDataLimitResponse
+     *
+     * @param DeleteDataLimitRequest $request
+     *
+     * @return DeleteDataLimitResponse
      */
     public function deleteDataLimit($request)
     {
@@ -662,31 +779,39 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
-     *  *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom sensitive data detection rule from Data Security Center (DSC).
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @param request - DeleteRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteRule',
@@ -699,7 +824,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -707,11 +832,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom sensitive data detection rule from Data Security Center (DSC).
-     *  *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * Deletes a custom sensitive data detection rule from Data Security Center (DSC).
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @param request - DeleteRuleRequest
+     * @returns DeleteRuleResponse
+     *
+     * @param DeleteRuleRequest $request
+     *
+     * @return DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -721,32 +849,41 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeCategoryTemplateListRequest $request DescribeCategoryTemplateListRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeCategoryTemplateListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCategoryTemplateListResponse
      *
-     * @return DescribeCategoryTemplateListResponse DescribeCategoryTemplateListResponse
+     * @param DescribeCategoryTemplateListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCategoryTemplateListResponse
      */
     public function describeCategoryTemplateListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->usageScenario)) {
-            $query['UsageScenario'] = $request->usageScenario;
+
+        if (null !== $request->usageScenario) {
+            @$query['UsageScenario'] = $request->usageScenario;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCategoryTemplateList',
@@ -759,7 +896,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCategoryTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -767,9 +904,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeCategoryTemplateListRequest $request DescribeCategoryTemplateListRequest
+     * @param request - DescribeCategoryTemplateListRequest
+     * @returns DescribeCategoryTemplateListResponse
      *
-     * @return DescribeCategoryTemplateListResponse DescribeCategoryTemplateListResponse
+     * @param DescribeCategoryTemplateListRequest $request
+     *
+     * @return DescribeCategoryTemplateListResponse
      */
     public function describeCategoryTemplateList($request)
     {
@@ -779,41 +919,52 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries rules in a classification template by page.
-     *  *
-     * @description You can call this operation to query rules in a classification template.
+     * Queries rules in a classification template by page.
+     *
+     * @remarks
+     * You can call this operation to query rules in a classification template.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeCategoryTemplateRuleListRequest $request DescribeCategoryTemplateRuleListRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCategoryTemplateRuleListResponse DescribeCategoryTemplateRuleListResponse
+     * @param request - DescribeCategoryTemplateRuleListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCategoryTemplateRuleListResponse
+     *
+     * @param DescribeCategoryTemplateRuleListRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeCategoryTemplateRuleListResponse
      */
     public function describeCategoryTemplateRuleListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCategoryTemplateRuleList',
@@ -826,7 +977,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCategoryTemplateRuleListResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -834,15 +985,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries rules in a classification template by page.
-     *  *
-     * @description You can call this operation to query rules in a classification template.
+     * Queries rules in a classification template by page.
+     *
+     * @remarks
+     * You can call this operation to query rules in a classification template.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeCategoryTemplateRuleListRequest $request DescribeCategoryTemplateRuleListRequest
      *
-     * @return DescribeCategoryTemplateRuleListResponse DescribeCategoryTemplateRuleListResponse
+     * @param request - DescribeCategoryTemplateRuleListRequest
+     * @returns DescribeCategoryTemplateRuleListResponse
+     *
+     * @param DescribeCategoryTemplateRuleListRequest $request
+     *
+     * @return DescribeCategoryTemplateRuleListResponse
      */
     public function describeCategoryTemplateRuleList($request)
     {
@@ -852,79 +1007,102 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
-     *  *
-     * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+     * Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+     *
+     * @remarks
+     * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
      * ## [](#)Precautions
      * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
      * ## [](#qps)Limits
      * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeColumnsRequest $request DescribeColumnsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeColumnsResponse DescribeColumnsResponse
+     * @param request - DescribeColumnsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeColumnsResponse
+     *
+     * @param DescribeColumnsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeColumnsResponse
      */
     public function describeColumnsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->engineType)) {
-            $query['EngineType'] = $request->engineType;
+
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->modelTagId)) {
-            $query['ModelTagId'] = $request->modelTagId;
+
+        if (null !== $request->modelTagId) {
+            @$query['ModelTagId'] = $request->modelTagId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->sensLevelName)) {
-            $query['SensLevelName'] = $request->sensLevelName;
+
+        if (null !== $request->sensLevelName) {
+            @$query['SensLevelName'] = $request->sensLevelName;
         }
-        if (!Utils::isUnset($request->tableId)) {
-            $query['TableId'] = $request->tableId;
+
+        if (null !== $request->tableId) {
+            @$query['TableId'] = $request->tableId;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateRuleId)) {
-            $query['TemplateRuleId'] = $request->templateRuleId;
+
+        if (null !== $request->templateRuleId) {
+            @$query['TemplateRuleId'] = $request->templateRuleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeColumns',
@@ -937,7 +1115,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -945,17 +1123,21 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
-     *  *
-     * @description You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
+     * Queries data in the columns of the tables that Data Security Center (DSC) is authorized to access. The tables include the tables of MaxCompute and ApsaraDB RDS.
+     *
+     * @remarks
+     * You can call this operation to query the data in columns of a table that may contain sensitive data. This helps you analyze sensitive data.
      * ## [](#)Precautions
      * The DescribeColumns operation is changed to DescribeColumnsV2. We recommend that you call the DescribeColumnsV2 operation when you develop your applications.
      * ## [](#qps)Limits
      * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeColumnsRequest $request DescribeColumnsRequest
      *
-     * @return DescribeColumnsResponse DescribeColumnsResponse
+     * @param request - DescribeColumnsRequest
+     * @returns DescribeColumnsResponse
+     *
+     * @param DescribeColumnsRequest $request
+     *
+     * @return DescribeColumnsResponse
      */
     public function describeColumns($request)
     {
@@ -965,58 +1147,79 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @param DescribeColumnsV2Request $request DescribeColumnsV2Request
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
      *
-     * @return DescribeColumnsV2Response DescribeColumnsV2Response
+     * @param request - DescribeColumnsV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeColumnsV2Response
+     *
+     * @param DescribeColumnsV2Request $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeColumnsV2Response
      */
     public function describeColumnsV2WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->sensLevelName)) {
-            $query['SensLevelName'] = $request->sensLevelName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->tableId)) {
-            $query['TableId'] = $request->tableId;
+
+        if (null !== $request->sensLevelName) {
+            @$query['SensLevelName'] = $request->sensLevelName;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableId) {
+            @$query['TableId'] = $request->tableId;
         }
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeColumnsV2',
@@ -1029,7 +1232,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeColumnsV2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1037,11 +1240,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @param DescribeColumnsV2Request $request DescribeColumnsV2Request
+     * Queries the columns of tables in instances, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
      *
-     * @return DescribeColumnsV2Response DescribeColumnsV2Response
+     * @param request - DescribeColumnsV2Request
+     * @returns DescribeColumnsV2Response
+     *
+     * @param DescribeColumnsV2Request $request
+     *
+     * @return DescribeColumnsV2Response
      */
     public function describeColumnsV2($request)
     {
@@ -1051,22 +1257,27 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries common configuration items for alerts.
-     *  *
-     * @param DescribeConfigsRequest $request DescribeConfigsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries common configuration items for alerts.
      *
-     * @return DescribeConfigsResponse DescribeConfigsResponse
+     * @param request - DescribeConfigsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeConfigsResponse
+     *
+     * @param DescribeConfigsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeConfigsResponse
      */
     public function describeConfigsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeConfigs',
@@ -1079,7 +1290,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1087,11 +1298,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries common configuration items for alerts.
-     *  *
-     * @param DescribeConfigsRequest $request DescribeConfigsRequest
+     * Queries common configuration items for alerts.
      *
-     * @return DescribeConfigsResponse DescribeConfigsResponse
+     * @param request - DescribeConfigsRequest
+     * @returns DescribeConfigsResponse
+     *
+     * @param DescribeConfigsRequest $request
+     *
+     * @return DescribeConfigsResponse
      */
     public function describeConfigs($request)
     {
@@ -1101,40 +1315,51 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
-     *  *
-     * @param DescribeDataAssetsRequest $request DescribeDataAssetsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
      *
-     * @return DescribeDataAssetsResponse DescribeDataAssetsResponse
+     * @param request - DescribeDataAssetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataAssetsResponse
+     *
+     * @param DescribeDataAssetsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDataAssetsResponse
      */
     public function describeDataAssetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->rangeId)) {
-            $query['RangeId'] = $request->rangeId;
+
+        if (null !== $request->rangeId) {
+            @$query['RangeId'] = $request->rangeId;
         }
-        if (!Utils::isUnset($request->riskLevels)) {
-            $query['RiskLevels'] = $request->riskLevels;
+
+        if (null !== $request->riskLevels) {
+            @$query['RiskLevels'] = $request->riskLevels;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataAssets',
@@ -1147,7 +1372,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataAssetsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1155,11 +1380,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
-     *  *
-     * @param DescribeDataAssetsRequest $request DescribeDataAssetsRequest
+     * Queries the sensitive data detection results of data assets that Data Security Center (DSC) is authorized to access.
      *
-     * @return DescribeDataAssetsResponse DescribeDataAssetsResponse
+     * @param request - DescribeDataAssetsRequest
+     * @returns DescribeDataAssetsResponse
+     *
+     * @param DescribeDataAssetsRequest $request
+     *
+     * @return DescribeDataAssetsResponse
      */
     public function describeDataAssets($request)
     {
@@ -1169,31 +1397,39 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @param DescribeDataLimitDetailRequest $request DescribeDataLimitDetailRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
      *
-     * @return DescribeDataLimitDetailResponse DescribeDataLimitDetailResponse
+     * @param request - DescribeDataLimitDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataLimitDetailResponse
+     *
+     * @param DescribeDataLimitDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDataLimitDetailResponse
      */
     public function describeDataLimitDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataLimitDetail',
@@ -1206,7 +1442,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataLimitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1214,11 +1450,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @param DescribeDataLimitDetailRequest $request DescribeDataLimitDetailRequest
+     * Queries the details of a data asset, such as a MaxCompute project, an ApsaraDB RDS database, or an Object Storage Service (OSS) bucket, that you authorize Data Security Center (DSC) to access.
      *
-     * @return DescribeDataLimitDetailResponse DescribeDataLimitDetailResponse
+     * @param request - DescribeDataLimitDetailRequest
+     * @returns DescribeDataLimitDetailResponse
+     *
+     * @param DescribeDataLimitDetailRequest $request
+     *
+     * @return DescribeDataLimitDetailResponse
      */
     public function describeDataLimitDetail($request)
     {
@@ -1228,35 +1467,44 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
-     *  *
-     * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+     * Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+     *
+     * @remarks
+     * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDataLimitSetRequest $request DescribeDataLimitSetRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataLimitSetResponse DescribeDataLimitSetResponse
+     * @param request - DescribeDataLimitSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataLimitSetResponse
+     *
+     * @param DescribeDataLimitSetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDataLimitSetResponse
      */
     public function describeDataLimitSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataLimitSet',
@@ -1269,7 +1517,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataLimitSetResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1277,15 +1525,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
-     *  *
-     * @description You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
+     * Queries data assets, such as instances, databases, and Object Storage Service (OSS) buckets, that you authorize Data Security Center (DSC) to scan in a service.
+     *
+     * @remarks
+     * You can call this operation to query the data assets that are authorized to be scanned. This facilitates resource search and aggregation.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDataLimitSetRequest $request DescribeDataLimitSetRequest
      *
-     * @return DescribeDataLimitSetResponse DescribeDataLimitSetResponse
+     * @param request - DescribeDataLimitSetRequest
+     * @returns DescribeDataLimitSetResponse
+     *
+     * @param DescribeDataLimitSetRequest $request
+     *
+     * @return DescribeDataLimitSetResponse
      */
     public function describeDataLimitSet($request)
     {
@@ -1295,64 +1547,83 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
-     *  *
-     * @param DescribeDataLimitsRequest $request DescribeDataLimitsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
      *
-     * @return DescribeDataLimitsResponse DescribeDataLimitsResponse
+     * @param request - DescribeDataLimitsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataLimitsResponse
+     *
+     * @param DescribeDataLimitsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDataLimitsResponse
      */
     public function describeDataLimitsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditStatus)) {
-            $query['AuditStatus'] = $request->auditStatus;
+        if (null !== $request->auditStatus) {
+            @$query['AuditStatus'] = $request->auditStatus;
         }
-        if (!Utils::isUnset($request->checkStatus)) {
-            $query['CheckStatus'] = $request->checkStatus;
+
+        if (null !== $request->checkStatus) {
+            @$query['CheckStatus'] = $request->checkStatus;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->datamaskStatus)) {
-            $query['DatamaskStatus'] = $request->datamaskStatus;
+
+        if (null !== $request->datamaskStatus) {
+            @$query['DatamaskStatus'] = $request->datamaskStatus;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->engineType)) {
-            $query['EngineType'] = $request->engineType;
+
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->memberAccount)) {
-            $query['MemberAccount'] = $request->memberAccount;
+
+        if (null !== $request->memberAccount) {
+            @$query['MemberAccount'] = $request->memberAccount;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataLimits',
@@ -1365,7 +1636,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataLimitsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1373,11 +1644,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
-     *  *
-     * @param DescribeDataLimitsRequest $request DescribeDataLimitsRequest
+     * Queries the data assets such as instances, databases, or buckets that Data Security Center (DSC) is authorized to access.
      *
-     * @return DescribeDataLimitsResponse DescribeDataLimitsResponse
+     * @param request - DescribeDataLimitsRequest
+     * @returns DescribeDataLimitsResponse
+     *
+     * @param DescribeDataLimitsRequest $request
+     *
+     * @return DescribeDataLimitsResponse
      */
     public function describeDataLimits($request)
     {
@@ -1387,56 +1661,72 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution information about a de-identification task.
-     *  *
-     * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+     * Queries the execution information about a de-identification task.
+     *
+     * @remarks
+     * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDataMaskingRunHistoryRequest $request DescribeDataMaskingRunHistoryRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataMaskingRunHistoryResponse DescribeDataMaskingRunHistoryResponse
+     * @param request - DescribeDataMaskingRunHistoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataMaskingRunHistoryResponse
+     *
+     * @param DescribeDataMaskingRunHistoryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDataMaskingRunHistoryResponse
      */
     public function describeDataMaskingRunHistoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->dstType)) {
-            $query['DstType'] = $request->dstType;
+
+        if (null !== $request->dstType) {
+            @$query['DstType'] = $request->dstType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->mainProcessId)) {
-            $query['MainProcessId'] = $request->mainProcessId;
+
+        if (null !== $request->mainProcessId) {
+            @$query['MainProcessId'] = $request->mainProcessId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->srcTableName)) {
-            $query['SrcTableName'] = $request->srcTableName;
+
+        if (null !== $request->srcTableName) {
+            @$query['SrcTableName'] = $request->srcTableName;
         }
-        if (!Utils::isUnset($request->srcType)) {
-            $query['SrcType'] = $request->srcType;
+
+        if (null !== $request->srcType) {
+            @$query['SrcType'] = $request->srcType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataMaskingRunHistory',
@@ -1449,7 +1739,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataMaskingRunHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1457,15 +1747,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the execution information about a de-identification task.
-     *  *
-     * @description You can call this operation to query the execution information of a static de-identification task, including the status and progress.
+     * Queries the execution information about a de-identification task.
+     *
+     * @remarks
+     * You can call this operation to query the execution information of a static de-identification task, including the status and progress.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDataMaskingRunHistoryRequest $request DescribeDataMaskingRunHistoryRequest
      *
-     * @return DescribeDataMaskingRunHistoryResponse DescribeDataMaskingRunHistoryResponse
+     * @param request - DescribeDataMaskingRunHistoryRequest
+     * @returns DescribeDataMaskingRunHistoryResponse
+     *
+     * @param DescribeDataMaskingRunHistoryRequest $request
+     *
+     * @return DescribeDataMaskingRunHistoryResponse
      */
     public function describeDataMaskingRunHistory($request)
     {
@@ -1475,44 +1769,56 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries de-identification tasks.
-     *  *
-     * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+     * Queries de-identification tasks.
+     *
+     * @remarks
+     * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDataMaskingTasksRequest $request DescribeDataMaskingTasksRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataMaskingTasksResponse DescribeDataMaskingTasksResponse
+     * @param request - DescribeDataMaskingTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataMaskingTasksResponse
+     *
+     * @param DescribeDataMaskingTasksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDataMaskingTasksResponse
      */
     public function describeDataMaskingTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->dstType)) {
-            $query['DstType'] = $request->dstType;
+
+        if (null !== $request->dstType) {
+            @$query['DstType'] = $request->dstType;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataMaskingTasks',
@@ -1525,7 +1831,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataMaskingTasksResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1533,15 +1839,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries de-identification tasks.
-     *  *
-     * @description You can call this operation to query static de-identification tasks. This facilitates task queries and management.
+     * Queries de-identification tasks.
+     *
+     * @remarks
+     * You can call this operation to query static de-identification tasks. This facilitates task queries and management.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeDataMaskingTasksRequest $request DescribeDataMaskingTasksRequest
      *
-     * @return DescribeDataMaskingTasksResponse DescribeDataMaskingTasksResponse
+     * @param request - DescribeDataMaskingTasksRequest
+     * @returns DescribeDataMaskingTasksResponse
+     *
+     * @param DescribeDataMaskingTasksRequest $request
+     *
+     * @return DescribeDataMaskingTasksResponse
      */
     public function describeDataMaskingTasks($request)
     {
@@ -1551,40 +1861,51 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 查看数据对象列详情
-     *  *
-     * @param DescribeDataObjectColumnDetailRequest $request DescribeDataObjectColumnDetailRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 查看数据对象列详情.
      *
-     * @return DescribeDataObjectColumnDetailResponse DescribeDataObjectColumnDetailResponse
+     * @param request - DescribeDataObjectColumnDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataObjectColumnDetailResponse
+     *
+     * @param DescribeDataObjectColumnDetailRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeDataObjectColumnDetailResponse
      */
     public function describeDataObjectColumnDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataObjectColumnDetail',
@@ -1597,7 +1918,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataObjectColumnDetailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1605,11 +1926,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 查看数据对象列详情
-     *  *
-     * @param DescribeDataObjectColumnDetailRequest $request DescribeDataObjectColumnDetailRequest
+     * 查看数据对象列详情.
      *
-     * @return DescribeDataObjectColumnDetailResponse DescribeDataObjectColumnDetailResponse
+     * @param request - DescribeDataObjectColumnDetailRequest
+     * @returns DescribeDataObjectColumnDetailResponse
+     *
+     * @param DescribeDataObjectColumnDetailRequest $request
+     *
+     * @return DescribeDataObjectColumnDetailResponse
      */
     public function describeDataObjectColumnDetail($request)
     {
@@ -1619,40 +1943,51 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 查看数据对象列详情V2
-     *  *
-     * @param DescribeDataObjectColumnDetailV2Request $request DescribeDataObjectColumnDetailV2Request
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 查看数据对象列详情V2.
      *
-     * @return DescribeDataObjectColumnDetailV2Response DescribeDataObjectColumnDetailV2Response
+     * @param request - DescribeDataObjectColumnDetailV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataObjectColumnDetailV2Response
+     *
+     * @param DescribeDataObjectColumnDetailV2Request $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDataObjectColumnDetailV2Response
      */
     public function describeDataObjectColumnDetailV2WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataObjectColumnDetailV2',
@@ -1665,7 +2000,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataObjectColumnDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1673,11 +2008,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 查看数据对象列详情V2
-     *  *
-     * @param DescribeDataObjectColumnDetailV2Request $request DescribeDataObjectColumnDetailV2Request
+     * 查看数据对象列详情V2.
      *
-     * @return DescribeDataObjectColumnDetailV2Response DescribeDataObjectColumnDetailV2Response
+     * @param request - DescribeDataObjectColumnDetailV2Request
+     * @returns DescribeDataObjectColumnDetailV2Response
+     *
+     * @param DescribeDataObjectColumnDetailV2Request $request
+     *
+     * @return DescribeDataObjectColumnDetailV2Response
      */
     public function describeDataObjectColumnDetailV2($request)
     {
@@ -1687,70 +2025,91 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询数据目录对象
-     *  *
-     * @param DescribeDataObjectsRequest $request DescribeDataObjectsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 分页查询数据目录对象
      *
-     * @return DescribeDataObjectsResponse DescribeDataObjectsResponse
+     * @param request - DescribeDataObjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataObjectsResponse
+     *
+     * @param DescribeDataObjectsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDataObjectsResponse
      */
     public function describeDataObjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->fileCategoryCode)) {
-            $query['FileCategoryCode'] = $request->fileCategoryCode;
+
+        if (null !== $request->fileCategoryCode) {
+            @$query['FileCategoryCode'] = $request->fileCategoryCode;
         }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['FileType'] = $request->fileType;
+
+        if (null !== $request->fileType) {
+            @$query['FileType'] = $request->fileType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->memberAccount)) {
-            $query['MemberAccount'] = $request->memberAccount;
+
+        if (null !== $request->memberAccount) {
+            @$query['MemberAccount'] = $request->memberAccount;
         }
-        if (!Utils::isUnset($request->modelIds)) {
-            $query['ModelIds'] = $request->modelIds;
+
+        if (null !== $request->modelIds) {
+            @$query['ModelIds'] = $request->modelIds;
         }
-        if (!Utils::isUnset($request->modelTagIds)) {
-            $query['ModelTagIds'] = $request->modelTagIds;
+
+        if (null !== $request->modelTagIds) {
+            @$query['ModelTagIds'] = $request->modelTagIds;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentCategoryIds)) {
-            $query['ParentCategoryIds'] = $request->parentCategoryIds;
+
+        if (null !== $request->parentCategoryIds) {
+            @$query['ParentCategoryIds'] = $request->parentCategoryIds;
         }
-        if (!Utils::isUnset($request->productIds)) {
-            $query['ProductIds'] = $request->productIds;
+
+        if (null !== $request->productIds) {
+            @$query['ProductIds'] = $request->productIds;
         }
-        if (!Utils::isUnset($request->queryName)) {
-            $query['QueryName'] = $request->queryName;
+
+        if (null !== $request->queryName) {
+            @$query['QueryName'] = $request->queryName;
         }
-        if (!Utils::isUnset($request->riskLevels)) {
-            $query['RiskLevels'] = $request->riskLevels;
+
+        if (null !== $request->riskLevels) {
+            @$query['RiskLevels'] = $request->riskLevels;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDataObjects',
@@ -1763,7 +2122,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1771,11 +2130,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询数据目录对象
-     *  *
-     * @param DescribeDataObjectsRequest $request DescribeDataObjectsRequest
+     * 分页查询数据目录对象
      *
-     * @return DescribeDataObjectsResponse DescribeDataObjectsResponse
+     * @param request - DescribeDataObjectsRequest
+     * @returns DescribeDataObjectsResponse
+     *
+     * @param DescribeDataObjectsRequest $request
+     *
+     * @return DescribeDataObjectsResponse
      */
     public function describeDataObjects($request)
     {
@@ -1785,20 +2147,25 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDocTypesRequest $request DescribeDocTypesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDocTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDocTypesResponse
      *
-     * @return DescribeDocTypesResponse DescribeDocTypesResponse
+     * @param DescribeDocTypesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeDocTypesResponse
      */
     public function describeDocTypesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDocTypes',
@@ -1811,7 +2178,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDocTypesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1819,9 +2186,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeDocTypesRequest $request DescribeDocTypesRequest
+     * @param request - DescribeDocTypesRequest
+     * @returns DescribeDocTypesResponse
      *
-     * @return DescribeDocTypesResponse DescribeDocTypesResponse
+     * @param DescribeDocTypesRequest $request
+     *
+     * @return DescribeDocTypesResponse
      */
     public function describeDocTypes($request)
     {
@@ -1831,25 +2201,31 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
-     *  *
-     * @param DescribeEventDetailRequest $request DescribeEventDetailRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
      *
-     * @return DescribeEventDetailResponse DescribeEventDetailResponse
+     * @param request - DescribeEventDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEventDetailResponse
+     *
+     * @param DescribeEventDetailRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeEventDetailResponse
      */
     public function describeEventDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEventDetail',
@@ -1862,7 +2238,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1870,11 +2246,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
-     *  *
-     * @param DescribeEventDetailRequest $request DescribeEventDetailRequest
+     * Queries the details of an anomalous event. The details include the time when the anomalous event occurred, and the description and handling status of the anomalous event.
      *
-     * @return DescribeEventDetailResponse DescribeEventDetailResponse
+     * @param request - DescribeEventDetailRequest
+     * @returns DescribeEventDetailResponse
+     *
+     * @param DescribeEventDetailRequest $request
+     *
+     * @return DescribeEventDetailResponse
      */
     public function describeEventDetail($request)
     {
@@ -1884,34 +2263,43 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the types of anomalous events.
-     *  *
-     * @param DescribeEventTypesRequest $request DescribeEventTypesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the types of anomalous events.
      *
-     * @return DescribeEventTypesResponse DescribeEventTypesResponse
+     * @param request - DescribeEventTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEventTypesResponse
+     *
+     * @param DescribeEventTypesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeEventTypesResponse
      */
     public function describeEventTypesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->parentTypeId)) {
-            $query['ParentTypeId'] = $request->parentTypeId;
+
+        if (null !== $request->parentTypeId) {
+            @$query['ParentTypeId'] = $request->parentTypeId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEventTypes',
@@ -1924,7 +2312,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1932,11 +2320,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the types of anomalous events.
-     *  *
-     * @param DescribeEventTypesRequest $request DescribeEventTypesRequest
+     * Queries the types of anomalous events.
      *
-     * @return DescribeEventTypesResponse DescribeEventTypesResponse
+     * @param request - DescribeEventTypesRequest
+     * @returns DescribeEventTypesResponse
+     *
+     * @param DescribeEventTypesRequest $request
+     *
+     * @return DescribeEventTypesResponse
      */
     public function describeEventTypes($request)
     {
@@ -1946,71 +2337,92 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries anomalous events.
-     *  *
-     * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+     * Queries anomalous events.
+     *
+     * @remarks
+     * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeEventsRequest $request DescribeEventsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventsResponse DescribeEventsResponse
+     * @param request - DescribeEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEventsResponse
+     *
+     * @param DescribeEventsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeEventsResponse
      */
     public function describeEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->dealUserId)) {
-            $query['DealUserId'] = $request->dealUserId;
+
+        if (null !== $request->dealUserId) {
+            @$query['DealUserId'] = $request->dealUserId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->subTypeCode)) {
-            $query['SubTypeCode'] = $request->subTypeCode;
+
+        if (null !== $request->subTypeCode) {
+            @$query['SubTypeCode'] = $request->subTypeCode;
         }
-        if (!Utils::isUnset($request->targetProductCode)) {
-            $query['TargetProductCode'] = $request->targetProductCode;
+
+        if (null !== $request->targetProductCode) {
+            @$query['TargetProductCode'] = $request->targetProductCode;
         }
-        if (!Utils::isUnset($request->typeCode)) {
-            $query['TypeCode'] = $request->typeCode;
+
+        if (null !== $request->typeCode) {
+            @$query['TypeCode'] = $request->typeCode;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
-        if (!Utils::isUnset($request->warnLevel)) {
-            $query['WarnLevel'] = $request->warnLevel;
+
+        if (null !== $request->warnLevel) {
+            @$query['WarnLevel'] = $request->warnLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEvents',
@@ -2023,7 +2435,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2031,15 +2443,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries anomalous events.
-     *  *
-     * @description You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
+     * Queries anomalous events.
+     *
+     * @remarks
+     * You can call this operation to query anomalous events that may involve data leaks. This helps you search for and handle anomalous events.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeEventsRequest $request DescribeEventsRequest
      *
-     * @return DescribeEventsResponse DescribeEventsResponse
+     * @param request - DescribeEventsRequest
+     * @returns DescribeEventsResponse
+     *
+     * @param DescribeEventsRequest $request
+     *
+     * @return DescribeEventsResponse
      */
     public function describeEvents($request)
     {
@@ -2049,19 +2465,23 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 查询识别任务状态
-     *  *
-     * @param DescribeIdentifyTaskStatusRequest $request DescribeIdentifyTaskStatusRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 查询识别任务状态
      *
-     * @return DescribeIdentifyTaskStatusResponse DescribeIdentifyTaskStatusResponse
+     * @param request - DescribeIdentifyTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeIdentifyTaskStatusResponse
+     *
+     * @param DescribeIdentifyTaskStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeIdentifyTaskStatusResponse
      */
     public function describeIdentifyTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeIdentifyTaskStatus',
@@ -2074,7 +2494,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIdentifyTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2082,11 +2502,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 查询识别任务状态
-     *  *
-     * @param DescribeIdentifyTaskStatusRequest $request DescribeIdentifyTaskStatusRequest
+     * 查询识别任务状态
      *
-     * @return DescribeIdentifyTaskStatusResponse DescribeIdentifyTaskStatusResponse
+     * @param request - DescribeIdentifyTaskStatusRequest
+     * @returns DescribeIdentifyTaskStatusResponse
+     *
+     * @param DescribeIdentifyTaskStatusRequest $request
+     *
+     * @return DescribeIdentifyTaskStatusResponse
      */
     public function describeIdentifyTaskStatus($request)
     {
@@ -2096,63 +2519,81 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of data assets.
-     *  *
-     * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+     * Queries a list of data assets.
+     *
+     * @remarks
+     * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
      * This operation is no longer used for the KMS console of the new version.
      * # [](#qps-)QPS limits
      * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeInstanceSourcesRequest $request DescribeInstanceSourcesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSourcesResponse DescribeInstanceSourcesResponse
+     * @param request - DescribeInstanceSourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceSourcesResponse
+     *
+     * @param DescribeInstanceSourcesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeInstanceSourcesResponse
      */
     public function describeInstanceSourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditStatus)) {
-            $query['AuditStatus'] = $request->auditStatus;
+        if (null !== $request->auditStatus) {
+            @$query['AuditStatus'] = $request->auditStatus;
         }
-        if (!Utils::isUnset($request->authStatus)) {
-            $query['AuthStatus'] = $request->authStatus;
+
+        if (null !== $request->authStatus) {
+            @$query['AuthStatus'] = $request->authStatus;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->engineType)) {
-            $query['EngineType'] = $request->engineType;
+
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->searchKey)) {
-            $query['SearchKey'] = $request->searchKey;
+
+        if (null !== $request->searchKey) {
+            @$query['SearchKey'] = $request->searchKey;
         }
-        if (!Utils::isUnset($request->searchType)) {
-            $query['SearchType'] = $request->searchType;
+
+        if (null !== $request->searchType) {
+            @$query['SearchType'] = $request->searchType;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstanceSources',
@@ -2165,7 +2606,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2173,16 +2614,20 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of data assets.
-     *  *
-     * @description You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
+     * Queries a list of data assets.
+     *
+     * @remarks
+     * You can query a list of unauthorized or authorized data assets based on the value of AuthStatus.
      * This operation is no longer used for the KMS console of the new version.
      * # [](#qps-)QPS limits
      * This operation can be called up to 10 times per second for each Alibaba Cloud account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeInstanceSourcesRequest $request DescribeInstanceSourcesRequest
      *
-     * @return DescribeInstanceSourcesResponse DescribeInstanceSourcesResponse
+     * @param request - DescribeInstanceSourcesRequest
+     * @returns DescribeInstanceSourcesResponse
+     *
+     * @param DescribeInstanceSourcesRequest $request
+     *
+     * @return DescribeInstanceSourcesResponse
      */
     public function describeInstanceSources($request)
     {
@@ -2192,53 +2637,68 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+     * Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+     *
+     * @remarks
+     * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @param request - DescribeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstances',
@@ -2251,7 +2711,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2259,15 +2719,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @description When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
+     * Queries data assets such as MaxCompute, ApsaraDB RDS, and Object Storage Service (OSS) that you authorize Data Security Center (DSC) to access.
+     *
+     * @remarks
+     * When you call the DescribeInstances operation, you can specify parameters such as Name and RiskLevelId to query data assets that meet filter conditions.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
-     * @return DescribeInstancesResponse DescribeInstancesResponse
+     * @param request - DescribeInstancesRequest
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
      */
     public function describeInstances($request)
     {
@@ -2277,31 +2741,38 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
-     *  *
-     * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+     * Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+     *
+     * @remarks
+     * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
      * ## [](#)Precautions
      * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
      * ## [](#qps)Limits
      * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeOssObjectDetailRequest $request DescribeOssObjectDetailRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeOssObjectDetailResponse DescribeOssObjectDetailResponse
+     * @param request - DescribeOssObjectDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeOssObjectDetailResponse
+     *
+     * @param DescribeOssObjectDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeOssObjectDetailResponse
      */
     public function describeOssObjectDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeOssObjectDetail',
@@ -2314,7 +2785,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeOssObjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2322,17 +2793,21 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
-     *  *
-     * @description You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
+     * Queries the details of an Object Storage Service (OSS) object that Data Security Center (DSC) is authorized to access.
+     *
+     * @remarks
+     * You can call this operation to query the details of an Object Storage Service (OSS) object. This helps you locate sensitive data detected in OSS.
      * ## [](#)Precautions
      * The DescribeOssObjectDetail operation is chagned to DescribeOssObjectDetailV2. We recommend that you call the DescribeOssObjectDetailV2 operation when you develop your applications.
      * ## [](#qps)Limits
      * Each Alibaba Cloud account can call this operation up to 10 times per second. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeOssObjectDetailRequest $request DescribeOssObjectDetailRequest
      *
-     * @return DescribeOssObjectDetailResponse DescribeOssObjectDetailResponse
+     * @param request - DescribeOssObjectDetailRequest
+     * @returns DescribeOssObjectDetailResponse
+     *
+     * @param DescribeOssObjectDetailRequest $request
+     *
+     * @return DescribeOssObjectDetailResponse
      */
     public function describeOssObjectDetail($request)
     {
@@ -2342,37 +2817,47 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
-     *  *
-     * @param DescribeOssObjectDetailV2Request $request DescribeOssObjectDetailV2Request
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息.
      *
-     * @return DescribeOssObjectDetailV2Response DescribeOssObjectDetailV2Response
+     * @param request - DescribeOssObjectDetailV2Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeOssObjectDetailV2Response
+     *
+     * @param DescribeOssObjectDetailV2Request $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeOssObjectDetailV2Response
      */
     public function describeOssObjectDetailV2WithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bucketName)) {
-            $query['BucketName'] = $request->bucketName;
+        if (null !== $request->bucketName) {
+            @$query['BucketName'] = $request->bucketName;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->objectKey)) {
-            $query['ObjectKey'] = $request->objectKey;
+
+        if (null !== $request->objectKey) {
+            @$query['ObjectKey'] = $request->objectKey;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeOssObjectDetailV2',
@@ -2385,7 +2870,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeOssObjectDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2393,11 +2878,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息
-     *  *
-     * @param DescribeOssObjectDetailV2Request $request DescribeOssObjectDetailV2Request
+     * 调用本接口查询数据安全中心连接授权的OSS的单个存储对象的详细信息.
      *
-     * @return DescribeOssObjectDetailV2Response DescribeOssObjectDetailV2Response
+     * @param request - DescribeOssObjectDetailV2Request
+     * @returns DescribeOssObjectDetailV2Response
+     *
+     * @param DescribeOssObjectDetailV2Request $request
+     *
+     * @return DescribeOssObjectDetailV2Response
      */
     public function describeOssObjectDetailV2($request)
     {
@@ -2407,58 +2895,75 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @param DescribeOssObjectsRequest $request DescribeOssObjectsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
      *
-     * @return DescribeOssObjectsResponse DescribeOssObjectsResponse
+     * @param request - DescribeOssObjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeOssObjectsResponse
+     *
+     * @param DescribeOssObjectsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeOssObjectsResponse
      */
     public function describeOssObjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->fileCategoryCode)) {
-            $query['FileCategoryCode'] = $request->fileCategoryCode;
+
+        if (null !== $request->fileCategoryCode) {
+            @$query['FileCategoryCode'] = $request->fileCategoryCode;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->lastScanTimeEnd)) {
-            $query['LastScanTimeEnd'] = $request->lastScanTimeEnd;
+
+        if (null !== $request->lastScanTimeEnd) {
+            @$query['LastScanTimeEnd'] = $request->lastScanTimeEnd;
         }
-        if (!Utils::isUnset($request->lastScanTimeStart)) {
-            $query['LastScanTimeStart'] = $request->lastScanTimeStart;
+
+        if (null !== $request->lastScanTimeStart) {
+            @$query['LastScanTimeStart'] = $request->lastScanTimeStart;
         }
-        if (!Utils::isUnset($request->marker)) {
-            $query['Marker'] = $request->marker;
+
+        if (null !== $request->marker) {
+            @$query['Marker'] = $request->marker;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeOssObjects',
@@ -2471,7 +2976,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeOssObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2479,11 +2984,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @param DescribeOssObjectsRequest $request DescribeOssObjectsRequest
+     * Queries Object Storage Service (OSS) objects that you authorize Data Security Center (DSC) to access.
      *
-     * @return DescribeOssObjectsResponse DescribeOssObjectsResponse
+     * @param request - DescribeOssObjectsRequest
+     * @returns DescribeOssObjectsResponse
+     *
+     * @param DescribeOssObjectsRequest $request
+     *
+     * @return DescribeOssObjectsResponse
      */
     public function describeOssObjects($request)
     {
@@ -2493,47 +3001,60 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
-     *  *
-     * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+     * Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+     *
+     * @remarks
+     * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribePackagesRequest $request DescribePackagesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribePackagesResponse DescribePackagesResponse
+     * @param request - DescribePackagesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePackagesResponse
+     *
+     * @param DescribePackagesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribePackagesResponse
      */
     public function describePackagesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePackages',
@@ -2546,7 +3067,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePackagesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2554,15 +3075,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
-     *  *
-     * @description You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
+     * Queries information about the MaxCompute packages that Data Security Center (DSC) is authorized to access. The information includes the names of MaxCompute packages, the accounts of MaxCompute package owners, and the sensitivity levels of MaxCompute packages.
+     *
+     * @remarks
+     * You can call this operation to query MaxCompute packages that are scanned by DSC. This helps you search for MaxCompute packages and view the summary of MaxCompute packages.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribePackagesRequest $request DescribePackagesRequest
      *
-     * @return DescribePackagesResponse DescribePackagesResponse
+     * @param request - DescribePackagesRequest
+     * @returns DescribePackagesResponse
+     *
+     * @param DescribePackagesRequest $request
+     *
+     * @return DescribePackagesResponse
      */
     public function describePackages($request)
     {
@@ -2572,55 +3097,71 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 获取一级授权列表
-     *  *
-     * @param DescribeParentInstanceRequest $request DescribeParentInstanceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 获取一级授权列表.
      *
-     * @return DescribeParentInstanceResponse DescribeParentInstanceResponse
+     * @param request - DescribeParentInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeParentInstanceResponse
+     *
+     * @param DescribeParentInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeParentInstanceResponse
      */
     public function describeParentInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authStatus)) {
-            $query['AuthStatus'] = $request->authStatus;
+        if (null !== $request->authStatus) {
+            @$query['AuthStatus'] = $request->authStatus;
         }
-        if (!Utils::isUnset($request->checkStatus)) {
-            $query['CheckStatus'] = $request->checkStatus;
+
+        if (null !== $request->checkStatus) {
+            @$query['CheckStatus'] = $request->checkStatus;
         }
-        if (!Utils::isUnset($request->clusterStatus)) {
-            $query['ClusterStatus'] = $request->clusterStatus;
+
+        if (null !== $request->clusterStatus) {
+            @$query['ClusterStatus'] = $request->clusterStatus;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->engineType)) {
-            $query['EngineType'] = $request->engineType;
+
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->memberAccount)) {
-            $query['MemberAccount'] = $request->memberAccount;
+
+        if (null !== $request->memberAccount) {
+            @$query['MemberAccount'] = $request->memberAccount;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeParentInstance',
@@ -2633,7 +3174,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeParentInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2641,11 +3182,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 获取一级授权列表
-     *  *
-     * @param DescribeParentInstanceRequest $request DescribeParentInstanceRequest
+     * 获取一级授权列表.
      *
-     * @return DescribeParentInstanceResponse DescribeParentInstanceResponse
+     * @param request - DescribeParentInstanceRequest
+     * @returns DescribeParentInstanceResponse
+     *
+     * @param DescribeParentInstanceRequest $request
+     *
+     * @return DescribeParentInstanceResponse
      */
     public function describeParentInstance($request)
     {
@@ -2655,32 +3199,40 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
-     *  *
-     * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+     * Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+     *
+     * @remarks
+     * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeRiskLevelsRequest $request DescribeRiskLevelsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRiskLevelsResponse DescribeRiskLevelsResponse
+     * @param request - DescribeRiskLevelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRiskLevelsResponse
+     *
+     * @param DescribeRiskLevelsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeRiskLevelsResponse
      */
     public function describeRiskLevelsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRiskLevels',
@@ -2693,7 +3245,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRiskLevelsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2701,15 +3253,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
-     *  *
-     * @description You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
+     * Queries the sensitivity levels that are defined in a rule template provided by Data Security Center (DSC).
+     *
+     * @remarks
+     * You can call this operation to query the sensitivity levels that are defined in the current rule template provided by DSC. This helps you learn about the number of times that each sensitivity level is referenced in the rule template and the highest sensitivity level.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeRiskLevelsRequest $request DescribeRiskLevelsRequest
      *
-     * @return DescribeRiskLevelsResponse DescribeRiskLevelsResponse
+     * @param request - DescribeRiskLevelsRequest
+     * @returns DescribeRiskLevelsResponse
+     *
+     * @param DescribeRiskLevelsRequest $request
+     *
+     * @return DescribeRiskLevelsResponse
      */
     public function describeRiskLevels($request)
     {
@@ -2719,79 +3275,103 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries sensitive data detection rules.
-     *  *
-     * @param DescribeRulesRequest $request DescribeRulesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries sensitive data detection rules.
      *
-     * @return DescribeRulesResponse DescribeRulesResponse
+     * @param request - DescribeRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRulesResponse
+     *
+     * @param DescribeRulesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeRulesResponse
      */
     public function describeRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->contentCategory)) {
-            $query['ContentCategory'] = $request->contentCategory;
+
+        if (null !== $request->contentCategory) {
+            @$query['ContentCategory'] = $request->contentCategory;
         }
-        if (!Utils::isUnset($request->cooperationChannel)) {
-            $query['CooperationChannel'] = $request->cooperationChannel;
+
+        if (null !== $request->cooperationChannel) {
+            @$query['CooperationChannel'] = $request->cooperationChannel;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->customType)) {
-            $query['CustomType'] = $request->customType;
+
+        if (null !== $request->customType) {
+            @$query['CustomType'] = $request->customType;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->keywordCompatible)) {
-            $query['KeywordCompatible'] = $request->keywordCompatible;
+
+        if (null !== $request->keywordCompatible) {
+            @$query['KeywordCompatible'] = $request->keywordCompatible;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->matchType)) {
-            $query['MatchType'] = $request->matchType;
+
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->simplify)) {
-            $query['Simplify'] = $request->simplify;
+
+        if (null !== $request->simplify) {
+            @$query['Simplify'] = $request->simplify;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->supportForm)) {
-            $query['SupportForm'] = $request->supportForm;
+
+        if (null !== $request->supportForm) {
+            @$query['SupportForm'] = $request->supportForm;
         }
-        if (!Utils::isUnset($request->warnLevel)) {
-            $query['WarnLevel'] = $request->warnLevel;
+
+        if (null !== $request->warnLevel) {
+            @$query['WarnLevel'] = $request->warnLevel;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRules',
@@ -2804,7 +3384,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2812,11 +3392,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries sensitive data detection rules.
-     *  *
-     * @param DescribeRulesRequest $request DescribeRulesRequest
+     * Queries sensitive data detection rules.
      *
-     * @return DescribeRulesResponse DescribeRulesResponse
+     * @param request - DescribeRulesRequest
+     * @returns DescribeRulesResponse
+     *
+     * @param DescribeRulesRequest $request
+     *
+     * @return DescribeRulesResponse
      */
     public function describeRules($request)
     {
@@ -2826,59 +3409,76 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+     * Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+     *
+     * @remarks
+     * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
      * # Limits
      * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
-     *  *
-     * @param DescribeTablesRequest $request DescribeTablesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTablesResponse DescribeTablesResponse
+     * @param request - DescribeTablesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTablesResponse
+     *
+     * @param DescribeTablesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeTablesResponse
      */
     public function describeTablesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->packageId)) {
-            $query['PackageId'] = $request->packageId;
+
+        if (null !== $request->packageId) {
+            @$query['PackageId'] = $request->packageId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTables',
@@ -2891,7 +3491,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2899,15 +3499,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @description When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
+     * Queries tables in data assets, such as MaxCompute projects and ApsaraDB RDS instances, that you authorize Data Security Center (DSC) to access.
+     *
+     * @remarks
+     * When you call the DescribeTables operation to query tables, you can specify parameters such as Name and RiskLevelId to filter tables.
      * # Limits
      * You can send up to 10 requests per second to call this operation by using your Alibaba Cloud account. If you send excessive requests, throttling is implemented, and your business may be affected.
-     *  *
-     * @param DescribeTablesRequest $request DescribeTablesRequest
      *
-     * @return DescribeTablesResponse DescribeTablesResponse
+     * @param request - DescribeTablesRequest
+     * @returns DescribeTablesResponse
+     *
+     * @param DescribeTablesRequest $request
+     *
+     * @return DescribeTablesResponse
      */
     public function describeTables($request)
     {
@@ -2917,26 +3521,33 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateAllRulesRequest $request DescribeTemplateAllRulesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeTemplateAllRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTemplateAllRulesResponse
      *
-     * @return DescribeTemplateAllRulesResponse DescribeTemplateAllRulesResponse
+     * @param DescribeTemplateAllRulesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeTemplateAllRulesResponse
      */
     public function describeTemplateAllRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTemplateAllRules',
@@ -2949,7 +3560,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTemplateAllRulesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2957,9 +3568,12 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplateAllRulesRequest $request DescribeTemplateAllRulesRequest
+     * @param request - DescribeTemplateAllRulesRequest
+     * @returns DescribeTemplateAllRulesResponse
      *
-     * @return DescribeTemplateAllRulesResponse DescribeTemplateAllRulesResponse
+     * @param DescribeTemplateAllRulesRequest $request
+     *
+     * @return DescribeTemplateAllRulesResponse
      */
     public function describeTemplateAllRules($request)
     {
@@ -2969,29 +3583,36 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an account.
-     *  *
-     * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+     * Queries the information about an account.
+     *
+     * @remarks
+     * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeUserStatusRequest $request DescribeUserStatusRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeUserStatusResponse DescribeUserStatusResponse
+     * @param request - DescribeUserStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserStatusResponse
+     *
+     * @param DescribeUserStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeUserStatusResponse
      */
     public function describeUserStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserStatus',
@@ -3004,7 +3625,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3012,15 +3633,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an account.
-     *  *
-     * @description You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
+     * Queries the information about an account.
+     *
+     * @remarks
+     * You can call this operation to query the information about the current account. This helps you get familiar with your account that accesses Data Security Center (DSC).
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DescribeUserStatusRequest $request DescribeUserStatusRequest
      *
-     * @return DescribeUserStatusResponse DescribeUserStatusResponse
+     * @param request - DescribeUserStatusRequest
+     * @returns DescribeUserStatusResponse
+     *
+     * @param DescribeUserStatusRequest $request
+     *
+     * @return DescribeUserStatusResponse
      */
     public function describeUserStatus($request)
     {
@@ -3030,32 +3655,40 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
-     *  *
-     * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+     * Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+     *
+     * @remarks
+     * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DisableUserConfigRequest $request DisableUserConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableUserConfigResponse DisableUserConfigResponse
+     * @param request - DisableUserConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableUserConfigResponse
+     *
+     * @param DisableUserConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DisableUserConfigResponse
      */
     public function disableUserConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->code)) {
-            $query['Code'] = $request->code;
+        if (null !== $request->code) {
+            @$query['Code'] = $request->code;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableUserConfig',
@@ -3068,7 +3701,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3076,15 +3709,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
-     *  *
-     * @description You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
+     * Disables a configuration item. After you disable a configuration item, you can call the CreateConfig operation to enable the configuration item by specifying the code of the configuration item for the Code parameter in the request.
+     *
+     * @remarks
+     * You can call this operation to disable a configuration item based on the code of the configuration item. This helps you modify configurations at the earliest opportunity.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DisableUserConfigRequest $request DisableUserConfigRequest
      *
-     * @return DisableUserConfigResponse DisableUserConfigResponse
+     * @param request - DisableUserConfigRequest
+     * @returns DisableUserConfigResponse
+     *
+     * @param DisableUserConfigRequest $request
+     *
+     * @return DisableUserConfigResponse
      */
     public function disableUserConfig($request)
     {
@@ -3094,31 +3731,39 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Dynamically de-identifies sensitive data.
-     *  *
-     * @param ExecDatamaskRequest $request ExecDatamaskRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Dynamically de-identifies sensitive data.
      *
-     * @return ExecDatamaskResponse ExecDatamaskResponse
+     * @param request - ExecDatamaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecDatamaskResponse
+     *
+     * @param ExecDatamaskRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ExecDatamaskResponse
      */
     public function execDatamaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->data)) {
-            $query['Data'] = $request->data;
+        if (null !== $request->data) {
+            @$query['Data'] = $request->data;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExecDatamask',
@@ -3131,7 +3776,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExecDatamaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3139,11 +3784,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Dynamically de-identifies sensitive data.
-     *  *
-     * @param ExecDatamaskRequest $request ExecDatamaskRequest
+     * Dynamically de-identifies sensitive data.
      *
-     * @return ExecDatamaskResponse ExecDatamaskResponse
+     * @param request - ExecDatamaskRequest
+     * @returns ExecDatamaskResponse
+     *
+     * @param ExecDatamaskRequest $request
+     *
+     * @return ExecDatamaskResponse
      */
     public function execDatamask($request)
     {
@@ -3153,25 +3801,31 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Triggers a de-identification task.
-     *  *
-     * @param ManualTriggerMaskingProcessRequest $request ManualTriggerMaskingProcessRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Triggers a de-identification task.
      *
-     * @return ManualTriggerMaskingProcessResponse ManualTriggerMaskingProcessResponse
+     * @param request - ManualTriggerMaskingProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ManualTriggerMaskingProcessResponse
+     *
+     * @param ManualTriggerMaskingProcessRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ManualTriggerMaskingProcessResponse
      */
     public function manualTriggerMaskingProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ManualTriggerMaskingProcess',
@@ -3184,7 +3838,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ManualTriggerMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3192,11 +3846,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Triggers a de-identification task.
-     *  *
-     * @param ManualTriggerMaskingProcessRequest $request ManualTriggerMaskingProcessRequest
+     * Triggers a de-identification task.
      *
-     * @return ManualTriggerMaskingProcessResponse ManualTriggerMaskingProcessResponse
+     * @param request - ManualTriggerMaskingProcessRequest
+     * @returns ManualTriggerMaskingProcessResponse
+     *
+     * @param ManualTriggerMaskingProcessRequest $request
+     *
+     * @return ManualTriggerMaskingProcessResponse
      */
     public function manualTriggerMaskingProcess($request)
     {
@@ -3206,70 +3863,91 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @param ModifyDataLimitRequest $request ModifyDataLimitRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
      *
-     * @return ModifyDataLimitResponse ModifyDataLimitResponse
+     * @param request - ModifyDataLimitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDataLimitResponse
+     *
+     * @param ModifyDataLimitRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyDataLimitResponse
      */
     public function modifyDataLimitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditStatus)) {
-            $query['AuditStatus'] = $request->auditStatus;
+        if (null !== $request->auditStatus) {
+            @$query['AuditStatus'] = $request->auditStatus;
         }
-        if (!Utils::isUnset($request->autoScan)) {
-            $query['AutoScan'] = $request->autoScan;
+
+        if (null !== $request->autoScan) {
+            @$query['AutoScan'] = $request->autoScan;
         }
-        if (!Utils::isUnset($request->engineType)) {
-            $query['EngineType'] = $request->engineType;
+
+        if (null !== $request->engineType) {
+            @$query['EngineType'] = $request->engineType;
         }
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->logStoreDay)) {
-            $query['LogStoreDay'] = $request->logStoreDay;
+
+        if (null !== $request->logStoreDay) {
+            @$query['LogStoreDay'] = $request->logStoreDay;
         }
-        if (!Utils::isUnset($request->modifyPassword)) {
-            $query['ModifyPassword'] = $request->modifyPassword;
+
+        if (null !== $request->modifyPassword) {
+            @$query['ModifyPassword'] = $request->modifyPassword;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->samplingSize)) {
-            $query['SamplingSize'] = $request->samplingSize;
+
+        if (null !== $request->samplingSize) {
+            @$query['SamplingSize'] = $request->samplingSize;
         }
-        if (!Utils::isUnset($request->securityGroupIdList)) {
-            $query['SecurityGroupIdList'] = $request->securityGroupIdList;
+
+        if (null !== $request->securityGroupIdList) {
+            @$query['SecurityGroupIdList'] = $request->securityGroupIdList;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $query['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$query['UserName'] = $request->userName;
         }
-        if (!Utils::isUnset($request->vSwitchIdList)) {
-            $query['VSwitchIdList'] = $request->vSwitchIdList;
+
+        if (null !== $request->vSwitchIdList) {
+            @$query['VSwitchIdList'] = $request->vSwitchIdList;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDataLimit',
@@ -3282,7 +3960,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDataLimitResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3290,11 +3968,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
-     *  *
-     * @param ModifyDataLimitRequest $request ModifyDataLimitRequest
+     * Modifies configuration items for a data asset that you authorize Data Security Center (DSC) to access.
      *
-     * @return ModifyDataLimitResponse ModifyDataLimitResponse
+     * @param request - ModifyDataLimitRequest
+     * @returns ModifyDataLimitResponse
+     *
+     * @param ModifyDataLimitRequest $request
+     *
+     * @return ModifyDataLimitResponse
      */
     public function modifyDataLimit($request)
     {
@@ -3304,32 +3985,40 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
-     *  *
-     * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+     * Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+     *
+     * @remarks
+     * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyDefaultLevelRequest $request ModifyDefaultLevelRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDefaultLevelResponse ModifyDefaultLevelResponse
+     * @param request - ModifyDefaultLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDefaultLevelResponse
+     *
+     * @param ModifyDefaultLevelRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyDefaultLevelResponse
      */
     public function modifyDefaultLevelWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defaultId)) {
-            $query['DefaultId'] = $request->defaultId;
+        if (null !== $request->defaultId) {
+            @$query['DefaultId'] = $request->defaultId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->sensitiveIds)) {
-            $query['SensitiveIds'] = $request->sensitiveIds;
+
+        if (null !== $request->sensitiveIds) {
+            @$query['SensitiveIds'] = $request->sensitiveIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefaultLevel',
@@ -3342,7 +4031,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDefaultLevelResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3350,15 +4039,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
-     *  *
-     * @description You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
+     * Changes the sensitivity levels of sensitive data. You can change the default sensitivity levels of data that cannot be classified as sensitive or insensitive, and the sensitivity levels of data that can be classified as sensitive.
+     *
+     * @remarks
+     * You can call this operation to modify the sensitivity levels of data. This helps you manage the sensitivity levels.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyDefaultLevelRequest $request ModifyDefaultLevelRequest
      *
-     * @return ModifyDefaultLevelResponse ModifyDefaultLevelResponse
+     * @param request - ModifyDefaultLevelRequest
+     * @returns ModifyDefaultLevelResponse
+     *
+     * @param ModifyDefaultLevelRequest $request
+     *
+     * @return ModifyDefaultLevelResponse
      */
     public function modifyDefaultLevel($request)
     {
@@ -3368,38 +4061,48 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Handles an anomalous event.
-     *  *
-     * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+     * Handles an anomalous event.
+     *
+     * @remarks
+     * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyEventStatusRequest $request ModifyEventStatusRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyEventStatusResponse ModifyEventStatusResponse
+     * @param request - ModifyEventStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyEventStatusResponse
+     *
+     * @param ModifyEventStatusRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyEventStatusResponse
      */
     public function modifyEventStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backed)) {
-            $query['Backed'] = $request->backed;
+        if (null !== $request->backed) {
+            @$query['Backed'] = $request->backed;
         }
-        if (!Utils::isUnset($request->dealReason)) {
-            $query['DealReason'] = $request->dealReason;
+
+        if (null !== $request->dealReason) {
+            @$query['DealReason'] = $request->dealReason;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyEventStatus',
@@ -3412,7 +4115,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyEventStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3420,15 +4123,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Handles an anomalous event.
-     *  *
-     * @description You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
+     * Handles an anomalous event.
+     *
+     * @remarks
+     * You can call this operation to handle anomalous events that involve data leaks. This helps protect your data assets at the earliest opportunity.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyEventStatusRequest $request ModifyEventStatusRequest
      *
-     * @return ModifyEventStatusResponse ModifyEventStatusResponse
+     * @param request - ModifyEventStatusRequest
+     * @returns ModifyEventStatusResponse
+     *
+     * @param ModifyEventStatusRequest $request
+     *
+     * @return ModifyEventStatusResponse
      */
     public function modifyEventStatus($request)
     {
@@ -3438,28 +4145,35 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Enables the detection of anomalous events of subtypes.
-     *  *
-     * @param ModifyEventTypeStatusRequest $request ModifyEventTypeStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Enables the detection of anomalous events of subtypes.
      *
-     * @return ModifyEventTypeStatusResponse ModifyEventTypeStatusResponse
+     * @param request - ModifyEventTypeStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyEventTypeStatusResponse
+     *
+     * @param ModifyEventTypeStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyEventTypeStatusResponse
      */
     public function modifyEventTypeStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->subTypeIds)) {
-            $query['SubTypeIds'] = $request->subTypeIds;
+
+        if (null !== $request->subTypeIds) {
+            @$query['SubTypeIds'] = $request->subTypeIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyEventTypeStatus',
@@ -3472,7 +4186,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyEventTypeStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3480,11 +4194,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Enables the detection of anomalous events of subtypes.
-     *  *
-     * @param ModifyEventTypeStatusRequest $request ModifyEventTypeStatusRequest
+     * Enables the detection of anomalous events of subtypes.
      *
-     * @return ModifyEventTypeStatusResponse ModifyEventTypeStatusResponse
+     * @param request - ModifyEventTypeStatusRequest
+     * @returns ModifyEventTypeStatusResponse
+     *
+     * @param ModifyEventTypeStatusRequest $request
+     *
+     * @return ModifyEventTypeStatusResponse
      */
     public function modifyEventTypeStatus($request)
     {
@@ -3494,32 +4211,40 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the report task.
-     *  *
-     * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+     * Enables or disables the report task.
+     *
+     * @remarks
+     * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyReportTaskStatusRequest $request ModifyReportTaskStatusRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyReportTaskStatusResponse ModifyReportTaskStatusResponse
+     * @param request - ModifyReportTaskStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyReportTaskStatusResponse
+     *
+     * @param ModifyReportTaskStatusRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyReportTaskStatusResponse
      */
     public function modifyReportTaskStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->featureType)) {
-            $query['FeatureType'] = $request->featureType;
+        if (null !== $request->featureType) {
+            @$query['FeatureType'] = $request->featureType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->reportTaskStatus)) {
-            $query['ReportTaskStatus'] = $request->reportTaskStatus;
+
+        if (null !== $request->reportTaskStatus) {
+            @$query['ReportTaskStatus'] = $request->reportTaskStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyReportTaskStatus',
@@ -3532,7 +4257,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyReportTaskStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3540,15 +4265,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the report task.
-     *  *
-     * @description You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
+     * Enables or disables the report task.
+     *
+     * @remarks
+     * You can call this operation to enable or disable the report task. After you activate Data Security Center (DSC), the report task is enabled by default. After you disable the report task, you cannot view statistics that are newly generated in the Report Center module, on the Overview page of the Cloud Native Data Audit module, and in the Data security lab module. Existing statistics are not affected.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyReportTaskStatusRequest $request ModifyReportTaskStatusRequest
      *
-     * @return ModifyReportTaskStatusResponse ModifyReportTaskStatusResponse
+     * @param request - ModifyReportTaskStatusRequest
+     * @returns ModifyReportTaskStatusResponse
+     *
+     * @param ModifyReportTaskStatusRequest $request
+     *
+     * @return ModifyReportTaskStatusResponse
      */
     public function modifyReportTaskStatus($request)
     {
@@ -3558,59 +4287,84 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
-     *  *
-     * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+     * Modifies a custom sensitive data detection rule in Data Security Center (DSC).
+     *
+     * @remarks
+     * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyRuleRequest $request ModifyRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyRuleResponse ModifyRuleResponse
+     * @param request - ModifyRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyRuleResponse
+     *
+     * @param ModifyRuleRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ModifyRuleResponse
      */
     public function modifyRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$query['Content'] = $request->content;
         }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->matchType)) {
-            $query['MatchType'] = $request->matchType;
+
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->modelRuleIds) {
+            @$query['ModelRuleIds'] = $request->modelRuleIds;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->riskLevelId)) {
-            $query['RiskLevelId'] = $request->riskLevelId;
+
+        if (null !== $request->productId) {
+            @$query['ProductId'] = $request->productId;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->riskLevelId) {
+            @$query['RiskLevelId'] = $request->riskLevelId;
         }
-        if (!Utils::isUnset($request->supportForm)) {
-            $query['SupportForm'] = $request->supportForm;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->warnLevel)) {
-            $query['WarnLevel'] = $request->warnLevel;
+
+        if (null !== $request->supportForm) {
+            @$query['SupportForm'] = $request->supportForm;
         }
+
+        if (null !== $request->templateRuleIds) {
+            @$query['TemplateRuleIds'] = $request->templateRuleIds;
+        }
+
+        if (null !== $request->warnLevel) {
+            @$query['WarnLevel'] = $request->warnLevel;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyRule',
@@ -3623,7 +4377,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3631,15 +4385,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a custom sensitive data detection rule in Data Security Center (DSC).
-     *  *
-     * @description When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
+     * Modifies a custom sensitive data detection rule in Data Security Center (DSC).
+     *
+     * @remarks
+     * When you call this operation, you must configure request parameters to specify the rule name, rule ID, and rule content.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ModifyRuleRequest $request ModifyRuleRequest
      *
-     * @return ModifyRuleResponse ModifyRuleResponse
+     * @param request - ModifyRuleRequest
+     * @returns ModifyRuleResponse
+     *
+     * @param ModifyRuleRequest $request
+     *
+     * @return ModifyRuleResponse
      */
     public function modifyRule($request)
     {
@@ -3649,31 +4407,39 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables a sensitive data detection rule.
-     *  *
-     * @param ModifyRuleStatusRequest $request ModifyRuleStatusRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Enables or disables a sensitive data detection rule.
      *
-     * @return ModifyRuleStatusResponse ModifyRuleStatusResponse
+     * @param request - ModifyRuleStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyRuleStatusResponse
+     *
+     * @param ModifyRuleStatusRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyRuleStatusResponse
      */
     public function modifyRuleStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->ids)) {
-            $query['Ids'] = $request->ids;
+
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyRuleStatus',
@@ -3686,7 +4452,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3694,11 +4460,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables a sensitive data detection rule.
-     *  *
-     * @param ModifyRuleStatusRequest $request ModifyRuleStatusRequest
+     * Enables or disables a sensitive data detection rule.
      *
-     * @return ModifyRuleStatusResponse ModifyRuleStatusResponse
+     * @param request - ModifyRuleStatusRequest
+     * @returns ModifyRuleStatusResponse
+     *
+     * @param ModifyRuleStatusRequest $request
+     *
+     * @return ModifyRuleStatusResponse
      */
     public function modifyRuleStatus($request)
     {
@@ -3708,39 +4477,49 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 创建文件扫描任务
-     *  *
-     * @param ScanOssObjectV1Request $tmpReq  ScanOssObjectV1Request
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 创建文件扫描任务
      *
-     * @return ScanOssObjectV1Response ScanOssObjectV1Response
+     * @param tmpReq - ScanOssObjectV1Request
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ScanOssObjectV1Response
+     *
+     * @param ScanOssObjectV1Request $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ScanOssObjectV1Response
      */
     public function scanOssObjectV1WithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ScanOssObjectV1ShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->objectKeyList)) {
-            $request->objectKeyListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->objectKeyList, 'ObjectKeyList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->objectKeyList) {
+            $request->objectKeyListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->objectKeyList, 'ObjectKeyList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->bucketName)) {
-            $query['BucketName'] = $request->bucketName;
+        if (null !== $request->bucketName) {
+            @$query['BucketName'] = $request->bucketName;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->objectKeyListShrink)) {
-            $query['ObjectKeyList'] = $request->objectKeyListShrink;
+
+        if (null !== $request->objectKeyListShrink) {
+            @$query['ObjectKeyList'] = $request->objectKeyListShrink;
         }
-        if (!Utils::isUnset($request->serviceRegionId)) {
-            $query['ServiceRegionId'] = $request->serviceRegionId;
+
+        if (null !== $request->serviceRegionId) {
+            @$query['ServiceRegionId'] = $request->serviceRegionId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ScanOssObjectV1',
@@ -3753,7 +4532,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ScanOssObjectV1Response::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3761,11 +4540,14 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary 创建文件扫描任务
-     *  *
-     * @param ScanOssObjectV1Request $request ScanOssObjectV1Request
+     * 创建文件扫描任务
      *
-     * @return ScanOssObjectV1Response ScanOssObjectV1Response
+     * @param request - ScanOssObjectV1Request
+     * @returns ScanOssObjectV1Response
+     *
+     * @param ScanOssObjectV1Request $request
+     *
+     * @return ScanOssObjectV1Response
      */
     public function scanOssObjectV1($request)
     {
@@ -3775,29 +4557,36 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
-     *  *
-     * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+     * Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+     *
+     * @remarks
+     * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param StopMaskingProcessRequest $request StopMaskingProcessRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopMaskingProcessResponse StopMaskingProcessResponse
+     * @param request - StopMaskingProcessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopMaskingProcessResponse
+     *
+     * @param StopMaskingProcessRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopMaskingProcessResponse
      */
     public function stopMaskingProcessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopMaskingProcess',
@@ -3810,7 +4599,7 @@ class Sddp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopMaskingProcessResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3818,15 +4607,19 @@ class Sddp extends OpenApiClient
     }
 
     /**
-     * @summary Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
-     *  *
-     * @description You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
+     * Stops a de-identification task. After you stop a de-identification task, you can resume the task by calling the ManualTriggerMaskingProcess operation.
+     *
+     * @remarks
+     * You can call this operation to stop a de-identification task that is running. For example, you can stop a de-identification task that is used to de-identify specific data.
      * # Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param StopMaskingProcessRequest $request StopMaskingProcessRequest
      *
-     * @return StopMaskingProcessResponse StopMaskingProcessResponse
+     * @param request - StopMaskingProcessRequest
+     * @returns StopMaskingProcessResponse
+     *
+     * @param StopMaskingProcessRequest $request
+     *
+     * @return StopMaskingProcessResponse
      */
     public function stopMaskingProcess($request)
     {

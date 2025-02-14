@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectDetailResponseBody\ossObjectDetail;
-use AlibabaCloud\Tea\Model;
 
 class DescribeOssObjectDetailResponseBody extends Model
 {
     /**
-     * @description The details of the OSS object.
-     *
      * @var ossObjectDetail
      */
     public $ossObjectDetail;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 769FB3C1-F4C9-42DF-9B72-7077A8989C13
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeOssObjectDetailResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->ossObjectDetail) {
+            $this->ossObjectDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ossObjectDetail) {
-            $res['OssObjectDetail'] = null !== $this->ossObjectDetail ? $this->ossObjectDetail->toMap() : null;
+            $res['OssObjectDetail'] = null !== $this->ossObjectDetail ? $this->ossObjectDetail->toArray($noStream) : $this->ossObjectDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeOssObjectDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeOssObjectDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OssObjectDetail'])) {
             $model->ossObjectDetail = ossObjectDetail::fromMap($map['OssObjectDetail']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailResponseBody\event\detail\chart;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The value of the data item on the X axis.
-     *
-     * @example [test1,test2,...]
-     *
      * @var string[]
      */
     public $x;
-
     /**
-     * @description The value of the data item on the Y axis.
-     *
-     * @example [1,2,3,...]
-     *
      * @var string[]
      */
     public $y;
-
     /**
-     * @description The value of the data item for the Z axis.
-     *
      * @var string[]
      */
     public $z;
@@ -40,45 +28,89 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->x)) {
+            Model::validateArray($this->x);
+        }
+        if (\is_array($this->y)) {
+            Model::validateArray($this->y);
+        }
+        if (\is_array($this->z)) {
+            Model::validateArray($this->z);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->x) {
-            $res['X'] = $this->x;
+            if (\is_array($this->x)) {
+                $res['X'] = [];
+                $n1       = 0;
+                foreach ($this->x as $item1) {
+                    $res['X'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->y) {
-            $res['Y'] = $this->y;
+            if (\is_array($this->y)) {
+                $res['Y'] = [];
+                $n1       = 0;
+                foreach ($this->y as $item1) {
+                    $res['Y'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->z) {
-            $res['Z'] = $this->z;
+            if (\is_array($this->z)) {
+                $res['Z'] = [];
+                $n1       = 0;
+                foreach ($this->z as $item1) {
+                    $res['Z'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['X'])) {
             if (!empty($map['X'])) {
-                $model->x = $map['X'];
+                $model->x = [];
+                $n1       = 0;
+                foreach ($map['X'] as $item1) {
+                    $model->x[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Y'])) {
             if (!empty($map['Y'])) {
-                $model->y = $map['Y'];
+                $model->y = [];
+                $n1       = 0;
+                foreach ($map['Y'] as $item1) {
+                    $model->y[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Z'])) {
             if (!empty($map['Z'])) {
-                $model->z = $map['Z'];
+                $model->z = [];
+                $n1       = 0;
+                foreach ($map['Z'] as $item1) {
+                    $model->z[$n1++] = $item1;
+                }
             }
         }
 

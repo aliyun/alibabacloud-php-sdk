@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyRuleStatusResponseBody extends Model
 {
     /**
-     * @description The IDs of sensitive data detection rules whose status failed to be changed. Multiple IDs are separated with commas (,).
-     *
-     * @example 1,2,3,4
-     *
      * @var string
      */
     public $failedIds;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 7C3AC882-E5A8-4855-BE77-B6837B695EF1
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class ModifyRuleStatusResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedIds) {
             $res['FailedIds'] = $this->failedIds;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class ModifyRuleStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyRuleStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedIds'])) {
             $model->failedIds = $map['FailedIds'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
