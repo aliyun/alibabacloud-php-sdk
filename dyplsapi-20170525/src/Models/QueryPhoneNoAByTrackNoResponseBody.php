@@ -4,44 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QueryPhoneNoAByTrackNoResponseBody\module;
-use AlibabaCloud\Tea\Model;
 
 class QueryPhoneNoAByTrackNoResponseBody extends Model
 {
     /**
-     * @description The response code.
-     *
-     *   The value OK indicates that the request was successful.
-     *   Other status codes indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The returned message.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The information returned after the phone numbers were bound.
-     *
      * @var module[]
      */
     public $module;
-
     /**
-     * @description The request ID.
-     *
-     * @example 8906582E-6722
-     *
      * @var string
      */
     public $requestId;
@@ -54,26 +34,33 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->module)) {
+            Model::validateArray($this->module);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->module) {
-            $res['Module'] = [];
-            if (null !== $this->module && \is_array($this->module)) {
-                $n = 0;
-                foreach ($this->module as $item) {
-                    $res['Module'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->module)) {
+                $res['Module'] = [];
+                $n1            = 0;
+                foreach ($this->module as $item1) {
+                    $res['Module'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -81,29 +68,32 @@ class QueryPhoneNoAByTrackNoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryPhoneNoAByTrackNoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Module'])) {
             if (!empty($map['Module'])) {
                 $model->module = [];
-                $n             = 0;
-                foreach ($map['Module'] as $item) {
-                    $model->module[$n++] = null !== $item ? module::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Module'] as $item1) {
+                    $model->module[$n1++] = module::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

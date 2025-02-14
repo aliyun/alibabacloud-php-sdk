@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindXBResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description 工作号关系绑定的唯一标识
-     *
-     * @example 4353453456
-     *
      * @var string
      */
     public $authId;
-
     /**
-     * @description X号码
-     *
-     * @example 18640577897
-     *
      * @var string
      */
     public $telX;
@@ -32,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authId) {
             $res['AuthId'] = $this->authId;
         }
+
         if (null !== $this->telX) {
             $res['TelX'] = $this->telX;
         }
@@ -47,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthId'])) {
             $model->authId = $map['AuthId'];
         }
+
         if (isset($map['TelX'])) {
             $model->telX = $map['TelX'];
         }

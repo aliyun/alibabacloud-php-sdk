@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OperateBlackNoResponseBody extends Model
 {
     /**
-     * @description The response code.
-     *
-     *   The value OK indicates that the request was successful.
-     *   Other status codes indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/109196.html).
-     *
-     * @example OK
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The returned message.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The request ID.
-     *
-     * @example 2D1AEB96-96D0-454E-B0DC-AE2A8DF08020
-     *
      * @var string
      */
     public $requestId;
@@ -45,17 +28,20 @@ class OperateBlackNoResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,20 +49,22 @@ class OperateBlackNoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperateBlackNoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

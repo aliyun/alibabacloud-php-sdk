@@ -4,55 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sendAddress extends Model
 {
     /**
-     * @description The detailed address of the sender.
-     *
-     * This parameter is required.
-     * @example XX community
-     *
      * @var string
      */
     public $addressDetail;
-
     /**
-     * @description The district where the sender is located.
-     *
-     * This parameter is required.
-     * @example wenjiang
-     *
      * @var string
      */
     public $areaName;
-
     /**
-     * @description The city where the sender is located.
-     *
-     * This parameter is required.
-     * @example chengdu
-     *
      * @var string
      */
     public $cityName;
-
     /**
-     * @description The province where the sender is located.
-     *
-     * This parameter is required.
-     * @example Sichuan
-     *
      * @var string
      */
     public $provinceName;
-
     /**
-     * @description The street where the sender is located.
-     *
-     * @example XX Street
-     *
      * @var string
      */
     public $townName;
@@ -66,23 +38,28 @@ class sendAddress extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addressDetail) {
             $res['AddressDetail'] = $this->addressDetail;
         }
+
         if (null !== $this->areaName) {
             $res['AreaName'] = $this->areaName;
         }
+
         if (null !== $this->cityName) {
             $res['CityName'] = $this->cityName;
         }
+
         if (null !== $this->provinceName) {
             $res['ProvinceName'] = $this->provinceName;
         }
+
         if (null !== $this->townName) {
             $res['TownName'] = $this->townName;
         }
@@ -90,26 +67,30 @@ class sendAddress extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sendAddress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddressDetail'])) {
             $model->addressDetail = $map['AddressDetail'];
         }
+
         if (isset($map['AreaName'])) {
             $model->areaName = $map['AreaName'];
         }
+
         if (isset($map['CityName'])) {
             $model->cityName = $map['CityName'];
         }
+
         if (isset($map['ProvinceName'])) {
             $model->provinceName = $map['ProvinceName'];
         }
+
         if (isset($map['TownName'])) {
             $model->townName = $map['TownName'];
         }

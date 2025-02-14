@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class CreatePickUpWaybillPreQueryResponseBody extends Model
 {
     /**
-     * @description The result set.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @description The returned message.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9FC30594-3841-43AD-9008-03393BCB5CD2
-     *
      * @var string
      */
     public $requestId;
@@ -51,20 +34,27 @@ class CreatePickUpWaybillPreQueryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,23 +62,26 @@ class CreatePickUpWaybillPreQueryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePickUpWaybillPreQueryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

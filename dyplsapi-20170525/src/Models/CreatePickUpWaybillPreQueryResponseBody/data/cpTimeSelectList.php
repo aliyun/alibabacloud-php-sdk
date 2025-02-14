@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryResponseBody\data\cpTimeSelectList\appointTimes;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillPreQueryResponseBody\data\cpTimeSelectList\realTime;
-use AlibabaCloud\Tea\Model;
 
 class cpTimeSelectList extends Model
 {
     /**
-     * @description The available time for the scheduled pickup. If the current courier company cannot accept the scheduled pickup, this field is left empty.
-     *
      * @var appointTimes[]
      */
     public $appointTimes;
-
     /**
-     * @description The estimated price. Unit: CNY. The value is accurate to two decimal places. The value of this parameter is displayed if an estimated weight is specified.
-     *
-     * @example 12.50
-     *
      * @var string
      */
     public $prePrice;
-
     /**
-     * @description The information about whether the real-time order can be selected.
-     *
      * @var realTime
      */
     public $realTime;
@@ -40,50 +30,61 @@ class cpTimeSelectList extends Model
 
     public function validate()
     {
+        if (\is_array($this->appointTimes)) {
+            Model::validateArray($this->appointTimes);
+        }
+        if (null !== $this->realTime) {
+            $this->realTime->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appointTimes) {
-            $res['AppointTimes'] = [];
-            if (null !== $this->appointTimes && \is_array($this->appointTimes)) {
-                $n = 0;
-                foreach ($this->appointTimes as $item) {
-                    $res['AppointTimes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->appointTimes)) {
+                $res['AppointTimes'] = [];
+                $n1                  = 0;
+                foreach ($this->appointTimes as $item1) {
+                    $res['AppointTimes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->prePrice) {
             $res['PrePrice'] = $this->prePrice;
         }
+
         if (null !== $this->realTime) {
-            $res['RealTime'] = null !== $this->realTime ? $this->realTime->toMap() : null;
+            $res['RealTime'] = null !== $this->realTime ? $this->realTime->toArray($noStream) : $this->realTime;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cpTimeSelectList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppointTimes'])) {
             if (!empty($map['AppointTimes'])) {
                 $model->appointTimes = [];
-                $n                   = 0;
-                foreach ($map['AppointTimes'] as $item) {
-                    $model->appointTimes[$n++] = null !== $item ? appointTimes::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['AppointTimes'] as $item1) {
+                    $model->appointTimes[$n1++] = appointTimes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PrePrice'])) {
             $model->prePrice = $map['PrePrice'];
         }
+
         if (isset($map['RealTime'])) {
             $model->realTime = realTime::fromMap($map['RealTime']);
         }

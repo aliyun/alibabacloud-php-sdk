@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreateSmsSignResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description 短信接收者号码签名串(加到短信内容中供解析真实被叫号码)
-     *
-     * @example sign23343466
-     *
      * @var string
      */
     public $calledNoSign;
@@ -22,9 +18,10 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->calledNoSign) {
@@ -34,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

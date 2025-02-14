@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BuySecretNoResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class secretBuyInfoDTO extends Model
 {
     /**
-     * @description The private number, that is, phone number X.
-     *
-     * @example 1390000****
-     *
      * @var string
      */
     public $secretNo;
@@ -22,9 +18,10 @@ class secretBuyInfoDTO extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->secretNo) {
@@ -34,11 +31,11 @@ class secretBuyInfoDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return secretBuyInfoDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

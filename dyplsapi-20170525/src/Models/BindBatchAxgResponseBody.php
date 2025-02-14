@@ -4,32 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgResponseBody\secretBindList;
-use AlibabaCloud\Tea\Model;
 
 class BindBatchAxgResponseBody extends Model
 {
     /**
-     * @example OK
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @example OK
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example 5DCCA8CD-6C0A-50B4-A496-B1D2AB48A1C3
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var secretBindList
      */
@@ -43,44 +34,54 @@ class BindBatchAxgResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->secretBindList) {
+            $this->secretBindList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->secretBindList) {
-            $res['SecretBindList'] = null !== $this->secretBindList ? $this->secretBindList->toMap() : null;
+            $res['SecretBindList'] = null !== $this->secretBindList ? $this->secretBindList->toArray($noStream) : $this->secretBindList;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BindBatchAxgResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecretBindList'])) {
             $model->secretBindList = secretBindList::fromMap($map['SecretBindList']);
         }

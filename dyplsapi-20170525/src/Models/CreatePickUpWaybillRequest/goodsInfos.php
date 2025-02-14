@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CreatePickUpWaybillRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class goodsInfos extends Model
 {
     /**
-     * @description The item name.
-     *
-     * @example zhang
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The item quantity.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $quantity;
-
     /**
-     * @description The item weight. Unit: gram.
-     *
-     * @example 1000
-     *
      * @var string
      */
     public $weight;
@@ -42,17 +28,20 @@ class goodsInfos extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -60,20 +49,22 @@ class goodsInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return goodsInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

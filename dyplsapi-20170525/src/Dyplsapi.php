@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddAxnTrackNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddAxnTrackNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\AddSecretBlacklistRequest;
@@ -88,11 +87,10 @@ use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnlockSecretNoRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UnlockSecretNoResponse;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubscriptionRequest;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\UpdateSubscriptionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Dyplsapi extends OpenApiClient
 {
@@ -118,54 +116,67 @@ class Dyplsapi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds a tracking number for a private number in the AXN binding.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param AddAxnTrackNoRequest $request AddAxnTrackNoRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Adds a tracking number for a private number in the AXN binding.
      *
-     * @return AddAxnTrackNoResponse AddAxnTrackNoResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - AddAxnTrackNoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddAxnTrackNoResponse
+     *
+     * @param AddAxnTrackNoRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddAxnTrackNoResponse
      */
     public function addAxnTrackNoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNoX)) {
-            $query['PhoneNoX'] = $request->phoneNoX;
+
+        if (null !== $request->phoneNoX) {
+            @$query['PhoneNoX'] = $request->phoneNoX;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->subsId)) {
-            $query['SubsId'] = $request->subsId;
+
+        if (null !== $request->subsId) {
+            @$query['SubsId'] = $request->subsId;
         }
-        if (!Utils::isUnset($request->trackNo)) {
-            $query['trackNo'] = $request->trackNo;
+
+        if (null !== $request->trackNo) {
+            @$query['trackNo'] = $request->trackNo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddAxnTrackNo',
@@ -178,19 +189,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddAxnTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddAxnTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddAxnTrackNoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a tracking number for a private number in the AXN binding.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param AddAxnTrackNoRequest $request AddAxnTrackNoRequest
+     * Adds a tracking number for a private number in the AXN binding.
      *
-     * @return AddAxnTrackNoResponse AddAxnTrackNoResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - AddAxnTrackNoRequest
+     * @returns AddAxnTrackNoResponse
+     *
+     * @param AddAxnTrackNoRequest $request
+     *
+     * @return AddAxnTrackNoResponse
      */
     public function addAxnTrackNo($request)
     {
@@ -200,37 +218,47 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds a blacklist.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param AddSecretBlacklistRequest $request AddSecretBlacklistRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Adds a blacklist.
      *
-     * @return AddSecretBlacklistResponse AddSecretBlacklistResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - AddSecretBlacklistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddSecretBlacklistResponse
+     *
+     * @param AddSecretBlacklistRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddSecretBlacklistResponse
      */
     public function addSecretBlacklistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->blackNo)) {
-            $query['BlackNo'] = $request->blackNo;
+        if (null !== $request->blackNo) {
+            @$query['BlackNo'] = $request->blackNo;
         }
-        if (!Utils::isUnset($request->blackType)) {
-            $query['BlackType'] = $request->blackType;
+
+        if (null !== $request->blackType) {
+            @$query['BlackType'] = $request->blackType;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->wayControl)) {
-            $query['WayControl'] = $request->wayControl;
+
+        if (null !== $request->wayControl) {
+            @$query['WayControl'] = $request->wayControl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddSecretBlacklist',
@@ -243,19 +271,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddSecretBlacklistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a blacklist.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param AddSecretBlacklistRequest $request AddSecretBlacklistRequest
+     * Adds a blacklist.
      *
-     * @return AddSecretBlacklistResponse AddSecretBlacklistResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - AddSecretBlacklistRequest
+     * @returns AddSecretBlacklistResponse
+     *
+     * @param AddSecretBlacklistRequest $request
+     *
+     * @return AddSecretBlacklistResponse
      */
     public function addSecretBlacklist($request)
     {
@@ -265,49 +300,63 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary 调用本接口向工作号平台请求为员工B的工作号X建立呼叫绑定（B，X，A），允许B通过X呼叫客户A
-     *  *
-     * @param BindAXBCallRequest $request BindAXBCallRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 调用本接口向工作号平台请求为员工B的工作号X建立呼叫绑定（B，X，A），允许B通过X呼叫客户A.
      *
-     * @return BindAXBCallResponse BindAXBCallResponse
+     * @param request - BindAXBCallRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindAXBCallResponse
+     *
+     * @param BindAXBCallRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return BindAXBCallResponse
      */
     public function bindAXBCallWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authId)) {
-            $query['AuthId'] = $request->authId;
+        if (null !== $request->authId) {
+            @$query['AuthId'] = $request->authId;
         }
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->expiration)) {
-            $query['Expiration'] = $request->expiration;
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->telA)) {
-            $query['TelA'] = $request->telA;
+
+        if (null !== $request->telA) {
+            @$query['TelA'] = $request->telA;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindAXBCall',
@@ -320,16 +369,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindAXBCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindAXBCallResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindAXBCallResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用本接口向工作号平台请求为员工B的工作号X建立呼叫绑定（B，X，A），允许B通过X呼叫客户A
-     *  *
-     * @param BindAXBCallRequest $request BindAXBCallRequest
+     * 调用本接口向工作号平台请求为员工B的工作号X建立呼叫绑定（B，X，A），允许B通过X呼叫客户A.
      *
-     * @return BindAXBCallResponse BindAXBCallResponse
+     * @param request - BindAXBCallRequest
+     * @returns BindAXBCallResponse
+     *
+     * @param BindAXBCallRequest $request
+     *
+     * @return BindAXBCallResponse
      */
     public function bindAXBCall($request)
     {
@@ -339,80 +394,104 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds an AXB binding.
-     *  *
-     * @description Before you add an AXB binding, we recommend that you specify role A and role B in the AXB device certificate (ProductKey, DeviceName, and DeviceSecret) in your business scenario. For example, in a taxi-hailing scenario, role A is the passenger and role B is the driver.
+     * Adds an AXB binding.
+     *
+     * @remarks
+     * Before you add an AXB binding, we recommend that you specify role A and role B in the AXB device certificate (ProductKey, DeviceName, and DeviceSecret) in your business scenario. For example, in a taxi-hailing scenario, role A is the passenger and role B is the driver.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param BindAxbRequest $request BindAxbRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAxbResponse BindAxbResponse
+     * @param request - BindAxbRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindAxbResponse
+     *
+     * @param BindAxbRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return BindAxbResponse
      */
     public function bindAxbWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ASRModelId)) {
-            $query['ASRModelId'] = $request->ASRModelId;
+        if (null !== $request->ASRModelId) {
+            @$query['ASRModelId'] = $request->ASRModelId;
         }
-        if (!Utils::isUnset($request->ASRStatus)) {
-            $query['ASRStatus'] = $request->ASRStatus;
+
+        if (null !== $request->ASRStatus) {
+            @$query['ASRStatus'] = $request->ASRStatus;
         }
-        if (!Utils::isUnset($request->callDisplayType)) {
-            $query['CallDisplayType'] = $request->callDisplayType;
+
+        if (null !== $request->callDisplayType) {
+            @$query['CallDisplayType'] = $request->callDisplayType;
         }
-        if (!Utils::isUnset($request->callRestrict)) {
-            $query['CallRestrict'] = $request->callRestrict;
+
+        if (null !== $request->callRestrict) {
+            @$query['CallRestrict'] = $request->callRestrict;
         }
-        if (!Utils::isUnset($request->callTimeout)) {
-            $query['CallTimeout'] = $request->callTimeout;
+
+        if (null !== $request->callTimeout) {
+            @$query['CallTimeout'] = $request->callTimeout;
         }
-        if (!Utils::isUnset($request->dtmfConfig)) {
-            $query['DtmfConfig'] = $request->dtmfConfig;
+
+        if (null !== $request->dtmfConfig) {
+            @$query['DtmfConfig'] = $request->dtmfConfig;
         }
-        if (!Utils::isUnset($request->expectCity)) {
-            $query['ExpectCity'] = $request->expectCity;
+
+        if (null !== $request->expectCity) {
+            @$query['ExpectCity'] = $request->expectCity;
         }
-        if (!Utils::isUnset($request->expiration)) {
-            $query['Expiration'] = $request->expiration;
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->isRecordingEnabled)) {
-            $query['IsRecordingEnabled'] = $request->isRecordingEnabled;
+
+        if (null !== $request->isRecordingEnabled) {
+            @$query['IsRecordingEnabled'] = $request->isRecordingEnabled;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['OutOrderId'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['OutOrderId'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNoA)) {
-            $query['PhoneNoA'] = $request->phoneNoA;
+
+        if (null !== $request->phoneNoA) {
+            @$query['PhoneNoA'] = $request->phoneNoA;
         }
-        if (!Utils::isUnset($request->phoneNoB)) {
-            $query['PhoneNoB'] = $request->phoneNoB;
+
+        if (null !== $request->phoneNoB) {
+            @$query['PhoneNoB'] = $request->phoneNoB;
         }
-        if (!Utils::isUnset($request->phoneNoX)) {
-            $query['PhoneNoX'] = $request->phoneNoX;
+
+        if (null !== $request->phoneNoX) {
+            @$query['PhoneNoX'] = $request->phoneNoX;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->ringConfig)) {
-            $query['RingConfig'] = $request->ringConfig;
+
+        if (null !== $request->ringConfig) {
+            @$query['RingConfig'] = $request->ringConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindAxb',
@@ -425,20 +504,27 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindAxbResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindAxbResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindAxbResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an AXB binding.
-     *  *
-     * @description Before you add an AXB binding, we recommend that you specify role A and role B in the AXB device certificate (ProductKey, DeviceName, and DeviceSecret) in your business scenario. For example, in a taxi-hailing scenario, role A is the passenger and role B is the driver.
+     * Adds an AXB binding.
+     *
+     * @remarks
+     * Before you add an AXB binding, we recommend that you specify role A and role B in the AXB device certificate (ProductKey, DeviceName, and DeviceSecret) in your business scenario. For example, in a taxi-hailing scenario, role A is the passenger and role B is the driver.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param BindAxbRequest $request BindAxbRequest
      *
-     * @return BindAxbResponse BindAxbResponse
+     * @param request - BindAxbRequest
+     * @returns BindAxbResponse
+     *
+     * @param BindAxbRequest $request
+     *
+     * @return BindAxbResponse
      */
     public function bindAxb($request)
     {
@@ -448,77 +534,100 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds an AXG binding.
-     *  *
-     * @description An AXG protection solution can be configured to meet the requirements for grading users, limiting the scope of calls, and restricting order snatching. The letter G represents a phone number group to which you can add phone numbers as needed.
+     * Adds an AXG binding.
+     *
+     * @remarks
+     * An AXG protection solution can be configured to meet the requirements for grading users, limiting the scope of calls, and restricting order snatching. The letter G represents a phone number group to which you can add phone numbers as needed.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param BindAxgRequest $request BindAxgRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAxgResponse BindAxgResponse
+     * @param request - BindAxgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindAxgResponse
+     *
+     * @param BindAxgRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return BindAxgResponse
      */
     public function bindAxgWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ASRModelId)) {
-            $query['ASRModelId'] = $request->ASRModelId;
+        if (null !== $request->ASRModelId) {
+            @$query['ASRModelId'] = $request->ASRModelId;
         }
-        if (!Utils::isUnset($request->ASRStatus)) {
-            $query['ASRStatus'] = $request->ASRStatus;
+
+        if (null !== $request->ASRStatus) {
+            @$query['ASRStatus'] = $request->ASRStatus;
         }
-        if (!Utils::isUnset($request->callDisplayType)) {
-            $query['CallDisplayType'] = $request->callDisplayType;
+
+        if (null !== $request->callDisplayType) {
+            @$query['CallDisplayType'] = $request->callDisplayType;
         }
-        if (!Utils::isUnset($request->callRestrict)) {
-            $query['CallRestrict'] = $request->callRestrict;
+
+        if (null !== $request->callRestrict) {
+            @$query['CallRestrict'] = $request->callRestrict;
         }
-        if (!Utils::isUnset($request->expectCity)) {
-            $query['ExpectCity'] = $request->expectCity;
+
+        if (null !== $request->expectCity) {
+            @$query['ExpectCity'] = $request->expectCity;
         }
-        if (!Utils::isUnset($request->expiration)) {
-            $query['Expiration'] = $request->expiration;
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->isRecordingEnabled)) {
-            $query['IsRecordingEnabled'] = $request->isRecordingEnabled;
+
+        if (null !== $request->isRecordingEnabled) {
+            @$query['IsRecordingEnabled'] = $request->isRecordingEnabled;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['OutOrderId'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['OutOrderId'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNoA)) {
-            $query['PhoneNoA'] = $request->phoneNoA;
+
+        if (null !== $request->phoneNoA) {
+            @$query['PhoneNoA'] = $request->phoneNoA;
         }
-        if (!Utils::isUnset($request->phoneNoB)) {
-            $query['PhoneNoB'] = $request->phoneNoB;
+
+        if (null !== $request->phoneNoB) {
+            @$query['PhoneNoB'] = $request->phoneNoB;
         }
-        if (!Utils::isUnset($request->phoneNoX)) {
-            $query['PhoneNoX'] = $request->phoneNoX;
+
+        if (null !== $request->phoneNoX) {
+            @$query['PhoneNoX'] = $request->phoneNoX;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->ringConfig)) {
-            $query['RingConfig'] = $request->ringConfig;
+
+        if (null !== $request->ringConfig) {
+            @$query['RingConfig'] = $request->ringConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindAxg',
@@ -531,20 +640,27 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindAxgResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindAxgResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindAxgResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an AXG binding.
-     *  *
-     * @description An AXG protection solution can be configured to meet the requirements for grading users, limiting the scope of calls, and restricting order snatching. The letter G represents a phone number group to which you can add phone numbers as needed.
+     * Adds an AXG binding.
+     *
+     * @remarks
+     * An AXG protection solution can be configured to meet the requirements for grading users, limiting the scope of calls, and restricting order snatching. The letter G represents a phone number group to which you can add phone numbers as needed.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param BindAxgRequest $request BindAxgRequest
      *
-     * @return BindAxgResponse BindAxgResponse
+     * @param request - BindAxgRequest
+     * @returns BindAxgResponse
+     *
+     * @param BindAxgRequest $request
+     *
+     * @return BindAxgResponse
      */
     public function bindAxg($request)
     {
@@ -554,81 +670,106 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds an AXN binding.
-     *  *
-     * @description >  An AXN private number is a dedicated private number assigned to phone number A. When an N-side number is used to call phone number X, the call is forwarded to phone number A.
-     *  *
-     * @param BindAxnRequest $request BindAxnRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Adds an AXN binding.
      *
-     * @return BindAxnResponse BindAxnResponse
+     * @remarks
+     * >  An AXN private number is a dedicated private number assigned to phone number A. When an N-side number is used to call phone number X, the call is forwarded to phone number A.
+     *
+     * @param request - BindAxnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindAxnResponse
+     *
+     * @param BindAxnRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return BindAxnResponse
      */
     public function bindAxnWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ASRModelId)) {
-            $query['ASRModelId'] = $request->ASRModelId;
+        if (null !== $request->ASRModelId) {
+            @$query['ASRModelId'] = $request->ASRModelId;
         }
-        if (!Utils::isUnset($request->ASRStatus)) {
-            $query['ASRStatus'] = $request->ASRStatus;
+
+        if (null !== $request->ASRStatus) {
+            @$query['ASRStatus'] = $request->ASRStatus;
         }
-        if (!Utils::isUnset($request->callDisplayType)) {
-            $query['CallDisplayType'] = $request->callDisplayType;
+
+        if (null !== $request->callDisplayType) {
+            @$query['CallDisplayType'] = $request->callDisplayType;
         }
-        if (!Utils::isUnset($request->callRestrict)) {
-            $query['CallRestrict'] = $request->callRestrict;
+
+        if (null !== $request->callRestrict) {
+            @$query['CallRestrict'] = $request->callRestrict;
         }
-        if (!Utils::isUnset($request->callTimeout)) {
-            $query['CallTimeout'] = $request->callTimeout;
+
+        if (null !== $request->callTimeout) {
+            @$query['CallTimeout'] = $request->callTimeout;
         }
-        if (!Utils::isUnset($request->expectCity)) {
-            $query['ExpectCity'] = $request->expectCity;
+
+        if (null !== $request->expectCity) {
+            @$query['ExpectCity'] = $request->expectCity;
         }
-        if (!Utils::isUnset($request->expiration)) {
-            $query['Expiration'] = $request->expiration;
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->extend)) {
-            $query['Extend'] = $request->extend;
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
         }
-        if (!Utils::isUnset($request->isRecordingEnabled)) {
-            $query['IsRecordingEnabled'] = $request->isRecordingEnabled;
+
+        if (null !== $request->isRecordingEnabled) {
+            @$query['IsRecordingEnabled'] = $request->isRecordingEnabled;
         }
-        if (!Utils::isUnset($request->noType)) {
-            $query['NoType'] = $request->noType;
+
+        if (null !== $request->noType) {
+            @$query['NoType'] = $request->noType;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['OutOrderId'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['OutOrderId'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNoA)) {
-            $query['PhoneNoA'] = $request->phoneNoA;
+
+        if (null !== $request->phoneNoA) {
+            @$query['PhoneNoA'] = $request->phoneNoA;
         }
-        if (!Utils::isUnset($request->phoneNoB)) {
-            $query['PhoneNoB'] = $request->phoneNoB;
+
+        if (null !== $request->phoneNoB) {
+            @$query['PhoneNoB'] = $request->phoneNoB;
         }
-        if (!Utils::isUnset($request->phoneNoX)) {
-            $query['PhoneNoX'] = $request->phoneNoX;
+
+        if (null !== $request->phoneNoX) {
+            @$query['PhoneNoX'] = $request->phoneNoX;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->ringConfig)) {
-            $query['RingConfig'] = $request->ringConfig;
+
+        if (null !== $request->ringConfig) {
+            @$query['RingConfig'] = $request->ringConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindAxn',
@@ -641,18 +782,25 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindAxnResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindAxnResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindAxnResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an AXN binding.
-     *  *
-     * @description >  An AXN private number is a dedicated private number assigned to phone number A. When an N-side number is used to call phone number X, the call is forwarded to phone number A.
-     *  *
-     * @param BindAxnRequest $request BindAxnRequest
+     * Adds an AXN binding.
      *
-     * @return BindAxnResponse BindAxnResponse
+     * @remarks
+     * >  An AXN private number is a dedicated private number assigned to phone number A. When an N-side number is used to call phone number X, the call is forwarded to phone number A.
+     *
+     * @param request - BindAxnRequest
+     * @returns BindAxnResponse
+     *
+     * @param BindAxnRequest $request
+     *
+     * @return BindAxnResponse
      */
     public function bindAxn($request)
     {
@@ -662,80 +810,104 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds an AXN extension binding.
-     *  *
-     * @description Before you add an AXN extension binding, confirm phone number A and phone number N in the business scenario. Phone number A belongs to a customer, and phone number X is the private number assigned to the customer. When any other phone number is used to call phone number X and the extension, the call is transferred to phone number A. When phone number A is used to call phone number X, the call is transferred to the default phone number B that is specified during the phone number binding.
+     * Adds an AXN extension binding.
+     *
+     * @remarks
+     * Before you add an AXN extension binding, confirm phone number A and phone number N in the business scenario. Phone number A belongs to a customer, and phone number X is the private number assigned to the customer. When any other phone number is used to call phone number X and the extension, the call is transferred to phone number A. When phone number A is used to call phone number X, the call is transferred to the default phone number B that is specified during the phone number binding.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param BindAxnExtensionRequest $request BindAxnExtensionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindAxnExtensionResponse BindAxnExtensionResponse
+     * @param request - BindAxnExtensionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindAxnExtensionResponse
+     *
+     * @param BindAxnExtensionRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BindAxnExtensionResponse
      */
     public function bindAxnExtensionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ASRModelId)) {
-            $query['ASRModelId'] = $request->ASRModelId;
+        if (null !== $request->ASRModelId) {
+            @$query['ASRModelId'] = $request->ASRModelId;
         }
-        if (!Utils::isUnset($request->ASRStatus)) {
-            $query['ASRStatus'] = $request->ASRStatus;
+
+        if (null !== $request->ASRStatus) {
+            @$query['ASRStatus'] = $request->ASRStatus;
         }
-        if (!Utils::isUnset($request->callDisplayType)) {
-            $query['CallDisplayType'] = $request->callDisplayType;
+
+        if (null !== $request->callDisplayType) {
+            @$query['CallDisplayType'] = $request->callDisplayType;
         }
-        if (!Utils::isUnset($request->callRestrict)) {
-            $query['CallRestrict'] = $request->callRestrict;
+
+        if (null !== $request->callRestrict) {
+            @$query['CallRestrict'] = $request->callRestrict;
         }
-        if (!Utils::isUnset($request->expectCity)) {
-            $query['ExpectCity'] = $request->expectCity;
+
+        if (null !== $request->expectCity) {
+            @$query['ExpectCity'] = $request->expectCity;
         }
-        if (!Utils::isUnset($request->expiration)) {
-            $query['Expiration'] = $request->expiration;
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->extend)) {
-            $query['Extend'] = $request->extend;
+
+        if (null !== $request->extend) {
+            @$query['Extend'] = $request->extend;
         }
-        if (!Utils::isUnset($request->extension)) {
-            $query['Extension'] = $request->extension;
+
+        if (null !== $request->extension) {
+            @$query['Extension'] = $request->extension;
         }
-        if (!Utils::isUnset($request->isRecordingEnabled)) {
-            $query['IsRecordingEnabled'] = $request->isRecordingEnabled;
+
+        if (null !== $request->isRecordingEnabled) {
+            @$query['IsRecordingEnabled'] = $request->isRecordingEnabled;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->outOrderId)) {
-            $query['OutOrderId'] = $request->outOrderId;
+
+        if (null !== $request->outOrderId) {
+            @$query['OutOrderId'] = $request->outOrderId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNoA)) {
-            $query['PhoneNoA'] = $request->phoneNoA;
+
+        if (null !== $request->phoneNoA) {
+            @$query['PhoneNoA'] = $request->phoneNoA;
         }
-        if (!Utils::isUnset($request->phoneNoB)) {
-            $query['PhoneNoB'] = $request->phoneNoB;
+
+        if (null !== $request->phoneNoB) {
+            @$query['PhoneNoB'] = $request->phoneNoB;
         }
-        if (!Utils::isUnset($request->phoneNoX)) {
-            $query['PhoneNoX'] = $request->phoneNoX;
+
+        if (null !== $request->phoneNoX) {
+            @$query['PhoneNoX'] = $request->phoneNoX;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->ringConfig)) {
-            $query['RingConfig'] = $request->ringConfig;
+
+        if (null !== $request->ringConfig) {
+            @$query['RingConfig'] = $request->ringConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindAxnExtension',
@@ -748,20 +920,27 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindAxnExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindAxnExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindAxnExtensionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an AXN extension binding.
-     *  *
-     * @description Before you add an AXN extension binding, confirm phone number A and phone number N in the business scenario. Phone number A belongs to a customer, and phone number X is the private number assigned to the customer. When any other phone number is used to call phone number X and the extension, the call is transferred to phone number A. When phone number A is used to call phone number X, the call is transferred to the default phone number B that is specified during the phone number binding.
+     * Adds an AXN extension binding.
+     *
+     * @remarks
+     * Before you add an AXN extension binding, confirm phone number A and phone number N in the business scenario. Phone number A belongs to a customer, and phone number X is the private number assigned to the customer. When any other phone number is used to call phone number X and the extension, the call is transferred to phone number A. When phone number A is used to call phone number X, the call is transferred to the default phone number B that is specified during the phone number binding.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param BindAxnExtensionRequest $request BindAxnExtensionRequest
      *
-     * @return BindAxnExtensionResponse BindAxnExtensionResponse
+     * @param request - BindAxnExtensionRequest
+     * @returns BindAxnExtensionResponse
+     *
+     * @param BindAxnExtensionRequest $request
+     *
+     * @return BindAxnExtensionResponse
      */
     public function bindAxnExtension($request)
     {
@@ -771,37 +950,47 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param BindBatchAxgRequest $tmpReq  BindBatchAxgRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - BindBatchAxgRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindBatchAxgResponse
      *
-     * @return BindBatchAxgResponse BindBatchAxgResponse
+     * @param BindBatchAxgRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return BindBatchAxgResponse
      */
     public function bindBatchAxgWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BindBatchAxgShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->axgBindList)) {
-            $request->axgBindListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->axgBindList, 'AxgBindList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->axgBindList) {
+            $request->axgBindListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->axgBindList, 'AxgBindList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->axgBindListShrink)) {
-            $query['AxgBindList'] = $request->axgBindListShrink;
+        if (null !== $request->axgBindListShrink) {
+            @$query['AxgBindList'] = $request->axgBindListShrink;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindBatchAxg',
@@ -814,14 +1003,20 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindBatchAxgResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindBatchAxgResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindBatchAxgResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param BindBatchAxgRequest $request BindBatchAxgRequest
+     * @param request - BindBatchAxgRequest
+     * @returns BindBatchAxgResponse
      *
-     * @return BindBatchAxgResponse BindBatchAxgResponse
+     * @param BindBatchAxgRequest $request
+     *
+     * @return BindBatchAxgResponse
      */
     public function bindBatchAxg($request)
     {
@@ -831,46 +1026,59 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary 平台指定工作号X 和员工号B建立关联，完成X 实名认证，绑定生效后，所有X 的呼叫都会转接到B
-     *  *
-     * @param BindXBRequest  $request BindXBRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 平台指定工作号X 和员工号B建立关联，完成X 实名认证，绑定生效后，所有X 的呼叫都会转接到B.
      *
-     * @return BindXBResponse BindXBResponse
+     * @param request - BindXBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindXBResponse
+     *
+     * @param BindXBRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return BindXBResponse
      */
     public function bindXBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->telB)) {
-            $query['TelB'] = $request->telB;
+
+        if (null !== $request->telB) {
+            @$query['TelB'] = $request->telB;
         }
-        if (!Utils::isUnset($request->telX)) {
-            $query['TelX'] = $request->telX;
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
         }
-        if (!Utils::isUnset($request->userData)) {
-            $query['UserData'] = $request->userData;
+
+        if (null !== $request->userData) {
+            @$query['UserData'] = $request->userData;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindXB',
@@ -883,16 +1091,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindXBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindXBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindXBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 平台指定工作号X 和员工号B建立关联，完成X 实名认证，绑定生效后，所有X 的呼叫都会转接到B
-     *  *
-     * @param BindXBRequest $request BindXBRequest
+     * 平台指定工作号X 和员工号B建立关联，完成X 实名认证，绑定生效后，所有X 的呼叫都会转接到B.
      *
-     * @return BindXBResponse BindXBResponse
+     * @param request - BindXBRequest
+     * @returns BindXBResponse
+     *
+     * @param BindXBRequest $request
+     *
+     * @return BindXBResponse
      */
     public function bindXB($request)
     {
@@ -902,48 +1116,61 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Purchases a phone number.
-     *  *
-     * @description *   After you create a phone number pool in the Phone Number Protection console, the phone number pool is empty by default. You must purchase phone numbers and add them to the phone number pool.
+     * Purchases a phone number.
+     *
+     * @remarks
+     *   After you create a phone number pool in the Phone Number Protection console, the phone number pool is empty by default. You must purchase phone numbers and add them to the phone number pool.
      * *   Before you call this operation, make sure that you are familiar with the [pricing](https://help.aliyun.com/document_detail/59825.html) of Phone Number Protection.
      * *   When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before you call this operation to purchase a phone number, check the quantity of phone numbers available for purchase by using the [QuerySecretNoRemain](https://help.aliyun.com/document_detail/111699.html) operation.
      * *   The account used to purchase a phone number must be an enterprise account that has passed real-name verification. For more information about how to perform real-name verification, see [Enterprise verification FAQs](https://help.aliyun.com/document_detail/37172.html).
-     *  *
-     * @param BuySecretNoRequest $request BuySecretNoRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return BuySecretNoResponse BuySecretNoResponse
+     * @param request - BuySecretNoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BuySecretNoResponse
+     *
+     * @param BuySecretNoRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return BuySecretNoResponse
      */
     public function buySecretNoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->displayPool)) {
-            $query['DisplayPool'] = $request->displayPool;
+
+        if (null !== $request->displayPool) {
+            @$query['DisplayPool'] = $request->displayPool;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->secretNo)) {
-            $query['SecretNo'] = $request->secretNo;
+
+        if (null !== $request->secretNo) {
+            @$query['SecretNo'] = $request->secretNo;
         }
-        if (!Utils::isUnset($request->specId)) {
-            $query['SpecId'] = $request->specId;
+
+        if (null !== $request->specId) {
+            @$query['SpecId'] = $request->specId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BuySecretNo',
@@ -956,21 +1183,28 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BuySecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BuySecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BuySecretNoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Purchases a phone number.
-     *  *
-     * @description *   After you create a phone number pool in the Phone Number Protection console, the phone number pool is empty by default. You must purchase phone numbers and add them to the phone number pool.
+     * Purchases a phone number.
+     *
+     * @remarks
+     *   After you create a phone number pool in the Phone Number Protection console, the phone number pool is empty by default. You must purchase phone numbers and add them to the phone number pool.
      * *   Before you call this operation, make sure that you are familiar with the [pricing](https://help.aliyun.com/document_detail/59825.html) of Phone Number Protection.
      * *   When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before you call this operation to purchase a phone number, check the quantity of phone numbers available for purchase by using the [QuerySecretNoRemain](https://help.aliyun.com/document_detail/111699.html) operation.
      * *   The account used to purchase a phone number must be an enterprise account that has passed real-name verification. For more information about how to perform real-name verification, see [Enterprise verification FAQs](https://help.aliyun.com/document_detail/37172.html).
-     *  *
-     * @param BuySecretNoRequest $request BuySecretNoRequest
      *
-     * @return BuySecretNoResponse BuySecretNoResponse
+     * @param request - BuySecretNoRequest
+     * @returns BuySecretNoResponse
+     *
+     * @param BuySecretNoRequest $request
+     *
+     * @return BuySecretNoResponse
      */
     public function buySecretNo($request)
     {
@@ -980,37 +1214,47 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a door-to-door delivery order.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CancelPickUpWaybillRequest $request CancelPickUpWaybillRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Cancels a door-to-door delivery order.
      *
-     * @return CancelPickUpWaybillResponse CancelPickUpWaybillResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CancelPickUpWaybillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelPickUpWaybillResponse
+     *
+     * @param CancelPickUpWaybillRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CancelPickUpWaybillResponse
      */
     public function cancelPickUpWaybillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cancelDesc)) {
-            $query['CancelDesc'] = $request->cancelDesc;
+        if (null !== $request->cancelDesc) {
+            @$query['CancelDesc'] = $request->cancelDesc;
         }
-        if (!Utils::isUnset($request->outerOrderCode)) {
-            $query['OuterOrderCode'] = $request->outerOrderCode;
+
+        if (null !== $request->outerOrderCode) {
+            @$query['OuterOrderCode'] = $request->outerOrderCode;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelPickUpWaybill',
@@ -1023,19 +1267,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelPickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelPickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelPickUpWaybillResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels a door-to-door delivery order.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CancelPickUpWaybillRequest $request CancelPickUpWaybillRequest
+     * Cancels a door-to-door delivery order.
      *
-     * @return CancelPickUpWaybillResponse CancelPickUpWaybillResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CancelPickUpWaybillRequest
+     * @returns CancelPickUpWaybillResponse
+     *
+     * @param CancelPickUpWaybillRequest $request
+     *
+     * @return CancelPickUpWaybillResponse
      */
     public function cancelPickUpWaybill($request)
     {
@@ -1045,63 +1296,81 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary 配置X号码，单独对工作号的话音呼叫、企业名片等通信功能进行配置操作
-     *  *
-     * @param ConfigXRequest $tmpReq  ConfigXRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 配置X号码，单独对工作号的话音呼叫、企业名片等通信功能进行配置操作.
      *
-     * @return ConfigXResponse ConfigXResponse
+     * @param tmpReq - ConfigXRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfigXResponse
+     *
+     * @param ConfigXRequest $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return ConfigXResponse
      */
     public function configXWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ConfigXShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->sequenceCalls)) {
-            $request->sequenceCallsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sequenceCalls, 'SequenceCalls', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->sequenceCalls) {
+            $request->sequenceCallsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sequenceCalls, 'SequenceCalls', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->callAbility)) {
-            $query['CallAbility'] = $request->callAbility;
+        if (null !== $request->callAbility) {
+            @$query['CallAbility'] = $request->callAbility;
         }
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->GNFlag)) {
-            $query['GNFlag'] = $request->GNFlag;
+
+        if (null !== $request->GNFlag) {
+            @$query['GNFlag'] = $request->GNFlag;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->sequenceCallsShrink)) {
-            $query['SequenceCalls'] = $request->sequenceCallsShrink;
+
+        if (null !== $request->sequenceCallsShrink) {
+            @$query['SequenceCalls'] = $request->sequenceCallsShrink;
         }
-        if (!Utils::isUnset($request->sequenceMode)) {
-            $query['SequenceMode'] = $request->sequenceMode;
+
+        if (null !== $request->sequenceMode) {
+            @$query['SequenceMode'] = $request->sequenceMode;
         }
-        if (!Utils::isUnset($request->smsAbility)) {
-            $query['SmsAbility'] = $request->smsAbility;
+
+        if (null !== $request->smsAbility) {
+            @$query['SmsAbility'] = $request->smsAbility;
         }
-        if (!Utils::isUnset($request->smsSignMode)) {
-            $query['SmsSignMode'] = $request->smsSignMode;
+
+        if (null !== $request->smsSignMode) {
+            @$query['SmsSignMode'] = $request->smsSignMode;
         }
-        if (!Utils::isUnset($request->telX)) {
-            $query['TelX'] = $request->telX;
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ConfigX',
@@ -1114,16 +1383,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfigXResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfigXResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfigXResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 配置X号码，单独对工作号的话音呼叫、企业名片等通信功能进行配置操作
-     *  *
-     * @param ConfigXRequest $request ConfigXRequest
+     * 配置X号码，单独对工作号的话音呼叫、企业名片等通信功能进行配置操作.
      *
-     * @return ConfigXResponse ConfigXResponse
+     * @param request - ConfigXRequest
+     * @returns ConfigXResponse
+     *
+     * @param ConfigXRequest $request
+     *
+     * @return ConfigXResponse
      */
     public function configX($request)
     {
@@ -1133,43 +1408,55 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates number group G.
-     *  *
-     * @description Before you add an AXG binding, you must purchase phone number X, create number group G, and then add phone numbers to number group G. If you do not add phone numbers to number group G after you create number group G, you can call the [OperateAxgGroup](https://help.aliyun.com/document_detail/110252.htm) operation to add phone numbers to number group G.
-     * >  Up to 2,000 number groups G can be added for a single phone number pool.
-     *  *
-     * @param CreateAxgGroupRequest $request CreateAxgGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates number group G.
      *
-     * @return CreateAxgGroupResponse CreateAxgGroupResponse
+     * @remarks
+     * Before you add an AXG binding, you must purchase phone number X, create number group G, and then add phone numbers to number group G. If you do not add phone numbers to number group G after you create number group G, you can call the [OperateAxgGroup](https://help.aliyun.com/document_detail/110252.htm) operation to add phone numbers to number group G.
+     * >  Up to 2,000 number groups G can be added for a single phone number pool.
+     *
+     * @param request - CreateAxgGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAxgGroupResponse
+     *
+     * @param CreateAxgGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateAxgGroupResponse
      */
     public function createAxgGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->numbers)) {
-            $query['Numbers'] = $request->numbers;
+
+        if (null !== $request->numbers) {
+            @$query['Numbers'] = $request->numbers;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAxgGroup',
@@ -1182,19 +1469,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAxgGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates number group G.
-     *  *
-     * @description Before you add an AXG binding, you must purchase phone number X, create number group G, and then add phone numbers to number group G. If you do not add phone numbers to number group G after you create number group G, you can call the [OperateAxgGroup](https://help.aliyun.com/document_detail/110252.htm) operation to add phone numbers to number group G.
-     * >  Up to 2,000 number groups G can be added for a single phone number pool.
-     *  *
-     * @param CreateAxgGroupRequest $request CreateAxgGroupRequest
+     * Creates number group G.
      *
-     * @return CreateAxgGroupResponse CreateAxgGroupResponse
+     * @remarks
+     * Before you add an AXG binding, you must purchase phone number X, create number group G, and then add phone numbers to number group G. If you do not add phone numbers to number group G after you create number group G, you can call the [OperateAxgGroup](https://help.aliyun.com/document_detail/110252.htm) operation to add phone numbers to number group G.
+     * >  Up to 2,000 number groups G can be added for a single phone number pool.
+     *
+     * @param request - CreateAxgGroupRequest
+     * @returns CreateAxgGroupResponse
+     *
+     * @param CreateAxgGroupRequest $request
+     *
+     * @return CreateAxgGroupResponse
      */
     public function createAxgGroup($request)
     {
@@ -1204,81 +1498,105 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a door-to-door delivery order.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreatePickUpWaybillRequest $tmpReq  CreatePickUpWaybillRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a door-to-door delivery order.
      *
-     * @return CreatePickUpWaybillResponse CreatePickUpWaybillResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param tmpReq - CreatePickUpWaybillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePickUpWaybillResponse
+     *
+     * @param CreatePickUpWaybillRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreatePickUpWaybillResponse
      */
     public function createPickUpWaybillWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePickUpWaybillShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->consigneeAddress)) {
-            $request->consigneeAddressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->consigneeAddress, 'ConsigneeAddress', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->consigneeAddress) {
+            $request->consigneeAddressShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->consigneeAddress, 'ConsigneeAddress', 'json');
         }
-        if (!Utils::isUnset($tmpReq->goodsInfos)) {
-            $request->goodsInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->goodsInfos, 'GoodsInfos', 'json');
+
+        if (null !== $tmpReq->goodsInfos) {
+            $request->goodsInfosShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->goodsInfos, 'GoodsInfos', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sendAddress)) {
-            $request->sendAddressShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sendAddress, 'SendAddress', 'json');
+
+        if (null !== $tmpReq->sendAddress) {
+            $request->sendAddressShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sendAddress, 'SendAddress', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appointGotEndTime)) {
-            $query['AppointGotEndTime'] = $request->appointGotEndTime;
+        if (null !== $request->appointGotEndTime) {
+            @$query['AppointGotEndTime'] = $request->appointGotEndTime;
         }
-        if (!Utils::isUnset($request->appointGotStartTime)) {
-            $query['AppointGotStartTime'] = $request->appointGotStartTime;
+
+        if (null !== $request->appointGotStartTime) {
+            @$query['AppointGotStartTime'] = $request->appointGotStartTime;
         }
-        if (!Utils::isUnset($request->bizType)) {
-            $query['BizType'] = $request->bizType;
+
+        if (null !== $request->bizType) {
+            @$query['BizType'] = $request->bizType;
         }
-        if (!Utils::isUnset($request->consigneeAddressShrink)) {
-            $query['ConsigneeAddress'] = $request->consigneeAddressShrink;
+
+        if (null !== $request->consigneeAddressShrink) {
+            @$query['ConsigneeAddress'] = $request->consigneeAddressShrink;
         }
-        if (!Utils::isUnset($request->consigneeMobile)) {
-            $query['ConsigneeMobile'] = $request->consigneeMobile;
+
+        if (null !== $request->consigneeMobile) {
+            @$query['ConsigneeMobile'] = $request->consigneeMobile;
         }
-        if (!Utils::isUnset($request->consigneeName)) {
-            $query['ConsigneeName'] = $request->consigneeName;
+
+        if (null !== $request->consigneeName) {
+            @$query['ConsigneeName'] = $request->consigneeName;
         }
-        if (!Utils::isUnset($request->consigneePhone)) {
-            $query['ConsigneePhone'] = $request->consigneePhone;
+
+        if (null !== $request->consigneePhone) {
+            @$query['ConsigneePhone'] = $request->consigneePhone;
         }
-        if (!Utils::isUnset($request->cpCode)) {
-            $query['CpCode'] = $request->cpCode;
+
+        if (null !== $request->cpCode) {
+            @$query['CpCode'] = $request->cpCode;
         }
-        if (!Utils::isUnset($request->goodsInfosShrink)) {
-            $query['GoodsInfos'] = $request->goodsInfosShrink;
+
+        if (null !== $request->goodsInfosShrink) {
+            @$query['GoodsInfos'] = $request->goodsInfosShrink;
         }
-        if (!Utils::isUnset($request->orderChannels)) {
-            $query['OrderChannels'] = $request->orderChannels;
+
+        if (null !== $request->orderChannels) {
+            @$query['OrderChannels'] = $request->orderChannels;
         }
-        if (!Utils::isUnset($request->outerOrderCode)) {
-            $query['OuterOrderCode'] = $request->outerOrderCode;
+
+        if (null !== $request->outerOrderCode) {
+            @$query['OuterOrderCode'] = $request->outerOrderCode;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->sendAddressShrink)) {
-            $query['SendAddress'] = $request->sendAddressShrink;
+
+        if (null !== $request->sendAddressShrink) {
+            @$query['SendAddress'] = $request->sendAddressShrink;
         }
-        if (!Utils::isUnset($request->sendMobile)) {
-            $query['SendMobile'] = $request->sendMobile;
+
+        if (null !== $request->sendMobile) {
+            @$query['SendMobile'] = $request->sendMobile;
         }
-        if (!Utils::isUnset($request->sendName)) {
-            $query['SendName'] = $request->sendName;
+
+        if (null !== $request->sendName) {
+            @$query['SendName'] = $request->sendName;
         }
-        if (!Utils::isUnset($request->sendPhone)) {
-            $query['SendPhone'] = $request->sendPhone;
+
+        if (null !== $request->sendPhone) {
+            @$query['SendPhone'] = $request->sendPhone;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePickUpWaybill',
@@ -1291,19 +1609,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePickUpWaybillResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePickUpWaybillResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a door-to-door delivery order.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreatePickUpWaybillRequest $request CreatePickUpWaybillRequest
+     * Creates a door-to-door delivery order.
      *
-     * @return CreatePickUpWaybillResponse CreatePickUpWaybillResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CreatePickUpWaybillRequest
+     * @returns CreatePickUpWaybillResponse
+     *
+     * @param CreatePickUpWaybillRequest $request
+     *
+     * @return CreatePickUpWaybillResponse
      */
     public function createPickUpWaybill($request)
     {
@@ -1313,48 +1638,61 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a pickup order.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreatePickUpWaybillPreQueryRequest $tmpReq  CreatePickUpWaybillPreQueryRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries a pickup order.
      *
-     * @return CreatePickUpWaybillPreQueryResponse CreatePickUpWaybillPreQueryResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param tmpReq - CreatePickUpWaybillPreQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePickUpWaybillPreQueryResponse
+     *
+     * @param CreatePickUpWaybillPreQueryRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreatePickUpWaybillPreQueryResponse
      */
     public function createPickUpWaybillPreQueryWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreatePickUpWaybillPreQueryShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->consigneeInfo)) {
-            $request->consigneeInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->consigneeInfo, 'ConsigneeInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->consigneeInfo) {
+            $request->consigneeInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->consigneeInfo, 'ConsigneeInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->senderInfo)) {
-            $request->senderInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->senderInfo, 'SenderInfo', 'json');
+
+        if (null !== $tmpReq->senderInfo) {
+            $request->senderInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->senderInfo, 'SenderInfo', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->consigneeInfoShrink)) {
-            $query['ConsigneeInfo'] = $request->consigneeInfoShrink;
+        if (null !== $request->consigneeInfoShrink) {
+            @$query['ConsigneeInfo'] = $request->consigneeInfoShrink;
         }
-        if (!Utils::isUnset($request->cpCode)) {
-            $query['CpCode'] = $request->cpCode;
+
+        if (null !== $request->cpCode) {
+            @$query['CpCode'] = $request->cpCode;
         }
-        if (!Utils::isUnset($request->orderChannels)) {
-            $query['OrderChannels'] = $request->orderChannels;
+
+        if (null !== $request->orderChannels) {
+            @$query['OrderChannels'] = $request->orderChannels;
         }
-        if (!Utils::isUnset($request->outerOrderCode)) {
-            $query['OuterOrderCode'] = $request->outerOrderCode;
+
+        if (null !== $request->outerOrderCode) {
+            @$query['OuterOrderCode'] = $request->outerOrderCode;
         }
-        if (!Utils::isUnset($request->preWeight)) {
-            $query['PreWeight'] = $request->preWeight;
+
+        if (null !== $request->preWeight) {
+            @$query['PreWeight'] = $request->preWeight;
         }
-        if (!Utils::isUnset($request->senderInfoShrink)) {
-            $query['SenderInfo'] = $request->senderInfoShrink;
+
+        if (null !== $request->senderInfoShrink) {
+            @$query['SenderInfo'] = $request->senderInfoShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePickUpWaybillPreQuery',
@@ -1367,19 +1705,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePickUpWaybillPreQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePickUpWaybillPreQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePickUpWaybillPreQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a pickup order.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CreatePickUpWaybillPreQueryRequest $request CreatePickUpWaybillPreQueryRequest
+     * Queries a pickup order.
      *
-     * @return CreatePickUpWaybillPreQueryResponse CreatePickUpWaybillPreQueryResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CreatePickUpWaybillPreQueryRequest
+     * @returns CreatePickUpWaybillPreQueryResponse
+     *
+     * @param CreatePickUpWaybillPreQueryRequest $request
+     *
+     * @return CreatePickUpWaybillPreQueryResponse
      */
     public function createPickUpWaybillPreQuery($request)
     {
@@ -1389,43 +1734,55 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary B向A 发短信，客户端获取“短信标签”，尾部添加“标签”。通过“标签”解析被叫A，发短信到A。
-     *  *
-     * @param CreateSmsSignRequest $request CreateSmsSignRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * B向A 发短信，客户端获取“短信标签”，尾部添加“标签”。通过“标签”解析被叫A，发短信到A。
      *
-     * @return CreateSmsSignResponse CreateSmsSignResponse
+     * @param request - CreateSmsSignRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSmsSignResponse
+     *
+     * @param CreateSmsSignRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSmsSignResponse
      */
     public function createSmsSignWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNo)) {
-            $query['CalledNo'] = $request->calledNo;
+        if (null !== $request->calledNo) {
+            @$query['CalledNo'] = $request->calledNo;
         }
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->callingNo)) {
-            $query['CallingNo'] = $request->callingNo;
+
+        if (null !== $request->callingNo) {
+            @$query['CallingNo'] = $request->callingNo;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSmsSign',
@@ -1438,16 +1795,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSmsSignResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSmsSignResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary B向A 发短信，客户端获取“短信标签”，尾部添加“标签”。通过“标签”解析被叫A，发短信到A。
-     *  *
-     * @param CreateSmsSignRequest $request CreateSmsSignRequest
+     * B向A 发短信，客户端获取“短信标签”，尾部添加“标签”。通过“标签”解析被叫A，发短信到A。
      *
-     * @return CreateSmsSignResponse CreateSmsSignResponse
+     * @param request - CreateSmsSignRequest
+     * @returns CreateSmsSignResponse
+     *
+     * @param CreateSmsSignRequest $request
+     *
+     * @return CreateSmsSignResponse
      */
     public function createSmsSign($request)
     {
@@ -1457,32 +1820,41 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @param DeleteAxgGroupRequest $request DeleteAxgGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteAxgGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAxgGroupResponse
      *
-     * @return DeleteAxgGroupResponse DeleteAxgGroupResponse
+     * @param DeleteAxgGroupRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteAxgGroupResponse
      */
     public function deleteAxgGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAxgGroup',
@@ -1495,14 +1867,20 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAxgGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteAxgGroupRequest $request DeleteAxgGroupRequest
+     * @param request - DeleteAxgGroupRequest
+     * @returns DeleteAxgGroupResponse
      *
-     * @return DeleteAxgGroupResponse DeleteAxgGroupResponse
+     * @param DeleteAxgGroupRequest $request
+     *
+     * @return DeleteAxgGroupResponse
      */
     public function deleteAxgGroup($request)
     {
@@ -1512,37 +1890,47 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a blacklist.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteSecretBlacklistRequest $request DeleteSecretBlacklistRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a blacklist.
      *
-     * @return DeleteSecretBlacklistResponse DeleteSecretBlacklistResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DeleteSecretBlacklistRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSecretBlacklistResponse
+     *
+     * @param DeleteSecretBlacklistRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteSecretBlacklistResponse
      */
     public function deleteSecretBlacklistWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->blackNo)) {
-            $query['BlackNo'] = $request->blackNo;
+        if (null !== $request->blackNo) {
+            @$query['BlackNo'] = $request->blackNo;
         }
-        if (!Utils::isUnset($request->blackType)) {
-            $query['BlackType'] = $request->blackType;
+
+        if (null !== $request->blackType) {
+            @$query['BlackType'] = $request->blackType;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->wayControl)) {
-            $query['WayControl'] = $request->wayControl;
+
+        if (null !== $request->wayControl) {
+            @$query['WayControl'] = $request->wayControl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSecretBlacklist',
@@ -1555,19 +1943,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSecretBlacklistResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSecretBlacklistResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a blacklist.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteSecretBlacklistRequest $request DeleteSecretBlacklistRequest
+     * Deletes a blacklist.
      *
-     * @return DeleteSecretBlacklistResponse DeleteSecretBlacklistResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DeleteSecretBlacklistRequest
+     * @returns DeleteSecretBlacklistResponse
+     *
+     * @param DeleteSecretBlacklistRequest $request
+     *
+     * @return DeleteSecretBlacklistResponse
      */
     public function deleteSecretBlacklist($request)
     {
@@ -1577,32 +1972,40 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the details of the automatic speech recognition (ASR) result.
-     *  *
-     * @description Before you call the GetSecretAsrDetail operation, set the ASRStatus parameter to true in the [BindAxn operation](https://help.aliyun.com/document_detail/400483.html). This ensures that you can obtain the ASR result properly.
+     * Obtains the details of the automatic speech recognition (ASR) result.
+     *
+     * @remarks
+     * Before you call the GetSecretAsrDetail operation, set the ASRStatus parameter to true in the [BindAxn operation](https://help.aliyun.com/document_detail/400483.html). This ensures that you can obtain the ASR result properly.
      * ### [](#qps)QPS limits
      * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetSecretAsrDetailRequest $request GetSecretAsrDetailRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSecretAsrDetailResponse GetSecretAsrDetailResponse
+     * @param request - GetSecretAsrDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSecretAsrDetailResponse
+     *
+     * @param GetSecretAsrDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetSecretAsrDetailResponse
      */
     public function getSecretAsrDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->callTime)) {
-            $query['CallTime'] = $request->callTime;
+
+        if (null !== $request->callTime) {
+            @$query['CallTime'] = $request->callTime;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSecretAsrDetail',
@@ -1615,20 +2018,27 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSecretAsrDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSecretAsrDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSecretAsrDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of the automatic speech recognition (ASR) result.
-     *  *
-     * @description Before you call the GetSecretAsrDetail operation, set the ASRStatus parameter to true in the [BindAxn operation](https://help.aliyun.com/document_detail/400483.html). This ensures that you can obtain the ASR result properly.
+     * Obtains the details of the automatic speech recognition (ASR) result.
+     *
+     * @remarks
+     * Before you call the GetSecretAsrDetail operation, set the ASRStatus parameter to true in the [BindAxn operation](https://help.aliyun.com/document_detail/400483.html). This ensures that you can obtain the ASR result properly.
      * ### [](#qps)QPS limits
      * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetSecretAsrDetailRequest $request GetSecretAsrDetailRequest
      *
-     * @return GetSecretAsrDetailResponse GetSecretAsrDetailResponse
+     * @param request - GetSecretAsrDetailRequest
+     * @returns GetSecretAsrDetailResponse
+     *
+     * @param GetSecretAsrDetailRequest $request
+     *
+     * @return GetSecretAsrDetailResponse
      */
     public function getSecretAsrDetail($request)
     {
@@ -1638,43 +2048,55 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the download URL of a recorded ringing tone.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetTotalPublicUrlRequest $request GetTotalPublicUrlRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Obtains the download URL of a recorded ringing tone.
      *
-     * @return GetTotalPublicUrlResponse GetTotalPublicUrlResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - GetTotalPublicUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTotalPublicUrlResponse
+     *
+     * @param GetTotalPublicUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetTotalPublicUrlResponse
      */
     public function getTotalPublicUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->callTime)) {
-            $query['CallTime'] = $request->callTime;
+
+        if (null !== $request->callTime) {
+            @$query['CallTime'] = $request->callTime;
         }
-        if (!Utils::isUnset($request->checkSubs)) {
-            $query['CheckSubs'] = $request->checkSubs;
+
+        if (null !== $request->checkSubs) {
+            @$query['CheckSubs'] = $request->checkSubs;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->partnerKey)) {
-            $query['PartnerKey'] = $request->partnerKey;
+
+        if (null !== $request->partnerKey) {
+            @$query['PartnerKey'] = $request->partnerKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTotalPublicUrl',
@@ -1687,19 +2109,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTotalPublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTotalPublicUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTotalPublicUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the download URL of a recorded ringing tone.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetTotalPublicUrlRequest $request GetTotalPublicUrlRequest
+     * Obtains the download URL of a recorded ringing tone.
      *
-     * @return GetTotalPublicUrlResponse GetTotalPublicUrlResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - GetTotalPublicUrlRequest
+     * @returns GetTotalPublicUrlResponse
+     *
+     * @param GetTotalPublicUrlRequest $request
+     *
+     * @return GetTotalPublicUrlResponse
      */
     public function getTotalPublicUrl($request)
     {
@@ -1709,40 +2138,51 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary 获取X号码配置信息
-     *  *
-     * @param GetXConfigRequest $request GetXConfigRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取X号码配置信息.
      *
-     * @return GetXConfigResponse GetXConfigResponse
+     * @param request - GetXConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetXConfigResponse
+     *
+     * @param GetXConfigRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetXConfigResponse
      */
     public function getXConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->telX)) {
-            $query['TelX'] = $request->telX;
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetXConfig',
@@ -1755,16 +2195,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetXConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetXConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetXConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取X号码配置信息
-     *  *
-     * @param GetXConfigRequest $request GetXConfigRequest
+     * 获取X号码配置信息.
      *
-     * @return GetXConfigResponse GetXConfigResponse
+     * @param request - GetXConfigRequest
+     * @returns GetXConfigResponse
+     *
+     * @param GetXConfigRequest $request
+     *
+     * @return GetXConfigResponse
      */
     public function getXConfig($request)
     {
@@ -1774,40 +2220,51 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary 获取X号码默认配置信息
-     *  *
-     * @param GetXDefaultConfigRequest $request GetXDefaultConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取X号码默认配置信息.
      *
-     * @return GetXDefaultConfigResponse GetXDefaultConfigResponse
+     * @param request - GetXDefaultConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetXDefaultConfigResponse
+     *
+     * @param GetXDefaultConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetXDefaultConfigResponse
      */
     public function getXDefaultConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->telX)) {
-            $query['TelX'] = $request->telX;
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetXDefaultConfig',
@@ -1820,16 +2277,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetXDefaultConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetXDefaultConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetXDefaultConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取X号码默认配置信息
-     *  *
-     * @param GetXDefaultConfigRequest $request GetXDefaultConfigRequest
+     * 获取X号码默认配置信息.
      *
-     * @return GetXDefaultConfigResponse GetXDefaultConfigResponse
+     * @param request - GetXDefaultConfigRequest
+     * @returns GetXDefaultConfigResponse
+     *
+     * @param GetXDefaultConfigRequest $request
+     *
+     * @return GetXDefaultConfigResponse
      */
     public function getXDefaultConfig($request)
     {
@@ -1839,43 +2302,55 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询客户名下X号码列表
-     *  *
-     * @param ListXTelephonesRequest $request ListXTelephonesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询客户名下X号码列表.
      *
-     * @return ListXTelephonesResponse ListXTelephonesResponse
+     * @param request - ListXTelephonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListXTelephonesResponse
+     *
+     * @param ListXTelephonesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListXTelephonesResponse
      */
     public function listXTelephonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListXTelephones',
@@ -1888,16 +2363,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListXTelephonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListXTelephonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListXTelephonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询客户名下X号码列表
-     *  *
-     * @param ListXTelephonesRequest $request ListXTelephonesRequest
+     * 查询客户名下X号码列表.
      *
-     * @return ListXTelephonesResponse ListXTelephonesResponse
+     * @param request - ListXTelephonesRequest
+     * @returns ListXTelephonesResponse
+     *
+     * @param ListXTelephonesRequest $request
+     *
+     * @return ListXTelephonesResponse
      */
     public function listXTelephones($request)
     {
@@ -1907,38 +2388,48 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Locks a phone number.
-     *  *
-     * @description After a phone number is locked, the locked phone number cannot be selected when you call an operation to create a binding.
+     * Locks a phone number.
+     *
+     * @remarks
+     * After a phone number is locked, the locked phone number cannot be selected when you call an operation to create a binding.
      * ### [](#qps)QPS limits
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param LockSecretNoRequest $request LockSecretNoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return LockSecretNoResponse LockSecretNoResponse
+     * @param request - LockSecretNoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LockSecretNoResponse
+     *
+     * @param LockSecretNoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return LockSecretNoResponse
      */
     public function lockSecretNoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->secretNo)) {
-            $query['SecretNo'] = $request->secretNo;
+
+        if (null !== $request->secretNo) {
+            @$query['SecretNo'] = $request->secretNo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'LockSecretNo',
@@ -1951,20 +2442,27 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LockSecretNoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Locks a phone number.
-     *  *
-     * @description After a phone number is locked, the locked phone number cannot be selected when you call an operation to create a binding.
+     * Locks a phone number.
+     *
+     * @remarks
+     * After a phone number is locked, the locked phone number cannot be selected when you call an operation to create a binding.
      * ### [](#qps)QPS limits
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param LockSecretNoRequest $request LockSecretNoRequest
      *
-     * @return LockSecretNoResponse LockSecretNoResponse
+     * @param request - LockSecretNoRequest
+     * @returns LockSecretNoResponse
+     *
+     * @param LockSecretNoRequest $request
+     *
+     * @return LockSecretNoResponse
      */
     public function lockSecretNo($request)
     {
@@ -1974,44 +2472,56 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies number group G.
-     *  *
-     * @description After you create number group G, you can call the OperateAxgGroup operation to modify number group G. For example, you can add phone numbers to number group G, delete phone numbers from number group G, and replace all phone numbers in number group G.
+     * Modifies number group G.
+     *
+     * @remarks
+     * After you create number group G, you can call the OperateAxgGroup operation to modify number group G. For example, you can add phone numbers to number group G, delete phone numbers from number group G, and replace all phone numbers in number group G.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param OperateAxgGroupRequest $request OperateAxgGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateAxgGroupResponse OperateAxgGroupResponse
+     * @param request - OperateAxgGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OperateAxgGroupResponse
+     *
+     * @param OperateAxgGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return OperateAxgGroupResponse
      */
     public function operateAxgGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->numbers)) {
-            $query['Numbers'] = $request->numbers;
+
+        if (null !== $request->numbers) {
+            @$query['Numbers'] = $request->numbers;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OperateAxgGroup',
@@ -2024,20 +2534,27 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OperateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateAxgGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateAxgGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies number group G.
-     *  *
-     * @description After you create number group G, you can call the OperateAxgGroup operation to modify number group G. For example, you can add phone numbers to number group G, delete phone numbers from number group G, and replace all phone numbers in number group G.
+     * Modifies number group G.
+     *
+     * @remarks
+     * After you create number group G, you can call the OperateAxgGroup operation to modify number group G. For example, you can add phone numbers to number group G, delete phone numbers from number group G, and replace all phone numbers in number group G.
      * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param OperateAxgGroupRequest $request OperateAxgGroupRequest
      *
-     * @return OperateAxgGroupResponse OperateAxgGroupResponse
+     * @param request - OperateAxgGroupRequest
+     * @returns OperateAxgGroupResponse
+     *
+     * @param OperateAxgGroupRequest $request
+     *
+     * @return OperateAxgGroupResponse
      */
     public function operateAxgGroup($request)
     {
@@ -2047,44 +2564,56 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds a phone number to a blacklist or deletes a phone number from a blacklist.
-     *  *
-     * @description The OperateBlackNo operation supports the following number pool types: AXN, AXN extension, and 95AXN.
+     * Adds a phone number to a blacklist or deletes a phone number from a blacklist.
+     *
+     * @remarks
+     * The OperateBlackNo operation supports the following number pool types: AXN, AXN extension, and 95AXN.
      * ### [](#qps)QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param OperateBlackNoRequest $request OperateBlackNoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OperateBlackNoResponse OperateBlackNoResponse
+     * @param request - OperateBlackNoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns OperateBlackNoResponse
+     *
+     * @param OperateBlackNoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return OperateBlackNoResponse
      */
     public function operateBlackNoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->blackNo)) {
-            $query['BlackNo'] = $request->blackNo;
+        if (null !== $request->blackNo) {
+            @$query['BlackNo'] = $request->blackNo;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tips)) {
-            $query['Tips'] = $request->tips;
+
+        if (null !== $request->tips) {
+            @$query['Tips'] = $request->tips;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'OperateBlackNo',
@@ -2097,20 +2626,27 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return OperateBlackNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return OperateBlackNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OperateBlackNoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a phone number to a blacklist or deletes a phone number from a blacklist.
-     *  *
-     * @description The OperateBlackNo operation supports the following number pool types: AXN, AXN extension, and 95AXN.
+     * Adds a phone number to a blacklist or deletes a phone number from a blacklist.
+     *
+     * @remarks
+     * The OperateBlackNo operation supports the following number pool types: AXN, AXN extension, and 95AXN.
      * ### [](#qps)QPS limits
      * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param OperateBlackNoRequest $request OperateBlackNoRequest
      *
-     * @return OperateBlackNoResponse OperateBlackNoResponse
+     * @param request - OperateBlackNoRequest
+     * @returns OperateBlackNoResponse
+     *
+     * @param OperateBlackNoRequest $request
+     *
+     * @return OperateBlackNoResponse
      */
     public function operateBlackNo($request)
     {
@@ -2120,40 +2656,51 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a tracking number.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param QueryPhoneNoAByTrackNoRequest $request QueryPhoneNoAByTrackNoRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the details about a tracking number.
      *
-     * @return QueryPhoneNoAByTrackNoResponse QueryPhoneNoAByTrackNoResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - QueryPhoneNoAByTrackNoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryPhoneNoAByTrackNoResponse
+     *
+     * @param QueryPhoneNoAByTrackNoRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryPhoneNoAByTrackNoResponse
      */
     public function queryPhoneNoAByTrackNoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cabinetNo)) {
-            $query['CabinetNo'] = $request->cabinetNo;
+        if (null !== $request->cabinetNo) {
+            @$query['CabinetNo'] = $request->cabinetNo;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNoX)) {
-            $query['PhoneNoX'] = $request->phoneNoX;
+
+        if (null !== $request->phoneNoX) {
+            @$query['PhoneNoX'] = $request->phoneNoX;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->trackNo)) {
-            $query['trackNo'] = $request->trackNo;
+
+        if (null !== $request->trackNo) {
+            @$query['trackNo'] = $request->trackNo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryPhoneNoAByTrackNo',
@@ -2166,19 +2713,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryPhoneNoAByTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryPhoneNoAByTrackNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryPhoneNoAByTrackNoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about a tracking number.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param QueryPhoneNoAByTrackNoRequest $request QueryPhoneNoAByTrackNoRequest
+     * Queries the details about a tracking number.
      *
-     * @return QueryPhoneNoAByTrackNoResponse QueryPhoneNoAByTrackNoResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - QueryPhoneNoAByTrackNoRequest
+     * @returns QueryPhoneNoAByTrackNoResponse
+     *
+     * @param QueryPhoneNoAByTrackNoRequest $request
+     *
+     * @return QueryPhoneNoAByTrackNoResponse
      */
     public function queryPhoneNoAByTrackNo($request)
     {
@@ -2188,9 +2742,10 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the download URL of a recording file.
-     *  *
-     * @description If the recording feature is enabled for a binding, all calls made by the bound phone numbers are recorded. You can obtain the download URL of a recording file by calling the QueryRecordFileDownloadUrl operation and download the recording file.
+     * Obtains the download URL of a recording file.
+     *
+     * @remarks
+     * If the recording feature is enabled for a binding, all calls made by the bound phone numbers are recorded. You can obtain the download URL of a recording file by calling the QueryRecordFileDownloadUrl operation and download the recording file.
      * >  We recommend that you subscribe to [the recording status report SecretRecording](https://help.aliyun.com/document_detail/109198.html). The values of the response parameters in SecretRecording can be used as the values of the request parameters for downloading a recording file.
      * ### [](#)Procedure for obtaining a recording file
      * 1.  Specify the request parameter in an update or binding operation to enable the recording feature.
@@ -2199,39 +2754,50 @@ class Dyplsapi extends OpenApiClient
      * >
      * *   A download URL is valid for 2 hours. Download the recording file as soon as possible after obtaining a download URL.
      * *   The storage period of recording files is 30 days. You can download only the recording files of calls recorded in the last 30 days.
-     *  *
-     * @param QueryRecordFileDownloadUrlRequest $request QueryRecordFileDownloadUrlRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryRecordFileDownloadUrlResponse QueryRecordFileDownloadUrlResponse
+     * @param request - QueryRecordFileDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryRecordFileDownloadUrlResponse
+     *
+     * @param QueryRecordFileDownloadUrlRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryRecordFileDownloadUrlResponse
      */
     public function queryRecordFileDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->callTime)) {
-            $query['CallTime'] = $request->callTime;
+
+        if (null !== $request->callTime) {
+            @$query['CallTime'] = $request->callTime;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryRecordFileDownloadUrl',
@@ -2244,14 +2810,18 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryRecordFileDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryRecordFileDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryRecordFileDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the download URL of a recording file.
-     *  *
-     * @description If the recording feature is enabled for a binding, all calls made by the bound phone numbers are recorded. You can obtain the download URL of a recording file by calling the QueryRecordFileDownloadUrl operation and download the recording file.
+     * Obtains the download URL of a recording file.
+     *
+     * @remarks
+     * If the recording feature is enabled for a binding, all calls made by the bound phone numbers are recorded. You can obtain the download URL of a recording file by calling the QueryRecordFileDownloadUrl operation and download the recording file.
      * >  We recommend that you subscribe to [the recording status report SecretRecording](https://help.aliyun.com/document_detail/109198.html). The values of the response parameters in SecretRecording can be used as the values of the request parameters for downloading a recording file.
      * ### [](#)Procedure for obtaining a recording file
      * 1.  Specify the request parameter in an update or binding operation to enable the recording feature.
@@ -2260,10 +2830,13 @@ class Dyplsapi extends OpenApiClient
      * >
      * *   A download URL is valid for 2 hours. Download the recording file as soon as possible after obtaining a download URL.
      * *   The storage period of recording files is 30 days. You can download only the recording files of calls recorded in the last 30 days.
-     *  *
-     * @param QueryRecordFileDownloadUrlRequest $request QueryRecordFileDownloadUrlRequest
      *
-     * @return QueryRecordFileDownloadUrlResponse QueryRecordFileDownloadUrlResponse
+     * @param request - QueryRecordFileDownloadUrlRequest
+     * @returns QueryRecordFileDownloadUrlResponse
+     *
+     * @param QueryRecordFileDownloadUrlRequest $request
+     *
+     * @return QueryRecordFileDownloadUrlResponse
      */
     public function queryRecordFileDownloadUrl($request)
     {
@@ -2273,37 +2846,47 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of a private number.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param QuerySecretNoDetailRequest $request QuerySecretNoDetailRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the attributes of a private number.
      *
-     * @return QuerySecretNoDetailResponse QuerySecretNoDetailResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - QuerySecretNoDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySecretNoDetailResponse
+     *
+     * @param QuerySecretNoDetailRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QuerySecretNoDetailResponse
      */
     public function querySecretNoDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->secretNo)) {
-            $query['SecretNo'] = $request->secretNo;
+
+        if (null !== $request->secretNo) {
+            @$query['SecretNo'] = $request->secretNo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySecretNoDetail',
@@ -2316,19 +2899,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QuerySecretNoDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySecretNoDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySecretNoDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the attributes of a private number.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param QuerySecretNoDetailRequest $request QuerySecretNoDetailRequest
+     * Queries the attributes of a private number.
      *
-     * @return QuerySecretNoDetailResponse QuerySecretNoDetailResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - QuerySecretNoDetailRequest
+     * @returns QuerySecretNoDetailResponse
+     *
+     * @param QuerySecretNoDetailRequest $request
+     *
+     * @return QuerySecretNoDetailResponse
      */
     public function querySecretNoDetail($request)
     {
@@ -2338,39 +2928,50 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quantity of remaining phone numbers available for online purchase.
-     *  *
-     * @description When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before calling the [BuySecretNo](~~BuySecretNo~~) operation to purchase a phone number, call the [QuerySecretNoRemain](~~QuerySecretNoRemain~~) operation to query the quantity of remaining phone numbers available for online purchase.
-     *  *
-     * @param QuerySecretNoRemainRequest $request QuerySecretNoRemainRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the quantity of remaining phone numbers available for online purchase.
      *
-     * @return QuerySecretNoRemainResponse QuerySecretNoRemainResponse
+     * @remarks
+     * When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before calling the [BuySecretNo](~~BuySecretNo~~) operation to purchase a phone number, call the [QuerySecretNoRemain](~~QuerySecretNoRemain~~) operation to query the quantity of remaining phone numbers available for online purchase.
+     *
+     * @param request - QuerySecretNoRemainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySecretNoRemainResponse
+     *
+     * @param QuerySecretNoRemainRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QuerySecretNoRemainResponse
      */
     public function querySecretNoRemainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->city)) {
-            $query['City'] = $request->city;
+        if (null !== $request->city) {
+            @$query['City'] = $request->city;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->secretNo)) {
-            $query['SecretNo'] = $request->secretNo;
+
+        if (null !== $request->secretNo) {
+            @$query['SecretNo'] = $request->secretNo;
         }
-        if (!Utils::isUnset($request->specId)) {
-            $query['SpecId'] = $request->specId;
+
+        if (null !== $request->specId) {
+            @$query['SpecId'] = $request->specId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySecretNoRemain',
@@ -2383,18 +2984,25 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QuerySecretNoRemainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySecretNoRemainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySecretNoRemainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quantity of remaining phone numbers available for online purchase.
-     *  *
-     * @description When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before calling the [BuySecretNo](~~BuySecretNo~~) operation to purchase a phone number, call the [QuerySecretNoRemain](~~QuerySecretNoRemain~~) operation to query the quantity of remaining phone numbers available for online purchase.
-     *  *
-     * @param QuerySecretNoRemainRequest $request QuerySecretNoRemainRequest
+     * Queries the quantity of remaining phone numbers available for online purchase.
      *
-     * @return QuerySecretNoRemainResponse QuerySecretNoRemainResponse
+     * @remarks
+     * When purchasing a phone number, specify the home location. If no sufficient phone numbers are available for purchase in the home location, the purchase of the phone number fails. Before calling the [BuySecretNo](~~BuySecretNo~~) operation to purchase a phone number, call the [QuerySecretNoRemain](~~QuerySecretNoRemain~~) operation to query the quantity of remaining phone numbers available for online purchase.
+     *
+     * @param request - QuerySecretNoRemainRequest
+     * @returns QuerySecretNoRemainResponse
+     *
+     * @param QuerySecretNoRemainRequest $request
+     *
+     * @return QuerySecretNoRemainResponse
      */
     public function querySecretNoRemain($request)
     {
@@ -2404,40 +3012,51 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询通话录音链接
-     *  *
-     * @param QuerySoundRecordRequest $request QuerySoundRecordRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询通话录音链接.
      *
-     * @return QuerySoundRecordResponse QuerySoundRecordResponse
+     * @param request - QuerySoundRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySoundRecordResponse
+     *
+     * @param QuerySoundRecordRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySoundRecordResponse
      */
     public function querySoundRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->callId)) {
-            $query['CallId'] = $request->callId;
+        if (null !== $request->callId) {
+            @$query['CallId'] = $request->callId;
         }
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySoundRecord',
@@ -2450,16 +3069,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QuerySoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySoundRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySoundRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询通话录音链接
-     *  *
-     * @param QuerySoundRecordRequest $request QuerySoundRecordRequest
+     * 查询通话录音链接.
      *
-     * @return QuerySoundRecordResponse QuerySoundRecordResponse
+     * @param request - QuerySoundRecordRequest
+     * @returns QuerySoundRecordResponse
+     *
+     * @param QuerySoundRecordRequest $request
+     *
+     * @return QuerySoundRecordResponse
      */
     public function querySoundRecord($request)
     {
@@ -2469,36 +3094,46 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries binding IDs.
-     *  *
-     * @description You can query binding IDs by phone number X. In the AXB product, multiple bindings may exist for the same phone number X. In this case, multiple binding IDs may be obtained for the same phone number X.
-     *  *
-     * @param QuerySubsIdRequest $request QuerySubsIdRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries binding IDs.
      *
-     * @return QuerySubsIdResponse QuerySubsIdResponse
+     * @remarks
+     * You can query binding IDs by phone number X. In the AXB product, multiple bindings may exist for the same phone number X. In this case, multiple binding IDs may be obtained for the same phone number X.
+     *
+     * @param request - QuerySubsIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySubsIdResponse
+     *
+     * @param QuerySubsIdRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return QuerySubsIdResponse
      */
     public function querySubsIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNoX)) {
-            $query['PhoneNoX'] = $request->phoneNoX;
+
+        if (null !== $request->phoneNoX) {
+            @$query['PhoneNoX'] = $request->phoneNoX;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySubsId',
@@ -2511,18 +3146,25 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QuerySubsIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySubsIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySubsIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries binding IDs.
-     *  *
-     * @description You can query binding IDs by phone number X. In the AXB product, multiple bindings may exist for the same phone number X. In this case, multiple binding IDs may be obtained for the same phone number X.
-     *  *
-     * @param QuerySubsIdRequest $request QuerySubsIdRequest
+     * Queries binding IDs.
      *
-     * @return QuerySubsIdResponse QuerySubsIdResponse
+     * @remarks
+     * You can query binding IDs by phone number X. In the AXB product, multiple bindings may exist for the same phone number X. In this case, multiple binding IDs may be obtained for the same phone number X.
+     *
+     * @param request - QuerySubsIdRequest
+     * @returns QuerySubsIdResponse
+     *
+     * @param QuerySubsIdRequest $request
+     *
+     * @return QuerySubsIdResponse
      */
     public function querySubsId($request)
     {
@@ -2532,45 +3174,57 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a phone number binding.
-     *  *
-     * @description ### [](#qps)QPS limits
+     * Queries the details about a phone number binding.
+     *
+     * @remarks
+     * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * ### [](#poolkeyproducttype)Limits on PoolKey and ProductType
      * You must specify either PoolKey or ProductType. If both parameters are not specified, an error is reported when you call the QuerySubscriptionDetail operation. We recommend that you specify the ProductType parameter for the original key accounts of Alibaba Cloud and the PoolKey parameter for Alibaba Cloud users.
-     *  *
-     * @param QuerySubscriptionDetailRequest $request QuerySubscriptionDetailRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QuerySubscriptionDetailResponse QuerySubscriptionDetailResponse
+     * @param request - QuerySubscriptionDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySubscriptionDetailResponse
+     *
+     * @param QuerySubscriptionDetailRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QuerySubscriptionDetailResponse
      */
     public function querySubscriptionDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNoX)) {
-            $query['PhoneNoX'] = $request->phoneNoX;
+
+        if (null !== $request->phoneNoX) {
+            @$query['PhoneNoX'] = $request->phoneNoX;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->subsId)) {
-            $query['SubsId'] = $request->subsId;
+
+        if (null !== $request->subsId) {
+            @$query['SubsId'] = $request->subsId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySubscriptionDetail',
@@ -2583,21 +3237,28 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QuerySubscriptionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QuerySubscriptionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySubscriptionDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about a phone number binding.
-     *  *
-     * @description ### [](#qps)QPS limits
+     * Queries the details about a phone number binding.
+     *
+     * @remarks
+     * ### [](#qps)QPS limits
      * You can call this operation up to 5,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      * ### [](#poolkeyproducttype)Limits on PoolKey and ProductType
      * You must specify either PoolKey or ProductType. If both parameters are not specified, an error is reported when you call the QuerySubscriptionDetail operation. We recommend that you specify the ProductType parameter for the original key accounts of Alibaba Cloud and the PoolKey parameter for Alibaba Cloud users.
-     *  *
-     * @param QuerySubscriptionDetailRequest $request QuerySubscriptionDetailRequest
      *
-     * @return QuerySubscriptionDetailResponse QuerySubscriptionDetailResponse
+     * @param request - QuerySubscriptionDetailRequest
+     * @returns QuerySubscriptionDetailResponse
+     *
+     * @param QuerySubscriptionDetailRequest $request
+     *
+     * @return QuerySubscriptionDetailResponse
      */
     public function querySubscriptionDetail($request)
     {
@@ -2607,37 +3268,47 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Releases a phone number.
-     *  *
-     * @description *   After a phone number is released, it will no longer be charged from the following month.
-     * *   Before you release a phone number, log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) to check whether the phone number is bound to other phone numbers. The phone number can be released only if it is not bound to other phone numbers.
-     *  *
-     * @param ReleaseSecretNoRequest $request ReleaseSecretNoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Releases a phone number.
      *
-     * @return ReleaseSecretNoResponse ReleaseSecretNoResponse
+     * @remarks
+     *   After a phone number is released, it will no longer be charged from the following month.
+     * *   Before you release a phone number, log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) to check whether the phone number is bound to other phone numbers. The phone number can be released only if it is not bound to other phone numbers.
+     *
+     * @param request - ReleaseSecretNoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReleaseSecretNoResponse
+     *
+     * @param ReleaseSecretNoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReleaseSecretNoResponse
      */
     public function releaseSecretNoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->secretNo)) {
-            $query['SecretNo'] = $request->secretNo;
+
+        if (null !== $request->secretNo) {
+            @$query['SecretNo'] = $request->secretNo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReleaseSecretNo',
@@ -2650,19 +3321,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReleaseSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleaseSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseSecretNoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases a phone number.
-     *  *
-     * @description *   After a phone number is released, it will no longer be charged from the following month.
-     * *   Before you release a phone number, log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) to check whether the phone number is bound to other phone numbers. The phone number can be released only if it is not bound to other phone numbers.
-     *  *
-     * @param ReleaseSecretNoRequest $request ReleaseSecretNoRequest
+     * Releases a phone number.
      *
-     * @return ReleaseSecretNoResponse ReleaseSecretNoResponse
+     * @remarks
+     *   After a phone number is released, it will no longer be charged from the following month.
+     * *   Before you release a phone number, log on to the [Phone Number Protection console](https://dypls.console.aliyun.com/dypls.htm#/account) to check whether the phone number is bound to other phone numbers. The phone number can be released only if it is not bound to other phone numbers.
+     *
+     * @param request - ReleaseSecretNoRequest
+     * @returns ReleaseSecretNoResponse
+     *
+     * @param ReleaseSecretNoRequest $request
+     *
+     * @return ReleaseSecretNoResponse
      */
     public function releaseSecretNo($request)
     {
@@ -2672,40 +3350,51 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary 解除指定的呼叫绑定关系（A，X，B），解决呼叫绑定关系后，员工B不能通过工作号X呼叫到客户A。
-     *  *
-     * @param UnBindAXBRequest $request UnBindAXBRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 解除指定的呼叫绑定关系（A，X，B），解决呼叫绑定关系后，员工B不能通过工作号X呼叫到客户A。
      *
-     * @return UnBindAXBResponse UnBindAXBResponse
+     * @param request - UnBindAXBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnBindAXBResponse
+     *
+     * @param UnBindAXBRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UnBindAXBResponse
      */
     public function unBindAXBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bindId)) {
-            $query['BindId'] = $request->bindId;
+        if (null !== $request->bindId) {
+            @$query['BindId'] = $request->bindId;
         }
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnBindAXB',
@@ -2718,16 +3407,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnBindAXBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnBindAXBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnBindAXBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 解除指定的呼叫绑定关系（A，X，B），解决呼叫绑定关系后，员工B不能通过工作号X呼叫到客户A。
-     *  *
-     * @param UnBindAXBRequest $request UnBindAXBRequest
+     * 解除指定的呼叫绑定关系（A，X，B），解决呼叫绑定关系后，员工B不能通过工作号X呼叫到客户A。
      *
-     * @return UnBindAXBResponse UnBindAXBResponse
+     * @param request - UnBindAXBRequest
+     * @returns UnBindAXBResponse
+     *
+     * @param UnBindAXBRequest $request
+     *
+     * @return UnBindAXBResponse
      */
     public function unBindAXB($request)
     {
@@ -2737,43 +3432,55 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary 调用本接口可取消工作号X与员工号码B的绑定。绑定解除后，对X的呼叫都不会转接给B。
-     *  *
-     * @param UnBindXBRequest $request UnBindXBRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * 调用本接口可取消工作号X与员工号码B的绑定。绑定解除后，对X的呼叫都不会转接给B。
      *
-     * @return UnBindXBResponse UnBindXBResponse
+     * @param request - UnBindXBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnBindXBResponse
+     *
+     * @param UnBindXBRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return UnBindXBResponse
      */
     public function unBindXBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authId)) {
-            $query['AuthId'] = $request->authId;
+        if (null !== $request->authId) {
+            @$query['AuthId'] = $request->authId;
         }
-        if (!Utils::isUnset($request->callerParentId)) {
-            $query['CallerParentId'] = $request->callerParentId;
+
+        if (null !== $request->callerParentId) {
+            @$query['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->customerPoolKey)) {
-            $query['CustomerPoolKey'] = $request->customerPoolKey;
+
+        if (null !== $request->customerPoolKey) {
+            @$query['CustomerPoolKey'] = $request->customerPoolKey;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->reqId)) {
-            $query['ReqId'] = $request->reqId;
+
+        if (null !== $request->reqId) {
+            @$query['ReqId'] = $request->reqId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->telX)) {
-            $query['TelX'] = $request->telX;
+
+        if (null !== $request->telX) {
+            @$query['TelX'] = $request->telX;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnBindXB',
@@ -2786,16 +3493,22 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnBindXBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnBindXBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnBindXBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 调用本接口可取消工作号X与员工号码B的绑定。绑定解除后，对X的呼叫都不会转接给B。
-     *  *
-     * @param UnBindXBRequest $request UnBindXBRequest
+     * 调用本接口可取消工作号X与员工号码B的绑定。绑定解除后，对X的呼叫都不会转接给B。
      *
-     * @return UnBindXBResponse UnBindXBResponse
+     * @param request - UnBindXBRequest
+     * @returns UnBindXBResponse
+     *
+     * @param UnBindXBRequest $request
+     *
+     * @return UnBindXBResponse
      */
     public function unBindXB($request)
     {
@@ -2805,42 +3518,54 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Unbinds a phone number.
-     *  *
-     * @description Before releasing a phone number, you must call the UnbindSubscription operation to unbind the phone number.
-     *  *
-     * @param UnbindSubscriptionRequest $request UnbindSubscriptionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Unbinds a phone number.
      *
-     * @return UnbindSubscriptionResponse UnbindSubscriptionResponse
+     * @remarks
+     * Before releasing a phone number, you must call the UnbindSubscription operation to unbind the phone number.
+     *
+     * @param request - UnbindSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnbindSubscriptionResponse
+     *
+     * @param UnbindSubscriptionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UnbindSubscriptionResponse
      */
     public function unbindSubscriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->secretNo)) {
-            $query['SecretNo'] = $request->secretNo;
+
+        if (null !== $request->secretNo) {
+            @$query['SecretNo'] = $request->secretNo;
         }
-        if (!Utils::isUnset($request->subsId)) {
-            $query['SubsId'] = $request->subsId;
+
+        if (null !== $request->subsId) {
+            @$query['SubsId'] = $request->subsId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnbindSubscription',
@@ -2853,18 +3578,25 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnbindSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnbindSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindSubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unbinds a phone number.
-     *  *
-     * @description Before releasing a phone number, you must call the UnbindSubscription operation to unbind the phone number.
-     *  *
-     * @param UnbindSubscriptionRequest $request UnbindSubscriptionRequest
+     * Unbinds a phone number.
      *
-     * @return UnbindSubscriptionResponse UnbindSubscriptionResponse
+     * @remarks
+     * Before releasing a phone number, you must call the UnbindSubscription operation to unbind the phone number.
+     *
+     * @param request - UnbindSubscriptionRequest
+     * @returns UnbindSubscriptionResponse
+     *
+     * @param UnbindSubscriptionRequest $request
+     *
+     * @return UnbindSubscriptionResponse
      */
     public function unbindSubscription($request)
     {
@@ -2874,38 +3606,48 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Unlocks a phone number.
-     *  *
-     * @description After a phone number is unlocked, you can reselect the unlocked phone number when you call an operation to create a binding.
+     * Unlocks a phone number.
+     *
+     * @remarks
+     * After a phone number is unlocked, you can reselect the unlocked phone number when you call an operation to create a binding.
      * ### [](#qps)QPS limits
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param UnlockSecretNoRequest $request UnlockSecretNoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnlockSecretNoResponse UnlockSecretNoResponse
+     * @param request - UnlockSecretNoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnlockSecretNoResponse
+     *
+     * @param UnlockSecretNoRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UnlockSecretNoResponse
      */
     public function unlockSecretNoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->secretNo)) {
-            $query['SecretNo'] = $request->secretNo;
+
+        if (null !== $request->secretNo) {
+            @$query['SecretNo'] = $request->secretNo;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnlockSecretNo',
@@ -2918,20 +3660,27 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnlockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnlockSecretNoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnlockSecretNoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unlocks a phone number.
-     *  *
-     * @description After a phone number is unlocked, you can reselect the unlocked phone number when you call an operation to create a binding.
+     * Unlocks a phone number.
+     *
+     * @remarks
+     * After a phone number is unlocked, you can reselect the unlocked phone number when you call an operation to create a binding.
      * ### [](#qps)QPS limits
      * You can call this operation up to 500 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param UnlockSecretNoRequest $request UnlockSecretNoRequest
      *
-     * @return UnlockSecretNoResponse UnlockSecretNoResponse
+     * @param request - UnlockSecretNoRequest
+     * @returns UnlockSecretNoResponse
+     *
+     * @param UnlockSecretNoRequest $request
+     *
+     * @return UnlockSecretNoResponse
      */
     public function unlockSecretNo($request)
     {
@@ -2941,79 +3690,103 @@ class Dyplsapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a phone number binding.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 10,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param UpdateSubscriptionRequest $request UpdateSubscriptionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies a phone number binding.
      *
-     * @return UpdateSubscriptionResponse UpdateSubscriptionResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 10,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - UpdateSubscriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSubscriptionResponse
+     *
+     * @param UpdateSubscriptionRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateSubscriptionResponse
      */
     public function updateSubscriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ASRModelId)) {
-            $query['ASRModelId'] = $request->ASRModelId;
+        if (null !== $request->ASRModelId) {
+            @$query['ASRModelId'] = $request->ASRModelId;
         }
-        if (!Utils::isUnset($request->ASRStatus)) {
-            $query['ASRStatus'] = $request->ASRStatus;
+
+        if (null !== $request->ASRStatus) {
+            @$query['ASRStatus'] = $request->ASRStatus;
         }
-        if (!Utils::isUnset($request->callDisplayType)) {
-            $query['CallDisplayType'] = $request->callDisplayType;
+
+        if (null !== $request->callDisplayType) {
+            @$query['CallDisplayType'] = $request->callDisplayType;
         }
-        if (!Utils::isUnset($request->callRestrict)) {
-            $query['CallRestrict'] = $request->callRestrict;
+
+        if (null !== $request->callRestrict) {
+            @$query['CallRestrict'] = $request->callRestrict;
         }
-        if (!Utils::isUnset($request->expiration)) {
-            $query['Expiration'] = $request->expiration;
+
+        if (null !== $request->expiration) {
+            @$query['Expiration'] = $request->expiration;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->isRecordingEnabled)) {
-            $query['IsRecordingEnabled'] = $request->isRecordingEnabled;
+
+        if (null !== $request->isRecordingEnabled) {
+            @$query['IsRecordingEnabled'] = $request->isRecordingEnabled;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $query['OperateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$query['OperateType'] = $request->operateType;
         }
-        if (!Utils::isUnset($request->outId)) {
-            $query['OutId'] = $request->outId;
+
+        if (null !== $request->outId) {
+            @$query['OutId'] = $request->outId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->phoneNoA)) {
-            $query['PhoneNoA'] = $request->phoneNoA;
+
+        if (null !== $request->phoneNoA) {
+            @$query['PhoneNoA'] = $request->phoneNoA;
         }
-        if (!Utils::isUnset($request->phoneNoB)) {
-            $query['PhoneNoB'] = $request->phoneNoB;
+
+        if (null !== $request->phoneNoB) {
+            @$query['PhoneNoB'] = $request->phoneNoB;
         }
-        if (!Utils::isUnset($request->phoneNoX)) {
-            $query['PhoneNoX'] = $request->phoneNoX;
+
+        if (null !== $request->phoneNoX) {
+            @$query['PhoneNoX'] = $request->phoneNoX;
         }
-        if (!Utils::isUnset($request->poolKey)) {
-            $query['PoolKey'] = $request->poolKey;
+
+        if (null !== $request->poolKey) {
+            @$query['PoolKey'] = $request->poolKey;
         }
-        if (!Utils::isUnset($request->productType)) {
-            $query['ProductType'] = $request->productType;
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->ringConfig)) {
-            $query['RingConfig'] = $request->ringConfig;
+
+        if (null !== $request->ringConfig) {
+            @$query['RingConfig'] = $request->ringConfig;
         }
-        if (!Utils::isUnset($request->subsId)) {
-            $query['SubsId'] = $request->subsId;
+
+        if (null !== $request->subsId) {
+            @$query['SubsId'] = $request->subsId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSubscription',
@@ -3026,19 +3799,26 @@ class Dyplsapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSubscriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a phone number binding.
-     *  *
-     * @description ### [](#qps)QPS limits
-     * You can call this operation up to 10,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param UpdateSubscriptionRequest $request UpdateSubscriptionRequest
+     * Modifies a phone number binding.
      *
-     * @return UpdateSubscriptionResponse UpdateSubscriptionResponse
+     * @remarks
+     * ### [](#qps)QPS limits
+     * You can call this operation up to 10,000 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - UpdateSubscriptionRequest
+     * @returns UpdateSubscriptionResponse
+     *
+     * @param UpdateSubscriptionRequest $request
+     *
+     * @return UpdateSubscriptionResponse
      */
     public function updateSubscription($request)
     {

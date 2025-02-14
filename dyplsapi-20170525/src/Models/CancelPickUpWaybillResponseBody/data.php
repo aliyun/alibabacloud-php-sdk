@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\CancelPickUpWaybillResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example none
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @description The error message.
-     *
-     * @example none
-     *
      * @var string
      */
     public $errorMsg;
-
     /**
-     * @description The cancellation result.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description Indicates whether the cancellation was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -52,20 +33,24 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -73,23 +58,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

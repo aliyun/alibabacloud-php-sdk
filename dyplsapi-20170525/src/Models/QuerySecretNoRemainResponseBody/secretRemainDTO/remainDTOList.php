@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretNoRemainResponseBody\secretRemainDTO;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\QuerySecretNoRemainResponseBody\secretRemainDTO\remainDTOList\remainDTO;
-use AlibabaCloud\Tea\Model;
 
 class remainDTOList extends Model
 {
@@ -19,17 +19,21 @@ class remainDTOList extends Model
 
     public function validate()
     {
+        if (\is_array($this->remainDTO)) {
+            Model::validateArray($this->remainDTO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->remainDTO) {
-            $res['remainDTO'] = [];
-            if (null !== $this->remainDTO && \is_array($this->remainDTO)) {
-                $n = 0;
-                foreach ($this->remainDTO as $item) {
-                    $res['remainDTO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->remainDTO)) {
+                $res['remainDTO'] = [];
+                $n1               = 0;
+                foreach ($this->remainDTO as $item1) {
+                    $res['remainDTO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class remainDTOList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return remainDTOList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['remainDTO'])) {
             if (!empty($map['remainDTO'])) {
                 $model->remainDTO = [];
-                $n                = 0;
-                foreach ($map['remainDTO'] as $item) {
-                    $model->remainDTO[$n++] = null !== $item ? remainDTO::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['remainDTO'] as $item1) {
+                    $model->remainDTO[$n1++] = remainDTO::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dyplsapi\V20170525\Models\BindBatchAxgResponseBody\secretBindList\secretBind;
-use AlibabaCloud\Tea\Model;
 
 class secretBindList extends Model
 {
@@ -19,17 +19,21 @@ class secretBindList extends Model
 
     public function validate()
     {
+        if (\is_array($this->secretBind)) {
+            Model::validateArray($this->secretBind);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->secretBind) {
-            $res['SecretBind'] = [];
-            if (null !== $this->secretBind && \is_array($this->secretBind)) {
-                $n = 0;
-                foreach ($this->secretBind as $item) {
-                    $res['SecretBind'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->secretBind)) {
+                $res['SecretBind'] = [];
+                $n1                = 0;
+                foreach ($this->secretBind as $item1) {
+                    $res['SecretBind'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class secretBindList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return secretBindList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SecretBind'])) {
             if (!empty($map['SecretBind'])) {
                 $model->secretBind = [];
-                $n                 = 0;
-                foreach ($map['SecretBind'] as $item) {
-                    $model->secretBind[$n++] = null !== $item ? secretBind::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['SecretBind'] as $item1) {
+                    $model->secretBind[$n1++] = secretBind::fromMap($item1);
                 }
             }
         }

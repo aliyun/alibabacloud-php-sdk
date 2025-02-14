@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Dyplsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuerySubsIdRequest extends Model
 {
@@ -12,32 +12,18 @@ class QuerySubsIdRequest extends Model
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The private number in the binding, that is, phone number X.
-     *
-     * This parameter is required.
-     * @example 1390000****
-     *
      * @var string
      */
     public $phoneNoX;
-
     /**
-     * @description The key of the phone number pool.
-     *
-     * Log on to the [Phone Number Protection console](https://dyplsnext.console.aliyun.com/overview) and view the key of the phone number pool on the Number Pool Management page.
-     * @example FC123456
-     *
      * @var string
      */
     public $poolKey;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -52,23 +38,28 @@ class QuerySubsIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->phoneNoX) {
             $res['PhoneNoX'] = $this->phoneNoX;
         }
+
         if (null !== $this->poolKey) {
             $res['PoolKey'] = $this->poolKey;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -76,26 +67,30 @@ class QuerySubsIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySubsIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PhoneNoX'])) {
             $model->phoneNoX = $map['PhoneNoX'];
         }
+
         if (isset($map['PoolKey'])) {
             $model->poolKey = $map['PoolKey'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
