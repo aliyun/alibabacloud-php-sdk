@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest\oidcConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authnParam extends Model
 {
     /**
-     * @description OIDC/oAuth2 认证方法。
-     *
-     * @example client_secret_post
-     *
      * @var string
      */
     public $authnMethod;
-
     /**
-     * @description OIDC/oAuth2 客户端ID。
-     *
-     * @example mkv7rgt4d7i4u7zqtzev2mxxxx
-     *
      * @var string
      */
     public $clientId;
-
     /**
-     * @description OIDC/oAuth2 客户端密钥。
-     *
-     * @example CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
-     *
      * @var string
      */
     public $clientSecret;
@@ -42,17 +28,20 @@ class authnParam extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authnMethod) {
             $res['AuthnMethod'] = $this->authnMethod;
         }
+
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->clientSecret) {
             $res['ClientSecret'] = $this->clientSecret;
         }
@@ -60,20 +49,22 @@ class authnParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authnParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthnMethod'])) {
             $model->authnMethod = $map['AuthnMethod'];
         }
+
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['ClientSecret'])) {
             $model->clientSecret = $map['ClientSecret'];
         }

@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class weComConfig extends Model
 {
     /**
-     * @description 企业微信自建应用的Id
-     *
-     * @example 278231941749863339
-     *
      * @var string
      */
     public $agentId;
-
     /**
-     * @description 授权回调域
-     *
-     * @example https://xxx.aliyunidaas.com/xxxx
-     *
      * @var string
      */
     public $authorizeCallbackDomain;
-
     /**
-     * @description 企业微信自建应用的corpId
-     *
-     * @example 3756043633237690761
-     *
      * @var string
      */
     public $corpId;
-
     /**
-     * @description 企业微信自建应用的corpSecret
-     *
-     * @example CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
-     *
      * @var string
      */
     public $corpSecret;
-
     /**
-     * @description 可信域名
-     *
-     * @example https://xxx.aliyunidaas.com/
-     *
      * @var string
      */
     public $trustableDomain;
@@ -62,23 +38,28 @@ class weComConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['AgentId'] = $this->agentId;
         }
+
         if (null !== $this->authorizeCallbackDomain) {
             $res['AuthorizeCallbackDomain'] = $this->authorizeCallbackDomain;
         }
+
         if (null !== $this->corpId) {
             $res['CorpId'] = $this->corpId;
         }
+
         if (null !== $this->corpSecret) {
             $res['CorpSecret'] = $this->corpSecret;
         }
+
         if (null !== $this->trustableDomain) {
             $res['TrustableDomain'] = $this->trustableDomain;
         }
@@ -86,26 +67,30 @@ class weComConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return weComConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentId'])) {
             $model->agentId = $map['AgentId'];
         }
+
         if (isset($map['AuthorizeCallbackDomain'])) {
             $model->authorizeCallbackDomain = $map['AuthorizeCallbackDomain'];
         }
+
         if (isset($map['CorpId'])) {
             $model->corpId = $map['CorpId'];
         }
+
         if (isset($map['CorpSecret'])) {
             $model->corpSecret = $map['CorpSecret'];
         }
+
         if (isset($map['TrustableDomain'])) {
             $model->trustableDomain = $map['TrustableDomain'];
         }

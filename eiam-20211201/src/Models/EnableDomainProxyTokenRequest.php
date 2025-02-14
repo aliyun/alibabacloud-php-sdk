@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableDomainProxyTokenRequest extends Model
 {
     /**
-     * @description 域名ID。
-     *
-     * This parameter is required.
-     * @example dm_examplexxxxx
-     *
      * @var string
      */
     public $domainId;
-
     /**
-     * @description 域名代理Token ID。
-     *
-     * This parameter is required.
-     * @example pt_examplexxxx
-     *
      * @var string
      */
     public $domainProxyTokenId;
-
     /**
-     * @description IDaaS EIAM实例的ID。
-     *
-     * This parameter is required.
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
@@ -45,17 +28,20 @@ class EnableDomainProxyTokenRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
+
         if (null !== $this->domainProxyTokenId) {
             $res['DomainProxyTokenId'] = $this->domainProxyTokenId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -63,20 +49,22 @@ class EnableDomainProxyTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableDomainProxyTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
+
         if (isset($map['DomainProxyTokenId'])) {
             $model->domainProxyTokenId = $map['DomainProxyTokenId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

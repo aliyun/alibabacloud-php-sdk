@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\RunSynchronizationJobRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class synchronizationScopeConfig extends Model
 {
@@ -12,12 +12,10 @@ class synchronizationScopeConfig extends Model
      * @var string[]
      */
     public $groupIds;
-
     /**
      * @var string[]
      */
     public $organizationalUnitIds;
-
     /**
      * @var string[]
      */
@@ -30,45 +28,89 @@ class synchronizationScopeConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupIds)) {
+            Model::validateArray($this->groupIds);
+        }
+        if (\is_array($this->organizationalUnitIds)) {
+            Model::validateArray($this->organizationalUnitIds);
+        }
+        if (\is_array($this->userIds)) {
+            Model::validateArray($this->userIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupIds) {
-            $res['GroupIds'] = $this->groupIds;
+            if (\is_array($this->groupIds)) {
+                $res['GroupIds'] = [];
+                $n1              = 0;
+                foreach ($this->groupIds as $item1) {
+                    $res['GroupIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->organizationalUnitIds) {
-            $res['OrganizationalUnitIds'] = $this->organizationalUnitIds;
+            if (\is_array($this->organizationalUnitIds)) {
+                $res['OrganizationalUnitIds'] = [];
+                $n1                           = 0;
+                foreach ($this->organizationalUnitIds as $item1) {
+                    $res['OrganizationalUnitIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userIds) {
-            $res['UserIds'] = $this->userIds;
+            if (\is_array($this->userIds)) {
+                $res['UserIds'] = [];
+                $n1             = 0;
+                foreach ($this->userIds as $item1) {
+                    $res['UserIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return synchronizationScopeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
-                $model->groupIds = $map['GroupIds'];
+                $model->groupIds = [];
+                $n1              = 0;
+                foreach ($map['GroupIds'] as $item1) {
+                    $model->groupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OrganizationalUnitIds'])) {
             if (!empty($map['OrganizationalUnitIds'])) {
-                $model->organizationalUnitIds = $map['OrganizationalUnitIds'];
+                $model->organizationalUnitIds = [];
+                $n1                           = 0;
+                foreach ($map['OrganizationalUnitIds'] as $item1) {
+                    $model->organizationalUnitIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UserIds'])) {
             if (!empty($map['UserIds'])) {
-                $model->userIds = $map['UserIds'];
+                $model->userIds = [];
+                $n1             = 0;
+                foreach ($map['UserIds'] as $item1) {
+                    $model->userIds[$n1++] = $item1;
+                }
             }
         }
 

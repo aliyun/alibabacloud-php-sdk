@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetApplicationGrantScopeRequest extends Model
 {
     /**
-     * @description The ID of the application that you want to configure.
-     *
-     * This parameter is required.
-     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
-     *
      * @var string
      */
     public $applicationId;
-
     /**
-     * @description The permissions of the Developer API feature.
-     *
      * @var string[]
      */
     public $grantScopes;
-
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
@@ -42,17 +28,29 @@ class SetApplicationGrantScopeRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->grantScopes)) {
+            Model::validateArray($this->grantScopes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->grantScopes) {
-            $res['GrantScopes'] = $this->grantScopes;
+            if (\is_array($this->grantScopes)) {
+                $res['GrantScopes'] = [];
+                $n1                 = 0;
+                foreach ($this->grantScopes as $item1) {
+                    $res['GrantScopes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -60,22 +58,28 @@ class SetApplicationGrantScopeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetApplicationGrantScopeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['GrantScopes'])) {
             if (!empty($map['GrantScopes'])) {
-                $model->grantScopes = $map['GrantScopes'];
+                $model->grantScopes = [];
+                $n1                 = 0;
+                foreach ($map['GrantScopes'] as $item1) {
+                    $model->grantScopes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

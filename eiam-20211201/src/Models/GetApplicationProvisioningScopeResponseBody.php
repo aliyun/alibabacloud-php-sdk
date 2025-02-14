@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationProvisioningScopeResponseBody\applicationProvisioningScope;
-use AlibabaCloud\Tea\Model;
 
 class GetApplicationProvisioningScopeResponseBody extends Model
 {
     /**
-     * @description The scope of account synchronization.
-     *
      * @var applicationProvisioningScope
      */
     public $applicationProvisioningScope;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetApplicationProvisioningScopeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->applicationProvisioningScope) {
+            $this->applicationProvisioningScope->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationProvisioningScope) {
-            $res['ApplicationProvisioningScope'] = null !== $this->applicationProvisioningScope ? $this->applicationProvisioningScope->toMap() : null;
+            $res['ApplicationProvisioningScope'] = null !== $this->applicationProvisioningScope ? $this->applicationProvisioningScope->toArray($noStream) : $this->applicationProvisioningScope;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetApplicationProvisioningScopeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetApplicationProvisioningScopeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationProvisioningScope'])) {
             $model->applicationProvisioningScope = applicationProvisioningScope::fromMap($map['ApplicationProvisioningScope']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

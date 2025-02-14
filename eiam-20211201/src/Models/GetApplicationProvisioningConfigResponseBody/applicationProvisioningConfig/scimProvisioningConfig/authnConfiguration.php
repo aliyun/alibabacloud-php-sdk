@@ -4,40 +4,20 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationProvisioningConfigResponseBody\applicationProvisioningConfig\scimProvisioningConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationProvisioningConfigResponseBody\applicationProvisioningConfig\scimProvisioningConfig\authnConfiguration\authnParam;
-use AlibabaCloud\Tea\Model;
 
 class authnConfiguration extends Model
 {
     /**
-     * @description The authentication mode of the SCIM protocol. Valid value:
-     *
-     *   oauth2: OAuth2.0 mode.
-     *
-     * @example oauth2
-     *
      * @var string
      */
     public $authnMode;
-
     /**
-     * @description The configuration parameters related to authorization.
-     *
-     *   If the GrantType parameter is set to client_credentials, the configuration parameters ClientId, ClientSecret, and AuthnMethod are returned.
-     *   If the GrantType parameter is set to bearer_token, the configuration parameter AccessToken is returned.
-     *
      * @var authnParam
      */
     public $authnParam;
-
     /**
-     * @description The grant type of the SCIM protocol. Valid values:
-     *
-     *   client_credentials: client mode.
-     *   bearer_token: key mode.
-     *
-     * @example bearer_token
-     *
      * @var string
      */
     public $grantType;
@@ -49,17 +29,23 @@ class authnConfiguration extends Model
 
     public function validate()
     {
+        if (null !== $this->authnParam) {
+            $this->authnParam->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authnMode) {
             $res['AuthnMode'] = $this->authnMode;
         }
+
         if (null !== $this->authnParam) {
-            $res['AuthnParam'] = null !== $this->authnParam ? $this->authnParam->toMap() : null;
+            $res['AuthnParam'] = null !== $this->authnParam ? $this->authnParam->toArray($noStream) : $this->authnParam;
         }
+
         if (null !== $this->grantType) {
             $res['GrantType'] = $this->grantType;
         }
@@ -67,20 +53,22 @@ class authnConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authnConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthnMode'])) {
             $model->authnMode = $map['AuthnMode'];
         }
+
         if (isset($map['AuthnParam'])) {
             $model->authnParam = authnParam::fromMap($map['AuthnParam']);
         }
+
         if (isset($map['GrantType'])) {
             $model->grantType = $map['GrantType'];
         }

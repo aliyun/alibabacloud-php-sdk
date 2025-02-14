@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordInitializationConfigurationResponseBody\passwordInitializationConfiguration;
-use AlibabaCloud\Tea\Model;
 
 class GetPasswordInitializationConfigurationResponseBody extends Model
 {
     /**
-     * @description The password initialization configurations.
-     *
      * @var passwordInitializationConfiguration
      */
     public $passwordInitializationConfiguration;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetPasswordInitializationConfigurationResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->passwordInitializationConfiguration) {
+            $this->passwordInitializationConfiguration->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passwordInitializationConfiguration) {
-            $res['PasswordInitializationConfiguration'] = null !== $this->passwordInitializationConfiguration ? $this->passwordInitializationConfiguration->toMap() : null;
+            $res['PasswordInitializationConfiguration'] = null !== $this->passwordInitializationConfiguration ? $this->passwordInitializationConfiguration->toArray($noStream) : $this->passwordInitializationConfiguration;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetPasswordInitializationConfigurationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPasswordInitializationConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PasswordInitializationConfiguration'])) {
             $model->passwordInitializationConfiguration = passwordInitializationConfiguration::fromMap($map['PasswordInitializationConfiguration']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

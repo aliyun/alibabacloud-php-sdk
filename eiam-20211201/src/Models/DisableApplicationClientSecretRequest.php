@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableApplicationClientSecretRequest extends Model
 {
     /**
-     * @description The ID of the application for which you want to disable a client key.
-     *
-     * This parameter is required.
-     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
-     *
      * @var string
      */
     public $applicationId;
-
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The client key ID of the application.
-     *
-     * This parameter is required.
-     * @example sci_k52x2ru63rlkflina5utgkxxxx
-     *
      * @var string
      */
     public $secretId;
@@ -45,17 +28,20 @@ class DisableApplicationClientSecretRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->secretId) {
             $res['SecretId'] = $this->secretId;
         }
@@ -63,20 +49,22 @@ class DisableApplicationClientSecretRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableApplicationClientSecretRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SecretId'])) {
             $model->secretId = $map['SecretId'];
         }

@@ -4,70 +4,35 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListOrganizationalUnitsRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The IDs of organizational units.
-     *
-     * @example [ou_wovwffm62xifdziem7an7xxxxx]
-     *
      * @var string[]
      */
     public $organizationalUnitIds;
-
     /**
-     * @description The name of the organizational unit.
-     *
-     * @example name_001
-     *
      * @var string
      */
     public $organizationalUnitName;
-
     /**
-     * @description Organization name, matching left
-     *
-     * @example name
-     *
      * @var string
      */
     public $organizationalUnitNameStartsWith;
-
     /**
-     * @description The number of the page to return. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries to return on each page. Default value: 20.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the parent organizational unit.
-     *
-     * @example ou_wovwffm62xifdziem7an7xxxxx
-     *
      * @var string
      */
     public $parentId;
@@ -83,29 +48,45 @@ class ListOrganizationalUnitsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->organizationalUnitIds)) {
+            Model::validateArray($this->organizationalUnitIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->organizationalUnitIds) {
-            $res['OrganizationalUnitIds'] = $this->organizationalUnitIds;
+            if (\is_array($this->organizationalUnitIds)) {
+                $res['OrganizationalUnitIds'] = [];
+                $n1                           = 0;
+                foreach ($this->organizationalUnitIds as $item1) {
+                    $res['OrganizationalUnitIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->organizationalUnitName) {
             $res['OrganizationalUnitName'] = $this->organizationalUnitName;
         }
+
         if (null !== $this->organizationalUnitNameStartsWith) {
             $res['OrganizationalUnitNameStartsWith'] = $this->organizationalUnitNameStartsWith;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->parentId) {
             $res['ParentId'] = $this->parentId;
         }
@@ -113,34 +94,44 @@ class ListOrganizationalUnitsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOrganizationalUnitsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OrganizationalUnitIds'])) {
             if (!empty($map['OrganizationalUnitIds'])) {
-                $model->organizationalUnitIds = $map['OrganizationalUnitIds'];
+                $model->organizationalUnitIds = [];
+                $n1                           = 0;
+                foreach ($map['OrganizationalUnitIds'] as $item1) {
+                    $model->organizationalUnitIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OrganizationalUnitName'])) {
             $model->organizationalUnitName = $map['OrganizationalUnitName'];
         }
+
         if (isset($map['OrganizationalUnitNameStartsWith'])) {
             $model->organizationalUnitNameStartsWith = $map['OrganizationalUnitNameStartsWith'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ParentId'])) {
             $model->parentId = $map['ParentId'];
         }

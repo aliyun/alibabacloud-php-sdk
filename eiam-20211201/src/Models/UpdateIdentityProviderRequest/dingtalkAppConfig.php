@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dingtalkAppConfig extends Model
 {
     /**
-     * @description 钉钉一方应用的AppKey
-     *
-     * This parameter is required.
-     * @example 49nyeaqumk7f
-     *
      * @var string
      */
     public $appKey;
-
     /**
-     * @description 钉钉一方应用的AppSecret
-     *
-     * This parameter is required.
-     * @example 86nozWFL2CxgwnhKiXaG8dN4keLPkUNc5xxxx
-     *
      * @var string
      */
     public $appSecret;
@@ -34,14 +23,16 @@ class dingtalkAppConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
         }
+
         if (null !== $this->appSecret) {
             $res['AppSecret'] = $this->appSecret;
         }
@@ -49,17 +40,18 @@ class dingtalkAppConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dingtalkAppConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
         }
+
         if (isset($map['AppSecret'])) {
             $model->appSecret = $map['AppSecret'];
         }

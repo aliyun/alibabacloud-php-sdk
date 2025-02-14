@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteIdentityProviderRequest extends Model
 {
     /**
-     * @description IDaaS的身份提供方主键id
-     *
-     * This parameter is required.
-     * @example idp_my664lwkhpicbyzirog3xxxxx
-     *
      * @var string
      */
     public $identityProviderId;
-
     /**
-     * @description IDaaS EIAM的实例id
-     *
-     * This parameter is required.
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
@@ -34,14 +23,16 @@ class DeleteIdentityProviderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identityProviderId) {
             $res['IdentityProviderId'] = $this->identityProviderId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,17 +40,18 @@ class DeleteIdentityProviderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteIdentityProviderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdentityProviderId'])) {
             $model->identityProviderId = $map['IdentityProviderId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

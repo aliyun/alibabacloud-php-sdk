@@ -4,110 +4,53 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponseBody\applicationSsoConfig;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponseBody\applicationSsoConfig\samlSsoConfig\attributeStatements;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponseBody\applicationSsoConfig\samlSsoConfig\optionalRelayStates;
-use AlibabaCloud\Tea\Model;
 
 class samlSsoConfig extends Model
 {
     /**
-     * @description Whether the Assertion needs a signature. ResponseSigned and AssertionSigned cannot be false at the same time.
-     *
-     * false: signature is not required.
-     * @example true
-     *
      * @var bool
      */
     public $assertionSigned;
-
     /**
-     * @description The additional user attributes in the SAML assertion.
-     *
      * @var attributeStatements[]
      */
     public $attributeStatements;
-
     /**
-     * @description The default value of the RelayState attribute. If the SSO request is initiated in EIAM, the RelayState attribute in the SAML response is set to this default value.
-     *
-     * @example https://home.console.aliyun.com
-     *
      * @var string
      */
     public $defaultRelayState;
-
     /**
-     * @description The custom issuer ID.
-     *
-     * @example https://example.com/
-     *
      * @var string
      */
     public $idPEntityId;
-
     /**
-     * @description The Format attribute of the NameID element in the SAML assertion. Valid values:
-     *
-     *   urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified: No format is specified. How to resolve the NameID element depends on the application.
-     *   urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress: The NameID element must be an email address.
-     *   urn:oasis:names:tc:SAML:2.0:nameid-format:persistent: The NameID element must be persistent.
-     *   urn:oasis:names:tc:SAML:2.0:nameid-format:transient: The NameID element must be transient.
-     *
-     * @example urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified
-     *
      * @var string
      */
     public $nameIdFormat;
-
     /**
-     * @description The expression that is used to generate the value of NameID in the SAML assertion.
-     *
-     * @example user.username
-     *
      * @var string
      */
     public $nameIdValueExpression;
-
     /**
-     * @description Optional RelayState. The user will see the display names of multiple optional redirect addresses in the application card of the application portal. After the user clicks and completes SSO, they will automatically jump to the corresponding address. This field can only be filled in after the default redirect address is filled in.
-     *
      * @var optionalRelayStates[]
      */
     public $optionalRelayStates;
-
     /**
-     * @description Whether the response needs to be signed. ResponseSigned and AssertionSigned cannot be false at the same time.
-     *
-     * false: signature is not required.
-     * @example true
-     *
      * @var bool
      */
     public $responseSigned;
-
     /**
-     * @description The algorithm that is used to calculate the signature for the SAML assertion.
-     *
-     * @example RSA-SHA256
-     *
      * @var string
      */
     public $signatureAlgorithm;
-
     /**
-     * @description The entity ID of the application in SAML. The application assumes the role of service provider.
-     *
-     * @example urn:alibaba:cloudcomputing
-     *
      * @var string
      */
     public $spEntityId;
-
     /**
-     * @description The Assertion Consumer Service (ACS) URL of the application in SAML. The application assumes the role of service provider.
-     *
-     * @example https://signin.aliyun.com/saml-role/sso
-     *
      * @var string
      */
     public $spSsoAcsUrl;
@@ -127,53 +70,70 @@ class samlSsoConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->attributeStatements)) {
+            Model::validateArray($this->attributeStatements);
+        }
+        if (\is_array($this->optionalRelayStates)) {
+            Model::validateArray($this->optionalRelayStates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assertionSigned) {
             $res['AssertionSigned'] = $this->assertionSigned;
         }
+
         if (null !== $this->attributeStatements) {
-            $res['AttributeStatements'] = [];
-            if (null !== $this->attributeStatements && \is_array($this->attributeStatements)) {
-                $n = 0;
-                foreach ($this->attributeStatements as $item) {
-                    $res['AttributeStatements'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->attributeStatements)) {
+                $res['AttributeStatements'] = [];
+                $n1                         = 0;
+                foreach ($this->attributeStatements as $item1) {
+                    $res['AttributeStatements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->defaultRelayState) {
             $res['DefaultRelayState'] = $this->defaultRelayState;
         }
+
         if (null !== $this->idPEntityId) {
             $res['IdPEntityId'] = $this->idPEntityId;
         }
+
         if (null !== $this->nameIdFormat) {
             $res['NameIdFormat'] = $this->nameIdFormat;
         }
+
         if (null !== $this->nameIdValueExpression) {
             $res['NameIdValueExpression'] = $this->nameIdValueExpression;
         }
+
         if (null !== $this->optionalRelayStates) {
-            $res['OptionalRelayStates'] = [];
-            if (null !== $this->optionalRelayStates && \is_array($this->optionalRelayStates)) {
-                $n = 0;
-                foreach ($this->optionalRelayStates as $item) {
-                    $res['OptionalRelayStates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->optionalRelayStates)) {
+                $res['OptionalRelayStates'] = [];
+                $n1                         = 0;
+                foreach ($this->optionalRelayStates as $item1) {
+                    $res['OptionalRelayStates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->responseSigned) {
             $res['ResponseSigned'] = $this->responseSigned;
         }
+
         if (null !== $this->signatureAlgorithm) {
             $res['SignatureAlgorithm'] = $this->signatureAlgorithm;
         }
+
         if (null !== $this->spEntityId) {
             $res['SpEntityId'] = $this->spEntityId;
         }
+
         if (null !== $this->spSsoAcsUrl) {
             $res['SpSsoAcsUrl'] = $this->spSsoAcsUrl;
         }
@@ -181,56 +141,66 @@ class samlSsoConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return samlSsoConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssertionSigned'])) {
             $model->assertionSigned = $map['AssertionSigned'];
         }
+
         if (isset($map['AttributeStatements'])) {
             if (!empty($map['AttributeStatements'])) {
                 $model->attributeStatements = [];
-                $n                          = 0;
-                foreach ($map['AttributeStatements'] as $item) {
-                    $model->attributeStatements[$n++] = null !== $item ? attributeStatements::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['AttributeStatements'] as $item1) {
+                    $model->attributeStatements[$n1++] = attributeStatements::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DefaultRelayState'])) {
             $model->defaultRelayState = $map['DefaultRelayState'];
         }
+
         if (isset($map['IdPEntityId'])) {
             $model->idPEntityId = $map['IdPEntityId'];
         }
+
         if (isset($map['NameIdFormat'])) {
             $model->nameIdFormat = $map['NameIdFormat'];
         }
+
         if (isset($map['NameIdValueExpression'])) {
             $model->nameIdValueExpression = $map['NameIdValueExpression'];
         }
+
         if (isset($map['OptionalRelayStates'])) {
             if (!empty($map['OptionalRelayStates'])) {
                 $model->optionalRelayStates = [];
-                $n                          = 0;
-                foreach ($map['OptionalRelayStates'] as $item) {
-                    $model->optionalRelayStates[$n++] = null !== $item ? optionalRelayStates::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['OptionalRelayStates'] as $item1) {
+                    $model->optionalRelayStates[$n1++] = optionalRelayStates::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ResponseSigned'])) {
             $model->responseSigned = $map['ResponseSigned'];
         }
+
         if (isset($map['SignatureAlgorithm'])) {
             $model->signatureAlgorithm = $map['SignatureAlgorithm'];
         }
+
         if (isset($map['SpEntityId'])) {
             $model->spEntityId = $map['SpEntityId'];
         }
+
         if (isset($map['SpSsoAcsUrl'])) {
             $model->spSsoAcsUrl = $map['SpSsoAcsUrl'];
         }

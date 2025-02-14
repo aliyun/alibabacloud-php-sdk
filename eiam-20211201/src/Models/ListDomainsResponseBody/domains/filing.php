@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsResponseBody\domains;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filing extends Model
 {
     /**
-     * @description 域名关联的备案号, 长度最大限制64。
-     *
      * @var string
      */
     public $icpNumber;
@@ -20,9 +18,10 @@ class filing extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->icpNumber) {
@@ -32,11 +31,11 @@ class filing extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filing
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

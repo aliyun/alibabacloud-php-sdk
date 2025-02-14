@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groups extends Model
 {
     /**
-     * @description The group ID.
-     *
-     * @example group_d6sbsuumeta4h66ec3il7yxxxx
-     *
      * @var string
      */
     public $groupId;
-
     /**
-     * @description Account membership source ID
-     *
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $groupMemberRelationSourceId;
-
     /**
-     * @description Account membership source type
-     *
-     * @example build_in
-     *
      * @var string
      */
     public $groupMemberRelationSourceType;
@@ -42,17 +28,20 @@ class groups extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupMemberRelationSourceId) {
             $res['GroupMemberRelationSourceId'] = $this->groupMemberRelationSourceId;
         }
+
         if (null !== $this->groupMemberRelationSourceType) {
             $res['GroupMemberRelationSourceType'] = $this->groupMemberRelationSourceType;
         }
@@ -60,20 +49,22 @@ class groups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupMemberRelationSourceId'])) {
             $model->groupMemberRelationSourceId = $map['GroupMemberRelationSourceId'];
         }
+
         if (isset($map['GroupMemberRelationSourceType'])) {
             $model->groupMemberRelationSourceType = $map['GroupMemberRelationSourceType'];
         }

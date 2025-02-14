@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceLicenseResponseBody\license;
-use AlibabaCloud\Tea\Model;
 
 class GetInstanceLicenseResponseBody extends Model
 {
     /**
-     * @description Returned result.
-     *
      * @var license
      */
     public $license;
-
     /**
-     * @description Request ID
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetInstanceLicenseResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->license) {
+            $this->license->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->license) {
-            $res['License'] = null !== $this->license ? $this->license->toMap() : null;
+            $res['License'] = null !== $this->license ? $this->license->toArray($noStream) : $this->license;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetInstanceLicenseResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceLicenseResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['License'])) {
             $model->license = license::fromMap($map['License']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

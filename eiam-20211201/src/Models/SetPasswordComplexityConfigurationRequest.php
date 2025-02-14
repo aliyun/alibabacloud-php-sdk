@@ -4,34 +4,20 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordComplexityConfigurationRequest\passwordComplexityRules;
-use AlibabaCloud\Tea\Model;
 
 class SetPasswordComplexityConfigurationRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The password complexity rules.
-     *
      * @var passwordComplexityRules[]
      */
     public $passwordComplexityRules;
-
     /**
-     * @description The minimum number of characters in a password.
-     *
-     * This parameter is required.
-     * @example 10
-     *
      * @var int
      */
     public $passwordMinLength;
@@ -43,23 +29,29 @@ class SetPasswordComplexityConfigurationRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->passwordComplexityRules)) {
+            Model::validateArray($this->passwordComplexityRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->passwordComplexityRules) {
-            $res['PasswordComplexityRules'] = [];
-            if (null !== $this->passwordComplexityRules && \is_array($this->passwordComplexityRules)) {
-                $n = 0;
-                foreach ($this->passwordComplexityRules as $item) {
-                    $res['PasswordComplexityRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->passwordComplexityRules)) {
+                $res['PasswordComplexityRules'] = [];
+                $n1                             = 0;
+                foreach ($this->passwordComplexityRules as $item1) {
+                    $res['PasswordComplexityRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->passwordMinLength) {
             $res['PasswordMinLength'] = $this->passwordMinLength;
         }
@@ -67,26 +59,28 @@ class SetPasswordComplexityConfigurationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetPasswordComplexityConfigurationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PasswordComplexityRules'])) {
             if (!empty($map['PasswordComplexityRules'])) {
                 $model->passwordComplexityRules = [];
-                $n                              = 0;
-                foreach ($map['PasswordComplexityRules'] as $item) {
-                    $model->passwordComplexityRules[$n++] = null !== $item ? passwordComplexityRules::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['PasswordComplexityRules'] as $item1) {
+                    $model->passwordComplexityRules[$n1++] = passwordComplexityRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PasswordMinLength'])) {
             $model->passwordMinLength = $map['PasswordMinLength'];
         }

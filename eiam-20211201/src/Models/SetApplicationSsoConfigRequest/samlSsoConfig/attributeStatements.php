@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationSsoConfigRequest\samlSsoConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class attributeStatements extends Model
 {
     /**
-     * @description The attribute name.
-     *
-     * @example https://www.aliyun.com/SAML-Role/Attributes/RoleSessionName
-     *
      * @var string
      */
     public $attributeName;
-
     /**
-     * @description The expression that is used to generate the value of the attribute.
-     *
-     * @example user.username
-     *
      * @var string
      */
     public $attributeValueExpression;
@@ -32,14 +23,16 @@ class attributeStatements extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attributeName) {
             $res['AttributeName'] = $this->attributeName;
         }
+
         if (null !== $this->attributeValueExpression) {
             $res['AttributeValueExpression'] = $this->attributeValueExpression;
         }
@@ -47,17 +40,18 @@ class attributeStatements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return attributeStatements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttributeName'])) {
             $model->attributeName = $map['AttributeName'];
         }
+
         if (isset($map['AttributeValueExpression'])) {
             $model->attributeValueExpression = $map['AttributeValueExpression'];
         }

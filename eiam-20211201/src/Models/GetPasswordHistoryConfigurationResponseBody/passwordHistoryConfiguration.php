@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordHistoryConfigurationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passwordHistoryConfiguration extends Model
 {
     /**
-     * @description The maximum number of recent passwords that are retained.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $passwordHistoryMaxRetention;
-
     /**
-     * @description Indicates whether the password history feature is enabled. Valid values:
-     *
-     *   enabled
-     *   disabled
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $passwordHistoryStatus;
@@ -35,14 +23,16 @@ class passwordHistoryConfiguration extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passwordHistoryMaxRetention) {
             $res['PasswordHistoryMaxRetention'] = $this->passwordHistoryMaxRetention;
         }
+
         if (null !== $this->passwordHistoryStatus) {
             $res['PasswordHistoryStatus'] = $this->passwordHistoryStatus;
         }
@@ -50,17 +40,18 @@ class passwordHistoryConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passwordHistoryConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PasswordHistoryMaxRetention'])) {
             $model->passwordHistoryMaxRetention = $map['PasswordHistoryMaxRetention'];
         }
+
         if (isset($map['PasswordHistoryStatus'])) {
             $model->passwordHistoryStatus = $map['PasswordHistoryStatus'];
         }

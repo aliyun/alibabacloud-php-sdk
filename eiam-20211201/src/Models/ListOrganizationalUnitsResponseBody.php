@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListOrganizationalUnitsResponseBody\organizationalUnits;
-use AlibabaCloud\Tea\Model;
 
 class ListOrganizationalUnitsResponseBody extends Model
 {
     /**
-     * @description The list of data objects of organizational units.
-     *
      * @var organizationalUnits[]
      */
     public $organizationalUnits;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The number of entries in the list.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -41,23 +29,29 @@ class ListOrganizationalUnitsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->organizationalUnits)) {
+            Model::validateArray($this->organizationalUnits);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->organizationalUnits) {
-            $res['OrganizationalUnits'] = [];
-            if (null !== $this->organizationalUnits && \is_array($this->organizationalUnits)) {
-                $n = 0;
-                foreach ($this->organizationalUnits as $item) {
-                    $res['OrganizationalUnits'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->organizationalUnits)) {
+                $res['OrganizationalUnits'] = [];
+                $n1                         = 0;
+                foreach ($this->organizationalUnits as $item1) {
+                    $res['OrganizationalUnits'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +59,28 @@ class ListOrganizationalUnitsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOrganizationalUnitsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrganizationalUnits'])) {
             if (!empty($map['OrganizationalUnits'])) {
                 $model->organizationalUnits = [];
-                $n                          = 0;
-                foreach ($map['OrganizationalUnits'] as $item) {
-                    $model->organizationalUnits[$n++] = null !== $item ? organizationalUnits::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['OrganizationalUnits'] as $item1) {
+                    $model->organizationalUnits[$n1++] = organizationalUnits::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

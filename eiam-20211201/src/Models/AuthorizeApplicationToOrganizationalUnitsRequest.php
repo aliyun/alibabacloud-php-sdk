@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AuthorizeApplicationToOrganizationalUnitsRequest extends Model
 {
     /**
-     * @description The ID of the application on which you want to grant permissions.
-     *
-     * This parameter is required.
-     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
-     *
      * @var string
      */
     public $applicationId;
-
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example idaas_ue2jvisn35ea5lmthk2676xxxx
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The IDs of the organizations to which you want to grant permissions. You can grant permissions to a maximum of 100 organizations at a time.
-     *
-     * This parameter is required.
-     * @example ou_wovwffm62xifdziem7an7xxxxx
-     *
      * @var string[]
      */
     public $organizationalUnitIds;
@@ -45,41 +28,59 @@ class AuthorizeApplicationToOrganizationalUnitsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->organizationalUnitIds)) {
+            Model::validateArray($this->organizationalUnitIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->organizationalUnitIds) {
-            $res['OrganizationalUnitIds'] = $this->organizationalUnitIds;
+            if (\is_array($this->organizationalUnitIds)) {
+                $res['OrganizationalUnitIds'] = [];
+                $n1                           = 0;
+                foreach ($this->organizationalUnitIds as $item1) {
+                    $res['OrganizationalUnitIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuthorizeApplicationToOrganizationalUnitsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OrganizationalUnitIds'])) {
             if (!empty($map['OrganizationalUnitIds'])) {
-                $model->organizationalUnitIds = $map['OrganizationalUnitIds'];
+                $model->organizationalUnitIds = [];
+                $n1                           = 0;
+                foreach ($map['OrganizationalUnitIds'] as $item1) {
+                    $model->organizationalUnitIds[$n1++] = $item1;
+                }
             }
         }
 

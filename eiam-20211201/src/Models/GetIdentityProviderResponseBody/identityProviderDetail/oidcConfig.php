@@ -4,58 +4,33 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\oidcConfig\authnParam;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail\oidcConfig\endpointConfig;
-use AlibabaCloud\Tea\Model;
 
 class oidcConfig extends Model
 {
     /**
-     * @description OIDC客户端认证配置。
-     *
      * @var authnParam
      */
     public $authnParam;
-
     /**
-     * @description OIDC 端点配置。
-     *
      * @var endpointConfig
      */
     public $endpointConfig;
-
     /**
-     * @description OIDC标准参数，如profile、email等
-     *
-     * @example openid
-     *
      * @var string[]
      */
     public $grantScopes;
-
     /**
-     * @description OIDC授权类型。
-     *
-     * @example authorization_code
-     *
      * @var string
      */
     public $grantType;
-
     /**
-     * @description 支持的PKCE算法类型。
-     *
-     * @example S256
-     *
      * @var string
      */
     public $pkceChallengeMethod;
-
     /**
-     * @description AuthorizationCode授权模式下是否使用PKCE。
-     *
-     * @example true
-     *
      * @var bool
      */
     public $pkceRequired;
@@ -70,26 +45,47 @@ class oidcConfig extends Model
 
     public function validate()
     {
+        if (null !== $this->authnParam) {
+            $this->authnParam->validate();
+        }
+        if (null !== $this->endpointConfig) {
+            $this->endpointConfig->validate();
+        }
+        if (\is_array($this->grantScopes)) {
+            Model::validateArray($this->grantScopes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authnParam) {
-            $res['AuthnParam'] = null !== $this->authnParam ? $this->authnParam->toMap() : null;
+            $res['AuthnParam'] = null !== $this->authnParam ? $this->authnParam->toArray($noStream) : $this->authnParam;
         }
+
         if (null !== $this->endpointConfig) {
-            $res['EndpointConfig'] = null !== $this->endpointConfig ? $this->endpointConfig->toMap() : null;
+            $res['EndpointConfig'] = null !== $this->endpointConfig ? $this->endpointConfig->toArray($noStream) : $this->endpointConfig;
         }
+
         if (null !== $this->grantScopes) {
-            $res['GrantScopes'] = $this->grantScopes;
+            if (\is_array($this->grantScopes)) {
+                $res['GrantScopes'] = [];
+                $n1                 = 0;
+                foreach ($this->grantScopes as $item1) {
+                    $res['GrantScopes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->grantType) {
             $res['GrantType'] = $this->grantType;
         }
+
         if (null !== $this->pkceChallengeMethod) {
             $res['PkceChallengeMethod'] = $this->pkceChallengeMethod;
         }
+
         if (null !== $this->pkceRequired) {
             $res['PkceRequired'] = $this->pkceRequired;
         }
@@ -97,31 +93,40 @@ class oidcConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return oidcConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthnParam'])) {
             $model->authnParam = authnParam::fromMap($map['AuthnParam']);
         }
+
         if (isset($map['EndpointConfig'])) {
             $model->endpointConfig = endpointConfig::fromMap($map['EndpointConfig']);
         }
+
         if (isset($map['GrantScopes'])) {
             if (!empty($map['GrantScopes'])) {
-                $model->grantScopes = $map['GrantScopes'];
+                $model->grantScopes = [];
+                $n1                 = 0;
+                foreach ($map['GrantScopes'] as $item1) {
+                    $model->grantScopes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['GrantType'])) {
             $model->grantType = $map['GrantType'];
         }
+
         if (isset($map['PkceChallengeMethod'])) {
             $model->pkceChallengeMethod = $map['PkceChallengeMethod'];
         }
+
         if (isset($map['PkceRequired'])) {
             $model->pkceRequired = $map['PkceRequired'];
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUsersToGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUsersToGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\AddUserToOrganizationalUnitsRequest;
@@ -253,11 +252,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserPasswordRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserPasswordResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Eiam extends OpenApiClient
 {
@@ -282,39 +280,47 @@ class Eiam extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
-     *  *
-     * @param AddUserToOrganizationalUnitsRequest $request AddUserToOrganizationalUnitsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
      *
-     * @return AddUserToOrganizationalUnitsResponse AddUserToOrganizationalUnitsResponse
+     * @param request - AddUserToOrganizationalUnitsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddUserToOrganizationalUnitsResponse
+     *
+     * @param AddUserToOrganizationalUnitsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AddUserToOrganizationalUnitsResponse
      */
     public function addUserToOrganizationalUnitsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitIds)) {
-            $query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
+
+        if (null !== $request->organizationalUnitIds) {
+            @$query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddUserToOrganizationalUnits',
@@ -327,16 +333,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddUserToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUserToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUserToOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
-     *  *
-     * @param AddUserToOrganizationalUnitsRequest $request AddUserToOrganizationalUnitsRequest
+     * Adds an Employee Identity and Access Management (EIAM) account to multiple EIAM organizations of Identity as a Service (IDaaS). If the account already exists in the organizational unit, the system directly returns a success response.
      *
-     * @return AddUserToOrganizationalUnitsResponse AddUserToOrganizationalUnitsResponse
+     * @param request - AddUserToOrganizationalUnitsRequest
+     * @returns AddUserToOrganizationalUnitsResponse
+     *
+     * @param AddUserToOrganizationalUnitsRequest $request
+     *
+     * @return AddUserToOrganizationalUnitsResponse
      */
     public function addUserToOrganizationalUnits($request)
     {
@@ -346,28 +358,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
-     *  *
-     * @param AddUsersToGroupRequest $request AddUsersToGroupRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
      *
-     * @return AddUsersToGroupResponse AddUsersToGroupResponse
+     * @param request - AddUsersToGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddUsersToGroupResponse
+     *
+     * @param AddUsersToGroupRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddUsersToGroupResponse
      */
     public function addUsersToGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddUsersToGroup',
@@ -380,16 +399,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddUsersToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddUsersToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddUsersToGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
-     *  *
-     * @param AddUsersToGroupRequest $request AddUsersToGroupRequest
+     * Adds Employee Identity and Access Management (EIAM) accounts to an EIAM group of Identity as a Service (IDaaS).
      *
-     * @return AddUsersToGroupResponse AddUsersToGroupResponse
+     * @param request - AddUsersToGroupRequest
+     * @returns AddUsersToGroupResponse
+     *
+     * @param AddUsersToGroupRequest $request
+     *
+     * @return AddUsersToGroupResponse
      */
     public function addUsersToGroup($request)
     {
@@ -399,28 +424,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param AuthorizeApplicationToGroupsRequest $request AuthorizeApplicationToGroupsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return AuthorizeApplicationToGroupsResponse AuthorizeApplicationToGroupsResponse
+     * @param request - AuthorizeApplicationToGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AuthorizeApplicationToGroupsResponse
+     *
+     * @param AuthorizeApplicationToGroupsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AuthorizeApplicationToGroupsResponse
      */
     public function authorizeApplicationToGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AuthorizeApplicationToGroups',
@@ -433,16 +465,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AuthorizeApplicationToGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AuthorizeApplicationToGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AuthorizeApplicationToGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param AuthorizeApplicationToGroupsRequest $request AuthorizeApplicationToGroupsRequest
+     * Grants the permissions to access an application to multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return AuthorizeApplicationToGroupsResponse AuthorizeApplicationToGroupsResponse
+     * @param request - AuthorizeApplicationToGroupsRequest
+     * @returns AuthorizeApplicationToGroupsResponse
+     *
+     * @param AuthorizeApplicationToGroupsRequest $request
+     *
+     * @return AuthorizeApplicationToGroupsResponse
      */
     public function authorizeApplicationToGroups($request)
     {
@@ -452,28 +490,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
-     *  *
-     * @param AuthorizeApplicationToOrganizationalUnitsRequest $request AuthorizeApplicationToOrganizationalUnitsRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     * Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
      *
-     * @return AuthorizeApplicationToOrganizationalUnitsResponse AuthorizeApplicationToOrganizationalUnitsResponse
+     * @param request - AuthorizeApplicationToOrganizationalUnitsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AuthorizeApplicationToOrganizationalUnitsResponse
+     *
+     * @param AuthorizeApplicationToOrganizationalUnitsRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return AuthorizeApplicationToOrganizationalUnitsResponse
      */
     public function authorizeApplicationToOrganizationalUnitsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitIds)) {
-            $query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
+
+        if (null !== $request->organizationalUnitIds) {
+            @$query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AuthorizeApplicationToOrganizationalUnits',
@@ -486,16 +531,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AuthorizeApplicationToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AuthorizeApplicationToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AuthorizeApplicationToOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
-     *  *
-     * @param AuthorizeApplicationToOrganizationalUnitsRequest $request AuthorizeApplicationToOrganizationalUnitsRequest
+     * Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) organizations at a time.
      *
-     * @return AuthorizeApplicationToOrganizationalUnitsResponse AuthorizeApplicationToOrganizationalUnitsResponse
+     * @param request - AuthorizeApplicationToOrganizationalUnitsRequest
+     * @returns AuthorizeApplicationToOrganizationalUnitsResponse
+     *
+     * @param AuthorizeApplicationToOrganizationalUnitsRequest $request
+     *
+     * @return AuthorizeApplicationToOrganizationalUnitsResponse
      */
     public function authorizeApplicationToOrganizationalUnits($request)
     {
@@ -505,28 +556,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
-     *  *
-     * @param AuthorizeApplicationToUsersRequest $request AuthorizeApplicationToUsersRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
      *
-     * @return AuthorizeApplicationToUsersResponse AuthorizeApplicationToUsersResponse
+     * @param request - AuthorizeApplicationToUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AuthorizeApplicationToUsersResponse
+     *
+     * @param AuthorizeApplicationToUsersRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AuthorizeApplicationToUsersResponse
      */
     public function authorizeApplicationToUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AuthorizeApplicationToUsers',
@@ -539,16 +597,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AuthorizeApplicationToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AuthorizeApplicationToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AuthorizeApplicationToUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
-     *  *
-     * @param AuthorizeApplicationToUsersRequest $request AuthorizeApplicationToUsersRequest
+     * Grants the access permissions on an application to multiple Employee Identity and Access Management (EIAM) accounts at a time.
      *
-     * @return AuthorizeApplicationToUsersResponse AuthorizeApplicationToUsersResponse
+     * @param request - AuthorizeApplicationToUsersRequest
+     * @returns AuthorizeApplicationToUsersResponse
+     *
+     * @param AuthorizeApplicationToUsersRequest $request
+     *
+     * @return AuthorizeApplicationToUsersResponse
      */
     public function authorizeApplicationToUsers($request)
     {
@@ -558,42 +622,54 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
-     *  *
-     * @param CreateApplicationRequest $request CreateApplicationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return CreateApplicationResponse CreateApplicationResponse
+     * @remarks
+     * IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+     *
+     * @param request - CreateApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateApplicationResponse
+     *
+     * @param CreateApplicationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateApplicationResponse
      */
     public function createApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationName)) {
-            $query['ApplicationName'] = $request->applicationName;
+        if (null !== $request->applicationName) {
+            @$query['ApplicationName'] = $request->applicationName;
         }
-        if (!Utils::isUnset($request->applicationSourceType)) {
-            $query['ApplicationSourceType'] = $request->applicationSourceType;
+
+        if (null !== $request->applicationSourceType) {
+            @$query['ApplicationSourceType'] = $request->applicationSourceType;
         }
-        if (!Utils::isUnset($request->applicationTemplateId)) {
-            $query['ApplicationTemplateId'] = $request->applicationTemplateId;
+
+        if (null !== $request->applicationTemplateId) {
+            @$query['ApplicationTemplateId'] = $request->applicationTemplateId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->logoUrl)) {
-            $query['LogoUrl'] = $request->logoUrl;
+
+        if (null !== $request->logoUrl) {
+            @$query['LogoUrl'] = $request->logoUrl;
         }
-        if (!Utils::isUnset($request->ssoType)) {
-            $query['SsoType'] = $request->ssoType;
+
+        if (null !== $request->ssoType) {
+            @$query['SsoType'] = $request->ssoType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateApplication',
@@ -606,18 +682,25 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @description IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
-     *  *
-     * @param CreateApplicationRequest $request CreateApplicationRequest
+     * Adds an application to an Enterprise Identity Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return CreateApplicationResponse CreateApplicationResponse
+     * @remarks
+     * IDaaS EIAM supports the following two standard single sign-on (SSO) protocols for adding applications: SAML 2.0 and OIDC. You can select an SSO protocol based on your business requirements when you add an application. You cannot change the SSO protocol that you selected after the application is added.
+     *
+     * @param request - CreateApplicationRequest
+     * @returns CreateApplicationResponse
+     *
+     * @param CreateApplicationRequest $request
+     *
+     * @return CreateApplicationResponse
      */
     public function createApplication($request)
     {
@@ -627,25 +710,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
-     *  *
-     * @param CreateApplicationClientSecretRequest $request CreateApplicationClientSecretRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
      *
-     * @return CreateApplicationClientSecretResponse CreateApplicationClientSecretResponse
+     * @param request - CreateApplicationClientSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateApplicationClientSecretResponse
+     *
+     * @param CreateApplicationClientSecretRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateApplicationClientSecretResponse
      */
     public function createApplicationClientSecretWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateApplicationClientSecret',
@@ -658,16 +747,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
-     *  *
-     * @param CreateApplicationClientSecretRequest $request CreateApplicationClientSecretRequest
+     * Creates a client key for an Employee Identity and Access Management (EIAM) application. An EIAM application can have up to two client keys.
      *
-     * @return CreateApplicationClientSecretResponse CreateApplicationClientSecretResponse
+     * @param request - CreateApplicationClientSecretRequest
+     * @returns CreateApplicationClientSecretResponse
+     *
+     * @param CreateApplicationClientSecretRequest $request
+     *
+     * @return CreateApplicationClientSecretResponse
      */
     public function createApplicationClientSecret($request)
     {
@@ -677,28 +772,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 创建域名。
-     *  *
-     * @param CreateDomainRequest $request CreateDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 创建域名。
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @param request - CreateDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
      */
     public function createDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->filing)) {
-            $query['Filing'] = $request->filing;
+
+        if (null !== $request->filing) {
+            @$query['Filing'] = $request->filing;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDomain',
@@ -711,16 +813,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建域名。
-     *  *
-     * @param CreateDomainRequest $request CreateDomainRequest
+     * 创建域名。
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @param request - CreateDomainRequest
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
      */
     public function createDomain($request)
     {
@@ -730,25 +838,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 创建域名代理Token。
-     *  *
-     * @param CreateDomainProxyTokenRequest $request CreateDomainProxyTokenRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 创建域名代理Token。
      *
-     * @return CreateDomainProxyTokenResponse CreateDomainProxyTokenResponse
+     * @param request - CreateDomainProxyTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDomainProxyTokenResponse
+     *
+     * @param CreateDomainProxyTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDomainProxyTokenResponse
      */
     public function createDomainProxyTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDomainProxyToken',
@@ -761,16 +875,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建域名代理Token。
-     *  *
-     * @param CreateDomainProxyTokenRequest $request CreateDomainProxyTokenRequest
+     * 创建域名代理Token。
      *
-     * @return CreateDomainProxyTokenResponse CreateDomainProxyTokenResponse
+     * @param request - CreateDomainProxyTokenRequest
+     * @returns CreateDomainProxyTokenResponse
+     *
+     * @param CreateDomainProxyTokenRequest $request
+     *
+     * @return CreateDomainProxyTokenResponse
      */
     public function createDomainProxyToken($request)
     {
@@ -780,31 +900,39 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param CreateGroupRequest $request CreateGroupRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return CreateGroupResponse CreateGroupResponse
+     * @param request - CreateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateGroupResponse
+     *
+     * @param CreateGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateGroupResponse
      */
     public function createGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupExternalId)) {
-            $query['GroupExternalId'] = $request->groupExternalId;
+
+        if (null !== $request->groupExternalId) {
+            @$query['GroupExternalId'] = $request->groupExternalId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateGroup',
@@ -817,16 +945,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param CreateGroupRequest $request CreateGroupRequest
+     * Creates an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return CreateGroupResponse CreateGroupResponse
+     * @param request - CreateGroupRequest
+     * @returns CreateGroupResponse
+     *
+     * @param CreateGroupRequest $request
+     *
+     * @return CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -836,67 +970,87 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 创建身份提供方
-     *  *
-     * @param CreateIdentityProviderRequest $request CreateIdentityProviderRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 创建身份提供方.
      *
-     * @return CreateIdentityProviderResponse CreateIdentityProviderResponse
+     * @param request - CreateIdentityProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateIdentityProviderResponse
+     *
+     * @param CreateIdentityProviderRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateIdentityProviderResponse
      */
     public function createIdentityProviderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authnConfig)) {
-            $query['AuthnConfig'] = $request->authnConfig;
+        if (null !== $request->authnConfig) {
+            @$query['AuthnConfig'] = $request->authnConfig;
         }
-        if (!Utils::isUnset($request->autoCreateUserConfig)) {
-            $query['AutoCreateUserConfig'] = $request->autoCreateUserConfig;
+
+        if (null !== $request->autoCreateUserConfig) {
+            @$query['AutoCreateUserConfig'] = $request->autoCreateUserConfig;
         }
-        if (!Utils::isUnset($request->autoUpdateUserConfig)) {
-            $query['AutoUpdateUserConfig'] = $request->autoUpdateUserConfig;
+
+        if (null !== $request->autoUpdateUserConfig) {
+            @$query['AutoUpdateUserConfig'] = $request->autoUpdateUserConfig;
         }
-        if (!Utils::isUnset($request->bindingConfig)) {
-            $query['BindingConfig'] = $request->bindingConfig;
+
+        if (null !== $request->bindingConfig) {
+            @$query['BindingConfig'] = $request->bindingConfig;
         }
-        if (!Utils::isUnset($request->dingtalkAppConfig)) {
-            $query['DingtalkAppConfig'] = $request->dingtalkAppConfig;
+
+        if (null !== $request->dingtalkAppConfig) {
+            @$query['DingtalkAppConfig'] = $request->dingtalkAppConfig;
         }
-        if (!Utils::isUnset($request->identityProviderName)) {
-            $query['IdentityProviderName'] = $request->identityProviderName;
+
+        if (null !== $request->identityProviderName) {
+            @$query['IdentityProviderName'] = $request->identityProviderName;
         }
-        if (!Utils::isUnset($request->identityProviderType)) {
-            $query['IdentityProviderType'] = $request->identityProviderType;
+
+        if (null !== $request->identityProviderType) {
+            @$query['IdentityProviderType'] = $request->identityProviderType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->larkConfig)) {
-            $query['LarkConfig'] = $request->larkConfig;
+
+        if (null !== $request->larkConfig) {
+            @$query['LarkConfig'] = $request->larkConfig;
         }
-        if (!Utils::isUnset($request->ldapConfig)) {
-            $query['LdapConfig'] = $request->ldapConfig;
+
+        if (null !== $request->ldapConfig) {
+            @$query['LdapConfig'] = $request->ldapConfig;
         }
-        if (!Utils::isUnset($request->logoUrl)) {
-            $query['LogoUrl'] = $request->logoUrl;
+
+        if (null !== $request->logoUrl) {
+            @$query['LogoUrl'] = $request->logoUrl;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointId)) {
-            $query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
         }
-        if (!Utils::isUnset($request->oidcConfig)) {
-            $query['OidcConfig'] = $request->oidcConfig;
+
+        if (null !== $request->oidcConfig) {
+            @$query['OidcConfig'] = $request->oidcConfig;
         }
-        if (!Utils::isUnset($request->udPullConfig)) {
-            $query['UdPullConfig'] = $request->udPullConfig;
+
+        if (null !== $request->udPullConfig) {
+            @$query['UdPullConfig'] = $request->udPullConfig;
         }
-        if (!Utils::isUnset($request->udPushConfig)) {
-            $query['UdPushConfig'] = $request->udPushConfig;
+
+        if (null !== $request->udPushConfig) {
+            @$query['UdPushConfig'] = $request->udPushConfig;
         }
-        if (!Utils::isUnset($request->weComConfig)) {
-            $query['WeComConfig'] = $request->weComConfig;
+
+        if (null !== $request->weComConfig) {
+            @$query['WeComConfig'] = $request->weComConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateIdentityProvider',
@@ -909,16 +1063,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建身份提供方
-     *  *
-     * @param CreateIdentityProviderRequest $request CreateIdentityProviderRequest
+     * 创建身份提供方.
      *
-     * @return CreateIdentityProviderResponse CreateIdentityProviderResponse
+     * @param request - CreateIdentityProviderRequest
+     * @returns CreateIdentityProviderResponse
+     *
+     * @param CreateIdentityProviderRequest $request
+     *
+     * @return CreateIdentityProviderResponse
      */
     public function createIdentityProvider($request)
     {
@@ -928,22 +1088,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateInstance',
@@ -956,16 +1121,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
-     *  *
-     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param request - CreateInstanceRequest
+     * @returns CreateInstanceResponse
+     *
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -975,37 +1146,47 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个专属网络端点。
-     *  *
-     * @param CreateNetworkAccessEndpointRequest $request CreateNetworkAccessEndpointRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 创建一个专属网络端点。
      *
-     * @return CreateNetworkAccessEndpointResponse CreateNetworkAccessEndpointResponse
+     * @param request - CreateNetworkAccessEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateNetworkAccessEndpointResponse
+     *
+     * @param CreateNetworkAccessEndpointRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateNetworkAccessEndpointResponse
      */
     public function createNetworkAccessEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointName)) {
-            $query['NetworkAccessEndpointName'] = $request->networkAccessEndpointName;
+
+        if (null !== $request->networkAccessEndpointName) {
+            @$query['NetworkAccessEndpointName'] = $request->networkAccessEndpointName;
         }
-        if (!Utils::isUnset($request->vSwitchIds)) {
-            $query['VSwitchIds'] = $request->vSwitchIds;
+
+        if (null !== $request->vSwitchIds) {
+            @$query['VSwitchIds'] = $request->vSwitchIds;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vpcRegionId)) {
-            $query['VpcRegionId'] = $request->vpcRegionId;
+
+        if (null !== $request->vpcRegionId) {
+            @$query['VpcRegionId'] = $request->vpcRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateNetworkAccessEndpoint',
@@ -1018,16 +1199,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNetworkAccessEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建一个专属网络端点。
-     *  *
-     * @param CreateNetworkAccessEndpointRequest $request CreateNetworkAccessEndpointRequest
+     * 创建一个专属网络端点。
      *
-     * @return CreateNetworkAccessEndpointResponse CreateNetworkAccessEndpointResponse
+     * @param request - CreateNetworkAccessEndpointRequest
+     * @returns CreateNetworkAccessEndpointResponse
+     *
+     * @param CreateNetworkAccessEndpointRequest $request
+     *
+     * @return CreateNetworkAccessEndpointResponse
      */
     public function createNetworkAccessEndpoint($request)
     {
@@ -1037,34 +1224,43 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param CreateOrganizationalUnitRequest $request CreateOrganizationalUnitRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return CreateOrganizationalUnitResponse CreateOrganizationalUnitResponse
+     * @param request - CreateOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOrganizationalUnitResponse
+     *
+     * @param CreateOrganizationalUnitRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateOrganizationalUnitResponse
      */
     public function createOrganizationalUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitExternalId)) {
-            $query['OrganizationalUnitExternalId'] = $request->organizationalUnitExternalId;
+
+        if (null !== $request->organizationalUnitExternalId) {
+            @$query['OrganizationalUnitExternalId'] = $request->organizationalUnitExternalId;
         }
-        if (!Utils::isUnset($request->organizationalUnitName)) {
-            $query['OrganizationalUnitName'] = $request->organizationalUnitName;
+
+        if (null !== $request->organizationalUnitName) {
+            @$query['OrganizationalUnitName'] = $request->organizationalUnitName;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateOrganizationalUnit',
@@ -1077,16 +1273,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param CreateOrganizationalUnitRequest $request CreateOrganizationalUnitRequest
+     * Creates an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return CreateOrganizationalUnitResponse CreateOrganizationalUnitResponse
+     * @param request - CreateOrganizationalUnitRequest
+     * @returns CreateOrganizationalUnitResponse
+     *
+     * @param CreateOrganizationalUnitRequest $request
+     *
+     * @return CreateOrganizationalUnitResponse
      */
     public function createOrganizationalUnit($request)
     {
@@ -1096,64 +1298,83 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
-     *  *
-     * @param CreateUserRequest $request CreateUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
      *
-     * @return CreateUserResponse CreateUserResponse
+     * @param request - CreateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateUserResponse
      */
     public function createUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customFields)) {
-            $query['CustomFields'] = $request->customFields;
+        if (null !== $request->customFields) {
+            @$query['CustomFields'] = $request->customFields;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->emailVerified)) {
-            $query['EmailVerified'] = $request->emailVerified;
+
+        if (null !== $request->emailVerified) {
+            @$query['EmailVerified'] = $request->emailVerified;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitIds)) {
-            $query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
+
+        if (null !== $request->organizationalUnitIds) {
+            @$query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->passwordInitializationConfig)) {
-            $query['PasswordInitializationConfig'] = $request->passwordInitializationConfig;
+
+        if (null !== $request->passwordInitializationConfig) {
+            @$query['PasswordInitializationConfig'] = $request->passwordInitializationConfig;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->phoneNumberVerified)) {
-            $query['PhoneNumberVerified'] = $request->phoneNumberVerified;
+
+        if (null !== $request->phoneNumberVerified) {
+            @$query['PhoneNumberVerified'] = $request->phoneNumberVerified;
         }
-        if (!Utils::isUnset($request->phoneRegion)) {
-            $query['PhoneRegion'] = $request->phoneRegion;
+
+        if (null !== $request->phoneRegion) {
+            @$query['PhoneRegion'] = $request->phoneRegion;
         }
-        if (!Utils::isUnset($request->primaryOrganizationalUnitId)) {
-            $query['PrimaryOrganizationalUnitId'] = $request->primaryOrganizationalUnitId;
+
+        if (null !== $request->primaryOrganizationalUnitId) {
+            @$query['PrimaryOrganizationalUnitId'] = $request->primaryOrganizationalUnitId;
         }
-        if (!Utils::isUnset($request->userExternalId)) {
-            $query['UserExternalId'] = $request->userExternalId;
+
+        if (null !== $request->userExternalId) {
+            @$query['UserExternalId'] = $request->userExternalId;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateUser',
@@ -1166,16 +1387,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
-     *  *
-     * @param CreateUserRequest $request CreateUserRequest
+     * Creates an account in an Identity as a Service (IDaaS) Enterprise Identity Access Management (EIAM) instance.
      *
-     * @return CreateUserResponse CreateUserResponse
+     * @param request - CreateUserRequest
+     * @returns CreateUserResponse
+     *
+     * @param CreateUserRequest $request
+     *
+     * @return CreateUserResponse
      */
     public function createUser($request)
     {
@@ -1185,27 +1412,34 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @description Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
-     *  *
-     * @param DeleteApplicationRequest $request DeleteApplicationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes an Employee Identity and Access Management (EIAM) application.
      *
-     * @return DeleteApplicationResponse DeleteApplicationResponse
+     * @remarks
+     * Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
+     *
+     * @param request - DeleteApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteApplicationResponse
+     *
+     * @param DeleteApplicationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteApplicationResponse
      */
     public function deleteApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApplication',
@@ -1218,18 +1452,25 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @description Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
-     *  *
-     * @param DeleteApplicationRequest $request DeleteApplicationRequest
+     * Deletes an Employee Identity and Access Management (EIAM) application.
      *
-     * @return DeleteApplicationResponse DeleteApplicationResponse
+     * @remarks
+     * Make sure that the EIAM application that you want to delete is not used before you delete the EIAM application. After you delete the EIAM application, all configurations are deleted and cannot be restored.
+     *
+     * @param request - DeleteApplicationRequest
+     * @returns DeleteApplicationResponse
+     *
+     * @param DeleteApplicationRequest $request
+     *
+     * @return DeleteApplicationResponse
      */
     public function deleteApplication($request)
     {
@@ -1239,28 +1480,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a client key for an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param DeleteApplicationClientSecretRequest $request DeleteApplicationClientSecretRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Deletes a client key for an Employee Identity and Access Management (EIAM) application.
      *
-     * @return DeleteApplicationClientSecretResponse DeleteApplicationClientSecretResponse
+     * @param request - DeleteApplicationClientSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteApplicationClientSecretResponse
+     *
+     * @param DeleteApplicationClientSecretRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteApplicationClientSecretResponse
      */
     public function deleteApplicationClientSecretWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->secretId)) {
-            $query['SecretId'] = $request->secretId;
+
+        if (null !== $request->secretId) {
+            @$query['SecretId'] = $request->secretId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApplicationClientSecret',
@@ -1273,16 +1521,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a client key for an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param DeleteApplicationClientSecretRequest $request DeleteApplicationClientSecretRequest
+     * Deletes a client key for an Employee Identity and Access Management (EIAM) application.
      *
-     * @return DeleteApplicationClientSecretResponse DeleteApplicationClientSecretResponse
+     * @param request - DeleteApplicationClientSecretRequest
+     * @returns DeleteApplicationClientSecretResponse
+     *
+     * @param DeleteApplicationClientSecretRequest $request
+     *
+     * @return DeleteApplicationClientSecretResponse
      */
     public function deleteApplicationClientSecret($request)
     {
@@ -1292,25 +1546,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 删除域名。
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 删除域名。
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param request - DeleteDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomain',
@@ -1323,16 +1583,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除域名。
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * 删除域名。
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param request - DeleteDomainRequest
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -1342,28 +1608,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
-     *  *
-     * @param DeleteDomainProxyTokenRequest $request DeleteDomainProxyTokenRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
      *
-     * @return DeleteDomainProxyTokenResponse DeleteDomainProxyTokenResponse
+     * @param request - DeleteDomainProxyTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDomainProxyTokenResponse
+     *
+     * @param DeleteDomainProxyTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDomainProxyTokenResponse
      */
     public function deleteDomainProxyTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->domainProxyTokenId)) {
-            $query['DomainProxyTokenId'] = $request->domainProxyTokenId;
+
+        if (null !== $request->domainProxyTokenId) {
+            @$query['DomainProxyTokenId'] = $request->domainProxyTokenId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomainProxyToken',
@@ -1376,16 +1649,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
-     *  *
-     * @param DeleteDomainProxyTokenRequest $request DeleteDomainProxyTokenRequest
+     * 删除指定域名代理Token，删除之前请保证代理Token处于禁用状态。
      *
-     * @return DeleteDomainProxyTokenResponse DeleteDomainProxyTokenResponse
+     * @param request - DeleteDomainProxyTokenRequest
+     * @returns DeleteDomainProxyTokenResponse
+     *
+     * @param DeleteDomainProxyTokenRequest $request
+     *
+     * @return DeleteDomainProxyTokenResponse
      */
     public function deleteDomainProxyToken($request)
     {
@@ -1395,25 +1674,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param DeleteGroupRequest $request DeleteGroupRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return DeleteGroupResponse DeleteGroupResponse
+     * @param request - DeleteGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteGroupResponse
+     *
+     * @param DeleteGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteGroupResponse
      */
     public function deleteGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteGroup',
@@ -1426,16 +1711,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param DeleteGroupRequest $request DeleteGroupRequest
+     * Deletes the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return DeleteGroupResponse DeleteGroupResponse
+     * @param request - DeleteGroupRequest
+     * @returns DeleteGroupResponse
+     *
+     * @param DeleteGroupRequest $request
+     *
+     * @return DeleteGroupResponse
      */
     public function deleteGroup($request)
     {
@@ -1445,25 +1736,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 删除身份提供方
-     *  *
-     * @param DeleteIdentityProviderRequest $request DeleteIdentityProviderRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 删除身份提供方.
      *
-     * @return DeleteIdentityProviderResponse DeleteIdentityProviderResponse
+     * @param request - DeleteIdentityProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteIdentityProviderResponse
+     *
+     * @param DeleteIdentityProviderRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteIdentityProviderResponse
      */
     public function deleteIdentityProviderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identityProviderId)) {
-            $query['IdentityProviderId'] = $request->identityProviderId;
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteIdentityProvider',
@@ -1476,16 +1773,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除身份提供方
-     *  *
-     * @param DeleteIdentityProviderRequest $request DeleteIdentityProviderRequest
+     * 删除身份提供方.
      *
-     * @return DeleteIdentityProviderResponse DeleteIdentityProviderResponse
+     * @param request - DeleteIdentityProviderRequest
+     * @returns DeleteIdentityProviderResponse
+     *
+     * @param DeleteIdentityProviderRequest $request
+     *
+     * @return DeleteIdentityProviderResponse
      */
     public function deleteIdentityProvider($request)
     {
@@ -1495,24 +1798,30 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
-     *  *
-     * @description Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @remarks
+     * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
+     *
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
@@ -1525,18 +1834,25 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
-     *  *
-     * @description Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
-     *  *
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * Deletes an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS) that you do not need.
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @remarks
+     * Make sure that the instance to be deleted is no longer used. If the instance is deleted, all data related to the instance will be deleted.
+     *
+     * @param request - DeleteInstanceRequest
+     * @returns DeleteInstanceResponse
+     *
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -1546,25 +1862,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 删除一个专属网络端点。
-     *  *
-     * @param DeleteNetworkAccessEndpointRequest $request DeleteNetworkAccessEndpointRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 删除一个专属网络端点。
      *
-     * @return DeleteNetworkAccessEndpointResponse DeleteNetworkAccessEndpointResponse
+     * @param request - DeleteNetworkAccessEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteNetworkAccessEndpointResponse
+     *
+     * @param DeleteNetworkAccessEndpointRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteNetworkAccessEndpointResponse
      */
     public function deleteNetworkAccessEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointId)) {
-            $query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteNetworkAccessEndpoint',
@@ -1577,16 +1899,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNetworkAccessEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除一个专属网络端点。
-     *  *
-     * @param DeleteNetworkAccessEndpointRequest $request DeleteNetworkAccessEndpointRequest
+     * 删除一个专属网络端点。
      *
-     * @return DeleteNetworkAccessEndpointResponse DeleteNetworkAccessEndpointResponse
+     * @param request - DeleteNetworkAccessEndpointRequest
+     * @returns DeleteNetworkAccessEndpointResponse
+     *
+     * @param DeleteNetworkAccessEndpointRequest $request
+     *
+     * @return DeleteNetworkAccessEndpointResponse
      */
     public function deleteNetworkAccessEndpoint($request)
     {
@@ -1596,25 +1924,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
-     *  *
-     * @param DeleteOrganizationalUnitRequest $request DeleteOrganizationalUnitRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
      *
-     * @return DeleteOrganizationalUnitResponse DeleteOrganizationalUnitResponse
+     * @param request - DeleteOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteOrganizationalUnitResponse
+     *
+     * @param DeleteOrganizationalUnitRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteOrganizationalUnitResponse
      */
     public function deleteOrganizationalUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteOrganizationalUnit',
@@ -1627,16 +1961,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
-     *  *
-     * @param DeleteOrganizationalUnitRequest $request DeleteOrganizationalUnitRequest
+     * Deletes an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the organization has EIAM accounts or child organizations, the delete operation fails.
      *
-     * @return DeleteOrganizationalUnitResponse DeleteOrganizationalUnitResponse
+     * @param request - DeleteOrganizationalUnitRequest
+     * @returns DeleteOrganizationalUnitResponse
+     *
+     * @param DeleteOrganizationalUnitRequest $request
+     *
+     * @return DeleteOrganizationalUnitResponse
      */
     public function deleteOrganizationalUnit($request)
     {
@@ -1646,25 +1986,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
-     *  *
-     * @param DeleteOrganizationalUnitChildrenRequest $request DeleteOrganizationalUnitChildrenRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it.
      *
-     * @return DeleteOrganizationalUnitChildrenResponse DeleteOrganizationalUnitChildrenResponse
+     * @param request - DeleteOrganizationalUnitChildrenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteOrganizationalUnitChildrenResponse
+     *
+     * @param DeleteOrganizationalUnitChildrenRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DeleteOrganizationalUnitChildrenResponse
      */
     public function deleteOrganizationalUnitChildrenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteOrganizationalUnitChildren',
@@ -1677,16 +2023,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteOrganizationalUnitChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteOrganizationalUnitChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteOrganizationalUnitChildrenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it
-     *  *
-     * @param DeleteOrganizationalUnitChildrenRequest $request DeleteOrganizationalUnitChildrenRequest
+     * Delete organizational unit information, forcibly deleting all accounts and sub-organizations beneath it.
      *
-     * @return DeleteOrganizationalUnitChildrenResponse DeleteOrganizationalUnitChildrenResponse
+     * @param request - DeleteOrganizationalUnitChildrenRequest
+     * @returns DeleteOrganizationalUnitChildrenResponse
+     *
+     * @param DeleteOrganizationalUnitChildrenRequest $request
+     *
+     * @return DeleteOrganizationalUnitChildrenResponse
      */
     public function deleteOrganizationalUnitChildren($request)
     {
@@ -1696,25 +2048,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @param request - DeleteUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteUserResponse
+     *
+     * @param DeleteUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteUser',
@@ -1727,16 +2085,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
-     *  *
-     * @param DeleteUserRequest $request DeleteUserRequest
+     * Deletes an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The information related to the account is cleared.
      *
-     * @return DeleteUserResponse DeleteUserResponse
+     * @param request - DeleteUserRequest
+     * @returns DeleteUserResponse
+     *
+     * @param DeleteUserRequest $request
+     *
+     * @return DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1746,27 +2110,34 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
-     *  *
-     * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
-     *  *
-     * @param DisableApplicationRequest $request DisableApplicationRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
      *
-     * @return DisableApplicationResponse DisableApplicationResponse
+     * @remarks
+     * All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
+     *
+     * @param request - DisableApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableApplicationResponse
+     *
+     * @param DisableApplicationRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DisableApplicationResponse
      */
     public function disableApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableApplication',
@@ -1779,18 +2150,25 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
-     *  *
-     * @description All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
-     *  *
-     * @param DisableApplicationRequest $request DisableApplicationRequest
+     * Disables an enabled Employee Identity and Access Management (EIAM) application. All features of the EIAM application cannot be used if you disable the EIAM application.
      *
-     * @return DisableApplicationResponse DisableApplicationResponse
+     * @remarks
+     * All features of the EIAM application cannot be used if you disable the EIAM application, such as single sign-on (SSO) and account synchronization. Make sure that you acknowledge the risks of the delete operation.
+     *
+     * @param request - DisableApplicationRequest
+     * @returns DisableApplicationResponse
+     *
+     * @param DisableApplicationRequest $request
+     *
+     * @return DisableApplicationResponse
      */
     public function disableApplication($request)
     {
@@ -1800,25 +2178,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param DisableApplicationApiInvokeRequest $request DisableApplicationApiInvokeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
      *
-     * @return DisableApplicationApiInvokeResponse DisableApplicationApiInvokeResponse
+     * @param request - DisableApplicationApiInvokeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableApplicationApiInvokeResponse
+     *
+     * @param DisableApplicationApiInvokeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DisableApplicationApiInvokeResponse
      */
     public function disableApplicationApiInvokeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableApplicationApiInvoke',
@@ -1831,16 +2215,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableApplicationApiInvokeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param DisableApplicationApiInvokeRequest $request DisableApplicationApiInvokeRequest
+     * Disables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
      *
-     * @return DisableApplicationApiInvokeResponse DisableApplicationApiInvokeResponse
+     * @param request - DisableApplicationApiInvokeRequest
+     * @returns DisableApplicationApiInvokeResponse
+     *
+     * @param DisableApplicationApiInvokeRequest $request
+     *
+     * @return DisableApplicationApiInvokeResponse
      */
     public function disableApplicationApiInvoke($request)
     {
@@ -1850,28 +2240,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Disables a client key of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param DisableApplicationClientSecretRequest $request DisableApplicationClientSecretRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Disables a client key of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return DisableApplicationClientSecretResponse DisableApplicationClientSecretResponse
+     * @param request - DisableApplicationClientSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableApplicationClientSecretResponse
+     *
+     * @param DisableApplicationClientSecretRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DisableApplicationClientSecretResponse
      */
     public function disableApplicationClientSecretWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->secretId)) {
-            $query['SecretId'] = $request->secretId;
+
+        if (null !== $request->secretId) {
+            @$query['SecretId'] = $request->secretId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableApplicationClientSecret',
@@ -1884,16 +2281,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables a client key of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param DisableApplicationClientSecretRequest $request DisableApplicationClientSecretRequest
+     * Disables a client key of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return DisableApplicationClientSecretResponse DisableApplicationClientSecretResponse
+     * @param request - DisableApplicationClientSecretRequest
+     * @returns DisableApplicationClientSecretResponse
+     *
+     * @param DisableApplicationClientSecretRequest $request
+     *
+     * @return DisableApplicationClientSecretResponse
      */
     public function disableApplicationClientSecret($request)
     {
@@ -1903,25 +2306,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param DisableApplicationProvisioningRequest $request DisableApplicationProvisioningRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return DisableApplicationProvisioningResponse DisableApplicationProvisioningResponse
+     * @param request - DisableApplicationProvisioningRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableApplicationProvisioningResponse
+     *
+     * @param DisableApplicationProvisioningRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DisableApplicationProvisioningResponse
      */
     public function disableApplicationProvisioningWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableApplicationProvisioning',
@@ -1934,16 +2343,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableApplicationProvisioningResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param DisableApplicationProvisioningRequest $request DisableApplicationProvisioningRequest
+     * Disables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return DisableApplicationProvisioningResponse DisableApplicationProvisioningResponse
+     * @param request - DisableApplicationProvisioningRequest
+     * @returns DisableApplicationProvisioningResponse
+     *
+     * @param DisableApplicationProvisioningRequest $request
+     *
+     * @return DisableApplicationProvisioningResponse
      */
     public function disableApplicationProvisioning($request)
     {
@@ -1953,25 +2368,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 禁用应用SSO能力
-     *  *
-     * @param DisableApplicationSsoRequest $request DisableApplicationSsoRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 禁用应用SSO能力.
      *
-     * @return DisableApplicationSsoResponse DisableApplicationSsoResponse
+     * @param request - DisableApplicationSsoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableApplicationSsoResponse
+     *
+     * @param DisableApplicationSsoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DisableApplicationSsoResponse
      */
     public function disableApplicationSsoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableApplicationSso',
@@ -1984,16 +2405,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableApplicationSsoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 禁用应用SSO能力
-     *  *
-     * @param DisableApplicationSsoRequest $request DisableApplicationSsoRequest
+     * 禁用应用SSO能力.
      *
-     * @return DisableApplicationSsoResponse DisableApplicationSsoResponse
+     * @param request - DisableApplicationSsoRequest
+     * @returns DisableApplicationSsoResponse
+     *
+     * @param DisableApplicationSsoRequest $request
+     *
+     * @return DisableApplicationSsoResponse
      */
     public function disableApplicationSso($request)
     {
@@ -2003,28 +2430,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 禁用指定域名代理Token。
-     *  *
-     * @param DisableDomainProxyTokenRequest $request DisableDomainProxyTokenRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 禁用指定域名代理Token。
      *
-     * @return DisableDomainProxyTokenResponse DisableDomainProxyTokenResponse
+     * @param request - DisableDomainProxyTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableDomainProxyTokenResponse
+     *
+     * @param DisableDomainProxyTokenRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisableDomainProxyTokenResponse
      */
     public function disableDomainProxyTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->domainProxyTokenId)) {
-            $query['DomainProxyTokenId'] = $request->domainProxyTokenId;
+
+        if (null !== $request->domainProxyTokenId) {
+            @$query['DomainProxyTokenId'] = $request->domainProxyTokenId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableDomainProxyToken',
@@ -2037,16 +2471,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 禁用指定域名代理Token。
-     *  *
-     * @param DisableDomainProxyTokenRequest $request DisableDomainProxyTokenRequest
+     * 禁用指定域名代理Token。
      *
-     * @return DisableDomainProxyTokenResponse DisableDomainProxyTokenResponse
+     * @param request - DisableDomainProxyTokenRequest
+     * @returns DisableDomainProxyTokenResponse
+     *
+     * @param DisableDomainProxyTokenRequest $request
+     *
+     * @return DisableDomainProxyTokenResponse
      */
     public function disableDomainProxyToken($request)
     {
@@ -2056,25 +2496,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 禁用同步入
-     *  *
-     * @param DisableIdentityProviderUdPullRequest $request DisableIdentityProviderUdPullRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 禁用同步入.
      *
-     * @return DisableIdentityProviderUdPullResponse DisableIdentityProviderUdPullResponse
+     * @param request - DisableIdentityProviderUdPullRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableIdentityProviderUdPullResponse
+     *
+     * @param DisableIdentityProviderUdPullRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DisableIdentityProviderUdPullResponse
      */
     public function disableIdentityProviderUdPullWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identityProviderId)) {
-            $query['IdentityProviderId'] = $request->identityProviderId;
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableIdentityProviderUdPull',
@@ -2087,16 +2533,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableIdentityProviderUdPullResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 禁用同步入
-     *  *
-     * @param DisableIdentityProviderUdPullRequest $request DisableIdentityProviderUdPullRequest
+     * 禁用同步入.
      *
-     * @return DisableIdentityProviderUdPullResponse DisableIdentityProviderUdPullResponse
+     * @param request - DisableIdentityProviderUdPullRequest
+     * @returns DisableIdentityProviderUdPullResponse
+     *
+     * @param DisableIdentityProviderUdPullRequest $request
+     *
+     * @return DisableIdentityProviderUdPullResponse
      */
     public function disableIdentityProviderUdPull($request)
     {
@@ -2106,22 +2558,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 关闭初始化域名自动跳转。
-     *  *
-     * @param DisableInitDomainAutoRedirectRequest $request DisableInitDomainAutoRedirectRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 关闭初始化域名自动跳转。
      *
-     * @return DisableInitDomainAutoRedirectResponse DisableInitDomainAutoRedirectResponse
+     * @param request - DisableInitDomainAutoRedirectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableInitDomainAutoRedirectResponse
+     *
+     * @param DisableInitDomainAutoRedirectRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DisableInitDomainAutoRedirectResponse
      */
     public function disableInitDomainAutoRedirectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableInitDomainAutoRedirect',
@@ -2134,16 +2591,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableInitDomainAutoRedirectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 关闭初始化域名自动跳转。
-     *  *
-     * @param DisableInitDomainAutoRedirectRequest $request DisableInitDomainAutoRedirectRequest
+     * 关闭初始化域名自动跳转。
      *
-     * @return DisableInitDomainAutoRedirectResponse DisableInitDomainAutoRedirectResponse
+     * @param request - DisableInitDomainAutoRedirectRequest
+     * @returns DisableInitDomainAutoRedirectResponse
+     *
+     * @param DisableInitDomainAutoRedirectRequest $request
+     *
+     * @return DisableInitDomainAutoRedirectResponse
      */
     public function disableInitDomainAutoRedirect($request)
     {
@@ -2153,25 +2616,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
-     *  *
-     * @param DisableUserRequest $request DisableUserRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
      *
-     * @return DisableUserResponse DisableUserResponse
+     * @param request - DisableUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableUserResponse
+     *
+     * @param DisableUserRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DisableUserResponse
      */
     public function disableUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableUser',
@@ -2184,16 +2653,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
-     *  *
-     * @param DisableUserRequest $request DisableUserRequest
+     * Disables an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account. If the account is disabled, a success message is returned.
      *
-     * @return DisableUserResponse DisableUserResponse
+     * @param request - DisableUserRequest
+     * @returns DisableUserResponse
+     *
+     * @param DisableUserRequest $request
+     *
+     * @return DisableUserResponse
      */
     public function disableUser($request)
     {
@@ -2203,25 +2678,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Enables a disabled Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param EnableApplicationRequest $request EnableApplicationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Enables a disabled Employee Identity and Access Management (EIAM) application.
      *
-     * @return EnableApplicationResponse EnableApplicationResponse
+     * @param request - EnableApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableApplicationResponse
+     *
+     * @param EnableApplicationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return EnableApplicationResponse
      */
     public function enableApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableApplication',
@@ -2234,16 +2715,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables a disabled Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param EnableApplicationRequest $request EnableApplicationRequest
+     * Enables a disabled Employee Identity and Access Management (EIAM) application.
      *
-     * @return EnableApplicationResponse EnableApplicationResponse
+     * @param request - EnableApplicationRequest
+     * @returns EnableApplicationResponse
+     *
+     * @param EnableApplicationRequest $request
+     *
+     * @return EnableApplicationResponse
      */
     public function enableApplication($request)
     {
@@ -2253,25 +2740,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param EnableApplicationApiInvokeRequest $request EnableApplicationApiInvokeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
      *
-     * @return EnableApplicationApiInvokeResponse EnableApplicationApiInvokeResponse
+     * @param request - EnableApplicationApiInvokeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableApplicationApiInvokeResponse
+     *
+     * @param EnableApplicationApiInvokeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return EnableApplicationApiInvokeResponse
      */
     public function enableApplicationApiInvokeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableApplicationApiInvoke',
@@ -2284,16 +2777,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableApplicationApiInvokeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param EnableApplicationApiInvokeRequest $request EnableApplicationApiInvokeRequest
+     * Enables the Developer API feature for an Employee Identity and Access Management (EIAM) application.
      *
-     * @return EnableApplicationApiInvokeResponse EnableApplicationApiInvokeResponse
+     * @param request - EnableApplicationApiInvokeRequest
+     * @returns EnableApplicationApiInvokeResponse
+     *
+     * @param EnableApplicationApiInvokeRequest $request
+     *
+     * @return EnableApplicationApiInvokeResponse
      */
     public function enableApplicationApiInvoke($request)
     {
@@ -2303,28 +2802,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param EnableApplicationClientSecretRequest $request EnableApplicationClientSecretRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return EnableApplicationClientSecretResponse EnableApplicationClientSecretResponse
+     * @param request - EnableApplicationClientSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableApplicationClientSecretResponse
+     *
+     * @param EnableApplicationClientSecretRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return EnableApplicationClientSecretResponse
      */
     public function enableApplicationClientSecretWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->secretId)) {
-            $query['SecretId'] = $request->secretId;
+
+        if (null !== $request->secretId) {
+            @$query['SecretId'] = $request->secretId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableApplicationClientSecret',
@@ -2337,16 +2843,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param EnableApplicationClientSecretRequest $request EnableApplicationClientSecretRequest
+     * Enables the client key of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return EnableApplicationClientSecretResponse EnableApplicationClientSecretResponse
+     * @param request - EnableApplicationClientSecretRequest
+     * @returns EnableApplicationClientSecretResponse
+     *
+     * @param EnableApplicationClientSecretRequest $request
+     *
+     * @return EnableApplicationClientSecretResponse
      */
     public function enableApplicationClientSecret($request)
     {
@@ -2356,25 +2868,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param EnableApplicationProvisioningRequest $request EnableApplicationProvisioningRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return EnableApplicationProvisioningResponse EnableApplicationProvisioningResponse
+     * @param request - EnableApplicationProvisioningRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableApplicationProvisioningResponse
+     *
+     * @param EnableApplicationProvisioningRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return EnableApplicationProvisioningResponse
      */
     public function enableApplicationProvisioningWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableApplicationProvisioning',
@@ -2387,16 +2905,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableApplicationProvisioningResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param EnableApplicationProvisioningRequest $request EnableApplicationProvisioningRequest
+     * Enables the account synchronization feature for an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return EnableApplicationProvisioningResponse EnableApplicationProvisioningResponse
+     * @param request - EnableApplicationProvisioningRequest
+     * @returns EnableApplicationProvisioningResponse
+     *
+     * @param EnableApplicationProvisioningRequest $request
+     *
+     * @return EnableApplicationProvisioningResponse
      */
     public function enableApplicationProvisioning($request)
     {
@@ -2406,25 +2930,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 启用应用SSO能力
-     *  *
-     * @param EnableApplicationSsoRequest $request EnableApplicationSsoRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 启用应用SSO能力.
      *
-     * @return EnableApplicationSsoResponse EnableApplicationSsoResponse
+     * @param request - EnableApplicationSsoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableApplicationSsoResponse
+     *
+     * @param EnableApplicationSsoRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return EnableApplicationSsoResponse
      */
     public function enableApplicationSsoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableApplicationSso',
@@ -2437,16 +2967,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableApplicationSsoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 启用应用SSO能力
-     *  *
-     * @param EnableApplicationSsoRequest $request EnableApplicationSsoRequest
+     * 启用应用SSO能力.
      *
-     * @return EnableApplicationSsoResponse EnableApplicationSsoResponse
+     * @param request - EnableApplicationSsoRequest
+     * @returns EnableApplicationSsoResponse
+     *
+     * @param EnableApplicationSsoRequest $request
+     *
+     * @return EnableApplicationSsoResponse
      */
     public function enableApplicationSso($request)
     {
@@ -2456,28 +2992,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 启用指定域名代理Token。
-     *  *
-     * @param EnableDomainProxyTokenRequest $request EnableDomainProxyTokenRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 启用指定域名代理Token。
      *
-     * @return EnableDomainProxyTokenResponse EnableDomainProxyTokenResponse
+     * @param request - EnableDomainProxyTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableDomainProxyTokenResponse
+     *
+     * @param EnableDomainProxyTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableDomainProxyTokenResponse
      */
     public function enableDomainProxyTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->domainProxyTokenId)) {
-            $query['DomainProxyTokenId'] = $request->domainProxyTokenId;
+
+        if (null !== $request->domainProxyTokenId) {
+            @$query['DomainProxyTokenId'] = $request->domainProxyTokenId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableDomainProxyToken',
@@ -2490,16 +3033,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 启用指定域名代理Token。
-     *  *
-     * @param EnableDomainProxyTokenRequest $request EnableDomainProxyTokenRequest
+     * 启用指定域名代理Token。
      *
-     * @return EnableDomainProxyTokenResponse EnableDomainProxyTokenResponse
+     * @param request - EnableDomainProxyTokenRequest
+     * @returns EnableDomainProxyTokenResponse
+     *
+     * @param EnableDomainProxyTokenRequest $request
+     *
+     * @return EnableDomainProxyTokenResponse
      */
     public function enableDomainProxyToken($request)
     {
@@ -2509,25 +3058,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 启用同步入
-     *  *
-     * @param EnableIdentityProviderUdPullRequest $request EnableIdentityProviderUdPullRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 启用同步入.
      *
-     * @return EnableIdentityProviderUdPullResponse EnableIdentityProviderUdPullResponse
+     * @param request - EnableIdentityProviderUdPullRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableIdentityProviderUdPullResponse
+     *
+     * @param EnableIdentityProviderUdPullRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return EnableIdentityProviderUdPullResponse
      */
     public function enableIdentityProviderUdPullWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identityProviderId)) {
-            $query['IdentityProviderId'] = $request->identityProviderId;
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableIdentityProviderUdPull',
@@ -2540,16 +3095,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableIdentityProviderUdPullResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 启用同步入
-     *  *
-     * @param EnableIdentityProviderUdPullRequest $request EnableIdentityProviderUdPullRequest
+     * 启用同步入.
      *
-     * @return EnableIdentityProviderUdPullResponse EnableIdentityProviderUdPullResponse
+     * @param request - EnableIdentityProviderUdPullRequest
+     * @returns EnableIdentityProviderUdPullResponse
+     *
+     * @param EnableIdentityProviderUdPullRequest $request
+     *
+     * @return EnableIdentityProviderUdPullResponse
      */
     public function enableIdentityProviderUdPull($request)
     {
@@ -2559,22 +3120,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
-     *  *
-     * @param EnableInitDomainAutoRedirectRequest $request EnableInitDomainAutoRedirectRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
      *
-     * @return EnableInitDomainAutoRedirectResponse EnableInitDomainAutoRedirectResponse
+     * @param request - EnableInitDomainAutoRedirectRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableInitDomainAutoRedirectResponse
+     *
+     * @param EnableInitDomainAutoRedirectRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return EnableInitDomainAutoRedirectResponse
      */
     public function enableInitDomainAutoRedirectWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableInitDomainAutoRedirect',
@@ -2587,16 +3153,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableInitDomainAutoRedirectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
-     *  *
-     * @param EnableInitDomainAutoRedirectRequest $request EnableInitDomainAutoRedirectRequest
+     * 开启初始化域名自动跳转。开启后，访问初始化域名将会自动跳转至默认域名。
      *
-     * @return EnableInitDomainAutoRedirectResponse EnableInitDomainAutoRedirectResponse
+     * @param request - EnableInitDomainAutoRedirectRequest
+     * @returns EnableInitDomainAutoRedirectResponse
+     *
+     * @param EnableInitDomainAutoRedirectRequest $request
+     *
+     * @return EnableInitDomainAutoRedirectResponse
      */
     public function enableInitDomainAutoRedirect($request)
     {
@@ -2606,25 +3178,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
-     *  *
-     * @param EnableUserRequest $request EnableUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
      *
-     * @return EnableUserResponse EnableUserResponse
+     * @param request - EnableUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableUserResponse
+     *
+     * @param EnableUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return EnableUserResponse
      */
     public function enableUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableUser',
@@ -2637,16 +3215,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
-     *  *
-     * @param EnableUserRequest $request EnableUserRequest
+     * Enables an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
      *
-     * @return EnableUserResponse EnableUserResponse
+     * @param request - EnableUserRequest
+     * @returns EnableUserResponse
+     *
+     * @param EnableUserRequest $request
+     *
+     * @return EnableUserResponse
      */
     public function enableUser($request)
     {
@@ -2656,25 +3240,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param GetApplicationRequest $request GetApplicationRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return GetApplicationResponse GetApplicationResponse
+     * @param request - GetApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetApplicationResponse
+     *
+     * @param GetApplicationRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetApplicationResponse
      */
     public function getApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetApplication',
@@ -2687,16 +3277,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param GetApplicationRequest $request GetApplicationRequest
+     * Queries the details of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return GetApplicationResponse GetApplicationResponse
+     * @param request - GetApplicationRequest
+     * @returns GetApplicationResponse
+     *
+     * @param GetApplicationRequest $request
+     *
+     * @return GetApplicationResponse
      */
     public function getApplication($request)
     {
@@ -2706,25 +3302,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param GetApplicationGrantScopeRequest $request GetApplicationGrantScopeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
      *
-     * @return GetApplicationGrantScopeResponse GetApplicationGrantScopeResponse
+     * @param request - GetApplicationGrantScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetApplicationGrantScopeResponse
+     *
+     * @param GetApplicationGrantScopeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetApplicationGrantScopeResponse
      */
     public function getApplicationGrantScopeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetApplicationGrantScope',
@@ -2737,16 +3339,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApplicationGrantScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param GetApplicationGrantScopeRequest $request GetApplicationGrantScopeRequest
+     * Queries the permissions of the Developer API feature for an Employee Identity and Access Management (EIAM) application.
      *
-     * @return GetApplicationGrantScopeResponse GetApplicationGrantScopeResponse
+     * @param request - GetApplicationGrantScopeRequest
+     * @returns GetApplicationGrantScopeResponse
+     *
+     * @param GetApplicationGrantScopeRequest $request
+     *
+     * @return GetApplicationGrantScopeResponse
      */
     public function getApplicationGrantScope($request)
     {
@@ -2756,25 +3364,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param GetApplicationProvisioningConfigRequest $request GetApplicationProvisioningConfigRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return GetApplicationProvisioningConfigResponse GetApplicationProvisioningConfigResponse
+     * @param request - GetApplicationProvisioningConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetApplicationProvisioningConfigResponse
+     *
+     * @param GetApplicationProvisioningConfigRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return GetApplicationProvisioningConfigResponse
      */
     public function getApplicationProvisioningConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetApplicationProvisioningConfig',
@@ -2787,16 +3401,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApplicationProvisioningConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param GetApplicationProvisioningConfigRequest $request GetApplicationProvisioningConfigRequest
+     * Queries the configuration of the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return GetApplicationProvisioningConfigResponse GetApplicationProvisioningConfigResponse
+     * @param request - GetApplicationProvisioningConfigRequest
+     * @returns GetApplicationProvisioningConfigResponse
+     *
+     * @param GetApplicationProvisioningConfigRequest $request
+     *
+     * @return GetApplicationProvisioningConfigResponse
      */
     public function getApplicationProvisioningConfig($request)
     {
@@ -2806,25 +3426,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
-     *  *
-     * @param GetApplicationProvisioningScopeRequest $request GetApplicationProvisioningScopeRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
      *
-     * @return GetApplicationProvisioningScopeResponse GetApplicationProvisioningScopeResponse
+     * @param request - GetApplicationProvisioningScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetApplicationProvisioningScopeResponse
+     *
+     * @param GetApplicationProvisioningScopeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetApplicationProvisioningScopeResponse
      */
     public function getApplicationProvisioningScopeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetApplicationProvisioningScope',
@@ -2837,16 +3463,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApplicationProvisioningScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
-     *  *
-     * @param GetApplicationProvisioningScopeRequest $request GetApplicationProvisioningScopeRequest
+     * Queries the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
      *
-     * @return GetApplicationProvisioningScopeResponse GetApplicationProvisioningScopeResponse
+     * @param request - GetApplicationProvisioningScopeRequest
+     * @returns GetApplicationProvisioningScopeResponse
+     *
+     * @param GetApplicationProvisioningScopeRequest $request
+     *
+     * @return GetApplicationProvisioningScopeResponse
      */
     public function getApplicationProvisioningScope($request)
     {
@@ -2856,25 +3488,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param GetApplicationSsoConfigRequest $request GetApplicationSsoConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return GetApplicationSsoConfigResponse GetApplicationSsoConfigResponse
+     * @param request - GetApplicationSsoConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetApplicationSsoConfigResponse
+     *
+     * @param GetApplicationSsoConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetApplicationSsoConfigResponse
      */
     public function getApplicationSsoConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetApplicationSsoConfig',
@@ -2887,16 +3525,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApplicationSsoConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param GetApplicationSsoConfigRequest $request GetApplicationSsoConfigRequest
+     * Queries the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return GetApplicationSsoConfigResponse GetApplicationSsoConfigResponse
+     * @param request - GetApplicationSsoConfigRequest
+     * @returns GetApplicationSsoConfigResponse
+     *
+     * @param GetApplicationSsoConfigRequest $request
+     *
+     * @return GetApplicationSsoConfigResponse
      */
     public function getApplicationSsoConfig($request)
     {
@@ -2906,25 +3550,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询一个域名的详细信息。
-     *  *
-     * @param GetDomainRequest $request GetDomainRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 查询一个域名的详细信息。
      *
-     * @return GetDomainResponse GetDomainResponse
+     * @param request - GetDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDomainResponse
+     *
+     * @param GetDomainRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetDomainResponse
      */
     public function getDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDomain',
@@ -2937,16 +3587,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询一个域名的详细信息。
-     *  *
-     * @param GetDomainRequest $request GetDomainRequest
+     * 查询一个域名的详细信息。
      *
-     * @return GetDomainResponse GetDomainResponse
+     * @param request - GetDomainRequest
+     * @returns GetDomainResponse
+     *
+     * @param GetDomainRequest $request
+     *
+     * @return GetDomainResponse
      */
     public function getDomain($request)
     {
@@ -2956,25 +3612,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查看域名的DNS Challenge记录。
-     *  *
-     * @param GetDomainDnsChallengeRequest $request GetDomainDnsChallengeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查看域名的DNS Challenge记录。
      *
-     * @return GetDomainDnsChallengeResponse GetDomainDnsChallengeResponse
+     * @param request - GetDomainDnsChallengeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDomainDnsChallengeResponse
+     *
+     * @param GetDomainDnsChallengeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDomainDnsChallengeResponse
      */
     public function getDomainDnsChallengeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDomainDnsChallenge',
@@ -2987,16 +3649,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDomainDnsChallengeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDomainDnsChallengeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDomainDnsChallengeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看域名的DNS Challenge记录。
-     *  *
-     * @param GetDomainDnsChallengeRequest $request GetDomainDnsChallengeRequest
+     * 查看域名的DNS Challenge记录。
      *
-     * @return GetDomainDnsChallengeResponse GetDomainDnsChallengeResponse
+     * @param request - GetDomainDnsChallengeRequest
+     * @returns GetDomainDnsChallengeResponse
+     *
+     * @param GetDomainDnsChallengeRequest $request
+     *
+     * @return GetDomainDnsChallengeResponse
      */
     public function getDomainDnsChallenge($request)
     {
@@ -3006,22 +3674,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetForgetPasswordConfigurationRequest $request GetForgetPasswordConfigurationRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetForgetPasswordConfigurationResponse GetForgetPasswordConfigurationResponse
+     * @param request - GetForgetPasswordConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetForgetPasswordConfigurationResponse
+     *
+     * @param GetForgetPasswordConfigurationRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetForgetPasswordConfigurationResponse
      */
     public function getForgetPasswordConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetForgetPasswordConfiguration',
@@ -3034,16 +3707,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetForgetPasswordConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetForgetPasswordConfigurationRequest $request GetForgetPasswordConfigurationRequest
+     * Queries the forgot password configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetForgetPasswordConfigurationResponse GetForgetPasswordConfigurationResponse
+     * @param request - GetForgetPasswordConfigurationRequest
+     * @returns GetForgetPasswordConfigurationResponse
+     *
+     * @param GetForgetPasswordConfigurationRequest $request
+     *
+     * @return GetForgetPasswordConfigurationResponse
      */
     public function getForgetPasswordConfiguration($request)
     {
@@ -3053,25 +3732,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param GetGroupRequest $request GetGroupRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return GetGroupResponse GetGroupResponse
+     * @param request - GetGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGroupResponse
+     *
+     * @param GetGroupRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetGroupResponse
      */
     public function getGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetGroup',
@@ -3084,16 +3769,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param GetGroupRequest $request GetGroupRequest
+     * Queries the information of an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return GetGroupResponse GetGroupResponse
+     * @param request - GetGroupRequest
+     * @returns GetGroupResponse
+     *
+     * @param GetGroupRequest $request
+     *
+     * @return GetGroupResponse
      */
     public function getGroup($request)
     {
@@ -3103,25 +3794,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 获取身份提供方
-     *  *
-     * @param GetIdentityProviderRequest $request GetIdentityProviderRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 获取身份提供方.
      *
-     * @return GetIdentityProviderResponse GetIdentityProviderResponse
+     * @param request - GetIdentityProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetIdentityProviderResponse
+     *
+     * @param GetIdentityProviderRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetIdentityProviderResponse
      */
     public function getIdentityProviderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identityProviderId)) {
-            $query['IdentityProviderId'] = $request->identityProviderId;
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetIdentityProvider',
@@ -3134,16 +3831,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取身份提供方
-     *  *
-     * @param GetIdentityProviderRequest $request GetIdentityProviderRequest
+     * 获取身份提供方.
      *
-     * @return GetIdentityProviderResponse GetIdentityProviderResponse
+     * @param request - GetIdentityProviderRequest
+     * @returns GetIdentityProviderResponse
+     *
+     * @param GetIdentityProviderRequest $request
+     *
+     * @return GetIdentityProviderResponse
      */
     public function getIdentityProvider($request)
     {
@@ -3153,25 +3856,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 获取IdP同步入配置
-     *  *
-     * @param GetIdentityProviderUdPullConfigurationRequest $request GetIdentityProviderUdPullConfigurationRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * 获取IdP同步入配置.
      *
-     * @return GetIdentityProviderUdPullConfigurationResponse GetIdentityProviderUdPullConfigurationResponse
+     * @param request - GetIdentityProviderUdPullConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetIdentityProviderUdPullConfigurationResponse
+     *
+     * @param GetIdentityProviderUdPullConfigurationRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetIdentityProviderUdPullConfigurationResponse
      */
     public function getIdentityProviderUdPullConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identityProviderId)) {
-            $query['IdentityProviderId'] = $request->identityProviderId;
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetIdentityProviderUdPullConfiguration',
@@ -3184,16 +3893,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取IdP同步入配置
-     *  *
-     * @param GetIdentityProviderUdPullConfigurationRequest $request GetIdentityProviderUdPullConfigurationRequest
+     * 获取IdP同步入配置.
      *
-     * @return GetIdentityProviderUdPullConfigurationResponse GetIdentityProviderUdPullConfigurationResponse
+     * @param request - GetIdentityProviderUdPullConfigurationRequest
+     * @returns GetIdentityProviderUdPullConfigurationResponse
+     *
+     * @param GetIdentityProviderUdPullConfigurationRequest $request
+     *
+     * @return GetIdentityProviderUdPullConfigurationResponse
      */
     public function getIdentityProviderUdPullConfiguration($request)
     {
@@ -3203,22 +3918,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetInstanceRequest $request GetInstanceRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @param request - GetInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetInstanceResponse
+     *
+     * @param GetInstanceRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetInstanceResponse
      */
     public function getInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetInstance',
@@ -3231,16 +3951,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetInstanceRequest $request GetInstanceRequest
+     * Queries the information of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetInstanceResponse GetInstanceResponse
+     * @param request - GetInstanceRequest
+     * @returns GetInstanceResponse
+     *
+     * @param GetInstanceRequest $request
+     *
+     * @return GetInstanceResponse
      */
     public function getInstance($request)
     {
@@ -3250,24 +3976,30 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Query the currently effective License information of the instance
-     *  *
-     * @description Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
-     *  *
-     * @param GetInstanceLicenseRequest $request GetInstanceLicenseRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query the currently effective License information of the instance.
      *
-     * @return GetInstanceLicenseResponse GetInstanceLicenseResponse
+     * @remarks
+     * Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
+     *
+     * @param request - GetInstanceLicenseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetInstanceLicenseResponse
+     *
+     * @param GetInstanceLicenseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetInstanceLicenseResponse
      */
     public function getInstanceLicenseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetInstanceLicense',
@@ -3280,18 +4012,25 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstanceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceLicenseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query the currently effective License information of the instance
-     *  *
-     * @description Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
-     *  *
-     * @param GetInstanceLicenseRequest $request GetInstanceLicenseRequest
+     * Query the currently effective License information of the instance.
      *
-     * @return GetInstanceLicenseResponse GetInstanceLicenseResponse
+     * @remarks
+     * Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
+     *
+     * @param request - GetInstanceLicenseRequest
+     * @returns GetInstanceLicenseResponse
+     *
+     * @param GetInstanceLicenseRequest $request
+     *
+     * @return GetInstanceLicenseResponse
      */
     public function getInstanceLicense($request)
     {
@@ -3301,25 +4040,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询一个专属网络端点的详细信息。
-     *  *
-     * @param GetNetworkAccessEndpointRequest $request GetNetworkAccessEndpointRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询一个专属网络端点的详细信息。
      *
-     * @return GetNetworkAccessEndpointResponse GetNetworkAccessEndpointResponse
+     * @param request - GetNetworkAccessEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetNetworkAccessEndpointResponse
+     *
+     * @param GetNetworkAccessEndpointRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetNetworkAccessEndpointResponse
      */
     public function getNetworkAccessEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointId)) {
-            $query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetNetworkAccessEndpoint',
@@ -3332,16 +4077,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNetworkAccessEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询一个专属网络端点的详细信息。
-     *  *
-     * @param GetNetworkAccessEndpointRequest $request GetNetworkAccessEndpointRequest
+     * 查询一个专属网络端点的详细信息。
      *
-     * @return GetNetworkAccessEndpointResponse GetNetworkAccessEndpointResponse
+     * @param request - GetNetworkAccessEndpointRequest
+     * @returns GetNetworkAccessEndpointResponse
+     *
+     * @param GetNetworkAccessEndpointRequest $request
+     *
+     * @return GetNetworkAccessEndpointResponse
      */
     public function getNetworkAccessEndpoint($request)
     {
@@ -3351,25 +4102,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param GetOrganizationalUnitRequest $request GetOrganizationalUnitRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return GetOrganizationalUnitResponse GetOrganizationalUnitResponse
+     * @param request - GetOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOrganizationalUnitResponse
+     *
+     * @param GetOrganizationalUnitRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetOrganizationalUnitResponse
      */
     public function getOrganizationalUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetOrganizationalUnit',
@@ -3382,16 +4139,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param GetOrganizationalUnitRequest $request GetOrganizationalUnitRequest
+     * Queries the information about an organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return GetOrganizationalUnitResponse GetOrganizationalUnitResponse
+     * @param request - GetOrganizationalUnitRequest
+     * @returns GetOrganizationalUnitResponse
+     *
+     * @param GetOrganizationalUnitRequest $request
+     *
+     * @return GetOrganizationalUnitResponse
      */
     public function getOrganizationalUnit($request)
     {
@@ -3401,22 +4164,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetPasswordComplexityConfigurationRequest $request GetPasswordComplexityConfigurationRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetPasswordComplexityConfigurationResponse GetPasswordComplexityConfigurationResponse
+     * @param request - GetPasswordComplexityConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPasswordComplexityConfigurationResponse
+     *
+     * @param GetPasswordComplexityConfigurationRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetPasswordComplexityConfigurationResponse
      */
     public function getPasswordComplexityConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPasswordComplexityConfiguration',
@@ -3429,16 +4197,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPasswordComplexityConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetPasswordComplexityConfigurationRequest $request GetPasswordComplexityConfigurationRequest
+     * Queries the password complexity configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetPasswordComplexityConfigurationResponse GetPasswordComplexityConfigurationResponse
+     * @param request - GetPasswordComplexityConfigurationRequest
+     * @returns GetPasswordComplexityConfigurationResponse
+     *
+     * @param GetPasswordComplexityConfigurationRequest $request
+     *
+     * @return GetPasswordComplexityConfigurationResponse
      */
     public function getPasswordComplexityConfiguration($request)
     {
@@ -3448,22 +4222,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetPasswordExpirationConfigurationRequest $request GetPasswordExpirationConfigurationRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetPasswordExpirationConfigurationResponse GetPasswordExpirationConfigurationResponse
+     * @param request - GetPasswordExpirationConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPasswordExpirationConfigurationResponse
+     *
+     * @param GetPasswordExpirationConfigurationRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return GetPasswordExpirationConfigurationResponse
      */
     public function getPasswordExpirationConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPasswordExpirationConfiguration',
@@ -3476,16 +4255,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPasswordExpirationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetPasswordExpirationConfigurationRequest $request GetPasswordExpirationConfigurationRequest
+     * Queries the password expiration configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetPasswordExpirationConfigurationResponse GetPasswordExpirationConfigurationResponse
+     * @param request - GetPasswordExpirationConfigurationRequest
+     * @returns GetPasswordExpirationConfigurationResponse
+     *
+     * @param GetPasswordExpirationConfigurationRequest $request
+     *
+     * @return GetPasswordExpirationConfigurationResponse
      */
     public function getPasswordExpirationConfiguration($request)
     {
@@ -3495,22 +4280,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetPasswordHistoryConfigurationRequest $request GetPasswordHistoryConfigurationRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetPasswordHistoryConfigurationResponse GetPasswordHistoryConfigurationResponse
+     * @param request - GetPasswordHistoryConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPasswordHistoryConfigurationResponse
+     *
+     * @param GetPasswordHistoryConfigurationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetPasswordHistoryConfigurationResponse
      */
     public function getPasswordHistoryConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPasswordHistoryConfiguration',
@@ -3523,16 +4313,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPasswordHistoryConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetPasswordHistoryConfigurationRequest $request GetPasswordHistoryConfigurationRequest
+     * Queries the password history configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetPasswordHistoryConfigurationResponse GetPasswordHistoryConfigurationResponse
+     * @param request - GetPasswordHistoryConfigurationRequest
+     * @returns GetPasswordHistoryConfigurationResponse
+     *
+     * @param GetPasswordHistoryConfigurationRequest $request
+     *
+     * @return GetPasswordHistoryConfigurationResponse
      */
     public function getPasswordHistoryConfiguration($request)
     {
@@ -3542,22 +4338,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetPasswordInitializationConfigurationRequest $request GetPasswordInitializationConfigurationRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetPasswordInitializationConfigurationResponse GetPasswordInitializationConfigurationResponse
+     * @param request - GetPasswordInitializationConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPasswordInitializationConfigurationResponse
+     *
+     * @param GetPasswordInitializationConfigurationRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return GetPasswordInitializationConfigurationResponse
      */
     public function getPasswordInitializationConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPasswordInitializationConfiguration',
@@ -3570,16 +4371,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPasswordInitializationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param GetPasswordInitializationConfigurationRequest $request GetPasswordInitializationConfigurationRequest
+     * Queries the password initialization configurations of an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return GetPasswordInitializationConfigurationResponse GetPasswordInitializationConfigurationResponse
+     * @param request - GetPasswordInitializationConfigurationRequest
+     * @returns GetPasswordInitializationConfigurationResponse
+     *
+     * @param GetPasswordInitializationConfigurationRequest $request
+     *
+     * @return GetPasswordInitializationConfigurationResponse
      */
     public function getPasswordInitializationConfiguration($request)
     {
@@ -3589,22 +4396,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param GetRootOrganizationalUnitRequest $request GetRootOrganizationalUnitRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return GetRootOrganizationalUnitResponse GetRootOrganizationalUnitResponse
+     * @param request - GetRootOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRootOrganizationalUnitResponse
+     *
+     * @param GetRootOrganizationalUnitRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetRootOrganizationalUnitResponse
      */
     public function getRootOrganizationalUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRootOrganizationalUnit',
@@ -3617,16 +4429,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRootOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRootOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRootOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param GetRootOrganizationalUnitRequest $request GetRootOrganizationalUnitRequest
+     * Queries the information about the root organizational unit in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return GetRootOrganizationalUnitResponse GetRootOrganizationalUnitResponse
+     * @param request - GetRootOrganizationalUnitRequest
+     * @returns GetRootOrganizationalUnitResponse
+     *
+     * @param GetRootOrganizationalUnitRequest $request
+     *
+     * @return GetRootOrganizationalUnitResponse
      */
     public function getRootOrganizationalUnit($request)
     {
@@ -3636,25 +4454,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询同步任务
-     *  *
-     * @param GetSynchronizationJobRequest $request GetSynchronizationJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询同步任务
      *
-     * @return GetSynchronizationJobResponse GetSynchronizationJobResponse
+     * @param request - GetSynchronizationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSynchronizationJobResponse
+     *
+     * @param GetSynchronizationJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetSynchronizationJobResponse
      */
     public function getSynchronizationJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->synchronizationJobId)) {
-            $query['SynchronizationJobId'] = $request->synchronizationJobId;
+
+        if (null !== $request->synchronizationJobId) {
+            @$query['SynchronizationJobId'] = $request->synchronizationJobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSynchronizationJob',
@@ -3667,16 +4491,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询同步任务
-     *  *
-     * @param GetSynchronizationJobRequest $request GetSynchronizationJobRequest
+     * 查询同步任务
      *
-     * @return GetSynchronizationJobResponse GetSynchronizationJobResponse
+     * @param request - GetSynchronizationJobRequest
+     * @returns GetSynchronizationJobResponse
+     *
+     * @param GetSynchronizationJobRequest $request
+     *
+     * @return GetSynchronizationJobResponse
      */
     public function getSynchronizationJob($request)
     {
@@ -3686,25 +4516,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param GetUserRequest $request GetUserRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return GetUserResponse GetUserResponse
+     * @param request - GetUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserResponse
      */
     public function getUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUser',
@@ -3717,16 +4553,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @param GetUserRequest $request GetUserRequest
+     * Queries the details of an account in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return GetUserResponse GetUserResponse
+     * @param request - GetUserRequest
+     * @returns GetUserResponse
+     *
+     * @param GetUserRequest $request
+     *
+     * @return GetUserResponse
      */
     public function getUser($request)
     {
@@ -3736,25 +4578,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
-     *  *
-     * @param ListApplicationClientSecretsRequest $request ListApplicationClientSecretsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
      *
-     * @return ListApplicationClientSecretsResponse ListApplicationClientSecretsResponse
+     * @param request - ListApplicationClientSecretsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListApplicationClientSecretsResponse
+     *
+     * @param ListApplicationClientSecretsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListApplicationClientSecretsResponse
      */
     public function listApplicationClientSecretsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListApplicationClientSecrets',
@@ -3767,16 +4615,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListApplicationClientSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListApplicationClientSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListApplicationClientSecretsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
-     *  *
-     * @param ListApplicationClientSecretsRequest $request ListApplicationClientSecretsRequest
+     * Queries all client keys of an Employee Identity and Access Management (EIAM) application. The returned key secret is not masked. If you want to query the key secret that is masked, call the ObtainApplicationClientSecret operation.
      *
-     * @return ListApplicationClientSecretsResponse ListApplicationClientSecretsResponse
+     * @param request - ListApplicationClientSecretsRequest
+     * @returns ListApplicationClientSecretsResponse
+     *
+     * @param ListApplicationClientSecretsRequest $request
+     *
+     * @return ListApplicationClientSecretsResponse
      */
     public function listApplicationClientSecrets($request)
     {
@@ -3786,40 +4640,63 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
-     *  *
-     * @param ListApplicationsRequest $request ListApplicationsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
      *
-     * @return ListApplicationsResponse ListApplicationsResponse
+     * @param request - ListApplicationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListApplicationsResponse
+     *
+     * @param ListApplicationsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListApplicationsResponse
      */
     public function listApplicationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationIds)) {
-            $query['ApplicationIds'] = $request->applicationIds;
+        if (null !== $request->applicationIds) {
+            @$query['ApplicationIds'] = $request->applicationIds;
         }
-        if (!Utils::isUnset($request->applicationName)) {
-            $query['ApplicationName'] = $request->applicationName;
+
+        if (null !== $request->applicationName) {
+            @$query['ApplicationName'] = $request->applicationName;
         }
-        if (!Utils::isUnset($request->authorizationType)) {
-            $query['AuthorizationType'] = $request->authorizationType;
+
+        if (null !== $request->authorizationType) {
+            @$query['AuthorizationType'] = $request->authorizationType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->m2MClientStatus) {
+            @$query['M2MClientStatus'] = $request->m2MClientStatus;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
+        if (null !== $request->resourceServerStatus) {
+            @$query['ResourceServerStatus'] = $request->resourceServerStatus;
+        }
+
+        if (null !== $request->ssoType) {
+            @$query['SsoType'] = $request->ssoType;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListApplications',
@@ -3832,16 +4709,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
-     *  *
-     * @param ListApplicationsRequest $request ListApplicationsRequest
+     * Queries the information about one or multiple Employee Identity and Access Management (EIAM) applications by page.
      *
-     * @return ListApplicationsResponse ListApplicationsResponse
+     * @param request - ListApplicationsRequest
+     * @returns ListApplicationsResponse
+     *
+     * @param ListApplicationsRequest $request
+     *
+     * @return ListApplicationsResponse
      */
     public function listApplications($request)
     {
@@ -3851,36 +4734,46 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
-     *  *
-     * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
-     *  *
-     * @param ListApplicationsForOrganizationalUnitRequest $request ListApplicationsForOrganizationalUnitRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
      *
-     * @return ListApplicationsForOrganizationalUnitResponse ListApplicationsForOrganizationalUnitResponse
+     * @remarks
+     * You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+     *
+     * @param request - ListApplicationsForOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListApplicationsForOrganizationalUnitResponse
+     *
+     * @param ListApplicationsForOrganizationalUnitRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListApplicationsForOrganizationalUnitResponse
      */
     public function listApplicationsForOrganizationalUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationIds)) {
-            $query['ApplicationIds'] = $request->applicationIds;
+        if (null !== $request->applicationIds) {
+            @$query['ApplicationIds'] = $request->applicationIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListApplicationsForOrganizationalUnit',
@@ -3893,18 +4786,25 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListApplicationsForOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListApplicationsForOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListApplicationsForOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
-     *  *
-     * @description You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
-     *  *
-     * @param ListApplicationsForOrganizationalUnitRequest $request ListApplicationsForOrganizationalUnitRequest
+     * Queries the applications that an Employee Identity and Access Management (EIAM) organization can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
      *
-     * @return ListApplicationsForOrganizationalUnitResponse ListApplicationsForOrganizationalUnitResponse
+     * @remarks
+     * You can only query the permissions that are directly granted to the EIAM organization by calling the ListApplicationsForOrganizationalUnit operation. You can filter applications by configuring the **ApplicationIds** parameter when you call this operation.
+     *
+     * @param request - ListApplicationsForOrganizationalUnitRequest
+     * @returns ListApplicationsForOrganizationalUnitResponse
+     *
+     * @param ListApplicationsForOrganizationalUnitRequest $request
+     *
+     * @return ListApplicationsForOrganizationalUnitResponse
      */
     public function listApplicationsForOrganizationalUnit($request)
     {
@@ -3914,37 +4814,47 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
-     *  *
-     * @param ListApplicationsForUserRequest $request ListApplicationsForUserRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
      *
-     * @return ListApplicationsForUserResponse ListApplicationsForUserResponse
+     * @param request - ListApplicationsForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListApplicationsForUserResponse
+     *
+     * @param ListApplicationsForUserRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListApplicationsForUserResponse
      */
     public function listApplicationsForUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationIds)) {
-            $query['ApplicationIds'] = $request->applicationIds;
+        if (null !== $request->applicationIds) {
+            @$query['ApplicationIds'] = $request->applicationIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queryMode)) {
-            $query['QueryMode'] = $request->queryMode;
+
+        if (null !== $request->queryMode) {
+            @$query['QueryMode'] = $request->queryMode;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListApplicationsForUser',
@@ -3957,16 +4867,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListApplicationsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListApplicationsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListApplicationsForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
-     *  *
-     * @param ListApplicationsForUserRequest $request ListApplicationsForUserRequest
+     * Queries the applications that an Employee Identity and Access Management (EIAM) account can access. The return result includes the IDs of the applications. If you want to obtain the details of the applications, call the GetApplication operation.
      *
-     * @return ListApplicationsForUserResponse ListApplicationsForUserResponse
+     * @param request - ListApplicationsForUserRequest
+     * @returns ListApplicationsForUserResponse
+     *
+     * @param ListApplicationsForUserRequest $request
+     *
+     * @return ListApplicationsForUserResponse
      */
     public function listApplicationsForUser($request)
     {
@@ -3976,25 +4892,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 列表查询域名代理Token信息。
-     *  *
-     * @param ListDomainProxyTokensRequest $request ListDomainProxyTokensRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 列表查询域名代理Token信息。
      *
-     * @return ListDomainProxyTokensResponse ListDomainProxyTokensResponse
+     * @param request - ListDomainProxyTokensRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDomainProxyTokensResponse
+     *
+     * @param ListDomainProxyTokensRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDomainProxyTokensResponse
      */
     public function listDomainProxyTokensWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDomainProxyTokens',
@@ -4007,16 +4929,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDomainProxyTokensResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDomainProxyTokensResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDomainProxyTokensResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列表查询域名代理Token信息。
-     *  *
-     * @param ListDomainProxyTokensRequest $request ListDomainProxyTokensRequest
+     * 列表查询域名代理Token信息。
      *
-     * @return ListDomainProxyTokensResponse ListDomainProxyTokensResponse
+     * @param request - ListDomainProxyTokensRequest
+     * @returns ListDomainProxyTokensResponse
+     *
+     * @param ListDomainProxyTokensRequest $request
+     *
+     * @return ListDomainProxyTokensResponse
      */
     public function listDomainProxyTokens($request)
     {
@@ -4026,22 +4954,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 列表查询域名记录。
-     *  *
-     * @param ListDomainsRequest $request ListDomainsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 列表查询域名记录。
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @param request - ListDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDomainsResponse
+     *
+     * @param ListDomainsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDomainsResponse
      */
     public function listDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDomains',
@@ -4054,16 +4987,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列表查询域名记录。
-     *  *
-     * @param ListDomainsRequest $request ListDomainsRequest
+     * 列表查询域名记录。
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @param request - ListDomainsRequest
+     * @returns ListDomainsResponse
+     *
+     * @param ListDomainsRequest $request
+     *
+     * @return ListDomainsResponse
      */
     public function listDomains($request)
     {
@@ -4073,25 +5012,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询EIAM2.0/EIAM1.0实例列表
-     *  *
-     * @param ListEiamInstancesRequest $request ListEiamInstancesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询EIAM2.0/EIAM1.0实例列表.
      *
-     * @return ListEiamInstancesResponse ListEiamInstancesResponse
+     * @param request - ListEiamInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEiamInstancesResponse
+     *
+     * @param ListEiamInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListEiamInstancesResponse
      */
     public function listEiamInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->instanceRegionId)) {
-            $query['InstanceRegionId'] = $request->instanceRegionId;
+
+        if (null !== $request->instanceRegionId) {
+            @$query['InstanceRegionId'] = $request->instanceRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListEiamInstances',
@@ -4104,16 +5049,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEiamInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEiamInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEiamInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询EIAM2.0/EIAM1.0实例列表
-     *  *
-     * @param ListEiamInstancesRequest $request ListEiamInstancesRequest
+     * 查询EIAM2.0/EIAM1.0实例列表.
      *
-     * @return ListEiamInstancesResponse ListEiamInstancesResponse
+     * @param request - ListEiamInstancesRequest
+     * @returns ListEiamInstancesResponse
+     *
+     * @param ListEiamInstancesRequest $request
+     *
+     * @return ListEiamInstancesResponse
      */
     public function listEiamInstances($request)
     {
@@ -4123,11 +5074,15 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询EIAM2.0/EIAM1.0地域列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询EIAM2.0/EIAM1.0地域列表.
      *
-     * @return ListEiamRegionsResponse ListEiamRegionsResponse
+     * @param request - ListEiamRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListEiamRegionsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListEiamRegionsResponse
      */
     public function listEiamRegionsWithOptions($runtime)
     {
@@ -4143,14 +5098,19 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEiamRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEiamRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEiamRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询EIAM2.0/EIAM1.0地域列表
-     *  *
-     * @return ListEiamRegionsResponse ListEiamRegionsResponse
+     * 查询EIAM2.0/EIAM1.0地域列表.
+     *
+     * @returns ListEiamRegionsResponse
+     *
+     * @return ListEiamRegionsResponse
      */
     public function listEiamRegions()
     {
@@ -4160,40 +5120,51 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param ListGroupsRequest $request ListGroupsRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return ListGroupsResponse ListGroupsResponse
+     * @param request - ListGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListGroupsResponse
+     *
+     * @param ListGroupsRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupExternalId)) {
-            $query['GroupExternalId'] = $request->groupExternalId;
+        if (null !== $request->groupExternalId) {
+            @$query['GroupExternalId'] = $request->groupExternalId;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->groupNameStartsWith)) {
-            $query['GroupNameStartsWith'] = $request->groupNameStartsWith;
+
+        if (null !== $request->groupNameStartsWith) {
+            @$query['GroupNameStartsWith'] = $request->groupNameStartsWith;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListGroups',
@@ -4206,16 +5177,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param ListGroupsRequest $request ListGroupsRequest
+     * Queries a list of account groups in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return ListGroupsResponse ListGroupsResponse
+     * @param request - ListGroupsRequest
+     * @returns ListGroupsResponse
+     *
+     * @param ListGroupsRequest $request
+     *
+     * @return ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -4225,34 +5202,43 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
-     *  *
-     * @param ListGroupsForApplicationRequest $request ListGroupsForApplicationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
      *
-     * @return ListGroupsForApplicationResponse ListGroupsForApplicationResponse
+     * @param request - ListGroupsForApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListGroupsForApplicationResponse
+     *
+     * @param ListGroupsForApplicationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListGroupsForApplicationResponse
      */
     public function listGroupsForApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListGroupsForApplication',
@@ -4265,16 +5251,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListGroupsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListGroupsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListGroupsForApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
-     *  *
-     * @param ListGroupsForApplicationRequest $request ListGroupsForApplicationRequest
+     * Queries a list of account groups to which the permissions to access an application are granted. The returned results contain the group IDs. You can call the GetGroup operation to query the information about an account group based on the group ID.
      *
-     * @return ListGroupsForApplicationResponse ListGroupsForApplicationResponse
+     * @param request - ListGroupsForApplicationRequest
+     * @returns ListGroupsForApplicationResponse
+     *
+     * @param ListGroupsForApplicationRequest $request
+     *
+     * @return ListGroupsForApplicationResponse
      */
     public function listGroupsForApplication($request)
     {
@@ -4284,31 +5276,39 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
-     *  *
-     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
      *
-     * @return ListGroupsForUserResponse ListGroupsForUserResponse
+     * @param request - ListGroupsForUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListGroupsForUserResponse
+     *
+     * @param ListGroupsForUserRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListGroupsForUserResponse
      */
     public function listGroupsForUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListGroupsForUser',
@@ -4321,16 +5321,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListGroupsForUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
-     *  *
-     * @param ListGroupsForUserRequest $request ListGroupsForUserRequest
+     * Queries a list of account groups to which an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) belongs.
      *
-     * @return ListGroupsForUserResponse ListGroupsForUserResponse
+     * @param request - ListGroupsForUserRequest
+     * @returns ListGroupsForUserResponse
+     *
+     * @param ListGroupsForUserRequest $request
+     *
+     * @return ListGroupsForUserResponse
      */
     public function listGroupsForUser($request)
     {
@@ -4340,28 +5346,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询身份提供方
-     *  *
-     * @param ListIdentityProvidersRequest $request ListIdentityProvidersRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询身份提供方.
      *
-     * @return ListIdentityProvidersResponse ListIdentityProvidersResponse
+     * @param request - ListIdentityProvidersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListIdentityProvidersResponse
+     *
+     * @param ListIdentityProvidersRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListIdentityProvidersResponse
      */
     public function listIdentityProvidersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListIdentityProviders',
@@ -4374,16 +5387,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListIdentityProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListIdentityProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListIdentityProvidersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询身份提供方
-     *  *
-     * @param ListIdentityProvidersRequest $request ListIdentityProvidersRequest
+     * 查询身份提供方.
      *
-     * @return ListIdentityProvidersResponse ListIdentityProvidersResponse
+     * @param request - ListIdentityProvidersRequest
+     * @returns ListIdentityProvidersResponse
+     *
+     * @param ListIdentityProvidersRequest $request
+     *
+     * @return ListIdentityProvidersResponse
      */
     public function listIdentityProviders($request)
     {
@@ -4393,31 +5412,39 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceIds)) {
-            $query['InstanceIds'] = $request->instanceIds;
+        if (null !== $request->instanceIds) {
+            @$query['InstanceIds'] = $request->instanceIds;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstances',
@@ -4430,16 +5457,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
-     *  *
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * Queries the information of one or more Enterprise Identity and Access Management (EIAM) instances of Identity as a Service (IDaaS).
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param request - ListInstancesRequest
+     * @returns ListInstancesResponse
+     *
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -4449,11 +5482,15 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 获取支持专属端点的region列表
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 获取支持专属端点的region列表.
      *
-     * @return ListNetworkAccessEndpointAvailableRegionsResponse ListNetworkAccessEndpointAvailableRegionsResponse
+     * @param request - ListNetworkAccessEndpointAvailableRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNetworkAccessEndpointAvailableRegionsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListNetworkAccessEndpointAvailableRegionsResponse
      */
     public function listNetworkAccessEndpointAvailableRegionsWithOptions($runtime)
     {
@@ -4469,14 +5506,19 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNetworkAccessEndpointAvailableRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNetworkAccessEndpointAvailableRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNetworkAccessEndpointAvailableRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取支持专属端点的region列表
-     *  *
-     * @return ListNetworkAccessEndpointAvailableRegionsResponse ListNetworkAccessEndpointAvailableRegionsResponse
+     * 获取支持专属端点的region列表.
+     *
+     * @returns ListNetworkAccessEndpointAvailableRegionsResponse
+     *
+     * @return ListNetworkAccessEndpointAvailableRegionsResponse
      */
     public function listNetworkAccessEndpointAvailableRegions()
     {
@@ -4486,22 +5528,27 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 获取支持NAE的可用区列表
-     *  *
-     * @param ListNetworkAccessEndpointAvailableZonesRequest $request ListNetworkAccessEndpointAvailableZonesRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     * 获取支持NAE的可用区列表.
      *
-     * @return ListNetworkAccessEndpointAvailableZonesResponse ListNetworkAccessEndpointAvailableZonesResponse
+     * @param request - ListNetworkAccessEndpointAvailableZonesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNetworkAccessEndpointAvailableZonesResponse
+     *
+     * @param ListNetworkAccessEndpointAvailableZonesRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return ListNetworkAccessEndpointAvailableZonesResponse
      */
     public function listNetworkAccessEndpointAvailableZonesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->naeRegionId)) {
-            $query['NaeRegionId'] = $request->naeRegionId;
+        if (null !== $request->naeRegionId) {
+            @$query['NaeRegionId'] = $request->naeRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListNetworkAccessEndpointAvailableZones',
@@ -4514,16 +5561,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNetworkAccessEndpointAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNetworkAccessEndpointAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNetworkAccessEndpointAvailableZonesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取支持NAE的可用区列表
-     *  *
-     * @param ListNetworkAccessEndpointAvailableZonesRequest $request ListNetworkAccessEndpointAvailableZonesRequest
+     * 获取支持NAE的可用区列表.
      *
-     * @return ListNetworkAccessEndpointAvailableZonesResponse ListNetworkAccessEndpointAvailableZonesResponse
+     * @param request - ListNetworkAccessEndpointAvailableZonesRequest
+     * @returns ListNetworkAccessEndpointAvailableZonesResponse
+     *
+     * @param ListNetworkAccessEndpointAvailableZonesRequest $request
+     *
+     * @return ListNetworkAccessEndpointAvailableZonesResponse
      */
     public function listNetworkAccessEndpointAvailableZones($request)
     {
@@ -4533,40 +5586,51 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 列表查询专属网络端点。
-     *  *
-     * @param ListNetworkAccessEndpointsRequest $request ListNetworkAccessEndpointsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 列表查询专属网络端点。
      *
-     * @return ListNetworkAccessEndpointsResponse ListNetworkAccessEndpointsResponse
+     * @param request - ListNetworkAccessEndpointsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNetworkAccessEndpointsResponse
+     *
+     * @param ListNetworkAccessEndpointsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListNetworkAccessEndpointsResponse
      */
     public function listNetworkAccessEndpointsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointStatus)) {
-            $query['NetworkAccessEndpointStatus'] = $request->networkAccessEndpointStatus;
+
+        if (null !== $request->networkAccessEndpointStatus) {
+            @$query['NetworkAccessEndpointStatus'] = $request->networkAccessEndpointStatus;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointType)) {
-            $query['NetworkAccessEndpointType'] = $request->networkAccessEndpointType;
+
+        if (null !== $request->networkAccessEndpointType) {
+            @$query['NetworkAccessEndpointType'] = $request->networkAccessEndpointType;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vpcRegionId)) {
-            $query['VpcRegionId'] = $request->vpcRegionId;
+
+        if (null !== $request->vpcRegionId) {
+            @$query['VpcRegionId'] = $request->vpcRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListNetworkAccessEndpoints',
@@ -4579,16 +5643,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNetworkAccessEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNetworkAccessEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNetworkAccessEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列表查询专属网络端点。
-     *  *
-     * @param ListNetworkAccessEndpointsRequest $request ListNetworkAccessEndpointsRequest
+     * 列表查询专属网络端点。
      *
-     * @return ListNetworkAccessEndpointsResponse ListNetworkAccessEndpointsResponse
+     * @param request - ListNetworkAccessEndpointsRequest
+     * @returns ListNetworkAccessEndpointsResponse
+     *
+     * @param ListNetworkAccessEndpointsRequest $request
+     *
+     * @return ListNetworkAccessEndpointsResponse
      */
     public function listNetworkAccessEndpoints($request)
     {
@@ -4598,25 +5668,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 列表某个网络访问端点下的访问路径。
-     *  *
-     * @param ListNetworkAccessPathsRequest $request ListNetworkAccessPathsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 列表某个网络访问端点下的访问路径。
      *
-     * @return ListNetworkAccessPathsResponse ListNetworkAccessPathsResponse
+     * @param request - ListNetworkAccessPathsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNetworkAccessPathsResponse
+     *
+     * @param ListNetworkAccessPathsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListNetworkAccessPathsResponse
      */
     public function listNetworkAccessPathsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointId)) {
-            $query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListNetworkAccessPaths',
@@ -4629,16 +5705,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNetworkAccessPathsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNetworkAccessPathsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNetworkAccessPathsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 列表某个网络访问端点下的访问路径。
-     *  *
-     * @param ListNetworkAccessPathsRequest $request ListNetworkAccessPathsRequest
+     * 列表某个网络访问端点下的访问路径。
      *
-     * @return ListNetworkAccessPathsResponse ListNetworkAccessPathsResponse
+     * @param request - ListNetworkAccessPathsRequest
+     * @returns ListNetworkAccessPathsResponse
+     *
+     * @param ListNetworkAccessPathsRequest $request
+     *
+     * @return ListNetworkAccessPathsResponse
      */
     public function listNetworkAccessPaths($request)
     {
@@ -4648,25 +5730,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询组织的所有父级路径
-     *  *
-     * @param ListOrganizationalUnitParentsRequest $request ListOrganizationalUnitParentsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 查询组织的所有父级路径.
      *
-     * @return ListOrganizationalUnitParentsResponse ListOrganizationalUnitParentsResponse
+     * @param request - ListOrganizationalUnitParentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOrganizationalUnitParentsResponse
+     *
+     * @param ListOrganizationalUnitParentsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListOrganizationalUnitParentsResponse
      */
     public function listOrganizationalUnitParentsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOrganizationalUnitParents',
@@ -4679,16 +5767,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOrganizationalUnitParentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrganizationalUnitParentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrganizationalUnitParentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询组织的所有父级路径
-     *  *
-     * @param ListOrganizationalUnitParentsRequest $request ListOrganizationalUnitParentsRequest
+     * 查询组织的所有父级路径.
      *
-     * @return ListOrganizationalUnitParentsResponse ListOrganizationalUnitParentsResponse
+     * @param request - ListOrganizationalUnitParentsRequest
+     * @returns ListOrganizationalUnitParentsResponse
+     *
+     * @param ListOrganizationalUnitParentsRequest $request
+     *
+     * @return ListOrganizationalUnitParentsResponse
      */
     public function listOrganizationalUnitParents($request)
     {
@@ -4698,40 +5792,51 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
-     *  *
-     * @param ListOrganizationalUnitsRequest $request ListOrganizationalUnitsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
      *
-     * @return ListOrganizationalUnitsResponse ListOrganizationalUnitsResponse
+     * @param request - ListOrganizationalUnitsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOrganizationalUnitsResponse
+     *
+     * @param ListOrganizationalUnitsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListOrganizationalUnitsResponse
      */
     public function listOrganizationalUnitsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitIds)) {
-            $query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
+
+        if (null !== $request->organizationalUnitIds) {
+            @$query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
         }
-        if (!Utils::isUnset($request->organizationalUnitName)) {
-            $query['OrganizationalUnitName'] = $request->organizationalUnitName;
+
+        if (null !== $request->organizationalUnitName) {
+            @$query['OrganizationalUnitName'] = $request->organizationalUnitName;
         }
-        if (!Utils::isUnset($request->organizationalUnitNameStartsWith)) {
-            $query['OrganizationalUnitNameStartsWith'] = $request->organizationalUnitNameStartsWith;
+
+        if (null !== $request->organizationalUnitNameStartsWith) {
+            @$query['OrganizationalUnitNameStartsWith'] = $request->organizationalUnitNameStartsWith;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOrganizationalUnits',
@@ -4744,16 +5849,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
-     *  *
-     * @param ListOrganizationalUnitsRequest $request ListOrganizationalUnitsRequest
+     * Queries the information about organizational units in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
      *
-     * @return ListOrganizationalUnitsResponse ListOrganizationalUnitsResponse
+     * @param request - ListOrganizationalUnitsRequest
+     * @returns ListOrganizationalUnitsResponse
+     *
+     * @param ListOrganizationalUnitsRequest $request
+     *
+     * @return ListOrganizationalUnitsResponse
      */
     public function listOrganizationalUnits($request)
     {
@@ -4763,34 +5874,43 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
-     *  *
-     * @param ListOrganizationalUnitsForApplicationRequest $request ListOrganizationalUnitsForApplicationRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
      *
-     * @return ListOrganizationalUnitsForApplicationResponse ListOrganizationalUnitsForApplicationResponse
+     * @param request - ListOrganizationalUnitsForApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOrganizationalUnitsForApplicationResponse
+     *
+     * @param ListOrganizationalUnitsForApplicationRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListOrganizationalUnitsForApplicationResponse
      */
     public function listOrganizationalUnitsForApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitIds)) {
-            $query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
+
+        if (null !== $request->organizationalUnitIds) {
+            @$query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOrganizationalUnitsForApplication',
@@ -4803,16 +5923,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOrganizationalUnitsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrganizationalUnitsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrganizationalUnitsForApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
-     *  *
-     * @param ListOrganizationalUnitsForApplicationRequest $request ListOrganizationalUnitsForApplicationRequest
+     * Queries the organizations that are allowed to access an Employee Identity and Access Management (EIAM) application by page. The return result includes the IDs of the organizations. If you want to obtain the details of the organizations, call the GetOrganizationalUnit operation.
      *
-     * @return ListOrganizationalUnitsForApplicationResponse ListOrganizationalUnitsForApplicationResponse
+     * @param request - ListOrganizationalUnitsForApplicationRequest
+     * @returns ListOrganizationalUnitsForApplicationResponse
+     *
+     * @param ListOrganizationalUnitsForApplicationRequest $request
+     *
+     * @return ListOrganizationalUnitsForApplicationResponse
      */
     public function listOrganizationalUnitsForApplication($request)
     {
@@ -4822,11 +5948,15 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the supported Alibaba Cloud regions.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the supported Alibaba Cloud regions.
      *
-     * @return ListRegionsResponse ListRegionsResponse
+     * @param request - ListRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRegionsResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListRegionsResponse
      */
     public function listRegionsWithOptions($runtime)
     {
@@ -4842,14 +5972,19 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the supported Alibaba Cloud regions.
-     *  *
-     * @return ListRegionsResponse ListRegionsResponse
+     * Queries the supported Alibaba Cloud regions.
+     *
+     * @returns ListRegionsResponse
+     *
+     * @return ListRegionsResponse
      */
     public function listRegions()
     {
@@ -4859,55 +5994,71 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询同步任务
-     *  *
-     * @param ListSynchronizationJobsRequest $request ListSynchronizationJobsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查询同步任务
      *
-     * @return ListSynchronizationJobsResponse ListSynchronizationJobsResponse
+     * @param request - ListSynchronizationJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSynchronizationJobsResponse
+     *
+     * @param ListSynchronizationJobsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListSynchronizationJobsResponse
      */
     public function listSynchronizationJobsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->direction)) {
-            $query['Direction'] = $request->direction;
+        if (null !== $request->direction) {
+            @$query['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->filters)) {
-            $query['Filters'] = $request->filters;
+
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->targetIds)) {
-            $query['TargetIds'] = $request->targetIds;
+
+        if (null !== $request->targetIds) {
+            @$query['TargetIds'] = $request->targetIds;
         }
-        if (!Utils::isUnset($request->targetType)) {
-            $query['TargetType'] = $request->targetType;
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSynchronizationJobs',
@@ -4920,16 +6071,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSynchronizationJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询同步任务
-     *  *
-     * @param ListSynchronizationJobsRequest $request ListSynchronizationJobsRequest
+     * 查询同步任务
      *
-     * @return ListSynchronizationJobsResponse ListSynchronizationJobsResponse
+     * @param request - ListSynchronizationJobsRequest
+     * @returns ListSynchronizationJobsResponse
+     *
+     * @param ListSynchronizationJobsRequest $request
+     *
+     * @return ListSynchronizationJobsResponse
      */
     public function listSynchronizationJobs($request)
     {
@@ -4939,61 +6096,79 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
-     *  *
-     * @param ListUsersRequest $request ListUsersRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param request - ListUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->displayNameStartsWith)) {
-            $query['DisplayNameStartsWith'] = $request->displayNameStartsWith;
+        if (null !== $request->displayNameStartsWith) {
+            @$query['DisplayNameStartsWith'] = $request->displayNameStartsWith;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->phoneRegion)) {
-            $query['PhoneRegion'] = $request->phoneRegion;
+
+        if (null !== $request->phoneRegion) {
+            @$query['PhoneRegion'] = $request->phoneRegion;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->userExternalId)) {
-            $query['UserExternalId'] = $request->userExternalId;
+
+        if (null !== $request->userExternalId) {
+            @$query['UserExternalId'] = $request->userExternalId;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
-        if (!Utils::isUnset($request->userSourceId)) {
-            $query['UserSourceId'] = $request->userSourceId;
+
+        if (null !== $request->userSourceId) {
+            @$query['UserSourceId'] = $request->userSourceId;
         }
-        if (!Utils::isUnset($request->userSourceType)) {
-            $query['UserSourceType'] = $request->userSourceType;
+
+        if (null !== $request->userSourceType) {
+            @$query['UserSourceType'] = $request->userSourceType;
         }
-        if (!Utils::isUnset($request->usernameStartsWith)) {
-            $query['UsernameStartsWith'] = $request->usernameStartsWith;
+
+        if (null !== $request->usernameStartsWith) {
+            @$query['UsernameStartsWith'] = $request->usernameStartsWith;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUsers',
@@ -5006,16 +6181,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
-     *  *
-     * @param ListUsersRequest $request ListUsersRequest
+     * Queries the details of accounts in Identity as a Service (IDaaS) Employee IAM (EIAM) by page.
      *
-     * @return ListUsersResponse ListUsersResponse
+     * @param request - ListUsersRequest
+     * @returns ListUsersResponse
+     *
+     * @param ListUsersRequest $request
+     *
+     * @return ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -5025,34 +6206,43 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
-     *  *
-     * @param ListUsersForApplicationRequest $request ListUsersForApplicationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
      *
-     * @return ListUsersForApplicationResponse ListUsersForApplicationResponse
+     * @param request - ListUsersForApplicationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUsersForApplicationResponse
+     *
+     * @param ListUsersForApplicationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListUsersForApplicationResponse
      */
     public function listUsersForApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUsersForApplication',
@@ -5065,16 +6255,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUsersForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUsersForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUsersForApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
-     *  *
-     * @param ListUsersForApplicationRequest $request ListUsersForApplicationRequest
+     * Queries the accounts that are allowed to access an Employee Identity and Access Management (EIAM) application. The return results include the IDs of the accounts. If you need to obtain the details of the accounts, call the GetUser operation.
      *
-     * @return ListUsersForApplicationResponse ListUsersForApplicationResponse
+     * @param request - ListUsersForApplicationRequest
+     * @returns ListUsersForApplicationResponse
+     *
+     * @param ListUsersForApplicationRequest $request
+     *
+     * @return ListUsersForApplicationResponse
      */
     public function listUsersForApplication($request)
     {
@@ -5084,34 +6280,43 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
-     *  *
-     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
      *
-     * @return ListUsersForGroupResponse ListUsersForGroupResponse
+     * @param request - ListUsersForGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUsersForGroupResponse
+     *
+     * @param ListUsersForGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUsersForGroupResponse
      */
     public function listUsersForGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUsersForGroup',
@@ -5124,16 +6329,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUsersForGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
-     *  *
-     * @param ListUsersForGroupRequest $request ListUsersForGroupRequest
+     * Queries the information of accounts in an Employee Identity and Access Management (EIAM) group of Identity as a Service (IDaaS).
      *
-     * @return ListUsersForGroupResponse ListUsersForGroupResponse
+     * @param request - ListUsersForGroupRequest
+     * @returns ListUsersForGroupResponse
+     *
+     * @param ListUsersForGroupRequest $request
+     *
+     * @return ListUsersForGroupResponse
      */
     public function listUsersForGroup($request)
     {
@@ -5143,28 +6354,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
-     *  *
-     * @param ObtainApplicationClientSecretRequest $request ObtainApplicationClientSecretRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
      *
-     * @return ObtainApplicationClientSecretResponse ObtainApplicationClientSecretResponse
+     * @param request - ObtainApplicationClientSecretRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ObtainApplicationClientSecretResponse
+     *
+     * @param ObtainApplicationClientSecretRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ObtainApplicationClientSecretResponse
      */
     public function obtainApplicationClientSecretWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->secretId)) {
-            $query['SecretId'] = $request->secretId;
+
+        if (null !== $request->secretId) {
+            @$query['SecretId'] = $request->secretId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ObtainApplicationClientSecret',
@@ -5177,16 +6395,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ObtainApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ObtainApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ObtainApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
-     *  *
-     * @param ObtainApplicationClientSecretRequest $request ObtainApplicationClientSecretRequest
+     * Queries a client key of an Employee Identity and Access Management (EIAM) application. The returned key secret is masked. If you want to query the key secret that is not masked, call the ListApplicationClientSecrets operation.
      *
-     * @return ObtainApplicationClientSecretResponse ObtainApplicationClientSecretResponse
+     * @param request - ObtainApplicationClientSecretRequest
+     * @returns ObtainApplicationClientSecretResponse
+     *
+     * @param ObtainApplicationClientSecretRequest $request
+     *
+     * @return ObtainApplicationClientSecretResponse
      */
     public function obtainApplicationClientSecret($request)
     {
@@ -5196,28 +6420,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查看指定域名安全代理Token。
-     *  *
-     * @param ObtainDomainProxyTokenRequest $request ObtainDomainProxyTokenRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查看指定域名安全代理Token。
      *
-     * @return ObtainDomainProxyTokenResponse ObtainDomainProxyTokenResponse
+     * @param request - ObtainDomainProxyTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ObtainDomainProxyTokenResponse
+     *
+     * @param ObtainDomainProxyTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ObtainDomainProxyTokenResponse
      */
     public function obtainDomainProxyTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->domainProxyTokenId)) {
-            $query['DomainProxyTokenId'] = $request->domainProxyTokenId;
+
+        if (null !== $request->domainProxyTokenId) {
+            @$query['DomainProxyTokenId'] = $request->domainProxyTokenId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ObtainDomainProxyToken',
@@ -5230,16 +6461,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ObtainDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ObtainDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ObtainDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查看指定域名安全代理Token。
-     *  *
-     * @param ObtainDomainProxyTokenRequest $request ObtainDomainProxyTokenRequest
+     * 查看指定域名安全代理Token。
      *
-     * @return ObtainDomainProxyTokenResponse ObtainDomainProxyTokenResponse
+     * @param request - ObtainDomainProxyTokenRequest
+     * @returns ObtainDomainProxyTokenResponse
+     *
+     * @param ObtainDomainProxyTokenRequest $request
+     *
+     * @return ObtainDomainProxyTokenResponse
      */
     public function obtainDomainProxyToken($request)
     {
@@ -5249,28 +6486,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
-     *  *
-     * @param RemoveUserFromOrganizationalUnitsRequest $request RemoveUserFromOrganizationalUnitsRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
      *
-     * @return RemoveUserFromOrganizationalUnitsResponse RemoveUserFromOrganizationalUnitsResponse
+     * @param request - RemoveUserFromOrganizationalUnitsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveUserFromOrganizationalUnitsResponse
+     *
+     * @param RemoveUserFromOrganizationalUnitsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return RemoveUserFromOrganizationalUnitsResponse
      */
     public function removeUserFromOrganizationalUnitsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitIds)) {
-            $query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
+
+        if (null !== $request->organizationalUnitIds) {
+            @$query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveUserFromOrganizationalUnits',
@@ -5283,16 +6527,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
-     *  *
-     * @param RemoveUserFromOrganizationalUnitsRequest $request RemoveUserFromOrganizationalUnitsRequest
+     * Removes an Employee Identity and Access Management (EIAM) account from multiple EIAM organizations of Identity as a Service (IDaaS). You cannot remove an account from a primary organization.
      *
-     * @return RemoveUserFromOrganizationalUnitsResponse RemoveUserFromOrganizationalUnitsResponse
+     * @param request - RemoveUserFromOrganizationalUnitsRequest
+     * @returns RemoveUserFromOrganizationalUnitsResponse
+     *
+     * @param RemoveUserFromOrganizationalUnitsRequest $request
+     *
+     * @return RemoveUserFromOrganizationalUnitsResponse
      */
     public function removeUserFromOrganizationalUnits($request)
     {
@@ -5302,28 +6552,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
-     *  *
-     * @param RemoveUsersFromGroupRequest $request RemoveUsersFromGroupRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
      *
-     * @return RemoveUsersFromGroupResponse RemoveUsersFromGroupResponse
+     * @param request - RemoveUsersFromGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveUsersFromGroupResponse
+     *
+     * @param RemoveUsersFromGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RemoveUsersFromGroupResponse
      */
     public function removeUsersFromGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveUsersFromGroup',
@@ -5336,16 +6593,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveUsersFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveUsersFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveUsersFromGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
-     *  *
-     * @param RemoveUsersFromGroupRequest $request RemoveUsersFromGroupRequest
+     * Removes Employee Identity and Access Management (EIAM) accounts from an EIAM group of Identity as a Service (IDaaS).
      *
-     * @return RemoveUsersFromGroupResponse RemoveUsersFromGroupResponse
+     * @param request - RemoveUsersFromGroupRequest
+     * @returns RemoveUsersFromGroupResponse
+     *
+     * @param RemoveUsersFromGroupRequest $request
+     *
+     * @return RemoveUsersFromGroupResponse
      */
     public function removeUsersFromGroup($request)
     {
@@ -5355,28 +6618,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param RevokeApplicationFromGroupsRequest $request RevokeApplicationFromGroupsRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return RevokeApplicationFromGroupsResponse RevokeApplicationFromGroupsResponse
+     * @param request - RevokeApplicationFromGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevokeApplicationFromGroupsResponse
+     *
+     * @param RevokeApplicationFromGroupsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return RevokeApplicationFromGroupsResponse
      */
     public function revokeApplicationFromGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RevokeApplicationFromGroups',
@@ -5389,16 +6659,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevokeApplicationFromGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeApplicationFromGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeApplicationFromGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param RevokeApplicationFromGroupsRequest $request RevokeApplicationFromGroupsRequest
+     * Revokes the permissions to access an application from multiple account groups at a time in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return RevokeApplicationFromGroupsResponse RevokeApplicationFromGroupsResponse
+     * @param request - RevokeApplicationFromGroupsRequest
+     * @returns RevokeApplicationFromGroupsResponse
+     *
+     * @param RevokeApplicationFromGroupsRequest $request
+     *
+     * @return RevokeApplicationFromGroupsResponse
      */
     public function revokeApplicationFromGroups($request)
     {
@@ -5408,28 +6684,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
-     *  *
-     * @param RevokeApplicationFromOrganizationalUnitsRequest $request RevokeApplicationFromOrganizationalUnitsRequest
-     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     * Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
      *
-     * @return RevokeApplicationFromOrganizationalUnitsResponse RevokeApplicationFromOrganizationalUnitsResponse
+     * @param request - RevokeApplicationFromOrganizationalUnitsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevokeApplicationFromOrganizationalUnitsResponse
+     *
+     * @param RevokeApplicationFromOrganizationalUnitsRequest $request
+     * @param RuntimeOptions                                  $runtime
+     *
+     * @return RevokeApplicationFromOrganizationalUnitsResponse
      */
     public function revokeApplicationFromOrganizationalUnitsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitIds)) {
-            $query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
+
+        if (null !== $request->organizationalUnitIds) {
+            @$query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RevokeApplicationFromOrganizationalUnits',
@@ -5442,16 +6725,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevokeApplicationFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeApplicationFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeApplicationFromOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
-     *  *
-     * @param RevokeApplicationFromOrganizationalUnitsRequest $request RevokeApplicationFromOrganizationalUnitsRequest
+     * Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) organizations at a time.
      *
-     * @return RevokeApplicationFromOrganizationalUnitsResponse RevokeApplicationFromOrganizationalUnitsResponse
+     * @param request - RevokeApplicationFromOrganizationalUnitsRequest
+     * @returns RevokeApplicationFromOrganizationalUnitsResponse
+     *
+     * @param RevokeApplicationFromOrganizationalUnitsRequest $request
+     *
+     * @return RevokeApplicationFromOrganizationalUnitsResponse
      */
     public function revokeApplicationFromOrganizationalUnits($request)
     {
@@ -5461,28 +6750,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
-     *  *
-     * @param RevokeApplicationFromUsersRequest $request RevokeApplicationFromUsersRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
      *
-     * @return RevokeApplicationFromUsersResponse RevokeApplicationFromUsersResponse
+     * @param request - RevokeApplicationFromUsersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevokeApplicationFromUsersResponse
+     *
+     * @param RevokeApplicationFromUsersRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return RevokeApplicationFromUsersResponse
      */
     public function revokeApplicationFromUsersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['UserIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['UserIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RevokeApplicationFromUsers',
@@ -5495,16 +6791,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RevokeApplicationFromUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RevokeApplicationFromUsersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RevokeApplicationFromUsersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
-     *  *
-     * @param RevokeApplicationFromUsersRequest $request RevokeApplicationFromUsersRequest
+     * Revokes the permissions to access an application from multiple Employee Identity and Access Management (EIAM) accounts at a time.
      *
-     * @return RevokeApplicationFromUsersResponse RevokeApplicationFromUsersResponse
+     * @param request - RevokeApplicationFromUsersRequest
+     * @returns RevokeApplicationFromUsersResponse
+     *
+     * @param RevokeApplicationFromUsersRequest $request
+     *
+     * @return RevokeApplicationFromUsersResponse
      */
     public function revokeApplicationFromUsers($request)
     {
@@ -5514,40 +6816,51 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 运行同步任务
-     *  *
-     * @param RunSynchronizationJobRequest $request RunSynchronizationJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 运行同步任务
      *
-     * @return RunSynchronizationJobResponse RunSynchronizationJobResponse
+     * @param request - RunSynchronizationJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RunSynchronizationJobResponse
+     *
+     * @param RunSynchronizationJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RunSynchronizationJobResponse
      */
     public function runSynchronizationJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->passwordInitialization)) {
-            $query['PasswordInitialization'] = $request->passwordInitialization;
+
+        if (null !== $request->passwordInitialization) {
+            @$query['PasswordInitialization'] = $request->passwordInitialization;
         }
-        if (!Utils::isUnset($request->synchronizationScopeConfig)) {
-            $query['SynchronizationScopeConfig'] = $request->synchronizationScopeConfig;
+
+        if (null !== $request->synchronizationScopeConfig) {
+            @$query['SynchronizationScopeConfig'] = $request->synchronizationScopeConfig;
         }
-        if (!Utils::isUnset($request->targetId)) {
-            $query['TargetId'] = $request->targetId;
+
+        if (null !== $request->targetId) {
+            @$query['TargetId'] = $request->targetId;
         }
-        if (!Utils::isUnset($request->targetType)) {
-            $query['TargetType'] = $request->targetType;
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
         }
-        if (!Utils::isUnset($request->userIdentityTypes)) {
-            $query['UserIdentityTypes'] = $request->userIdentityTypes;
+
+        if (null !== $request->userIdentityTypes) {
+            @$query['UserIdentityTypes'] = $request->userIdentityTypes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RunSynchronizationJob',
@@ -5560,16 +6873,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 运行同步任务
-     *  *
-     * @param RunSynchronizationJobRequest $request RunSynchronizationJobRequest
+     * 运行同步任务
      *
-     * @return RunSynchronizationJobResponse RunSynchronizationJobResponse
+     * @param request - RunSynchronizationJobRequest
+     * @returns RunSynchronizationJobResponse
+     *
+     * @param RunSynchronizationJobRequest $request
+     *
+     * @return RunSynchronizationJobResponse
      */
     public function runSynchronizationJob($request)
     {
@@ -5579,28 +6898,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Configures the permissions of the Developer API feature of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param SetApplicationGrantScopeRequest $request SetApplicationGrantScopeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Configures the permissions of the Developer API feature of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return SetApplicationGrantScopeResponse SetApplicationGrantScopeResponse
+     * @param request - SetApplicationGrantScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetApplicationGrantScopeResponse
+     *
+     * @param SetApplicationGrantScopeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SetApplicationGrantScopeResponse
      */
     public function setApplicationGrantScopeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->grantScopes)) {
-            $query['GrantScopes'] = $request->grantScopes;
+
+        if (null !== $request->grantScopes) {
+            @$query['GrantScopes'] = $request->grantScopes;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetApplicationGrantScope',
@@ -5613,16 +6939,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetApplicationGrantScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the permissions of the Developer API feature of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param SetApplicationGrantScopeRequest $request SetApplicationGrantScopeRequest
+     * Configures the permissions of the Developer API feature of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return SetApplicationGrantScopeResponse SetApplicationGrantScopeResponse
+     * @param request - SetApplicationGrantScopeRequest
+     * @returns SetApplicationGrantScopeResponse
+     *
+     * @param SetApplicationGrantScopeRequest $request
+     *
+     * @return SetApplicationGrantScopeResponse
      */
     public function setApplicationGrantScope($request)
     {
@@ -5632,37 +6964,47 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param SetApplicationProvisioningConfigRequest $request SetApplicationProvisioningConfigRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return SetApplicationProvisioningConfigResponse SetApplicationProvisioningConfigResponse
+     * @param request - SetApplicationProvisioningConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetApplicationProvisioningConfigResponse
+     *
+     * @param SetApplicationProvisioningConfigRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SetApplicationProvisioningConfigResponse
      */
     public function setApplicationProvisioningConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->callbackProvisioningConfig)) {
-            $query['CallbackProvisioningConfig'] = $request->callbackProvisioningConfig;
+
+        if (null !== $request->callbackProvisioningConfig) {
+            @$query['CallbackProvisioningConfig'] = $request->callbackProvisioningConfig;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->provisionPassword)) {
-            $query['ProvisionPassword'] = $request->provisionPassword;
+
+        if (null !== $request->provisionPassword) {
+            @$query['ProvisionPassword'] = $request->provisionPassword;
         }
-        if (!Utils::isUnset($request->provisionProtocolType)) {
-            $query['ProvisionProtocolType'] = $request->provisionProtocolType;
+
+        if (null !== $request->provisionProtocolType) {
+            @$query['ProvisionProtocolType'] = $request->provisionProtocolType;
         }
-        if (!Utils::isUnset($request->scimProvisioningConfig)) {
-            $query['ScimProvisioningConfig'] = $request->scimProvisioningConfig;
+
+        if (null !== $request->scimProvisioningConfig) {
+            @$query['ScimProvisioningConfig'] = $request->scimProvisioningConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetApplicationProvisioningConfig',
@@ -5675,16 +7017,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetApplicationProvisioningConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
-     *  *
-     * @param SetApplicationProvisioningConfigRequest $request SetApplicationProvisioningConfigRequest
+     * Configures the account synchronization feature for an application in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM).
      *
-     * @return SetApplicationProvisioningConfigResponse SetApplicationProvisioningConfigResponse
+     * @param request - SetApplicationProvisioningConfigRequest
+     * @returns SetApplicationProvisioningConfigResponse
+     *
+     * @param SetApplicationProvisioningConfigRequest $request
+     *
+     * @return SetApplicationProvisioningConfigResponse
      */
     public function setApplicationProvisioningConfig($request)
     {
@@ -5694,31 +7042,39 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Sets the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
-     *  *
-     * @param SetApplicationProvisioningScopeRequest $request SetApplicationProvisioningScopeRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Sets the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
      *
-     * @return SetApplicationProvisioningScopeResponse SetApplicationProvisioningScopeResponse
+     * @param request - SetApplicationProvisioningScopeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetApplicationProvisioningScopeResponse
+     *
+     * @param SetApplicationProvisioningScopeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SetApplicationProvisioningScopeResponse
      */
     public function setApplicationProvisioningScopeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitIds)) {
-            $query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
+
+        if (null !== $request->organizationalUnitIds) {
+            @$query['OrganizationalUnitIds'] = $request->organizationalUnitIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetApplicationProvisioningScope',
@@ -5731,16 +7087,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetApplicationProvisioningScopeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
-     *  *
-     * @param SetApplicationProvisioningScopeRequest $request SetApplicationProvisioningScopeRequest
+     * Sets the account synchronization scope of applications in Identity as a Service (IDaaS) Employee IAM (EIAM). This scope is the same as the scope within which developers can call the DeveloperAPI to query and manage accounts.
      *
-     * @return SetApplicationProvisioningScopeResponse SetApplicationProvisioningScopeResponse
+     * @param request - SetApplicationProvisioningScopeRequest
+     * @returns SetApplicationProvisioningScopeResponse
+     *
+     * @param SetApplicationProvisioningScopeRequest $request
+     *
+     * @return SetApplicationProvisioningScopeResponse
      */
     public function setApplicationProvisioningScope($request)
     {
@@ -5750,42 +7112,54 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
-     *  *
-     * @param SetApplicationSsoConfigRequest $request SetApplicationSsoConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return SetApplicationSsoConfigResponse SetApplicationSsoConfigResponse
+     * @remarks
+     * In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+     *
+     * @param request - SetApplicationSsoConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetApplicationSsoConfigResponse
+     *
+     * @param SetApplicationSsoConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SetApplicationSsoConfigResponse
      */
     public function setApplicationSsoConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->initLoginType)) {
-            $query['InitLoginType'] = $request->initLoginType;
+
+        if (null !== $request->initLoginType) {
+            @$query['InitLoginType'] = $request->initLoginType;
         }
-        if (!Utils::isUnset($request->initLoginUrl)) {
-            $query['InitLoginUrl'] = $request->initLoginUrl;
+
+        if (null !== $request->initLoginUrl) {
+            @$query['InitLoginUrl'] = $request->initLoginUrl;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->oidcSsoConfig)) {
-            $query['OidcSsoConfig'] = $request->oidcSsoConfig;
+
+        if (null !== $request->oidcSsoConfig) {
+            @$query['OidcSsoConfig'] = $request->oidcSsoConfig;
         }
-        if (!Utils::isUnset($request->samlSsoConfig)) {
-            $query['SamlSsoConfig'] = $request->samlSsoConfig;
+
+        if (null !== $request->samlSsoConfig) {
+            @$query['SamlSsoConfig'] = $request->samlSsoConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetApplicationSsoConfig',
@@ -5798,18 +7172,25 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetApplicationSsoConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
-     *  *
-     * @description In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
-     *  *
-     * @param SetApplicationSsoConfigRequest $request SetApplicationSsoConfigRequest
+     * Specifies the single sign-on (SSO) configuration attributes of an application in Identity as a Service (IDaaS) Employee IAM (EIAM).
      *
-     * @return SetApplicationSsoConfigResponse SetApplicationSsoConfigResponse
+     * @remarks
+     * In IDaaS EIAM, the application management feature supports multiple SSO protocols for applications, including SAML 2.0 and OIDC protocols. Each application supports only one protocol, and the protocol cannot be changed after the application is created. You can specify the SSO configuration attributes of an application based on the supported SSO protocol.
+     *
+     * @param request - SetApplicationSsoConfigRequest
+     * @returns SetApplicationSsoConfigResponse
+     *
+     * @param SetApplicationSsoConfigRequest $request
+     *
+     * @return SetApplicationSsoConfigResponse
      */
     public function setApplicationSsoConfig($request)
     {
@@ -5819,25 +7200,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 设置默认域名。
-     *  *
-     * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 设置默认域名。
      *
-     * @return SetDefaultDomainResponse SetDefaultDomainResponse
+     * @param request - SetDefaultDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetDefaultDomainResponse
+     *
+     * @param SetDefaultDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SetDefaultDomainResponse
      */
     public function setDefaultDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDefaultDomain',
@@ -5850,16 +7237,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDefaultDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 设置默认域名。
-     *  *
-     * @param SetDefaultDomainRequest $request SetDefaultDomainRequest
+     * 设置默认域名。
      *
-     * @return SetDefaultDomainResponse SetDefaultDomainResponse
+     * @param request - SetDefaultDomainRequest
+     * @returns SetDefaultDomainResponse
+     *
+     * @param SetDefaultDomainRequest $request
+     *
+     * @return SetDefaultDomainResponse
      */
     public function setDefaultDomain($request)
     {
@@ -5869,28 +7262,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetForgetPasswordConfigurationRequest $request SetForgetPasswordConfigurationRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetForgetPasswordConfigurationResponse SetForgetPasswordConfigurationResponse
+     * @param request - SetForgetPasswordConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetForgetPasswordConfigurationResponse
+     *
+     * @param SetForgetPasswordConfigurationRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SetForgetPasswordConfigurationResponse
      */
     public function setForgetPasswordConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->authenticationChannels)) {
-            $query['AuthenticationChannels'] = $request->authenticationChannels;
+        if (null !== $request->authenticationChannels) {
+            @$query['AuthenticationChannels'] = $request->authenticationChannels;
         }
-        if (!Utils::isUnset($request->forgetPasswordStatus)) {
-            $query['ForgetPasswordStatus'] = $request->forgetPasswordStatus;
+
+        if (null !== $request->forgetPasswordStatus) {
+            @$query['ForgetPasswordStatus'] = $request->forgetPasswordStatus;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetForgetPasswordConfiguration',
@@ -5903,16 +7303,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetForgetPasswordConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetForgetPasswordConfigurationRequest $request SetForgetPasswordConfigurationRequest
+     * Configures a forgot password policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetForgetPasswordConfigurationResponse SetForgetPasswordConfigurationResponse
+     * @param request - SetForgetPasswordConfigurationRequest
+     * @returns SetForgetPasswordConfigurationResponse
+     *
+     * @param SetForgetPasswordConfigurationRequest $request
+     *
+     * @return SetForgetPasswordConfigurationResponse
      */
     public function setForgetPasswordConfiguration($request)
     {
@@ -5922,43 +7328,55 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 修改IdP同步入配置
-     *  *
-     * @param SetIdentityProviderUdPullConfigurationRequest $request SetIdentityProviderUdPullConfigurationRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * 修改IdP同步入配置.
      *
-     * @return SetIdentityProviderUdPullConfigurationResponse SetIdentityProviderUdPullConfigurationResponse
+     * @param request - SetIdentityProviderUdPullConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetIdentityProviderUdPullConfigurationResponse
+     *
+     * @param SetIdentityProviderUdPullConfigurationRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SetIdentityProviderUdPullConfigurationResponse
      */
     public function setIdentityProviderUdPullConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupSyncStatus)) {
-            $query['GroupSyncStatus'] = $request->groupSyncStatus;
+        if (null !== $request->groupSyncStatus) {
+            @$query['GroupSyncStatus'] = $request->groupSyncStatus;
         }
-        if (!Utils::isUnset($request->identityProviderId)) {
-            $query['IdentityProviderId'] = $request->identityProviderId;
+
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
         }
-        if (!Utils::isUnset($request->incrementalCallbackStatus)) {
-            $query['IncrementalCallbackStatus'] = $request->incrementalCallbackStatus;
+
+        if (null !== $request->incrementalCallbackStatus) {
+            @$query['IncrementalCallbackStatus'] = $request->incrementalCallbackStatus;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ldapUdPullConfig)) {
-            $query['LdapUdPullConfig'] = $request->ldapUdPullConfig;
+
+        if (null !== $request->ldapUdPullConfig) {
+            @$query['LdapUdPullConfig'] = $request->ldapUdPullConfig;
         }
-        if (!Utils::isUnset($request->periodicSyncStatus)) {
-            $query['PeriodicSyncStatus'] = $request->periodicSyncStatus;
+
+        if (null !== $request->periodicSyncStatus) {
+            @$query['PeriodicSyncStatus'] = $request->periodicSyncStatus;
         }
-        if (!Utils::isUnset($request->pullProtectedRule)) {
-            $query['PullProtectedRule'] = $request->pullProtectedRule;
+
+        if (null !== $request->pullProtectedRule) {
+            @$query['PullProtectedRule'] = $request->pullProtectedRule;
         }
-        if (!Utils::isUnset($request->udSyncScopeConfig)) {
-            $query['UdSyncScopeConfig'] = $request->udSyncScopeConfig;
+
+        if (null !== $request->udSyncScopeConfig) {
+            @$query['UdSyncScopeConfig'] = $request->udSyncScopeConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetIdentityProviderUdPullConfiguration',
@@ -5971,16 +7389,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改IdP同步入配置
-     *  *
-     * @param SetIdentityProviderUdPullConfigurationRequest $request SetIdentityProviderUdPullConfigurationRequest
+     * 修改IdP同步入配置.
      *
-     * @return SetIdentityProviderUdPullConfigurationResponse SetIdentityProviderUdPullConfigurationResponse
+     * @param request - SetIdentityProviderUdPullConfigurationRequest
+     * @returns SetIdentityProviderUdPullConfigurationResponse
+     *
+     * @param SetIdentityProviderUdPullConfigurationRequest $request
+     *
+     * @return SetIdentityProviderUdPullConfigurationResponse
      */
     public function setIdentityProviderUdPullConfiguration($request)
     {
@@ -5990,28 +7414,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetPasswordComplexityConfigurationRequest $request SetPasswordComplexityConfigurationRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetPasswordComplexityConfigurationResponse SetPasswordComplexityConfigurationResponse
+     * @param request - SetPasswordComplexityConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetPasswordComplexityConfigurationResponse
+     *
+     * @param SetPasswordComplexityConfigurationRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SetPasswordComplexityConfigurationResponse
      */
     public function setPasswordComplexityConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->passwordComplexityRules)) {
-            $query['PasswordComplexityRules'] = $request->passwordComplexityRules;
+
+        if (null !== $request->passwordComplexityRules) {
+            @$query['PasswordComplexityRules'] = $request->passwordComplexityRules;
         }
-        if (!Utils::isUnset($request->passwordMinLength)) {
-            $query['PasswordMinLength'] = $request->passwordMinLength;
+
+        if (null !== $request->passwordMinLength) {
+            @$query['PasswordMinLength'] = $request->passwordMinLength;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetPasswordComplexityConfiguration',
@@ -6024,16 +7455,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPasswordComplexityConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetPasswordComplexityConfigurationRequest $request SetPasswordComplexityConfigurationRequest
+     * Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetPasswordComplexityConfigurationResponse SetPasswordComplexityConfigurationResponse
+     * @param request - SetPasswordComplexityConfigurationRequest
+     * @returns SetPasswordComplexityConfigurationResponse
+     *
+     * @param SetPasswordComplexityConfigurationRequest $request
+     *
+     * @return SetPasswordComplexityConfigurationResponse
      */
     public function setPasswordComplexityConfiguration($request)
     {
@@ -6043,46 +7480,59 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetPasswordExpirationConfigurationRequest $request SetPasswordExpirationConfigurationRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetPasswordExpirationConfigurationResponse SetPasswordExpirationConfigurationResponse
+     * @param request - SetPasswordExpirationConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetPasswordExpirationConfigurationResponse
+     *
+     * @param SetPasswordExpirationConfigurationRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return SetPasswordExpirationConfigurationResponse
      */
     public function setPasswordExpirationConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->effectiveAuthenticationSourceIds)) {
-            $query['EffectiveAuthenticationSourceIds'] = $request->effectiveAuthenticationSourceIds;
+        if (null !== $request->effectiveAuthenticationSourceIds) {
+            @$query['EffectiveAuthenticationSourceIds'] = $request->effectiveAuthenticationSourceIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->passwordExpirationAction)) {
-            $query['PasswordExpirationAction'] = $request->passwordExpirationAction;
+
+        if (null !== $request->passwordExpirationAction) {
+            @$query['PasswordExpirationAction'] = $request->passwordExpirationAction;
         }
-        if (!Utils::isUnset($request->passwordExpirationNotificationChannels)) {
-            $query['PasswordExpirationNotificationChannels'] = $request->passwordExpirationNotificationChannels;
+
+        if (null !== $request->passwordExpirationNotificationChannels) {
+            @$query['PasswordExpirationNotificationChannels'] = $request->passwordExpirationNotificationChannels;
         }
-        if (!Utils::isUnset($request->passwordExpirationNotificationDuration)) {
-            $query['PasswordExpirationNotificationDuration'] = $request->passwordExpirationNotificationDuration;
+
+        if (null !== $request->passwordExpirationNotificationDuration) {
+            @$query['PasswordExpirationNotificationDuration'] = $request->passwordExpirationNotificationDuration;
         }
-        if (!Utils::isUnset($request->passwordExpirationNotificationStatus)) {
-            $query['PasswordExpirationNotificationStatus'] = $request->passwordExpirationNotificationStatus;
+
+        if (null !== $request->passwordExpirationNotificationStatus) {
+            @$query['PasswordExpirationNotificationStatus'] = $request->passwordExpirationNotificationStatus;
         }
-        if (!Utils::isUnset($request->passwordExpirationStatus)) {
-            $query['PasswordExpirationStatus'] = $request->passwordExpirationStatus;
+
+        if (null !== $request->passwordExpirationStatus) {
+            @$query['PasswordExpirationStatus'] = $request->passwordExpirationStatus;
         }
-        if (!Utils::isUnset($request->passwordForcedUpdateDuration)) {
-            $query['PasswordForcedUpdateDuration'] = $request->passwordForcedUpdateDuration;
+
+        if (null !== $request->passwordForcedUpdateDuration) {
+            @$query['PasswordForcedUpdateDuration'] = $request->passwordForcedUpdateDuration;
         }
-        if (!Utils::isUnset($request->passwordValidMaxDay)) {
-            $query['PasswordValidMaxDay'] = $request->passwordValidMaxDay;
+
+        if (null !== $request->passwordValidMaxDay) {
+            @$query['PasswordValidMaxDay'] = $request->passwordValidMaxDay;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetPasswordExpirationConfiguration',
@@ -6095,16 +7545,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPasswordExpirationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetPasswordExpirationConfigurationRequest $request SetPasswordExpirationConfigurationRequest
+     * Configures a password expiration policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetPasswordExpirationConfigurationResponse SetPasswordExpirationConfigurationResponse
+     * @param request - SetPasswordExpirationConfigurationRequest
+     * @returns SetPasswordExpirationConfigurationResponse
+     *
+     * @param SetPasswordExpirationConfigurationRequest $request
+     *
+     * @return SetPasswordExpirationConfigurationResponse
      */
     public function setPasswordExpirationConfiguration($request)
     {
@@ -6114,28 +7570,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetPasswordHistoryConfigurationRequest $request SetPasswordHistoryConfigurationRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetPasswordHistoryConfigurationResponse SetPasswordHistoryConfigurationResponse
+     * @param request - SetPasswordHistoryConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetPasswordHistoryConfigurationResponse
+     *
+     * @param SetPasswordHistoryConfigurationRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SetPasswordHistoryConfigurationResponse
      */
     public function setPasswordHistoryConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->passwordHistoryMaxRetention)) {
-            $query['PasswordHistoryMaxRetention'] = $request->passwordHistoryMaxRetention;
+
+        if (null !== $request->passwordHistoryMaxRetention) {
+            @$query['PasswordHistoryMaxRetention'] = $request->passwordHistoryMaxRetention;
         }
-        if (!Utils::isUnset($request->passwordHistoryStatus)) {
-            $query['PasswordHistoryStatus'] = $request->passwordHistoryStatus;
+
+        if (null !== $request->passwordHistoryStatus) {
+            @$query['PasswordHistoryStatus'] = $request->passwordHistoryStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetPasswordHistoryConfiguration',
@@ -6148,16 +7611,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPasswordHistoryConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetPasswordHistoryConfigurationRequest $request SetPasswordHistoryConfigurationRequest
+     * Configures a password history policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetPasswordHistoryConfigurationResponse SetPasswordHistoryConfigurationResponse
+     * @param request - SetPasswordHistoryConfigurationRequest
+     * @returns SetPasswordHistoryConfigurationResponse
+     *
+     * @param SetPasswordHistoryConfigurationRequest $request
+     *
+     * @return SetPasswordHistoryConfigurationResponse
      */
     public function setPasswordHistoryConfiguration($request)
     {
@@ -6167,34 +7636,43 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetPasswordInitializationConfigurationRequest $request SetPasswordInitializationConfigurationRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetPasswordInitializationConfigurationResponse SetPasswordInitializationConfigurationResponse
+     * @param request - SetPasswordInitializationConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetPasswordInitializationConfigurationResponse
+     *
+     * @param SetPasswordInitializationConfigurationRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SetPasswordInitializationConfigurationResponse
      */
     public function setPasswordInitializationConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->passwordForcedUpdateStatus)) {
-            $query['PasswordForcedUpdateStatus'] = $request->passwordForcedUpdateStatus;
+
+        if (null !== $request->passwordForcedUpdateStatus) {
+            @$query['PasswordForcedUpdateStatus'] = $request->passwordForcedUpdateStatus;
         }
-        if (!Utils::isUnset($request->passwordInitializationNotificationChannels)) {
-            $query['PasswordInitializationNotificationChannels'] = $request->passwordInitializationNotificationChannels;
+
+        if (null !== $request->passwordInitializationNotificationChannels) {
+            @$query['PasswordInitializationNotificationChannels'] = $request->passwordInitializationNotificationChannels;
         }
-        if (!Utils::isUnset($request->passwordInitializationStatus)) {
-            $query['PasswordInitializationStatus'] = $request->passwordInitializationStatus;
+
+        if (null !== $request->passwordInitializationStatus) {
+            @$query['PasswordInitializationStatus'] = $request->passwordInitializationStatus;
         }
-        if (!Utils::isUnset($request->passwordInitializationType)) {
-            $query['PasswordInitializationType'] = $request->passwordInitializationType;
+
+        if (null !== $request->passwordInitializationType) {
+            @$query['PasswordInitializationType'] = $request->passwordInitializationType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetPasswordInitializationConfiguration',
@@ -6207,16 +7685,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetPasswordInitializationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param SetPasswordInitializationConfigurationRequest $request SetPasswordInitializationConfigurationRequest
+     * Sets the password initialization configurations for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return SetPasswordInitializationConfigurationResponse SetPasswordInitializationConfigurationResponse
+     * @param request - SetPasswordInitializationConfigurationRequest
+     * @returns SetPasswordInitializationConfigurationResponse
+     *
+     * @param SetPasswordInitializationConfigurationRequest $request
+     *
+     * @return SetPasswordInitializationConfigurationResponse
      */
     public function setPasswordInitializationConfiguration($request)
     {
@@ -6226,28 +7710,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Updates the primary organizational unit to which an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account belongs. This account will be removed from the previous primary organizational unit and added to the new primary organization.
-     *  *
-     * @param SetUserPrimaryOrganizationalUnitRequest $request SetUserPrimaryOrganizationalUnitRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Updates the primary organizational unit to which an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account belongs. This account will be removed from the previous primary organizational unit and added to the new primary organization.
      *
-     * @return SetUserPrimaryOrganizationalUnitResponse SetUserPrimaryOrganizationalUnitResponse
+     * @param request - SetUserPrimaryOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetUserPrimaryOrganizationalUnitResponse
+     *
+     * @param SetUserPrimaryOrganizationalUnitRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SetUserPrimaryOrganizationalUnitResponse
      */
     public function setUserPrimaryOrganizationalUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetUserPrimaryOrganizationalUnit',
@@ -6260,16 +7751,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the primary organizational unit to which an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account belongs. This account will be removed from the previous primary organizational unit and added to the new primary organization.
-     *  *
-     * @param SetUserPrimaryOrganizationalUnitRequest $request SetUserPrimaryOrganizationalUnitRequest
+     * Updates the primary organizational unit to which an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account belongs. This account will be removed from the previous primary organizational unit and added to the new primary organization.
      *
-     * @return SetUserPrimaryOrganizationalUnitResponse SetUserPrimaryOrganizationalUnitResponse
+     * @param request - SetUserPrimaryOrganizationalUnitRequest
+     * @returns SetUserPrimaryOrganizationalUnitResponse
+     *
+     * @param SetUserPrimaryOrganizationalUnitRequest $request
+     *
+     * @return SetUserPrimaryOrganizationalUnitResponse
      */
     public function setUserPrimaryOrganizationalUnit($request)
     {
@@ -6279,25 +7776,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
-     *  *
-     * @param UnlockUserRequest $request UnlockUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
      *
-     * @return UnlockUserResponse UnlockUserResponse
+     * @param request - UnlockUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnlockUserResponse
+     *
+     * @param UnlockUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UnlockUserResponse
      */
     public function unlockUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnlockUser',
@@ -6310,16 +7813,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnlockUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnlockUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnlockUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
-     *  *
-     * @param UnlockUserRequest $request UnlockUserRequest
+     * Unlocks an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS) that is locked.
      *
-     * @return UnlockUserResponse UnlockUserResponse
+     * @param request - UnlockUserRequest
+     * @returns UnlockUserResponse
+     *
+     * @param UnlockUserRequest $request
+     *
+     * @return UnlockUserResponse
      */
     public function unlockUser($request)
     {
@@ -6329,28 +7838,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param UpdateApplicationAuthorizationTypeRequest $request UpdateApplicationAuthorizationTypeRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return UpdateApplicationAuthorizationTypeResponse UpdateApplicationAuthorizationTypeResponse
+     * @param request - UpdateApplicationAuthorizationTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateApplicationAuthorizationTypeResponse
+     *
+     * @param UpdateApplicationAuthorizationTypeRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateApplicationAuthorizationTypeResponse
      */
     public function updateApplicationAuthorizationTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->authorizationType)) {
-            $query['AuthorizationType'] = $request->authorizationType;
+
+        if (null !== $request->authorizationType) {
+            @$query['AuthorizationType'] = $request->authorizationType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateApplicationAuthorizationType',
@@ -6363,16 +7879,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateApplicationAuthorizationTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateApplicationAuthorizationTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateApplicationAuthorizationTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param UpdateApplicationAuthorizationTypeRequest $request UpdateApplicationAuthorizationTypeRequest
+     * Modifies the authorization type of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return UpdateApplicationAuthorizationTypeResponse UpdateApplicationAuthorizationTypeResponse
+     * @param request - UpdateApplicationAuthorizationTypeRequest
+     * @returns UpdateApplicationAuthorizationTypeResponse
+     *
+     * @param UpdateApplicationAuthorizationTypeRequest $request
+     *
+     * @return UpdateApplicationAuthorizationTypeResponse
      */
     public function updateApplicationAuthorizationType($request)
     {
@@ -6382,28 +7904,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param UpdateApplicationDescriptionRequest $request UpdateApplicationDescriptionRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return UpdateApplicationDescriptionResponse UpdateApplicationDescriptionResponse
+     * @param request - UpdateApplicationDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateApplicationDescriptionResponse
+     *
+     * @param UpdateApplicationDescriptionRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateApplicationDescriptionResponse
      */
     public function updateApplicationDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
+        if (null !== $request->applicationId) {
+            @$query['ApplicationId'] = $request->applicationId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateApplicationDescription',
@@ -6416,16 +7945,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateApplicationDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateApplicationDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateApplicationDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of an Employee Identity and Access Management (EIAM) application.
-     *  *
-     * @param UpdateApplicationDescriptionRequest $request UpdateApplicationDescriptionRequest
+     * Modifies the description of an Employee Identity and Access Management (EIAM) application.
      *
-     * @return UpdateApplicationDescriptionResponse UpdateApplicationDescriptionResponse
+     * @param request - UpdateApplicationDescriptionRequest
+     * @returns UpdateApplicationDescriptionResponse
+     *
+     * @param UpdateApplicationDescriptionRequest $request
+     *
+     * @return UpdateApplicationDescriptionResponse
      */
     public function updateApplicationDescription($request)
     {
@@ -6435,31 +7970,39 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the information is empty, the information is not updated by default.
-     *  *
-     * @param UpdateGroupRequest $request UpdateGroupRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Updates the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the information is empty, the information is not updated by default.
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @param request - UpdateGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateGroupResponse
+     *
+     * @param UpdateGroupRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupExternalId)) {
-            $query['GroupExternalId'] = $request->groupExternalId;
+        if (null !== $request->groupExternalId) {
+            @$query['GroupExternalId'] = $request->groupExternalId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateGroup',
@@ -6472,16 +8015,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the information is empty, the information is not updated by default.
-     *  *
-     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * Updates the information about an account group in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). If the information is empty, the information is not updated by default.
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @param request - UpdateGroupRequest
+     * @returns UpdateGroupResponse
+     *
+     * @param UpdateGroupRequest $request
+     *
+     * @return UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -6491,28 +8040,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Updates the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account group.
-     *  *
-     * @param UpdateGroupDescriptionRequest $request UpdateGroupDescriptionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Updates the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account group.
      *
-     * @return UpdateGroupDescriptionResponse UpdateGroupDescriptionResponse
+     * @param request - UpdateGroupDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateGroupDescriptionResponse
+     *
+     * @param UpdateGroupDescriptionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateGroupDescriptionResponse
      */
     public function updateGroupDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateGroupDescription',
@@ -6525,16 +8081,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateGroupDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateGroupDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateGroupDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account group.
-     *  *
-     * @param UpdateGroupDescriptionRequest $request UpdateGroupDescriptionRequest
+     * Updates the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account group.
      *
-     * @return UpdateGroupDescriptionResponse UpdateGroupDescriptionResponse
+     * @param request - UpdateGroupDescriptionRequest
+     * @returns UpdateGroupDescriptionResponse
+     *
+     * @param UpdateGroupDescriptionRequest $request
+     *
+     * @return UpdateGroupDescriptionResponse
      */
     public function updateGroupDescription($request)
     {
@@ -6544,49 +8106,63 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 更新idp基础配置
-     *  *
-     * @param UpdateIdentityProviderRequest $request UpdateIdentityProviderRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 更新idp基础配置.
      *
-     * @return UpdateIdentityProviderResponse UpdateIdentityProviderResponse
+     * @param request - UpdateIdentityProviderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateIdentityProviderResponse
+     *
+     * @param UpdateIdentityProviderRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateIdentityProviderResponse
      */
     public function updateIdentityProviderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dingtalkAppConfig)) {
-            $query['DingtalkAppConfig'] = $request->dingtalkAppConfig;
+        if (null !== $request->dingtalkAppConfig) {
+            @$query['DingtalkAppConfig'] = $request->dingtalkAppConfig;
         }
-        if (!Utils::isUnset($request->identityProviderId)) {
-            $query['IdentityProviderId'] = $request->identityProviderId;
+
+        if (null !== $request->identityProviderId) {
+            @$query['IdentityProviderId'] = $request->identityProviderId;
         }
-        if (!Utils::isUnset($request->identityProviderName)) {
-            $query['IdentityProviderName'] = $request->identityProviderName;
+
+        if (null !== $request->identityProviderName) {
+            @$query['IdentityProviderName'] = $request->identityProviderName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->larkConfig)) {
-            $query['LarkConfig'] = $request->larkConfig;
+
+        if (null !== $request->larkConfig) {
+            @$query['LarkConfig'] = $request->larkConfig;
         }
-        if (!Utils::isUnset($request->ldapConfig)) {
-            $query['LdapConfig'] = $request->ldapConfig;
+
+        if (null !== $request->ldapConfig) {
+            @$query['LdapConfig'] = $request->ldapConfig;
         }
-        if (!Utils::isUnset($request->logoUrl)) {
-            $query['LogoUrl'] = $request->logoUrl;
+
+        if (null !== $request->logoUrl) {
+            @$query['LogoUrl'] = $request->logoUrl;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointId)) {
-            $query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
         }
-        if (!Utils::isUnset($request->oidcConfig)) {
-            $query['OidcConfig'] = $request->oidcConfig;
+
+        if (null !== $request->oidcConfig) {
+            @$query['OidcConfig'] = $request->oidcConfig;
         }
-        if (!Utils::isUnset($request->weComConfig)) {
-            $query['WeComConfig'] = $request->weComConfig;
+
+        if (null !== $request->weComConfig) {
+            @$query['WeComConfig'] = $request->weComConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateIdentityProvider',
@@ -6599,16 +8175,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新idp基础配置
-     *  *
-     * @param UpdateIdentityProviderRequest $request UpdateIdentityProviderRequest
+     * 更新idp基础配置.
      *
-     * @return UpdateIdentityProviderResponse UpdateIdentityProviderResponse
+     * @param request - UpdateIdentityProviderRequest
+     * @returns UpdateIdentityProviderResponse
+     *
+     * @param UpdateIdentityProviderRequest $request
+     *
+     * @return UpdateIdentityProviderResponse
      */
     public function updateIdentityProvider($request)
     {
@@ -6618,25 +8200,31 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param UpdateInstanceDescriptionRequest $request UpdateInstanceDescriptionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return UpdateInstanceDescriptionResponse UpdateInstanceDescriptionResponse
+     * @param request - UpdateInstanceDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateInstanceDescriptionResponse
+     *
+     * @param UpdateInstanceDescriptionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateInstanceDescriptionResponse
      */
     public function updateInstanceDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateInstanceDescription',
@@ -6649,16 +8237,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateInstanceDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
-     *  *
-     * @param UpdateInstanceDescriptionRequest $request UpdateInstanceDescriptionRequest
+     * Modifies the description of an Enterprise Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *
-     * @return UpdateInstanceDescriptionResponse UpdateInstanceDescriptionResponse
+     * @param request - UpdateInstanceDescriptionRequest
+     * @returns UpdateInstanceDescriptionResponse
+     *
+     * @param UpdateInstanceDescriptionRequest $request
+     *
+     * @return UpdateInstanceDescriptionResponse
      */
     public function updateInstanceDescription($request)
     {
@@ -6668,28 +8262,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 更新一个专属网络端点的名称。
-     *  *
-     * @param UpdateNetworkAccessEndpointNameRequest $request UpdateNetworkAccessEndpointNameRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 更新一个专属网络端点的名称。
      *
-     * @return UpdateNetworkAccessEndpointNameResponse UpdateNetworkAccessEndpointNameResponse
+     * @param request - UpdateNetworkAccessEndpointNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateNetworkAccessEndpointNameResponse
+     *
+     * @param UpdateNetworkAccessEndpointNameRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateNetworkAccessEndpointNameResponse
      */
     public function updateNetworkAccessEndpointNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointId)) {
-            $query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+
+        if (null !== $request->networkAccessEndpointId) {
+            @$query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
         }
-        if (!Utils::isUnset($request->networkAccessEndpointName)) {
-            $query['NetworkAccessEndpointName'] = $request->networkAccessEndpointName;
+
+        if (null !== $request->networkAccessEndpointName) {
+            @$query['NetworkAccessEndpointName'] = $request->networkAccessEndpointName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateNetworkAccessEndpointName',
@@ -6702,16 +8303,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateNetworkAccessEndpointNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateNetworkAccessEndpointNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateNetworkAccessEndpointNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新一个专属网络端点的名称。
-     *  *
-     * @param UpdateNetworkAccessEndpointNameRequest $request UpdateNetworkAccessEndpointNameRequest
+     * 更新一个专属网络端点的名称。
      *
-     * @return UpdateNetworkAccessEndpointNameResponse UpdateNetworkAccessEndpointNameResponse
+     * @param request - UpdateNetworkAccessEndpointNameRequest
+     * @returns UpdateNetworkAccessEndpointNameResponse
+     *
+     * @param UpdateNetworkAccessEndpointNameRequest $request
+     *
+     * @return UpdateNetworkAccessEndpointNameResponse
      */
     public function updateNetworkAccessEndpointName($request)
     {
@@ -6721,28 +8328,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) organization. The basic information about the organization is not updated by default if no parameter is specified.
-     *  *
-     * @param UpdateOrganizationalUnitRequest $request UpdateOrganizationalUnitRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Updates the basic information about an Employee Identity and Access Management (EIAM) organization. The basic information about the organization is not updated by default if no parameter is specified.
      *
-     * @return UpdateOrganizationalUnitResponse UpdateOrganizationalUnitResponse
+     * @param request - UpdateOrganizationalUnitRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateOrganizationalUnitResponse
+     *
+     * @param UpdateOrganizationalUnitRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateOrganizationalUnitResponse
      */
     public function updateOrganizationalUnitWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
-        if (!Utils::isUnset($request->organizationalUnitName)) {
-            $query['OrganizationalUnitName'] = $request->organizationalUnitName;
+
+        if (null !== $request->organizationalUnitName) {
+            @$query['OrganizationalUnitName'] = $request->organizationalUnitName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateOrganizationalUnit',
@@ -6755,16 +8369,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) organization. The basic information about the organization is not updated by default if no parameter is specified.
-     *  *
-     * @param UpdateOrganizationalUnitRequest $request UpdateOrganizationalUnitRequest
+     * Updates the basic information about an Employee Identity and Access Management (EIAM) organization. The basic information about the organization is not updated by default if no parameter is specified.
      *
-     * @return UpdateOrganizationalUnitResponse UpdateOrganizationalUnitResponse
+     * @param request - UpdateOrganizationalUnitRequest
+     * @returns UpdateOrganizationalUnitResponse
+     *
+     * @param UpdateOrganizationalUnitRequest $request
+     *
+     * @return UpdateOrganizationalUnitResponse
      */
     public function updateOrganizationalUnit($request)
     {
@@ -6774,28 +8394,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of an Employee Identity and Access Management (EIAM) organization.
-     *  *
-     * @param UpdateOrganizationalUnitDescriptionRequest $request UpdateOrganizationalUnitDescriptionRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of an Employee Identity and Access Management (EIAM) organization.
      *
-     * @return UpdateOrganizationalUnitDescriptionResponse UpdateOrganizationalUnitDescriptionResponse
+     * @param request - UpdateOrganizationalUnitDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateOrganizationalUnitDescriptionResponse
+     *
+     * @param UpdateOrganizationalUnitDescriptionRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return UpdateOrganizationalUnitDescriptionResponse
      */
     public function updateOrganizationalUnitDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateOrganizationalUnitDescription',
@@ -6808,16 +8435,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateOrganizationalUnitDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateOrganizationalUnitDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateOrganizationalUnitDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of an Employee Identity and Access Management (EIAM) organization.
-     *  *
-     * @param UpdateOrganizationalUnitDescriptionRequest $request UpdateOrganizationalUnitDescriptionRequest
+     * Modifies the description of an Employee Identity and Access Management (EIAM) organization.
      *
-     * @return UpdateOrganizationalUnitDescriptionResponse UpdateOrganizationalUnitDescriptionResponse
+     * @param request - UpdateOrganizationalUnitDescriptionRequest
+     * @returns UpdateOrganizationalUnitDescriptionResponse
+     *
+     * @param UpdateOrganizationalUnitDescriptionRequest $request
+     *
+     * @return UpdateOrganizationalUnitDescriptionResponse
      */
     public function updateOrganizationalUnitDescription($request)
     {
@@ -6827,28 +8460,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Updates the parent organization ID of an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). In this case, the organization is moved from a parent node to a new node.
-     *  *
-     * @param UpdateOrganizationalUnitParentIdRequest $request UpdateOrganizationalUnitParentIdRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Updates the parent organization ID of an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). In this case, the organization is moved from a parent node to a new node.
      *
-     * @return UpdateOrganizationalUnitParentIdResponse UpdateOrganizationalUnitParentIdResponse
+     * @param request - UpdateOrganizationalUnitParentIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateOrganizationalUnitParentIdResponse
+     *
+     * @param UpdateOrganizationalUnitParentIdRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdateOrganizationalUnitParentIdResponse
      */
     public function updateOrganizationalUnitParentIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->organizationalUnitId)) {
-            $query['OrganizationalUnitId'] = $request->organizationalUnitId;
+
+        if (null !== $request->organizationalUnitId) {
+            @$query['OrganizationalUnitId'] = $request->organizationalUnitId;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['ParentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['ParentId'] = $request->parentId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateOrganizationalUnitParentId',
@@ -6861,16 +8501,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateOrganizationalUnitParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateOrganizationalUnitParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateOrganizationalUnitParentIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the parent organization ID of an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). In this case, the organization is moved from a parent node to a new node.
-     *  *
-     * @param UpdateOrganizationalUnitParentIdRequest $request UpdateOrganizationalUnitParentIdRequest
+     * Updates the parent organization ID of an organization in Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM). In this case, the organization is moved from a parent node to a new node.
      *
-     * @return UpdateOrganizationalUnitParentIdResponse UpdateOrganizationalUnitParentIdResponse
+     * @param request - UpdateOrganizationalUnitParentIdRequest
+     * @returns UpdateOrganizationalUnitParentIdResponse
+     *
+     * @param UpdateOrganizationalUnitParentIdRequest $request
+     *
+     * @return UpdateOrganizationalUnitParentIdResponse
      */
     public function updateOrganizationalUnitParentId($request)
     {
@@ -6880,49 +8526,63 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param request - UpdateUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->customFields)) {
-            $query['CustomFields'] = $request->customFields;
+        if (null !== $request->customFields) {
+            @$query['CustomFields'] = $request->customFields;
         }
-        if (!Utils::isUnset($request->displayName)) {
-            $query['DisplayName'] = $request->displayName;
+
+        if (null !== $request->displayName) {
+            @$query['DisplayName'] = $request->displayName;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->emailVerified)) {
-            $query['EmailVerified'] = $request->emailVerified;
+
+        if (null !== $request->emailVerified) {
+            @$query['EmailVerified'] = $request->emailVerified;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->phoneNumber)) {
-            $query['PhoneNumber'] = $request->phoneNumber;
+
+        if (null !== $request->phoneNumber) {
+            @$query['PhoneNumber'] = $request->phoneNumber;
         }
-        if (!Utils::isUnset($request->phoneNumberVerified)) {
-            $query['PhoneNumberVerified'] = $request->phoneNumberVerified;
+
+        if (null !== $request->phoneNumberVerified) {
+            @$query['PhoneNumberVerified'] = $request->phoneNumberVerified;
         }
-        if (!Utils::isUnset($request->phoneRegion)) {
-            $query['PhoneRegion'] = $request->phoneRegion;
+
+        if (null !== $request->phoneRegion) {
+            @$query['PhoneRegion'] = $request->phoneRegion;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateUser',
@@ -6935,16 +8595,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
-     *  *
-     * @param UpdateUserRequest $request UpdateUserRequest
+     * Updates the basic information about an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS).
      *
-     * @return UpdateUserResponse UpdateUserResponse
+     * @param request - UpdateUserRequest
+     * @returns UpdateUserResponse
+     *
+     * @param UpdateUserRequest $request
+     *
+     * @return UpdateUserResponse
      */
     public function updateUser($request)
     {
@@ -6954,28 +8620,35 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
-     *  *
-     * @param UpdateUserDescriptionRequest $request UpdateUserDescriptionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
      *
-     * @return UpdateUserDescriptionResponse UpdateUserDescriptionResponse
+     * @param request - UpdateUserDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateUserDescriptionResponse
+     *
+     * @param UpdateUserDescriptionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateUserDescriptionResponse
      */
     public function updateUserDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateUserDescription',
@@ -6988,16 +8661,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateUserDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
-     *  *
-     * @param UpdateUserDescriptionRequest $request UpdateUserDescriptionRequest
+     * Modifies the description of an Identity as a Service (IDaaS) Employee Identity and Access Management (EIAM) account.
      *
-     * @return UpdateUserDescriptionResponse UpdateUserDescriptionResponse
+     * @param request - UpdateUserDescriptionRequest
+     * @returns UpdateUserDescriptionResponse
+     *
+     * @param UpdateUserDescriptionRequest $request
+     *
+     * @return UpdateUserDescriptionResponse
      */
     public function updateUserDescription($request)
     {
@@ -7007,34 +8686,43 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
-     *  *
-     * @param UpdateUserPasswordRequest $request UpdateUserPasswordRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
      *
-     * @return UpdateUserPasswordResponse UpdateUserPasswordResponse
+     * @param request - UpdateUserPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateUserPasswordResponse
+     *
+     * @param UpdateUserPasswordRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateUserPasswordResponse
      */
     public function updateUserPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
-        if (!Utils::isUnset($request->passwordForcedUpdateStatus)) {
-            $query['PasswordForcedUpdateStatus'] = $request->passwordForcedUpdateStatus;
+
+        if (null !== $request->passwordForcedUpdateStatus) {
+            @$query['PasswordForcedUpdateStatus'] = $request->passwordForcedUpdateStatus;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$query['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userNotificationChannels)) {
-            $query['UserNotificationChannels'] = $request->userNotificationChannels;
+
+        if (null !== $request->userNotificationChannels) {
+            @$query['UserNotificationChannels'] = $request->userNotificationChannels;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateUserPassword',
@@ -7047,16 +8735,22 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
-     *  *
-     * @param UpdateUserPasswordRequest $request UpdateUserPasswordRequest
+     * Updates the password information of an Employee Identity and Access Management (EIAM) account of Identity as a Service (IDaaS). The password must meet the requirements of the password policies that are configured in the IDaaS console.
      *
-     * @return UpdateUserPasswordResponse UpdateUserPasswordResponse
+     * @param request - UpdateUserPasswordRequest
+     * @returns UpdateUserPasswordResponse
+     *
+     * @param UpdateUserPasswordRequest $request
+     *
+     * @return UpdateUserPasswordResponse
      */
     public function updateUserPassword($request)
     {

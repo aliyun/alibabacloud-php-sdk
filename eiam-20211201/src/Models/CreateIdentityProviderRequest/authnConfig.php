@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class authnConfig extends Model
 {
     /**
-     * @description 对应IdP是否支持认证
-     *
-     * This parameter is required.
-     * @example enabled
-     *
      * @var string
      */
     public $authnStatus;
-
     /**
-     * @description 是否支持自动更新密码
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $autoUpdatePasswordStatus;
@@ -33,14 +23,16 @@ class authnConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authnStatus) {
             $res['AuthnStatus'] = $this->authnStatus;
         }
+
         if (null !== $this->autoUpdatePasswordStatus) {
             $res['AutoUpdatePasswordStatus'] = $this->autoUpdatePasswordStatus;
         }
@@ -48,17 +40,18 @@ class authnConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return authnConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthnStatus'])) {
             $model->authnStatus = $map['AuthnStatus'];
         }
+
         if (isset($map['AutoUpdatePasswordStatus'])) {
             $model->autoUpdatePasswordStatus = $map['AutoUpdatePasswordStatus'];
         }

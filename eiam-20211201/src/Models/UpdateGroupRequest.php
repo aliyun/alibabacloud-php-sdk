@@ -4,44 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateGroupRequest extends Model
 {
     /**
-     * @description The external ID of the group.
-     *
-     * @example group_d6sbsuumeta4h66ec3il7yxxxx
-     *
      * @var string
      */
     public $groupExternalId;
-
     /**
-     * @description The group ID.
-     *
-     * This parameter is required.
-     * @example group_d6sbsuumeta4h66ec3il7yxxxx
-     *
      * @var string
      */
     public $groupId;
-
     /**
-     * @description The name of the group.
-     *
-     * @example name_test
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
@@ -54,20 +33,24 @@ class UpdateGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupExternalId) {
             $res['GroupExternalId'] = $this->groupExternalId;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -75,23 +58,26 @@ class UpdateGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupExternalId'])) {
             $model->groupExternalId = $map['GroupExternalId'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

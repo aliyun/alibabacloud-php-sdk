@@ -4,37 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customFields extends Model
 {
     /**
-     * @description The name of the extended field. You must create an extended field before you specify this parameter. To create an extended field, go to the Extended Fields page of the specified EIAM instance in the IDaaS console.
-     *
-     * @example nick_name
-     *
      * @var string
      */
     public $fieldName;
-
     /**
-     * @description The value of the extended field. The value follows the limits on the properties of the extended field.
-     *
-     * @example test_value
-     *
      * @var string
      */
     public $fieldValue;
-
     /**
-     * @description The operation type of the extended field. Valid values:
-     *
-     *   add: adds a value to the extended field of the account.
-     *   replace: replaces the existing value of the extended field of the account. If the existing value to be replaced does not exist, this operation changes to the add operation.
-     *   remove: removes a value from the extended field of the account.
-     *
-     * @example add
-     *
      * @var string
      */
     public $operation;
@@ -46,17 +28,20 @@ class customFields extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldName) {
             $res['FieldName'] = $this->fieldName;
         }
+
         if (null !== $this->fieldValue) {
             $res['FieldValue'] = $this->fieldValue;
         }
+
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
@@ -64,20 +49,22 @@ class customFields extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customFields
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldName'])) {
             $model->fieldName = $map['FieldName'];
         }
+
         if (isset($map['FieldValue'])) {
             $model->fieldValue = $map['FieldValue'];
         }
+
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }

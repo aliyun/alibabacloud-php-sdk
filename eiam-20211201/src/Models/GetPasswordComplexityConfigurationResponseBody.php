@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetPasswordComplexityConfigurationResponseBody\passwordComplexityConfiguration;
-use AlibabaCloud\Tea\Model;
 
 class GetPasswordComplexityConfigurationResponseBody extends Model
 {
     /**
-     * @description The password complexity configurations.
-     *
      * @var passwordComplexityConfiguration
      */
     public $passwordComplexityConfiguration;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetPasswordComplexityConfigurationResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->passwordComplexityConfiguration) {
+            $this->passwordComplexityConfiguration->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passwordComplexityConfiguration) {
-            $res['PasswordComplexityConfiguration'] = null !== $this->passwordComplexityConfiguration ? $this->passwordComplexityConfiguration->toMap() : null;
+            $res['PasswordComplexityConfiguration'] = null !== $this->passwordComplexityConfiguration ? $this->passwordComplexityConfiguration->toArray($noStream) : $this->passwordComplexityConfiguration;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetPasswordComplexityConfigurationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPasswordComplexityConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PasswordComplexityConfiguration'])) {
             $model->passwordComplexityConfiguration = passwordComplexityConfiguration::fromMap($map['PasswordComplexityConfiguration']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

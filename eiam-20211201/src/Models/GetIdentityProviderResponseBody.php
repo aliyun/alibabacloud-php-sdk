@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponseBody\identityProviderDetail;
-use AlibabaCloud\Tea\Model;
 
 class GetIdentityProviderResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class GetIdentityProviderResponseBody extends Model
      * @var identityProviderDetail
      */
     public $identityProviderDetail;
-
     /**
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class GetIdentityProviderResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->identityProviderDetail) {
+            $this->identityProviderDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identityProviderDetail) {
-            $res['IdentityProviderDetail'] = null !== $this->identityProviderDetail ? $this->identityProviderDetail->toMap() : null;
+            $res['IdentityProviderDetail'] = null !== $this->identityProviderDetail ? $this->identityProviderDetail->toArray($noStream) : $this->identityProviderDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class GetIdentityProviderResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetIdentityProviderResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IdentityProviderDetail'])) {
             $model->identityProviderDetail = identityProviderDetail::fromMap($map['IdentityProviderDetail']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

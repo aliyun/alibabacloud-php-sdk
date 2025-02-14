@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointResponseBody\networkAccessEndpoint;
-use AlibabaCloud\Tea\Model;
 
 class GetNetworkAccessEndpointResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class GetNetworkAccessEndpointResponseBody extends Model
      * @var networkAccessEndpoint
      */
     public $networkAccessEndpoint;
-
     /**
-     * @example 0441BD79-92F3-53AA-8657-F8CE4A2B912A
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class GetNetworkAccessEndpointResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->networkAccessEndpoint) {
+            $this->networkAccessEndpoint->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkAccessEndpoint) {
-            $res['NetworkAccessEndpoint'] = null !== $this->networkAccessEndpoint ? $this->networkAccessEndpoint->toMap() : null;
+            $res['NetworkAccessEndpoint'] = null !== $this->networkAccessEndpoint ? $this->networkAccessEndpoint->toArray($noStream) : $this->networkAccessEndpoint;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class GetNetworkAccessEndpointResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNetworkAccessEndpointResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkAccessEndpoint'])) {
             $model->networkAccessEndpoint = networkAccessEndpoint::fromMap($map['NetworkAccessEndpoint']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

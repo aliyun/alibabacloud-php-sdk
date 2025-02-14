@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetApplicationProvisioningScopeRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * This parameter is required.
-     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
-     *
      * @var string
      */
     public $applicationId;
-
     /**
-     * @description List of groups that are authorized to be synchronized from
-     *
      * @var string[]
      */
     public $groupIds;
-
     /**
-     * @description The ID of the instance.
-     *
-     * This parameter is required.
-     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The list of organizational units that are authorized for account synchronization.
-     *
      * @var string[]
      */
     public $organizationalUnitIds;
@@ -50,49 +33,82 @@ class SetApplicationProvisioningScopeRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupIds)) {
+            Model::validateArray($this->groupIds);
+        }
+        if (\is_array($this->organizationalUnitIds)) {
+            Model::validateArray($this->organizationalUnitIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
         }
+
         if (null !== $this->groupIds) {
-            $res['GroupIds'] = $this->groupIds;
+            if (\is_array($this->groupIds)) {
+                $res['GroupIds'] = [];
+                $n1              = 0;
+                foreach ($this->groupIds as $item1) {
+                    $res['GroupIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->organizationalUnitIds) {
-            $res['OrganizationalUnitIds'] = $this->organizationalUnitIds;
+            if (\is_array($this->organizationalUnitIds)) {
+                $res['OrganizationalUnitIds'] = [];
+                $n1                           = 0;
+                foreach ($this->organizationalUnitIds as $item1) {
+                    $res['OrganizationalUnitIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetApplicationProvisioningScopeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
         }
+
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
-                $model->groupIds = $map['GroupIds'];
+                $model->groupIds = [];
+                $n1              = 0;
+                foreach ($map['GroupIds'] as $item1) {
+                    $model->groupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OrganizationalUnitIds'])) {
             if (!empty($map['OrganizationalUnitIds'])) {
-                $model->organizationalUnitIds = $map['OrganizationalUnitIds'];
+                $model->organizationalUnitIds = [];
+                $n1                           = 0;
+                foreach ($map['OrganizationalUnitIds'] as $item1) {
+                    $model->organizationalUnitIds[$n1++] = $item1;
+                }
             }
         }
 

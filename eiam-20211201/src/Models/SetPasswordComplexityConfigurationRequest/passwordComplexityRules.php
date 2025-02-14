@@ -4,24 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordComplexityConfigurationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class passwordComplexityRules extends Model
 {
     /**
-     * @description The type of the password check. Valid values:
-     *
-     *   inclusion_upper_case: The password must contain uppercase letters.
-     *   inclusion_lower_case: The password must contain lowercase letters.
-     *   inclusion_special_case: The password must contain one or more of the following special characters: @ % + \\ / \\" ! # $ ^ ? : , ( ) { } [ ] ~ - _ .
-     *   inclusion_number: The password must contain digits.
-     *   exclusion_username: The password cannot contain a username.
-     *   exclusion_email: The password cannot contain an email prefix.
-     *   exclusion_phone_number: The password cannot contain a mobile number.
-     *   exclusion_display_name: The password cannot contain a display name.
-     *
-     * @example inclusion_upper_case
-     *
      * @var string
      */
     public $passwordCheckType;
@@ -31,9 +18,10 @@ class passwordComplexityRules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->passwordCheckType) {
@@ -43,11 +31,11 @@ class passwordComplexityRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return passwordComplexityRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
