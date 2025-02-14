@@ -72,6 +72,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderShrinkR
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeDatabaseShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeFunctionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeFunctionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeFunctionShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakePartitionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakePartitionShrinkRequest;
@@ -130,6 +133,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAuthorityTemplateReque
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAuthorityTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakeFunctionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakeFunctionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakePartitionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakePartitionShrinkRequest;
@@ -229,6 +234,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeCatalogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeCatalogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeFunctionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeFunctionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakePartitionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakePartitionShrinkRequest;
@@ -358,6 +365,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeCatalogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeCatalogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeFunctionNameRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeFunctionNameResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeFunctionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeFunctionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionByFilterRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionByFilterResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionNameRequest;
@@ -537,6 +548,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAuthorityTemplateRespo
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeDatabaseResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeDatabaseShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeFunctionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeFunctionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeFunctionShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakePartitionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakePartitionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakePartitionShrinkRequest;
@@ -2881,6 +2895,92 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * 新建湖仓自定义函数.
+     *
+     * @param tmpReq - CreateDataLakeFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataLakeFunctionResponse
+     *
+     * @param CreateDataLakeFunctionRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDataLakeFunctionResponse
+     */
+    public function createDataLakeFunctionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new CreateDataLakeFunctionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->functionInput) {
+            $request->functionInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->functionInput, 'FunctionInput', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->functionInputShrink) {
+            @$body['FunctionInput'] = $request->functionInputShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataLakeFunction',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDataLakeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateDataLakeFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新建湖仓自定义函数.
+     *
+     * @param request - CreateDataLakeFunctionRequest
+     * @returns CreateDataLakeFunctionResponse
+     *
+     * @param CreateDataLakeFunctionRequest $request
+     *
+     * @return CreateDataLakeFunctionResponse
+     */
+    public function createDataLakeFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataLakeFunctionWithOptions($request, $runtime);
+    }
+
+    /**
      * 新建湖仓表分区.
      *
      * @param tmpReq - CreateDataLakePartitionRequest
@@ -5058,6 +5158,84 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除湖仓自定义函数.
+     *
+     * @param request - DeleteDataLakeFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataLakeFunctionResponse
+     *
+     * @param DeleteDataLakeFunctionRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDataLakeFunctionResponse
+     */
+    public function deleteDataLakeFunctionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->functionName) {
+            @$query['FunctionName'] = $request->functionName;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataLakeFunction',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDataLakeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteDataLakeFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除湖仓自定义函数.
+     *
+     * @param request - DeleteDataLakeFunctionRequest
+     * @returns DeleteDataLakeFunctionResponse
+     *
+     * @param DeleteDataLakeFunctionRequest $request
+     *
+     * @return DeleteDataLakeFunctionResponse
+     */
+    public function deleteDataLakeFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataLakeFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -8252,6 +8430,84 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取湖仓自定义函数详细信息.
+     *
+     * @param request - GetDataLakeFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDataLakeFunctionResponse
+     *
+     * @param GetDataLakeFunctionRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetDataLakeFunctionResponse
+     */
+    public function getDataLakeFunctionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->functionName) {
+            @$query['FunctionName'] = $request->functionName;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataLakeFunction',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDataLakeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetDataLakeFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取湖仓自定义函数详细信息.
+     *
+     * @param request - GetDataLakeFunctionRequest
+     * @returns GetDataLakeFunctionResponse
+     *
+     * @param GetDataLakeFunctionRequest $request
+     *
+     * @return GetDataLakeFunctionResponse
+     */
+    public function getDataLakeFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataLakeFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -12686,6 +12942,170 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据湖函数列表.
+     *
+     * @param request - ListDataLakeFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakeFunctionResponse
+     *
+     * @param ListDataLakeFunctionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListDataLakeFunctionResponse
+     */
+    public function listDataLakeFunctionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->functionNamePattern) {
+            @$query['FunctionNamePattern'] = $request->functionNamePattern;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakeFunction',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListDataLakeFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据湖函数列表.
+     *
+     * @param request - ListDataLakeFunctionRequest
+     * @returns ListDataLakeFunctionResponse
+     *
+     * @param ListDataLakeFunctionRequest $request
+     *
+     * @return ListDataLakeFunctionResponse
+     */
+    public function listDataLakeFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakeFunctionWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取数据湖函数名列表.
+     *
+     * @param request - ListDataLakeFunctionNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDataLakeFunctionNameResponse
+     *
+     * @param ListDataLakeFunctionNameRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListDataLakeFunctionNameResponse
+     */
+    public function listDataLakeFunctionNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->functionNamePattern) {
+            @$query['FunctionNamePattern'] = $request->functionNamePattern;
+        }
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakeFunctionName',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDataLakeFunctionNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListDataLakeFunctionNameResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取数据湖函数名列表.
+     *
+     * @param request - ListDataLakeFunctionNameRequest
+     * @returns ListDataLakeFunctionNameResponse
+     *
+     * @param ListDataLakeFunctionNameRequest $request
+     *
+     * @return ListDataLakeFunctionNameResponse
+     */
+    public function listDataLakeFunctionName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakeFunctionNameWithOptions($request, $runtime);
     }
 
     /**
@@ -19230,6 +19650,96 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新湖仓自定义函数.
+     *
+     * @param tmpReq - UpdateDataLakeFunctionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDataLakeFunctionResponse
+     *
+     * @param UpdateDataLakeFunctionRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateDataLakeFunctionResponse
+     */
+    public function updateDataLakeFunctionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UpdateDataLakeFunctionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->functionInput) {
+            $request->functionInputShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->functionInput, 'FunctionInput', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
+        if (null !== $request->dataRegion) {
+            @$query['DataRegion'] = $request->dataRegion;
+        }
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
+        }
+
+        if (null !== $request->functionName) {
+            @$query['FunctionName'] = $request->functionName;
+        }
+
+        if (null !== $request->tid) {
+            @$query['Tid'] = $request->tid;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$query['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $body = [];
+        if (null !== $request->functionInputShrink) {
+            @$body['FunctionInput'] = $request->functionInputShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataLakeFunction',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDataLakeFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateDataLakeFunctionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新湖仓自定义函数.
+     *
+     * @param request - UpdateDataLakeFunctionRequest
+     * @returns UpdateDataLakeFunctionResponse
+     *
+     * @param UpdateDataLakeFunctionRequest $request
+     *
+     * @return UpdateDataLakeFunctionResponse
+     */
+    public function updateDataLakeFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataLakeFunctionWithOptions($request, $runtime);
     }
 
     /**

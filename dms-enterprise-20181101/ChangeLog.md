@@ -1,3 +1,12 @@
+2025-02-14 Version: 1.67.0
+- Support API CreateDataLakeFunction.
+- Support API DeleteDataLakeFunction.
+- Support API GetDataLakeFunction.
+- Support API ListDataLakeFunction.
+- Support API ListDataLakeFunctionName.
+- Support API UpdateDataLakeFunction.
+
+
 2025-02-13 Version: 1.66.1
 - Update API UpdateDataLakeTable: add param TableName.
 - Update API UpdateUser: add param UidString.
