@@ -9,7 +9,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancersResponseBody\loadBala
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancersResponseBody\loadBalancers\monitor;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancersResponseBody\loadBalancers\randomSteering;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancersResponseBody\loadBalancers\rules;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancersResponseBody\loadBalancers\sessionAffinityAttributes;
 
 class loadBalancers extends Model
 {
@@ -62,10 +61,6 @@ class loadBalancers extends Model
      */
     public $sessionAffinity;
     /**
-     * @var sessionAffinityAttributes
-     */
-    public $sessionAffinityAttributes;
-    /**
      * @var int
      */
     public $siteId;
@@ -86,24 +81,23 @@ class loadBalancers extends Model
      */
     public $ttl;
     protected $_name = [
-        'adaptiveRouting'           => 'AdaptiveRouting',
-        'defaultPools'              => 'DefaultPools',
-        'description'               => 'Description',
-        'enabled'                   => 'Enabled',
-        'fallbackPool'              => 'FallbackPool',
-        'id'                        => 'Id',
-        'monitor'                   => 'Monitor',
-        'name'                      => 'Name',
-        'randomSteering'            => 'RandomSteering',
-        'regionPools'               => 'RegionPools',
-        'rules'                     => 'Rules',
-        'sessionAffinity'           => 'SessionAffinity',
-        'sessionAffinityAttributes' => 'SessionAffinityAttributes',
-        'siteId'                    => 'SiteId',
-        'status'                    => 'Status',
-        'steeringPolicy'            => 'SteeringPolicy',
-        'subRegionPools'            => 'SubRegionPools',
-        'ttl'                       => 'Ttl',
+        'adaptiveRouting' => 'AdaptiveRouting',
+        'defaultPools'    => 'DefaultPools',
+        'description'     => 'Description',
+        'enabled'         => 'Enabled',
+        'fallbackPool'    => 'FallbackPool',
+        'id'              => 'Id',
+        'monitor'         => 'Monitor',
+        'name'            => 'Name',
+        'randomSteering'  => 'RandomSteering',
+        'regionPools'     => 'RegionPools',
+        'rules'           => 'Rules',
+        'sessionAffinity' => 'SessionAffinity',
+        'siteId'          => 'SiteId',
+        'status'          => 'Status',
+        'steeringPolicy'  => 'SteeringPolicy',
+        'subRegionPools'  => 'SubRegionPools',
+        'ttl'             => 'Ttl',
     ];
 
     public function validate()
@@ -122,9 +116,6 @@ class loadBalancers extends Model
         }
         if (\is_array($this->rules)) {
             Model::validateArray($this->rules);
-        }
-        if (null !== $this->sessionAffinityAttributes) {
-            $this->sessionAffinityAttributes->validate();
         }
         parent::validate();
     }
@@ -190,10 +181,6 @@ class loadBalancers extends Model
 
         if (null !== $this->sessionAffinity) {
             $res['SessionAffinity'] = $this->sessionAffinity;
-        }
-
-        if (null !== $this->sessionAffinityAttributes) {
-            $res['SessionAffinityAttributes'] = null !== $this->sessionAffinityAttributes ? $this->sessionAffinityAttributes->toArray($noStream) : $this->sessionAffinityAttributes;
         }
 
         if (null !== $this->siteId) {
@@ -285,10 +272,6 @@ class loadBalancers extends Model
 
         if (isset($map['SessionAffinity'])) {
             $model->sessionAffinity = $map['SessionAffinity'];
-        }
-
-        if (isset($map['SessionAffinityAttributes'])) {
-            $model->sessionAffinityAttributes = sessionAffinityAttributes::fromMap($map['SessionAffinityAttributes']);
         }
 
         if (isset($map['SiteId'])) {

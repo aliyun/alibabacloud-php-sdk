@@ -21,6 +21,10 @@ class CreateLoadBalancerShrinkRequest extends Model
      */
     public $description;
     /**
+     * @var bool
+     */
+    public $enabled;
+    /**
      * @var int
      */
     public $fallbackPool;
@@ -49,10 +53,6 @@ class CreateLoadBalancerShrinkRequest extends Model
      */
     public $sessionAffinity;
     /**
-     * @var string
-     */
-    public $sessionAffinityAttributesShrink;
-    /**
      * @var int
      */
     public $siteId;
@@ -69,21 +69,21 @@ class CreateLoadBalancerShrinkRequest extends Model
      */
     public $ttl;
     protected $_name = [
-        'adaptiveRoutingShrink'           => 'AdaptiveRouting',
-        'defaultPoolsShrink'              => 'DefaultPools',
-        'description'                     => 'Description',
-        'fallbackPool'                    => 'FallbackPool',
-        'monitorShrink'                   => 'Monitor',
-        'name'                            => 'Name',
-        'randomSteeringShrink'            => 'RandomSteering',
-        'regionPools'                     => 'RegionPools',
-        'rulesShrink'                     => 'Rules',
-        'sessionAffinity'                 => 'SessionAffinity',
-        'sessionAffinityAttributesShrink' => 'SessionAffinityAttributes',
-        'siteId'                          => 'SiteId',
-        'steeringPolicy'                  => 'SteeringPolicy',
-        'subRegionPools'                  => 'SubRegionPools',
-        'ttl'                             => 'Ttl',
+        'adaptiveRoutingShrink' => 'AdaptiveRouting',
+        'defaultPoolsShrink'    => 'DefaultPools',
+        'description'           => 'Description',
+        'enabled'               => 'Enabled',
+        'fallbackPool'          => 'FallbackPool',
+        'monitorShrink'         => 'Monitor',
+        'name'                  => 'Name',
+        'randomSteeringShrink'  => 'RandomSteering',
+        'regionPools'           => 'RegionPools',
+        'rulesShrink'           => 'Rules',
+        'sessionAffinity'       => 'SessionAffinity',
+        'siteId'                => 'SiteId',
+        'steeringPolicy'        => 'SteeringPolicy',
+        'subRegionPools'        => 'SubRegionPools',
+        'ttl'                   => 'Ttl',
     ];
 
     public function validate()
@@ -104,6 +104,10 @@ class CreateLoadBalancerShrinkRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
         }
 
         if (null !== $this->fallbackPool) {
@@ -132,10 +136,6 @@ class CreateLoadBalancerShrinkRequest extends Model
 
         if (null !== $this->sessionAffinity) {
             $res['SessionAffinity'] = $this->sessionAffinity;
-        }
-
-        if (null !== $this->sessionAffinityAttributesShrink) {
-            $res['SessionAffinityAttributes'] = $this->sessionAffinityAttributesShrink;
         }
 
         if (null !== $this->siteId) {
@@ -177,6 +177,10 @@ class CreateLoadBalancerShrinkRequest extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
+
         if (isset($map['FallbackPool'])) {
             $model->fallbackPool = $map['FallbackPool'];
         }
@@ -203,10 +207,6 @@ class CreateLoadBalancerShrinkRequest extends Model
 
         if (isset($map['SessionAffinity'])) {
             $model->sessionAffinity = $map['SessionAffinity'];
-        }
-
-        if (isset($map['SessionAffinityAttributes'])) {
-            $model->sessionAffinityAttributesShrink = $map['SessionAffinityAttributes'];
         }
 
         if (isset($map['SiteId'])) {

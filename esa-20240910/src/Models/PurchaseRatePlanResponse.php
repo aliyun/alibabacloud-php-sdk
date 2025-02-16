@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateKvNamespaceResponse extends Model
+class PurchaseRatePlanResponse extends Model
 {
     /**
      * @var string[]
@@ -17,7 +17,7 @@ class UpdateKvNamespaceResponse extends Model
      */
     public $statusCode;
     /**
-     * @var UpdateKvNamespaceResponseBody
+     * @var PurchaseRatePlanResponseBody
      */
     public $body;
     protected $_name = [
@@ -82,7 +82,7 @@ class UpdateKvNamespaceResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = UpdateKvNamespaceResponseBody::fromMap($map['body']);
+            $model->body = PurchaseRatePlanResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -219,6 +219,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePreloadTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePreloadTasksResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePurgeTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribePurgeTasksResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanInstanceStatusRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeRatePlanInstanceStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DisableCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DisableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\EditSiteWafSettingsRequest;
@@ -456,6 +458,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\PublishEdgeContainerAppVersionShrinkRe
 use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PublishRoutineCodeVersionShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseRatePlanRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\PurchaseRatePlanResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesShrinkRequest;
@@ -513,8 +517,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateImageTransformRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateImageTransformResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateIPv6Request;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateIPv6Response;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListShrinkRequest;
@@ -536,6 +538,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePageRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdatePageResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRatePlanSpecRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRatePlanSpecResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRecordRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRecordResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateRecordShrinkRequest;
@@ -3174,10 +3178,6 @@ class ESA extends OpenApiClient
             $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
         }
 
-        if (null !== $tmpReq->sessionAffinityAttributes) {
-            $request->sessionAffinityAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sessionAffinityAttributes, 'SessionAffinityAttributes', 'json');
-        }
-
         $query = [];
         if (null !== $request->adaptiveRoutingShrink) {
             @$query['AdaptiveRouting'] = $request->adaptiveRoutingShrink;
@@ -3189,6 +3189,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
 
         if (null !== $request->fallbackPool) {
@@ -3217,10 +3221,6 @@ class ESA extends OpenApiClient
 
         if (null !== $request->sessionAffinity) {
             @$query['SessionAffinity'] = $request->sessionAffinity;
-        }
-
-        if (null !== $request->sessionAffinityAttributesShrink) {
-            @$query['SessionAffinityAttributes'] = $request->sessionAffinityAttributesShrink;
         }
 
         if (null !== $request->siteId) {
@@ -8055,6 +8055,64 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePurgeTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询套餐实例状态
+     *
+     * @param request - DescribeRatePlanInstanceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRatePlanInstanceStatusResponse
+     *
+     * @param DescribeRatePlanInstanceStatusRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeRatePlanInstanceStatusResponse
+     */
+    public function describeRatePlanInstanceStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRatePlanInstanceStatus',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRatePlanInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeRatePlanInstanceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询套餐实例状态
+     *
+     * @param request - DescribeRatePlanInstanceStatusRequest
+     * @returns DescribeRatePlanInstanceStatusResponse
+     *
+     * @param DescribeRatePlanInstanceStatusRequest $request
+     *
+     * @return DescribeRatePlanInstanceStatusResponse
+     */
+    public function describeRatePlanInstanceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRatePlanInstanceStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -14823,6 +14881,96 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 新购套餐.
+     *
+     * @param request - PurchaseRatePlanRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PurchaseRatePlanResponse
+     *
+     * @param PurchaseRatePlanRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PurchaseRatePlanResponse
+     */
+    public function purchaseRatePlanWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
+        }
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->coverage) {
+            @$query['Coverage'] = $request->coverage;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->planCode) {
+            @$query['PlanCode'] = $request->planCode;
+        }
+
+        if (null !== $request->planName) {
+            @$query['PlanName'] = $request->planName;
+        }
+
+        if (null !== $request->siteName) {
+            @$query['SiteName'] = $request->siteName;
+        }
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PurchaseRatePlan',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PurchaseRatePlanResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return PurchaseRatePlanResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 新购套餐.
+     *
+     * @param request - PurchaseRatePlanRequest
+     * @returns PurchaseRatePlanResponse
+     *
+     * @param PurchaseRatePlanRequest $request
+     *
+     * @return PurchaseRatePlanResponse
+     */
+    public function purchaseRatePlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->purchaseRatePlanWithOptions($request, $runtime);
+    }
+
+    /**
      * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
      *
      * @param tmpReq - PurgeCachesRequest
@@ -15498,10 +15646,6 @@ class ESA extends OpenApiClient
 
         if (null !== $request->type) {
             @$body['Type'] = $request->type;
-        }
-
-        if (null !== $request->update) {
-            @$body['Update'] = $request->update;
         }
 
         $req = new OpenApiRequest([
@@ -16992,68 +17136,6 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Updates the name of a namespace in Edge KV.
-     *
-     * @param request - UpdateKvNamespaceRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UpdateKvNamespaceResponse
-     *
-     * @param UpdateKvNamespaceRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return UpdateKvNamespaceResponse
-     */
-    public function updateKvNamespaceWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->namespace) {
-            @$query['Namespace'] = $request->namespace;
-        }
-
-        if (null !== $request->title) {
-            @$query['Title'] = $request->title;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateKvNamespace',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UpdateKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return UpdateKvNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Updates the name of a namespace in Edge KV.
-     *
-     * @param request - UpdateKvNamespaceRequest
-     * @returns UpdateKvNamespaceResponse
-     *
-     * @param UpdateKvNamespaceRequest $request
-     *
-     * @return UpdateKvNamespaceResponse
-     */
-    public function updateKvNamespace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateKvNamespaceWithOptions($request, $runtime);
-    }
-
-    /**
      * Updates a custom list.
      *
      * @param tmpReq - UpdateListRequest
@@ -17166,10 +17248,6 @@ class ESA extends OpenApiClient
             $request->rulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
         }
 
-        if (null !== $tmpReq->sessionAffinityAttributes) {
-            $request->sessionAffinityAttributesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sessionAffinityAttributes, 'SessionAffinityAttributes', 'json');
-        }
-
         $query = [];
         if (null !== $request->adaptiveRoutingShrink) {
             @$query['AdaptiveRouting'] = $request->adaptiveRoutingShrink;
@@ -17181,6 +17259,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->description) {
             @$query['Description'] = $request->description;
+        }
+
+        if (null !== $request->enabled) {
+            @$query['Enabled'] = $request->enabled;
         }
 
         if (null !== $request->fallbackPool) {
@@ -17209,10 +17291,6 @@ class ESA extends OpenApiClient
 
         if (null !== $request->sessionAffinity) {
             @$query['SessionAffinity'] = $request->sessionAffinity;
-        }
-
-        if (null !== $request->sessionAffinityAttributesShrink) {
-            @$query['SessionAffinityAttributes'] = $request->sessionAffinityAttributesShrink;
         }
 
         if (null !== $request->siteId) {
@@ -17803,6 +17881,84 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePageWithOptions($request, $runtime);
+    }
+
+    /**
+     * 套餐变配.
+     *
+     * @param request - UpdateRatePlanSpecRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRatePlanSpecResponse
+     *
+     * @param UpdateRatePlanSpecRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateRatePlanSpecResponse
+     */
+    public function updateRatePlanSpecWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->autoPay) {
+            @$query['AutoPay'] = $request->autoPay;
+        }
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
+        }
+
+        if (null !== $request->targetPlanCode) {
+            @$query['TargetPlanCode'] = $request->targetPlanCode;
+        }
+
+        if (null !== $request->targetPlanName) {
+            @$query['TargetPlanName'] = $request->targetPlanName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRatePlanSpec',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRatePlanSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateRatePlanSpecResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 套餐变配.
+     *
+     * @param request - UpdateRatePlanSpecRequest
+     * @returns UpdateRatePlanSpecResponse
+     *
+     * @param UpdateRatePlanSpecRequest $request
+     *
+     * @return UpdateRatePlanSpecResponse
+     */
+    public function updateRatePlanSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRatePlanSpecWithOptions($request, $runtime);
     }
 
     /**

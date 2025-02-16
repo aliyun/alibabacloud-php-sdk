@@ -48,10 +48,6 @@ class SetCertificateRequest extends Model
      * @var string
      */
     public $type;
-    /**
-     * @var bool
-     */
-    public $update;
     protected $_name = [
         'casId'         => 'CasId',
         'certificate'   => 'Certificate',
@@ -63,7 +59,6 @@ class SetCertificateRequest extends Model
         'securityToken' => 'SecurityToken',
         'siteId'        => 'SiteId',
         'type'          => 'Type',
-        'update'        => 'Update',
     ];
 
     public function validate()
@@ -112,10 +107,6 @@ class SetCertificateRequest extends Model
 
         if (null !== $this->type) {
             $res['Type'] = $this->type;
-        }
-
-        if (null !== $this->update) {
-            $res['Update'] = $this->update;
         }
 
         return $res;
@@ -167,10 +158,6 @@ class SetCertificateRequest extends Model
 
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
-        }
-
-        if (isset($map['Update'])) {
-            $model->update = $map['Update'];
         }
 
         return $model;

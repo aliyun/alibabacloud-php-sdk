@@ -6,19 +6,14 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateKvNamespaceRequest extends Model
+class DescribeRatePlanInstanceStatusRequest extends Model
 {
     /**
      * @var string
      */
-    public $namespace;
-    /**
-     * @var string
-     */
-    public $title;
+    public $instanceId;
     protected $_name = [
-        'namespace' => 'Namespace',
-        'title'     => 'Title',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -29,12 +24,8 @@ class UpdateKvNamespaceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->namespace) {
-            $res['Namespace'] = $this->namespace;
-        }
-
-        if (null !== $this->title) {
-            $res['Title'] = $this->title;
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -48,12 +39,8 @@ class UpdateKvNamespaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Namespace'])) {
-            $model->namespace = $map['Namespace'];
-        }
-
-        if (isset($map['Title'])) {
-            $model->title = $map['Title'];
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

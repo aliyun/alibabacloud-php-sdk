@@ -9,7 +9,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerRequest\adaptiveRout
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerRequest\monitor;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerRequest\randomSteering;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerRequest\rules;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateLoadBalancerRequest\sessionAffinityAttributes;
 
 class UpdateLoadBalancerRequest extends Model
 {
@@ -25,6 +24,10 @@ class UpdateLoadBalancerRequest extends Model
      * @var string
      */
     public $description;
+    /**
+     * @var bool
+     */
+    public $enabled;
     /**
      * @var int
      */
@@ -54,10 +57,6 @@ class UpdateLoadBalancerRequest extends Model
      */
     public $sessionAffinity;
     /**
-     * @var sessionAffinityAttributes
-     */
-    public $sessionAffinityAttributes;
-    /**
      * @var int
      */
     public $siteId;
@@ -74,21 +73,21 @@ class UpdateLoadBalancerRequest extends Model
      */
     public $ttl;
     protected $_name = [
-        'adaptiveRouting'           => 'AdaptiveRouting',
-        'defaultPools'              => 'DefaultPools',
-        'description'               => 'Description',
-        'fallbackPool'              => 'FallbackPool',
-        'id'                        => 'Id',
-        'monitor'                   => 'Monitor',
-        'randomSteering'            => 'RandomSteering',
-        'regionPools'               => 'RegionPools',
-        'rules'                     => 'Rules',
-        'sessionAffinity'           => 'SessionAffinity',
-        'sessionAffinityAttributes' => 'SessionAffinityAttributes',
-        'siteId'                    => 'SiteId',
-        'steeringPolicy'            => 'SteeringPolicy',
-        'subRegionPools'            => 'SubRegionPools',
-        'ttl'                       => 'Ttl',
+        'adaptiveRouting' => 'AdaptiveRouting',
+        'defaultPools'    => 'DefaultPools',
+        'description'     => 'Description',
+        'enabled'         => 'Enabled',
+        'fallbackPool'    => 'FallbackPool',
+        'id'              => 'Id',
+        'monitor'         => 'Monitor',
+        'randomSteering'  => 'RandomSteering',
+        'regionPools'     => 'RegionPools',
+        'rules'           => 'Rules',
+        'sessionAffinity' => 'SessionAffinity',
+        'siteId'          => 'SiteId',
+        'steeringPolicy'  => 'SteeringPolicy',
+        'subRegionPools'  => 'SubRegionPools',
+        'ttl'             => 'Ttl',
     ];
 
     public function validate()
@@ -107,9 +106,6 @@ class UpdateLoadBalancerRequest extends Model
         }
         if (\is_array($this->rules)) {
             Model::validateArray($this->rules);
-        }
-        if (null !== $this->sessionAffinityAttributes) {
-            $this->sessionAffinityAttributes->validate();
         }
         parent::validate();
     }
@@ -133,6 +129,10 @@ class UpdateLoadBalancerRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->enabled) {
+            $res['Enabled'] = $this->enabled;
         }
 
         if (null !== $this->fallbackPool) {
@@ -167,10 +167,6 @@ class UpdateLoadBalancerRequest extends Model
 
         if (null !== $this->sessionAffinity) {
             $res['SessionAffinity'] = $this->sessionAffinity;
-        }
-
-        if (null !== $this->sessionAffinityAttributes) {
-            $res['SessionAffinityAttributes'] = null !== $this->sessionAffinityAttributes ? $this->sessionAffinityAttributes->toArray($noStream) : $this->sessionAffinityAttributes;
         }
 
         if (null !== $this->siteId) {
@@ -218,6 +214,10 @@ class UpdateLoadBalancerRequest extends Model
             $model->description = $map['Description'];
         }
 
+        if (isset($map['Enabled'])) {
+            $model->enabled = $map['Enabled'];
+        }
+
         if (isset($map['FallbackPool'])) {
             $model->fallbackPool = $map['FallbackPool'];
         }
@@ -250,10 +250,6 @@ class UpdateLoadBalancerRequest extends Model
 
         if (isset($map['SessionAffinity'])) {
             $model->sessionAffinity = $map['SessionAffinity'];
-        }
-
-        if (isset($map['SessionAffinityAttributes'])) {
-            $model->sessionAffinityAttributes = sessionAffinityAttributes::fromMap($map['SessionAffinityAttributes']);
         }
 
         if (isset($map['SiteId'])) {

@@ -1,3 +1,9 @@
+2025-02-16 Version: 2.14.0
+- Support API DescribeRatePlanInstanceStatus.
+- Support API PurchaseRatePlan.
+- Support API UpdateRatePlanSpec.
+
+
 2025-02-12 Version: 2.13.0
 - Support API CheckAssumeSlrRole.
 - Support API CreateSlrRoleForRealtimeLog.
