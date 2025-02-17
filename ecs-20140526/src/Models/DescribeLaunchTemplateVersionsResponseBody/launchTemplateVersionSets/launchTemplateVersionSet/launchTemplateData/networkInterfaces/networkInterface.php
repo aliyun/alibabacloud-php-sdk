@@ -10,6 +10,10 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeLaunchTemplateVersionsResponse
 class networkInterface extends Model
 {
     /**
+     * @var bool
+     */
+    public $deleteOnRelease;
+    /**
      * @var string
      */
     public $description;
@@ -42,6 +46,7 @@ class networkInterface extends Model
      */
     public $vSwitchId;
     protected $_name = [
+        'deleteOnRelease'             => 'DeleteOnRelease',
         'description'                 => 'Description',
         'instanceType'                => 'InstanceType',
         'networkInterfaceName'        => 'NetworkInterfaceName',
@@ -63,6 +68,10 @@ class networkInterface extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->deleteOnRelease) {
+            $res['DeleteOnRelease'] = $this->deleteOnRelease;
+        }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -106,6 +115,10 @@ class networkInterface extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DeleteOnRelease'])) {
+            $model->deleteOnRelease = $map['DeleteOnRelease'];
+        }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

@@ -1,3 +1,9 @@
+2025-02-17 Version: 6.0.1
+- Update API CreateLaunchTemplate: update param NetworkInterface.
+- Update API CreateLaunchTemplateVersion: update param NetworkInterface.
+- Update API DescribeLaunchTemplateVersions: update response param.
+
+
 2025-02-17 Version: 6.0.0
 - Support API ModifySnapshotCategory.
 - Delete API ModifyAutoSnapshotPolicy.
