@@ -1,3 +1,10 @@
+2025-02-17 Version: 4.1.0
+- Support API SetAdbSecure.
+- Update API CreateAndroidInstanceGroup: add param EnableIpv6.
+- Update API CreateAndroidInstanceGroup: add param Ipv6Bandwidth.
+- Update API DescribeAndroidInstances: update response param.
+
+
 2025-01-23 Version: 4.0.0
 - Support API CreateScreenshot.
 - Update API CheckResourceStock: update param AcpSpecId.

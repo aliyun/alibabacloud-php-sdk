@@ -35,6 +35,10 @@ class CreateAndroidInstanceGroupRequest extends Model
     /**
      * @var bool
      */
+    public $enableIpv6;
+    /**
+     * @var bool
+     */
     public $gpuAcceleration;
     /**
      * @var string
@@ -48,6 +52,10 @@ class CreateAndroidInstanceGroupRequest extends Model
      * @var string
      */
     public $instanceGroupSpec;
+    /**
+     * @var int
+     */
+    public $ipv6Bandwidth;
     /**
      * @var string
      */
@@ -83,10 +91,12 @@ class CreateAndroidInstanceGroupRequest extends Model
         'bizRegionId'       => 'BizRegionId',
         'chargeType'        => 'ChargeType',
         'clientToken'       => 'ClientToken',
+        'enableIpv6'        => 'EnableIpv6',
         'gpuAcceleration'   => 'GpuAcceleration',
         'imageId'           => 'ImageId',
         'instanceGroupName' => 'InstanceGroupName',
         'instanceGroupSpec' => 'InstanceGroupSpec',
+        'ipv6Bandwidth'     => 'Ipv6Bandwidth',
         'keyPairId'         => 'KeyPairId',
         'numberOfInstances' => 'NumberOfInstances',
         'officeSiteId'      => 'OfficeSiteId',
@@ -128,6 +138,10 @@ class CreateAndroidInstanceGroupRequest extends Model
             $res['ClientToken'] = $this->clientToken;
         }
 
+        if (null !== $this->enableIpv6) {
+            $res['EnableIpv6'] = $this->enableIpv6;
+        }
+
         if (null !== $this->gpuAcceleration) {
             $res['GpuAcceleration'] = $this->gpuAcceleration;
         }
@@ -142,6 +156,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (null !== $this->instanceGroupSpec) {
             $res['InstanceGroupSpec'] = $this->instanceGroupSpec;
+        }
+
+        if (null !== $this->ipv6Bandwidth) {
+            $res['Ipv6Bandwidth'] = $this->ipv6Bandwidth;
         }
 
         if (null !== $this->keyPairId) {
@@ -207,6 +225,10 @@ class CreateAndroidInstanceGroupRequest extends Model
             $model->clientToken = $map['ClientToken'];
         }
 
+        if (isset($map['EnableIpv6'])) {
+            $model->enableIpv6 = $map['EnableIpv6'];
+        }
+
         if (isset($map['GpuAcceleration'])) {
             $model->gpuAcceleration = $map['GpuAcceleration'];
         }
@@ -221,6 +243,10 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (isset($map['InstanceGroupSpec'])) {
             $model->instanceGroupSpec = $map['InstanceGroupSpec'];
+        }
+
+        if (isset($map['Ipv6Bandwidth'])) {
+            $model->ipv6Bandwidth = $map['Ipv6Bandwidth'];
         }
 
         if (isset($map['KeyPairId'])) {

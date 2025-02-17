@@ -97,6 +97,10 @@ class instanceModel extends Model
     /**
      * @var string
      */
+    public $networkInterfaceIpv6Address;
+    /**
+     * @var string
+     */
     public $officeSiteId;
     /**
      * @var string
@@ -110,6 +114,10 @@ class instanceModel extends Model
      * @var string
      */
     public $publicIpAddress;
+    /**
+     * @var string
+     */
+    public $publicIpv6Address;
     /**
      * @var int
      */
@@ -131,36 +139,38 @@ class instanceModel extends Model
      */
     public $tags;
     protected $_name = [
-        'androidInstanceGroupId'   => 'AndroidInstanceGroupId',
-        'androidInstanceGroupName' => 'AndroidInstanceGroupName',
-        'androidInstanceId'        => 'AndroidInstanceId',
-        'androidInstanceName'      => 'AndroidInstanceName',
-        'androidInstanceStatus'    => 'AndroidInstanceStatus',
-        'appInstanceGroupId'       => 'AppInstanceGroupId',
-        'appInstanceId'            => 'AppInstanceId',
-        'authorizedUserId'         => 'AuthorizedUserId',
-        'bindUserId'               => 'BindUserId',
-        'chargeType'               => 'ChargeType',
-        'cpu'                      => 'Cpu',
-        'disks'                    => 'Disks',
-        'errorCode'                => 'ErrorCode',
-        'gmtCreate'                => 'GmtCreate',
-        'gmtExpired'               => 'GmtExpired',
-        'gmtModified'              => 'GmtModified',
-        'imageVersion'             => 'ImageVersion',
-        'instanceType'             => 'InstanceType',
-        'keyPairId'                => 'KeyPairId',
-        'memory'                   => 'Memory',
-        'networkInterfaceIp'       => 'NetworkInterfaceIp',
-        'officeSiteId'             => 'OfficeSiteId',
-        'persistentAppInstanceId'  => 'PersistentAppInstanceId',
-        'policyGroupId'            => 'PolicyGroupId',
-        'publicIpAddress'          => 'PublicIpAddress',
-        'rate'                     => 'Rate',
-        'regionId'                 => 'RegionId',
-        'renderingType'            => 'RenderingType',
-        'sessionStatus'            => 'SessionStatus',
-        'tags'                     => 'Tags',
+        'androidInstanceGroupId'      => 'AndroidInstanceGroupId',
+        'androidInstanceGroupName'    => 'AndroidInstanceGroupName',
+        'androidInstanceId'           => 'AndroidInstanceId',
+        'androidInstanceName'         => 'AndroidInstanceName',
+        'androidInstanceStatus'       => 'AndroidInstanceStatus',
+        'appInstanceGroupId'          => 'AppInstanceGroupId',
+        'appInstanceId'               => 'AppInstanceId',
+        'authorizedUserId'            => 'AuthorizedUserId',
+        'bindUserId'                  => 'BindUserId',
+        'chargeType'                  => 'ChargeType',
+        'cpu'                         => 'Cpu',
+        'disks'                       => 'Disks',
+        'errorCode'                   => 'ErrorCode',
+        'gmtCreate'                   => 'GmtCreate',
+        'gmtExpired'                  => 'GmtExpired',
+        'gmtModified'                 => 'GmtModified',
+        'imageVersion'                => 'ImageVersion',
+        'instanceType'                => 'InstanceType',
+        'keyPairId'                   => 'KeyPairId',
+        'memory'                      => 'Memory',
+        'networkInterfaceIp'          => 'NetworkInterfaceIp',
+        'networkInterfaceIpv6Address' => 'NetworkInterfaceIpv6Address',
+        'officeSiteId'                => 'OfficeSiteId',
+        'persistentAppInstanceId'     => 'PersistentAppInstanceId',
+        'policyGroupId'               => 'PolicyGroupId',
+        'publicIpAddress'             => 'PublicIpAddress',
+        'publicIpv6Address'           => 'PublicIpv6Address',
+        'rate'                        => 'Rate',
+        'regionId'                    => 'RegionId',
+        'renderingType'               => 'RenderingType',
+        'sessionStatus'               => 'SessionStatus',
+        'tags'                        => 'Tags',
     ];
 
     public function validate()
@@ -267,6 +277,10 @@ class instanceModel extends Model
             $res['NetworkInterfaceIp'] = $this->networkInterfaceIp;
         }
 
+        if (null !== $this->networkInterfaceIpv6Address) {
+            $res['NetworkInterfaceIpv6Address'] = $this->networkInterfaceIpv6Address;
+        }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
@@ -281,6 +295,10 @@ class instanceModel extends Model
 
         if (null !== $this->publicIpAddress) {
             $res['PublicIpAddress'] = $this->publicIpAddress;
+        }
+
+        if (null !== $this->publicIpv6Address) {
+            $res['PublicIpv6Address'] = $this->publicIpv6Address;
         }
 
         if (null !== $this->rate) {
@@ -410,6 +428,10 @@ class instanceModel extends Model
             $model->networkInterfaceIp = $map['NetworkInterfaceIp'];
         }
 
+        if (isset($map['NetworkInterfaceIpv6Address'])) {
+            $model->networkInterfaceIpv6Address = $map['NetworkInterfaceIpv6Address'];
+        }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
@@ -424,6 +446,10 @@ class instanceModel extends Model
 
         if (isset($map['PublicIpAddress'])) {
             $model->publicIpAddress = $map['PublicIpAddress'];
+        }
+
+        if (isset($map['PublicIpv6Address'])) {
+            $model->publicIpv6Address = $map['PublicIpv6Address'];
         }
 
         if (isset($map['Rate'])) {
