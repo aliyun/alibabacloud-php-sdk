@@ -3995,6 +3995,10 @@ class ARMS extends OpenApiClient
             @$query['Description'] = $request->description;
         }
 
+        if (null !== $request->language) {
+            @$query['Language'] = $request->language;
+        }
+
         if (null !== $request->nickName) {
             @$query['NickName'] = $request->nickName;
         }
@@ -18614,6 +18618,10 @@ class ARMS extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->appConfig) {
+            @$query['AppConfig'] = $request->appConfig;
+        }
+
         if (null !== $request->autoRestart) {
             @$query['AutoRestart'] = $request->autoRestart;
         }

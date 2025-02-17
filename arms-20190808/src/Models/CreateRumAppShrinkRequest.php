@@ -23,6 +23,10 @@ class CreateRumAppShrinkRequest extends Model
     /**
      * @var string
      */
+    public $language;
+    /**
+     * @var string
+     */
     public $nickName;
     /**
      * @var string
@@ -60,6 +64,7 @@ class CreateRumAppShrinkRequest extends Model
         'appGroup'        => 'AppGroup',
         'appName'         => 'AppName',
         'description'     => 'Description',
+        'language'        => 'Language',
         'nickName'        => 'NickName',
         'packageName'     => 'PackageName',
         'realRegionId'    => 'RealRegionId',
@@ -89,6 +94,10 @@ class CreateRumAppShrinkRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->language) {
+            $res['Language'] = $this->language;
         }
 
         if (null !== $this->nickName) {
@@ -148,6 +157,10 @@ class CreateRumAppShrinkRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['Language'])) {
+            $model->language = $map['Language'];
         }
 
         if (isset($map['NickName'])) {

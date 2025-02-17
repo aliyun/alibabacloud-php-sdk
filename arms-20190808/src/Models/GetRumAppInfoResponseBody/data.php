@@ -14,6 +14,10 @@ class data extends Model
     /**
      * @var string
      */
+    public $appConfig;
+    /**
+     * @var string
+     */
     public $appGroup;
     /**
      * @var string
@@ -96,6 +100,7 @@ class data extends Model
      */
     public $type;
     protected $_name = [
+        'appConfig'                 => 'AppConfig',
         'appGroup'                  => 'AppGroup',
         'appType'                   => 'AppType',
         'backendServiceTraceRegion' => 'BackendServiceTraceRegion',
@@ -136,6 +141,10 @@ class data extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appConfig) {
+            $res['AppConfig'] = $this->appConfig;
+        }
+
         if (null !== $this->appGroup) {
             $res['AppGroup'] = $this->appGroup;
         }
@@ -243,6 +252,10 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppConfig'])) {
+            $model->appConfig = $map['AppConfig'];
+        }
+
         if (isset($map['AppGroup'])) {
             $model->appGroup = $map['AppGroup'];
         }

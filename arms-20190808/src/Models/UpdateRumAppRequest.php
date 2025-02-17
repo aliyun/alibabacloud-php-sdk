@@ -9,6 +9,10 @@ use AlibabaCloud\Dara\Model;
 class UpdateRumAppRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appConfig;
+    /**
      * @var bool
      */
     public $autoRestart;
@@ -57,6 +61,7 @@ class UpdateRumAppRequest extends Model
      */
     public $stop;
     protected $_name = [
+        'appConfig'                  => 'AppConfig',
         'autoRestart'                => 'AutoRestart',
         'backendServiceTraceRegion'  => 'BackendServiceTraceRegion',
         'bonreeSDKConfigJson'        => 'BonreeSDKConfigJson',
@@ -79,6 +84,10 @@ class UpdateRumAppRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appConfig) {
+            $res['AppConfig'] = $this->appConfig;
+        }
+
         if (null !== $this->autoRestart) {
             $res['AutoRestart'] = $this->autoRestart;
         }
@@ -138,6 +147,10 @@ class UpdateRumAppRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppConfig'])) {
+            $model->appConfig = $map['AppConfig'];
+        }
+
         if (isset($map['AutoRestart'])) {
             $model->autoRestart = $map['AutoRestart'];
         }

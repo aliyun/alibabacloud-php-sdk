@@ -1,3 +1,9 @@
+2025-02-17 Version: 8.0.3
+- Update API CreateRumApp: add param Language.
+- Update API GetRumAppInfo: update response param.
+- Update API UpdateRumApp: add param AppConfig.
+
+
 2025-02-13 Version: 8.0.2
 - Update API CreateOrUpdateAlertRule: add param CheckCycle.
 - Update API GetRumApps: add param AppType.
