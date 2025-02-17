@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Good extends Model
 {
     /**
-     * @example 儿童学习桌
-     *
      * @var string
      */
     public $goodName;
-
     /**
-     * @example 6600****6736
-     *
      * @var string
      */
     public $productId;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $quantity;
-
     /**
      * @var string
      */
     public $skuId;
-
     /**
      * @var string
      */
@@ -48,23 +38,28 @@ class Good extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->goodName) {
             $res['goodName'] = $this->goodName;
         }
+
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
+
         if (null !== $this->quantity) {
             $res['quantity'] = $this->quantity;
         }
+
         if (null !== $this->skuId) {
             $res['skuId'] = $this->skuId;
         }
+
         if (null !== $this->skuTitle) {
             $res['skuTitle'] = $this->skuTitle;
         }
@@ -72,26 +67,30 @@ class Good extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Good
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['goodName'])) {
             $model->goodName = $map['goodName'];
         }
+
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
+
         if (isset($map['quantity'])) {
             $model->quantity = $map['quantity'];
         }
+
         if (isset($map['skuId'])) {
             $model->skuId = $map['skuId'];
         }
+
         if (isset($map['skuTitle'])) {
             $model->skuTitle = $map['skuTitle'];
         }

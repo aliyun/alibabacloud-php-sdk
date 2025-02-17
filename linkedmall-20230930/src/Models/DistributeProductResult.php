@@ -6,19 +6,24 @@ namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class PurchaseOrderCreateResult extends Model
+class DistributeProductResult extends Model
 {
     /**
      * @var string
      */
-    public $purchaseOrderId;
+    public $code;
+    /**
+     * @var string
+     */
+    public $message;
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'purchaseOrderId' => 'purchaseOrderId',
-        'requestId'       => 'requestId',
+        'code'      => 'code',
+        'message'   => 'message',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -29,8 +34,12 @@ class PurchaseOrderCreateResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->purchaseOrderId) {
-            $res['purchaseOrderId'] = $this->purchaseOrderId;
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
         }
 
         if (null !== $this->requestId) {
@@ -48,8 +57,12 @@ class PurchaseOrderCreateResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['purchaseOrderId'])) {
-            $model->purchaseOrderId = $map['purchaseOrderId'];
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
         }
 
         if (isset($map['requestId'])) {

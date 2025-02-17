@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProductQuery extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 22000009
-     *
      * @var string
      */
     public $distributorShopId;
-
     /**
-     * @example 110000
-     *
      * @var string
      */
     public $divisionCode;
@@ -30,14 +23,16 @@ class ProductQuery extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->distributorShopId) {
             $res['distributorShopId'] = $this->distributorShopId;
         }
+
         if (null !== $this->divisionCode) {
             $res['divisionCode'] = $this->divisionCode;
         }
@@ -45,17 +40,18 @@ class ProductQuery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProductQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['distributorShopId'])) {
             $model->distributorShopId = $map['distributorShopId'];
         }
+
         if (isset($map['divisionCode'])) {
             $model->divisionCode = $map['divisionCode'];
         }

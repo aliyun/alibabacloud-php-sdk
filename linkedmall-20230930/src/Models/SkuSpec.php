@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SkuSpec extends Model
 {
     /**
-     * @example 颜色分类
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $keyId;
-
     /**
-     * @example 天蓝色
-     *
      * @var string
      */
     public $value;
-
     /**
-     * @example 秘色
-     *
      * @var string
      */
     public $valueAlias;
-
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $valueId;
@@ -52,23 +38,28 @@ class SkuSpec extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['key'] = $this->key;
         }
+
         if (null !== $this->keyId) {
             $res['keyId'] = $this->keyId;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
+
         if (null !== $this->valueAlias) {
             $res['valueAlias'] = $this->valueAlias;
         }
+
         if (null !== $this->valueId) {
             $res['valueId'] = $this->valueId;
         }
@@ -76,26 +67,30 @@ class SkuSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SkuSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['key'])) {
             $model->key = $map['key'];
         }
+
         if (isset($map['keyId'])) {
             $model->keyId = $map['keyId'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }
+
         if (isset($map['valueAlias'])) {
             $model->valueAlias = $map['valueAlias'];
         }
+
         if (isset($map['valueId'])) {
             $model->valueId = $map['valueId'];
         }

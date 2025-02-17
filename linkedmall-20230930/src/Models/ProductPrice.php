@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProductPrice extends Model
 {
     /**
-     * @example 120
-     *
      * @var string
      */
     public $fundAmountMoney;
@@ -20,9 +18,10 @@ class ProductPrice extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fundAmountMoney) {
@@ -32,11 +31,11 @@ class ProductPrice extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProductPrice
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

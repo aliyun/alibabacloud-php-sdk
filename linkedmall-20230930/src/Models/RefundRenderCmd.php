@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefundRenderCmd extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $bizClaimType;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $goodsStatus;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 6692****5458
-     *
      * @var string
      */
     public $orderLineId;
@@ -42,17 +28,20 @@ class RefundRenderCmd extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizClaimType) {
             $res['bizClaimType'] = $this->bizClaimType;
         }
+
         if (null !== $this->goodsStatus) {
             $res['goodsStatus'] = $this->goodsStatus;
         }
+
         if (null !== $this->orderLineId) {
             $res['orderLineId'] = $this->orderLineId;
         }
@@ -60,20 +49,22 @@ class RefundRenderCmd extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefundRenderCmd
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bizClaimType'])) {
             $model->bizClaimType = $map['bizClaimType'];
         }
+
         if (isset($map['goodsStatus'])) {
             $model->goodsStatus = $map['goodsStatus'];
         }
+
         if (isset($map['orderLineId'])) {
             $model->orderLineId = $map['orderLineId'];
         }

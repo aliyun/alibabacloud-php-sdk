@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OrderListResult extends Model
 {
@@ -12,17 +12,11 @@ class OrderListResult extends Model
      * @var OrderResult[]
      */
     public $orderList;
-
     /**
-     * @example 3239281273464326823
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 24
-     *
      * @var int
      */
     public $total;
@@ -34,23 +28,29 @@ class OrderListResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->orderList)) {
+            Model::validateArray($this->orderList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderList) {
-            $res['orderList'] = [];
-            if (null !== $this->orderList && \is_array($this->orderList)) {
-                $n = 0;
-                foreach ($this->orderList as $item) {
-                    $res['orderList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->orderList)) {
+                $res['orderList'] = [];
+                $n1               = 0;
+                foreach ($this->orderList as $item1) {
+                    $res['orderList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -58,26 +58,28 @@ class OrderListResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OrderListResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['orderList'])) {
             if (!empty($map['orderList'])) {
                 $model->orderList = [];
-                $n                = 0;
-                foreach ($map['orderList'] as $item) {
-                    $model->orderList[$n++] = null !== $item ? OrderResult::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['orderList'] as $item1) {
+                    $model->orderList[$n1++] = OrderResult::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

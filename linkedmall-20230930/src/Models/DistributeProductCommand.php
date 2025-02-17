@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ProductPageResult extends Model
+class DistributeProductCommand extends Model
 {
     /**
-     * @var int
+     * @var string
      */
-    public $pageNumber;
+    public $lmShopId;
     /**
-     * @var int
-     */
-    public $pageSize;
-    /**
-     * @var Product[]
+     * @var DistributionProduct[]
      */
     public $products;
     /**
@@ -25,15 +21,19 @@ class ProductPageResult extends Model
      */
     public $requestId;
     /**
-     * @var int
+     * @var string
      */
-    public $total;
+    public $requestTime;
+    /**
+     * @var string
+     */
+    public $requestUser;
     protected $_name = [
-        'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
-        'products'   => 'products',
-        'requestId'  => 'requestId',
-        'total'      => 'total',
+        'lmShopId'    => 'lmShopId',
+        'products'    => 'products',
+        'requestId'   => 'requestId',
+        'requestTime' => 'requestTime',
+        'requestUser' => 'requestUser',
     ];
 
     public function validate()
@@ -47,12 +47,8 @@ class ProductPageResult extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['pageNumber'] = $this->pageNumber;
-        }
-
-        if (null !== $this->pageSize) {
-            $res['pageSize'] = $this->pageSize;
+        if (null !== $this->lmShopId) {
+            $res['lmShopId'] = $this->lmShopId;
         }
 
         if (null !== $this->products) {
@@ -69,8 +65,12 @@ class ProductPageResult extends Model
             $res['requestId'] = $this->requestId;
         }
 
-        if (null !== $this->total) {
-            $res['total'] = $this->total;
+        if (null !== $this->requestTime) {
+            $res['requestTime'] = $this->requestTime;
+        }
+
+        if (null !== $this->requestUser) {
+            $res['requestUser'] = $this->requestUser;
         }
 
         return $res;
@@ -84,12 +84,8 @@ class ProductPageResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pageNumber'])) {
-            $model->pageNumber = $map['pageNumber'];
-        }
-
-        if (isset($map['pageSize'])) {
-            $model->pageSize = $map['pageSize'];
+        if (isset($map['lmShopId'])) {
+            $model->lmShopId = $map['lmShopId'];
         }
 
         if (isset($map['products'])) {
@@ -97,7 +93,7 @@ class ProductPageResult extends Model
                 $model->products = [];
                 $n1              = 0;
                 foreach ($map['products'] as $item1) {
-                    $model->products[$n1++] = Product::fromMap($item1);
+                    $model->products[$n1++] = DistributionProduct::fromMap($item1);
                 }
             }
         }
@@ -106,8 +102,12 @@ class ProductPageResult extends Model
             $model->requestId = $map['requestId'];
         }
 
-        if (isset($map['total'])) {
-            $model->total = $map['total'];
+        if (isset($map['requestTime'])) {
+            $model->requestTime = $map['requestTime'];
+        }
+
+        if (isset($map['requestUser'])) {
+            $model->requestUser = $map['requestUser'];
         }
 
         return $model;

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CooperationShop extends Model
 {
@@ -12,12 +12,10 @@ class CooperationShop extends Model
      * @var string
      */
     public $cooperationCompanyId;
-
     /**
      * @var string
      */
     public $cooperationShopId;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class CooperationShop extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cooperationCompanyId) {
             $res['cooperationCompanyId'] = $this->cooperationCompanyId;
         }
+
         if (null !== $this->cooperationShopId) {
             $res['cooperationShopId'] = $this->cooperationShopId;
         }
+
         if (null !== $this->shopId) {
             $res['shopId'] = $this->shopId;
         }
@@ -48,20 +49,22 @@ class CooperationShop extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CooperationShop
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['cooperationCompanyId'])) {
             $model->cooperationCompanyId = $map['cooperationCompanyId'];
         }
+
         if (isset($map['cooperationShopId'])) {
             $model->cooperationShopId = $map['cooperationShopId'];
         }
+
         if (isset($map['shopId'])) {
             $model->shopId = $map['shopId'];
         }

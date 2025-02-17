@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GoodsShippingNoticeCreateResult extends Model
 {
     /**
-     * @example 3239281273464326823
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example success
-     *
      * @var string
      */
     public $result;
@@ -28,14 +23,16 @@ class GoodsShippingNoticeCreateResult extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
@@ -43,17 +40,18 @@ class GoodsShippingNoticeCreateResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GoodsShippingNoticeCreateResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }

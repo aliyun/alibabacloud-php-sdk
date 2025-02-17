@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSelectionProductRequest extends Model
 {
     /**
-     * @example 110000
-     *
      * @var string
      */
     public $divisionCode;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 56****2304
-     *
      * @var string
      */
     public $purchaserId;
@@ -30,14 +23,16 @@ class GetSelectionProductRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->divisionCode) {
             $res['divisionCode'] = $this->divisionCode;
         }
+
         if (null !== $this->purchaserId) {
             $res['purchaserId'] = $this->purchaserId;
         }
@@ -45,17 +40,18 @@ class GetSelectionProductRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSelectionProductRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['divisionCode'])) {
             $model->divisionCode = $map['divisionCode'];
         }
+
         if (isset($map['purchaserId'])) {
             $model->purchaserId = $map['purchaserId'];
         }
