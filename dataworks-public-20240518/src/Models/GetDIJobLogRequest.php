@@ -24,11 +24,21 @@ class GetDIJobLogRequest extends Model
      * @var int
      */
     public $instanceId;
+    /**
+     * @var string
+     */
+    public $nodeType;
+    /**
+     * @var int
+     */
+    public $pageNumber;
     protected $_name = [
         'DIJobId'    => 'DIJobId',
         'failoverId' => 'FailoverId',
         'id'         => 'Id',
         'instanceId' => 'InstanceId',
+        'nodeType'   => 'NodeType',
+        'pageNumber' => 'PageNumber',
     ];
 
     public function validate()
@@ -53,6 +63,14 @@ class GetDIJobLogRequest extends Model
 
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
         }
 
         return $res;
@@ -80,6 +98,14 @@ class GetDIJobLogRequest extends Model
 
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
         }
 
         return $model;
