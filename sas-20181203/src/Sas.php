@@ -1358,6 +1358,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBackupPolicyStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBinarySecurityPolicyRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyBinarySecurityPolicyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCheckRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyCheckRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyClearLogstoreStorageRequest;
@@ -36245,7 +36247,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取风险数量统计数据.
+     * Get the statistics of risk item counts.
      *
      * @param request - GetCheckCountStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36290,7 +36292,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取风险数量统计数据.
+     * Get the statistics of risk item counts.
      *
      * @param request - GetCheckCountStatisticRequest
      * @returns GetCheckCountStatisticResponse
@@ -36701,7 +36703,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取时间趋势统计数据.
+     * Get time trend statistics data.
      *
      * @param request - GetCheckTimeDimensionStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -36754,7 +36756,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取时间趋势统计数据.
+     * Get time trend statistics data.
      *
      * @param request - GetCheckTimeDimensionStatisticRequest
      * @returns GetCheckTimeDimensionStatisticResponse
@@ -40844,7 +40846,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取Serverless应用授权详情.
+     * Get Serverless Application Authorization Details.
      *
      * @param request - GetServerlessAppAuthDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40897,7 +40899,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取Serverless应用授权详情.
+     * Get Serverless Application Authorization Details.
      *
      * @param request - GetServerlessAppAuthDetailRequest
      * @returns GetServerlessAppAuthDetailResponse
@@ -40914,7 +40916,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取Serverless授权概览.
+     * Get Serverless Authorization Overview.
      *
      * @param request - GetServerlessAuthSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -40963,7 +40965,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 获取Serverless授权概览.
+     * Get Serverless Authorization Overview.
      *
      * @param request - GetServerlessAuthSummaryRequest
      * @returns GetServerlessAuthSummaryResponse
@@ -44265,7 +44267,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 展示云产品配置检查规则.
+     * Display cloud product configuration check rules.
      *
      * @param request - ListCheckRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -44302,7 +44304,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 展示云产品配置检查规则.
+     * Display cloud product configuration check rules.
      *
      * @param request - ListCheckRuleRequest
      * @returns ListCheckRuleResponse
@@ -44319,7 +44321,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 列出规则下面所有的生效机器.
+     * List all effective machines under the rule.
      *
      * @param request - ListCheckRuleInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -44356,7 +44358,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 列出规则下面所有的生效机器.
+     * List all effective machines under the rule.
      *
      * @param request - ListCheckRuleInstanceRequest
      * @returns ListCheckRuleInstanceResponse
@@ -47555,7 +47557,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询操作检查项下的实例结果列表.
+     * Query the list of instance results under the operation check item.
+     *
+     * @remarks
+     * This interface is only available to users who have purchased the cloud platform configuration check authorization or enabled the pay-as-you-go service for cloud platform configuration checks.
      *
      * @param request - ListOperationCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -47592,7 +47597,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 查询操作检查项下的实例结果列表.
+     * Query the list of instance results under the operation check item.
+     *
+     * @remarks
+     * This interface is only available to users who have purchased the cloud platform configuration check authorization or enabled the pay-as-you-go service for cloud platform configuration checks.
      *
      * @param request - ListOperationCheckRequest
      * @returns ListOperationCheckResponse
@@ -50510,7 +50518,89 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改云产品配置检查的规则设置.
+     * Modify Policy.
+     *
+     * @param request - ModifyBinarySecurityPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyBinarySecurityPolicyResponse
+     *
+     * @param ModifyBinarySecurityPolicyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyBinarySecurityPolicyResponse
+     */
+    public function modifyBinarySecurityPolicyWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->clusters) {
+            @$query['Clusters'] = $request->clusters;
+        }
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
+        }
+
+        if (null !== $request->policy) {
+            @$query['Policy'] = $request->policy;
+        }
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyBinarySecurityPolicy',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyBinarySecurityPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ModifyBinarySecurityPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Modify Policy.
+     *
+     * @param request - ModifyBinarySecurityPolicyRequest
+     * @returns ModifyBinarySecurityPolicyResponse
+     *
+     * @param ModifyBinarySecurityPolicyRequest $request
+     *
+     * @return ModifyBinarySecurityPolicyResponse
+     */
+    public function modifyBinarySecurityPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyBinarySecurityPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modify the rule settings for cloud product configuration checks.
      *
      * @param request - ModifyCheckRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -50571,7 +50661,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改云产品配置检查的规则设置.
+     * Modify the rule settings for cloud product configuration checks.
      *
      * @param request - ModifyCheckRuleRequest
      * @returns ModifyCheckRuleResponse
@@ -51028,7 +51118,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改ak对应的Trail配置信息.
+     * Modify the Trail configuration information for the AK.
      *
      * @param request - ModifyCloudVendorTrialConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -51081,7 +51171,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 修改ak对应的Trail配置信息.
+     * Modify the Trail configuration information for the AK.
      *
      * @param request - ModifyCloudVendorTrialConfigRequest
      * @returns ModifyCloudVendorTrialConfigResponse
@@ -53660,7 +53750,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 管理Serverless资产授权.
+     * Manage Serverless Asset Authorization.
      *
      * @param request - ModifyServerlessAuthToMachineRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -53757,7 +53847,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 管理Serverless资产授权.
+     * Manage Serverless Asset Authorization.
      *
      * @param request - ModifyServerlessAuthToMachineRequest
      * @returns ModifyServerlessAuthToMachineResponse

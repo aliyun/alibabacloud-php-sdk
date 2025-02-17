@@ -1,3 +1,7 @@
+2025-02-17 Version: 4.2.0
+- Support API ModifyBinarySecurityPolicy.
+
+
 2025-02-14 Version: 4.1.0
 - Support API AddCloudVendorTrialConfig.
 - Support API AddProtectVpcList.
