@@ -4,64 +4,43 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
-use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeExpressConnectRouterRequest\tagModels;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeExpressConnectRouterRequest\tag;
 
 class DescribeExpressConnectRouterRequest extends Model
 {
     /**
-     * @example 02fb3da4-130e-11e9-8e44-00****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
-
     /**
-     * @example ecr-fu8rszhgv7623c****
-     *
      * @var string
      */
     public $ecrId;
-
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example e0a2dbeb69a8beeeb8194e92b702df3fd3e7bfe6ce7bfc16e0b5e8707e68181f
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example rg-aek2aq7f4va****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @var tagModels[]
+     * @var tag[]
      */
-    public $tagModels;
+    public $tag;
     protected $_name = [
         'clientToken'     => 'ClientToken',
         'dryRun'          => 'DryRun',
@@ -70,43 +49,54 @@ class DescribeExpressConnectRouterRequest extends Model
         'name'            => 'Name',
         'nextToken'       => 'NextToken',
         'resourceGroupId' => 'ResourceGroupId',
-        'tagModels'       => 'TagModels',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->tagModels) {
-            $res['TagModels'] = [];
-            if (null !== $this->tagModels && \is_array($this->tagModels)) {
-                $n = 0;
-                foreach ($this->tagModels as $item) {
-                    $res['TagModels'][$n++] = null !== $item ? $item->toMap() : $item;
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -114,41 +104,48 @@ class DescribeExpressConnectRouterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeExpressConnectRouterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['TagModels'])) {
-            if (!empty($map['TagModels'])) {
-                $model->tagModels = [];
-                $n                = 0;
-                foreach ($map['TagModels'] as $item) {
-                    $model->tagModels[$n++] = null !== $item ? tagModels::fromMap($item) : $item;
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

@@ -4,88 +4,61 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeInstanceGrantedToExpressConnectRouterRequest\tagModels;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceGrantedToExpressConnectRouterRequest extends Model
 {
     /**
-     * @example 02fb3da4-130e-11e9-8e44-00****
-     *
+     * @var string
+     */
+    public $callerType;
+    /**
      * @var string
      */
     public $clientToken;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ecr-mezk2idmsd0vx2****
-     *
      * @var string
      */
     public $ecrId;
-
     /**
-     * @example vbr-j6cwxhgg0s5nuephp****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example 129845258050****
-     *
      * @var int
      */
     public $instanceOwnerId;
-
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $instanceRegionId;
-
     /**
-     * @example VBR
-     *
      * @var string
      */
     public $instanceType;
-
     /**
-     * @example 6
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example gAAAAABkyGzFbZR2NnxnyVk0EiL7F3qMBtBim8Es0mugRT3qb8yEHAMaHGanzuaHUmiEq9QRmok0RgxJAINBOJZa5KPjopEu_Q==
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example rg-aek2tsvbnfe****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
      * @var tagModels[]
      */
     public $tagModels;
     protected $_name = [
+        'callerType'       => 'CallerType',
         'clientToken'      => 'ClientToken',
         'dryRun'           => 'DryRun',
         'ecrId'            => 'EcrId',
@@ -101,47 +74,65 @@ class DescribeInstanceGrantedToExpressConnectRouterRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagModels)) {
+            Model::validateArray($this->tagModels);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->callerType) {
+            $res['CallerType'] = $this->callerType;
+        }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceOwnerId) {
             $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
+
         if (null !== $this->instanceRegionId) {
             $res['InstanceRegionId'] = $this->instanceRegionId;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tagModels) {
-            $res['TagModels'] = [];
-            if (null !== $this->tagModels && \is_array($this->tagModels)) {
-                $n = 0;
-                foreach ($this->tagModels as $item) {
-                    $res['TagModels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagModels)) {
+                $res['TagModels'] = [];
+                $n1               = 0;
+                foreach ($this->tagModels as $item1) {
+                    $res['TagModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -149,50 +140,64 @@ class DescribeInstanceGrantedToExpressConnectRouterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceGrantedToExpressConnectRouterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallerType'])) {
+            $model->callerType = $map['CallerType'];
+        }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceOwnerId'])) {
             $model->instanceOwnerId = $map['InstanceOwnerId'];
         }
+
         if (isset($map['InstanceRegionId'])) {
             $model->instanceRegionId = $map['InstanceRegionId'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['TagModels'])) {
             if (!empty($map['TagModels'])) {
                 $model->tagModels = [];
-                $n                = 0;
-                foreach ($map['TagModels'] as $item) {
-                    $model->tagModels[$n++] = null !== $item ? tagModels::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['TagModels'] as $item1) {
+                    $model->tagModels[$n1++] = tagModels::fromMap($item1);
                 }
             }
         }

@@ -4,59 +4,39 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
-use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateExpressConnectRouterRequest\tags;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\CreateExpressConnectRouterRequest\tag;
 
 class CreateExpressConnectRouterRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 45104
-     *
      * @var int
      */
     public $alibabaSideAsn;
-
     /**
-     * @example 02fb3da4-130e-11e9-8e44-00****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example rg-acfmvvajg5q****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @var tags[]
+     * @var tag[]
      */
-    public $tags;
+    public $tag;
     protected $_name = [
         'alibabaSideAsn'  => 'AlibabaSideAsn',
         'clientToken'     => 'ClientToken',
@@ -64,40 +44,50 @@ class CreateExpressConnectRouterRequest extends Model
         'dryRun'          => 'DryRun',
         'name'            => 'Name',
         'resourceGroupId' => 'ResourceGroupId',
-        'tags'            => 'Tags',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alibabaSideAsn) {
             $res['AlibabaSideAsn'] = $this->alibabaSideAsn;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -105,38 +95,44 @@ class CreateExpressConnectRouterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateExpressConnectRouterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlibabaSideAsn'])) {
             $model->alibabaSideAsn = $map['AlibabaSideAsn'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

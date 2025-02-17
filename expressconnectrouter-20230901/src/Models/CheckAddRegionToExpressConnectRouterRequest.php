@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckAddRegionToExpressConnectRouterRequest extends Model
 {
     /**
-     * @example 02fb3da4-130e-11e9-8e44-00****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example ecr-fu8rszhgv7623c****
-     *
      * @var string
      */
     public $ecrId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $freshRegionId;
@@ -48,20 +33,24 @@ class CheckAddRegionToExpressConnectRouterRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->ecrId) {
             $res['EcrId'] = $this->ecrId;
         }
+
         if (null !== $this->freshRegionId) {
             $res['FreshRegionId'] = $this->freshRegionId;
         }
@@ -69,23 +58,26 @@ class CheckAddRegionToExpressConnectRouterRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckAddRegionToExpressConnectRouterRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['EcrId'])) {
             $model->ecrId = $map['EcrId'];
         }
+
         if (isset($map['FreshRegionId'])) {
             $model->freshRegionId = $map['FreshRegionId'];
         }

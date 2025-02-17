@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ExpressConnectRouter\V20230901\Models\DescribeExpressConnectRouterAllowedPrefixHistoryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class allowedPrefixHistoryList extends Model
 {
@@ -12,10 +12,7 @@ class allowedPrefixHistoryList extends Model
      * @var string[]
      */
     public $allowedPrefix;
-
     /**
-     * @example 1673751163000
-     *
      * @var string
      */
     public $gmtCreate;
@@ -26,14 +23,25 @@ class allowedPrefixHistoryList extends Model
 
     public function validate()
     {
+        if (\is_array($this->allowedPrefix)) {
+            Model::validateArray($this->allowedPrefix);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowedPrefix) {
-            $res['AllowedPrefix'] = $this->allowedPrefix;
+            if (\is_array($this->allowedPrefix)) {
+                $res['AllowedPrefix'] = [];
+                $n1                   = 0;
+                foreach ($this->allowedPrefix as $item1) {
+                    $res['AllowedPrefix'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
@@ -41,19 +49,24 @@ class allowedPrefixHistoryList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return allowedPrefixHistoryList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowedPrefix'])) {
             if (!empty($map['AllowedPrefix'])) {
-                $model->allowedPrefix = $map['AllowedPrefix'];
+                $model->allowedPrefix = [];
+                $n1                   = 0;
+                foreach ($map['AllowedPrefix'] as $item1) {
+                    $model->allowedPrefix[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
