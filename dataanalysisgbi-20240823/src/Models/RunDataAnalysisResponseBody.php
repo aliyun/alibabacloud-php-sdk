@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunDataAnalysisResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class RunDataAnalysisResponseBody extends Model
 {
@@ -13,17 +13,14 @@ class RunDataAnalysisResponseBody extends Model
      * @var string
      */
     public $code;
-
     /**
      * @var data
      */
     public $data;
-
     /**
      * @var int
      */
     public $httpStatusCode;
-
     /**
      * @var string
      */
@@ -37,20 +34,27 @@ class RunDataAnalysisResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['httpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
@@ -58,23 +62,26 @@ class RunDataAnalysisResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunDataAnalysisResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['httpStatusCode'])) {
             $model->httpStatusCode = $map['httpStatusCode'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
