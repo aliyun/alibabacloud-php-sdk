@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInvocationResultsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInvocationResultsResponseBody\invocation\invocationResults;
-use AlibabaCloud\Tea\Model;
 
 class invocation extends Model
 {
     /**
-     * @description The execution results.
-     *
      * @var invocationResults
      */
     public $invocationResults;
-
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example AAAAAdDWBF2
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The total number of the commands.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -61,23 +39,31 @@ class invocation extends Model
 
     public function validate()
     {
+        if (null !== $this->invocationResults) {
+            $this->invocationResults->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invocationResults) {
-            $res['InvocationResults'] = null !== $this->invocationResults ? $this->invocationResults->toMap() : null;
+            $res['InvocationResults'] = null !== $this->invocationResults ? $this->invocationResults->toArray($noStream) : $this->invocationResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -85,26 +71,30 @@ class invocation extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return invocation
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvocationResults'])) {
             $model->invocationResults = invocationResults::fromMap($map['InvocationResults']);
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

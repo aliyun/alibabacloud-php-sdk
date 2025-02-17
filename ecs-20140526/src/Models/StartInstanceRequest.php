@@ -4,66 +4,34 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-     *
-     *   true: performs only a dry run. The system checks the AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-     *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-     *
-     * Default value: false.
-     * @example true
-     *
      * @var bool
      */
     public $dryRun;
-
     /**
-     * @description Specifies whether to restore the ECS instance to the initial health state on startup if a local disk fails. This parameter is applicable to ECS instances that are equipped with local disks, such as d1, i1, and i2 instances. Valid values:
-     *
-     *   true: restores the ECS instance to the initial health state on startup.
-     *
-     **
-     *
-     **Warning**: After the ECS instance is restored to the initial health state, data stored on the local disks of the instance is lost.
-     *
-     *   false: does not restore the ECS instance to the initial health state on startup. The instance remains in the current state.
-     *
-     * Default value: false.
-     * @example true
-     *
      * @var bool
      */
     public $initLocalDisk;
-
     /**
-     * @description The ID of the instance that you want to start.
-     *
-     * This parameter is required.
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -80,29 +48,36 @@ class StartInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->initLocalDisk) {
             $res['InitLocalDisk'] = $this->initLocalDisk;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -110,32 +85,38 @@ class StartInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['InitLocalDisk'])) {
             $model->initLocalDisk = $map['InitLocalDisk'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

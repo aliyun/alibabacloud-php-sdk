@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipMonitorDataResponseBody\eipMonitorDatas;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eipMonitorData extends Model
 {
@@ -12,27 +12,22 @@ class eipMonitorData extends Model
      * @var int
      */
     public $eipBandwidth;
-
     /**
      * @var int
      */
     public $eipFlow;
-
     /**
      * @var int
      */
     public $eipPackets;
-
     /**
      * @var int
      */
     public $eipRX;
-
     /**
      * @var int
      */
     public $eipTX;
-
     /**
      * @var string
      */
@@ -48,26 +43,32 @@ class eipMonitorData extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eipBandwidth) {
             $res['EipBandwidth'] = $this->eipBandwidth;
         }
+
         if (null !== $this->eipFlow) {
             $res['EipFlow'] = $this->eipFlow;
         }
+
         if (null !== $this->eipPackets) {
             $res['EipPackets'] = $this->eipPackets;
         }
+
         if (null !== $this->eipRX) {
             $res['EipRX'] = $this->eipRX;
         }
+
         if (null !== $this->eipTX) {
             $res['EipTX'] = $this->eipTX;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -75,29 +76,34 @@ class eipMonitorData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eipMonitorData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EipBandwidth'])) {
             $model->eipBandwidth = $map['EipBandwidth'];
         }
+
         if (isset($map['EipFlow'])) {
             $model->eipFlow = $map['EipFlow'];
         }
+
         if (isset($map['EipPackets'])) {
             $model->eipPackets = $map['EipPackets'];
         }
+
         if (isset($map['EipRX'])) {
             $model->eipRX = $map['EipRX'];
         }
+
         if (isset($map['EipTX'])) {
             $model->eipTX = $map['EipTX'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

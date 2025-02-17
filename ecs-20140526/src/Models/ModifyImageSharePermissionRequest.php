@@ -4,85 +4,46 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyImageSharePermissionRequest extends Model
 {
     /**
-     * @description The ID of Alibaba Cloud account N to which you want to share the custom image. Valid values of N: 1 to 10. If you specify more than 10 Alibaba Cloud account IDs, the system processes only the first 10 account IDs. The excess account IDs are ignored.
-     *
-     * @example 1234567890
-     *
      * @var string[]
      */
     public $addAccount;
-
     /**
-     * @description The ID of the custom image.
-     *
-     * This parameter is required.
-     * @example m-bp18ygjuqnwhechc****
-     *
      * @var string
      */
     public $imageId;
-
     /**
-     * @description Specifies whether to publish or unpublish a community image. Valid values:
-     *
-     *   true: publishes the custom image as a community image.
-     *   false: unpublishes a community image. The unpublish operation takes effect only on community images.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $isPublic;
-
     /**
-     * @description > This parameter is in invitational preview and is not publicly available.
-     *
-     * @example hide
-     *
      * @var string
      */
     public $launchPermission;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The region ID of the custom image. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of Alibaba Cloud account N from which you want to unshare the custom image. Valid values of N: 1 to 10. If you specify more than 10 Alibaba Cloud account IDs, the system processes only the first 10 account IDs. The excess account IDs are ignored.
-     *
-     * @example 1234567890
-     *
      * @var string[]
      */
     public $removeAccount;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -102,38 +63,66 @@ class ModifyImageSharePermissionRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->addAccount)) {
+            Model::validateArray($this->addAccount);
+        }
+        if (\is_array($this->removeAccount)) {
+            Model::validateArray($this->removeAccount);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addAccount) {
-            $res['AddAccount'] = $this->addAccount;
+            if (\is_array($this->addAccount)) {
+                $res['AddAccount'] = [];
+                $n1                = 0;
+                foreach ($this->addAccount as $item1) {
+                    $res['AddAccount'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->isPublic) {
             $res['IsPublic'] = $this->isPublic;
         }
+
         if (null !== $this->launchPermission) {
             $res['LaunchPermission'] = $this->launchPermission;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->removeAccount) {
-            $res['RemoveAccount'] = $this->removeAccount;
+            if (\is_array($this->removeAccount)) {
+                $res['RemoveAccount'] = [];
+                $n1                   = 0;
+                foreach ($this->removeAccount as $item1) {
+                    $res['RemoveAccount'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -141,45 +130,62 @@ class ModifyImageSharePermissionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyImageSharePermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AddAccount'])) {
             if (!empty($map['AddAccount'])) {
-                $model->addAccount = $map['AddAccount'];
+                $model->addAccount = [];
+                $n1                = 0;
+                foreach ($map['AddAccount'] as $item1) {
+                    $model->addAccount[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['IsPublic'])) {
             $model->isPublic = $map['IsPublic'];
         }
+
         if (isset($map['LaunchPermission'])) {
             $model->launchPermission = $map['LaunchPermission'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RemoveAccount'])) {
             if (!empty($map['RemoveAccount'])) {
-                $model->removeAccount = $map['RemoveAccount'];
+                $model->removeAccount = [];
+                $n1                   = 0;
+                foreach ($map['RemoveAccount'] as $item1) {
+                    $model->removeAccount[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksFullStatusResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksFullStatusResponseBody\diskFullStatusSet\diskFullStatusType;
-use AlibabaCloud\Tea\Model;
 
 class diskFullStatusSet extends Model
 {
@@ -19,17 +19,21 @@ class diskFullStatusSet extends Model
 
     public function validate()
     {
+        if (\is_array($this->diskFullStatusType)) {
+            Model::validateArray($this->diskFullStatusType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskFullStatusType) {
-            $res['DiskFullStatusType'] = [];
-            if (null !== $this->diskFullStatusType && \is_array($this->diskFullStatusType)) {
-                $n = 0;
-                foreach ($this->diskFullStatusType as $item) {
-                    $res['DiskFullStatusType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->diskFullStatusType)) {
+                $res['DiskFullStatusType'] = [];
+                $n1                        = 0;
+                foreach ($this->diskFullStatusType as $item1) {
+                    $res['DiskFullStatusType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class diskFullStatusSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return diskFullStatusSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskFullStatusType'])) {
             if (!empty($map['DiskFullStatusType'])) {
                 $model->diskFullStatusType = [];
-                $n                         = 0;
-                foreach ($map['DiskFullStatusType'] as $item) {
-                    $model->diskFullStatusType[$n++] = null !== $item ? diskFullStatusType::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['DiskFullStatusType'] as $item1) {
+                    $model->diskFullStatusType[$n1++] = diskFullStatusType::fromMap($item1);
                 }
             }
         }

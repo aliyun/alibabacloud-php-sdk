@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportImageResponseBody extends Model
 {
     /**
-     * @description The image ID.
-     *
-     * @example m-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $imageId;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The image import task ID.
-     *
-     * @example t-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $taskId;
@@ -52,20 +33,24 @@ class ImportImageResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -73,23 +58,26 @@ class ImportImageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportImageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

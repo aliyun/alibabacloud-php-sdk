@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCapacityReservationInstancesResponseBody\capacityReservationItem;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCapacityReservationInstancesResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
      * @var capacityReservationItem
      */
     public $capacityReservationItem;
-
     /**
-     * @description Details about the instances that match the capacity reservation.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The request ID.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The maximum number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -61,23 +39,31 @@ class DescribeCapacityReservationInstancesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->capacityReservationItem) {
+            $this->capacityReservationItem->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->capacityReservationItem) {
-            $res['CapacityReservationItem'] = null !== $this->capacityReservationItem ? $this->capacityReservationItem->toMap() : null;
+            $res['CapacityReservationItem'] = null !== $this->capacityReservationItem ? $this->capacityReservationItem->toArray($noStream) : $this->capacityReservationItem;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -85,26 +71,30 @@ class DescribeCapacityReservationInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCapacityReservationInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CapacityReservationItem'])) {
             $model->capacityReservationItem = capacityReservationItem::fromMap($map['CapacityReservationItem']);
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

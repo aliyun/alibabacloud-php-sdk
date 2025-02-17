@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeZonesResponseBody\zones\zone\availableResources\resourcesInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class systemDiskCategories extends Model
 {
@@ -18,29 +18,43 @@ class systemDiskCategories extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedSystemDiskCategory)) {
+            Model::validateArray($this->supportedSystemDiskCategory);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedSystemDiskCategory) {
-            $res['supportedSystemDiskCategory'] = $this->supportedSystemDiskCategory;
+            if (\is_array($this->supportedSystemDiskCategory)) {
+                $res['supportedSystemDiskCategory'] = [];
+                $n1                                 = 0;
+                foreach ($this->supportedSystemDiskCategory as $item1) {
+                    $res['supportedSystemDiskCategory'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return systemDiskCategories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['supportedSystemDiskCategory'])) {
             if (!empty($map['supportedSystemDiskCategory'])) {
-                $model->supportedSystemDiskCategory = $map['supportedSystemDiskCategory'];
+                $model->supportedSystemDiskCategory = [];
+                $n1                                 = 0;
+                foreach ($map['supportedSystemDiskCategory'] as $item1) {
+                    $model->supportedSystemDiskCategory[$n1++] = $item1;
+                }
             }
         }
 

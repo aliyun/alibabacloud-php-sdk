@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeReservedInstanceAutoRenewAttributeResponseBody\reservedInstanceRenewAttributes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeReservedInstanceAutoRenewAttributeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE7****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Details about the auto-renewal settings of the reserved instances.
-     *
      * @var reservedInstanceRenewAttributes
      */
     public $reservedInstanceRenewAttributes;
@@ -31,32 +24,38 @@ class DescribeReservedInstanceAutoRenewAttributeResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->reservedInstanceRenewAttributes) {
+            $this->reservedInstanceRenewAttributes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->reservedInstanceRenewAttributes) {
-            $res['ReservedInstanceRenewAttributes'] = null !== $this->reservedInstanceRenewAttributes ? $this->reservedInstanceRenewAttributes->toMap() : null;
+            $res['ReservedInstanceRenewAttributes'] = null !== $this->reservedInstanceRenewAttributes ? $this->reservedInstanceRenewAttributes->toArray($noStream) : $this->reservedInstanceRenewAttributes;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeReservedInstanceAutoRenewAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ReservedInstanceRenewAttributes'])) {
             $model->reservedInstanceRenewAttributes = reservedInstanceRenewAttributes::fromMap($map['ReservedInstanceRenewAttributes']);
         }

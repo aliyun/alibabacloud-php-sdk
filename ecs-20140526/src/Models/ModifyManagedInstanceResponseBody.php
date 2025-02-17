@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyManagedInstanceResponseBody\instance;
-use AlibabaCloud\Tea\Model;
 
 class ModifyManagedInstanceResponseBody extends Model
 {
     /**
-     * @description The name of the managed instance.
-     *
      * @var instance
      */
     public $instance;
-
     /**
-     * @description Details of the managed instance.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ModifyManagedInstanceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->instance) {
+            $this->instance->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instance) {
-            $res['Instance'] = null !== $this->instance ? $this->instance->toMap() : null;
+            $res['Instance'] = null !== $this->instance ? $this->instance->toArray($noStream) : $this->instance;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ModifyManagedInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyManagedInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instance'])) {
             $model->instance = instance::fromMap($map['Instance']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

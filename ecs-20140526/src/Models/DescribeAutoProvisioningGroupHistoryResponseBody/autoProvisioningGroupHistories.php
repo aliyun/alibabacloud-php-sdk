@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupHistoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupHistoryResponseBody\autoProvisioningGroupHistories\autoProvisioningGroupHistory;
-use AlibabaCloud\Tea\Model;
 
 class autoProvisioningGroupHistories extends Model
 {
@@ -19,17 +19,21 @@ class autoProvisioningGroupHistories extends Model
 
     public function validate()
     {
+        if (\is_array($this->autoProvisioningGroupHistory)) {
+            Model::validateArray($this->autoProvisioningGroupHistory);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoProvisioningGroupHistory) {
-            $res['AutoProvisioningGroupHistory'] = [];
-            if (null !== $this->autoProvisioningGroupHistory && \is_array($this->autoProvisioningGroupHistory)) {
-                $n = 0;
-                foreach ($this->autoProvisioningGroupHistory as $item) {
-                    $res['AutoProvisioningGroupHistory'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->autoProvisioningGroupHistory)) {
+                $res['AutoProvisioningGroupHistory'] = [];
+                $n1                                  = 0;
+                foreach ($this->autoProvisioningGroupHistory as $item1) {
+                    $res['AutoProvisioningGroupHistory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class autoProvisioningGroupHistories extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoProvisioningGroupHistories
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoProvisioningGroupHistory'])) {
             if (!empty($map['AutoProvisioningGroupHistory'])) {
                 $model->autoProvisioningGroupHistory = [];
-                $n                                   = 0;
-                foreach ($map['AutoProvisioningGroupHistory'] as $item) {
-                    $model->autoProvisioningGroupHistory[$n++] = null !== $item ? autoProvisioningGroupHistory::fromMap($item) : $item;
+                $n1                                  = 0;
+                foreach ($map['AutoProvisioningGroupHistory'] as $item1) {
+                    $model->autoProvisioningGroupHistory[$n1++] = autoProvisioningGroupHistory::fromMap($item1);
                 }
             }
         }

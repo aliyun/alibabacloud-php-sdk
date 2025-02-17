@@ -4,60 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDiagnosticMetricSetRequest extends Model
 {
     /**
-     * @description The new description of the diagnostic metric set.
-     *
-     * @example connection diagnostics
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of diagnostic metric N.
-     *
      * @var string[]
      */
     public $metricIds;
-
     /**
-     * @description The ID of the diagnostic metric set.
-     *
-     * This parameter is required.
-     * @example dms-uf6i0tv2refv8wz*****
-     *
      * @var string
      */
     public $metricSetId;
-
     /**
-     * @description The new name of the diagnostic metric set.
-     *
-     * @example remoteConnectError
-     *
      * @var string
      */
     public $metricSetName;
-
     /**
-     * @description The region ID of the diagnostic metric set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The type of the resource.
-     *
-     * @example instance
-     *
      * @var string
      */
     public $resourceType;
@@ -72,26 +43,41 @@ class ModifyDiagnosticMetricSetRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->metricIds)) {
+            Model::validateArray($this->metricIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->metricIds) {
-            $res['MetricIds'] = $this->metricIds;
+            if (\is_array($this->metricIds)) {
+                $res['MetricIds'] = [];
+                $n1               = 0;
+                foreach ($this->metricIds as $item1) {
+                    $res['MetricIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->metricSetId) {
             $res['MetricSetId'] = $this->metricSetId;
         }
+
         if (null !== $this->metricSetName) {
             $res['MetricSetName'] = $this->metricSetName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -99,31 +85,40 @@ class ModifyDiagnosticMetricSetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDiagnosticMetricSetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['MetricIds'])) {
             if (!empty($map['MetricIds'])) {
-                $model->metricIds = $map['MetricIds'];
+                $model->metricIds = [];
+                $n1               = 0;
+                foreach ($map['MetricIds'] as $item1) {
+                    $model->metricIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MetricSetId'])) {
             $model->metricSetId = $map['MetricSetId'];
         }
+
         if (isset($map['MetricSetName'])) {
             $model->metricSetName = $map['MetricSetName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

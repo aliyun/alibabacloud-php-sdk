@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouterInterfacesResponseBody\routerInterfaceSet;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRouterInterfacesResponseBody extends Model
 {
@@ -13,22 +13,18 @@ class DescribeRouterInterfacesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
-
     /**
      * @var int
      */
     public $pageSize;
-
     /**
      * @var string
      */
     public $requestId;
-
     /**
      * @var routerInterfaceSet
      */
     public $routerInterfaceSet;
-
     /**
      * @var int
      */
@@ -43,23 +39,31 @@ class DescribeRouterInterfacesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->routerInterfaceSet) {
+            $this->routerInterfaceSet->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->routerInterfaceSet) {
-            $res['RouterInterfaceSet'] = null !== $this->routerInterfaceSet ? $this->routerInterfaceSet->toMap() : null;
+            $res['RouterInterfaceSet'] = null !== $this->routerInterfaceSet ? $this->routerInterfaceSet->toArray($noStream) : $this->routerInterfaceSet;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -67,26 +71,30 @@ class DescribeRouterInterfacesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRouterInterfacesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RouterInterfaceSet'])) {
             $model->routerInterfaceSet = routerInterfaceSet::fromMap($map['RouterInterfaceSet']);
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

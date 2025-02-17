@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInvocationAttributeResponseBody extends Model
 {
     /**
-     * @description The command ID.
-     *
-     *   A new command is added and the `CommandId` value of the new command is returned only when `CommandContent` is changed.
-     *   No new command is added and the `CommandId` value of the command that is running is returned if `CommandContent` is not changed.
-     *   If you set `KeepCommand` to `true` when you called the [InvokeCommand](https://help.aliyun.com/document_detail/64841.html) or [RunCommand](https://help.aliyun.com/document_detail/141751.html) operation, a new command is added and retained. Otherwise, commands related to the task are deleted after all executions of the task are complete or the task is manually stopped.
-     *
-     * @example c-hz01272yr52****
-     *
      * @var string
      */
     public $commandId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
@@ -36,14 +23,16 @@ class ModifyInvocationAttributeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commandId) {
             $res['CommandId'] = $this->commandId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -51,17 +40,18 @@ class ModifyInvocationAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInvocationAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommandId'])) {
             $model->commandId = $map['CommandId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

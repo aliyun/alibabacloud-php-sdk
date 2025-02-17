@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyCapacityReservationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 8455DD10-84F8-43C9-8365-5F448EB169B6
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyCapacityReservationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyCapacityReservationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCapacityReservationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

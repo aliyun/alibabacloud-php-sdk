@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusRequest\eventPublishTime;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusRequest\notBefore;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstancesFullStatusRequest extends Model
 {
@@ -14,131 +14,59 @@ class DescribeInstancesFullStatusRequest extends Model
      * @var eventPublishTime
      */
     public $eventPublishTime;
-
     /**
      * @var notBefore
      */
     public $notBefore;
-
     /**
-     * @description The IDs of the system events. You can specify up to 100 event IDs in a single request.
-     *
-     * @example e-bp1hygp5b04o56l0****
-     *
      * @var string[]
      */
     public $eventId;
-
     /**
-     * @description The type of the system event. This parameter is valid only when InstanceEventType.N is not specified. Valid values:
-     *
-     *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
-     *   SystemFailure.Reboot: The instance is restarted due to a system failure.
-     *   InstanceFailure.Reboot: The instance is restarted due to an instance failure.
-     *   InstanceExpiration.Stop: The subscription instance is stopped due to expiration.
-     *   InstanceExpiration.Delete: The subscription instance is released due to expiration.
-     *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
-     *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
-     *
-     * @example InstanceExpiration.Stop
-     *
      * @var string
      */
     public $eventType;
-
     /**
-     * @description The health status of the instance. Valid values:
-     *
-     *   OK
-     *   Impaired
-     *   Initializing
-     *   InsufficientData
-     *   NotApplicable
-     *
-     * All the values are case-sensitive.
-     * @example Maintaining
-     *
      * @var string
      */
     public $healthStatus;
-
     /**
-     * @description The types of system events. You can specify up to 30 event types in a single request.
-     *
-     * @example InstanceExpiration.Stop
-     *
      * @var string[]
      */
     public $instanceEventType;
-
     /**
-     * @description The IDs of the instances. You can specify up to 100 instance IDs in a single request.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string[]
      */
     public $instanceId;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The page number. The value must be a positive integer.
-     *
-     * Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Valid values: 1 to 100.
-     *
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The lifecycle status of the instance. Valid values:
-     *
-     *   Starting
-     *   Running
-     *   Stopped
-     *
-     * @example Running
-     *
      * @var string
      */
     public $status;
@@ -162,53 +90,101 @@ class DescribeInstancesFullStatusRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->eventPublishTime) {
+            $this->eventPublishTime->validate();
+        }
+        if (null !== $this->notBefore) {
+            $this->notBefore->validate();
+        }
+        if (\is_array($this->eventId)) {
+            Model::validateArray($this->eventId);
+        }
+        if (\is_array($this->instanceEventType)) {
+            Model::validateArray($this->instanceEventType);
+        }
+        if (\is_array($this->instanceId)) {
+            Model::validateArray($this->instanceId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventPublishTime) {
-            $res['EventPublishTime'] = null !== $this->eventPublishTime ? $this->eventPublishTime->toMap() : null;
+            $res['EventPublishTime'] = null !== $this->eventPublishTime ? $this->eventPublishTime->toArray($noStream) : $this->eventPublishTime;
         }
+
         if (null !== $this->notBefore) {
-            $res['NotBefore'] = null !== $this->notBefore ? $this->notBefore->toMap() : null;
+            $res['NotBefore'] = null !== $this->notBefore ? $this->notBefore->toArray($noStream) : $this->notBefore;
         }
+
         if (null !== $this->eventId) {
-            $res['EventId'] = $this->eventId;
+            if (\is_array($this->eventId)) {
+                $res['EventId'] = [];
+                $n1             = 0;
+                foreach ($this->eventId as $item1) {
+                    $res['EventId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
+
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = $this->healthStatus;
         }
+
         if (null !== $this->instanceEventType) {
-            $res['InstanceEventType'] = $this->instanceEventType;
+            if (\is_array($this->instanceEventType)) {
+                $res['InstanceEventType'] = [];
+                $n1                       = 0;
+                foreach ($this->instanceEventType as $item1) {
+                    $res['InstanceEventType'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+            if (\is_array($this->instanceId)) {
+                $res['InstanceId'] = [];
+                $n1                = 0;
+                foreach ($this->instanceId as $item1) {
+                    $res['InstanceId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -216,62 +192,88 @@ class DescribeInstancesFullStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstancesFullStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventPublishTime'])) {
             $model->eventPublishTime = eventPublishTime::fromMap($map['EventPublishTime']);
         }
+
         if (isset($map['NotBefore'])) {
             $model->notBefore = notBefore::fromMap($map['NotBefore']);
         }
+
         if (isset($map['EventId'])) {
             if (!empty($map['EventId'])) {
-                $model->eventId = $map['EventId'];
+                $model->eventId = [];
+                $n1             = 0;
+                foreach ($map['EventId'] as $item1) {
+                    $model->eventId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
+
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = $map['HealthStatus'];
         }
+
         if (isset($map['InstanceEventType'])) {
             if (!empty($map['InstanceEventType'])) {
-                $model->instanceEventType = $map['InstanceEventType'];
+                $model->instanceEventType = [];
+                $n1                       = 0;
+                foreach ($map['InstanceEventType'] as $item1) {
+                    $model->instanceEventType[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
+                $model->instanceId = [];
+                $n1                = 0;
+                foreach ($map['InstanceId'] as $item1) {
+                    $model->instanceId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

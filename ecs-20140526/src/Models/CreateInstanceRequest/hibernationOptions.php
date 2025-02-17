@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hibernationOptions extends Model
 {
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $configured;
@@ -22,9 +18,10 @@ class hibernationOptions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configured) {
@@ -34,11 +31,11 @@ class hibernationOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hibernationOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

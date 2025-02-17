@@ -4,30 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceStatusResponseBody\instanceStatuses;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceStatus extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example i-bp1j4i2jdf3owlhe****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The status of the instance. Valid values:
-     *
-     *   Pending: The instance is being created.
-     *   Running: The instance is running.
-     *   Starting: The instance is being started.
-     *   Stopping: The instance is being stopped.
-     *   Stopped: The instance is stopped.
-     *
-     * @example Running
-     *
      * @var string
      */
     public $status;
@@ -38,14 +23,16 @@ class instanceStatus extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -53,17 +40,18 @@ class instanceStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

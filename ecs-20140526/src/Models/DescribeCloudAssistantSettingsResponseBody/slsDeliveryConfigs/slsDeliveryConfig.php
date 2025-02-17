@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeCloudAssistantSettingsResponseBody\slsDeliveryConfigs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class slsDeliveryConfig extends Model
 {
     /**
-     * @description The type of items to be delivered. Valid values:
-     *
-     *   SessionManager: session records.
-     *   Invocation: task execution records.
-     *
-     * @example SessionManager
-     *
      * @var string
      */
     public $deliveryType;
-
     /**
-     * @description Indicates whether to deliver the specified items to Simple Log Service.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description The name of the Logstore.
-     *
-     * @example example-logstore
-     *
      * @var string
      */
     public $logstoreName;
-
     /**
-     * @description The name of the Simple Log Service project.
-     *
-     * @example example-project
-     *
      * @var string
      */
     public $projectName;
@@ -55,20 +33,24 @@ class slsDeliveryConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliveryType) {
             $res['DeliveryType'] = $this->deliveryType;
         }
+
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->logstoreName) {
             $res['LogstoreName'] = $this->logstoreName;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -76,23 +58,26 @@ class slsDeliveryConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slsDeliveryConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeliveryType'])) {
             $model->deliveryType = $map['DeliveryType'];
         }
+
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['LogstoreName'])) {
             $model->logstoreName = $map['LogstoreName'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }

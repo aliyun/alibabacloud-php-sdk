@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceAttributeResponseBody\vpcAttributes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class privateIpAddress extends Model
 {
@@ -18,29 +18,43 @@ class privateIpAddress extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipAddress)) {
+            Model::validateArray($this->ipAddress);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipAddress) {
-            $res['IpAddress'] = $this->ipAddress;
+            if (\is_array($this->ipAddress)) {
+                $res['IpAddress'] = [];
+                $n1               = 0;
+                foreach ($this->ipAddress as $item1) {
+                    $res['IpAddress'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privateIpAddress
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpAddress'])) {
             if (!empty($map['IpAddress'])) {
-                $model->ipAddress = $map['IpAddress'];
+                $model->ipAddress = [];
+                $n1               = 0;
+                foreach ($map['IpAddress'] as $item1) {
+                    $model->ipAddress[$n1++] = $item1;
+                }
             }
         }
 

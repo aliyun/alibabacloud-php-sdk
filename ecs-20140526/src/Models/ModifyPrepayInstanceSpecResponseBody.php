@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyPrepayInstanceSpecResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
-     *
-     * @example 1234567890
-     *
      * @var string
      */
     public $orderId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class ModifyPrepayInstanceSpecResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class ModifyPrepayInstanceSpecResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyPrepayInstanceSpecResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

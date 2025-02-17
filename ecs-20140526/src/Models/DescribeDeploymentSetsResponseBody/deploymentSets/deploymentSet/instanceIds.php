@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDeploymentSetsResponseBody\deploymentSets\deploymentSet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceIds extends Model
 {
@@ -18,29 +18,43 @@ class instanceIds extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceId)) {
+            Model::validateArray($this->instanceId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+            if (\is_array($this->instanceId)) {
+                $res['InstanceId'] = [];
+                $n1                = 0;
+                foreach ($this->instanceId as $item1) {
+                    $res['InstanceId'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
-                $model->instanceId = $map['InstanceId'];
+                $model->instanceId = [];
+                $n1                = 0;
+                foreach ($map['InstanceId'] as $item1) {
+                    $model->instanceId[$n1++] = $item1;
+                }
             }
         }
 

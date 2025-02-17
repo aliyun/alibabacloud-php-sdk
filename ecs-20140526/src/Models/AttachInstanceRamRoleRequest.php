@@ -4,59 +4,34 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachInstanceRamRoleRequest extends Model
 {
     /**
-     * @description The IDs of ECS instances. You can specify 1 to 100 ECS instances.
-     *
-     * This parameter is required.
-     * @example [“i-bp14ss25xca5ex1u****”, “i-bp154z5o1qjalfse****”, “i-bp10ws62o04ubhvi****”…]
-     *
      * @var string
      */
     public $instanceIds;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The additional policy. When you attach an instance RAM role to instances, you can specify an additional policy to further limit the permissions of the role. For more information, see [Policy overview](https://help.aliyun.com/document_detail/93732.html). The value of this parameter must be 1 to 1,024 characters in length.
-     *
-     * @example {"Statement": [{"Action": ["*"],"Effect": "Allow","Resource": ["*"]}],"Version":"1"}
-     *
      * @var string
      */
     public $policy;
-
     /**
-     * @description The name of the instance RAM role. You can call the [ListRoles](https://help.aliyun.com/document_detail/28713.html) operation provided by RAM to query the instance RAM roles that you created.
-     *
-     * This parameter is required.
-     * @example testRamRoleName
-     *
      * @var string
      */
     public $ramRoleName;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -73,29 +48,36 @@ class AttachInstanceRamRoleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
+
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -103,32 +85,38 @@ class AttachInstanceRamRoleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachInstanceRamRoleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
+
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

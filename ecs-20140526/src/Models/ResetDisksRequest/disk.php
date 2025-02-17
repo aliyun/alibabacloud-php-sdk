@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDisksRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class disk extends Model
 {
     /**
-     * @description The ID of the disk that you want to roll back. You can specify up to 10 disk IDs.
-     *
-     * @example d-j6cf7l0ewidb78lq****
-     *
      * @var string
      */
     public $diskId;
-
     /**
-     * @description The ID of the disk snapshot that is contained in the instance snapshot. You can specify up to 10 disk snapshot IDs.
-     *
-     * @example s-j6cdofbycydvg7ey****
-     *
      * @var string
      */
     public $snapshotId;
@@ -32,14 +23,16 @@ class disk extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
+
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
@@ -47,17 +40,18 @@ class disk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return disk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
+
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }

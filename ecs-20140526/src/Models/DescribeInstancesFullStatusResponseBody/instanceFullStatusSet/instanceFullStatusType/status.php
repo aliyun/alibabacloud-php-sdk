@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesFullStatusResponseBody\instanceFullStatusSet\instanceFullStatusType;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class status extends Model
 {
     /**
-     * @description The code of the instance lifecycle state.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $code;
-
     /**
-     * @description The name of the instance lifecycle state.
-     *
-     * @example Running
-     *
      * @var string
      */
     public $name;
@@ -32,14 +23,16 @@ class status extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,17 +40,18 @@ class status extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return status
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

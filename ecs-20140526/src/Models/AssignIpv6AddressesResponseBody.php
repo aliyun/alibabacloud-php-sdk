@@ -4,40 +4,25 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\AssignIpv6AddressesResponseBody\ipv6PrefixSets;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\AssignIpv6AddressesResponseBody\ipv6Sets;
-use AlibabaCloud\Tea\Model;
 
 class AssignIpv6AddressesResponseBody extends Model
 {
     /**
-     * @description The IPv6 prefixes of the ENI.
-     *
      * @var ipv6PrefixSets
      */
     public $ipv6PrefixSets;
-
     /**
-     * @description The IPv6 addresses assigned to the ENI.
-     *
      * @var ipv6Sets
      */
     public $ipv6Sets;
-
     /**
-     * @description The ENI ID.
-     *
-     * @example eni-bp1iqejowblx6h8j****
-     *
      * @var string
      */
     public $networkInterfaceId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -50,20 +35,30 @@ class AssignIpv6AddressesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->ipv6PrefixSets) {
+            $this->ipv6PrefixSets->validate();
+        }
+        if (null !== $this->ipv6Sets) {
+            $this->ipv6Sets->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv6PrefixSets) {
-            $res['Ipv6PrefixSets'] = null !== $this->ipv6PrefixSets ? $this->ipv6PrefixSets->toMap() : null;
+            $res['Ipv6PrefixSets'] = null !== $this->ipv6PrefixSets ? $this->ipv6PrefixSets->toArray($noStream) : $this->ipv6PrefixSets;
         }
+
         if (null !== $this->ipv6Sets) {
-            $res['Ipv6Sets'] = null !== $this->ipv6Sets ? $this->ipv6Sets->toMap() : null;
+            $res['Ipv6Sets'] = null !== $this->ipv6Sets ? $this->ipv6Sets->toArray($noStream) : $this->ipv6Sets;
         }
+
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -71,23 +66,26 @@ class AssignIpv6AddressesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssignIpv6AddressesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6PrefixSets'])) {
             $model->ipv6PrefixSets = ipv6PrefixSets::fromMap($map['Ipv6PrefixSets']);
         }
+
         if (isset($map['Ipv6Sets'])) {
             $model->ipv6Sets = ipv6Sets::fromMap($map['Ipv6Sets']);
         }
+
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

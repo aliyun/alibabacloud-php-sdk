@@ -4,32 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRenewalPriceResponseBody\priceInfo\price;
 
-use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRenewalPriceResponseBody\priceInfo\price\detailInfos\resourcePriceModel;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRenewalPriceResponseBody\priceInfo\price\detailInfos\detailInfo;
 
 class detailInfos extends Model
 {
     /**
-     * @var resourcePriceModel[]
+     * @var detailInfo[]
      */
-    public $resourcePriceModel;
+    public $detailInfo;
     protected $_name = [
-        'resourcePriceModel' => 'ResourcePriceModel',
+        'detailInfo' => 'DetailInfo',
     ];
 
     public function validate()
     {
+        if (\is_array($this->detailInfo)) {
+            Model::validateArray($this->detailInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->resourcePriceModel) {
-            $res['ResourcePriceModel'] = [];
-            if (null !== $this->resourcePriceModel && \is_array($this->resourcePriceModel)) {
-                $n = 0;
-                foreach ($this->resourcePriceModel as $item) {
-                    $res['ResourcePriceModel'][$n++] = null !== $item ? $item->toMap() : $item;
+        if (null !== $this->detailInfo) {
+            if (\is_array($this->detailInfo)) {
+                $res['DetailInfo'] = [];
+                $n1                = 0;
+                foreach ($this->detailInfo as $item1) {
+                    $res['DetailInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class detailInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detailInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourcePriceModel'])) {
-            if (!empty($map['ResourcePriceModel'])) {
-                $model->resourcePriceModel = [];
-                $n                         = 0;
-                foreach ($map['ResourcePriceModel'] as $item) {
-                    $model->resourcePriceModel[$n++] = null !== $item ? resourcePriceModel::fromMap($item) : $item;
+        if (isset($map['DetailInfo'])) {
+            if (!empty($map['DetailInfo'])) {
+                $model->detailInfo = [];
+                $n1                = 0;
+                foreach ($map['DetailInfo'] as $item1) {
+                    $model->detailInfo[$n1++] = detailInfo::fromMap($item1);
                 }
             }
         }

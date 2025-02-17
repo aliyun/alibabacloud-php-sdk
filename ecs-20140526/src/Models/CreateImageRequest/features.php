@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class features extends Model
 {
     /**
-     * @example v2
-     *
      * @var string
      */
     public $imdsSupport;
@@ -20,9 +18,10 @@ class features extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imdsSupport) {
@@ -32,11 +31,11 @@ class features extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return features
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

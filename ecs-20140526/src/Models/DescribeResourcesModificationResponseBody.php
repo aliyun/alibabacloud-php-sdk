@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeResourcesModificationResponseBody\availableZones;
-use AlibabaCloud\Tea\Model;
 
 class DescribeResourcesModificationResponseBody extends Model
 {
     /**
-     * @description The information about the queried zones.
-     *
      * @var availableZones
      */
     public $availableZones;
-
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeResourcesModificationResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->availableZones) {
+            $this->availableZones->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableZones) {
-            $res['AvailableZones'] = null !== $this->availableZones ? $this->availableZones->toMap() : null;
+            $res['AvailableZones'] = null !== $this->availableZones ? $this->availableZones->toArray($noStream) : $this->availableZones;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeResourcesModificationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeResourcesModificationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableZones'])) {
             $model->availableZones = availableZones::fromMap($map['AvailableZones']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

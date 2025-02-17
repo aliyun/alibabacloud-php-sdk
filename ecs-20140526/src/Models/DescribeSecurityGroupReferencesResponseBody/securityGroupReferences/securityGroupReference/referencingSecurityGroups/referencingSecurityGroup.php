@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSecurityGroupReferencesResponseBody\securityGroupReferences\securityGroupReference\referencingSecurityGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class referencingSecurityGroup extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account to which the security group whose rules reference the specified security group belongs.
-     *
-     * @example 123456****
-     *
      * @var string
      */
     public $aliUid;
-
     /**
-     * @description The ID of the security group whose rules reference the specified security group.
-     *
-     * @example sg-bp67acfmxazb4j****
-     *
      * @var string
      */
     public $securityGroupId;
@@ -32,14 +23,16 @@ class referencingSecurityGroup extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
@@ -47,17 +40,18 @@ class referencingSecurityGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return referencingSecurityGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }

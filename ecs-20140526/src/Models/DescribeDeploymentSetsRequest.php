@@ -4,113 +4,59 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDeploymentSetsRequest extends Model
 {
     /**
-     * @description The IDs of deployment sets. The value can be a JSON array that consists of deployment set IDs in the format of `["ds-xxxxxxxxx", "ds-yyyyyyyyy", ... "ds-zzzzzzzzz"]`. You can specify up to 100 deployment set IDs in each request. Separate the deployment set IDs with commas (,).
-     *
-     * @example ["ds-bp67acfmxazb4ph****", "ds-bp67acfmxazb4pi****", … "ds-bp67acfmxazb4pj****"]
-     *
      * @var string
      */
     public $deploymentSetIds;
-
     /**
-     * @description The name of the deployment set. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
-     *
-     * @example testDeploymentSetName
-     *
      * @var string
      */
     public $deploymentSetName;
-
     /**
-     * @description >  This parameter is deprecated.
-     *
-     * @example null
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @description >  This parameter is deprecated.
-     *
-     * @example null
-     *
      * @var string
      */
     public $granularity;
-
     /**
-     * @description >  This parameter is deprecated.
-     *
-     * @example null
-     *
      * @var string
      */
     public $networkType;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The page number.
-     *
-     * Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The region ID of the deployment set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The deployment strategy. Valid values:
-     *
-     *   Availability: high availability strategy
-     *   AvailabilityGroup: high availability group strategy
-     *
-     * @example Availability
-     *
      * @var string
      */
     public $strategy;
@@ -132,47 +78,60 @@ class DescribeDeploymentSetsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deploymentSetIds) {
             $res['DeploymentSetIds'] = $this->deploymentSetIds;
         }
+
         if (null !== $this->deploymentSetName) {
             $res['DeploymentSetName'] = $this->deploymentSetName;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->granularity) {
             $res['Granularity'] = $this->granularity;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
         }
@@ -180,50 +139,62 @@ class DescribeDeploymentSetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDeploymentSetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeploymentSetIds'])) {
             $model->deploymentSetIds = $map['DeploymentSetIds'];
         }
+
         if (isset($map['DeploymentSetName'])) {
             $model->deploymentSetName = $map['DeploymentSetName'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Granularity'])) {
             $model->granularity = $map['Granularity'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
         }

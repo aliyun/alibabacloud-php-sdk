@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceTopologyResponseBody\topologys;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class topology extends Model
 {
     /**
-     * @description The ID of the host where the ECS instance resides. This parameter is encrypted and cannot match the ID of the ECS instance. However, if the values of this parameter for different ECS instances are the same, the ECS instances reside on the same host.
-     *
-     * @example ZWNobyBo****
-     *
      * @var string
      */
     public $hostId;
-
     /**
-     * @description The instance ID.
-     *
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $instanceId;
@@ -32,14 +23,16 @@ class topology extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostId) {
             $res['HostId'] = $this->hostId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,17 +40,18 @@ class topology extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topology
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HostId'])) {
             $model->hostId = $map['HostId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

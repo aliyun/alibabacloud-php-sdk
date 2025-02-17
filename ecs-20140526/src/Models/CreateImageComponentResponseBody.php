@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateImageComponentResponseBody extends Model
 {
     /**
-     * @description The ID of the image component.
-     *
-     * @example ic-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $imageComponentId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateImageComponentResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageComponentId) {
             $res['ImageComponentId'] = $this->imageComponentId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateImageComponentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateImageComponentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageComponentId'])) {
             $model->imageComponentId = $map['ImageComponentId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

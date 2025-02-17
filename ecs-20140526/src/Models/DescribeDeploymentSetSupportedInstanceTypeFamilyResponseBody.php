@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends Model
 {
     /**
-     * @description The instance families that support the deployment strategy.
-     *
-     * @example ecs.i2g,ecs.i1,ecs.i2ne,ecs.i2gne
-     *
      * @var string
      */
     public $instanceTypeFamilies;
-
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B7DB-A3DC7DE1****
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceTypeFamilies) {
             $res['InstanceTypeFamilies'] = $this->instanceTypeFamilies;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceTypeFamilies'])) {
             $model->instanceTypeFamilies = $map['InstanceTypeFamilies'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

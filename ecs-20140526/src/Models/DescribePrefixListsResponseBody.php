@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePrefixListsResponseBody\prefixLists;
-use AlibabaCloud\Tea\Model;
 
 class DescribePrefixListsResponseBody extends Model
 {
     /**
-     * @description The query token returned in this call. If the return value is empty, no more data is returned.
-     *
-     * @example AAAAAdDWBF2****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description Details about the prefix lists.
-     *
      * @var prefixLists
      */
     public $prefixLists;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 38793DB8-A4B2-4AEC-BFD3-111234E9188D
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +29,23 @@ class DescribePrefixListsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->prefixLists) {
+            $this->prefixLists->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->prefixLists) {
-            $res['PrefixLists'] = null !== $this->prefixLists ? $this->prefixLists->toMap() : null;
+            $res['PrefixLists'] = null !== $this->prefixLists ? $this->prefixLists->toArray($noStream) : $this->prefixLists;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +53,22 @@ class DescribePrefixListsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePrefixListsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PrefixLists'])) {
             $model->prefixLists = prefixLists::fromMap($map['PrefixLists']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

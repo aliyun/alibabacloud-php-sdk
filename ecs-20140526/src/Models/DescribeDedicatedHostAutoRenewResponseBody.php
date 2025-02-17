@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostAutoRenewResponseBody\dedicatedHostRenewAttributes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDedicatedHostAutoRenewResponseBody extends Model
 {
     /**
-     * @description The array that consists of dedicated host auto-renewal attributes.
-     *
      * @var dedicatedHostRenewAttributes
      */
     public $dedicatedHostRenewAttributes;
-
     /**
-     * @description The request ID.
-     *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeDedicatedHostAutoRenewResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->dedicatedHostRenewAttributes) {
+            $this->dedicatedHostRenewAttributes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostRenewAttributes) {
-            $res['DedicatedHostRenewAttributes'] = null !== $this->dedicatedHostRenewAttributes ? $this->dedicatedHostRenewAttributes->toMap() : null;
+            $res['DedicatedHostRenewAttributes'] = null !== $this->dedicatedHostRenewAttributes ? $this->dedicatedHostRenewAttributes->toArray($noStream) : $this->dedicatedHostRenewAttributes;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeDedicatedHostAutoRenewResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDedicatedHostAutoRenewResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostRenewAttributes'])) {
             $model->dedicatedHostRenewAttributes = dedicatedHostRenewAttributes::fromMap($map['DedicatedHostRenewAttributes']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

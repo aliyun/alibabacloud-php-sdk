@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyNetworkInterfaceAttributeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class connectionTrackingConfiguration extends Model
 {
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $tcpClosedAndTimeWaitTimeout;
-
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
-     *
-     * @example 910
-     *
      * @var int
      */
     public $tcpEstablishedTimeout;
-
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $udpTimeout;
@@ -42,17 +28,20 @@ class connectionTrackingConfiguration extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tcpClosedAndTimeWaitTimeout) {
             $res['TcpClosedAndTimeWaitTimeout'] = $this->tcpClosedAndTimeWaitTimeout;
         }
+
         if (null !== $this->tcpEstablishedTimeout) {
             $res['TcpEstablishedTimeout'] = $this->tcpEstablishedTimeout;
         }
+
         if (null !== $this->udpTimeout) {
             $res['UdpTimeout'] = $this->udpTimeout;
         }
@@ -60,20 +49,22 @@ class connectionTrackingConfiguration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return connectionTrackingConfiguration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TcpClosedAndTimeWaitTimeout'])) {
             $model->tcpClosedAndTimeWaitTimeout = $map['TcpClosedAndTimeWaitTimeout'];
         }
+
         if (isset($map['TcpEstablishedTimeout'])) {
             $model->tcpEstablishedTimeout = $map['TcpEstablishedTimeout'];
         }
+
         if (isset($map['UdpTimeout'])) {
             $model->udpTimeout = $map['UdpTimeout'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\AllocateDedicatedHostsResponseBody\dedicatedHostIdSets;
-use AlibabaCloud\Tea\Model;
 
 class AllocateDedicatedHostsResponseBody extends Model
 {
     /**
-     * @description The IDs of the dedicated hosts.
-     *
      * @var dedicatedHostIdSets
      */
     public $dedicatedHostIdSets;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example E2A664A6-2933-4C64-88AE-5033D003****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class AllocateDedicatedHostsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->dedicatedHostIdSets) {
+            $this->dedicatedHostIdSets->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostIdSets) {
-            $res['DedicatedHostIdSets'] = null !== $this->dedicatedHostIdSets ? $this->dedicatedHostIdSets->toMap() : null;
+            $res['DedicatedHostIdSets'] = null !== $this->dedicatedHostIdSets ? $this->dedicatedHostIdSets->toArray($noStream) : $this->dedicatedHostIdSets;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class AllocateDedicatedHostsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AllocateDedicatedHostsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostIdSets'])) {
             $model->dedicatedHostIdSets = dedicatedHostIdSets::fromMap($map['DedicatedHostIdSets']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

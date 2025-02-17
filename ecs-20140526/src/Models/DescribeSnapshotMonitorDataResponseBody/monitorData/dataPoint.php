@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotMonitorDataResponseBody\monitorData;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataPoint extends Model
 {
     /**
-     * @description The total size of snapshots. Unit: bytes.
-     *
-     * @example 243036848128
-     *
      * @var int
      */
     public $size;
-
     /**
-     * @description The timestamp that corresponds to a snapshot size.
-     *
-     * @example 2019-05-10T04:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
@@ -32,14 +23,16 @@ class dataPoint extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
@@ -47,17 +40,18 @@ class dataPoint extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataPoint
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }

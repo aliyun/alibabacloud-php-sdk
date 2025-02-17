@@ -4,33 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotGroupsResponseBody\snapshotGroups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSnapshotGroupsResponseBody extends Model
 {
     /**
-     * @description The token used to start the next query.
-     *
-     * > If the return value is empty, no more data exists.
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 3F9A4CC4-362F-469A-B9EF-B3204EF8AA3A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the snapshot-consistent groups.
-     *
      * @var snapshotGroups
      */
     public $snapshotGroups;
@@ -42,38 +29,46 @@ class DescribeSnapshotGroupsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->snapshotGroups) {
+            $this->snapshotGroups->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->snapshotGroups) {
-            $res['SnapshotGroups'] = null !== $this->snapshotGroups ? $this->snapshotGroups->toMap() : null;
+            $res['SnapshotGroups'] = null !== $this->snapshotGroups ? $this->snapshotGroups->toArray($noStream) : $this->snapshotGroups;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSnapshotGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SnapshotGroups'])) {
             $model->snapshotGroups = snapshotGroups::fromMap($map['SnapshotGroups']);
         }

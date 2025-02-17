@@ -4,52 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDiagnosticMetricSetRequest extends Model
 {
     /**
-     * @description testDescription
-     *
-     * @example The ID of the request.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of diagnostic metric.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $metricIds;
-
     /**
-     * @description my_dms
-     *
-     * @example The IDs of diagnostic metrics. You can specify up to 100 diagnostic metric IDs.
-     *
      * @var string
      */
     public $metricSetName;
-
     /**
-     * @description The type of the resource.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The name of the diagnostic metric set.
-     *
-     * This parameter is required.
-     * @example instance
-     *
      * @var string
      */
     public $resourceType;
@@ -63,23 +38,37 @@ class CreateDiagnosticMetricSetRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->metricIds)) {
+            Model::validateArray($this->metricIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->metricIds) {
-            $res['MetricIds'] = $this->metricIds;
+            if (\is_array($this->metricIds)) {
+                $res['MetricIds'] = [];
+                $n1               = 0;
+                foreach ($this->metricIds as $item1) {
+                    $res['MetricIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->metricSetName) {
             $res['MetricSetName'] = $this->metricSetName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -87,28 +76,36 @@ class CreateDiagnosticMetricSetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDiagnosticMetricSetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['MetricIds'])) {
             if (!empty($map['MetricIds'])) {
-                $model->metricIds = $map['MetricIds'];
+                $model->metricIds = [];
+                $n1               = 0;
+                foreach ($map['MetricIds'] as $item1) {
+                    $model->metricIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MetricSetName'])) {
             $model->metricSetName = $map['MetricSetName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

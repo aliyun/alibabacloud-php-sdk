@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceModificationPriceResponseBody\priceInfo\price\detailInfos\detailInfo\subRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rule extends Model
 {
@@ -12,7 +12,6 @@ class rule extends Model
      * @var string
      */
     public $description;
-
     /**
      * @var int
      */
@@ -24,14 +23,16 @@ class rule extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -39,17 +40,18 @@ class rule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDiagnosticMetricsResponseBody\metrics;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDiagnosticMetricsResponseBody extends Model
 {
     /**
-     * @description The ID of the diagnostic metric.
-     *
      * @var metrics[]
      */
     public $metrics;
-
     /**
-     * @description The list of diagnostic metrics.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The query token returned in this call.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class DescribeDiagnosticMetricsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->metrics)) {
+            Model::validateArray($this->metrics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metrics) {
-            $res['Metrics'] = [];
-            if (null !== $this->metrics && \is_array($this->metrics)) {
-                $n = 0;
-                foreach ($this->metrics as $item) {
-                    $res['Metrics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->metrics)) {
+                $res['Metrics'] = [];
+                $n1             = 0;
+                foreach ($this->metrics as $item1) {
+                    $res['Metrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class DescribeDiagnosticMetricsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiagnosticMetricsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metrics'])) {
             if (!empty($map['Metrics'])) {
                 $model->metrics = [];
-                $n              = 0;
-                foreach ($map['Metrics'] as $item) {
-                    $model->metrics[$n++] = null !== $item ? metrics::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Metrics'] as $item1) {
+                    $model->metrics[$n1++] = metrics::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

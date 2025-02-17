@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeAutoProvisioningGroupsResponseBody\autoProvisioningGroups\autoProvisioningGroup;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class payAsYouGoOptions extends Model
 {
     /**
-     * @description The policy for creating pay-as-you-go instances. Valid values:
-     *
-     *   lowest-price: cost optimization policy. This policy indicates that lowest-cost instance types are used to create instances.
-     *   prioritized: priority-based policy. This policy indicates that instances are created based on the priority specified by the LaunchTemplateConfig.N.Priority parameter.
-     *
-     * >  The LaunchTemplateConfig.N.Priority parameter is set when the auto provisioning group is created, and cannot be modified.
-     * @example prioritized
-     *
      * @var string
      */
     public $allocationStrategy;
@@ -26,9 +18,10 @@ class payAsYouGoOptions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allocationStrategy) {
@@ -38,11 +31,11 @@ class payAsYouGoOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return payAsYouGoOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

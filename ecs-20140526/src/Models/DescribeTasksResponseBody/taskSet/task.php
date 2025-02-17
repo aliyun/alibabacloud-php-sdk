@@ -4,69 +4,35 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeTasksResponseBody\taskSet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class task extends Model
 {
     /**
-     * @description The time when the task was created.
-     *
-     * @example 2020-11-24T12:50Z
-     *
      * @var string
      */
     public $creationTime;
-
     /**
-     * @description The time when the task ended.
-     *
-     * @example 2020-11-24T12:50Z
-     *
      * @var string
      */
     public $finishedTime;
-
     /**
-     * @description The resource ID.
-     *
-     * @example m-bp1i8huqm5u7****
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description Indicates whether the task can be canceled.
-     *
-     * @example true
-     *
      * @var string
      */
     public $supportCancel;
-
     /**
-     * @description The name of the operation that generates the task.
-     *
-     * @example ImportImage
-     *
      * @var string
      */
     public $taskAction;
-
     /**
-     * @description The task ID.
-     *
-     * @example t-bp1hvgwromzv32iq****
-     *
      * @var string
      */
     public $taskId;
-
     /**
-     * @description The task status.
-     *
-     * @example Finished
-     *
      * @var string
      */
     public $taskStatus;
@@ -82,29 +48,36 @@ class task extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->finishedTime) {
             $res['FinishedTime'] = $this->finishedTime;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->supportCancel) {
             $res['SupportCancel'] = $this->supportCancel;
         }
+
         if (null !== $this->taskAction) {
             $res['TaskAction'] = $this->taskAction;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
@@ -112,32 +85,38 @@ class task extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return task
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['FinishedTime'])) {
             $model->finishedTime = $map['FinishedTime'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['SupportCancel'])) {
             $model->supportCancel = $map['SupportCancel'];
         }
+
         if (isset($map['TaskAction'])) {
             $model->taskAction = $map['TaskAction'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }

@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostsResponseBody\dedicatedHosts\dedicatedHost\operationLocks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class operationLock extends Model
 {
     /**
-     * @description The reason why the dedicated host was locked. Valid values:
-     *
-     *   financial: The dedicated host was locked due to overdue payments.
-     *   security: The dedicated host was locked due to security reasons.
-     *
-     * @example financial
-     *
      * @var string
      */
     public $lockReason;
@@ -25,9 +18,10 @@ class operationLock extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lockReason) {
@@ -37,11 +31,11 @@ class operationLock extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operationLock
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

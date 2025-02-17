@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateActivationResponseBody extends Model
 {
     /**
-     * @description The value of the activation code. The value is returned only once after the CreateActivation operation is called and cannot be queried afterward. Properly save the return value.
-     *
-     * @example a-hz0ch3SwhOlE1234+Xo32lAZC****
-     *
      * @var string
      */
     public $activationCode;
-
     /**
-     * @description The ID of the activation code.
-     *
-     * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
-     *
      * @var string
      */
     public $activationId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class CreateActivationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activationCode) {
             $res['ActivationCode'] = $this->activationCode;
         }
+
         if (null !== $this->activationId) {
             $res['ActivationId'] = $this->activationId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class CreateActivationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateActivationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActivationCode'])) {
             $model->activationCode = $map['ActivationCode'];
         }
+
         if (isset($map['ActivationId'])) {
             $model->activationId = $map['ActivationId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

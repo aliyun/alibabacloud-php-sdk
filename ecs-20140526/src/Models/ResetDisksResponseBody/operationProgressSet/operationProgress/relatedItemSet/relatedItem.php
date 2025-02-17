@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\ResetDisksResponseBody\operationProgressSet\operationProgress\relatedItemSet;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relatedItem extends Model
 {
     /**
-     * @description The resource name.
-     *
-     * @example SnapshotId
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The resource ID.
-     *
-     * @example s-j6cdofbycydvg7ey****
-     *
      * @var string
      */
     public $value;
@@ -32,14 +23,16 @@ class relatedItem extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +40,18 @@ class relatedItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relatedItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

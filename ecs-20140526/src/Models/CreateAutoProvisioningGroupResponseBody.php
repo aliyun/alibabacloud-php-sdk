@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateAutoProvisioningGroupResponseBody\launchResults;
-use AlibabaCloud\Tea\Model;
 
 class CreateAutoProvisioningGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the auto provisioning group.
-     *
-     * @example apg-sn54avj8htgvtyh8****
-     *
      * @var string
      */
     public $autoProvisioningGroupId;
-
     /**
-     * @description The instances created by the auto provisioning group. The values of the parameters in this array are returned only when AutoProvisioningGroupType is set to `instant`.
-     *
      * @var launchResults
      */
     public $launchResults;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 745CEC9F-0DD7-4451-9FE7-8B752F39****
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +29,23 @@ class CreateAutoProvisioningGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->launchResults) {
+            $this->launchResults->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoProvisioningGroupId) {
             $res['AutoProvisioningGroupId'] = $this->autoProvisioningGroupId;
         }
+
         if (null !== $this->launchResults) {
-            $res['LaunchResults'] = null !== $this->launchResults ? $this->launchResults->toMap() : null;
+            $res['LaunchResults'] = null !== $this->launchResults ? $this->launchResults->toArray($noStream) : $this->launchResults;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +53,22 @@ class CreateAutoProvisioningGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAutoProvisioningGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoProvisioningGroupId'])) {
             $model->autoProvisioningGroupId = $map['AutoProvisioningGroupId'];
         }
+
         if (isset($map['LaunchResults'])) {
             $model->launchResults = launchResults::fromMap($map['LaunchResults']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

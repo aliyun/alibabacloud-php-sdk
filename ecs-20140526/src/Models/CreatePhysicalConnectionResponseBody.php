@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePhysicalConnectionResponseBody extends Model
 {
@@ -12,7 +12,6 @@ class CreatePhysicalConnectionResponseBody extends Model
      * @var string
      */
     public $physicalConnectionId;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class CreatePhysicalConnectionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->physicalConnectionId) {
             $res['PhysicalConnectionId'] = $this->physicalConnectionId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,17 +40,18 @@ class CreatePhysicalConnectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePhysicalConnectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PhysicalConnectionId'])) {
             $model->physicalConnectionId = $map['PhysicalConnectionId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

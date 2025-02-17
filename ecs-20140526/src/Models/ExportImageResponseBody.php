@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportImageResponseBody extends Model
 {
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The request ID.
-     *
-     * @example C8B26B44-0189-443E-9816-D951F596****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the task that is used to export the custom image.
-     *
-     * @example tsk-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $taskId;
@@ -42,17 +28,20 @@ class ExportImageResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -60,20 +49,22 @@ class ExportImageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportImageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

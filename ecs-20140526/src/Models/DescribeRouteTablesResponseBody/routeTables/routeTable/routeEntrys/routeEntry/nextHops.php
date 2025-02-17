@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouteTablesResponseBody\routeTables\routeTable\routeEntrys\routeEntry;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeRouteTablesResponseBody\routeTables\routeTable\routeEntrys\routeEntry\nextHops\nextHop;
-use AlibabaCloud\Tea\Model;
 
 class nextHops extends Model
 {
@@ -19,17 +19,21 @@ class nextHops extends Model
 
     public function validate()
     {
+        if (\is_array($this->nextHop)) {
+            Model::validateArray($this->nextHop);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextHop) {
-            $res['NextHop'] = [];
-            if (null !== $this->nextHop && \is_array($this->nextHop)) {
-                $n = 0;
-                foreach ($this->nextHop as $item) {
-                    $res['NextHop'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nextHop)) {
+                $res['NextHop'] = [];
+                $n1             = 0;
+                foreach ($this->nextHop as $item1) {
+                    $res['NextHop'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class nextHops extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nextHops
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextHop'])) {
             if (!empty($map['NextHop'])) {
                 $model->nextHop = [];
-                $n              = 0;
-                foreach ($map['NextHop'] as $item) {
-                    $model->nextHop[$n++] = null !== $item ? nextHop::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['NextHop'] as $item1) {
+                    $model->nextHop[$n1++] = nextHop::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksFullStatusResponseBody\diskFullStatusSet\diskFullStatusType;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDisksFullStatusResponseBody\diskFullStatusSet\diskFullStatusType\diskEventSet\diskEventType;
-use AlibabaCloud\Tea\Model;
 
 class diskEventSet extends Model
 {
@@ -19,17 +19,21 @@ class diskEventSet extends Model
 
     public function validate()
     {
+        if (\is_array($this->diskEventType)) {
+            Model::validateArray($this->diskEventType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskEventType) {
-            $res['DiskEventType'] = [];
-            if (null !== $this->diskEventType && \is_array($this->diskEventType)) {
-                $n = 0;
-                foreach ($this->diskEventType as $item) {
-                    $res['DiskEventType'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->diskEventType)) {
+                $res['DiskEventType'] = [];
+                $n1                   = 0;
+                foreach ($this->diskEventType as $item1) {
+                    $res['DiskEventType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class diskEventSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return diskEventSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskEventType'])) {
             if (!empty($map['DiskEventType'])) {
                 $model->diskEventType = [];
-                $n                    = 0;
-                foreach ($map['DiskEventType'] as $item) {
-                    $model->diskEventType[$n++] = null !== $item ? diskEventType::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['DiskEventType'] as $item1) {
+                    $model->diskEventType[$n1++] = diskEventType::fromMap($item1);
                 }
             }
         }

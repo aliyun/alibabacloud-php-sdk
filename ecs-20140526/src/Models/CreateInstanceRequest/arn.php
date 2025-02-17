@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\CreateInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class arn extends Model
 {
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
-     *
-     * @example 1234567890
-     *
      * @var int
      */
     public $assumeRoleFor;
-
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
-     *
-     * @example Primary
-     *
      * @var string
      */
     public $roleType;
-
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
-     *
-     * @example acs:ram::123456789012****:role/adminrole
-     *
      * @var string
      */
     public $rolearn;
@@ -42,17 +28,20 @@ class arn extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assumeRoleFor) {
             $res['AssumeRoleFor'] = $this->assumeRoleFor;
         }
+
         if (null !== $this->roleType) {
             $res['RoleType'] = $this->roleType;
         }
+
         if (null !== $this->rolearn) {
             $res['Rolearn'] = $this->rolearn;
         }
@@ -60,20 +49,22 @@ class arn extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return arn
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssumeRoleFor'])) {
             $model->assumeRoleFor = $map['AssumeRoleFor'];
         }
+
         if (isset($map['RoleType'])) {
             $model->roleType = $map['RoleType'];
         }
+
         if (isset($map['Rolearn'])) {
             $model->rolearn = $map['Rolearn'];
         }

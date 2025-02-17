@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteLaunchTemplateVersionResponseBody\launchTemplateVersions;
-use AlibabaCloud\Tea\Model;
 
 class DeleteLaunchTemplateVersionResponseBody extends Model
 {
     /**
-     * @description The deleted launch template versions.
-     *
      * @var launchTemplateVersions
      */
     public $launchTemplateVersions;
-
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DeleteLaunchTemplateVersionResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->launchTemplateVersions) {
+            $this->launchTemplateVersions->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->launchTemplateVersions) {
-            $res['LaunchTemplateVersions'] = null !== $this->launchTemplateVersions ? $this->launchTemplateVersions->toMap() : null;
+            $res['LaunchTemplateVersions'] = null !== $this->launchTemplateVersions ? $this->launchTemplateVersions->toArray($noStream) : $this->launchTemplateVersions;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DeleteLaunchTemplateVersionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLaunchTemplateVersionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LaunchTemplateVersions'])) {
             $model->launchTemplateVersions = launchTemplateVersions::fromMap($map['LaunchTemplateVersions']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

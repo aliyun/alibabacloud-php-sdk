@@ -4,58 +4,33 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\dedicatedHostClusterCapacity\availableInstanceTypes;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeDedicatedHostClustersResponseBody\dedicatedHostClusters\dedicatedHostCluster\dedicatedHostClusterCapacity\localStorageCapacities;
-use AlibabaCloud\Tea\Model;
 
 class dedicatedHostClusterCapacity extends Model
 {
     /**
-     * @description The available capacity of the Elastic Compute Service (ECS) instance types in the dedicated host cluster.
-     *
      * @var availableInstanceTypes
      */
     public $availableInstanceTypes;
-
     /**
-     * @description The size of available memory. Unit: GiB
-     *
-     * @example 4
-     *
      * @var int
      */
     public $availableMemory;
-
     /**
-     * @description The number of available vCPUs.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $availableVcpus;
-
     /**
-     * @description The local storage capacity.
-     *
      * @var localStorageCapacities
      */
     public $localStorageCapacities;
-
     /**
-     * @description The total memory size. Unit: GiB
-     *
-     * @example 8
-     *
      * @var int
      */
     public $totalMemory;
-
     /**
-     * @description The total number of vCPUs.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $totalVcpus;
@@ -70,26 +45,38 @@ class dedicatedHostClusterCapacity extends Model
 
     public function validate()
     {
+        if (null !== $this->availableInstanceTypes) {
+            $this->availableInstanceTypes->validate();
+        }
+        if (null !== $this->localStorageCapacities) {
+            $this->localStorageCapacities->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableInstanceTypes) {
-            $res['AvailableInstanceTypes'] = null !== $this->availableInstanceTypes ? $this->availableInstanceTypes->toMap() : null;
+            $res['AvailableInstanceTypes'] = null !== $this->availableInstanceTypes ? $this->availableInstanceTypes->toArray($noStream) : $this->availableInstanceTypes;
         }
+
         if (null !== $this->availableMemory) {
             $res['AvailableMemory'] = $this->availableMemory;
         }
+
         if (null !== $this->availableVcpus) {
             $res['AvailableVcpus'] = $this->availableVcpus;
         }
+
         if (null !== $this->localStorageCapacities) {
-            $res['LocalStorageCapacities'] = null !== $this->localStorageCapacities ? $this->localStorageCapacities->toMap() : null;
+            $res['LocalStorageCapacities'] = null !== $this->localStorageCapacities ? $this->localStorageCapacities->toArray($noStream) : $this->localStorageCapacities;
         }
+
         if (null !== $this->totalMemory) {
             $res['TotalMemory'] = $this->totalMemory;
         }
+
         if (null !== $this->totalVcpus) {
             $res['TotalVcpus'] = $this->totalVcpus;
         }
@@ -97,29 +84,34 @@ class dedicatedHostClusterCapacity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dedicatedHostClusterCapacity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableInstanceTypes'])) {
             $model->availableInstanceTypes = availableInstanceTypes::fromMap($map['AvailableInstanceTypes']);
         }
+
         if (isset($map['AvailableMemory'])) {
             $model->availableMemory = $map['AvailableMemory'];
         }
+
         if (isset($map['AvailableVcpus'])) {
             $model->availableVcpus = $map['AvailableVcpus'];
         }
+
         if (isset($map['LocalStorageCapacities'])) {
             $model->localStorageCapacities = localStorageCapacities::fromMap($map['LocalStorageCapacities']);
         }
+
         if (isset($map['TotalMemory'])) {
             $model->totalMemory = $map['TotalMemory'];
         }
+
         if (isset($map['TotalVcpus'])) {
             $model->totalVcpus = $map['TotalVcpus'];
         }

@@ -4,63 +4,38 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDedicatedHostClusterAttributeRequest extends Model
 {
     /**
-     * @description The ID of the dedicated host cluster.
-     *
-     * This parameter is required.
-     * @example dc-bp12wlf6am0vz9v2****
-     *
      * @var string
      */
     public $dedicatedHostClusterId;
-
     /**
-     * @description The new name of the dedicated host cluster. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. The name cannot contain `http://` or `https://`.
-     *
-     * @example newClusterName
-     *
      * @var string
      */
     public $dedicatedHostClusterName;
-
     /**
-     * @description The description of the dedicated host cluster. It must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
-     *
-     * @example newClusterDescription
-     *
      * @var string
      */
     public $description;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The region ID of the dedicated host cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -78,32 +53,40 @@ class ModifyDedicatedHostClusterAttributeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dedicatedHostClusterId) {
             $res['DedicatedHostClusterId'] = $this->dedicatedHostClusterId;
         }
+
         if (null !== $this->dedicatedHostClusterName) {
             $res['DedicatedHostClusterName'] = $this->dedicatedHostClusterName;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -111,35 +94,42 @@ class ModifyDedicatedHostClusterAttributeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDedicatedHostClusterAttributeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DedicatedHostClusterId'])) {
             $model->dedicatedHostClusterId = $map['DedicatedHostClusterId'];
         }
+
         if (isset($map['DedicatedHostClusterName'])) {
             $model->dedicatedHostClusterName = $map['DedicatedHostClusterName'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

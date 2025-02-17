@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMaintenanceAttributesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceMaintenanceAttributesResponseBody\maintenanceAttributes\maintenanceAttribute;
-use AlibabaCloud\Tea\Model;
 
 class maintenanceAttributes extends Model
 {
@@ -19,17 +19,21 @@ class maintenanceAttributes extends Model
 
     public function validate()
     {
+        if (\is_array($this->maintenanceAttribute)) {
+            Model::validateArray($this->maintenanceAttribute);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maintenanceAttribute) {
-            $res['MaintenanceAttribute'] = [];
-            if (null !== $this->maintenanceAttribute && \is_array($this->maintenanceAttribute)) {
-                $n = 0;
-                foreach ($this->maintenanceAttribute as $item) {
-                    $res['MaintenanceAttribute'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->maintenanceAttribute)) {
+                $res['MaintenanceAttribute'] = [];
+                $n1                          = 0;
+                foreach ($this->maintenanceAttribute as $item1) {
+                    $res['MaintenanceAttribute'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class maintenanceAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return maintenanceAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaintenanceAttribute'])) {
             if (!empty($map['MaintenanceAttribute'])) {
                 $model->maintenanceAttribute = [];
-                $n                           = 0;
-                foreach ($map['MaintenanceAttribute'] as $item) {
-                    $model->maintenanceAttribute[$n++] = null !== $item ? maintenanceAttribute::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['MaintenanceAttribute'] as $item1) {
+                    $model->maintenanceAttribute[$n1++] = maintenanceAttribute::fromMap($item1);
                 }
             }
         }

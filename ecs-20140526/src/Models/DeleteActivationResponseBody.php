@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DeleteActivationResponseBody\activation;
-use AlibabaCloud\Tea\Model;
 
 class DeleteActivationResponseBody extends Model
 {
     /**
-     * @description Details about the activation code and its usage information.
-     *
      * @var activation
      */
     public $activation;
-
     /**
-     * @description The request ID.
-     *
-     * @example 4ECEEE12-56F1-4FBC-9AB1-890F74942176
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DeleteActivationResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->activation) {
+            $this->activation->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activation) {
-            $res['Activation'] = null !== $this->activation ? $this->activation->toMap() : null;
+            $res['Activation'] = null !== $this->activation ? $this->activation->toArray($noStream) : $this->activation;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DeleteActivationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteActivationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Activation'])) {
             $model->activation = activation::fromMap($map['Activation']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

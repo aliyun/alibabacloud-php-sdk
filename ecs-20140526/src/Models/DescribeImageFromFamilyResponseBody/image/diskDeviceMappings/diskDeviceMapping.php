@@ -4,70 +4,35 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImageFromFamilyResponseBody\image\diskDeviceMappings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class diskDeviceMapping extends Model
 {
     /**
-     * @description The device name of the disk. Example: /dev/xvdb.
-     *
-     * >  This parameter will be removed in the future. To ensure compatibility, we recommend that you use other parameters.
-     * @example /dev/xvdb
-     *
      * @var string
      */
     public $device;
-
     /**
-     * @description The image format.
-     *
-     * @example qcow2
-     *
      * @var string
      */
     public $format;
-
     /**
-     * @description The OSS bucket that contains the imported image file.
-     *
-     * @example testEcsImport
-     *
      * @var string
      */
     public $importOSSBucket;
-
     /**
-     * @description The OSS object to which the imported image belongs.
-     *
-     * @example imageImport
-     *
      * @var string
      */
     public $importOSSObject;
-
     /**
-     * @description The size of the disk. Unit: GiB.
-     *
-     * @example 80
-     *
      * @var string
      */
     public $size;
-
     /**
-     * @description The snapshot ID.
-     *
-     * @example s-bp17ot2q7x72ggtw****
-     *
      * @var string
      */
     public $snapshotId;
-
     /**
-     * @description The image type.
-     *
-     * @example custom
-     *
      * @var string
      */
     public $type;
@@ -83,29 +48,36 @@ class diskDeviceMapping extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->device) {
             $res['Device'] = $this->device;
         }
+
         if (null !== $this->format) {
             $res['Format'] = $this->format;
         }
+
         if (null !== $this->importOSSBucket) {
             $res['ImportOSSBucket'] = $this->importOSSBucket;
         }
+
         if (null !== $this->importOSSObject) {
             $res['ImportOSSObject'] = $this->importOSSObject;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
+
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -113,32 +85,38 @@ class diskDeviceMapping extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return diskDeviceMapping
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Device'])) {
             $model->device = $map['Device'];
         }
+
         if (isset($map['Format'])) {
             $model->format = $map['Format'];
         }
+
         if (isset($map['ImportOSSBucket'])) {
             $model->importOSSBucket = $map['ImportOSSBucket'];
         }
+
         if (isset($map['ImportOSSObject'])) {
             $model->importOSSObject = $map['ImportOSSObject'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }
+
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

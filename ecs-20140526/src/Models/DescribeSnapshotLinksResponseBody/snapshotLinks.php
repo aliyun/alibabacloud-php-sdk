@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotLinksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeSnapshotLinksResponseBody\snapshotLinks\snapshotLink;
-use AlibabaCloud\Tea\Model;
 
 class snapshotLinks extends Model
 {
@@ -19,17 +19,21 @@ class snapshotLinks extends Model
 
     public function validate()
     {
+        if (\is_array($this->snapshotLink)) {
+            Model::validateArray($this->snapshotLink);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->snapshotLink) {
-            $res['SnapshotLink'] = [];
-            if (null !== $this->snapshotLink && \is_array($this->snapshotLink)) {
-                $n = 0;
-                foreach ($this->snapshotLink as $item) {
-                    $res['SnapshotLink'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->snapshotLink)) {
+                $res['SnapshotLink'] = [];
+                $n1                  = 0;
+                foreach ($this->snapshotLink as $item1) {
+                    $res['SnapshotLink'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class snapshotLinks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return snapshotLinks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SnapshotLink'])) {
             if (!empty($map['SnapshotLink'])) {
                 $model->snapshotLink = [];
-                $n                   = 0;
-                foreach ($map['SnapshotLink'] as $item) {
-                    $model->snapshotLink[$n++] = null !== $item ? snapshotLink::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['SnapshotLink'] as $item1) {
+                    $model->snapshotLink[$n1++] = snapshotLink::fromMap($item1);
                 }
             }
         }
