@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateServiceInstanceSpecRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class commodity extends Model
 {
     /**
-     * @description Specifies whether to automatically complete the payment. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoPay;
@@ -25,9 +18,10 @@ class commodity extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoPay) {
@@ -37,11 +31,11 @@ class commodity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commodity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

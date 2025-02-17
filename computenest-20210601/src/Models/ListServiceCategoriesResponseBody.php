@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListServiceCategoriesResponseBody extends Model
 {
     /**
-     * @description The category list of the service.
-     *
      * @var string[]
      */
     public $categories;
-
     /**
-     * @description The request ID.
-     *
-     * @example 13FE89A5-C036-56BF-A0FF-A31C59819FD7
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,25 @@ class ListServiceCategoriesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->categories)) {
+            Model::validateArray($this->categories);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->categories) {
-            $res['Categories'] = $this->categories;
+            if (\is_array($this->categories)) {
+                $res['Categories'] = [];
+                $n1                = 0;
+                foreach ($this->categories as $item1) {
+                    $res['Categories'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +49,24 @@ class ListServiceCategoriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServiceCategoriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
-                $model->categories = $map['Categories'];
+                $model->categories = [];
+                $n1                = 0;
+                foreach ($map['Categories'] as $item1) {
+                    $model->categories[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

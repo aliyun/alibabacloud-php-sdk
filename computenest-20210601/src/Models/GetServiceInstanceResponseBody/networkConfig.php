@@ -4,41 +4,25 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponseBody\networkConfig\privateVpcConnections;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponseBody\networkConfig\reversePrivateVpcConnections;
-use AlibabaCloud\Tea\Model;
 
 class networkConfig extends Model
 {
     /**
-     * @description The ID of the endpoint for the private connection.
-     *
-     * >  This parameter is discontinued.
-     * @example ep-m5ei37240541816b****
-     *
      * @var string
      */
     public $endpointId;
-
     /**
-     * @description The information about private connections.
-     *
      * @var privateVpcConnections[]
      */
     public $privateVpcConnections;
-
     /**
-     * @description The PrivateZone ID.
-     *
-     * @example cb7f214f80ac348d87daaeac1f35****
-     *
      * @var string
      */
     public $privateZoneId;
-
     /**
-     * @description The information about the reverse private connection.
-     *
      * @var reversePrivateVpcConnections[]
      */
     public $reversePrivateVpcConnections;
@@ -51,32 +35,42 @@ class networkConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->privateVpcConnections)) {
+            Model::validateArray($this->privateVpcConnections);
+        }
+        if (\is_array($this->reversePrivateVpcConnections)) {
+            Model::validateArray($this->reversePrivateVpcConnections);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
         }
+
         if (null !== $this->privateVpcConnections) {
-            $res['PrivateVpcConnections'] = [];
-            if (null !== $this->privateVpcConnections && \is_array($this->privateVpcConnections)) {
-                $n = 0;
-                foreach ($this->privateVpcConnections as $item) {
-                    $res['PrivateVpcConnections'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->privateVpcConnections)) {
+                $res['PrivateVpcConnections'] = [];
+                $n1                           = 0;
+                foreach ($this->privateVpcConnections as $item1) {
+                    $res['PrivateVpcConnections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->privateZoneId) {
             $res['PrivateZoneId'] = $this->privateZoneId;
         }
+
         if (null !== $this->reversePrivateVpcConnections) {
-            $res['ReversePrivateVpcConnections'] = [];
-            if (null !== $this->reversePrivateVpcConnections && \is_array($this->reversePrivateVpcConnections)) {
-                $n = 0;
-                foreach ($this->reversePrivateVpcConnections as $item) {
-                    $res['ReversePrivateVpcConnections'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reversePrivateVpcConnections)) {
+                $res['ReversePrivateVpcConnections'] = [];
+                $n1                                  = 0;
+                foreach ($this->reversePrivateVpcConnections as $item1) {
+                    $res['ReversePrivateVpcConnections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -84,35 +78,38 @@ class networkConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
         }
+
         if (isset($map['PrivateVpcConnections'])) {
             if (!empty($map['PrivateVpcConnections'])) {
                 $model->privateVpcConnections = [];
-                $n                            = 0;
-                foreach ($map['PrivateVpcConnections'] as $item) {
-                    $model->privateVpcConnections[$n++] = null !== $item ? privateVpcConnections::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['PrivateVpcConnections'] as $item1) {
+                    $model->privateVpcConnections[$n1++] = privateVpcConnections::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PrivateZoneId'])) {
             $model->privateZoneId = $map['PrivateZoneId'];
         }
+
         if (isset($map['ReversePrivateVpcConnections'])) {
             if (!empty($map['ReversePrivateVpcConnections'])) {
                 $model->reversePrivateVpcConnections = [];
-                $n                                   = 0;
-                foreach ($map['ReversePrivateVpcConnections'] as $item) {
-                    $model->reversePrivateVpcConnections[$n++] = null !== $item ? reversePrivateVpcConnections::fromMap($item) : $item;
+                $n1                                  = 0;
+                foreach ($map['ReversePrivateVpcConnections'] as $item1) {
+                    $model->reversePrivateVpcConnections[$n1++] = reversePrivateVpcConnections::fromMap($item1);
                 }
             }
         }

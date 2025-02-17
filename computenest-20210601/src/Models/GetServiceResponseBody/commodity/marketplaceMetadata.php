@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\commodity;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody\commodity\marketplaceMetadata\specificationMappings;
-use AlibabaCloud\Tea\Model;
 
 class marketplaceMetadata extends Model
 {
     /**
-     * @description The mappings between the service specifications and the template or package.
-     *
      * @var specificationMappings[]
      */
     public $specificationMappings;
@@ -21,17 +19,21 @@ class marketplaceMetadata extends Model
 
     public function validate()
     {
+        if (\is_array($this->specificationMappings)) {
+            Model::validateArray($this->specificationMappings);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->specificationMappings) {
-            $res['SpecificationMappings'] = [];
-            if (null !== $this->specificationMappings && \is_array($this->specificationMappings)) {
-                $n = 0;
-                foreach ($this->specificationMappings as $item) {
-                    $res['SpecificationMappings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->specificationMappings)) {
+                $res['SpecificationMappings'] = [];
+                $n1                           = 0;
+                foreach ($this->specificationMappings as $item1) {
+                    $res['SpecificationMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class marketplaceMetadata extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return marketplaceMetadata
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SpecificationMappings'])) {
             if (!empty($map['SpecificationMappings'])) {
                 $model->specificationMappings = [];
-                $n                            = 0;
-                foreach ($map['SpecificationMappings'] as $item) {
-                    $model->specificationMappings[$n++] = null !== $item ? specificationMappings::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['SpecificationMappings'] as $item1) {
+                    $model->specificationMappings[$n1++] = specificationMappings::fromMap($item1);
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponseBody\networkConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reversePrivateVpcConnections extends Model
 {
     /**
-     * @description The endpoint ID of the reverse private connection.
-     *
-     * @example ep-m5ei42370541816b****
-     *
      * @var string
      */
     public $endpointId;
@@ -22,9 +18,10 @@ class reversePrivateVpcConnections extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointId) {
@@ -34,11 +31,11 @@ class reversePrivateVpcConnections extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reversePrivateVpcConnections
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

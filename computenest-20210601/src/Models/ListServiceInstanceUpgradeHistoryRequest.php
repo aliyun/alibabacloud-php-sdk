@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListServiceInstanceUpgradeHistoryRequest extends Model
 {
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example BBBAAfu+XtuBE55iRLHEYYuojI4=
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example si-70a3b15bb62643xxxxxx
-     *
      * @var string
      */
     public $serviceInstanceId;
@@ -48,20 +33,24 @@ class ListServiceInstanceUpgradeHistoryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
@@ -69,23 +58,26 @@ class ListServiceInstanceUpgradeHistoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListServiceInstanceUpgradeHistoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }

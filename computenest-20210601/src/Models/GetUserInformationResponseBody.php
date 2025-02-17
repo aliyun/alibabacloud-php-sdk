@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetUserInformationResponseBody\deliverySettings;
-use AlibabaCloud\Tea\Model;
 
 class GetUserInformationResponseBody extends Model
 {
@@ -13,10 +13,7 @@ class GetUserInformationResponseBody extends Model
      * @var deliverySettings
      */
     public $deliverySettings;
-
     /**
-     * @example 52EBAF16-22F6-53DB-AE1E-44764FC62AF0
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +24,19 @@ class GetUserInformationResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->deliverySettings) {
+            $this->deliverySettings->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deliverySettings) {
-            $res['DeliverySettings'] = null !== $this->deliverySettings ? $this->deliverySettings->toMap() : null;
+            $res['DeliverySettings'] = null !== $this->deliverySettings ? $this->deliverySettings->toArray($noStream) : $this->deliverySettings;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +44,18 @@ class GetUserInformationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserInformationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeliverySettings'])) {
             $model->deliverySettings = deliverySettings::fromMap($map['DeliverySettings']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

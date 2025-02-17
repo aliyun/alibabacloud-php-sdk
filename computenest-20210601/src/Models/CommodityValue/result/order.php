@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\CommodityValue\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class order extends Model
 {
@@ -12,17 +12,14 @@ class order extends Model
      * @var string
      */
     public $currency;
-
     /**
      * @var string
      */
     public $tradeAmount;
-
     /**
      * @var string
      */
     public $discountAmount;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class order extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
         }
+
         if (null !== $this->tradeAmount) {
             $res['TradeAmount'] = $this->tradeAmount;
         }
+
         if (null !== $this->discountAmount) {
             $res['DiscountAmount'] = $this->discountAmount;
         }
+
         if (null !== $this->originalAmount) {
             $res['OriginalAmount'] = $this->originalAmount;
         }
@@ -57,23 +58,26 @@ class order extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return order
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
         }
+
         if (isset($map['TradeAmount'])) {
             $model->tradeAmount = $map['TradeAmount'];
         }
+
         if (isset($map['DiscountAmount'])) {
             $model->discountAmount = $map['DiscountAmount'];
         }
+
         if (isset($map['OriginalAmount'])) {
             $model->originalAmount = $map['OriginalAmount'];
         }

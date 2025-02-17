@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeServiceInstanceRequest extends Model
 {
     /**
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @example true
-     *
      * @var string
      */
     public $dryRun;
-
     /**
-     * @example { \\"RegionId\\": \\"cn-hangzhou\\", \\"InstanceType\\": \\"ecs.g5.large\\"}
-     *
      * @var mixed[]
      */
     public $parameters;
-
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @example si-d6ab3a63ccbb4bxxxxxx
-     *
      * @var string
      */
     public $serviceInstanceId;
-
     /**
-     * @example 2
-     *
      * @var string
      */
     public $serviceVersion;
@@ -60,26 +43,40 @@ class UpgradeServiceInstanceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                foreach ($this->parameters as $key1 => $value1) {
+                    $res['Parameters'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
+
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
         }
@@ -87,29 +84,39 @@ class UpgradeServiceInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeServiceInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
         }
+
         if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+            if (!empty($map['Parameters'])) {
+                $model->parameters = [];
+                foreach ($map['Parameters'] as $key1 => $value1) {
+                    $model->parameters[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }
+
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
         }

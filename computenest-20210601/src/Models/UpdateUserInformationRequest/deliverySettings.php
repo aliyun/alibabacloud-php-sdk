@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\UpdateUserInformationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deliverySettings extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $actiontrailDeliveryToOssEnabled;
-
     /**
-     * @example "mybucket"
-     *
      * @var string
      */
     public $ossBucketName;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $ossEnabled;
-
     /**
-     * @example 7
-     *
      * @var int
      */
     public $ossExpirationDays;
-
     /**
-     * @example "path1/path2/"
-     *
      * @var string
      */
     public $ossPath;
@@ -52,23 +38,28 @@ class deliverySettings extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actiontrailDeliveryToOssEnabled) {
             $res['ActiontrailDeliveryToOssEnabled'] = $this->actiontrailDeliveryToOssEnabled;
         }
+
         if (null !== $this->ossBucketName) {
             $res['OssBucketName'] = $this->ossBucketName;
         }
+
         if (null !== $this->ossEnabled) {
             $res['OssEnabled'] = $this->ossEnabled;
         }
+
         if (null !== $this->ossExpirationDays) {
             $res['OssExpirationDays'] = $this->ossExpirationDays;
         }
+
         if (null !== $this->ossPath) {
             $res['OssPath'] = $this->ossPath;
         }
@@ -76,26 +67,30 @@ class deliverySettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deliverySettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActiontrailDeliveryToOssEnabled'])) {
             $model->actiontrailDeliveryToOssEnabled = $map['ActiontrailDeliveryToOssEnabled'];
         }
+
         if (isset($map['OssBucketName'])) {
             $model->ossBucketName = $map['OssBucketName'];
         }
+
         if (isset($map['OssEnabled'])) {
             $model->ossEnabled = $map['OssEnabled'];
         }
+
         if (isset($map['OssExpirationDays'])) {
             $model->ossExpirationDays = $map['OssExpirationDays'];
         }
+
         if (isset($map['OssPath'])) {
             $model->ossPath = $map['OssPath'];
         }

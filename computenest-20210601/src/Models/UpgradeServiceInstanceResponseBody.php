@@ -4,17 +4,14 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeServiceInstanceResponseBody extends Model
 {
     /**
-     * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var string[]
      */
@@ -26,35 +23,51 @@ class UpgradeServiceInstanceResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->upgradeRequiredParameters)) {
+            Model::validateArray($this->upgradeRequiredParameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->upgradeRequiredParameters) {
-            $res['UpgradeRequiredParameters'] = $this->upgradeRequiredParameters;
+            if (\is_array($this->upgradeRequiredParameters)) {
+                $res['UpgradeRequiredParameters'] = [];
+                $n1                               = 0;
+                foreach ($this->upgradeRequiredParameters as $item1) {
+                    $res['UpgradeRequiredParameters'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeServiceInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UpgradeRequiredParameters'])) {
             if (!empty($map['UpgradeRequiredParameters'])) {
-                $model->upgradeRequiredParameters = $map['UpgradeRequiredParameters'];
+                $model->upgradeRequiredParameters = [];
+                $n1                               = 0;
+                foreach ($map['UpgradeRequiredParameters'] as $item1) {
+                    $model->upgradeRequiredParameters[$n1++] = $item1;
+                }
             }
         }
 

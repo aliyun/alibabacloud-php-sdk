@@ -4,93 +4,43 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponseBody\networkConfig\privateVpcConnections;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class connectionConfigs extends Model
 {
     /**
-     * @description The bandwidth limit for the private connection established based on the private network interconnection mode of Compute Nest.
-     *
-     * @example 1536Mbps
-     *
      * @var int
      */
     public $connectBandwidth;
-
     /**
-     * @description The domain name.
-     *
-     * @example ie-569a9be34f5534f6bc6559b5c1xxxxxx.service-51f80502802e48xxxxxx.cn-hangzhou.computenest.aliyuncs.com
-     *
      * @var string
      */
     public $domainName;
-
     /**
-     * @description The IP addresses of the endpoints of the private connections.
-     *
      * @var string[]
      */
     public $endpointIps;
-
     /**
-     * @description The state of the ingress endpoint. Valid values:
-     *
-     *   Ready: The ingress endpoint is connected.
-     *   Pending: The ingress endpoint is being connected.
-     *   Failed: The ingress endpoint fails to be connected.
-     *   Deleted: The ingress endpoint is deleted.
-     *   Deleting: The ingress endpoint is being deleted.
-     *
-     * @example Ready
-     *
      * @var string
      */
     public $ingressEndpointStatus;
-
     /**
-     * @description The state of the network service. Valid values:
-     *
-     *   Ready: The network service is connected.
-     *   Pending: The network service is being connected.
-     *   Failed: The network service fails to be connected.
-     *   Deleted: The network service is deleted.
-     *   Deleting: The network service is being deleted.
-     *
-     * @example Ready
-     *
      * @var string
      */
     public $networkServiceStatus;
-
     /**
-     * @description The region ID of the VPC to which the endpoint of the private connection established based on the private network interconnection mode of Compute Nest belongs.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The names of the security groups.
-     *
      * @var string[]
      */
     public $securityGroups;
-
     /**
-     * @description The names of the vSwitches.
-     *
      * @var string[]
      */
     public $vSwitches;
-
     /**
-     * @description The ID of the virtual private cloud (VPC).
-     *
-     * @example vpc-bp1vwnn14rqpyiczj****
-     *
      * @var string
      */
     public $vpcId;
@@ -108,35 +58,71 @@ class connectionConfigs extends Model
 
     public function validate()
     {
+        if (\is_array($this->endpointIps)) {
+            Model::validateArray($this->endpointIps);
+        }
+        if (\is_array($this->securityGroups)) {
+            Model::validateArray($this->securityGroups);
+        }
+        if (\is_array($this->vSwitches)) {
+            Model::validateArray($this->vSwitches);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->connectBandwidth) {
             $res['ConnectBandwidth'] = $this->connectBandwidth;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->endpointIps) {
-            $res['EndpointIps'] = $this->endpointIps;
+            if (\is_array($this->endpointIps)) {
+                $res['EndpointIps'] = [];
+                $n1                 = 0;
+                foreach ($this->endpointIps as $item1) {
+                    $res['EndpointIps'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ingressEndpointStatus) {
             $res['IngressEndpointStatus'] = $this->ingressEndpointStatus;
         }
+
         if (null !== $this->networkServiceStatus) {
             $res['NetworkServiceStatus'] = $this->networkServiceStatus;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->securityGroups) {
-            $res['SecurityGroups'] = $this->securityGroups;
+            if (\is_array($this->securityGroups)) {
+                $res['SecurityGroups'] = [];
+                $n1                    = 0;
+                foreach ($this->securityGroups as $item1) {
+                    $res['SecurityGroups'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->vSwitches) {
-            $res['VSwitches'] = $this->vSwitches;
+            if (\is_array($this->vSwitches)) {
+                $res['VSwitches'] = [];
+                $n1               = 0;
+                foreach ($this->vSwitches as $item1) {
+                    $res['VSwitches'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -144,44 +130,64 @@ class connectionConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return connectionConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConnectBandwidth'])) {
             $model->connectBandwidth = $map['ConnectBandwidth'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['EndpointIps'])) {
             if (!empty($map['EndpointIps'])) {
-                $model->endpointIps = $map['EndpointIps'];
+                $model->endpointIps = [];
+                $n1                 = 0;
+                foreach ($map['EndpointIps'] as $item1) {
+                    $model->endpointIps[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['IngressEndpointStatus'])) {
             $model->ingressEndpointStatus = $map['IngressEndpointStatus'];
         }
+
         if (isset($map['NetworkServiceStatus'])) {
             $model->networkServiceStatus = $map['NetworkServiceStatus'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SecurityGroups'])) {
             if (!empty($map['SecurityGroups'])) {
-                $model->securityGroups = $map['SecurityGroups'];
+                $model->securityGroups = [];
+                $n1                    = 0;
+                foreach ($map['SecurityGroups'] as $item1) {
+                    $model->securityGroups[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
-                $model->vSwitches = $map['VSwitches'];
+                $model->vSwitches = [];
+                $n1               = 0;
+                foreach ($map['VSwitches'] as $item1) {
+                    $model->vSwitches[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }

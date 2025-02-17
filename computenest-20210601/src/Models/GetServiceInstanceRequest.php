@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetServiceInstanceRequest extends Model
 {
     /**
-     * @description The MarketInstance ID.
-     *
-     * @example 704***59
-     *
      * @var string
      */
     public $marketInstanceId;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The service instance ID.
-     *
-     * >  You must specify either `ServiceInstanceId` or `MarketInstanceId`. Otherwise, the operation fails.
-     * @example si-d6ab3a63ccbb4b17****
-     *
      * @var string
      */
     public $serviceInstanceId;
@@ -44,17 +28,20 @@ class GetServiceInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->marketInstanceId) {
             $res['MarketInstanceId'] = $this->marketInstanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
@@ -62,20 +49,22 @@ class GetServiceInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetServiceInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MarketInstanceId'])) {
             $model->marketInstanceId = $map['MarketInstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }

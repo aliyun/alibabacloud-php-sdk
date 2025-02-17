@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ContinueDeployServiceInstanceResponseBody\dryRunResult;
-use AlibabaCloud\Tea\Model;
 
 class ContinueDeployServiceInstanceResponseBody extends Model
 {
     /**
-     * @description The dry run result.
-     *
      * @var dryRunResult
      */
     public $dryRunResult;
-
     /**
-     * @description The request ID.
-     *
-     * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the service instance.
-     *
-     * @example si-d6ab3a63ccbb4b17****
-     *
      * @var string
      */
     public $serviceInstanceId;
@@ -41,17 +29,23 @@ class ContinueDeployServiceInstanceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->dryRunResult) {
+            $this->dryRunResult->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dryRunResult) {
-            $res['DryRunResult'] = null !== $this->dryRunResult ? $this->dryRunResult->toMap() : null;
+            $res['DryRunResult'] = null !== $this->dryRunResult ? $this->dryRunResult->toArray($noStream) : $this->dryRunResult;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceInstanceId) {
             $res['ServiceInstanceId'] = $this->serviceInstanceId;
         }
@@ -59,20 +53,22 @@ class ContinueDeployServiceInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ContinueDeployServiceInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DryRunResult'])) {
             $model->dryRunResult = dryRunResult::fromMap($map['DryRunResult']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServiceInstanceId'])) {
             $model->serviceInstanceId = $map['ServiceInstanceId'];
         }

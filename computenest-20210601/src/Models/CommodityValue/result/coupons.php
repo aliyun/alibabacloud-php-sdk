@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\CommodityValue\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class coupons extends Model
 {
@@ -12,22 +12,18 @@ class coupons extends Model
      * @var float
      */
     public $canPromFee;
-
     /**
      * @var string
      */
     public $couponDesc;
-
     /**
      * @var string
      */
     public $couponName;
-
     /**
      * @var string
      */
     public $couponOptionNo;
-
     /**
      * @var bool
      */
@@ -42,23 +38,28 @@ class coupons extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->canPromFee) {
             $res['CanPromFee'] = $this->canPromFee;
         }
+
         if (null !== $this->couponDesc) {
             $res['CouponDesc'] = $this->couponDesc;
         }
+
         if (null !== $this->couponName) {
             $res['CouponName'] = $this->couponName;
         }
+
         if (null !== $this->couponOptionNo) {
             $res['CouponOptionNo'] = $this->couponOptionNo;
         }
+
         if (null !== $this->selected) {
             $res['Selected'] = $this->selected;
         }
@@ -66,26 +67,30 @@ class coupons extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return coupons
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CanPromFee'])) {
             $model->canPromFee = $map['CanPromFee'];
         }
+
         if (isset($map['CouponDesc'])) {
             $model->couponDesc = $map['CouponDesc'];
         }
+
         if (isset($map['CouponName'])) {
             $model->couponName = $map['CouponName'];
         }
+
         if (isset($map['CouponOptionNo'])) {
             $model->couponOptionNo = $map['CouponOptionNo'];
         }
+
         if (isset($map['Selected'])) {
             $model->selected = $map['Selected'];
         }
