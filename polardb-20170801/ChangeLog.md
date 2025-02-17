@@ -1,3 +1,11 @@
+2025-02-17 Version: 5.4.1
+- Update API CreateAccount: add param NodeType.
+- Update API CreateDBCluster: update param DBNodeClass.
+- Update API CreateDBCluster: update param StorageSpace.
+- Update API DescribeAccounts: add param NodeType.
+- Update API DescribeDBClusterEndpoints: update response param.
+
+
 2025-02-06 Version: 5.4.1
 - Update API DescribeActivationCodes: add param MacAddress.
 - Update API DescribeActivationCodes: add param SystemIdentifier.

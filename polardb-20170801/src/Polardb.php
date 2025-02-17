@@ -1082,6 +1082,10 @@ class Polardb extends OpenApiClient
             @$query['DBName'] = $request->DBName;
         }
 
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -3866,6 +3870,10 @@ class Polardb extends OpenApiClient
 
         if (null !== $request->DBClusterId) {
             @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->nodeType) {
+            @$query['NodeType'] = $request->nodeType;
         }
 
         if (null !== $request->ownerAccount) {

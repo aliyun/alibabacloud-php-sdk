@@ -13,6 +13,10 @@ class addressItems extends Model
      */
     public $connectionString;
     /**
+     * @var bool
+     */
+    public $dashboardUsed;
+    /**
      * @var string
      */
     public $IPAddress;
@@ -42,6 +46,7 @@ class addressItems extends Model
     public $vpcInstanceId;
     protected $_name = [
         'connectionString'            => 'ConnectionString',
+        'dashboardUsed'               => 'DashboardUsed',
         'IPAddress'                   => 'IPAddress',
         'netType'                     => 'NetType',
         'port'                        => 'Port',
@@ -61,6 +66,10 @@ class addressItems extends Model
         $res = [];
         if (null !== $this->connectionString) {
             $res['ConnectionString'] = $this->connectionString;
+        }
+
+        if (null !== $this->dashboardUsed) {
+            $res['DashboardUsed'] = $this->dashboardUsed;
         }
 
         if (null !== $this->IPAddress) {
@@ -104,6 +113,10 @@ class addressItems extends Model
         $model = new self();
         if (isset($map['ConnectionString'])) {
             $model->connectionString = $map['ConnectionString'];
+        }
+
+        if (isset($map['DashboardUsed'])) {
+            $model->dashboardUsed = $map['DashboardUsed'];
         }
 
         if (isset($map['IPAddress'])) {

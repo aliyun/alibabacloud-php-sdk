@@ -43,6 +43,10 @@ class CreateAccountRequest extends Model
     /**
      * @var string
      */
+    public $nodeType;
+    /**
+     * @var string
+     */
     public $ownerAccount;
     /**
      * @var int
@@ -69,6 +73,7 @@ class CreateAccountRequest extends Model
         'clientToken'          => 'ClientToken',
         'DBClusterId'          => 'DBClusterId',
         'DBName'               => 'DBName',
+        'nodeType'             => 'NodeType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'privForAllDB'         => 'PrivForAllDB',
@@ -114,6 +119,10 @@ class CreateAccountRequest extends Model
 
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
+        }
+
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
 
         if (null !== $this->ownerAccount) {
@@ -177,6 +186,10 @@ class CreateAccountRequest extends Model
 
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
+        }
+
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
 
         if (isset($map['OwnerAccount'])) {

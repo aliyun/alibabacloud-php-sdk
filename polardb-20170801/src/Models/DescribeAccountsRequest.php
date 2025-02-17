@@ -19,6 +19,10 @@ class DescribeAccountsRequest extends Model
     /**
      * @var string
      */
+    public $nodeType;
+    /**
+     * @var string
+     */
     public $ownerAccount;
     /**
      * @var int
@@ -43,6 +47,7 @@ class DescribeAccountsRequest extends Model
     protected $_name = [
         'accountName'          => 'AccountName',
         'DBClusterId'          => 'DBClusterId',
+        'nodeType'             => 'NodeType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -65,6 +70,10 @@ class DescribeAccountsRequest extends Model
 
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
 
         if (null !== $this->ownerAccount) {
@@ -108,6 +117,10 @@ class DescribeAccountsRequest extends Model
 
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
 
         if (isset($map['OwnerAccount'])) {
