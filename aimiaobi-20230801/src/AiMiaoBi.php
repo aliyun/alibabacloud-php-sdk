@@ -179,6 +179,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTaskDialoguesResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTasksRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTasksResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListSearchTasksShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListStyleLearningResultRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListStyleLearningResultResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListTimedViewAttitudeRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListTimedViewAttitudeResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListTopicRecommendEventListRequest;
@@ -197,6 +199,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookIntroductionRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookIntroductionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookSmartCardRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookSmartCardResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCommentGenerationRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCommentGenerationResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCommentGenerationShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunContinueContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunContinueContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicAnalysisRequest;
@@ -221,6 +226,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunExpandContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunMultiDocIntroductionShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunSearchGenerationShrinkRequest;
@@ -5926,6 +5934,74 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * 获取文体学习分析结果列表.
+     *
+     * @param request - ListStyleLearningResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStyleLearningResultResponse
+     *
+     * @param ListStyleLearningResultRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListStyleLearningResultResponse
+     */
+    public function listStyleLearningResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->agentKey) {
+            @$query['AgentKey'] = $request->agentKey;
+        }
+
+        $body = [];
+        if (null !== $request->current) {
+            @$body['Current'] = $request->current;
+        }
+
+        if (null !== $request->size) {
+            @$body['Size'] = $request->size;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListStyleLearningResult',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStyleLearningResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListStyleLearningResultResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文体学习分析结果列表.
+     *
+     * @param request - ListStyleLearningResultRequest
+     * @returns ListStyleLearningResultResponse
+     *
+     * @param ListStyleLearningResultRequest $request
+     *
+     * @return ListStyleLearningResultResponse
+     */
+    public function listStyleLearningResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listStyleLearningResultWithOptions($request, $runtime);
+    }
+
+    /**
      * 时效性视角列表.
      *
      * @param request - ListTimedViewAttitudeRequest
@@ -6531,6 +6607,114 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runBookSmartCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * 客户之声预测.
+     *
+     * @param tmpReq - RunCommentGenerationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RunCommentGenerationResponse
+     *
+     * @param RunCommentGenerationRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RunCommentGenerationResponse
+     */
+    public function runCommentGenerationWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunCommentGenerationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->lengthRange) {
+            $request->lengthRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->lengthRange, 'LengthRange', 'json');
+        }
+
+        if (null !== $tmpReq->sentiment) {
+            $request->sentimentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sentiment, 'Sentiment', 'json');
+        }
+
+        if (null !== $tmpReq->type) {
+            $request->typeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->type, 'Type', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->allowEmoji) {
+            @$body['AllowEmoji'] = $request->allowEmoji;
+        }
+
+        if (null !== $request->extraInfo) {
+            @$body['ExtraInfo'] = $request->extraInfo;
+        }
+
+        if (null !== $request->length) {
+            @$body['Length'] = $request->length;
+        }
+
+        if (null !== $request->lengthRangeShrink) {
+            @$body['LengthRange'] = $request->lengthRangeShrink;
+        }
+
+        if (null !== $request->numComments) {
+            @$body['NumComments'] = $request->numComments;
+        }
+
+        if (null !== $request->sentimentShrink) {
+            @$body['Sentiment'] = $request->sentimentShrink;
+        }
+
+        if (null !== $request->sourceMaterial) {
+            @$body['SourceMaterial'] = $request->sourceMaterial;
+        }
+
+        if (null !== $request->style) {
+            @$body['Style'] = $request->style;
+        }
+
+        if (null !== $request->typeShrink) {
+            @$body['Type'] = $request->typeShrink;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunCommentGeneration',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunCommentGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RunCommentGenerationResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 客户之声预测.
+     *
+     * @param request - RunCommentGenerationRequest
+     * @returns RunCommentGenerationResponse
+     *
+     * @param RunCommentGenerationRequest $request
+     *
+     * @return RunCommentGenerationResponse
+     */
+    public function runCommentGeneration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runCommentGenerationWithOptions($request, $runtime);
     }
 
     /**
@@ -7349,6 +7533,86 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runKeywordsExtractionGenerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * 文档批量导读.
+     *
+     * @param tmpReq - RunMultiDocIntroductionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RunMultiDocIntroductionResponse
+     *
+     * @param RunMultiDocIntroductionRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RunMultiDocIntroductionResponse
+     */
+    public function runMultiDocIntroductionWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new RunMultiDocIntroductionShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->docIds) {
+            $request->docIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->docIdsShrink) {
+            @$body['DocIds'] = $request->docIdsShrink;
+        }
+
+        if (null !== $request->keyPointPrompt) {
+            @$body['KeyPointPrompt'] = $request->keyPointPrompt;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->summaryPrompt) {
+            @$body['SummaryPrompt'] = $request->summaryPrompt;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunMultiDocIntroduction',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunMultiDocIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RunMultiDocIntroductionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 文档批量导读.
+     *
+     * @param request - RunMultiDocIntroductionRequest
+     * @returns RunMultiDocIntroductionResponse
+     *
+     * @param RunMultiDocIntroductionRequest $request
+     *
+     * @return RunMultiDocIntroductionResponse
+     */
+    public function runMultiDocIntroduction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runMultiDocIntroductionWithOptions($request, $runtime);
     }
 
     /**
