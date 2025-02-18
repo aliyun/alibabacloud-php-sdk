@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListResourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListResourcesResponseBody\data\resources;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Indicates the marker after which the returned list begins.
-     *
-     * @example ZmN0X21vbnRoX3Rhb2Jhb19pbmRleCE=
-     *
      * @var string
      */
     public $marker;
-
     /**
-     * @description The maximum number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxItem;
-
     /**
-     * @description The list of resources.
-     *
      * @var resources[]
      */
     public $resources;
@@ -41,23 +29,29 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->marker) {
             $res['marker'] = $this->marker;
         }
+
         if (null !== $this->maxItem) {
             $res['maxItem'] = $this->maxItem;
         }
+
         if (null !== $this->resources) {
-            $res['resources'] = [];
-            if (null !== $this->resources && \is_array($this->resources)) {
-                $n = 0;
-                foreach ($this->resources as $item) {
-                    $res['resources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resources)) {
+                $res['resources'] = [];
+                $n1               = 0;
+                foreach ($this->resources as $item1) {
+                    $res['resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +59,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['marker'])) {
             $model->marker = $map['marker'];
         }
+
         if (isset($map['maxItem'])) {
             $model->maxItem = $map['maxItem'];
         }
+
         if (isset($map['resources'])) {
             if (!empty($map['resources'])) {
                 $model->resources = [];
-                $n                = 0;
-                foreach ($map['resources'] as $item) {
-                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['resources'] as $item1) {
+                    $model->resources[$n1++] = resources::fromMap($item1);
                 }
             }
         }

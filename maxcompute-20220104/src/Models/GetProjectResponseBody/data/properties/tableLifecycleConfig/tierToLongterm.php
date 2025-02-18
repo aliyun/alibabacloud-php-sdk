@@ -4,69 +4,69 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\tableLifecycleConfig;
 
-use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\tableLifecycleConfig\tierToLongterm\daysAfterLastAccessGreaterThan;
-use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\tableLifecycleConfig\tierToLongterm\daysAfterLastModificationGreaterThan;
-use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties\tableLifecycleConfig\tierToLongterm\daysAfterLastTierModificationGreaterThan;
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tierToLongterm extends Model
 {
     /**
-     * @var daysAfterLastAccessGreaterThan
+     * @var int
      */
     public $daysAfterLastAccessGreaterThan;
-
     /**
-     * @var daysAfterLastModificationGreaterThan
+     * @var int
      */
     public $daysAfterLastModificationGreaterThan;
-
     /**
-     * @var daysAfterLastTierModificationGreaterThan
+     * @var int
      */
     public $daysAfterLastTierModificationGreaterThan;
     protected $_name = [
-        'daysAfterLastAccessGreaterThan'           => 'daysAfterLastAccessGreaterThan',
-        'daysAfterLastModificationGreaterThan'     => 'daysAfterLastModificationGreaterThan',
-        'daysAfterLastTierModificationGreaterThan' => 'daysAfterLastTierModificationGreaterThan',
+        'daysAfterLastAccessGreaterThan'           => 'DaysAfterLastAccessGreaterThan',
+        'daysAfterLastModificationGreaterThan'     => 'DaysAfterLastModificationGreaterThan',
+        'daysAfterLastTierModificationGreaterThan' => 'DaysAfterLastTierModificationGreaterThan',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->daysAfterLastAccessGreaterThan) {
-            $res['daysAfterLastAccessGreaterThan'] = null !== $this->daysAfterLastAccessGreaterThan ? $this->daysAfterLastAccessGreaterThan->toMap() : null;
+            $res['DaysAfterLastAccessGreaterThan'] = $this->daysAfterLastAccessGreaterThan;
         }
+
         if (null !== $this->daysAfterLastModificationGreaterThan) {
-            $res['daysAfterLastModificationGreaterThan'] = null !== $this->daysAfterLastModificationGreaterThan ? $this->daysAfterLastModificationGreaterThan->toMap() : null;
+            $res['DaysAfterLastModificationGreaterThan'] = $this->daysAfterLastModificationGreaterThan;
         }
+
         if (null !== $this->daysAfterLastTierModificationGreaterThan) {
-            $res['daysAfterLastTierModificationGreaterThan'] = null !== $this->daysAfterLastTierModificationGreaterThan ? $this->daysAfterLastTierModificationGreaterThan->toMap() : null;
+            $res['DaysAfterLastTierModificationGreaterThan'] = $this->daysAfterLastTierModificationGreaterThan;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tierToLongterm
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['daysAfterLastAccessGreaterThan'])) {
-            $model->daysAfterLastAccessGreaterThan = daysAfterLastAccessGreaterThan::fromMap($map['daysAfterLastAccessGreaterThan']);
+        if (isset($map['DaysAfterLastAccessGreaterThan'])) {
+            $model->daysAfterLastAccessGreaterThan = $map['DaysAfterLastAccessGreaterThan'];
         }
-        if (isset($map['daysAfterLastModificationGreaterThan'])) {
-            $model->daysAfterLastModificationGreaterThan = daysAfterLastModificationGreaterThan::fromMap($map['daysAfterLastModificationGreaterThan']);
+
+        if (isset($map['DaysAfterLastModificationGreaterThan'])) {
+            $model->daysAfterLastModificationGreaterThan = $map['DaysAfterLastModificationGreaterThan'];
         }
-        if (isset($map['daysAfterLastTierModificationGreaterThan'])) {
-            $model->daysAfterLastTierModificationGreaterThan = daysAfterLastTierModificationGreaterThan::fromMap($map['daysAfterLastTierModificationGreaterThan']);
+
+        if (isset($map['DaysAfterLastTierModificationGreaterThan'])) {
+            $model->daysAfterLastTierModificationGreaterThan = $map['DaysAfterLastTierModificationGreaterThan'];
         }
 
         return $model;

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRoleAclOnObjectResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetRoleAclOnObjectResponseBody extends Model
 {
     /**
-     * @description The returned data.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 0bc1366d16686529650188023ef87f
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetRoleAclOnObjectResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetRoleAclOnObjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRoleAclOnObjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

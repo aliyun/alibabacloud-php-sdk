@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetProjectResponseBody\data\properties;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableLifecycle extends Model
 {
     /**
-     * @description The type of the lifecycle. Valid values: -**mandatory**: The lifecycle clause is required. You must configure a lifecycle for a table. -**optional**: The lifecycle clause is optional in a table creation statement. If you do not configure a lifecycle for a table, the table does not expire. -**inherit**: If you do not configure a lifecycle for a table when you create the table, the value of the odps.table.lifecycle.value parameter is used by default.
-     *
-     * @example optional
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The retention period of a table. Unit: days.
-     *
-     * @example 37231
-     *
      * @var string
      */
     public $value;
@@ -32,14 +23,16 @@ class tableLifecycle extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -47,17 +40,18 @@ class tableLifecycle extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableLifecycle
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

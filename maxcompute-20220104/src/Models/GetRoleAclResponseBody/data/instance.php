@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\GetRoleAclResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instance extends Model
 {
     /**
-     * @description The operations that were performed on the instance.
-     *
      * @var string[]
      */
     public $actions;
-
     /**
-     * @description The name of the instance.
-     *
-     * @example instanceA
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The Schema name.
-     *
-     * @example default
-     *
      * @var string
      */
     public $schemaName;
@@ -40,17 +28,29 @@ class instance extends Model
 
     public function validate()
     {
+        if (\is_array($this->actions)) {
+            Model::validateArray($this->actions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actions) {
-            $res['actions'] = $this->actions;
+            if (\is_array($this->actions)) {
+                $res['actions'] = [];
+                $n1             = 0;
+                foreach ($this->actions as $item1) {
+                    $res['actions'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->schemaName) {
             $res['schemaName'] = $this->schemaName;
         }
@@ -58,22 +58,28 @@ class instance extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instance
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['actions'])) {
             if (!empty($map['actions'])) {
-                $model->actions = $map['actions'];
+                $model->actions = [];
+                $n1             = 0;
+                foreach ($map['actions'] as $item1) {
+                    $model->actions[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['schemaName'])) {
             $model->schemaName = $map['schemaName'];
         }

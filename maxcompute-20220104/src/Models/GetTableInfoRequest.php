@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTableInfoRequest extends Model
 {
     /**
-     * @example default
-     *
      * @var string
      */
     public $schemaName;
-
     /**
-     * @example internal
-     *
      * @var string
      */
     public $type;
@@ -28,14 +23,16 @@ class GetTableInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->schemaName) {
             $res['schemaName'] = $this->schemaName;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -43,17 +40,18 @@ class GetTableInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTableInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['schemaName'])) {
             $model->schemaName = $map['schemaName'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

@@ -4,144 +4,128 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsResponseBody\data\projects;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsResponseBody\data\projects\properties\encryption;
+use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsResponseBody\data\projects\properties\externalProjectProperties;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListProjectsResponseBody\data\projects\properties\tableLifecycle;
-use AlibabaCloud\Tea\Model;
 
 class properties extends Model
 {
     /**
-     * @description Indicates whether a full table scan on the project is enabled.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $allowFullScan;
-
     /**
-     * @description Indicates whether the DECIMAL data type in the MaxCompute V2.0 data type edition is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableDecimal2;
-
     /**
-     * @description Indicates whether tunnel quota routing is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enableTunnelQuotaRoute;
-
     /**
-     * @description The encryption information.
-     *
      * @var encryption
      */
     public $encryption;
-
     /**
-     * @description The maximum number of days for which backup data can be retained.
-     *
-     * @example 1
-     *
+     * @var externalProjectProperties
+     */
+    public $externalProjectProperties;
+    /**
      * @var int
      */
     public $retentionDays;
-
     /**
-     * @description The upper limit for the resources that are consumed by an SQL statement.
-     *
-     * @example 1500
-     *
      * @var string
      */
     public $sqlMeteringMax;
-
     /**
-     * @description The lifecycle of a table in the project.
-     *
      * @var tableLifecycle
      */
     public $tableLifecycle;
-
     /**
-     * @description The time zone of the instance.
-     *
-     * @example Asia/Shanghai
-     *
      * @var string
      */
     public $timezone;
-
     /**
-     * @description The name of the tunnel quota.
-     *
-     * @example quota_tunnel
-     *
      * @var string
      */
     public $tunnelQuota;
-
     /**
-     * @description The data type edition. Valid values: -1: MaxCompute V1.0 data type edition. -2: MaxCompute V2.0 data type edition. -hive: Hive-compatible data type edition.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $typeSystem;
     protected $_name = [
-        'allowFullScan'          => 'allowFullScan',
-        'enableDecimal2'         => 'enableDecimal2',
-        'enableTunnelQuotaRoute' => 'enableTunnelQuotaRoute',
-        'encryption'             => 'encryption',
-        'retentionDays'          => 'retentionDays',
-        'sqlMeteringMax'         => 'sqlMeteringMax',
-        'tableLifecycle'         => 'tableLifecycle',
-        'timezone'               => 'timezone',
-        'tunnelQuota'            => 'tunnelQuota',
-        'typeSystem'             => 'typeSystem',
+        'allowFullScan'             => 'allowFullScan',
+        'enableDecimal2'            => 'enableDecimal2',
+        'enableTunnelQuotaRoute'    => 'enableTunnelQuotaRoute',
+        'encryption'                => 'encryption',
+        'externalProjectProperties' => 'externalProjectProperties',
+        'retentionDays'             => 'retentionDays',
+        'sqlMeteringMax'            => 'sqlMeteringMax',
+        'tableLifecycle'            => 'tableLifecycle',
+        'timezone'                  => 'timezone',
+        'tunnelQuota'               => 'tunnelQuota',
+        'typeSystem'                => 'typeSystem',
     ];
 
     public function validate()
     {
+        if (null !== $this->encryption) {
+            $this->encryption->validate();
+        }
+        if (null !== $this->externalProjectProperties) {
+            $this->externalProjectProperties->validate();
+        }
+        if (null !== $this->tableLifecycle) {
+            $this->tableLifecycle->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowFullScan) {
             $res['allowFullScan'] = $this->allowFullScan;
         }
+
         if (null !== $this->enableDecimal2) {
             $res['enableDecimal2'] = $this->enableDecimal2;
         }
+
         if (null !== $this->enableTunnelQuotaRoute) {
             $res['enableTunnelQuotaRoute'] = $this->enableTunnelQuotaRoute;
         }
+
         if (null !== $this->encryption) {
-            $res['encryption'] = null !== $this->encryption ? $this->encryption->toMap() : null;
+            $res['encryption'] = null !== $this->encryption ? $this->encryption->toArray($noStream) : $this->encryption;
         }
+
+        if (null !== $this->externalProjectProperties) {
+            $res['externalProjectProperties'] = null !== $this->externalProjectProperties ? $this->externalProjectProperties->toArray($noStream) : $this->externalProjectProperties;
+        }
+
         if (null !== $this->retentionDays) {
             $res['retentionDays'] = $this->retentionDays;
         }
+
         if (null !== $this->sqlMeteringMax) {
             $res['sqlMeteringMax'] = $this->sqlMeteringMax;
         }
+
         if (null !== $this->tableLifecycle) {
-            $res['tableLifecycle'] = null !== $this->tableLifecycle ? $this->tableLifecycle->toMap() : null;
+            $res['tableLifecycle'] = null !== $this->tableLifecycle ? $this->tableLifecycle->toArray($noStream) : $this->tableLifecycle;
         }
+
         if (null !== $this->timezone) {
             $res['timezone'] = $this->timezone;
         }
+
         if (null !== $this->tunnelQuota) {
             $res['tunnelQuota'] = $this->tunnelQuota;
         }
+
         if (null !== $this->typeSystem) {
             $res['typeSystem'] = $this->typeSystem;
         }
@@ -149,41 +133,54 @@ class properties extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return properties
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['allowFullScan'])) {
             $model->allowFullScan = $map['allowFullScan'];
         }
+
         if (isset($map['enableDecimal2'])) {
             $model->enableDecimal2 = $map['enableDecimal2'];
         }
+
         if (isset($map['enableTunnelQuotaRoute'])) {
             $model->enableTunnelQuotaRoute = $map['enableTunnelQuotaRoute'];
         }
+
         if (isset($map['encryption'])) {
             $model->encryption = encryption::fromMap($map['encryption']);
         }
+
+        if (isset($map['externalProjectProperties'])) {
+            $model->externalProjectProperties = externalProjectProperties::fromMap($map['externalProjectProperties']);
+        }
+
         if (isset($map['retentionDays'])) {
             $model->retentionDays = $map['retentionDays'];
         }
+
         if (isset($map['sqlMeteringMax'])) {
             $model->sqlMeteringMax = $map['sqlMeteringMax'];
         }
+
         if (isset($map['tableLifecycle'])) {
             $model->tableLifecycle = tableLifecycle::fromMap($map['tableLifecycle']);
         }
+
         if (isset($map['timezone'])) {
             $model->timezone = $map['timezone'];
         }
+
         if (isset($map['tunnelQuota'])) {
             $model->tunnelQuota = $map['tunnelQuota'];
         }
+
         if (isset($map['typeSystem'])) {
             $model->typeSystem = $map['typeSystem'];
         }

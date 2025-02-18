@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\MaxCompute\V20220104\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\MaxCompute\V20220104\Models\ListJobInfosResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListJobInfosResponseBody extends Model
 {
     /**
-     * @description The returned data.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpCode;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0bc13a9516807484336515320e38f5
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +29,23 @@ class ListJobInfosResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->httpCode) {
             $res['httpCode'] = $this->httpCode;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -59,20 +53,22 @@ class ListJobInfosResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListJobInfosResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['httpCode'])) {
             $model->httpCode = $map['httpCode'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
