@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UploadCsrRequest extends Model
 {
     /**
-     * @description The content of the CSR.
-     *
-     * This parameter is required.
-     * @example -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
-     *
      * @var string
      */
     public $csr;
-
     /**
-     * @description The private key content of the certificate in the PEM format.
-     *
-     * @example -----BEGIN RSA PRIVATE KEY----- MII.... -----END RSA PRIVATE KEY-----
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The name of the CSR.
-     *
-     * @example name
-     *
      * @var string
      */
     public $name;
@@ -43,17 +28,20 @@ class UploadCsrRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->csr) {
             $res['Csr'] = $this->csr;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -61,20 +49,22 @@ class UploadCsrRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadCsrRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Csr'])) {
             $model->csr = $map['Csr'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

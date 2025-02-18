@@ -4,89 +4,43 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class UploadUserCertificateRequest extends Model
 {
     /**
-     * @description The content of the certificate in the PEM format.
-     *
-     * @example -----BEGIN CERTIFICATE----- MIIF...... -----END CERTIFICATE-----
-     *
      * @var string
      */
     public $cert;
-
     /**
-     * @description The content of the encryption certificate in PEM format.
-     *
-     * @example -----BEGIN CERTIFICATE-----
-     * MIICDzCCA***
-     * -----END CERTIFICATE-----
      * @var string
      */
     public $encryptCert;
-
     /**
-     * @description The private key of the encryption certificate in the PEM format.
-     *
-     * @example -----BEGIN EC PRIVATE KEY-----
-     * MHcCAQEEI****
-     * -----END EC PRIVATE KEY-----
      * @var string
      */
     public $encryptPrivateKey;
-
     /**
-     * @description The private key of the certificate in the PEM format.
-     *
-     * @example -----BEGIN CERTIFICATE-----
-     * MIICDzCCAbagAw****
-     * -----END CERTIFICATE-----
      * @var string
      */
     public $key;
-
     /**
-     * @description The name of the certificate. The name can contain up to 128 characters in length. The name can contain all types of characters, such as letters, digits, and underscores (_).
-     *
-     * >  The name must be unique within an Alibaba Cloud account.
-     * @example cert-1
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description the resource group id.
-     *
-     * @example rg-ae****vty
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The content of the signing certificate in the PEM format.
-     *
-     * @example -----BEGIN CERTIFICATE-----
-     * MIICDzCCAbagAw****
-     * -----END CERTIFICATE-----
      * @var string
      */
     public $signCert;
-
     /**
-     * @description The private key of the signing certificate in the PEM format.
-     *
-     * @example -----BEGIN EC PRIVATE KEY-----
-     * MHcCAQEEILR****
-     * -----END EC PRIVATE KEY-----
      * @var string
      */
     public $signPrivateKey;
-
     /**
      * @var tags[]
      */
@@ -105,41 +59,53 @@ class UploadUserCertificateRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cert) {
             $res['Cert'] = $this->cert;
         }
+
         if (null !== $this->encryptCert) {
             $res['EncryptCert'] = $this->encryptCert;
         }
+
         if (null !== $this->encryptPrivateKey) {
             $res['EncryptPrivateKey'] = $this->encryptPrivateKey;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->signCert) {
             $res['SignCert'] = $this->signCert;
         }
+
         if (null !== $this->signPrivateKey) {
             $res['SignPrivateKey'] = $this->signPrivateKey;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -147,44 +113,52 @@ class UploadUserCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UploadUserCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cert'])) {
             $model->cert = $map['Cert'];
         }
+
         if (isset($map['EncryptCert'])) {
             $model->encryptCert = $map['EncryptCert'];
         }
+
         if (isset($map['EncryptPrivateKey'])) {
             $model->encryptPrivateKey = $map['EncryptPrivateKey'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SignCert'])) {
             $model->signCert = $map['SignCert'];
         }
+
         if (isset($map['SignPrivateKey'])) {
             $model->signPrivateKey = $map['SignPrivateKey'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }

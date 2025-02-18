@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCertificateStateRequest extends Model
 {
     /**
-     * @description The ID of the certificate application order that you want to query.
-     *
-     * This parameter is required.
-     * @example 123451222
-     *
      * @var int
      */
     public $orderId;
@@ -23,9 +18,10 @@ class DescribeCertificateStateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
@@ -35,11 +31,11 @@ class DescribeCertificateStateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCertificateStateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,85 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class CreateCertificateWithCsrRequestRequest extends Model
 {
     /**
-     * @description The content of the CSR file.\\
-     * A CSR file contains the information about your server and company. When you apply for a certificate, you must submit the CSR file to the CA. The CA signs the CSR file by using the private key of the root certificate and generates a public key file to issue your certificate.
-     *
-     * >  The **CN** field in the CSR file specifies the domain name that is bound to the certificate.
-     *
-     * This parameter is required.
-     * @example -----BEGIN CERTIFICATE REQUEST----- ...... -----END CERTIFICATE REQUEST-----
-     *
      * @var string
      */
     public $csr;
-
     /**
-     * @description The contact email address of the applicant.
-     *
-     * This parameter is required.
-     * @example username@example.com
-     *
      * @var string
      */
     public $email;
-
     /**
-     * @description The phone number of the applicant.
-     *
-     * This parameter is required.
-     * @example 1390000****
-     *
      * @var string
      */
     public $phone;
-
     /**
-     * @description The specifications of the certificate that you want to apply for. Valid values:
-     *
-     *   **digicert-free-1-free** (default): DigiCert single-domain DV certificate in a three-month free trial, available only on the China site (aliyun.com).
-     *   **symantec-free-1-free**: DigiCert single-domain DV certificate in a one-year free trial, available only on the China site (aliyun.com).
-     *   **symantec-dv-1-starter**: DigiCert wildcard DV certificate.
-     *   **geotrust-dv-1-starter**: GeoTrust single-domain DV certificate.
-     *   **geotrust-dv-w-starter**: GeoTrust wildcard DV certificate.
-     *   **globalsign-dv-1-personal**: GlobalSign single-domain DV certificate.
-     *   **globalsign-dv-w-advanced**: GlobalSign wildcard DV certificate.
-     *
-     * @example symantec-free-1-free
-     *
      * @var string
      */
     public $productCode;
-
     /**
      * @var tags[]
      */
     public $tags;
-
     /**
-     * @description The name of the applicant.
-     *
-     * This parameter is required.
-     * @example Tom
-     *
      * @var string
      */
     public $username;
-
     /**
-     * @description The method to verify the ownership of a domain name. Valid values:
-     *
-     *   **DNS**: DNS verification. If you use this method, you must add a TXT record to the DNS records of the domain name in the management platform of the domain name. You must have operation permissions on domain name resolution to verify the ownership of the domain name.
-     *   **FILE**: file verification. If you use this method, you must create a specified file on the DNS server. You must have administrative rights on the DNS server to verify the ownership of the domain name.
-     *
-     * This parameter is required.
-     * @example DNS
-     *
      * @var string
      */
     public $validateType;
@@ -98,35 +49,45 @@ class CreateCertificateWithCsrRequestRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->csr) {
             $res['Csr'] = $this->csr;
         }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
+
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->username) {
             $res['Username'] = $this->username;
         }
+
         if (null !== $this->validateType) {
             $res['ValidateType'] = $this->validateType;
         }
@@ -134,38 +95,44 @@ class CreateCertificateWithCsrRequestRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCertificateWithCsrRequestRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Csr'])) {
             $model->csr = $map['Csr'];
         }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }
+
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Username'])) {
             $model->username = $map['Username'];
         }
+
         if (isset($map['ValidateType'])) {
             $model->validateType = $map['ValidateType'];
         }

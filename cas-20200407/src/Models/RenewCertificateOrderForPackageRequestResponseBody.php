@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RenewCertificateOrderForPackageRequestResponseBody extends Model
 {
     /**
-     * @description The ID of the certificate application order that is renewed.
-     *
-     * >  You can use the ID to query the status of the certificate application order. For more information, see [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html).
-     * @example 323451222
-     *
      * @var int
      */
     public $orderId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 082FAB35-6AB9-4FD5-8750-D36673548E76
-     *
      * @var string
      */
     public $requestId;
@@ -33,14 +23,16 @@ class RenewCertificateOrderForPackageRequestResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +40,18 @@ class RenewCertificateOrderForPackageRequestResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenewCertificateOrderForPackageRequestResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

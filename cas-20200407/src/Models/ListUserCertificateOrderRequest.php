@@ -4,75 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListUserCertificateOrderRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description The domain name that is bound or the ID of the resource. Fuzzy match is supported.
-     *
-     * @example cert-instanceId
-     *
      * @var string
      */
     public $keyword;
-
     /**
-     * @description The type of the order. Default value: **CPACK**. Valid values:
-     *
-     *   **CPACK**: virtual resource order. If you set OrderType to CPACK, only the information about orders that are generated to consume the certificate quota is returned.
-     *   **BUY**: purchase order. If you set OrderType to BUY, only the information about purchase orders is returned. In most cases, this type of order can be ignored.
-     *   **UPLOAD**: uploaded certificate. If you set OrderType to UPLOAD, only uploaded certificates are returned.
-     *   **CERT**: certificate. If you set OrderType to CERT, both issued certificates and uploaded certificates are returned.
-     *
-     * @example CPACK
-     *
      * @var string
      */
     public $orderType;
-
     /**
-     * @description The ID of the resource group. You can call the [ListResources](https://help.aliyun.com/document_detail/2716559.html) operation to obtain the ID.
-     *
-     * @example rg-ae******4wia
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The number of entries to return on each page. Default value: 50.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $showSize;
-
     /**
-     * @description The certificate status of the order. Valid values:
-     *
-     *   **PAYED**: pending application. You can set Status to PAYED only if you set OrderType to CPACK or BUY.
-     *   **CHECKING**: validating. You can set Status to CHECKING only if you set OrderType to CPACK or BUY.
-     *   **CHECKED_FAIL**: validation failed. You can set Status to CHECKED_FAIL only if you set OrderType to CPACK or BUY.
-     *   **ISSUED**: issued.
-     *   **WILLEXPIRED**: about to expire.
-     *   **EXPIRED**: expired.
-     *   **NOTACTIVATED**: not activated. You can set Status to NOTACTIVATED only if you set OrderType to CPACK or BUY.
-     *   **REVOKED**: revoked. You can set Status to REVOKED only if you set OrderType to CPACK or BUY.
-     *
-     * If you set OrderType to CERT or UPLOAD and Status is left empty, valid certificates are returned by default, including issued certificates and certificates that are about to expire. If you set OrderType to CPACK or BUY and Status is left empty, all orders are returned by default.
-     * @example ISSUED
-     *
      * @var string
      */
     public $status;
@@ -87,26 +43,32 @@ class ListUserCertificateOrderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -114,29 +76,34 @@ class ListUserCertificateOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListUserCertificateOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ShowSize'])) {
             $model->showSize = $map['ShowSize'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

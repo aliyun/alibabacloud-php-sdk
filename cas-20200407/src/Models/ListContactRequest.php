@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListContactRequest extends Model
 {
     /**
-     * @description The page number. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description The keyword used in the query. For example, you can specify a keyword in names, email addresses, and mobile phone numbers.
-     *
-     * @example 186
-     *
      * @var string
      */
     public $keyword;
-
     /**
-     * @description The number of contacts per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $showSize;
@@ -42,17 +28,20 @@ class ListContactRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
         }
@@ -60,20 +49,22 @@ class ListContactRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListContactRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['ShowSize'])) {
             $model->showSize = $map['ShowSize'];
         }

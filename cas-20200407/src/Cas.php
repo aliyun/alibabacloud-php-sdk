@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelCertificateForPackageRequestRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelCertificateForPackageRequestResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\CancelOrderRequestRequest;
@@ -94,11 +93,10 @@ use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateResponse;
 use AlibabaCloud\SDK\Cas\V20200407\Models\VerifyRequest;
 use AlibabaCloud\SDK\Cas\V20200407\Models\VerifyResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Cas extends OpenApiClient
 {
@@ -176,35 +174,42 @@ class Cas extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Revokes an issued certificate and cancels the application order of the certificate.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CancelCertificateForPackageRequestRequest $request CancelCertificateForPackageRequestRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Revokes an issued certificate and cancels the application order of the certificate.
      *
-     * @return CancelCertificateForPackageRequestResponse CancelCertificateForPackageRequestResponse
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CancelCertificateForPackageRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelCertificateForPackageRequestResponse
+     *
+     * @param CancelCertificateForPackageRequestRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CancelCertificateForPackageRequestResponse
      */
     public function cancelCertificateForPackageRequestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelCertificateForPackageRequest',
@@ -217,18 +222,25 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelCertificateForPackageRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelCertificateForPackageRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelCertificateForPackageRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Revokes an issued certificate and cancels the application order of the certificate.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CancelCertificateForPackageRequestRequest $request CancelCertificateForPackageRequestRequest
+     * Revokes an issued certificate and cancels the application order of the certificate.
      *
-     * @return CancelCertificateForPackageRequestResponse CancelCertificateForPackageRequestResponse
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CancelCertificateForPackageRequestRequest
+     * @returns CancelCertificateForPackageRequestResponse
+     *
+     * @param CancelCertificateForPackageRequestRequest $request
+     *
+     * @return CancelCertificateForPackageRequestResponse
      */
     public function cancelCertificateForPackageRequest($request)
     {
@@ -238,24 +250,30 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Cancels a certificate application order that is in the pending validation or being reviewed state.
-     *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CancelOrderRequestRequest $request CancelOrderRequestRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Cancels a certificate application order that is in the pending validation or being reviewed state.
      *
-     * @return CancelOrderRequestResponse CancelOrderRequestResponse
+     * @remarks
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CancelOrderRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelOrderRequestResponse
+     *
+     * @param CancelOrderRequestRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CancelOrderRequestResponse
      */
     public function cancelOrderRequestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelOrderRequest',
@@ -268,18 +286,25 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelOrderRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelOrderRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelOrderRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels a certificate application order that is in the pending validation or being reviewed state.
-     *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param CancelOrderRequestRequest $request CancelOrderRequestRequest
+     * Cancels a certificate application order that is in the pending validation or being reviewed state.
      *
-     * @return CancelOrderRequestResponse CancelOrderRequestResponse
+     * @remarks
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - CancelOrderRequestRequest
+     * @returns CancelOrderRequestResponse
+     *
+     * @param CancelOrderRequestRequest $request
+     *
+     * @return CancelOrderRequestResponse
      */
     public function cancelOrderRequest($request)
     {
@@ -289,50 +314,64 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Submits a certificate application.
-     *  *
-     * @description *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455800.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
+     * Submits a certificate application.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455800.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
      * *   After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
      * *   After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
-     *  *
-     * @param CreateCertificateForPackageRequestRequest $request CreateCertificateForPackageRequestRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCertificateForPackageRequestResponse CreateCertificateForPackageRequestResponse
+     * @param request - CreateCertificateForPackageRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCertificateForPackageRequestResponse
+     *
+     * @param CreateCertificateForPackageRequestRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateCertificateForPackageRequestResponse
      */
     public function createCertificateForPackageRequestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->companyName)) {
-            $query['CompanyName'] = $request->companyName;
+        if (null !== $request->companyName) {
+            @$query['CompanyName'] = $request->companyName;
         }
-        if (!Utils::isUnset($request->csr)) {
-            $query['Csr'] = $request->csr;
+
+        if (null !== $request->csr) {
+            @$query['Csr'] = $request->csr;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $query['Phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
-        if (!Utils::isUnset($request->validateType)) {
-            $query['ValidateType'] = $request->validateType;
+
+        if (null !== $request->validateType) {
+            @$query['ValidateType'] = $request->validateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCertificateForPackageRequest',
@@ -345,20 +384,27 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCertificateForPackageRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCertificateForPackageRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCertificateForPackageRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a certificate application.
-     *  *
-     * @description *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455800.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
+     * Submits a certificate application.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455800.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
      * *   After you call this operation to submit a certificate application and the certificate is issued, the certificate quota provided by the resource plan that you purchased is consumed. When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
      * *   After you call this operation to submit a certificate application, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
-     *  *
-     * @param CreateCertificateForPackageRequestRequest $request CreateCertificateForPackageRequestRequest
      *
-     * @return CreateCertificateForPackageRequestResponse CreateCertificateForPackageRequestResponse
+     * @param request - CreateCertificateForPackageRequestRequest
+     * @returns CreateCertificateForPackageRequestResponse
+     *
+     * @param CreateCertificateForPackageRequestRequest $request
+     *
+     * @return CreateCertificateForPackageRequestResponse
      */
     public function createCertificateForPackageRequest($request)
     {
@@ -368,45 +414,57 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using extended certificate services.
-     *  *
-     * @description *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
+     * Purchases, applies for, and issues a domain validated (DV) certificate by using extended certificate services.
+     *
+     * @remarks
+     *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
      * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
      * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
      * *   After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
-     *  *
-     * @param CreateCertificateRequestRequest $request CreateCertificateRequestRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCertificateRequestResponse CreateCertificateRequestResponse
+     * @param request - CreateCertificateRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCertificateRequestResponse
+     *
+     * @param CreateCertificateRequestRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateCertificateRequestResponse
      */
     public function createCertificateRequestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $query['Phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
-        if (!Utils::isUnset($request->validateType)) {
-            $query['ValidateType'] = $request->validateType;
+
+        if (null !== $request->validateType) {
+            @$query['ValidateType'] = $request->validateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCertificateRequest',
@@ -419,21 +477,28 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCertificateRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCertificateRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCertificateRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using extended certificate services.
-     *  *
-     * @description *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
+     * Purchases, applies for, and issues a domain validated (DV) certificate by using extended certificate services.
+     *
+     * @remarks
+     *   You can call this operation to apply for only DV certificates. If you want to apply for an organization validated (OV) or extended validation (EV) certificate, we recommend that you call the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation. This operation allows you to apply for certificates of all specifications and specify the method to generate a certificate signing request (CSR) file.
      * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
      * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate.
      * *   After you call this operation to submit a certificate application, Certificate Management Service automatically creates a CSR file for your application and consumes the certificate quota in the certificate resource plans of the specified specifications that you purchased. After you call this operation, you also need to call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required to complete domain name verification, and manually complete the verification. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on your DNS server. Then, the certificate authority (CA) will review your certificate application.
-     *  *
-     * @param CreateCertificateRequestRequest $request CreateCertificateRequestRequest
      *
-     * @return CreateCertificateRequestResponse CreateCertificateRequestResponse
+     * @param request - CreateCertificateRequestRequest
+     * @returns CreateCertificateRequestResponse
+     *
+     * @param CreateCertificateRequestRequest $request
+     *
+     * @return CreateCertificateRequestResponse
      */
     public function createCertificateRequest($request)
     {
@@ -443,45 +508,57 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using a custom certificate signing request (CSR) file. You can use extended certificate services to purchase and apply for a DV certificate with a few clicks.
-     *  *
-     * @description *   You can use this operation to apply for only a domain validated (DV) certificate. You cannot use this operation to apply for an organization validated (OV) certificate. We recommend that you use the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation to apply for a certificate. You can use the CreateCertificateForPackageRequest operation to apply for certificates of all types and specify the CSR generation method.
+     * Purchases, applies for, and issues a domain validated (DV) certificate by using a custom certificate signing request (CSR) file. You can use extended certificate services to purchase and apply for a DV certificate with a few clicks.
+     *
+     * @remarks
+     *   You can use this operation to apply for only a domain validated (DV) certificate. You cannot use this operation to apply for an organization validated (OV) certificate. We recommend that you use the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation to apply for a certificate. You can use the CreateCertificateForPackageRequest operation to apply for certificates of all types and specify the CSR generation method.
      * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
      * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
      * *   After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you must call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
-     *  *
-     * @param CreateCertificateWithCsrRequestRequest $request CreateCertificateWithCsrRequestRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCertificateWithCsrRequestResponse CreateCertificateWithCsrRequestResponse
+     * @param request - CreateCertificateWithCsrRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCertificateWithCsrRequestResponse
+     *
+     * @param CreateCertificateWithCsrRequestRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateCertificateWithCsrRequestResponse
      */
     public function createCertificateWithCsrRequestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->csr)) {
-            $query['Csr'] = $request->csr;
+        if (null !== $request->csr) {
+            @$query['Csr'] = $request->csr;
         }
-        if (!Utils::isUnset($request->email)) {
-            $query['Email'] = $request->email;
+
+        if (null !== $request->email) {
+            @$query['Email'] = $request->email;
         }
-        if (!Utils::isUnset($request->phone)) {
-            $query['Phone'] = $request->phone;
+
+        if (null !== $request->phone) {
+            @$query['Phone'] = $request->phone;
         }
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->username)) {
-            $query['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$query['Username'] = $request->username;
         }
-        if (!Utils::isUnset($request->validateType)) {
-            $query['ValidateType'] = $request->validateType;
+
+        if (null !== $request->validateType) {
+            @$query['ValidateType'] = $request->validateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCertificateWithCsrRequest',
@@ -494,21 +571,28 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCertificateWithCsrRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCertificateWithCsrRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCertificateWithCsrRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Purchases, applies for, and issues a domain validated (DV) certificate by using a custom certificate signing request (CSR) file. You can use extended certificate services to purchase and apply for a DV certificate with a few clicks.
-     *  *
-     * @description *   You can use this operation to apply for only a domain validated (DV) certificate. You cannot use this operation to apply for an organization validated (OV) certificate. We recommend that you use the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation to apply for a certificate. You can use the CreateCertificateForPackageRequest operation to apply for certificates of all types and specify the CSR generation method.
+     * Purchases, applies for, and issues a domain validated (DV) certificate by using a custom certificate signing request (CSR) file. You can use extended certificate services to purchase and apply for a DV certificate with a few clicks.
+     *
+     * @remarks
+     *   You can use this operation to apply for only a domain validated (DV) certificate. You cannot use this operation to apply for an organization validated (OV) certificate. We recommend that you use the [CreateCertificateForPackageRequest](https://help.aliyun.com/document_detail/455296.html) operation to apply for a certificate. You can use the CreateCertificateForPackageRequest operation to apply for certificates of all types and specify the CSR generation method.
      * *   Before you call this operation, make sure that you have purchased a certificate resource plan of the required specifications. For more information about how to purchase a certificate resource plan, see [Purchase a certificate resource plan](https://help.aliyun.com/document_detail/28542.html). You can call the [DescribePackageState](https://help.aliyun.com/document_detail/455803.html) operation to query the usage of a certificate resource plan of specified specifications, including the total number of certificate resource plans that you purchase, the number of certificate applications that you submit, and the number of certificates that are issued.
      * *   When you call this operation, you can use the **ProductCode** parameter to specify the specifications of the certificate that you want to apply for.
      * *   After you call this operation to submit a certificate application, the certificate quota of the required specifications that you purchased is consumed. After you call this operation, you must call the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to obtain the information that is required for domain name ownership verification and manually complete the verification. Then, your certificate application is reviewed by the certificate authority (CA). If you use the Domain Name System (DNS) verification method, you must complete the verification on your DNS service provider system. If you use the file verification method, you must complete the verification on the DNS server.
-     *  *
-     * @param CreateCertificateWithCsrRequestRequest $request CreateCertificateWithCsrRequestRequest
      *
-     * @return CreateCertificateWithCsrRequestResponse CreateCertificateWithCsrRequestResponse
+     * @param request - CreateCertificateWithCsrRequestRequest
+     * @returns CreateCertificateWithCsrRequestResponse
+     *
+     * @param CreateCertificateWithCsrRequestRequest $request
+     *
+     * @return CreateCertificateWithCsrRequestResponse
      */
     public function createCertificateWithCsrRequest($request)
     {
@@ -518,49 +602,63 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a certificate signing request (CSR). A CSR file contains the information about an SSL certificate that you want to apply for. The information includes the domain names that you want to bind to the certificate and the name and the geographical location of the certificate holder. When you submit a certificate application to a certificate authority (CA), you must provide a CSR. After the CA approves your certificate application, the CA uses the private key of the root CA to sign your CSR and generates a public key file. The public key file is the SSL certificate that the CA issues to you. The private key of the SSL certificate is generated when you create the CSR.
-     *  *
-     * @param CreateCsrRequest $request CreateCsrRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Creates a certificate signing request (CSR). A CSR file contains the information about an SSL certificate that you want to apply for. The information includes the domain names that you want to bind to the certificate and the name and the geographical location of the certificate holder. When you submit a certificate application to a certificate authority (CA), you must provide a CSR. After the CA approves your certificate application, the CA uses the private key of the root CA to sign your CSR and generates a public key file. The public key file is the SSL certificate that the CA issues to you. The private key of the SSL certificate is generated when you create the CSR.
      *
-     * @return CreateCsrResponse CreateCsrResponse
+     * @param request - CreateCsrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCsrResponse
+     *
+     * @param CreateCsrRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateCsrResponse
      */
     public function createCsrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $query['Algorithm'] = $request->algorithm;
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
         }
-        if (!Utils::isUnset($request->commonName)) {
-            $query['CommonName'] = $request->commonName;
+
+        if (null !== $request->commonName) {
+            @$query['CommonName'] = $request->commonName;
         }
-        if (!Utils::isUnset($request->corpName)) {
-            $query['CorpName'] = $request->corpName;
+
+        if (null !== $request->corpName) {
+            @$query['CorpName'] = $request->corpName;
         }
-        if (!Utils::isUnset($request->countryCode)) {
-            $query['CountryCode'] = $request->countryCode;
+
+        if (null !== $request->countryCode) {
+            @$query['CountryCode'] = $request->countryCode;
         }
-        if (!Utils::isUnset($request->department)) {
-            $query['Department'] = $request->department;
+
+        if (null !== $request->department) {
+            @$query['Department'] = $request->department;
         }
-        if (!Utils::isUnset($request->keySize)) {
-            $query['KeySize'] = $request->keySize;
+
+        if (null !== $request->keySize) {
+            @$query['KeySize'] = $request->keySize;
         }
-        if (!Utils::isUnset($request->locality)) {
-            $query['Locality'] = $request->locality;
+
+        if (null !== $request->locality) {
+            @$query['Locality'] = $request->locality;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->province)) {
-            $query['Province'] = $request->province;
+
+        if (null !== $request->province) {
+            @$query['Province'] = $request->province;
         }
-        if (!Utils::isUnset($request->sans)) {
-            $query['Sans'] = $request->sans;
+
+        if (null !== $request->sans) {
+            @$query['Sans'] = $request->sans;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCsr',
@@ -573,16 +671,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCsrResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a certificate signing request (CSR). A CSR file contains the information about an SSL certificate that you want to apply for. The information includes the domain names that you want to bind to the certificate and the name and the geographical location of the certificate holder. When you submit a certificate application to a certificate authority (CA), you must provide a CSR. After the CA approves your certificate application, the CA uses the private key of the root CA to sign your CSR and generates a public key file. The public key file is the SSL certificate that the CA issues to you. The private key of the SSL certificate is generated when you create the CSR.
-     *  *
-     * @param CreateCsrRequest $request CreateCsrRequest
+     * Creates a certificate signing request (CSR). A CSR file contains the information about an SSL certificate that you want to apply for. The information includes the domain names that you want to bind to the certificate and the name and the geographical location of the certificate holder. When you submit a certificate application to a certificate authority (CA), you must provide a CSR. After the CA approves your certificate application, the CA uses the private key of the root CA to sign your CSR and generates a public key file. The public key file is the SSL certificate that the CA issues to you. The private key of the SSL certificate is generated when you create the CSR.
      *
-     * @return CreateCsrResponse CreateCsrResponse
+     * @param request - CreateCsrRequest
+     * @returns CreateCsrResponse
+     *
+     * @param CreateCsrRequest $request
+     *
+     * @return CreateCsrResponse
      */
     public function createCsr($request)
     {
@@ -592,37 +696,47 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a deployment task.
-     *  *
-     * @param CreateDeploymentJobRequest $request CreateDeploymentJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a deployment task.
      *
-     * @return CreateDeploymentJobResponse CreateDeploymentJobResponse
+     * @param request - CreateDeploymentJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDeploymentJobResponse
+     *
+     * @param CreateDeploymentJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateDeploymentJobResponse
      */
     public function createDeploymentJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certIds)) {
-            $query['CertIds'] = $request->certIds;
+        if (null !== $request->certIds) {
+            @$query['CertIds'] = $request->certIds;
         }
-        if (!Utils::isUnset($request->contactIds)) {
-            $query['ContactIds'] = $request->contactIds;
+
+        if (null !== $request->contactIds) {
+            @$query['ContactIds'] = $request->contactIds;
         }
-        if (!Utils::isUnset($request->jobType)) {
-            $query['JobType'] = $request->jobType;
+
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->scheduleTime)) {
-            $query['ScheduleTime'] = $request->scheduleTime;
+
+        if (null !== $request->scheduleTime) {
+            @$query['ScheduleTime'] = $request->scheduleTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDeploymentJob',
@@ -635,16 +749,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeploymentJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a deployment task.
-     *  *
-     * @param CreateDeploymentJobRequest $request CreateDeploymentJobRequest
+     * Creates a deployment task.
      *
-     * @return CreateDeploymentJobResponse CreateDeploymentJobResponse
+     * @param request - CreateDeploymentJobRequest
+     * @returns CreateDeploymentJobResponse
+     *
+     * @param CreateDeploymentJobRequest $request
+     *
+     * @return CreateDeploymentJobResponse
      */
     public function createDeploymentJob($request)
     {
@@ -654,33 +774,42 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Decrypts a certificate in a certificate repository.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DecryptRequest $request DecryptRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Decrypts a certificate in a certificate repository.
      *
-     * @return DecryptResponse DecryptResponse
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DecryptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DecryptResponse
+     *
+     * @param DecryptRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return DecryptResponse
      */
     public function decryptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $query['Algorithm'] = $request->algorithm;
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
         }
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $query['CertIdentifier'] = $request->certIdentifier;
+
+        if (null !== $request->certIdentifier) {
+            @$query['CertIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->ciphertextBlob)) {
-            $query['CiphertextBlob'] = $request->ciphertextBlob;
+
+        if (null !== $request->ciphertextBlob) {
+            @$query['CiphertextBlob'] = $request->ciphertextBlob;
         }
-        if (!Utils::isUnset($request->messageType)) {
-            $query['MessageType'] = $request->messageType;
+
+        if (null !== $request->messageType) {
+            @$query['MessageType'] = $request->messageType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'Decrypt',
@@ -693,18 +822,25 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DecryptResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DecryptResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DecryptResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Decrypts a certificate in a certificate repository.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DecryptRequest $request DecryptRequest
+     * Decrypts a certificate in a certificate repository.
      *
-     * @return DecryptResponse DecryptResponse
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DecryptRequest
+     * @returns DecryptResponse
+     *
+     * @param DecryptRequest $request
+     *
+     * @return DecryptResponse
      */
     public function decrypt($request)
     {
@@ -714,26 +850,32 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an order in which the application for a domain validated (DV) certificate failed.
-     *  *
-     * @description You can call this operation to delete a certificate application order only in the following scenarios:
+     * Deletes an order in which the application for a domain validated (DV) certificate failed.
+     *
+     * @remarks
+     * You can call this operation to delete a certificate application order only in the following scenarios:
      * *   The status of the order is **review failed**. You have called the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
      * *   The status of the order is **pending application**. You have called the [CancelOrderRequest](https://help.aliyun.com/document_detail/455299.html) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
-     *  *
-     * @param DeleteCertificateRequestRequest $request DeleteCertificateRequestRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCertificateRequestResponse DeleteCertificateRequestResponse
+     * @param request - DeleteCertificateRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCertificateRequestResponse
+     *
+     * @param DeleteCertificateRequestRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteCertificateRequestResponse
      */
     public function deleteCertificateRequestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCertificateRequest',
@@ -746,20 +888,27 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCertificateRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCertificateRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCertificateRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an order in which the application for a domain validated (DV) certificate failed.
-     *  *
-     * @description You can call this operation to delete a certificate application order only in the following scenarios:
+     * Deletes an order in which the application for a domain validated (DV) certificate failed.
+     *
+     * @remarks
+     * You can call this operation to delete a certificate application order only in the following scenarios:
      * *   The status of the order is **review failed**. You have called the [DescribeCertificateState](https://help.aliyun.com/document_detail/455800.html) operation to query the status of the certificate application order and the value of the **Type** parameter is **verify_fail**.
      * *   The status of the order is **pending application**. You have called the [CancelOrderRequest](https://help.aliyun.com/document_detail/455299.html) operation to cancel a certificate application order whose status is pending review or being reviewed. The status of the certificate application order that is canceled in this case changes to **pending application**.
-     *  *
-     * @param DeleteCertificateRequestRequest $request DeleteCertificateRequestRequest
      *
-     * @return DeleteCertificateRequestResponse DeleteCertificateRequestResponse
+     * @param request - DeleteCertificateRequestRequest
+     * @returns DeleteCertificateRequestResponse
+     *
+     * @param DeleteCertificateRequestRequest $request
+     *
+     * @return DeleteCertificateRequestResponse
      */
     public function deleteCertificateRequest($request)
     {
@@ -769,22 +918,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a certificate signing request (CSR) file.
-     *  *
-     * @param DeleteCsrRequest $request DeleteCsrRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Deletes a certificate signing request (CSR) file.
      *
-     * @return DeleteCsrResponse DeleteCsrResponse
+     * @param request - DeleteCsrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCsrResponse
+     *
+     * @param DeleteCsrRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteCsrResponse
      */
     public function deleteCsrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->csrId)) {
-            $query['CsrId'] = $request->csrId;
+        if (null !== $request->csrId) {
+            @$query['CsrId'] = $request->csrId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCsr',
@@ -797,16 +951,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCsrResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a certificate signing request (CSR) file.
-     *  *
-     * @param DeleteCsrRequest $request DeleteCsrRequest
+     * Deletes a certificate signing request (CSR) file.
      *
-     * @return DeleteCsrResponse DeleteCsrResponse
+     * @param request - DeleteCsrRequest
+     * @returns DeleteCsrResponse
+     *
+     * @param DeleteCsrRequest $request
+     *
+     * @return DeleteCsrResponse
      */
     public function deleteCsr($request)
     {
@@ -816,22 +976,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a deployment task.
-     *  *
-     * @param DeleteDeploymentJobRequest $request DeleteDeploymentJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Deletes a deployment task.
      *
-     * @return DeleteDeploymentJobResponse DeleteDeploymentJobResponse
+     * @param request - DeleteDeploymentJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDeploymentJobResponse
+     *
+     * @param DeleteDeploymentJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteDeploymentJobResponse
      */
     public function deleteDeploymentJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDeploymentJob',
@@ -844,16 +1009,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeploymentJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a deployment task.
-     *  *
-     * @param DeleteDeploymentJobRequest $request DeleteDeploymentJobRequest
+     * Deletes a deployment task.
      *
-     * @return DeleteDeploymentJobResponse DeleteDeploymentJobResponse
+     * @param request - DeleteDeploymentJobRequest
+     * @returns DeleteDeploymentJobResponse
+     *
+     * @param DeleteDeploymentJobRequest $request
+     *
+     * @return DeleteDeploymentJobResponse
      */
     public function deleteDeploymentJob($request)
     {
@@ -863,26 +1034,32 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a private certificate from a certificate application repository.
-     *  *
-     * @description You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
+     * Deletes a private certificate from a certificate application repository.
+     *
+     * @remarks
+     * You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeletePCACertRequest $request DeletePCACertRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePCACertResponse DeletePCACertResponse
+     * @param request - DeletePCACertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePCACertResponse
+     *
+     * @param DeletePCACertRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeletePCACertResponse
      */
     public function deletePCACertWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
+        if (null !== $request->identifier) {
+            @$query['Identifier'] = $request->identifier;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePCACert',
@@ -895,20 +1072,27 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePCACertResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePCACertResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePCACertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a private certificate from a certificate application repository.
-     *  *
-     * @description You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
+     * Deletes a private certificate from a certificate application repository.
+     *
+     * @remarks
+     * You can call the DeletePCACert operation to delete a private certificate from a certificate application repository.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeletePCACertRequest $request DeletePCACertRequest
      *
-     * @return DeletePCACertResponse DeletePCACertResponse
+     * @param request - DeletePCACertRequest
+     * @returns DeletePCACertResponse
+     *
+     * @param DeletePCACertRequest $request
+     *
+     * @return DeletePCACertResponse
      */
     public function deletePCACert($request)
     {
@@ -918,24 +1102,30 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an expired or uploaded certificate.
-     *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteUserCertificateRequest $request DeleteUserCertificateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes an expired or uploaded certificate.
      *
-     * @return DeleteUserCertificateResponse DeleteUserCertificateResponse
+     * @remarks
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DeleteUserCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteUserCertificateResponse
+     *
+     * @param DeleteUserCertificateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteUserCertificateResponse
      */
     public function deleteUserCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certId)) {
-            $query['CertId'] = $request->certId;
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteUserCertificate',
@@ -948,18 +1138,25 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteUserCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an expired or uploaded certificate.
-     *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param DeleteUserCertificateRequest $request DeleteUserCertificateRequest
+     * Deletes an expired or uploaded certificate.
      *
-     * @return DeleteUserCertificateResponse DeleteUserCertificateResponse
+     * @remarks
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - DeleteUserCertificateRequest
+     * @returns DeleteUserCertificateResponse
+     *
+     * @param DeleteUserCertificateRequest $request
+     *
+     * @return DeleteUserCertificateResponse
      */
     public function deleteUserCertificate($request)
     {
@@ -969,25 +1166,31 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the worker of a deployment task.
-     *  *
-     * @param DeleteWorkerResourceRequest $request DeleteWorkerResourceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes the worker of a deployment task.
      *
-     * @return DeleteWorkerResourceResponse DeleteWorkerResourceResponse
+     * @param request - DeleteWorkerResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWorkerResourceResponse
+     *
+     * @param DeleteWorkerResourceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteWorkerResourceResponse
      */
     public function deleteWorkerResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->workerId)) {
-            $query['WorkerId'] = $request->workerId;
+
+        if (null !== $request->workerId) {
+            @$query['WorkerId'] = $request->workerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWorkerResource',
@@ -1000,16 +1203,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWorkerResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWorkerResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWorkerResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes the worker of a deployment task.
-     *  *
-     * @param DeleteWorkerResourceRequest $request DeleteWorkerResourceRequest
+     * Deletes the worker of a deployment task.
      *
-     * @return DeleteWorkerResourceResponse DeleteWorkerResourceResponse
+     * @param request - DeleteWorkerResourceRequest
+     * @returns DeleteWorkerResourceResponse
+     *
+     * @param DeleteWorkerResourceRequest $request
+     *
+     * @return DeleteWorkerResourceResponse
      */
     public function deleteWorkerResource($request)
     {
@@ -1019,25 +1228,31 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of a specified certificate application order.
-     *  *
-     * @description If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
-     * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
-     *  *
-     * @param DescribeCertificateStateRequest $request DescribeCertificateStateRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the status of a specified certificate application order.
      *
-     * @return DescribeCertificateStateResponse DescribeCertificateStateResponse
+     * @remarks
+     * If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
+     * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
+     *
+     * @param request - DescribeCertificateStateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCertificateStateResponse
+     *
+     * @param DescribeCertificateStateRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeCertificateStateResponse
      */
     public function describeCertificateStateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCertificateState',
@@ -1050,19 +1265,26 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCertificateStateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCertificateStateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCertificateStateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of a specified certificate application order.
-     *  *
-     * @description If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
-     * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
-     *  *
-     * @param DescribeCertificateStateRequest $request DescribeCertificateStateRequest
+     * Queries the status of a specified certificate application order.
      *
-     * @return DescribeCertificateStateResponse DescribeCertificateStateResponse
+     * @remarks
+     * If you do not complete the verification of the domain name ownership after you submit a certificate application, you can call this operation to obtain the information that is required to complete the verification. You can complete the verification of the domain name ownership based on the data returned. If you use the DNS verification method, you must complete the verification on the management platform of the domain name. If you use the file verification method, you must complete the verification on the DNS server.
+     * The certificate authority (CA) reviews your certificate application only after you complete the verification of the domain name ownership. After the CA approves your certificate application, the CA issues the certificate. If a certificate is issued, you can call this operation to obtain the CA certificate and private key of the certificate.
+     *
+     * @param request - DescribeCertificateStateRequest
+     * @returns DescribeCertificateStateResponse
+     *
+     * @param DescribeCertificateStateRequest $request
+     *
+     * @return DescribeCertificateStateResponse
      */
     public function describeCertificateState($request)
     {
@@ -1072,22 +1294,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of third-party cloud resources on which you deployed certificates by using a multi-cloud deployment task.
-     *  *
-     * @param DescribeCloudResourceStatusRequest $request DescribeCloudResourceStatusRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the number of third-party cloud resources on which you deployed certificates by using a multi-cloud deployment task.
      *
-     * @return DescribeCloudResourceStatusResponse DescribeCloudResourceStatusResponse
+     * @param request - DescribeCloudResourceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCloudResourceStatusResponse
+     *
+     * @param DescribeCloudResourceStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeCloudResourceStatusResponse
      */
     public function describeCloudResourceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->secretId)) {
-            $query['SecretId'] = $request->secretId;
+        if (null !== $request->secretId) {
+            @$query['SecretId'] = $request->secretId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCloudResourceStatus',
@@ -1100,16 +1327,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCloudResourceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCloudResourceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCloudResourceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of third-party cloud resources on which you deployed certificates by using a multi-cloud deployment task.
-     *  *
-     * @param DescribeCloudResourceStatusRequest $request DescribeCloudResourceStatusRequest
+     * Queries the number of third-party cloud resources on which you deployed certificates by using a multi-cloud deployment task.
      *
-     * @return DescribeCloudResourceStatusResponse DescribeCloudResourceStatusResponse
+     * @param request - DescribeCloudResourceStatusRequest
+     * @returns DescribeCloudResourceStatusResponse
+     *
+     * @param DescribeCloudResourceStatusRequest $request
+     *
+     * @return DescribeCloudResourceStatusResponse
      */
     public function describeCloudResourceStatus($request)
     {
@@ -1119,22 +1352,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a deployment task. You can call the CreateDeploymentJob operation to create a deployment task and obtain the ID of the task.
-     *  *
-     * @param DescribeDeploymentJobRequest $request DescribeDeploymentJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a deployment task. You can call the CreateDeploymentJob operation to create a deployment task and obtain the ID of the task.
      *
-     * @return DescribeDeploymentJobResponse DescribeDeploymentJobResponse
+     * @param request - DescribeDeploymentJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDeploymentJobResponse
+     *
+     * @param DescribeDeploymentJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDeploymentJobResponse
      */
     public function describeDeploymentJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDeploymentJob',
@@ -1147,16 +1385,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDeploymentJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a deployment task. You can call the CreateDeploymentJob operation to create a deployment task and obtain the ID of the task.
-     *  *
-     * @param DescribeDeploymentJobRequest $request DescribeDeploymentJobRequest
+     * Queries the details of a deployment task. You can call the CreateDeploymentJob operation to create a deployment task and obtain the ID of the task.
      *
-     * @return DescribeDeploymentJobResponse DescribeDeploymentJobResponse
+     * @param request - DescribeDeploymentJobRequest
+     * @returns DescribeDeploymentJobResponse
+     *
+     * @param DescribeDeploymentJobRequest $request
+     *
+     * @return DescribeDeploymentJobResponse
      */
     public function describeDeploymentJob($request)
     {
@@ -1166,22 +1410,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of worker tasks in a deployment task.
-     *  *
-     * @param DescribeDeploymentJobStatusRequest $request DescribeDeploymentJobStatusRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the number of worker tasks in a deployment task.
      *
-     * @return DescribeDeploymentJobStatusResponse DescribeDeploymentJobStatusResponse
+     * @param request - DescribeDeploymentJobStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDeploymentJobStatusResponse
+     *
+     * @param DescribeDeploymentJobStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDeploymentJobStatusResponse
      */
     public function describeDeploymentJobStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDeploymentJobStatus',
@@ -1194,16 +1443,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDeploymentJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDeploymentJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDeploymentJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of worker tasks in a deployment task.
-     *  *
-     * @param DescribeDeploymentJobStatusRequest $request DescribeDeploymentJobStatusRequest
+     * Queries the number of worker tasks in a deployment task.
      *
-     * @return DescribeDeploymentJobStatusResponse DescribeDeploymentJobStatusResponse
+     * @param request - DescribeDeploymentJobStatusRequest
+     * @returns DescribeDeploymentJobStatusResponse
+     *
+     * @param DescribeDeploymentJobStatusRequest $request
+     *
+     * @return DescribeDeploymentJobStatusResponse
      */
     public function describeDeploymentJobStatus($request)
     {
@@ -1213,22 +1468,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quota for domain validated (DV) certificates that you purchase and the quota usage.
-     *  *
-     * @param DescribePackageStateRequest $request DescribePackageStateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the quota for domain validated (DV) certificates that you purchase and the quota usage.
      *
-     * @return DescribePackageStateResponse DescribePackageStateResponse
+     * @param request - DescribePackageStateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePackageStateResponse
+     *
+     * @param DescribePackageStateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribePackageStateResponse
      */
     public function describePackageStateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->productCode)) {
-            $query['ProductCode'] = $request->productCode;
+        if (null !== $request->productCode) {
+            @$query['ProductCode'] = $request->productCode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePackageState',
@@ -1241,16 +1501,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePackageStateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePackageStateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePackageStateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quota for domain validated (DV) certificates that you purchase and the quota usage.
-     *  *
-     * @param DescribePackageStateRequest $request DescribePackageStateRequest
+     * Queries the quota for domain validated (DV) certificates that you purchase and the quota usage.
      *
-     * @return DescribePackageStateResponse DescribePackageStateResponse
+     * @param request - DescribePackageStateRequest
+     * @returns DescribePackageStateResponse
+     *
+     * @param DescribePackageStateRequest $request
+     *
+     * @return DescribePackageStateResponse
      */
     public function describePackageState($request)
     {
@@ -1260,33 +1526,42 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Encrypts a certificate in a certificate repository.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param EncryptRequest $request EncryptRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Encrypts a certificate in a certificate repository.
      *
-     * @return EncryptResponse EncryptResponse
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - EncryptRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EncryptResponse
+     *
+     * @param EncryptRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return EncryptResponse
      */
     public function encryptWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $query['Algorithm'] = $request->algorithm;
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
         }
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $query['CertIdentifier'] = $request->certIdentifier;
+
+        if (null !== $request->certIdentifier) {
+            @$query['CertIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->messageType)) {
-            $query['MessageType'] = $request->messageType;
+
+        if (null !== $request->messageType) {
+            @$query['MessageType'] = $request->messageType;
         }
-        if (!Utils::isUnset($request->plaintext)) {
-            $query['Plaintext'] = $request->plaintext;
+
+        if (null !== $request->plaintext) {
+            @$query['Plaintext'] = $request->plaintext;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'Encrypt',
@@ -1299,18 +1574,25 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EncryptResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EncryptResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EncryptResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Encrypts a certificate in a certificate repository.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param EncryptRequest $request EncryptRequest
+     * Encrypts a certificate in a certificate repository.
      *
-     * @return EncryptResponse EncryptResponse
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - EncryptRequest
+     * @returns EncryptResponse
+     *
+     * @param EncryptRequest $request
+     *
+     * @return EncryptResponse
      */
     public function encrypt($request)
     {
@@ -1320,13 +1602,18 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the quota for certificate repositories.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the quota for certificate repositories.
      *
-     * @return GetCertWarehouseQuotaResponse GetCertWarehouseQuotaResponse
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - GetCertWarehouseQuotaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCertWarehouseQuotaResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetCertWarehouseQuotaResponse
      */
     public function getCertWarehouseQuotaWithOptions($runtime)
     {
@@ -1342,16 +1629,21 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCertWarehouseQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCertWarehouseQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCertWarehouseQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the quota for certificate repositories.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @return GetCertWarehouseQuotaResponse GetCertWarehouseQuotaResponse
+     * Queries the quota for certificate repositories.
+     *
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @returns GetCertWarehouseQuotaResponse
+     *
+     * @return GetCertWarehouseQuotaResponse
      */
     public function getCertWarehouseQuota()
     {
@@ -1361,22 +1653,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the content of a certificate signing request (CSR) file.
-     *  *
-     * @param GetCsrDetailRequest $request GetCsrDetailRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Obtains the content of a certificate signing request (CSR) file.
      *
-     * @return GetCsrDetailResponse GetCsrDetailResponse
+     * @param request - GetCsrDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCsrDetailResponse
+     *
+     * @param GetCsrDetailRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetCsrDetailResponse
      */
     public function getCsrDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->csrId)) {
-            $query['CsrId'] = $request->csrId;
+        if (null !== $request->csrId) {
+            @$query['CsrId'] = $request->csrId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCsrDetail',
@@ -1389,16 +1686,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCsrDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCsrDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCsrDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the content of a certificate signing request (CSR) file.
-     *  *
-     * @param GetCsrDetailRequest $request GetCsrDetailRequest
+     * Obtains the content of a certificate signing request (CSR) file.
      *
-     * @return GetCsrDetailResponse GetCsrDetailResponse
+     * @param request - GetCsrDetailRequest
+     * @returns GetCsrDetailResponse
+     *
+     * @param GetCsrDetailRequest $request
+     *
+     * @return GetCsrDetailResponse
      */
     public function getCsrDetail($request)
     {
@@ -1408,27 +1711,34 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a certificate.
-     *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetUserCertificateDetailRequest $request GetUserCertificateDetailRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a certificate.
      *
-     * @return GetUserCertificateDetailResponse GetUserCertificateDetailResponse
+     * @remarks
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - GetUserCertificateDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserCertificateDetailResponse
+     *
+     * @param GetUserCertificateDetailRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetUserCertificateDetailResponse
      */
     public function getUserCertificateDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certFilter)) {
-            $query['CertFilter'] = $request->certFilter;
+        if (null !== $request->certFilter) {
+            @$query['CertFilter'] = $request->certFilter;
         }
-        if (!Utils::isUnset($request->certId)) {
-            $query['CertId'] = $request->certId;
+
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUserCertificateDetail',
@@ -1441,18 +1751,25 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserCertificateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserCertificateDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a certificate.
-     *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param GetUserCertificateDetailRequest $request GetUserCertificateDetailRequest
+     * Queries the details of a certificate.
      *
-     * @return GetUserCertificateDetailResponse GetUserCertificateDetailResponse
+     * @remarks
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - GetUserCertificateDetailRequest
+     * @returns GetUserCertificateDetailResponse
+     *
+     * @param GetUserCertificateDetailRequest $request
+     *
+     * @return GetUserCertificateDetailResponse
      */
     public function getUserCertificateDetail($request)
     {
@@ -1462,42 +1779,54 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificates in a certificate repository.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ListCertRequest $request ListCertRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the certificates in a certificate repository.
      *
-     * @return ListCertResponse ListCertResponse
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - ListCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCertResponse
+     *
+     * @param ListCertRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListCertResponse
      */
     public function listCertWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certType)) {
-            $query['CertType'] = $request->certType;
+        if (null !== $request->certType) {
+            @$query['CertType'] = $request->certType;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->showSize)) {
-            $query['ShowSize'] = $request->showSize;
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->warehouseId)) {
-            $query['WarehouseId'] = $request->warehouseId;
+
+        if (null !== $request->warehouseId) {
+            @$query['WarehouseId'] = $request->warehouseId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCert',
@@ -1510,18 +1839,25 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCertResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCertResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificates in a certificate repository.
-     *  *
-     * @description You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ListCertRequest $request ListCertRequest
+     * Queries the certificates in a certificate repository.
      *
-     * @return ListCertResponse ListCertResponse
+     * @remarks
+     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - ListCertRequest
+     * @returns ListCertResponse
+     *
+     * @param ListCertRequest $request
+     *
+     * @return ListCertResponse
      */
     public function listCert($request)
     {
@@ -1531,38 +1867,48 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries certificate repositories.
-     *  *
-     * @description You can call the ListCertWarehouse operation to query certificate repositories.
+     * Queries certificate repositories.
+     *
+     * @remarks
+     * You can call the ListCertWarehouse operation to query certificate repositories.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ListCertWarehouseRequest $request ListCertWarehouseRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCertWarehouseResponse ListCertWarehouseResponse
+     * @param request - ListCertWarehouseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCertWarehouseResponse
+     *
+     * @param ListCertWarehouseRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCertWarehouseResponse
      */
     public function listCertWarehouseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->showSize)) {
-            $query['ShowSize'] = $request->showSize;
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCertWarehouse',
@@ -1575,20 +1921,27 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCertWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCertWarehouseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCertWarehouseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries certificate repositories.
-     *  *
-     * @description You can call the ListCertWarehouse operation to query certificate repositories.
+     * Queries certificate repositories.
+     *
+     * @remarks
+     * You can call the ListCertWarehouse operation to query certificate repositories.
      * ### Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ListCertWarehouseRequest $request ListCertWarehouseRequest
      *
-     * @return ListCertWarehouseResponse ListCertWarehouseResponse
+     * @param request - ListCertWarehouseRequest
+     * @returns ListCertWarehouseResponse
+     *
+     * @param ListCertWarehouseRequest $request
+     *
+     * @return ListCertWarehouseResponse
      */
     public function listCertWarehouse($request)
     {
@@ -1598,31 +1951,39 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of AccessKey pairs for multi-cloud deployment.
-     *  *
-     * @param ListCloudAccessRequest $request ListCloudAccessRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of AccessKey pairs for multi-cloud deployment.
      *
-     * @return ListCloudAccessResponse ListCloudAccessResponse
+     * @param request - ListCloudAccessRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCloudAccessResponse
+     *
+     * @param ListCloudAccessRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCloudAccessResponse
      */
     public function listCloudAccessWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cloudName)) {
-            $query['CloudName'] = $request->cloudName;
+        if (null !== $request->cloudName) {
+            @$query['CloudName'] = $request->cloudName;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->secretId)) {
-            $query['SecretId'] = $request->secretId;
+
+        if (null !== $request->secretId) {
+            @$query['SecretId'] = $request->secretId;
         }
-        if (!Utils::isUnset($request->showSize)) {
-            $query['ShowSize'] = $request->showSize;
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCloudAccess',
@@ -1635,16 +1996,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCloudAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCloudAccessResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCloudAccessResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of AccessKey pairs for multi-cloud deployment.
-     *  *
-     * @param ListCloudAccessRequest $request ListCloudAccessRequest
+     * Queries a list of AccessKey pairs for multi-cloud deployment.
      *
-     * @return ListCloudAccessResponse ListCloudAccessResponse
+     * @param request - ListCloudAccessRequest
+     * @returns ListCloudAccessResponse
+     *
+     * @param ListCloudAccessRequest $request
+     *
+     * @return ListCloudAccessResponse
      */
     public function listCloudAccess($request)
     {
@@ -1654,45 +2021,57 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificate resources of a cloud service provider and cloud services.
-     *  *
-     * @param ListCloudResourcesRequest $tmpReq  ListCloudResourcesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the certificate resources of a cloud service provider and cloud services.
      *
-     * @return ListCloudResourcesResponse ListCloudResourcesResponse
+     * @param tmpReq - ListCloudResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCloudResourcesResponse
+     *
+     * @param ListCloudResourcesRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListCloudResourcesResponse
      */
     public function listCloudResourcesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListCloudResourcesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->certIds)) {
-            $request->certIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->certIds, 'CertIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->certIds) {
+            $request->certIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->certIds, 'CertIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->certIdsShrink)) {
-            $query['CertIds'] = $request->certIdsShrink;
+        if (null !== $request->certIdsShrink) {
+            @$query['CertIds'] = $request->certIdsShrink;
         }
-        if (!Utils::isUnset($request->cloudName)) {
-            $query['CloudName'] = $request->cloudName;
+
+        if (null !== $request->cloudName) {
+            @$query['CloudName'] = $request->cloudName;
         }
-        if (!Utils::isUnset($request->cloudProduct)) {
-            $query['CloudProduct'] = $request->cloudProduct;
+
+        if (null !== $request->cloudProduct) {
+            @$query['CloudProduct'] = $request->cloudProduct;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->secretId)) {
-            $query['SecretId'] = $request->secretId;
+
+        if (null !== $request->secretId) {
+            @$query['SecretId'] = $request->secretId;
         }
-        if (!Utils::isUnset($request->showSize)) {
-            $query['ShowSize'] = $request->showSize;
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCloudResources',
@@ -1705,16 +2084,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCloudResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificate resources of a cloud service provider and cloud services.
-     *  *
-     * @param ListCloudResourcesRequest $request ListCloudResourcesRequest
+     * Queries the certificate resources of a cloud service provider and cloud services.
      *
-     * @return ListCloudResourcesResponse ListCloudResourcesResponse
+     * @param request - ListCloudResourcesRequest
+     * @returns ListCloudResourcesResponse
+     *
+     * @param ListCloudResourcesRequest $request
+     *
+     * @return ListCloudResourcesResponse
      */
     public function listCloudResources($request)
     {
@@ -1724,28 +2109,35 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of contacts.
-     *  *
-     * @param ListContactRequest $request ListContactRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries a list of contacts.
      *
-     * @return ListContactResponse ListContactResponse
+     * @param request - ListContactRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListContactResponse
+     *
+     * @param ListContactRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListContactResponse
      */
     public function listContactWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->showSize)) {
-            $query['ShowSize'] = $request->showSize;
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListContact',
@@ -1758,16 +2150,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListContactResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListContactResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of contacts.
-     *  *
-     * @param ListContactRequest $request ListContactRequest
+     * Queries a list of contacts.
      *
-     * @return ListContactResponse ListContactResponse
+     * @param request - ListContactRequest
+     * @returns ListContactResponse
+     *
+     * @param ListContactRequest $request
+     *
+     * @return ListContactResponse
      */
     public function listContact($request)
     {
@@ -1777,31 +2175,39 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries certificate signing requests (CSRs).
-     *  *
-     * @param ListCsrRequest $request ListCsrRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries certificate signing requests (CSRs).
      *
-     * @return ListCsrResponse ListCsrResponse
+     * @param request - ListCsrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCsrResponse
+     *
+     * @param ListCsrRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListCsrResponse
      */
     public function listCsrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $query['Algorithm'] = $request->algorithm;
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->keyWord)) {
-            $query['KeyWord'] = $request->keyWord;
+
+        if (null !== $request->keyWord) {
+            @$query['KeyWord'] = $request->keyWord;
         }
-        if (!Utils::isUnset($request->showSize)) {
-            $query['ShowSize'] = $request->showSize;
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCsr',
@@ -1814,16 +2220,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCsrResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries certificate signing requests (CSRs).
-     *  *
-     * @param ListCsrRequest $request ListCsrRequest
+     * Queries certificate signing requests (CSRs).
      *
-     * @return ListCsrResponse ListCsrResponse
+     * @param request - ListCsrRequest
+     * @returns ListCsrResponse
+     *
+     * @param ListCsrRequest $request
+     *
+     * @return ListCsrResponse
      */
     public function listCsr($request)
     {
@@ -1833,31 +2245,39 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of deployment tasks that are created.
-     *  *
-     * @param ListDeploymentJobRequest $request ListDeploymentJobRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries a list of deployment tasks that are created.
      *
-     * @return ListDeploymentJobResponse ListDeploymentJobResponse
+     * @param request - ListDeploymentJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeploymentJobResponse
+     *
+     * @param ListDeploymentJobRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDeploymentJobResponse
      */
     public function listDeploymentJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->jobType)) {
-            $query['JobType'] = $request->jobType;
+
+        if (null !== $request->jobType) {
+            @$query['JobType'] = $request->jobType;
         }
-        if (!Utils::isUnset($request->showSize)) {
-            $query['ShowSize'] = $request->showSize;
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeploymentJob',
@@ -1870,16 +2290,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeploymentJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of deployment tasks that are created.
-     *  *
-     * @param ListDeploymentJobRequest $request ListDeploymentJobRequest
+     * Queries a list of deployment tasks that are created.
      *
-     * @return ListDeploymentJobResponse ListDeploymentJobResponse
+     * @param request - ListDeploymentJobRequest
+     * @returns ListDeploymentJobResponse
+     *
+     * @param ListDeploymentJobRequest $request
+     *
+     * @return ListDeploymentJobResponse
      */
     public function listDeploymentJob($request)
     {
@@ -1889,22 +2315,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the basic information about a deployment task. After you create a deployment task, you can call this operation to obtain the basic information about the deployment task, including the instance ID, type, and name of the certificate.
-     *  *
-     * @param ListDeploymentJobCertRequest $request ListDeploymentJobCertRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the basic information about a deployment task. After you create a deployment task, you can call this operation to obtain the basic information about the deployment task, including the instance ID, type, and name of the certificate.
      *
-     * @return ListDeploymentJobCertResponse ListDeploymentJobCertResponse
+     * @param request - ListDeploymentJobCertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeploymentJobCertResponse
+     *
+     * @param ListDeploymentJobCertRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDeploymentJobCertResponse
      */
     public function listDeploymentJobCertWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeploymentJobCert',
@@ -1917,16 +2348,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDeploymentJobCertResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDeploymentJobCertResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeploymentJobCertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the basic information about a deployment task. After you create a deployment task, you can call this operation to obtain the basic information about the deployment task, including the instance ID, type, and name of the certificate.
-     *  *
-     * @param ListDeploymentJobCertRequest $request ListDeploymentJobCertRequest
+     * Queries the basic information about a deployment task. After you create a deployment task, you can call this operation to obtain the basic information about the deployment task, including the instance ID, type, and name of the certificate.
      *
-     * @return ListDeploymentJobCertResponse ListDeploymentJobCertResponse
+     * @param request - ListDeploymentJobCertRequest
+     * @returns ListDeploymentJobCertResponse
+     *
+     * @param ListDeploymentJobCertRequest $request
+     *
+     * @return ListDeploymentJobCertResponse
      */
     public function listDeploymentJobCert($request)
     {
@@ -1936,22 +2373,27 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the cloud resources of cloud services in a deployment task.
-     *  *
-     * @param ListDeploymentJobResourceRequest $request ListDeploymentJobResourceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the cloud resources of cloud services in a deployment task.
      *
-     * @return ListDeploymentJobResourceResponse ListDeploymentJobResourceResponse
+     * @param request - ListDeploymentJobResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeploymentJobResourceResponse
+     *
+     * @param ListDeploymentJobResourceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListDeploymentJobResourceResponse
      */
     public function listDeploymentJobResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeploymentJobResource',
@@ -1964,16 +2406,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDeploymentJobResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDeploymentJobResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeploymentJobResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the cloud resources of cloud services in a deployment task.
-     *  *
-     * @param ListDeploymentJobResourceRequest $request ListDeploymentJobResourceRequest
+     * Queries the cloud resources of cloud services in a deployment task.
      *
-     * @return ListDeploymentJobResourceResponse ListDeploymentJobResourceResponse
+     * @param request - ListDeploymentJobResourceRequest
+     * @returns ListDeploymentJobResourceResponse
+     *
+     * @param ListDeploymentJobResourceRequest $request
+     *
+     * @return ListDeploymentJobResourceResponse
      */
     public function listDeploymentJobResource($request)
     {
@@ -1983,41 +2431,52 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificates or certificate orders of users.
-     *  *
-     * @description You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
+     * Queries the certificates or certificate orders of users.
+     *
+     * @remarks
+     * You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ListUserCertificateOrderRequest $request ListUserCertificateOrderRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUserCertificateOrderResponse ListUserCertificateOrderResponse
+     * @param request - ListUserCertificateOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserCertificateOrderResponse
+     *
+     * @param ListUserCertificateOrderRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListUserCertificateOrderResponse
      */
     public function listUserCertificateOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['Keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['Keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
+
+        if (null !== $request->orderType) {
+            @$query['OrderType'] = $request->orderType;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->showSize)) {
-            $query['ShowSize'] = $request->showSize;
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserCertificateOrder',
@@ -2030,20 +2489,27 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserCertificateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserCertificateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserCertificateOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificates or certificate orders of users.
-     *  *
-     * @description You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
+     * Queries the certificates or certificate orders of users.
+     *
+     * @remarks
+     * You can call the ListUserCertificateOrder operation to query the certificates or certificate orders of users. If you set OrderType to CERT or UPLOAD, certificates are returned. If you set OrderType to CPACK or BUY, certificate orders are returned.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param ListUserCertificateOrderRequest $request ListUserCertificateOrderRequest
      *
-     * @return ListUserCertificateOrderResponse ListUserCertificateOrderResponse
+     * @param request - ListUserCertificateOrderRequest
+     * @returns ListUserCertificateOrderResponse
+     *
+     * @param ListUserCertificateOrderRequest $request
+     *
+     * @return ListUserCertificateOrderResponse
      */
     public function listUserCertificateOrder($request)
     {
@@ -2053,34 +2519,43 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about the worker tasks of a deployment task. Alibaba Cloud allows you to deploy multiple certificates at a time. Therefore, a deployment task may include multiple worker tasks in multiple cloud services. A worker task refers to a task that deploys a certificate to a cloud resource in a cloud service.
-     *  *
-     * @param ListWorkerResourceRequest $request ListWorkerResourceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the details about the worker tasks of a deployment task. Alibaba Cloud allows you to deploy multiple certificates at a time. Therefore, a deployment task may include multiple worker tasks in multiple cloud services. A worker task refers to a task that deploys a certificate to a cloud resource in a cloud service.
      *
-     * @return ListWorkerResourceResponse ListWorkerResourceResponse
+     * @param request - ListWorkerResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkerResourceResponse
+     *
+     * @param ListWorkerResourceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListWorkerResourceResponse
      */
     public function listWorkerResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cloudProduct)) {
-            $query['CloudProduct'] = $request->cloudProduct;
+        if (null !== $request->cloudProduct) {
+            @$query['CloudProduct'] = $request->cloudProduct;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->showSize)) {
-            $query['ShowSize'] = $request->showSize;
+
+        if (null !== $request->showSize) {
+            @$query['ShowSize'] = $request->showSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWorkerResource',
@@ -2093,16 +2568,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkerResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkerResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkerResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about the worker tasks of a deployment task. Alibaba Cloud allows you to deploy multiple certificates at a time. Therefore, a deployment task may include multiple worker tasks in multiple cloud services. A worker task refers to a task that deploys a certificate to a cloud resource in a cloud service.
-     *  *
-     * @param ListWorkerResourceRequest $request ListWorkerResourceRequest
+     * Queries the details about the worker tasks of a deployment task. Alibaba Cloud allows you to deploy multiple certificates at a time. Therefore, a deployment task may include multiple worker tasks in multiple cloud services. A worker task refers to a task that deploys a certificate to a cloud resource in a cloud service.
      *
-     * @return ListWorkerResourceResponse ListWorkerResourceResponse
+     * @param request - ListWorkerResourceRequest
+     * @returns ListWorkerResourceResponse
+     *
+     * @param ListWorkerResourceRequest $request
+     *
+     * @return ListWorkerResourceResponse
      */
     public function listWorkerResource($request)
     {
@@ -2112,31 +2593,39 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Changes the resource group to which a certificate or certificate order belongs.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Changes the resource group to which a certificate or certificate order belongs.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MoveResourceGroup',
@@ -2149,16 +2638,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the resource group to which a certificate or certificate order belongs.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * Changes the resource group to which a certificate or certificate order belongs.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @param request - MoveResourceGroupRequest
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -2168,31 +2663,39 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Submits a renewal application for an issued certificate.
-     *  *
-     * @description You can call the RenewCertificateOrderForPackageRequest operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
-     * >  You can call the [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
-     *  *
-     * @param RenewCertificateOrderForPackageRequestRequest $request RenewCertificateOrderForPackageRequestRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Submits a renewal application for an issued certificate.
      *
-     * @return RenewCertificateOrderForPackageRequestResponse RenewCertificateOrderForPackageRequestResponse
+     * @remarks
+     * You can call the RenewCertificateOrderForPackageRequest operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
+     * >  You can call the [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
+     *
+     * @param request - RenewCertificateOrderForPackageRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RenewCertificateOrderForPackageRequestResponse
+     *
+     * @param RenewCertificateOrderForPackageRequestRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return RenewCertificateOrderForPackageRequestResponse
      */
     public function renewCertificateOrderForPackageRequestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->csr)) {
-            $query['Csr'] = $request->csr;
+        if (null !== $request->csr) {
+            @$query['Csr'] = $request->csr;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$query['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RenewCertificateOrderForPackageRequest',
@@ -2205,19 +2708,26 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RenewCertificateOrderForPackageRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RenewCertificateOrderForPackageRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RenewCertificateOrderForPackageRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Submits a renewal application for an issued certificate.
-     *  *
-     * @description You can call the RenewCertificateOrderForPackageRequest operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
-     * >  You can call the [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
-     *  *
-     * @param RenewCertificateOrderForPackageRequestRequest $request RenewCertificateOrderForPackageRequestRequest
+     * Submits a renewal application for an issued certificate.
      *
-     * @return RenewCertificateOrderForPackageRequestResponse RenewCertificateOrderForPackageRequestResponse
+     * @remarks
+     * You can call the RenewCertificateOrderForPackageRequest operation to submit a renewal application for a certificate only when the order of the certificate is in the expiring state. After the renewal is complete, a new certificate order whose status is pending application is generated. You must submit a certificate application for the new certificate order and install the new certificate after the new certificate is issued.
+     * >  You can call the [DescribeCertificateState](https://help.aliyun.com/document_detail/164111.html) operation to query the status of a certificate application order. If the value of the **Type** response parameter is **certificate**, the certificate is issued.
+     *
+     * @param request - RenewCertificateOrderForPackageRequestRequest
+     * @returns RenewCertificateOrderForPackageRequestResponse
+     *
+     * @param RenewCertificateOrderForPackageRequestRequest $request
+     *
+     * @return RenewCertificateOrderForPackageRequestResponse
      */
     public function renewCertificateOrderForPackageRequest($request)
     {
@@ -2227,35 +2737,44 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Signs a private certificate in a certificate application repository.
-     *  *
-     * @description You can call the Sign operation to sign a private certificate in a certificate application repository.
+     * Signs a private certificate in a certificate application repository.
+     *
+     * @remarks
+     * You can call the Sign operation to sign a private certificate in a certificate application repository.
      * ### Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param SignRequest    $request SignRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return SignResponse SignResponse
+     * @param request - SignRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SignResponse
+     *
+     * @param SignRequest    $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return SignResponse
      */
     public function signWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $query['CertIdentifier'] = $request->certIdentifier;
+        if (null !== $request->certIdentifier) {
+            @$query['CertIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
-        if (!Utils::isUnset($request->messageType)) {
-            $query['MessageType'] = $request->messageType;
+
+        if (null !== $request->messageType) {
+            @$query['MessageType'] = $request->messageType;
         }
-        if (!Utils::isUnset($request->signingAlgorithm)) {
-            $query['SigningAlgorithm'] = $request->signingAlgorithm;
+
+        if (null !== $request->signingAlgorithm) {
+            @$query['SigningAlgorithm'] = $request->signingAlgorithm;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'Sign',
@@ -2268,20 +2787,27 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SignResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SignResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SignResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Signs a private certificate in a certificate application repository.
-     *  *
-     * @description You can call the Sign operation to sign a private certificate in a certificate application repository.
+     * Signs a private certificate in a certificate application repository.
+     *
+     * @remarks
+     * You can call the Sign operation to sign a private certificate in a certificate application repository.
      * ### Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param SignRequest $request SignRequest
      *
-     * @return SignResponse SignResponse
+     * @param request - SignRequest
+     * @returns SignResponse
+     *
+     * @param SignRequest $request
+     *
+     * @return SignResponse
      */
     public function sign($request)
     {
@@ -2291,25 +2817,31 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the private key of a certificate signing request (CSR).
-     *  *
-     * @param UpdateCsrRequest $request UpdateCsrRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Updates the private key of a certificate signing request (CSR).
      *
-     * @return UpdateCsrResponse UpdateCsrResponse
+     * @param request - UpdateCsrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCsrResponse
+     *
+     * @param UpdateCsrRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateCsrResponse
      */
     public function updateCsrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->csrId)) {
-            $query['CsrId'] = $request->csrId;
+        if (null !== $request->csrId) {
+            @$query['CsrId'] = $request->csrId;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateCsr',
@@ -2322,16 +2854,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCsrResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the private key of a certificate signing request (CSR).
-     *  *
-     * @param UpdateCsrRequest $request UpdateCsrRequest
+     * Updates the private key of a certificate signing request (CSR).
      *
-     * @return UpdateCsrResponse UpdateCsrResponse
+     * @param request - UpdateCsrRequest
+     * @returns UpdateCsrResponse
+     *
+     * @param UpdateCsrRequest $request
+     *
+     * @return UpdateCsrResponse
      */
     public function updateCsr($request)
     {
@@ -2341,37 +2879,47 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Updates a deployment task.
-     *  *
-     * @param UpdateDeploymentJobRequest $request UpdateDeploymentJobRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Updates a deployment task.
      *
-     * @return UpdateDeploymentJobResponse UpdateDeploymentJobResponse
+     * @param request - UpdateDeploymentJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDeploymentJobResponse
+     *
+     * @param UpdateDeploymentJobRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDeploymentJobResponse
      */
     public function updateDeploymentJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certIds)) {
-            $query['CertIds'] = $request->certIds;
+        if (null !== $request->certIds) {
+            @$query['CertIds'] = $request->certIds;
         }
-        if (!Utils::isUnset($request->contactIds)) {
-            $query['ContactIds'] = $request->contactIds;
+
+        if (null !== $request->contactIds) {
+            @$query['ContactIds'] = $request->contactIds;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['ResourceIds'] = $request->resourceIds;
+
+        if (null !== $request->resourceIds) {
+            @$query['ResourceIds'] = $request->resourceIds;
         }
-        if (!Utils::isUnset($request->scheduleTime)) {
-            $query['ScheduleTime'] = $request->scheduleTime;
+
+        if (null !== $request->scheduleTime) {
+            @$query['ScheduleTime'] = $request->scheduleTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDeploymentJob',
@@ -2384,16 +2932,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDeploymentJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDeploymentJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a deployment task.
-     *  *
-     * @param UpdateDeploymentJobRequest $request UpdateDeploymentJobRequest
+     * Updates a deployment task.
      *
-     * @return UpdateDeploymentJobResponse UpdateDeploymentJobResponse
+     * @param request - UpdateDeploymentJobRequest
+     * @returns UpdateDeploymentJobResponse
+     *
+     * @param UpdateDeploymentJobRequest $request
+     *
+     * @return UpdateDeploymentJobResponse
      */
     public function updateDeploymentJob($request)
     {
@@ -2403,25 +2957,31 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the status of a deployment task.
-     *  *
-     * @param UpdateDeploymentJobStatusRequest $request UpdateDeploymentJobStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Updates the status of a deployment task.
      *
-     * @return UpdateDeploymentJobStatusResponse UpdateDeploymentJobStatusResponse
+     * @param request - UpdateDeploymentJobStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDeploymentJobStatusResponse
+     *
+     * @param UpdateDeploymentJobStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateDeploymentJobStatusResponse
      */
     public function updateDeploymentJobStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDeploymentJobStatus',
@@ -2434,16 +2994,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDeploymentJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDeploymentJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDeploymentJobStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the status of a deployment task.
-     *  *
-     * @param UpdateDeploymentJobStatusRequest $request UpdateDeploymentJobStatusRequest
+     * Updates the status of a deployment task.
      *
-     * @return UpdateDeploymentJobStatusResponse UpdateDeploymentJobStatusResponse
+     * @param request - UpdateDeploymentJobStatusRequest
+     * @returns UpdateDeploymentJobStatusResponse
+     *
+     * @param UpdateDeploymentJobStatusRequest $request
+     *
+     * @return UpdateDeploymentJobStatusResponse
      */
     public function updateDeploymentJobStatus($request)
     {
@@ -2453,28 +3019,35 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Rolls back or executes a worker task in a deployment task.
-     *  *
-     * @param UpdateWorkerResourceStatusRequest $request UpdateWorkerResourceStatusRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Rolls back or executes a worker task in a deployment task.
      *
-     * @return UpdateWorkerResourceStatusResponse UpdateWorkerResourceStatusResponse
+     * @param request - UpdateWorkerResourceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWorkerResourceStatusResponse
+     *
+     * @param UpdateWorkerResourceStatusRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateWorkerResourceStatusResponse
      */
     public function updateWorkerResourceStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['JobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->workerId)) {
-            $query['WorkerId'] = $request->workerId;
+
+        if (null !== $request->workerId) {
+            @$query['WorkerId'] = $request->workerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateWorkerResourceStatus',
@@ -2487,16 +3060,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWorkerResourceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWorkerResourceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWorkerResourceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Rolls back or executes a worker task in a deployment task.
-     *  *
-     * @param UpdateWorkerResourceStatusRequest $request UpdateWorkerResourceStatusRequest
+     * Rolls back or executes a worker task in a deployment task.
      *
-     * @return UpdateWorkerResourceStatusResponse UpdateWorkerResourceStatusResponse
+     * @param request - UpdateWorkerResourceStatusRequest
+     * @returns UpdateWorkerResourceStatusResponse
+     *
+     * @param UpdateWorkerResourceStatusRequest $request
+     *
+     * @return UpdateWorkerResourceStatusResponse
      */
     public function updateWorkerResourceStatus($request)
     {
@@ -2506,28 +3085,35 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Uploads a certificate signing request (CSR) file
-     *  *
-     * @param UploadCsrRequest $request UploadCsrRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Uploads a certificate signing request (CSR) file.
      *
-     * @return UploadCsrResponse UploadCsrResponse
+     * @param request - UploadCsrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UploadCsrResponse
+     *
+     * @param UploadCsrRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UploadCsrResponse
      */
     public function uploadCsrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->csr)) {
-            $query['Csr'] = $request->csr;
+        if (null !== $request->csr) {
+            @$query['Csr'] = $request->csr;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UploadCsr',
@@ -2540,16 +3126,22 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UploadCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadCsrResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadCsrResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads a certificate signing request (CSR) file
-     *  *
-     * @param UploadCsrRequest $request UploadCsrRequest
+     * Uploads a certificate signing request (CSR) file.
      *
-     * @return UploadCsrResponse UploadCsrResponse
+     * @param request - UploadCsrRequest
+     * @returns UploadCsrResponse
+     *
+     * @param UploadCsrRequest $request
+     *
+     * @return UploadCsrResponse
      */
     public function uploadCsr($request)
     {
@@ -2559,48 +3151,62 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Uploads a certificate.
-     *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param UploadUserCertificateRequest $request UploadUserCertificateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Uploads a certificate.
      *
-     * @return UploadUserCertificateResponse UploadUserCertificateResponse
+     * @remarks
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - UploadUserCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UploadUserCertificateResponse
+     *
+     * @param UploadUserCertificateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UploadUserCertificateResponse
      */
     public function uploadUserCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cert)) {
-            $query['Cert'] = $request->cert;
+        if (null !== $request->cert) {
+            @$query['Cert'] = $request->cert;
         }
-        if (!Utils::isUnset($request->encryptCert)) {
-            $query['EncryptCert'] = $request->encryptCert;
+
+        if (null !== $request->encryptCert) {
+            @$query['EncryptCert'] = $request->encryptCert;
         }
-        if (!Utils::isUnset($request->encryptPrivateKey)) {
-            $query['EncryptPrivateKey'] = $request->encryptPrivateKey;
+
+        if (null !== $request->encryptPrivateKey) {
+            @$query['EncryptPrivateKey'] = $request->encryptPrivateKey;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->signCert)) {
-            $query['SignCert'] = $request->signCert;
+
+        if (null !== $request->signCert) {
+            @$query['SignCert'] = $request->signCert;
         }
-        if (!Utils::isUnset($request->signPrivateKey)) {
-            $query['SignPrivateKey'] = $request->signPrivateKey;
+
+        if (null !== $request->signPrivateKey) {
+            @$query['SignPrivateKey'] = $request->signPrivateKey;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UploadUserCertificate',
@@ -2613,18 +3219,25 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UploadUserCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadUserCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadUserCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads a certificate.
-     *  *
-     * @description You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param UploadUserCertificateRequest $request UploadUserCertificateRequest
+     * Uploads a certificate.
      *
-     * @return UploadUserCertificateResponse UploadUserCertificateResponse
+     * @remarks
+     * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
+     * @param request - UploadUserCertificateRequest
+     * @returns UploadUserCertificateResponse
+     *
+     * @param UploadUserCertificateRequest $request
+     *
+     * @return UploadUserCertificateResponse
      */
     public function uploadUserCertificate($request)
     {
@@ -2634,38 +3247,48 @@ class Cas extends OpenApiClient
     }
 
     /**
-     * @summary Verifies the signature of a private certificate in a certificate application repository.
-     *  *
-     * @description You can call the Verify operation to verify the signature of a private certificate in a certificate application repository.
+     * Verifies the signature of a private certificate in a certificate application repository.
+     *
+     * @remarks
+     * You can call the Verify operation to verify the signature of a private certificate in a certificate application repository.
      * ### Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param VerifyRequest  $request VerifyRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return VerifyResponse VerifyResponse
+     * @param request - VerifyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns VerifyResponse
+     *
+     * @param VerifyRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return VerifyResponse
      */
     public function verifyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $query['CertIdentifier'] = $request->certIdentifier;
+        if (null !== $request->certIdentifier) {
+            @$query['CertIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->message)) {
-            $query['Message'] = $request->message;
+
+        if (null !== $request->message) {
+            @$query['Message'] = $request->message;
         }
-        if (!Utils::isUnset($request->messageType)) {
-            $query['MessageType'] = $request->messageType;
+
+        if (null !== $request->messageType) {
+            @$query['MessageType'] = $request->messageType;
         }
-        if (!Utils::isUnset($request->signatureValue)) {
-            $query['SignatureValue'] = $request->signatureValue;
+
+        if (null !== $request->signatureValue) {
+            @$query['SignatureValue'] = $request->signatureValue;
         }
-        if (!Utils::isUnset($request->signingAlgorithm)) {
-            $query['SigningAlgorithm'] = $request->signingAlgorithm;
+
+        if (null !== $request->signingAlgorithm) {
+            @$query['SigningAlgorithm'] = $request->signingAlgorithm;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'Verify',
@@ -2678,20 +3301,27 @@ class Cas extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return VerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Verifies the signature of a private certificate in a certificate application repository.
-     *  *
-     * @description You can call the Verify operation to verify the signature of a private certificate in a certificate application repository.
+     * Verifies the signature of a private certificate in a certificate application repository.
+     *
+     * @remarks
+     * You can call the Verify operation to verify the signature of a private certificate in a certificate application repository.
      * ### Limits
      * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
-     *  *
-     * @param VerifyRequest $request VerifyRequest
      *
-     * @return VerifyResponse VerifyResponse
+     * @param request - VerifyRequest
+     * @returns VerifyResponse
+     *
+     * @param VerifyRequest $request
+     *
+     * @return VerifyResponse
      */
     public function verify($request)
     {

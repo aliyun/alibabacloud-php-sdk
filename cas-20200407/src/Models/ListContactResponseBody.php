@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cas\V20200407\Models\ListContactResponseBody\contactList;
-use AlibabaCloud\Tea\Model;
 
 class ListContactResponseBody extends Model
 {
     /**
-     * @description The contacts.
-     *
      * @var contactList[]
      */
     public $contactList;
-
     /**
-     * @description The page number. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description The keyword used in the fuzzy search.
-     *
-     * @example 186
-     *
      * @var string
      */
     public $keyword;
-
     /**
-     * @description The request ID.
-     *
-     * @example 31C66C7B-671A-4297-9187-2C4477247A74
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The number of certificates per page. Default value: **20**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $showSize;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $totalCount;
@@ -71,32 +44,41 @@ class ListContactResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->contactList)) {
+            Model::validateArray($this->contactList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contactList) {
-            $res['ContactList'] = [];
-            if (null !== $this->contactList && \is_array($this->contactList)) {
-                $n = 0;
-                foreach ($this->contactList as $item) {
-                    $res['ContactList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contactList)) {
+                $res['ContactList'] = [];
+                $n1                 = 0;
+                foreach ($this->contactList as $item1) {
+                    $res['ContactList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->showSize) {
             $res['ShowSize'] = $this->showSize;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -104,35 +86,40 @@ class ListContactResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListContactResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContactList'])) {
             if (!empty($map['ContactList'])) {
                 $model->contactList = [];
-                $n                  = 0;
-                foreach ($map['ContactList'] as $item) {
-                    $model->contactList[$n++] = null !== $item ? contactList::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['ContactList'] as $item1) {
+                    $model->contactList[$n1++] = contactList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ShowSize'])) {
             $model->showSize = $map['ShowSize'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

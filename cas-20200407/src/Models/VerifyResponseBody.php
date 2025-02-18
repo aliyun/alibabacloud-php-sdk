@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1ed33293-2e48-6b14-861e-538e28e408eb
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the signature is valid. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $signatureValid;
@@ -35,14 +23,16 @@ class VerifyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->signatureValid) {
             $res['SignatureValid'] = $this->signatureValid;
         }
@@ -50,17 +40,18 @@ class VerifyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SignatureValid'])) {
             $model->signatureValid = $map['SignatureValid'];
         }
