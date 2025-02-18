@@ -1,3 +1,9 @@
+2025-02-18 Version: 2.15.0
+- Support API DescribeEdgeContainerAppStats.
+- Support API GetEdgeContainerAppLogRiver.
+- Support API UpdateEdgeContainerAppLogRiver.
+
+
 2025-02-16 Version: 2.14.0
 - Support API DescribeRatePlanInstanceStatus.
 - Support API PurchaseRatePlan.

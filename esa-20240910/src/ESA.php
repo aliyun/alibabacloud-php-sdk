@@ -210,6 +210,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSBpsListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSBpsListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSL7QpsListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSL7QpsListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeEdgeContainerAppStatsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeEdgeContainerAppStatsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackIntelligentProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackIntelligentProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackProtectionRequest;
@@ -251,6 +253,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetCompressionRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCompressionRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetDevelopmentModeRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetDevelopmentModeResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppLogRiverRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppLogRiverResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppStatusRequest;
@@ -503,6 +507,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateDevelopmentModeRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateDevelopmentModeResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppLogRiverRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppLogRiverResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpRequestHeaderModificationRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpRequestHeaderModificationRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateHttpRequestHeaderModificationRuleShrinkRequest;
@@ -7788,6 +7794,60 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI.
+     *
+     * @param request - DescribeEdgeContainerAppStatsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEdgeContainerAppStatsResponse
+     *
+     * @param DescribeEdgeContainerAppStatsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeEdgeContainerAppStatsResponse
+     */
+    public function describeEdgeContainerAppStatsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEdgeContainerAppStats',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeEdgeContainerAppStatsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeEdgeContainerAppStatsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 将天眼提供给XCDN边缘容器的监控OpenAPI适配成青蓝的OpenAPI.
+     *
+     * @param request - DescribeEdgeContainerAppStatsRequest
+     * @returns DescribeEdgeContainerAppStatsResponse
+     *
+     * @param DescribeEdgeContainerAppStatsRequest $request
+     *
+     * @return DescribeEdgeContainerAppStatsResponse
+     */
+    public function describeEdgeContainerAppStats($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEdgeContainerAppStatsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the configuration of smart HTTP DDoS protection for a website.
      *
      * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
@@ -9001,6 +9061,60 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getEdgeContainerAppWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取边缘容器应用日志采集配置.
+     *
+     * @param request - GetEdgeContainerAppLogRiverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetEdgeContainerAppLogRiverResponse
+     *
+     * @param GetEdgeContainerAppLogRiverRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetEdgeContainerAppLogRiverResponse
+     */
+    public function getEdgeContainerAppLogRiverWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req   = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEdgeContainerAppLogRiver',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEdgeContainerAppLogRiverResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetEdgeContainerAppLogRiverResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取边缘容器应用日志采集配置.
+     *
+     * @param request - GetEdgeContainerAppLogRiverRequest
+     * @returns GetEdgeContainerAppLogRiverResponse
+     *
+     * @param GetEdgeContainerAppLogRiverRequest $request
+     *
+     * @return GetEdgeContainerAppLogRiverResponse
+     */
+    public function getEdgeContainerAppLogRiver($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerAppLogRiverWithOptions($request, $runtime);
     }
 
     /**
@@ -12510,7 +12624,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP响应头规则列表.
+     * Queries the configuration details of an HTTP response header modification rule for a website.
      *
      * @param request - ListHttpResponseHeaderModificationRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12547,7 +12661,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP响应头规则列表.
+     * Queries the configuration details of an HTTP response header modification rule for a website.
      *
      * @param request - ListHttpResponseHeaderModificationRulesRequest
      * @returns ListHttpResponseHeaderModificationRulesResponse
@@ -12672,7 +12786,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条站点图片转换配置.
+     * Queries the details of image conversion configurations for multiple websites.
      *
      * @param request - ListImageTransformsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12709,7 +12823,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条站点图片转换配置.
+     * Queries the details of image conversion configurations for multiple websites.
      *
      * @param request - ListImageTransformsRequest
      * @returns ListImageTransformsResponse
@@ -13484,7 +13598,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询重定向规则列表.
+     * Queries the configuration details of a URL redirect rule for a website.
      *
      * @param request - ListRedirectRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13521,7 +13635,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询重定向规则列表.
+     * Queries the configuration details of a URL redirect rule for a website.
      *
      * @param request - ListRedirectRulesRequest
      * @returns ListRedirectRulesResponse
@@ -13538,7 +13652,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询重写Url规则列表.
+     * Queries the details of rewrite URL configurations.
      *
      * @param request - ListRewriteUrlRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13575,7 +13689,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询重写Url规则列表.
+     * Queries the details of rewrite URL configurations.
      *
      * @param request - ListRewriteUrlRulesRequest
      * @returns ListRewriteUrlRulesResponse
@@ -16597,6 +16711,72 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDevelopmentModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新边缘容器应用日志采集配置.
+     *
+     * @param request - UpdateEdgeContainerAppLogRiverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateEdgeContainerAppLogRiverResponse
+     *
+     * @param UpdateEdgeContainerAppLogRiverRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateEdgeContainerAppLogRiverResponse
+     */
+    public function updateEdgeContainerAppLogRiverWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        if (null !== $request->path) {
+            @$query['Path'] = $request->path;
+        }
+
+        if (null !== $request->stdout) {
+            @$query['Stdout'] = $request->stdout;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEdgeContainerAppLogRiver',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateEdgeContainerAppLogRiverResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateEdgeContainerAppLogRiverResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新边缘容器应用日志采集配置.
+     *
+     * @param request - UpdateEdgeContainerAppLogRiverRequest
+     * @returns UpdateEdgeContainerAppLogRiverResponse
+     *
+     * @param UpdateEdgeContainerAppLogRiverRequest $request
+     *
+     * @return UpdateEdgeContainerAppLogRiverResponse
+     */
+    public function updateEdgeContainerAppLogRiver($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEdgeContainerAppLogRiverWithOptions($request, $runtime);
     }
 
     /**
