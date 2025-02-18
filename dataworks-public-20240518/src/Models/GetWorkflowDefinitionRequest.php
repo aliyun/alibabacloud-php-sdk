@@ -13,12 +13,17 @@ class GetWorkflowDefinitionRequest extends Model
      */
     public $id;
     /**
+     * @var bool
+     */
+    public $includeScriptContent;
+    /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'id'        => 'Id',
-        'projectId' => 'ProjectId',
+        'id'                   => 'Id',
+        'includeScriptContent' => 'IncludeScriptContent',
+        'projectId'            => 'ProjectId',
     ];
 
     public function validate()
@@ -31,6 +36,10 @@ class GetWorkflowDefinitionRequest extends Model
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+
+        if (null !== $this->includeScriptContent) {
+            $res['IncludeScriptContent'] = $this->includeScriptContent;
         }
 
         if (null !== $this->projectId) {
@@ -50,6 +59,10 @@ class GetWorkflowDefinitionRequest extends Model
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+
+        if (isset($map['IncludeScriptContent'])) {
+            $model->includeScriptContent = $map['IncludeScriptContent'];
         }
 
         if (isset($map['ProjectId'])) {

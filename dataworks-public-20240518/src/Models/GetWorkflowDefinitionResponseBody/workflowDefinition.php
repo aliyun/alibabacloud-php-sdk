@@ -36,6 +36,10 @@ class workflowDefinition extends Model
      * @var string
      */
     public $spec;
+    /**
+     * @var int
+     */
+    public $workflowId;
     protected $_name = [
         'createTime' => 'CreateTime',
         'id'         => 'Id',
@@ -44,6 +48,7 @@ class workflowDefinition extends Model
         'owner'      => 'Owner',
         'projectId'  => 'ProjectId',
         'spec'       => 'Spec',
+        'workflowId' => 'WorkflowId',
     ];
 
     public function validate()
@@ -80,6 +85,10 @@ class workflowDefinition extends Model
 
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
+        }
+
+        if (null !== $this->workflowId) {
+            $res['WorkflowId'] = $this->workflowId;
         }
 
         return $res;
@@ -119,6 +128,10 @@ class workflowDefinition extends Model
 
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
+        }
+
+        if (isset($map['WorkflowId'])) {
+            $model->workflowId = $map['WorkflowId'];
         }
 
         return $model;

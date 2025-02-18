@@ -1,3 +1,10 @@
+2025-02-18 Version: 5.0.3
+- Update API GetNode: update response param.
+- Update API GetWorkflowDefinition: add param IncludeScriptContent.
+- Update API GetWorkflowDefinition: update response param.
+- Update API ImportWorkflowDefinition: update param RegionId.
+
+
 2025-02-17 Version: 5.0.2
 - Update API ExecuteAdhocWorkflowInstance: update param EnvType.
 - Update API GetDIJobLog: add param NodeType.

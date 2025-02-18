@@ -36,6 +36,10 @@ class node extends Model
      * @var string
      */
     public $spec;
+    /**
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'createTime' => 'CreateTime',
         'id'         => 'Id',
@@ -44,6 +48,7 @@ class node extends Model
         'owner'      => 'Owner',
         'projectId'  => 'ProjectId',
         'spec'       => 'Spec',
+        'taskId'     => 'TaskId',
     ];
 
     public function validate()
@@ -80,6 +85,10 @@ class node extends Model
 
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
+        }
+
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -119,6 +128,10 @@ class node extends Model
 
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
+        }
+
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;
