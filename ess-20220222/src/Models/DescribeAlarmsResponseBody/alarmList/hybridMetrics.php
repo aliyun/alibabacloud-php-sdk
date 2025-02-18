@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponseBody\alarmList;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeAlarmsResponseBody\alarmList\hybridMetrics\dimensions;
-use AlibabaCloud\Tea\Model;
 
 class hybridMetrics extends Model
 {
@@ -13,22 +13,18 @@ class hybridMetrics extends Model
      * @var dimensions[]
      */
     public $dimensions;
-
     /**
      * @var string
      */
     public $expression;
-
     /**
      * @var string
      */
     public $id;
-
     /**
      * @var string
      */
     public $metricName;
-
     /**
      * @var string
      */
@@ -43,29 +39,37 @@ class hybridMetrics extends Model
 
     public function validate()
     {
+        if (\is_array($this->dimensions)) {
+            Model::validateArray($this->dimensions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimensions) {
-            $res['Dimensions'] = [];
-            if (null !== $this->dimensions && \is_array($this->dimensions)) {
-                $n = 0;
-                foreach ($this->dimensions as $item) {
-                    $res['Dimensions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dimensions)) {
+                $res['Dimensions'] = [];
+                $n1                = 0;
+                foreach ($this->dimensions as $item1) {
+                    $res['Dimensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->metricName) {
             $res['MetricName'] = $this->metricName;
         }
+
         if (null !== $this->statistic) {
             $res['Statistic'] = $this->statistic;
         }
@@ -73,32 +77,36 @@ class hybridMetrics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hybridMetrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dimensions'])) {
             if (!empty($map['Dimensions'])) {
                 $model->dimensions = [];
-                $n                 = 0;
-                foreach ($map['Dimensions'] as $item) {
-                    $model->dimensions[$n++] = null !== $item ? dimensions::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['Dimensions'] as $item1) {
+                    $model->dimensions[$n1++] = dimensions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MetricName'])) {
             $model->metricName = $map['MetricName'];
         }
+
         if (isset($map['Statistic'])) {
             $model->statistic = $map['Statistic'];
         }

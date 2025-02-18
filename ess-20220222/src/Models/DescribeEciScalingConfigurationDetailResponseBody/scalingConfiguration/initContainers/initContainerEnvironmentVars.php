@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeEciScalingConfigurationDetailResponseBody\scalingConfiguration\initContainers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class initContainerEnvironmentVars extends Model
 {
     /**
-     * @description >  This parameter is not available for use.
-     *
-     * @example path
-     *
      * @var string
      */
     public $fieldRefFieldPath;
-
     /**
-     * @description The name of the environment variable.
-     *
-     * @example PATH
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The value of the environment variable.
-     *
-     * @example /usr/local/bin
-     *
      * @var string
      */
     public $value;
@@ -42,17 +28,20 @@ class initContainerEnvironmentVars extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fieldRefFieldPath) {
             $res['FieldRefFieldPath'] = $this->fieldRefFieldPath;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -60,20 +49,22 @@ class initContainerEnvironmentVars extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return initContainerEnvironmentVars
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FieldRefFieldPath'])) {
             $model->fieldRefFieldPath = $map['FieldRefFieldPath'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

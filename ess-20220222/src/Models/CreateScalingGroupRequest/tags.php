@@ -4,37 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example Department
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description Specifies whether to propagate the tag that you want to add. Valid values:
-     *
-     *   true: propagates the tag to new instances.
-     *   false: does not propagate the tag to any instance.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $propagate;
-
     /**
-     * @description The tag value.
-     *
-     * @example Finance
-     *
      * @var string
      */
     public $value;
@@ -46,17 +28,20 @@ class tags extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->propagate) {
             $res['Propagate'] = $this->propagate;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -64,20 +49,22 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Propagate'])) {
             $model->propagate = $map['Propagate'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTagKeysResponseBody extends Model
 {
     /**
-     * @description Details of the tag keys.
-     *
      * @var string[]
      */
     public $keys;
-
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example DC09A6AA-2713-4E10-A2E9-E6C5C43A****
-     *
      * @var string
      */
     public $requestId;
@@ -50,20 +33,33 @@ class ListTagKeysResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->keys)) {
+            Model::validateArray($this->keys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keys) {
-            $res['Keys'] = $this->keys;
+            if (\is_array($this->keys)) {
+                $res['Keys'] = [];
+                $n1          = 0;
+                foreach ($this->keys as $item1) {
+                    $res['Keys'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -71,25 +67,32 @@ class ListTagKeysResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTagKeysResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
-                $model->keys = $map['Keys'];
+                $model->keys = [];
+                $n1          = 0;
+                foreach ($map['Keys'] as $item1) {
+                    $model->keys[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

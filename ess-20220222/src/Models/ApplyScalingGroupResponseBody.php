@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ApplyScalingGroupResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example CC107349-57B7-4405-B1BF-9BF5AF7F****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the enabled scaling group.
-     *
-     * @example asg-bp1igpak5ft1flyp****
-     *
      * @var string
      */
     public $scalingGroupId;
@@ -32,14 +23,16 @@ class ApplyScalingGroupResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
         }
@@ -47,17 +40,18 @@ class ApplyScalingGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ApplyScalingGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
         }

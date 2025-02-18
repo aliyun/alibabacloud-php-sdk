@@ -4,93 +4,43 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachDBInstancesRequest extends Model
 {
     /**
-     * @description The mode in which you want to attach the database to the scaling group. Valid values:
-     *
-     *   SecurityIp: adds the private IP addresses of scaled out ECS instances to the IP address whitelist of the database. Take note that you can choose this mode only when the database that you want to attach is an ApsaraDB RDS instance.
-     *   SecurityGroup: adds the security group of the scaling configuration based on which ECS instances are created in the scaling group to the security group whitelist of the database for registration.
-     *
-     * Default value: SecurityIp.
-     * @example SecurityIp
-     *
      * @var string
      */
     public $attachMode;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
-     *
-     * The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](https://help.aliyun.com/document_detail/25965.html).
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The IDs of the ApsaraDB RDS instances that you want to attach to the scaling group.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $DBInstances;
-
     /**
-     * @description Specifies whether to add the private IP addresses of all ECS instances in the scaling group to the IP address whitelist of an ApsaraDB RDS instance when you attach the ApsaraDB RDS instance to the scaling group. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $forceAttach;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
-     * @description The region ID of the scaling group.
-     *
-     * @example cn-qingdao
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
-     * @description The ID of the scaling group.
-     *
-     * This parameter is required.
-     * @example asg-bp1avr6ensitts3w****
-     *
      * @var string
      */
     public $scalingGroupId;
-
     /**
-     * @description The type of the database that you want to attach to the scaling group. Valid values:
-     *
-     *   RDS
-     *   Redis
-     *   MongoDB
-     *
-     * Default value: RDS.
-     * @example RDS
-     *
      * @var string
      */
     public $type;
@@ -108,35 +58,53 @@ class AttachDBInstancesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->DBInstances)) {
+            Model::validateArray($this->DBInstances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attachMode) {
             $res['AttachMode'] = $this->attachMode;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->DBInstances) {
-            $res['DBInstances'] = $this->DBInstances;
+            if (\is_array($this->DBInstances)) {
+                $res['DBInstances'] = [];
+                $n1                 = 0;
+                foreach ($this->DBInstances as $item1) {
+                    $res['DBInstances'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->forceAttach) {
             $res['ForceAttach'] = $this->forceAttach;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -144,40 +112,52 @@ class AttachDBInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachDBInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AttachMode'])) {
             $model->attachMode = $map['AttachMode'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DBInstances'])) {
             if (!empty($map['DBInstances'])) {
-                $model->DBInstances = $map['DBInstances'];
+                $model->DBInstances = [];
+                $n1                 = 0;
+                foreach ($map['DBInstances'] as $item1) {
+                    $model->DBInstances[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ForceAttach'])) {
             $model->forceAttach = $map['ForceAttach'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

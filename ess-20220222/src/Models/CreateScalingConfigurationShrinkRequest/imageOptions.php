@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingConfigurationShrinkRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageOptions extends Model
 {
     /**
-     * @description For more information about whether an ECS instance uses the ecs-user user user to log on to an ECS instance, see [Manage the login name of an ECS instance](https://help.aliyun.com/document_detail/388447.html). Value range:
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $loginAsNonRoot;
@@ -23,9 +18,10 @@ class imageOptions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->loginAsNonRoot) {
@@ -35,11 +31,11 @@ class imageOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

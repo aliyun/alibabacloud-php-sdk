@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\AttachAlbServerGroupsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class albServerGroups extends Model
 {
     /**
-     * @description The ID of the ALB server group.
-     *
-     * This parameter is required.
-     * @example sgp-ddwb0y0g6y9bjm****
-     *
      * @var string
      */
     public $albServerGroupId;
-
     /**
-     * @description The port used by ECS instances or elastic container instances after being added as backend servers to the ALB server group.
-     *
-     * This parameter is required.
-     * @example 22
-     *
      * @var int
      */
     public $port;
-
     /**
-     * @description The weight of an ECS instance or elastic container instance after being added as a backend server to the ALB server group. Valid values: 0 to 100.
-     *
-     * This parameter is required.
-     * @example 100
-     *
      * @var int
      */
     public $weight;
@@ -45,17 +28,20 @@ class albServerGroups extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->albServerGroupId) {
             $res['AlbServerGroupId'] = $this->albServerGroupId;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -63,20 +49,22 @@ class albServerGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return albServerGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlbServerGroupId'])) {
             $model->albServerGroupId = $map['AlbServerGroupId'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

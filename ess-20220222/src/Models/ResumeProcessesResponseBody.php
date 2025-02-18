@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResumeProcessesResponseBody extends Model
 {
     /**
-     * @description The ID of the request
-     *
-     * @example E38EB733-D714-4658-8A5F-0688AB68****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ResumeProcessesResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ResumeProcessesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResumeProcessesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

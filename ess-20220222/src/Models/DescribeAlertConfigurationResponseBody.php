@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAlertConfigurationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The status of the scaling activities that trigger text message, internal message, or email-based notifications.
-     *
      * @var string[]
      */
     public $scaleStatuses;
@@ -30,35 +23,51 @@ class DescribeAlertConfigurationResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->scaleStatuses)) {
+            Model::validateArray($this->scaleStatuses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scaleStatuses) {
-            $res['ScaleStatuses'] = $this->scaleStatuses;
+            if (\is_array($this->scaleStatuses)) {
+                $res['ScaleStatuses'] = [];
+                $n1                   = 0;
+                foreach ($this->scaleStatuses as $item1) {
+                    $res['ScaleStatuses'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAlertConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ScaleStatuses'])) {
             if (!empty($map['ScaleStatuses'])) {
-                $model->scaleStatuses = $map['ScaleStatuses'];
+                $model->scaleStatuses = [];
+                $n1                   = 0;
+                foreach ($map['ScaleStatuses'] as $item1) {
+                    $model->scaleStatuses[$n1++] = $item1;
+                }
             }
         }
 

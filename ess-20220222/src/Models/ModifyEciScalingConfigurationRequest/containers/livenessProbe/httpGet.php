@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\containers\livenessProbe;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class httpGet extends Model
 {
@@ -12,12 +12,10 @@ class httpGet extends Model
      * @var string
      */
     public $path;
-
     /**
      * @var int
      */
     public $port;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class httpGet extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->scheme) {
             $res['Scheme'] = $this->scheme;
         }
@@ -48,20 +49,22 @@ class httpGet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return httpGet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['Scheme'])) {
             $model->scheme = $map['Scheme'];
         }

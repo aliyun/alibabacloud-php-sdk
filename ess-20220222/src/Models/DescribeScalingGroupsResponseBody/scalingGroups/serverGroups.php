@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class serverGroups extends Model
 {
     /**
-     * @description The port number used by an ECS instance as a backend server in the server group.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $port;
-
     /**
-     * @description The ID of the server group.
-     *
-     * @example sgp-i9ouakeaerr*****
-     *
      * @var string
      */
     public $serverGroupId;
-
     /**
-     * @description The type of the server group. Valid values:
-     *
-     *   ALB
-     *   NLB
-     *
-     * @example ALB
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The weight of an ECS instance as a backend server in the server group.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $weight;
@@ -55,20 +33,24 @@ class serverGroups extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->weight) {
             $res['Weight'] = $this->weight;
         }
@@ -76,23 +58,26 @@ class serverGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serverGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Weight'])) {
             $model->weight = $map['Weight'];
         }

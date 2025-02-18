@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customPriorities extends Model
 {
     /**
-     * @description The ECS instance type.
-     *
-     * @example ecs.c6a.4xlarge
-     *
      * @var string
      */
     public $instanceType;
-
     /**
-     * @description The vSwitch ID.
-     *
-     * @example vsw-bp14zolna43z266bq****
-     *
      * @var string
      */
     public $vswitchId;
@@ -32,14 +23,16 @@ class customPriorities extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->vswitchId) {
             $res['VswitchId'] = $this->vswitchId;
         }
@@ -47,17 +40,18 @@ class customPriorities extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customPriorities
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['VswitchId'])) {
             $model->vswitchId = $map['VswitchId'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDiagnoseDetailsResponseBody\details;
-use AlibabaCloud\Tea\Model;
 
 class DescribeScalingGroupDiagnoseDetailsResponseBody extends Model
 {
@@ -13,12 +13,7 @@ class DescribeScalingGroupDiagnoseDetailsResponseBody extends Model
      * @var details[]
      */
     public $details;
-
     /**
-     * @description Id of the request
-     *
-     * @example 688B18B8-FB1E-42EB-A1ED-7F55B090****
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +24,25 @@ class DescribeScalingGroupDiagnoseDetailsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->details)) {
+            Model::validateArray($this->details);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->details) {
-            $res['Details'] = [];
-            if (null !== $this->details && \is_array($this->details)) {
-                $n = 0;
-                foreach ($this->details as $item) {
-                    $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->details)) {
+                $res['Details'] = [];
+                $n1             = 0;
+                foreach ($this->details as $item1) {
+                    $res['Details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +50,24 @@ class DescribeScalingGroupDiagnoseDetailsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeScalingGroupDiagnoseDetailsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
-                foreach ($map['Details'] as $item) {
-                    $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Details'] as $item1) {
+                    $model->details[$n1++] = details::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

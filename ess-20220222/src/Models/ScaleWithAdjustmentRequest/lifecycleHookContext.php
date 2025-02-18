@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ScaleWithAdjustmentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class lifecycleHookContext extends Model
 {
     /**
-     * @description Specifies whether to disable the Lifecycle Hook feature. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $disableLifecycleHook;
-
     /**
-     * @description The IDs of the lifecycle hooks that you want to disable.
-     *
      * @var string[]
      */
     public $ignoredLifecycleHookIds;
@@ -33,35 +23,51 @@ class lifecycleHookContext extends Model
 
     public function validate()
     {
+        if (\is_array($this->ignoredLifecycleHookIds)) {
+            Model::validateArray($this->ignoredLifecycleHookIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disableLifecycleHook) {
             $res['DisableLifecycleHook'] = $this->disableLifecycleHook;
         }
+
         if (null !== $this->ignoredLifecycleHookIds) {
-            $res['IgnoredLifecycleHookIds'] = $this->ignoredLifecycleHookIds;
+            if (\is_array($this->ignoredLifecycleHookIds)) {
+                $res['IgnoredLifecycleHookIds'] = [];
+                $n1                             = 0;
+                foreach ($this->ignoredLifecycleHookIds as $item1) {
+                    $res['IgnoredLifecycleHookIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return lifecycleHookContext
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisableLifecycleHook'])) {
             $model->disableLifecycleHook = $map['DisableLifecycleHook'];
         }
+
         if (isset($map['IgnoredLifecycleHookIds'])) {
             if (!empty($map['IgnoredLifecycleHookIds'])) {
-                $model->ignoredLifecycleHookIds = $map['IgnoredLifecycleHookIds'];
+                $model->ignoredLifecycleHookIds = [];
+                $n1                             = 0;
+                foreach ($map['IgnoredLifecycleHookIds'] as $item1) {
+                    $model->ignoredLifecycleHookIds[$n1++] = $item1;
+                }
             }
         }
 

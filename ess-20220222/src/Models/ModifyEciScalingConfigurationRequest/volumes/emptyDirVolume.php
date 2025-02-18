@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\ModifyEciScalingConfigurationRequest\volumes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class emptyDirVolume extends Model
 {
@@ -12,7 +12,6 @@ class emptyDirVolume extends Model
      * @var string
      */
     public $medium;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class emptyDirVolume extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->medium) {
             $res['Medium'] = $this->medium;
         }
+
         if (null !== $this->sizeLimit) {
             $res['SizeLimit'] = $this->sizeLimit;
         }
@@ -39,17 +40,18 @@ class emptyDirVolume extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return emptyDirVolume
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Medium'])) {
             $model->medium = $map['Medium'];
         }
+
         if (isset($map['SizeLimit'])) {
             $model->sizeLimit = $map['SizeLimit'];
         }

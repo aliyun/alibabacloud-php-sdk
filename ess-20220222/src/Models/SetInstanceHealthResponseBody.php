@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetInstanceHealthResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example B755AE57-6093-43E4-938E-DEA422A9****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class SetInstanceHealthResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class SetInstanceHealthResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetInstanceHealthResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

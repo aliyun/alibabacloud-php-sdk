@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetGroupDeletionProtectionResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example CCC29E24-3AEC-4F2C-8A14-78B14FA738B7
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class SetGroupDeletionProtectionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class SetGroupDeletionProtectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetGroupDeletionProtectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

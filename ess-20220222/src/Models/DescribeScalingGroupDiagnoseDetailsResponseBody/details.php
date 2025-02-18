@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupDiagnoseDetailsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class details extends Model
 {
     /**
-     * @example SecurityGroup
-     *
      * @var string
      */
     public $diagnoseType;
-
     /**
-     * @example AccountArrearage
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @example sg-280ih****
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @example Normal
-     *
      * @var string
      */
     public $status;
@@ -44,20 +33,24 @@ class details extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diagnoseType) {
             $res['DiagnoseType'] = $this->diagnoseType;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -65,23 +58,26 @@ class details extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return details
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiagnoseType'])) {
             $model->diagnoseType = $map['DiagnoseType'];
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
