@@ -1,3 +1,8 @@
+2025-02-18 Version: 4.8.9
+- Update API ModifyNodePoolNodeConfig: update param body.
+- Update API RepairClusterNodePool: update param body.
+
+
 2025-02-07 Version: 4.8.8
 - Generated php 2015-12-15 for CS.
 

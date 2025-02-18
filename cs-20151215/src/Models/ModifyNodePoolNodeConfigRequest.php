@@ -11,6 +11,10 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ModifyNodePoolNodeConfigRequest\rolling
 class ModifyNodePoolNodeConfigRequest extends Model
 {
     /**
+     * @var ContainerdConfig
+     */
+    public $containerdConfig;
+    /**
      * @var KubeletConfig
      */
     public $kubeletConfig;
@@ -23,13 +27,17 @@ class ModifyNodePoolNodeConfigRequest extends Model
      */
     public $rollingPolicy;
     protected $_name = [
-        'kubeletConfig' => 'kubelet_config',
-        'osConfig'      => 'os_config',
-        'rollingPolicy' => 'rolling_policy',
+        'containerdConfig' => 'containerd_config',
+        'kubeletConfig'    => 'kubelet_config',
+        'osConfig'         => 'os_config',
+        'rollingPolicy'    => 'rolling_policy',
     ];
 
     public function validate()
     {
+        if (null !== $this->containerdConfig) {
+            $this->containerdConfig->validate();
+        }
         if (null !== $this->kubeletConfig) {
             $this->kubeletConfig->validate();
         }
@@ -45,6 +53,10 @@ class ModifyNodePoolNodeConfigRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->containerdConfig) {
+            $res['containerd_config'] = null !== $this->containerdConfig ? $this->containerdConfig->toArray($noStream) : $this->containerdConfig;
+        }
+
         if (null !== $this->kubeletConfig) {
             $res['kubelet_config'] = null !== $this->kubeletConfig ? $this->kubeletConfig->toArray($noStream) : $this->kubeletConfig;
         }
@@ -68,6 +80,10 @@ class ModifyNodePoolNodeConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['containerd_config'])) {
+            $model->containerdConfig = ContainerdConfig::fromMap($map['containerd_config']);
+        }
+
         if (isset($map['kubelet_config'])) {
             $model->kubeletConfig = KubeletConfig::fromMap($map['kubelet_config']);
         }

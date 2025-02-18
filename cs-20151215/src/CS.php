@@ -7544,7 +7544,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
      *
      * @param request - ModifyClusterTagsRequest
      * @param headers - map
@@ -7584,7 +7584,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
+     * You can add labels in key-value pairs to clusters. This allows cluster developers or O\\\\\\&M engineers to classify and manage clusters in a more flexible manner. This also meets the requirements for monitoring, cost analysis, and tenant isolation. You can call the ModifyClusterTags operation to modify the labels of a cluster.
      *
      * @param request - ModifyClusterTagsRequest
      * @returns ModifyClusterTagsResponse
@@ -7625,6 +7625,10 @@ class CS extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->containerdConfig) {
+            @$body['containerd_config'] = $request->containerdConfig;
+        }
+
         if (null !== $request->kubeletConfig) {
             @$body['kubelet_config'] = $request->kubeletConfig;
         }
@@ -8995,6 +8999,8 @@ class CS extends OpenApiClient
     }
 
     /**
+     * 启用告警.
+     *
      * @param request - StartAlertRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9042,6 +9048,8 @@ class CS extends OpenApiClient
     }
 
     /**
+     * 启用告警.
+     *
      * @param request - StartAlertRequest
      * @returns StartAlertResponse
      *
