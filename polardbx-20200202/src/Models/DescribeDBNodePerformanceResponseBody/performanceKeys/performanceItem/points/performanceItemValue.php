@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBNodePerformanceResponseBody\performanceKeys\performanceItem\points;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class performanceItemValue extends Model
 {
     /**
-     * @example 1600822800000
-     *
      * @var int
      */
     public $timestamp;
-
     /**
-     * @example 42.38
-     *
      * @var string
      */
     public $value;
@@ -28,14 +23,16 @@ class performanceItemValue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -43,17 +40,18 @@ class performanceItemValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return performanceItemValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

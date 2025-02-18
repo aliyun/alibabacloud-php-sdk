@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceHAResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,22 +12,18 @@ class data extends Model
      * @var string
      */
     public $primaryAzoneId;
-
     /**
      * @var string
      */
     public $primaryRegionId;
-
     /**
      * @var string
      */
     public $secondaryAzoneId;
-
     /**
      * @var string
      */
     public $secondaryRegionId;
-
     /**
      * @var string
      */
@@ -42,23 +38,28 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->primaryAzoneId) {
             $res['PrimaryAzoneId'] = $this->primaryAzoneId;
         }
+
         if (null !== $this->primaryRegionId) {
             $res['PrimaryRegionId'] = $this->primaryRegionId;
         }
+
         if (null !== $this->secondaryAzoneId) {
             $res['SecondaryAzoneId'] = $this->secondaryAzoneId;
         }
+
         if (null !== $this->secondaryRegionId) {
             $res['SecondaryRegionId'] = $this->secondaryRegionId;
         }
+
         if (null !== $this->topologyType) {
             $res['TopologyType'] = $this->topologyType;
         }
@@ -66,26 +67,30 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrimaryAzoneId'])) {
             $model->primaryAzoneId = $map['PrimaryAzoneId'];
         }
+
         if (isset($map['PrimaryRegionId'])) {
             $model->primaryRegionId = $map['PrimaryRegionId'];
         }
+
         if (isset($map['SecondaryAzoneId'])) {
             $model->secondaryAzoneId = $map['SecondaryAzoneId'];
         }
+
         if (isset($map['SecondaryRegionId'])) {
             $model->secondaryRegionId = $map['SecondaryRegionId'];
         }
+
         if (isset($map['TopologyType'])) {
             $model->topologyType = $map['TopologyType'];
         }

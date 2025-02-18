@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBinaryLogListResponseBody\logList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBinaryLogListResponseBody extends Model
 {
@@ -13,31 +13,19 @@ class DescribeBinaryLogListResponseBody extends Model
      * @var logList[]
      */
     public $logList;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @example 2DFF784E-DC31-5BBC-9B25-9261CD9E0AA9
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalNumber;
@@ -51,29 +39,37 @@ class DescribeBinaryLogListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->logList)) {
+            Model::validateArray($this->logList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logList) {
-            $res['LogList'] = [];
-            if (null !== $this->logList && \is_array($this->logList)) {
-                $n = 0;
-                foreach ($this->logList as $item) {
-                    $res['LogList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logList)) {
+                $res['LogList'] = [];
+                $n1             = 0;
+                foreach ($this->logList as $item1) {
+                    $res['LogList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalNumber) {
             $res['TotalNumber'] = $this->totalNumber;
         }
@@ -81,32 +77,36 @@ class DescribeBinaryLogListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBinaryLogListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogList'])) {
             if (!empty($map['LogList'])) {
                 $model->logList = [];
-                $n              = 0;
-                foreach ($map['LogList'] as $item) {
-                    $model->logList[$n++] = null !== $item ? logList::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['LogList'] as $item1) {
+                    $model->logList[$n1++] = logList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalNumber'])) {
             $model->totalNumber = $map['TotalNumber'];
         }

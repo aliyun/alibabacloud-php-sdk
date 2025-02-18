@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDBInstanceConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ENABLE_CONSISTENT_REPLICA_READ
-     *
      * @var string
      */
     public $configName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example true
-     *
      * @var string
      */
     public $configValue;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example pxc-hzjasd****
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -52,20 +33,24 @@ class ModifyDBInstanceConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configName) {
             $res['ConfigName'] = $this->configName;
         }
+
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -73,23 +58,26 @@ class ModifyDBInstanceConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDBInstanceConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigName'])) {
             $model->configName = $map['ConfigName'];
         }
+
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

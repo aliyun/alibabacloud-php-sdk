@@ -4,47 +4,27 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySecurityIpsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example pxc-hzjasd****
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
-     * @example default
-     *
      * @var string
      */
     public $groupName;
-
     /**
-     * @example 1
-     *
      * @var string
      */
     public $modifyMode;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 127.0.0.1,192.168.0.0
-     *
      * @var string
      */
     public $securityIPList;
@@ -58,23 +38,28 @@ class ModifySecurityIpsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->modifyMode) {
             $res['ModifyMode'] = $this->modifyMode;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
@@ -82,26 +67,30 @@ class ModifySecurityIpsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySecurityIpsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['ModifyMode'])) {
             $model->modifyMode = $map['ModifyMode'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
         }

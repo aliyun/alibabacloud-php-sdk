@@ -4,90 +4,50 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDBRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example testaccount
-     *
      * @var string
      */
     public $accountName;
-
     /**
-     * @example ReadWrite
-     *
      * @var string
      */
     public $accountPrivilege;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example utf8mb4
-     *
      * @var string
      */
     public $charset;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example pxc-**************
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
-     * @example db for test
-     *
      * @var string
      */
     public $dbDescription;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example testdb
-     *
      * @var string
      */
     public $dbName;
-
     /**
-     * @example auto
-     *
      * @var string
      */
     public $mode;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @example securityAccount
-     *
      * @var string
      */
     public $securityAccountName;
-
     /**
-     * @example securityPassword
-     *
      * @var string
      */
     public $securityAccountPassword;
-
     /**
      * @var string
      */
@@ -108,41 +68,52 @@ class CreateDBRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->accountPrivilege) {
             $res['AccountPrivilege'] = $this->accountPrivilege;
         }
+
         if (null !== $this->charset) {
             $res['Charset'] = $this->charset;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->dbDescription) {
             $res['DbDescription'] = $this->dbDescription;
         }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->securityAccountName) {
             $res['SecurityAccountName'] = $this->securityAccountName;
         }
+
         if (null !== $this->securityAccountPassword) {
             $res['SecurityAccountPassword'] = $this->securityAccountPassword;
         }
+
         if (null !== $this->storagePoolName) {
             $res['StoragePoolName'] = $this->storagePoolName;
         }
@@ -150,44 +121,54 @@ class CreateDBRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDBRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['AccountPrivilege'])) {
             $model->accountPrivilege = $map['AccountPrivilege'];
         }
+
         if (isset($map['Charset'])) {
             $model->charset = $map['Charset'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['DbDescription'])) {
             $model->dbDescription = $map['DbDescription'];
         }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SecurityAccountName'])) {
             $model->securityAccountName = $map['SecurityAccountName'];
         }
+
         if (isset($map['SecurityAccountPassword'])) {
             $model->securityAccountPassword = $map['SecurityAccountPassword'];
         }
+
         if (isset($map['StoragePoolName'])) {
             $model->storagePoolName = $map['StoragePoolName'];
         }

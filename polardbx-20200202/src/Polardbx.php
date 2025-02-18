@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AlignStoragePrimaryAzoneRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AlignStoragePrimaryAzoneResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\AllocateColdDataVolumeRequest;
@@ -156,11 +155,10 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdatePolarDBXInstanceNodeRequest
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpdatePolarDBXInstanceNodeResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeDBInstanceKernelVersionRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UpgradeDBInstanceKernelVersionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Polardbx extends OpenApiClient
 {
@@ -232,43 +230,53 @@ class Polardbx extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AlignStoragePrimaryAzoneRequest $request AlignStoragePrimaryAzoneRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - AlignStoragePrimaryAzoneRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AlignStoragePrimaryAzoneResponse
      *
-     * @return AlignStoragePrimaryAzoneResponse AlignStoragePrimaryAzoneResponse
+     * @param AlignStoragePrimaryAzoneRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AlignStoragePrimaryAzoneResponse
      */
     public function alignStoragePrimaryAzoneWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->storageInstanceName)) {
-            $query['StorageInstanceName'] = $request->storageInstanceName;
+
+        if (null !== $request->storageInstanceName) {
+            @$query['StorageInstanceName'] = $request->storageInstanceName;
         }
-        if (!Utils::isUnset($request->switchTime)) {
-            $query['SwitchTime'] = $request->switchTime;
+
+        if (null !== $request->switchTime) {
+            @$query['SwitchTime'] = $request->switchTime;
         }
-        if (!Utils::isUnset($request->switchTimeMode)) {
-            $query['SwitchTimeMode'] = $request->switchTimeMode;
+
+        if (null !== $request->switchTimeMode) {
+            @$query['SwitchTimeMode'] = $request->switchTimeMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AlignStoragePrimaryAzone',
@@ -281,14 +289,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AlignStoragePrimaryAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AlignStoragePrimaryAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AlignStoragePrimaryAzoneResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AlignStoragePrimaryAzoneRequest $request AlignStoragePrimaryAzoneRequest
+     * @param request - AlignStoragePrimaryAzoneRequest
+     * @returns AlignStoragePrimaryAzoneResponse
      *
-     * @return AlignStoragePrimaryAzoneResponse AlignStoragePrimaryAzoneResponse
+     * @param AlignStoragePrimaryAzoneRequest $request
+     *
+     * @return AlignStoragePrimaryAzoneResponse
      */
     public function alignStoragePrimaryAzone($request)
     {
@@ -298,25 +312,31 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 开通冷存储
-     *  *
-     * @param AllocateColdDataVolumeRequest $request AllocateColdDataVolumeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 开通冷存储.
      *
-     * @return AllocateColdDataVolumeResponse AllocateColdDataVolumeResponse
+     * @param request - AllocateColdDataVolumeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AllocateColdDataVolumeResponse
+     *
+     * @param AllocateColdDataVolumeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AllocateColdDataVolumeResponse
      */
     public function allocateColdDataVolumeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AllocateColdDataVolume',
@@ -329,16 +349,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AllocateColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AllocateColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AllocateColdDataVolumeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 开通冷存储
-     *  *
-     * @param AllocateColdDataVolumeRequest $request AllocateColdDataVolumeRequest
+     * 开通冷存储.
      *
-     * @return AllocateColdDataVolumeResponse AllocateColdDataVolumeResponse
+     * @param request - AllocateColdDataVolumeRequest
+     * @returns AllocateColdDataVolumeResponse
+     *
+     * @param AllocateColdDataVolumeRequest $request
+     *
+     * @return AllocateColdDataVolumeResponse
      */
     public function allocateColdDataVolume($request)
     {
@@ -348,41 +374,53 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * @param request - AllocateInstancePublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AllocateInstancePublicConnectionResponse
      *
-     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
+     * @param AllocateInstancePublicConnectionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionStringPrefix)) {
-            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (null !== $request->connectionStringPrefix) {
+            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AllocateInstancePublicConnection',
@@ -395,14 +433,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AllocateInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
+     * @param request - AllocateInstancePublicConnectionRequest
+     * @returns AllocateInstancePublicConnectionResponse
      *
-     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
+     * @param AllocateInstancePublicConnectionRequest $request
+     *
+     * @return AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnection($request)
     {
@@ -412,19 +456,23 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 取消主动运维任务
-     *  *
-     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 取消主动运维任务
      *
-     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     * @param request - CancelActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelActiveOperationTasksResponse
+     *
+     * @param CancelActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelActiveOperationTasks',
@@ -437,16 +485,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消主动运维任务
-     *  *
-     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     * 取消主动运维任务
      *
-     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     * @param request - CancelActiveOperationTasksRequest
+     * @returns CancelActiveOperationTasksResponse
+     *
+     * @param CancelActiveOperationTasksRequest $request
+     *
+     * @return CancelActiveOperationTasksResponse
      */
     public function cancelActiveOperationTasks($request)
     {
@@ -456,31 +510,39 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例所在资源组.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 修改实例所在资源组.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeResourceGroup',
@@ -493,16 +555,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改实例所在资源组.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * 修改实例所在资源组.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -512,26 +580,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param request - CheckCloudResourceAuthorizedRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckCloudResourceAuthorizedResponse
      *
-     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
+     * @param CheckCloudResourceAuthorizedRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleArn)) {
-            $query['RoleArn'] = $request->roleArn;
+
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckCloudResourceAuthorized',
@@ -544,14 +619,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckCloudResourceAuthorizedResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
+     * @param request - CheckCloudResourceAuthorizedRequest
+     * @returns CheckCloudResourceAuthorizedResponse
      *
-     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
+     * @param CheckCloudResourceAuthorizedRequest $request
+     *
+     * @return CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorized($request)
     {
@@ -561,44 +642,57 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request CreateAccountRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAccountResponse
      *
-     * @return CreateAccountResponse CreateAccountResponse
+     * @param CreateAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountDescription)) {
-            $query['AccountDescription'] = $request->accountDescription;
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->accountPrivilege)) {
-            $query['AccountPrivilege'] = $request->accountPrivilege;
+
+        if (null !== $request->accountPrivilege) {
+            @$query['AccountPrivilege'] = $request->accountPrivilege;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->DBName)) {
-            $query['DBName'] = $request->DBName;
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityAccountName)) {
-            $query['SecurityAccountName'] = $request->securityAccountName;
+
+        if (null !== $request->securityAccountName) {
+            @$query['SecurityAccountName'] = $request->securityAccountName;
         }
-        if (!Utils::isUnset($request->securityAccountPassword)) {
-            $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+
+        if (null !== $request->securityAccountPassword) {
+            @$query['SecurityAccountPassword'] = $request->securityAccountPassword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateAccount',
@@ -611,14 +705,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param request - CreateAccountRequest
+     * @returns CreateAccountResponse
      *
-     * @return CreateAccountResponse CreateAccountResponse
+     * @param CreateAccountRequest $request
+     *
+     * @return CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -628,26 +728,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupRequest $request CreateBackupRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateBackupResponse
      *
-     * @return CreateBackupResponse CreateBackupResponse
+     * @param CreateBackupRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateBackupResponse
      */
     public function createBackupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupType)) {
-            $query['BackupType'] = $request->backupType;
+        if (null !== $request->backupType) {
+            @$query['BackupType'] = $request->backupType;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateBackup',
@@ -660,14 +767,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateBackupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateBackupRequest $request CreateBackupRequest
+     * @param request - CreateBackupRequest
+     * @returns CreateBackupResponse
      *
-     * @return CreateBackupResponse CreateBackupResponse
+     * @param CreateBackupRequest $request
+     *
+     * @return CreateBackupResponse
      */
     public function createBackup($request)
     {
@@ -677,50 +790,65 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateDBRequest $request CreateDBRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDBResponse
      *
-     * @return CreateDBResponse CreateDBResponse
+     * @param CreateDBRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return CreateDBResponse
      */
     public function createDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPrivilege)) {
-            $query['AccountPrivilege'] = $request->accountPrivilege;
+
+        if (null !== $request->accountPrivilege) {
+            @$query['AccountPrivilege'] = $request->accountPrivilege;
         }
-        if (!Utils::isUnset($request->charset)) {
-            $query['Charset'] = $request->charset;
+
+        if (null !== $request->charset) {
+            @$query['Charset'] = $request->charset;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->dbDescription)) {
-            $query['DbDescription'] = $request->dbDescription;
+
+        if (null !== $request->dbDescription) {
+            @$query['DbDescription'] = $request->dbDescription;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityAccountName)) {
-            $query['SecurityAccountName'] = $request->securityAccountName;
+
+        if (null !== $request->securityAccountName) {
+            @$query['SecurityAccountName'] = $request->securityAccountName;
         }
-        if (!Utils::isUnset($request->securityAccountPassword)) {
-            $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+
+        if (null !== $request->securityAccountPassword) {
+            @$query['SecurityAccountPassword'] = $request->securityAccountPassword;
         }
-        if (!Utils::isUnset($request->storagePoolName)) {
-            $query['StoragePoolName'] = $request->storagePoolName;
+
+        if (null !== $request->storagePoolName) {
+            @$query['StoragePoolName'] = $request->storagePoolName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDB',
@@ -733,14 +861,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateDBRequest $request CreateDBRequest
+     * @param request - CreateDBRequest
+     * @returns CreateDBResponse
      *
-     * @return CreateDBResponse CreateDBResponse
+     * @param CreateDBRequest $request
+     *
+     * @return CreateDBResponse
      */
     public function createDB($request)
     {
@@ -750,106 +884,139 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $tmpReq  CreateDBInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - CreateDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDBInstanceResponse
      *
-     * @return CreateDBInstanceResponse CreateDBInstanceResponse
+     * @param CreateDBInstanceRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDBInstanceResponse
      */
     public function createDBInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDBInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->extraParams)) {
-            $request->extraParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extraParams, 'ExtraParams', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->extraParams) {
+            $request->extraParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->extraParams, 'ExtraParams', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->autoRenew)) {
-            $query['AutoRenew'] = $request->autoRenew;
+        if (null !== $request->autoRenew) {
+            @$query['AutoRenew'] = $request->autoRenew;
         }
-        if (!Utils::isUnset($request->CNNodeCount)) {
-            $query['CNNodeCount'] = $request->CNNodeCount;
+
+        if (null !== $request->CNNodeCount) {
+            @$query['CNNodeCount'] = $request->CNNodeCount;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->cnClass)) {
-            $query['CnClass'] = $request->cnClass;
+
+        if (null !== $request->cnClass) {
+            @$query['CnClass'] = $request->cnClass;
         }
-        if (!Utils::isUnset($request->DBNodeClass)) {
-            $query['DBNodeClass'] = $request->DBNodeClass;
+
+        if (null !== $request->DBNodeClass) {
+            @$query['DBNodeClass'] = $request->DBNodeClass;
         }
-        if (!Utils::isUnset($request->DBNodeCount)) {
-            $query['DBNodeCount'] = $request->DBNodeCount;
+
+        if (null !== $request->DBNodeCount) {
+            @$query['DBNodeCount'] = $request->DBNodeCount;
         }
-        if (!Utils::isUnset($request->DNNodeCount)) {
-            $query['DNNodeCount'] = $request->DNNodeCount;
+
+        if (null !== $request->DNNodeCount) {
+            @$query['DNNodeCount'] = $request->DNNodeCount;
         }
-        if (!Utils::isUnset($request->dnClass)) {
-            $query['DnClass'] = $request->dnClass;
+
+        if (null !== $request->dnClass) {
+            @$query['DnClass'] = $request->dnClass;
         }
-        if (!Utils::isUnset($request->dnStorageSpace)) {
-            $query['DnStorageSpace'] = $request->dnStorageSpace;
+
+        if (null !== $request->dnStorageSpace) {
+            @$query['DnStorageSpace'] = $request->dnStorageSpace;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->extraParamsShrink)) {
-            $query['ExtraParams'] = $request->extraParamsShrink;
+
+        if (null !== $request->extraParamsShrink) {
+            @$query['ExtraParams'] = $request->extraParamsShrink;
         }
-        if (!Utils::isUnset($request->isColumnarReadDBInstance)) {
-            $query['IsColumnarReadDBInstance'] = $request->isColumnarReadDBInstance;
+
+        if (null !== $request->isColumnarReadDBInstance) {
+            @$query['IsColumnarReadDBInstance'] = $request->isColumnarReadDBInstance;
         }
-        if (!Utils::isUnset($request->isReadDBInstance)) {
-            $query['IsReadDBInstance'] = $request->isReadDBInstance;
+
+        if (null !== $request->isReadDBInstance) {
+            @$query['IsReadDBInstance'] = $request->isReadDBInstance;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$query['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
+
+        if (null !== $request->payType) {
+            @$query['PayType'] = $request->payType;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->primaryDBInstanceName)) {
-            $query['PrimaryDBInstanceName'] = $request->primaryDBInstanceName;
+
+        if (null !== $request->primaryDBInstanceName) {
+            @$query['PrimaryDBInstanceName'] = $request->primaryDBInstanceName;
         }
-        if (!Utils::isUnset($request->primaryZone)) {
-            $query['PrimaryZone'] = $request->primaryZone;
+
+        if (null !== $request->primaryZone) {
+            @$query['PrimaryZone'] = $request->primaryZone;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->secondaryZone)) {
-            $query['SecondaryZone'] = $request->secondaryZone;
+
+        if (null !== $request->secondaryZone) {
+            @$query['SecondaryZone'] = $request->secondaryZone;
         }
-        if (!Utils::isUnset($request->series)) {
-            $query['Series'] = $request->series;
+
+        if (null !== $request->series) {
+            @$query['Series'] = $request->series;
         }
-        if (!Utils::isUnset($request->tertiaryZone)) {
-            $query['TertiaryZone'] = $request->tertiaryZone;
+
+        if (null !== $request->tertiaryZone) {
+            @$query['TertiaryZone'] = $request->tertiaryZone;
         }
-        if (!Utils::isUnset($request->topologyType)) {
-            $query['TopologyType'] = $request->topologyType;
+
+        if (null !== $request->topologyType) {
+            @$query['TopologyType'] = $request->topologyType;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
-        if (!Utils::isUnset($request->VPCId)) {
-            $query['VPCId'] = $request->VPCId;
+
+        if (null !== $request->VPCId) {
+            @$query['VPCId'] = $request->VPCId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDBInstance',
@@ -862,14 +1029,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * @param request - CreateDBInstanceRequest
+     * @returns CreateDBInstanceResponse
      *
-     * @return CreateDBInstanceResponse CreateDBInstanceResponse
+     * @param CreateDBInstanceRequest $request
+     *
+     * @return CreateDBInstanceResponse
      */
     public function createDBInstance($request)
     {
@@ -879,32 +1052,41 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateSuperAccountRequest $request CreateSuperAccountRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateSuperAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSuperAccountResponse
      *
-     * @return CreateSuperAccountResponse CreateSuperAccountResponse
+     * @param CreateSuperAccountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateSuperAccountResponse
      */
     public function createSuperAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountDescription)) {
-            $query['AccountDescription'] = $request->accountDescription;
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSuperAccount',
@@ -917,14 +1099,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSuperAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSuperAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSuperAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateSuperAccountRequest $request CreateSuperAccountRequest
+     * @param request - CreateSuperAccountRequest
+     * @returns CreateSuperAccountResponse
      *
-     * @return CreateSuperAccountResponse CreateSuperAccountResponse
+     * @param CreateSuperAccountRequest $request
+     *
+     * @return CreateSuperAccountResponse
      */
     public function createSuperAccount($request)
     {
@@ -934,32 +1122,41 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request DeleteAccountRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAccountResponse
      *
-     * @return DeleteAccountResponse DeleteAccountResponse
+     * @param DeleteAccountRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityAccountName)) {
-            $query['SecurityAccountName'] = $request->securityAccountName;
+
+        if (null !== $request->securityAccountName) {
+            @$query['SecurityAccountName'] = $request->securityAccountName;
         }
-        if (!Utils::isUnset($request->securityAccountPassword)) {
-            $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+
+        if (null !== $request->securityAccountPassword) {
+            @$query['SecurityAccountPassword'] = $request->securityAccountPassword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAccount',
@@ -972,14 +1169,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param request - DeleteAccountRequest
+     * @returns DeleteAccountResponse
      *
-     * @return DeleteAccountResponse DeleteAccountResponse
+     * @param DeleteAccountRequest $request
+     *
+     * @return DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -989,26 +1192,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBRequest $request DeleteDBRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDBResponse
      *
-     * @return DeleteDBResponse DeleteDBResponse
+     * @param DeleteDBRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DeleteDBResponse
      */
     public function deleteDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDB',
@@ -1021,14 +1231,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteDBRequest $request DeleteDBRequest
+     * @param request - DeleteDBRequest
+     * @returns DeleteDBResponse
      *
-     * @return DeleteDBResponse DeleteDBResponse
+     * @param DeleteDBRequest $request
+     *
+     * @return DeleteDBResponse
      */
     public function deleteDB($request)
     {
@@ -1038,23 +1254,29 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDBInstanceResponse
      *
-     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
+     * @param DeleteDBInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDBInstanceResponse
      */
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDBInstance',
@@ -1067,14 +1289,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
+     * @param request - DeleteDBInstanceRequest
+     * @returns DeleteDBInstanceResponse
      *
-     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
+     * @param DeleteDBInstanceRequest $request
+     *
+     * @return DeleteDBInstanceResponse
      */
     public function deleteDBInstance($request)
     {
@@ -1084,29 +1312,37 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountListRequest $request DescribeAccountListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeAccountListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAccountListResponse
      *
-     * @return DescribeAccountListResponse DescribeAccountListResponse
+     * @param DescribeAccountListRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeAccountListResponse
      */
     public function describeAccountListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountType)) {
-            $query['AccountType'] = $request->accountType;
+
+        if (null !== $request->accountType) {
+            @$query['AccountType'] = $request->accountType;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccountList',
@@ -1119,14 +1355,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAccountListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAccountListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAccountListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeAccountListRequest $request DescribeAccountListRequest
+     * @param request - DescribeAccountListRequest
+     * @returns DescribeAccountListResponse
      *
-     * @return DescribeAccountListResponse DescribeAccountListResponse
+     * @param DescribeAccountListRequest $request
+     *
+     * @return DescribeAccountListResponse
      */
     public function describeAccountList($request)
     {
@@ -1136,22 +1378,27 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 展示全局运维窗口配置
-     *  *
-     * @param DescribeActiveOperationMaintainConfRequest $request DescribeActiveOperationMaintainConfRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * 展示全局运维窗口配置.
      *
-     * @return DescribeActiveOperationMaintainConfResponse DescribeActiveOperationMaintainConfResponse
+     * @param request - DescribeActiveOperationMaintainConfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeActiveOperationMaintainConfResponse
+     *
+     * @param DescribeActiveOperationMaintainConfRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeActiveOperationMaintainConfResponse
      */
     public function describeActiveOperationMaintainConfWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeActiveOperationMaintainConf',
@@ -1164,16 +1411,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeActiveOperationMaintainConfResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 展示全局运维窗口配置
-     *  *
-     * @param DescribeActiveOperationMaintainConfRequest $request DescribeActiveOperationMaintainConfRequest
+     * 展示全局运维窗口配置.
      *
-     * @return DescribeActiveOperationMaintainConfResponse DescribeActiveOperationMaintainConfResponse
+     * @param request - DescribeActiveOperationMaintainConfRequest
+     * @returns DescribeActiveOperationMaintainConfResponse
+     *
+     * @param DescribeActiveOperationMaintainConfRequest $request
+     *
+     * @return DescribeActiveOperationMaintainConfResponse
      */
     public function describeActiveOperationMaintainConf($request)
     {
@@ -1183,19 +1436,23 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 获取主动运维任务数量
-     *  *
-     * @param DescribeActiveOperationTaskCountRequest $request DescribeActiveOperationTaskCountRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 获取主动运维任务数量.
      *
-     * @return DescribeActiveOperationTaskCountResponse DescribeActiveOperationTaskCountResponse
+     * @param request - DescribeActiveOperationTaskCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeActiveOperationTaskCountResponse
+     *
+     * @param DescribeActiveOperationTaskCountRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeActiveOperationTaskCountResponse
      */
     public function describeActiveOperationTaskCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeActiveOperationTaskCount',
@@ -1208,16 +1465,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeActiveOperationTaskCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取主动运维任务数量
-     *  *
-     * @param DescribeActiveOperationTaskCountRequest $request DescribeActiveOperationTaskCountRequest
+     * 获取主动运维任务数量.
      *
-     * @return DescribeActiveOperationTaskCountResponse DescribeActiveOperationTaskCountResponse
+     * @param request - DescribeActiveOperationTaskCountRequest
+     * @returns DescribeActiveOperationTaskCountResponse
+     *
+     * @param DescribeActiveOperationTaskCountRequest $request
+     *
+     * @return DescribeActiveOperationTaskCountResponse
      */
     public function describeActiveOperationTaskCount($request)
     {
@@ -1227,19 +1490,23 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 获取待执行自动运维任务列表
-     *  *
-     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 获取待执行自动运维任务列表.
      *
-     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
+     * @param request - DescribeActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeActiveOperationTasksResponse
+     *
+     * @param DescribeActiveOperationTasksRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeActiveOperationTasks',
@@ -1252,16 +1519,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取待执行自动运维任务列表
-     *  *
-     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     * 获取待执行自动运维任务列表.
      *
-     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
+     * @param request - DescribeActiveOperationTasksRequest
+     * @returns DescribeActiveOperationTasksResponse
+     *
+     * @param DescribeActiveOperationTasksRequest $request
+     *
+     * @return DescribeActiveOperationTasksResponse
      */
     public function describeActiveOperationTasks($request)
     {
@@ -1271,40 +1544,51 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 冷存储表列表
-     *  *
-     * @param DescribeArchiveTableListRequest $request DescribeArchiveTableListRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 冷存储表列表.
      *
-     * @return DescribeArchiveTableListResponse DescribeArchiveTableListResponse
+     * @param request - DescribeArchiveTableListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeArchiveTableListResponse
+     *
+     * @param DescribeArchiveTableListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeArchiveTableListResponse
      */
     public function describeArchiveTableListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->pageIndex)) {
-            $query['PageIndex'] = $request->pageIndex;
+
+        if (null !== $request->pageIndex) {
+            @$query['PageIndex'] = $request->pageIndex;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->schemaName)) {
-            $query['SchemaName'] = $request->schemaName;
+
+        if (null !== $request->schemaName) {
+            @$query['SchemaName'] = $request->schemaName;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
+
+        if (null !== $request->tableName) {
+            @$query['TableName'] = $request->tableName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeArchiveTableList',
@@ -1317,16 +1601,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeArchiveTableListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeArchiveTableListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeArchiveTableListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 冷存储表列表
-     *  *
-     * @param DescribeArchiveTableListRequest $request DescribeArchiveTableListRequest
+     * 冷存储表列表.
      *
-     * @return DescribeArchiveTableListResponse DescribeArchiveTableListResponse
+     * @param request - DescribeArchiveTableListRequest
+     * @returns DescribeArchiveTableListResponse
+     *
+     * @param DescribeArchiveTableListRequest $request
+     *
+     * @return DescribeArchiveTableListResponse
      */
     public function describeArchiveTableList($request)
     {
@@ -1336,23 +1626,29 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBackupPolicyResponse
      *
-     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
+     * @param DescribeBackupPolicyRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackupPolicy',
@@ -1365,14 +1661,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param request - DescribeBackupPolicyRequest
+     * @returns DescribeBackupPolicyResponse
      *
-     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
+     * @param DescribeBackupPolicyRequest $request
+     *
+     * @return DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -1382,31 +1684,39 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 备份集详情
-     *  *
-     * @param DescribeBackupSetRequest $request DescribeBackupSetRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 备份集详情.
      *
-     * @return DescribeBackupSetResponse DescribeBackupSetResponse
+     * @param request - DescribeBackupSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBackupSetResponse
+     *
+     * @param DescribeBackupSetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeBackupSetResponse
      */
     public function describeBackupSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupSetId)) {
-            $query['BackupSetId'] = $request->backupSetId;
+        if (null !== $request->backupSetId) {
+            @$query['BackupSetId'] = $request->backupSetId;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->destCrossRegion)) {
-            $query['DestCrossRegion'] = $request->destCrossRegion;
+
+        if (null !== $request->destCrossRegion) {
+            @$query['DestCrossRegion'] = $request->destCrossRegion;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackupSet',
@@ -1419,16 +1729,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 备份集详情
-     *  *
-     * @param DescribeBackupSetRequest $request DescribeBackupSetRequest
+     * 备份集详情.
      *
-     * @return DescribeBackupSetResponse DescribeBackupSetResponse
+     * @param request - DescribeBackupSetRequest
+     * @returns DescribeBackupSetResponse
+     *
+     * @param DescribeBackupSetRequest $request
+     *
+     * @return DescribeBackupSetResponse
      */
     public function describeBackupSet($request)
     {
@@ -1438,17 +1754,21 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupSetListRequest $request DescribeBackupSetListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBackupSetListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBackupSetListResponse
      *
-     * @return DescribeBackupSetListResponse DescribeBackupSetListResponse
+     * @param DescribeBackupSetListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeBackupSetListResponse
      */
     public function describeBackupSetListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBackupSetList',
@@ -1461,14 +1781,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBackupSetListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBackupSetListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBackupSetListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBackupSetListRequest $request DescribeBackupSetListRequest
+     * @param request - DescribeBackupSetListRequest
+     * @returns DescribeBackupSetListResponse
      *
-     * @return DescribeBackupSetListResponse DescribeBackupSetListResponse
+     * @param DescribeBackupSetListRequest $request
+     *
+     * @return DescribeBackupSetListResponse
      */
     public function describeBackupSetList($request)
     {
@@ -1478,38 +1804,49 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeBinaryLogListRequest $request DescribeBinaryLogListRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeBinaryLogListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBinaryLogListResponse
      *
-     * @return DescribeBinaryLogListResponse DescribeBinaryLogListResponse
+     * @param DescribeBinaryLogListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeBinaryLogListResponse
      */
     public function describeBinaryLogListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeBinaryLogList',
@@ -1522,14 +1859,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeBinaryLogListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeBinaryLogListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeBinaryLogListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeBinaryLogListRequest $request DescribeBinaryLogListRequest
+     * @param request - DescribeBinaryLogListRequest
+     * @returns DescribeBinaryLogListResponse
      *
-     * @return DescribeBinaryLogListResponse DescribeBinaryLogListResponse
+     * @param DescribeBinaryLogListRequest $request
+     *
+     * @return DescribeBinaryLogListResponse
      */
     public function describeBinaryLogList($request)
     {
@@ -1539,23 +1882,29 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeCharacterSetRequest $request DescribeCharacterSetRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeCharacterSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCharacterSetResponse
      *
-     * @return DescribeCharacterSetResponse DescribeCharacterSetResponse
+     * @param DescribeCharacterSetRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeCharacterSetResponse
      */
     public function describeCharacterSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCharacterSet',
@@ -1568,14 +1917,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCharacterSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCharacterSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCharacterSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeCharacterSetRequest $request DescribeCharacterSetRequest
+     * @param request - DescribeCharacterSetRequest
+     * @returns DescribeCharacterSetResponse
      *
-     * @return DescribeCharacterSetResponse DescribeCharacterSetResponse
+     * @param DescribeCharacterSetRequest $request
+     *
+     * @return DescribeCharacterSetResponse
      */
     public function describeCharacterSet($request)
     {
@@ -1585,19 +1940,23 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 冷存储基础信息
-     *  *
-     * @param DescribeColdDataBasicInfoRequest $request DescribeColdDataBasicInfoRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 冷存储基础信息.
      *
-     * @return DescribeColdDataBasicInfoResponse DescribeColdDataBasicInfoResponse
+     * @param request - DescribeColdDataBasicInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeColdDataBasicInfoResponse
+     *
+     * @param DescribeColdDataBasicInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeColdDataBasicInfoResponse
      */
     public function describeColdDataBasicInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeColdDataBasicInfo',
@@ -1610,16 +1969,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeColdDataBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeColdDataBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeColdDataBasicInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 冷存储基础信息
-     *  *
-     * @param DescribeColdDataBasicInfoRequest $request DescribeColdDataBasicInfoRequest
+     * 冷存储基础信息.
      *
-     * @return DescribeColdDataBasicInfoResponse DescribeColdDataBasicInfoResponse
+     * @param request - DescribeColdDataBasicInfoRequest
+     * @returns DescribeColdDataBasicInfoResponse
+     *
+     * @param DescribeColdDataBasicInfoRequest $request
+     *
+     * @return DescribeColdDataBasicInfoResponse
      */
     public function describeColdDataBasicInfo($request)
     {
@@ -1629,26 +1994,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDBInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstanceAttributeResponse
      *
-     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
+     * @param DescribeDBInstanceAttributeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceAttribute',
@@ -1661,14 +2033,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
+     * @param request - DescribeDBInstanceAttributeRequest
+     * @returns DescribeDBInstanceAttributeResponse
      *
-     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
+     * @param DescribeDBInstanceAttributeRequest $request
+     *
+     * @return DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttribute($request)
     {
@@ -1678,26 +2056,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceConfigRequest $request DescribeDBInstanceConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDBInstanceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstanceConfigResponse
      *
-     * @return DescribeDBInstanceConfigResponse DescribeDBInstanceConfigResponse
+     * @param DescribeDBInstanceConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDBInstanceConfigResponse
      */
     public function describeDBInstanceConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configName)) {
-            $query['ConfigName'] = $request->configName;
+        if (null !== $request->configName) {
+            @$query['ConfigName'] = $request->configName;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceConfig',
@@ -1710,14 +2095,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDBInstanceConfigRequest $request DescribeDBInstanceConfigRequest
+     * @param request - DescribeDBInstanceConfigRequest
+     * @returns DescribeDBInstanceConfigResponse
      *
-     * @return DescribeDBInstanceConfigResponse DescribeDBInstanceConfigResponse
+     * @param DescribeDBInstanceConfigRequest $request
+     *
+     * @return DescribeDBInstanceConfigResponse
      */
     public function describeDBInstanceConfig($request)
     {
@@ -1727,23 +2118,29 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceHARequest $request DescribeDBInstanceHARequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDBInstanceHARequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstanceHAResponse
      *
-     * @return DescribeDBInstanceHAResponse DescribeDBInstanceHAResponse
+     * @param DescribeDBInstanceHARequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDBInstanceHAResponse
      */
     public function describeDBInstanceHAWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceHA',
@@ -1756,14 +2153,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceHAResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDBInstanceHARequest $request DescribeDBInstanceHARequest
+     * @param request - DescribeDBInstanceHARequest
+     * @returns DescribeDBInstanceHAResponse
      *
-     * @return DescribeDBInstanceHAResponse DescribeDBInstanceHAResponse
+     * @param DescribeDBInstanceHARequest $request
+     *
+     * @return DescribeDBInstanceHAResponse
      */
     public function describeDBInstanceHA($request)
     {
@@ -1773,23 +2176,29 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDBInstanceSSLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstanceSSLResponse
      *
-     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
+     * @param DescribeDBInstanceSSLRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceSSL',
@@ -1802,14 +2211,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDBInstanceSSLRequest $request DescribeDBInstanceSSLRequest
+     * @param request - DescribeDBInstanceSSLRequest
+     * @returns DescribeDBInstanceSSLResponse
      *
-     * @return DescribeDBInstanceSSLResponse DescribeDBInstanceSSLResponse
+     * @param DescribeDBInstanceSSLRequest $request
+     *
+     * @return DescribeDBInstanceSSLResponse
      */
     public function describeDBInstanceSSL($request)
     {
@@ -1819,23 +2234,29 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceTDERequest $request DescribeDBInstanceTDERequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDBInstanceTDERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstanceTDEResponse
      *
-     * @return DescribeDBInstanceTDEResponse DescribeDBInstanceTDEResponse
+     * @param DescribeDBInstanceTDERequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDBInstanceTDEResponse
      */
     public function describeDBInstanceTDEWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceTDE',
@@ -1848,14 +2269,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceTDEResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDBInstanceTDERequest $request DescribeDBInstanceTDERequest
+     * @param request - DescribeDBInstanceTDERequest
+     * @returns DescribeDBInstanceTDEResponse
      *
-     * @return DescribeDBInstanceTDEResponse DescribeDBInstanceTDEResponse
+     * @param DescribeDBInstanceTDERequest $request
+     *
+     * @return DescribeDBInstanceTDEResponse
      */
     public function describeDBInstanceTDE($request)
     {
@@ -1865,32 +2292,41 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceTopologyRequest $request DescribeDBInstanceTopologyRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDBInstanceTopologyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstanceTopologyResponse
      *
-     * @return DescribeDBInstanceTopologyResponse DescribeDBInstanceTopologyResponse
+     * @param DescribeDBInstanceTopologyRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDBInstanceTopologyResponse
      */
     public function describeDBInstanceTopologyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->minuteSimple)) {
-            $query['MinuteSimple'] = $request->minuteSimple;
+
+        if (null !== $request->minuteSimple) {
+            @$query['MinuteSimple'] = $request->minuteSimple;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceTopology',
@@ -1903,14 +2339,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceTopologyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDBInstanceTopologyRequest $request DescribeDBInstanceTopologyRequest
+     * @param request - DescribeDBInstanceTopologyRequest
+     * @returns DescribeDBInstanceTopologyResponse
      *
-     * @return DescribeDBInstanceTopologyResponse DescribeDBInstanceTopologyResponse
+     * @param DescribeDBInstanceTopologyRequest $request
+     *
+     * @return DescribeDBInstanceTopologyResponse
      */
     public function describeDBInstanceTopology($request)
     {
@@ -1920,25 +2362,31 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 通过Endpoint查询实例
-     *  *
-     * @param DescribeDBInstanceViaEndpointRequest $request DescribeDBInstanceViaEndpointRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 通过Endpoint查询实例.
      *
-     * @return DescribeDBInstanceViaEndpointResponse DescribeDBInstanceViaEndpointResponse
+     * @param request - DescribeDBInstanceViaEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstanceViaEndpointResponse
+     *
+     * @param DescribeDBInstanceViaEndpointRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDBInstanceViaEndpointResponse
      */
     public function describeDBInstanceViaEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpoint)) {
-            $query['Endpoint'] = $request->endpoint;
+        if (null !== $request->endpoint) {
+            @$query['Endpoint'] = $request->endpoint;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceViaEndpoint',
@@ -1951,16 +2399,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceViaEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstanceViaEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceViaEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过Endpoint查询实例
-     *  *
-     * @param DescribeDBInstanceViaEndpointRequest $request DescribeDBInstanceViaEndpointRequest
+     * 通过Endpoint查询实例.
      *
-     * @return DescribeDBInstanceViaEndpointResponse DescribeDBInstanceViaEndpointResponse
+     * @param request - DescribeDBInstanceViaEndpointRequest
+     * @returns DescribeDBInstanceViaEndpointResponse
+     *
+     * @param DescribeDBInstanceViaEndpointRequest $request
+     *
+     * @return DescribeDBInstanceViaEndpointResponse
      */
     public function describeDBInstanceViaEndpoint($request)
     {
@@ -1970,44 +2424,57 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDBInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstancesResponse
      *
-     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
+     * @param DescribeDBInstancesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDBInstancesResponse
      */
     public function describeDBInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbVersion)) {
-            $query['DbVersion'] = $request->dbVersion;
+        if (null !== $request->dbVersion) {
+            @$query['DbVersion'] = $request->dbVersion;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mustHasCdc)) {
-            $query['MustHasCdc'] = $request->mustHasCdc;
+
+        if (null !== $request->mustHasCdc) {
+            @$query['MustHasCdc'] = $request->mustHasCdc;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->series)) {
-            $query['Series'] = $request->series;
+
+        if (null !== $request->series) {
+            @$query['Series'] = $request->series;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstances',
@@ -2020,14 +2487,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
+     * @param request - DescribeDBInstancesRequest
+     * @returns DescribeDBInstancesResponse
      *
-     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
+     * @param DescribeDBInstancesRequest $request
+     *
+     * @return DescribeDBInstancesResponse
      */
     public function describeDBInstances($request)
     {
@@ -2037,41 +2510,53 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDBNodePerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBNodePerformanceResponse
      *
-     * @return DescribeDBNodePerformanceResponse DescribeDBNodePerformanceResponse
+     * @param DescribeDBNodePerformanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDBNodePerformanceResponse
      */
     public function describeDBNodePerformanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->characterType)) {
-            $query['CharacterType'] = $request->characterType;
+        if (null !== $request->characterType) {
+            @$query['CharacterType'] = $request->characterType;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->DBNodeIds)) {
-            $query['DBNodeIds'] = $request->DBNodeIds;
+
+        if (null !== $request->DBNodeIds) {
+            @$query['DBNodeIds'] = $request->DBNodeIds;
         }
-        if (!Utils::isUnset($request->DBNodeRole)) {
-            $query['DBNodeRole'] = $request->DBNodeRole;
+
+        if (null !== $request->DBNodeRole) {
+            @$query['DBNodeRole'] = $request->DBNodeRole;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBNodePerformance',
@@ -2084,14 +2569,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBNodePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBNodePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBNodePerformanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
+     * @param request - DescribeDBNodePerformanceRequest
+     * @returns DescribeDBNodePerformanceResponse
      *
-     * @return DescribeDBNodePerformanceResponse DescribeDBNodePerformanceResponse
+     * @param DescribeDBNodePerformanceRequest $request
+     *
+     * @return DescribeDBNodePerformanceResponse
      */
     public function describeDBNodePerformance($request)
     {
@@ -2101,26 +2592,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDbListRequest $request DescribeDbListRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDbListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDbListResponse
      *
-     * @return DescribeDbListResponse DescribeDbListResponse
+     * @param DescribeDbListRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeDbListResponse
      */
     public function describeDbListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->DBName)) {
-            $query['DBName'] = $request->DBName;
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDbList',
@@ -2133,14 +2631,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDbListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDbListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDbListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDbListRequest $request DescribeDbListRequest
+     * @param request - DescribeDbListRequest
+     * @returns DescribeDbListResponse
      *
-     * @return DescribeDbListResponse DescribeDbListResponse
+     * @param DescribeDbListRequest $request
+     *
+     * @return DescribeDbListResponse
      */
     public function describeDbList($request)
     {
@@ -2150,26 +2654,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeDistributeTableListRequest $request DescribeDistributeTableListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeDistributeTableListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDistributeTableListResponse
      *
-     * @return DescribeDistributeTableListResponse DescribeDistributeTableListResponse
+     * @param DescribeDistributeTableListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDistributeTableListResponse
      */
     public function describeDistributeTableListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDistributeTableList',
@@ -2182,14 +2693,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDistributeTableListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDistributeTableListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDistributeTableListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeDistributeTableListRequest $request DescribeDistributeTableListRequest
+     * @param request - DescribeDistributeTableListRequest
+     * @returns DescribeDistributeTableListResponse
      *
-     * @return DescribeDistributeTableListResponse DescribeDistributeTableListResponse
+     * @param DescribeDistributeTableListRequest $request
+     *
+     * @return DescribeDistributeTableListResponse
      */
     public function describeDistributeTableList($request)
     {
@@ -2199,19 +2716,23 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 历史事件
-     *  *
-     * @param DescribeEventsRequest $request DescribeEventsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 历史事件.
      *
-     * @return DescribeEventsResponse DescribeEventsResponse
+     * @param request - DescribeEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEventsResponse
+     *
+     * @param DescribeEventsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeEventsResponse
      */
     public function describeEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEvents',
@@ -2224,16 +2745,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 历史事件
-     *  *
-     * @param DescribeEventsRequest $request DescribeEventsRequest
+     * 历史事件.
      *
-     * @return DescribeEventsResponse DescribeEventsResponse
+     * @param request - DescribeEventsRequest
+     * @returns DescribeEventsResponse
+     *
+     * @param DescribeEventsRequest $request
+     *
+     * @return DescribeEventsResponse
      */
     public function describeEvents($request)
     {
@@ -2243,37 +2770,47 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 获取GDN实例列表
-     *  *
-     * @param DescribeGdnInstancesRequest $request DescribeGdnInstancesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取GDN实例列表.
      *
-     * @return DescribeGdnInstancesResponse DescribeGdnInstancesResponse
+     * @param request - DescribeGdnInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeGdnInstancesResponse
+     *
+     * @param DescribeGdnInstancesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeGdnInstancesResponse
      */
     public function describeGdnInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filterType)) {
-            $query['FilterType'] = $request->filterType;
+        if (null !== $request->filterType) {
+            @$query['FilterType'] = $request->filterType;
         }
-        if (!Utils::isUnset($request->filterValue)) {
-            $query['FilterValue'] = $request->filterValue;
+
+        if (null !== $request->filterValue) {
+            @$query['FilterValue'] = $request->filterValue;
         }
-        if (!Utils::isUnset($request->GDNId)) {
-            $query['GDNId'] = $request->GDNId;
+
+        if (null !== $request->GDNId) {
+            @$query['GDNId'] = $request->GDNId;
         }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
+
+        if (null !== $request->pageNum) {
+            @$query['PageNum'] = $request->pageNum;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeGdnInstances',
@@ -2286,16 +2823,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeGdnInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeGdnInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeGdnInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取GDN实例列表
-     *  *
-     * @param DescribeGdnInstancesRequest $request DescribeGdnInstancesRequest
+     * 获取GDN实例列表.
      *
-     * @return DescribeGdnInstancesResponse DescribeGdnInstancesResponse
+     * @param request - DescribeGdnInstancesRequest
+     * @returns DescribeGdnInstancesResponse
+     *
+     * @param DescribeGdnInstancesRequest $request
+     *
+     * @return DescribeGdnInstancesResponse
      */
     public function describeGdnInstances($request)
     {
@@ -2305,28 +2848,35 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 开放商业备份集
-     *  *
-     * @param DescribeOpenBackupSetRequest $request DescribeOpenBackupSetRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 开放商业备份集.
      *
-     * @return DescribeOpenBackupSetResponse DescribeOpenBackupSetResponse
+     * @param request - DescribeOpenBackupSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeOpenBackupSetResponse
+     *
+     * @param DescribeOpenBackupSetRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeOpenBackupSetResponse
      */
     public function describeOpenBackupSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->restoreTime)) {
-            $query['RestoreTime'] = $request->restoreTime;
+
+        if (null !== $request->restoreTime) {
+            @$query['RestoreTime'] = $request->restoreTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeOpenBackupSet',
@@ -2339,16 +2889,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeOpenBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeOpenBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeOpenBackupSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 开放商业备份集
-     *  *
-     * @param DescribeOpenBackupSetRequest $request DescribeOpenBackupSetRequest
+     * 开放商业备份集.
      *
-     * @return DescribeOpenBackupSetResponse DescribeOpenBackupSetResponse
+     * @param request - DescribeOpenBackupSetRequest
+     * @returns DescribeOpenBackupSetResponse
+     *
+     * @param DescribeOpenBackupSetRequest $request
+     *
+     * @return DescribeOpenBackupSetResponse
      */
     public function describeOpenBackupSet($request)
     {
@@ -2358,29 +2914,37 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeParameterTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeParameterTemplatesResponse
      *
-     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
+     * @param DescribeParameterTemplatesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->paramLevel)) {
-            $query['ParamLevel'] = $request->paramLevel;
+
+        if (null !== $request->paramLevel) {
+            @$query['ParamLevel'] = $request->paramLevel;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeParameterTemplates',
@@ -2393,14 +2957,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeParameterTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
+     * @param request - DescribeParameterTemplatesRequest
+     * @returns DescribeParameterTemplatesResponse
      *
-     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
+     * @param DescribeParameterTemplatesRequest $request
+     *
+     * @return DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplates($request)
     {
@@ -2410,26 +2980,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request DescribeParametersRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeParametersResponse
      *
-     * @return DescribeParametersResponse DescribeParametersResponse
+     * @param DescribeParametersRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeParametersResponse
      */
     public function describeParametersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->paramLevel)) {
-            $query['ParamLevel'] = $request->paramLevel;
+
+        if (null !== $request->paramLevel) {
+            @$query['ParamLevel'] = $request->paramLevel;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeParameters',
@@ -2442,14 +3019,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeParametersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeParametersRequest $request DescribeParametersRequest
+     * @param request - DescribeParametersRequest
+     * @returns DescribeParametersResponse
      *
-     * @return DescribeParametersResponse DescribeParametersResponse
+     * @param DescribeParametersRequest $request
+     *
+     * @return DescribeParametersResponse
      */
     public function describeParameters($request)
     {
@@ -2459,9 +3042,13 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRegionsResponse
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($runtime)
     {
@@ -2477,12 +3064,17 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @returns DescribeRegionsResponse
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions()
     {
@@ -2492,35 +3084,45 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeScaleOutMigrateTaskListRequest $request DescribeScaleOutMigrateTaskListRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeScaleOutMigrateTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeScaleOutMigrateTaskListResponse
      *
-     * @return DescribeScaleOutMigrateTaskListResponse DescribeScaleOutMigrateTaskListResponse
+     * @param DescribeScaleOutMigrateTaskListRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeScaleOutMigrateTaskListResponse
      */
     public function describeScaleOutMigrateTaskListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeScaleOutMigrateTaskList',
@@ -2533,14 +3135,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeScaleOutMigrateTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScaleOutMigrateTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScaleOutMigrateTaskListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeScaleOutMigrateTaskListRequest $request DescribeScaleOutMigrateTaskListRequest
+     * @param request - DescribeScaleOutMigrateTaskListRequest
+     * @returns DescribeScaleOutMigrateTaskListResponse
      *
-     * @return DescribeScaleOutMigrateTaskListResponse DescribeScaleOutMigrateTaskListResponse
+     * @param DescribeScaleOutMigrateTaskListRequest $request
+     *
+     * @return DescribeScaleOutMigrateTaskListResponse
      */
     public function describeScaleOutMigrateTaskList($request)
     {
@@ -2550,23 +3158,29 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeSecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSecurityIpsResponse
      *
-     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
+     * @param DescribeSecurityIpsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeSecurityIpsResponse
      */
     public function describeSecurityIpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSecurityIps',
@@ -2579,14 +3193,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSecurityIpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeSecurityIpsRequest $request DescribeSecurityIpsRequest
+     * @param request - DescribeSecurityIpsRequest
+     * @returns DescribeSecurityIpsResponse
      *
-     * @return DescribeSecurityIpsResponse DescribeSecurityIpsResponse
+     * @param DescribeSecurityIpsRequest $request
+     *
+     * @return DescribeSecurityIpsResponse
      */
     public function describeSecurityIps($request)
     {
@@ -2596,46 +3216,59 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 慢SQL明细
-     *  *
-     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 慢SQL明细.
      *
-     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
+     * @param request - DescribeSlowLogRecordsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlowLogRecordsResponse
+     *
+     * @param DescribeSlowLogRecordsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->characterType)) {
-            $query['CharacterType'] = $request->characterType;
+        if (null !== $request->characterType) {
+            @$query['CharacterType'] = $request->characterType;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->DBName)) {
-            $query['DBName'] = $request->DBName;
+
+        if (null !== $request->DBName) {
+            @$query['DBName'] = $request->DBName;
         }
-        if (!Utils::isUnset($request->DBNodeIds)) {
-            $query['DBNodeIds'] = $request->DBNodeIds;
+
+        if (null !== $request->DBNodeIds) {
+            @$query['DBNodeIds'] = $request->DBNodeIds;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['Page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlowLogRecords',
@@ -2648,16 +3281,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlowLogRecordsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 慢SQL明细
-     *  *
-     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * 慢SQL明细.
      *
-     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
+     * @param request - DescribeSlowLogRecordsRequest
+     * @returns DescribeSlowLogRecordsResponse
+     *
+     * @param DescribeSlowLogRecordsRequest $request
+     *
+     * @return DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -2667,28 +3306,35 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 标签列表查询
-     *  *
-     * @param DescribeTagsRequest $request DescribeTagsRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 标签列表查询.
      *
-     * @return DescribeTagsResponse DescribeTagsResponse
+     * @param request - DescribeTagsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTagsResponse
+     *
+     * @param DescribeTagsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DescribeTagsResponse
      */
     public function describeTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTags',
@@ -2701,16 +3347,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 标签列表查询
-     *  *
-     * @param DescribeTagsRequest $request DescribeTagsRequest
+     * 标签列表查询.
      *
-     * @return DescribeTagsResponse DescribeTagsResponse
+     * @param request - DescribeTagsRequest
+     * @returns DescribeTagsResponse
+     *
+     * @param DescribeTagsRequest $request
+     *
+     * @return DescribeTagsResponse
      */
     public function describeTags($request)
     {
@@ -2720,47 +3372,61 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeTasksRequest $request DescribeTasksRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTasksResponse
      *
-     * @return DescribeTasksResponse DescribeTasksResponse
+     * @param DescribeTasksRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeTasksResponse
      */
     public function describeTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTasks',
@@ -2773,14 +3439,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeTasksRequest $request DescribeTasksRequest
+     * @param request - DescribeTasksRequest
+     * @returns DescribeTasksResponse
      *
-     * @return DescribeTasksResponse DescribeTasksResponse
+     * @param DescribeTasksRequest $request
+     *
+     * @return DescribeTasksResponse
      */
     public function describeTasks($request)
     {
@@ -2790,23 +3462,29 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeUserEncryptionKeyListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserEncryptionKeyListResponse
      *
-     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
+     * @param DescribeUserEncryptionKeyListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserEncryptionKeyList',
@@ -2819,14 +3497,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserEncryptionKeyListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeUserEncryptionKeyListRequest $request DescribeUserEncryptionKeyListRequest
+     * @param request - DescribeUserEncryptionKeyListRequest
+     * @returns DescribeUserEncryptionKeyListResponse
      *
-     * @return DescribeUserEncryptionKeyListResponse DescribeUserEncryptionKeyListResponse
+     * @param DescribeUserEncryptionKeyListRequest $request
+     *
+     * @return DescribeUserEncryptionKeyListResponse
      */
     public function describeUserEncryptionKeyList($request)
     {
@@ -2836,29 +3520,37 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param DisableRightsSeparationRequest $request DisableRightsSeparationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DisableRightsSeparationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableRightsSeparationResponse
      *
-     * @return DisableRightsSeparationResponse DisableRightsSeparationResponse
+     * @param DisableRightsSeparationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisableRightsSeparationResponse
      */
     public function disableRightsSeparationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->dbaAccountName)) {
-            $query['DbaAccountName'] = $request->dbaAccountName;
+
+        if (null !== $request->dbaAccountName) {
+            @$query['DbaAccountName'] = $request->dbaAccountName;
         }
-        if (!Utils::isUnset($request->dbaAccountPassword)) {
-            $query['DbaAccountPassword'] = $request->dbaAccountPassword;
+
+        if (null !== $request->dbaAccountPassword) {
+            @$query['DbaAccountPassword'] = $request->dbaAccountPassword;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableRightsSeparation',
@@ -2871,14 +3563,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableRightsSeparationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DisableRightsSeparationRequest $request DisableRightsSeparationRequest
+     * @param request - DisableRightsSeparationRequest
+     * @returns DisableRightsSeparationResponse
      *
-     * @return DisableRightsSeparationResponse DisableRightsSeparationResponse
+     * @param DisableRightsSeparationRequest $request
+     *
+     * @return DisableRightsSeparationResponse
      */
     public function disableRightsSeparation($request)
     {
@@ -2888,43 +3586,55 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 开启三权分立
-     *  *
-     * @param EnableRightsSeparationRequest $request EnableRightsSeparationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 开启三权分立.
      *
-     * @return EnableRightsSeparationResponse EnableRightsSeparationResponse
+     * @param request - EnableRightsSeparationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableRightsSeparationResponse
+     *
+     * @param EnableRightsSeparationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableRightsSeparationResponse
      */
     public function enableRightsSeparationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auditAccountDescription)) {
-            $query['AuditAccountDescription'] = $request->auditAccountDescription;
+        if (null !== $request->auditAccountDescription) {
+            @$query['AuditAccountDescription'] = $request->auditAccountDescription;
         }
-        if (!Utils::isUnset($request->auditAccountName)) {
-            $query['AuditAccountName'] = $request->auditAccountName;
+
+        if (null !== $request->auditAccountName) {
+            @$query['AuditAccountName'] = $request->auditAccountName;
         }
-        if (!Utils::isUnset($request->auditAccountPassword)) {
-            $query['AuditAccountPassword'] = $request->auditAccountPassword;
+
+        if (null !== $request->auditAccountPassword) {
+            @$query['AuditAccountPassword'] = $request->auditAccountPassword;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityAccountDescription)) {
-            $query['SecurityAccountDescription'] = $request->securityAccountDescription;
+
+        if (null !== $request->securityAccountDescription) {
+            @$query['SecurityAccountDescription'] = $request->securityAccountDescription;
         }
-        if (!Utils::isUnset($request->securityAccountName)) {
-            $query['SecurityAccountName'] = $request->securityAccountName;
+
+        if (null !== $request->securityAccountName) {
+            @$query['SecurityAccountName'] = $request->securityAccountName;
         }
-        if (!Utils::isUnset($request->securityAccountPassword)) {
-            $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+
+        if (null !== $request->securityAccountPassword) {
+            @$query['SecurityAccountPassword'] = $request->securityAccountPassword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableRightsSeparation',
@@ -2937,16 +3647,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableRightsSeparationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 开启三权分立
-     *  *
-     * @param EnableRightsSeparationRequest $request EnableRightsSeparationRequest
+     * 开启三权分立.
      *
-     * @return EnableRightsSeparationResponse EnableRightsSeparationResponse
+     * @param request - EnableRightsSeparationRequest
+     * @returns EnableRightsSeparationResponse
+     *
+     * @param EnableRightsSeparationRequest $request
+     *
+     * @return EnableRightsSeparationResponse
      */
     public function enableRightsSeparation($request)
     {
@@ -2956,34 +3672,43 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 查标签接口
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查标签接口.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -2996,16 +3721,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查标签接口
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * 查标签接口.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3015,29 +3746,37 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyAccountDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAccountDescriptionResponse
      *
-     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
+     * @param ModifyAccountDescriptionRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountDescription)) {
-            $query['AccountDescription'] = $request->accountDescription;
+        if (null !== $request->accountDescription) {
+            @$query['AccountDescription'] = $request->accountDescription;
         }
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAccountDescription',
@@ -3050,14 +3789,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAccountDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param request - ModifyAccountDescriptionRequest
+     * @returns ModifyAccountDescriptionResponse
      *
-     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
+     * @param ModifyAccountDescriptionRequest $request
+     *
+     * @return ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -3067,38 +3812,49 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountPrivilegeRequest $request ModifyAccountPrivilegeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyAccountPrivilegeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAccountPrivilegeResponse
      *
-     * @return ModifyAccountPrivilegeResponse ModifyAccountPrivilegeResponse
+     * @param ModifyAccountPrivilegeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAccountPrivilegeResponse
      */
     public function modifyAccountPrivilegeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPrivilege)) {
-            $query['AccountPrivilege'] = $request->accountPrivilege;
+
+        if (null !== $request->accountPrivilege) {
+            @$query['AccountPrivilege'] = $request->accountPrivilege;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityAccountName)) {
-            $query['SecurityAccountName'] = $request->securityAccountName;
+
+        if (null !== $request->securityAccountName) {
+            @$query['SecurityAccountName'] = $request->securityAccountName;
         }
-        if (!Utils::isUnset($request->securityAccountPassword)) {
-            $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+
+        if (null !== $request->securityAccountPassword) {
+            @$query['SecurityAccountPassword'] = $request->securityAccountPassword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAccountPrivilege',
@@ -3111,14 +3867,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAccountPrivilegeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyAccountPrivilegeRequest $request ModifyAccountPrivilegeRequest
+     * @param request - ModifyAccountPrivilegeRequest
+     * @returns ModifyAccountPrivilegeResponse
      *
-     * @return ModifyAccountPrivilegeResponse ModifyAccountPrivilegeResponse
+     * @param ModifyAccountPrivilegeRequest $request
+     *
+     * @return ModifyAccountPrivilegeResponse
      */
     public function modifyAccountPrivilege($request)
     {
@@ -3128,19 +3890,23 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 修改全局运维窗口信息
-     *  *
-     * @param ModifyActiveOperationMaintainConfRequest $request ModifyActiveOperationMaintainConfRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * 修改全局运维窗口信息.
      *
-     * @return ModifyActiveOperationMaintainConfResponse ModifyActiveOperationMaintainConfResponse
+     * @param request - ModifyActiveOperationMaintainConfRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyActiveOperationMaintainConfResponse
+     *
+     * @param ModifyActiveOperationMaintainConfRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ModifyActiveOperationMaintainConfResponse
      */
     public function modifyActiveOperationMaintainConfWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyActiveOperationMaintainConf',
@@ -3153,16 +3919,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyActiveOperationMaintainConfResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改全局运维窗口信息
-     *  *
-     * @param ModifyActiveOperationMaintainConfRequest $request ModifyActiveOperationMaintainConfRequest
+     * 修改全局运维窗口信息.
      *
-     * @return ModifyActiveOperationMaintainConfResponse ModifyActiveOperationMaintainConfResponse
+     * @param request - ModifyActiveOperationMaintainConfRequest
+     * @returns ModifyActiveOperationMaintainConfResponse
+     *
+     * @param ModifyActiveOperationMaintainConfRequest $request
+     *
+     * @return ModifyActiveOperationMaintainConfResponse
      */
     public function modifyActiveOperationMaintainConf($request)
     {
@@ -3172,31 +3944,39 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 修改主动运维任务
-     *  *
-     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 修改主动运维任务
      *
-     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
+     * @param request - ModifyActiveOperationTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyActiveOperationTasksResponse
+     *
+     * @param ModifyActiveOperationTasksRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ids)) {
-            $query['Ids'] = $request->ids;
+        if (null !== $request->ids) {
+            @$query['Ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->immediateStart)) {
-            $query['ImmediateStart'] = $request->immediateStart;
+
+        if (null !== $request->immediateStart) {
+            @$query['ImmediateStart'] = $request->immediateStart;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->switchTime)) {
-            $query['SwitchTime'] = $request->switchTime;
+
+        if (null !== $request->switchTime) {
+            @$query['SwitchTime'] = $request->switchTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyActiveOperationTasks',
@@ -3209,16 +3989,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyActiveOperationTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改主动运维任务
-     *  *
-     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     * 修改主动运维任务
      *
-     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
+     * @param request - ModifyActiveOperationTasksRequest
+     * @returns ModifyActiveOperationTasksResponse
+     *
+     * @param ModifyActiveOperationTasksRequest $request
+     *
+     * @return ModifyActiveOperationTasksResponse
      */
     public function modifyActiveOperationTasks($request)
     {
@@ -3228,50 +4014,65 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceClassRequest $request ModifyDBInstanceClassRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyDBInstanceClassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBInstanceClassResponse
      *
-     * @return ModifyDBInstanceClassResponse ModifyDBInstanceClassResponse
+     * @param ModifyDBInstanceClassRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDBInstanceClassResponse
      */
     public function modifyDBInstanceClassWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->cnClass)) {
-            $query['CnClass'] = $request->cnClass;
+
+        if (null !== $request->cnClass) {
+            @$query['CnClass'] = $request->cnClass;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->dnClass)) {
-            $query['DnClass'] = $request->dnClass;
+
+        if (null !== $request->dnClass) {
+            @$query['DnClass'] = $request->dnClass;
         }
-        if (!Utils::isUnset($request->dnStorageSpace)) {
-            $query['DnStorageSpace'] = $request->dnStorageSpace;
+
+        if (null !== $request->dnStorageSpace) {
+            @$query['DnStorageSpace'] = $request->dnStorageSpace;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->specifiedDNScale)) {
-            $query['SpecifiedDNScale'] = $request->specifiedDNScale;
+
+        if (null !== $request->specifiedDNScale) {
+            @$query['SpecifiedDNScale'] = $request->specifiedDNScale;
         }
-        if (!Utils::isUnset($request->specifiedDNSpecMapJson)) {
-            $query['SpecifiedDNSpecMapJson'] = $request->specifiedDNSpecMapJson;
+
+        if (null !== $request->specifiedDNSpecMapJson) {
+            @$query['SpecifiedDNSpecMapJson'] = $request->specifiedDNSpecMapJson;
         }
-        if (!Utils::isUnset($request->switchTime)) {
-            $query['SwitchTime'] = $request->switchTime;
+
+        if (null !== $request->switchTime) {
+            @$query['SwitchTime'] = $request->switchTime;
         }
-        if (!Utils::isUnset($request->switchTimeMode)) {
-            $query['SwitchTimeMode'] = $request->switchTimeMode;
+
+        if (null !== $request->switchTimeMode) {
+            @$query['SwitchTimeMode'] = $request->switchTimeMode;
         }
-        if (!Utils::isUnset($request->targetDBInstanceClass)) {
-            $query['TargetDBInstanceClass'] = $request->targetDBInstanceClass;
+
+        if (null !== $request->targetDBInstanceClass) {
+            @$query['TargetDBInstanceClass'] = $request->targetDBInstanceClass;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBInstanceClass',
@@ -3284,14 +4085,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceClassResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDBInstanceClassRequest $request ModifyDBInstanceClassRequest
+     * @param request - ModifyDBInstanceClassRequest
+     * @returns ModifyDBInstanceClassResponse
      *
-     * @return ModifyDBInstanceClassResponse ModifyDBInstanceClassResponse
+     * @param ModifyDBInstanceClassRequest $request
+     *
+     * @return ModifyDBInstanceClassResponse
      */
     public function modifyDBInstanceClass($request)
     {
@@ -3301,31 +4108,39 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例配置
-     *  *
-     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 修改实例配置.
      *
-     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
+     * @param request - ModifyDBInstanceConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBInstanceConfigResponse
+     *
+     * @param ModifyDBInstanceConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configName)) {
-            $query['ConfigName'] = $request->configName;
+        if (null !== $request->configName) {
+            @$query['ConfigName'] = $request->configName;
         }
-        if (!Utils::isUnset($request->configValue)) {
-            $query['ConfigValue'] = $request->configValue;
+
+        if (null !== $request->configValue) {
+            @$query['ConfigValue'] = $request->configValue;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBInstanceConfig',
@@ -3338,16 +4153,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改实例配置
-     *  *
-     * @param ModifyDBInstanceConfigRequest $request ModifyDBInstanceConfigRequest
+     * 修改实例配置.
      *
-     * @return ModifyDBInstanceConfigResponse ModifyDBInstanceConfigResponse
+     * @param request - ModifyDBInstanceConfigRequest
+     * @returns ModifyDBInstanceConfigResponse
+     *
+     * @param ModifyDBInstanceConfigRequest $request
+     *
+     * @return ModifyDBInstanceConfigResponse
      */
     public function modifyDBInstanceConfig($request)
     {
@@ -3357,34 +4178,43 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例链接串
-     *  *
-     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * 修改实例链接串.
      *
-     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
+     * @param request - ModifyDBInstanceConnectionStringRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBInstanceConnectionStringResponse
+     *
+     * @param ModifyDBInstanceConnectionStringRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionString)) {
-            $query['ConnectionString'] = $request->connectionString;
+        if (null !== $request->connectionString) {
+            @$query['ConnectionString'] = $request->connectionString;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->newPort)) {
-            $query['NewPort'] = $request->newPort;
+
+        if (null !== $request->newPort) {
+            @$query['NewPort'] = $request->newPort;
         }
-        if (!Utils::isUnset($request->newPrefix)) {
-            $query['NewPrefix'] = $request->newPrefix;
+
+        if (null !== $request->newPrefix) {
+            @$query['NewPrefix'] = $request->newPrefix;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBInstanceConnectionString',
@@ -3397,16 +4227,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceConnectionStringResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改实例链接串
-     *  *
-     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
+     * 修改实例链接串.
      *
-     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
+     * @param request - ModifyDBInstanceConnectionStringRequest
+     * @returns ModifyDBInstanceConnectionStringResponse
+     *
+     * @param ModifyDBInstanceConnectionStringRequest $request
+     *
+     * @return ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionString($request)
     {
@@ -3416,26 +4252,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyDBInstanceDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBInstanceDescriptionResponse
      *
-     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
+     * @param ModifyDBInstanceDescriptionRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (null !== $request->DBInstanceDescription) {
+            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBInstanceDescription',
@@ -3448,14 +4291,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
+     * @param request - ModifyDBInstanceDescriptionRequest
+     * @returns ModifyDBInstanceDescriptionResponse
      *
-     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
+     * @param ModifyDBInstanceDescriptionRequest $request
+     *
+     * @return ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescription($request)
     {
@@ -3465,29 +4314,37 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseDescriptionRequest $request ModifyDatabaseDescriptionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyDatabaseDescriptionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDatabaseDescriptionResponse
      *
-     * @return ModifyDatabaseDescriptionResponse ModifyDatabaseDescriptionResponse
+     * @param ModifyDatabaseDescriptionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyDatabaseDescriptionResponse
      */
     public function modifyDatabaseDescriptionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->dbDescription)) {
-            $query['DbDescription'] = $request->dbDescription;
+
+        if (null !== $request->dbDescription) {
+            @$query['DbDescription'] = $request->dbDescription;
         }
-        if (!Utils::isUnset($request->dbName)) {
-            $query['DbName'] = $request->dbName;
+
+        if (null !== $request->dbName) {
+            @$query['DbName'] = $request->dbName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDatabaseDescription',
@@ -3500,14 +4357,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDatabaseDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDatabaseDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDatabaseDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDatabaseDescriptionRequest $request ModifyDatabaseDescriptionRequest
+     * @param request - ModifyDatabaseDescriptionRequest
+     * @returns ModifyDatabaseDescriptionResponse
      *
-     * @return ModifyDatabaseDescriptionResponse ModifyDatabaseDescriptionResponse
+     * @param ModifyDatabaseDescriptionRequest $request
+     *
+     * @return ModifyDatabaseDescriptionResponse
      */
     public function modifyDatabaseDescription($request)
     {
@@ -3517,35 +4380,45 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifyParameterRequest $request ModifyParameterRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyParameterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyParameterResponse
      *
-     * @return ModifyParameterResponse ModifyParameterResponse
+     * @param ModifyParameterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyParameterResponse
      */
     public function modifyParameterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->paramLevel)) {
-            $query['ParamLevel'] = $request->paramLevel;
+
+        if (null !== $request->paramLevel) {
+            @$query['ParamLevel'] = $request->paramLevel;
         }
-        if (!Utils::isUnset($request->parameterGroupId)) {
-            $query['ParameterGroupId'] = $request->parameterGroupId;
+
+        if (null !== $request->parameterGroupId) {
+            @$query['ParameterGroupId'] = $request->parameterGroupId;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyParameter',
@@ -3558,14 +4431,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyParameterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyParameterRequest $request ModifyParameterRequest
+     * @param request - ModifyParameterRequest
+     * @returns ModifyParameterResponse
      *
-     * @return ModifyParameterResponse ModifyParameterResponse
+     * @param ModifyParameterRequest $request
+     *
+     * @return ModifyParameterResponse
      */
     public function modifyParameter($request)
     {
@@ -3575,32 +4454,41 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifySecurityIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifySecurityIpsResponse
      *
-     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
+     * @param ModifySecurityIpsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifySecurityIpsResponse
      */
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->modifyMode)) {
-            $query['ModifyMode'] = $request->modifyMode;
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifySecurityIps',
@@ -3613,14 +4501,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySecurityIpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
+     * @param request - ModifySecurityIpsRequest
+     * @returns ModifySecurityIpsResponse
      *
-     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
+     * @param ModifySecurityIpsRequest $request
+     *
+     * @return ModifySecurityIpsResponse
      */
     public function modifySecurityIps($request)
     {
@@ -3630,25 +4524,31 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 关闭冷存储
-     *  *
-     * @param ReleaseColdDataVolumeRequest $request ReleaseColdDataVolumeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 关闭冷存储.
      *
-     * @return ReleaseColdDataVolumeResponse ReleaseColdDataVolumeResponse
+     * @param request - ReleaseColdDataVolumeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReleaseColdDataVolumeResponse
+     *
+     * @param ReleaseColdDataVolumeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ReleaseColdDataVolumeResponse
      */
     public function releaseColdDataVolumeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReleaseColdDataVolume',
@@ -3661,16 +4561,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReleaseColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleaseColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseColdDataVolumeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 关闭冷存储
-     *  *
-     * @param ReleaseColdDataVolumeRequest $request ReleaseColdDataVolumeRequest
+     * 关闭冷存储.
      *
-     * @return ReleaseColdDataVolumeResponse ReleaseColdDataVolumeResponse
+     * @param request - ReleaseColdDataVolumeRequest
+     * @returns ReleaseColdDataVolumeResponse
+     *
+     * @param ReleaseColdDataVolumeRequest $request
+     *
+     * @return ReleaseColdDataVolumeResponse
      */
     public function releaseColdDataVolume($request)
     {
@@ -3680,26 +4586,33 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param request - ReleaseInstancePublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReleaseInstancePublicConnectionResponse
      *
-     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
+     * @param ReleaseInstancePublicConnectionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->currentConnectionString)) {
-            $query['CurrentConnectionString'] = $request->currentConnectionString;
+        if (null !== $request->currentConnectionString) {
+            @$query['CurrentConnectionString'] = $request->currentConnectionString;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReleaseInstancePublicConnection',
@@ -3712,14 +4625,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
+     * @param request - ReleaseInstancePublicConnectionRequest
+     * @returns ReleaseInstancePublicConnectionResponse
      *
-     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
+     * @param ReleaseInstancePublicConnectionRequest $request
+     *
+     * @return ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnection($request)
     {
@@ -3729,35 +4648,45 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - ResetAccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetAccountPasswordResponse
      *
-     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
+     * @param ResetAccountPasswordRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountName)) {
-            $query['AccountName'] = $request->accountName;
+        if (null !== $request->accountName) {
+            @$query['AccountName'] = $request->accountName;
         }
-        if (!Utils::isUnset($request->accountPassword)) {
-            $query['AccountPassword'] = $request->accountPassword;
+
+        if (null !== $request->accountPassword) {
+            @$query['AccountPassword'] = $request->accountPassword;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityAccountName)) {
-            $query['SecurityAccountName'] = $request->securityAccountName;
+
+        if (null !== $request->securityAccountName) {
+            @$query['SecurityAccountName'] = $request->securityAccountName;
         }
-        if (!Utils::isUnset($request->securityAccountPassword)) {
-            $query['SecurityAccountPassword'] = $request->securityAccountPassword;
+
+        if (null !== $request->securityAccountPassword) {
+            @$query['SecurityAccountPassword'] = $request->securityAccountPassword;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetAccountPassword',
@@ -3770,14 +4699,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param request - ResetAccountPasswordRequest
+     * @returns ResetAccountPasswordResponse
      *
-     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
+     * @param ResetAccountPasswordRequest $request
+     *
+     * @return ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -3787,23 +4722,29 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - RestartDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestartDBInstanceResponse
      *
-     * @return RestartDBInstanceResponse RestartDBInstanceResponse
+     * @param RestartDBInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RestartDBInstanceResponse
      */
     public function restartDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RestartDBInstance',
@@ -3816,14 +4757,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
+     * @param request - RestartDBInstanceRequest
+     * @returns RestartDBInstanceResponse
      *
-     * @return RestartDBInstanceResponse RestartDBInstanceResponse
+     * @param RestartDBInstanceRequest $request
+     *
+     * @return RestartDBInstanceResponse
      */
     public function restartDBInstance($request)
     {
@@ -3833,35 +4780,45 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - SwitchDBInstanceHARequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SwitchDBInstanceHAResponse
      *
-     * @return SwitchDBInstanceHAResponse SwitchDBInstanceHAResponse
+     * @param SwitchDBInstanceHARequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SwitchDBInstanceHAResponse
      */
     public function switchDBInstanceHAWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->switchTime)) {
-            $query['SwitchTime'] = $request->switchTime;
+
+        if (null !== $request->switchTime) {
+            @$query['SwitchTime'] = $request->switchTime;
         }
-        if (!Utils::isUnset($request->switchTimeMode)) {
-            $query['SwitchTimeMode'] = $request->switchTimeMode;
+
+        if (null !== $request->switchTimeMode) {
+            @$query['SwitchTimeMode'] = $request->switchTimeMode;
         }
-        if (!Utils::isUnset($request->targetPrimaryAzoneId)) {
-            $query['TargetPrimaryAzoneId'] = $request->targetPrimaryAzoneId;
+
+        if (null !== $request->targetPrimaryAzoneId) {
+            @$query['TargetPrimaryAzoneId'] = $request->targetPrimaryAzoneId;
         }
-        if (!Utils::isUnset($request->targetPrimaryRegionId)) {
-            $query['TargetPrimaryRegionId'] = $request->targetPrimaryRegionId;
+
+        if (null !== $request->targetPrimaryRegionId) {
+            @$query['TargetPrimaryRegionId'] = $request->targetPrimaryRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SwitchDBInstanceHA',
@@ -3874,14 +4831,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SwitchDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SwitchDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SwitchDBInstanceHAResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SwitchDBInstanceHARequest $request SwitchDBInstanceHARequest
+     * @param request - SwitchDBInstanceHARequest
+     * @returns SwitchDBInstanceHAResponse
      *
-     * @return SwitchDBInstanceHAResponse SwitchDBInstanceHAResponse
+     * @param SwitchDBInstanceHARequest $request
+     *
+     * @return SwitchDBInstanceHAResponse
      */
     public function switchDBInstanceHA($request)
     {
@@ -3891,28 +4854,39 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary GDN主备切换
-     *  *
-     * @param SwitchGdnMemberRoleRequest $request SwitchGdnMemberRoleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * GDN主备切换.
      *
-     * @return SwitchGdnMemberRoleResponse SwitchGdnMemberRoleResponse
+     * @param request - SwitchGdnMemberRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SwitchGdnMemberRoleResponse
+     *
+     * @param SwitchGdnMemberRoleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SwitchGdnMemberRoleResponse
      */
     public function switchGdnMemberRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->switchMode)) {
-            $query['SwitchMode'] = $request->switchMode;
+
+        if (null !== $request->switchMode) {
+            @$query['SwitchMode'] = $request->switchMode;
         }
+
+        if (null !== $request->taskTimeout) {
+            @$query['TaskTimeout'] = $request->taskTimeout;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SwitchGdnMemberRole',
@@ -3925,16 +4899,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SwitchGdnMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SwitchGdnMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SwitchGdnMemberRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary GDN主备切换
-     *  *
-     * @param SwitchGdnMemberRoleRequest $request SwitchGdnMemberRoleRequest
+     * GDN主备切换.
      *
-     * @return SwitchGdnMemberRoleResponse SwitchGdnMemberRoleResponse
+     * @param request - SwitchGdnMemberRoleRequest
+     * @returns SwitchGdnMemberRoleResponse
+     *
+     * @param SwitchGdnMemberRoleRequest $request
+     *
+     * @return SwitchGdnMemberRoleResponse
      */
     public function switchGdnMemberRole($request)
     {
@@ -3944,31 +4924,39 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 打标签接口
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 打标签接口.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -3981,16 +4969,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 打标签接口
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * 打标签接口.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4000,34 +4994,43 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @summary 删标签接口
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 删标签接口.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -4040,16 +5043,22 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删标签接口
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * 删标签接口.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -4059,77 +5068,101 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdateBackupPolicyRequest $request UpdateBackupPolicyRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateBackupPolicyResponse
      *
-     * @return UpdateBackupPolicyResponse UpdateBackupPolicyResponse
+     * @param UpdateBackupPolicyRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateBackupPolicyResponse
      */
     public function updateBackupPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backupPeriod)) {
-            $query['BackupPeriod'] = $request->backupPeriod;
+        if (null !== $request->backupPeriod) {
+            @$query['BackupPeriod'] = $request->backupPeriod;
         }
-        if (!Utils::isUnset($request->backupPlanBegin)) {
-            $query['BackupPlanBegin'] = $request->backupPlanBegin;
+
+        if (null !== $request->backupPlanBegin) {
+            @$query['BackupPlanBegin'] = $request->backupPlanBegin;
         }
-        if (!Utils::isUnset($request->backupSetRetention)) {
-            $query['BackupSetRetention'] = $request->backupSetRetention;
+
+        if (null !== $request->backupSetRetention) {
+            @$query['BackupSetRetention'] = $request->backupSetRetention;
         }
-        if (!Utils::isUnset($request->backupType)) {
-            $query['BackupType'] = $request->backupType;
+
+        if (null !== $request->backupType) {
+            @$query['BackupType'] = $request->backupType;
         }
-        if (!Utils::isUnset($request->backupWay)) {
-            $query['BackupWay'] = $request->backupWay;
+
+        if (null !== $request->backupWay) {
+            @$query['BackupWay'] = $request->backupWay;
         }
-        if (!Utils::isUnset($request->coldDataBackupInterval)) {
-            $query['ColdDataBackupInterval'] = $request->coldDataBackupInterval;
+
+        if (null !== $request->coldDataBackupInterval) {
+            @$query['ColdDataBackupInterval'] = $request->coldDataBackupInterval;
         }
-        if (!Utils::isUnset($request->coldDataBackupRetention)) {
-            $query['ColdDataBackupRetention'] = $request->coldDataBackupRetention;
+
+        if (null !== $request->coldDataBackupRetention) {
+            @$query['ColdDataBackupRetention'] = $request->coldDataBackupRetention;
         }
-        if (!Utils::isUnset($request->crossRegionDataBackupRetention)) {
-            $query['CrossRegionDataBackupRetention'] = $request->crossRegionDataBackupRetention;
+
+        if (null !== $request->crossRegionDataBackupRetention) {
+            @$query['CrossRegionDataBackupRetention'] = $request->crossRegionDataBackupRetention;
         }
-        if (!Utils::isUnset($request->crossRegionLogBackupRetention)) {
-            $query['CrossRegionLogBackupRetention'] = $request->crossRegionLogBackupRetention;
+
+        if (null !== $request->crossRegionLogBackupRetention) {
+            @$query['CrossRegionLogBackupRetention'] = $request->crossRegionLogBackupRetention;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->destCrossRegion)) {
-            $query['DestCrossRegion'] = $request->destCrossRegion;
+
+        if (null !== $request->destCrossRegion) {
+            @$query['DestCrossRegion'] = $request->destCrossRegion;
         }
-        if (!Utils::isUnset($request->forceCleanOnHighSpaceUsage)) {
-            $query['ForceCleanOnHighSpaceUsage'] = $request->forceCleanOnHighSpaceUsage;
+
+        if (null !== $request->forceCleanOnHighSpaceUsage) {
+            @$query['ForceCleanOnHighSpaceUsage'] = $request->forceCleanOnHighSpaceUsage;
         }
-        if (!Utils::isUnset($request->isCrossRegionDataBackupEnabled)) {
-            $query['IsCrossRegionDataBackupEnabled'] = $request->isCrossRegionDataBackupEnabled;
+
+        if (null !== $request->isCrossRegionDataBackupEnabled) {
+            @$query['IsCrossRegionDataBackupEnabled'] = $request->isCrossRegionDataBackupEnabled;
         }
-        if (!Utils::isUnset($request->isCrossRegionLogBackupEnabled)) {
-            $query['IsCrossRegionLogBackupEnabled'] = $request->isCrossRegionLogBackupEnabled;
+
+        if (null !== $request->isCrossRegionLogBackupEnabled) {
+            @$query['IsCrossRegionLogBackupEnabled'] = $request->isCrossRegionLogBackupEnabled;
         }
-        if (!Utils::isUnset($request->isEnabled)) {
-            $query['IsEnabled'] = $request->isEnabled;
+
+        if (null !== $request->isEnabled) {
+            @$query['IsEnabled'] = $request->isEnabled;
         }
-        if (!Utils::isUnset($request->localLogRetention)) {
-            $query['LocalLogRetention'] = $request->localLogRetention;
+
+        if (null !== $request->localLogRetention) {
+            @$query['LocalLogRetention'] = $request->localLogRetention;
         }
-        if (!Utils::isUnset($request->localLogRetentionNumber)) {
-            $query['LocalLogRetentionNumber'] = $request->localLogRetentionNumber;
+
+        if (null !== $request->localLogRetentionNumber) {
+            @$query['LocalLogRetentionNumber'] = $request->localLogRetentionNumber;
         }
-        if (!Utils::isUnset($request->logLocalRetentionSpace)) {
-            $query['LogLocalRetentionSpace'] = $request->logLocalRetentionSpace;
+
+        if (null !== $request->logLocalRetentionSpace) {
+            @$query['LogLocalRetentionSpace'] = $request->logLocalRetentionSpace;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->removeLogRetention)) {
-            $query['RemoveLogRetention'] = $request->removeLogRetention;
+
+        if (null !== $request->removeLogRetention) {
+            @$query['RemoveLogRetention'] = $request->removeLogRetention;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateBackupPolicy',
@@ -4142,14 +5175,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateBackupPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateBackupPolicyRequest $request UpdateBackupPolicyRequest
+     * @param request - UpdateBackupPolicyRequest
+     * @returns UpdateBackupPolicyResponse
      *
-     * @return UpdateBackupPolicyResponse UpdateBackupPolicyResponse
+     * @param UpdateBackupPolicyRequest $request
+     *
+     * @return UpdateBackupPolicyResponse
      */
     public function updateBackupPolicy($request)
     {
@@ -4159,29 +5198,37 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdateDBInstanceSSLRequest $request UpdateDBInstanceSSLRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateDBInstanceSSLRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDBInstanceSSLResponse
      *
-     * @return UpdateDBInstanceSSLResponse UpdateDBInstanceSSLResponse
+     * @param UpdateDBInstanceSSLRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDBInstanceSSLResponse
      */
     public function updateDBInstanceSSLWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certCommonName)) {
-            $query['CertCommonName'] = $request->certCommonName;
+        if (null !== $request->certCommonName) {
+            @$query['CertCommonName'] = $request->certCommonName;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->enableSSL)) {
-            $query['EnableSSL'] = $request->enableSSL;
+
+        if (null !== $request->enableSSL) {
+            @$query['EnableSSL'] = $request->enableSSL;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDBInstanceSSL',
@@ -4194,14 +5241,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDBInstanceSSLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateDBInstanceSSLRequest $request UpdateDBInstanceSSLRequest
+     * @param request - UpdateDBInstanceSSLRequest
+     * @returns UpdateDBInstanceSSLResponse
      *
-     * @return UpdateDBInstanceSSLResponse UpdateDBInstanceSSLResponse
+     * @param UpdateDBInstanceSSLRequest $request
+     *
+     * @return UpdateDBInstanceSSLResponse
      */
     public function updateDBInstanceSSL($request)
     {
@@ -4211,32 +5264,41 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdateDBInstanceTDERequest $request UpdateDBInstanceTDERequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdateDBInstanceTDERequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateDBInstanceTDEResponse
      *
-     * @return UpdateDBInstanceTDEResponse UpdateDBInstanceTDEResponse
+     * @param UpdateDBInstanceTDERequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDBInstanceTDEResponse
      */
     public function updateDBInstanceTDEWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->encryptionKey)) {
-            $query['EncryptionKey'] = $request->encryptionKey;
+
+        if (null !== $request->encryptionKey) {
+            @$query['EncryptionKey'] = $request->encryptionKey;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->roleArn)) {
-            $query['RoleArn'] = $request->roleArn;
+
+        if (null !== $request->roleArn) {
+            @$query['RoleArn'] = $request->roleArn;
         }
-        if (!Utils::isUnset($request->TDEStatus)) {
-            $query['TDEStatus'] = $request->TDEStatus;
+
+        if (null !== $request->TDEStatus) {
+            @$query['TDEStatus'] = $request->TDEStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateDBInstanceTDE',
@@ -4249,14 +5311,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDBInstanceTDEResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdateDBInstanceTDERequest $request UpdateDBInstanceTDERequest
+     * @param request - UpdateDBInstanceTDERequest
+     * @returns UpdateDBInstanceTDEResponse
      *
-     * @return UpdateDBInstanceTDEResponse UpdateDBInstanceTDEResponse
+     * @param UpdateDBInstanceTDERequest $request
+     *
+     * @return UpdateDBInstanceTDEResponse
      */
     public function updateDBInstanceTDE($request)
     {
@@ -4266,44 +5334,57 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpdatePolarDBXInstanceNodeRequest $request UpdatePolarDBXInstanceNodeRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - UpdatePolarDBXInstanceNodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePolarDBXInstanceNodeResponse
      *
-     * @return UpdatePolarDBXInstanceNodeResponse UpdatePolarDBXInstanceNodeResponse
+     * @param UpdatePolarDBXInstanceNodeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdatePolarDBXInstanceNodeResponse
      */
     public function updatePolarDBXInstanceNodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addDNSpec)) {
-            $query['AddDNSpec'] = $request->addDNSpec;
+        if (null !== $request->addDNSpec) {
+            @$query['AddDNSpec'] = $request->addDNSpec;
         }
-        if (!Utils::isUnset($request->CNNodeCount)) {
-            $query['CNNodeCount'] = $request->CNNodeCount;
+
+        if (null !== $request->CNNodeCount) {
+            @$query['CNNodeCount'] = $request->CNNodeCount;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->DNNodeCount)) {
-            $query['DNNodeCount'] = $request->DNNodeCount;
+
+        if (null !== $request->DNNodeCount) {
+            @$query['DNNodeCount'] = $request->DNNodeCount;
         }
-        if (!Utils::isUnset($request->dbInstanceNodeCount)) {
-            $query['DbInstanceNodeCount'] = $request->dbInstanceNodeCount;
+
+        if (null !== $request->dbInstanceNodeCount) {
+            @$query['DbInstanceNodeCount'] = $request->dbInstanceNodeCount;
         }
-        if (!Utils::isUnset($request->deleteDNIds)) {
-            $query['DeleteDNIds'] = $request->deleteDNIds;
+
+        if (null !== $request->deleteDNIds) {
+            @$query['DeleteDNIds'] = $request->deleteDNIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->storagePoolName)) {
-            $query['StoragePoolName'] = $request->storagePoolName;
+
+        if (null !== $request->storagePoolName) {
+            @$query['StoragePoolName'] = $request->storagePoolName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePolarDBXInstanceNode',
@@ -4316,14 +5397,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePolarDBXInstanceNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePolarDBXInstanceNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePolarDBXInstanceNodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpdatePolarDBXInstanceNodeRequest $request UpdatePolarDBXInstanceNodeRequest
+     * @param request - UpdatePolarDBXInstanceNodeRequest
+     * @returns UpdatePolarDBXInstanceNodeResponse
      *
-     * @return UpdatePolarDBXInstanceNodeResponse UpdatePolarDBXInstanceNodeResponse
+     * @param UpdatePolarDBXInstanceNodeRequest $request
+     *
+     * @return UpdatePolarDBXInstanceNodeResponse
      */
     public function updatePolarDBXInstanceNode($request)
     {
@@ -4333,29 +5420,37 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param request - UpgradeDBInstanceKernelVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpgradeDBInstanceKernelVersionResponse
      *
-     * @return UpgradeDBInstanceKernelVersionResponse UpgradeDBInstanceKernelVersionResponse
+     * @param UpgradeDBInstanceKernelVersionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpgradeDBInstanceKernelVersionResponse
      */
     public function upgradeDBInstanceKernelVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceName)) {
-            $query['DBInstanceName'] = $request->DBInstanceName;
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->minorVersion)) {
-            $query['MinorVersion'] = $request->minorVersion;
+
+        if (null !== $request->minorVersion) {
+            @$query['MinorVersion'] = $request->minorVersion;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->switchMode)) {
-            $query['SwitchMode'] = $request->switchMode;
+
+        if (null !== $request->switchMode) {
+            @$query['SwitchMode'] = $request->switchMode;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeDBInstanceKernelVersion',
@@ -4368,14 +5463,20 @@ class Polardbx extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeDBInstanceKernelVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param UpgradeDBInstanceKernelVersionRequest $request UpgradeDBInstanceKernelVersionRequest
+     * @param request - UpgradeDBInstanceKernelVersionRequest
+     * @returns UpgradeDBInstanceKernelVersionResponse
      *
-     * @return UpgradeDBInstanceKernelVersionResponse UpgradeDBInstanceKernelVersionResponse
+     * @param UpgradeDBInstanceKernelVersionRequest $request
+     *
+     * @return UpgradeDBInstanceKernelVersionResponse
      */
     public function upgradeDBInstanceKernelVersion($request)
     {

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeUserEncryptionKeyListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -18,29 +18,43 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->keyIds)) {
+            Model::validateArray($this->keyIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyIds) {
-            $res['KeyIds'] = $this->keyIds;
+            if (\is_array($this->keyIds)) {
+                $res['KeyIds'] = [];
+                $n1            = 0;
+                foreach ($this->keyIds as $item1) {
+                    $res['KeyIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyIds'])) {
             if (!empty($map['KeyIds'])) {
-                $model->keyIds = $map['KeyIds'];
+                $model->keyIds = [];
+                $n1            = 0;
+                foreach ($map['KeyIds'] as $item1) {
+                    $model->keyIds[$n1++] = $item1;
+                }
             }
         }
 

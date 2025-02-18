@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDbListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDbListResponseBody\data\accounts;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,31 +13,19 @@ class data extends Model
      * @var accounts[]
      */
     public $accounts;
-
     /**
-     * @example utf8mb4
-     *
      * @var string
      */
     public $characterSetName;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $DBDescription;
-
     /**
-     * @example pxc-********
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
-     * @example test
-     *
      * @var string
      */
     public $DBName;
@@ -51,29 +39,37 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->accounts)) {
+            Model::validateArray($this->accounts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accounts) {
-            $res['Accounts'] = [];
-            if (null !== $this->accounts && \is_array($this->accounts)) {
-                $n = 0;
-                foreach ($this->accounts as $item) {
-                    $res['Accounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accounts)) {
+                $res['Accounts'] = [];
+                $n1              = 0;
+                foreach ($this->accounts as $item1) {
+                    $res['Accounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->characterSetName) {
             $res['CharacterSetName'] = $this->characterSetName;
         }
+
         if (null !== $this->DBDescription) {
             $res['DBDescription'] = $this->DBDescription;
         }
+
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->DBName) {
             $res['DBName'] = $this->DBName;
         }
@@ -81,32 +77,36 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
                 $model->accounts = [];
-                $n               = 0;
-                foreach ($map['Accounts'] as $item) {
-                    $model->accounts[$n++] = null !== $item ? accounts::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Accounts'] as $item1) {
+                    $model->accounts[$n1++] = accounts::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CharacterSetName'])) {
             $model->characterSetName = $map['CharacterSetName'];
         }
+
         if (isset($map['DBDescription'])) {
             $model->DBDescription = $map['DBDescription'];
         }
+
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['DBName'])) {
             $model->DBName = $map['DBName'];
         }
