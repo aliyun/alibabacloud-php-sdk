@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\faceData\bang;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\faceData\gender;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\faceData\hairstyle;
@@ -12,90 +13,50 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\faceData\mask;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\faceData\mustache;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\faceData\quality;
-use AlibabaCloud\Tea\Model;
 
 class faceData extends Model
 {
     /**
-     * @description The age recognition result.
-     *
-     * @example 18
-     *
      * @var int
      */
     public $age;
-
     /**
-     * @description Indicates whether the recognition result of bangs is available.
-     *
      * @var bang
      */
     public $bang;
-
     /**
-     * @description The gender recognition result.
-     *
      * @var gender
      */
     public $gender;
-
     /**
-     * @description The recognition result of whether to wear glasses.
-     *
-     * - Sunglass: Wear sunglasses.
-     * @example Common
-     *
      * @var string
      */
     public $glasses;
-
     /**
-     * @description The hairstyle recognition result.
-     *
      * @var hairstyle
      */
     public $hairstyle;
-
     /**
-     * @description The recognition result of whether to wear a hat.
-     *
      * @var hat
      */
     public $hat;
-
     /**
-     * @description The location of the face.
-     *
      * @var location
      */
     public $location;
-
     /**
-     * @description The recognition result of whether to wear a mask.
-     *
      * @var mask
      */
     public $mask;
-
     /**
-     * @description The identification result of whether there is a beard.
-     *
      * @var mustache
      */
     public $mustache;
-
     /**
-     * @description The quality information of the face image.
-     *
      * @var quality
      */
     public $quality;
-
     /**
-     * @description The smiling degree of the face.
-     *
-     * @example 85.88
-     *
      * @var float
      */
     public $smile;
@@ -115,41 +76,76 @@ class faceData extends Model
 
     public function validate()
     {
+        if (null !== $this->bang) {
+            $this->bang->validate();
+        }
+        if (null !== $this->gender) {
+            $this->gender->validate();
+        }
+        if (null !== $this->hairstyle) {
+            $this->hairstyle->validate();
+        }
+        if (null !== $this->hat) {
+            $this->hat->validate();
+        }
+        if (null !== $this->location) {
+            $this->location->validate();
+        }
+        if (null !== $this->mask) {
+            $this->mask->validate();
+        }
+        if (null !== $this->mustache) {
+            $this->mustache->validate();
+        }
+        if (null !== $this->quality) {
+            $this->quality->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->age) {
             $res['Age'] = $this->age;
         }
+
         if (null !== $this->bang) {
-            $res['Bang'] = null !== $this->bang ? $this->bang->toMap() : null;
+            $res['Bang'] = null !== $this->bang ? $this->bang->toArray($noStream) : $this->bang;
         }
+
         if (null !== $this->gender) {
-            $res['Gender'] = null !== $this->gender ? $this->gender->toMap() : null;
+            $res['Gender'] = null !== $this->gender ? $this->gender->toArray($noStream) : $this->gender;
         }
+
         if (null !== $this->glasses) {
             $res['Glasses'] = $this->glasses;
         }
+
         if (null !== $this->hairstyle) {
-            $res['Hairstyle'] = null !== $this->hairstyle ? $this->hairstyle->toMap() : null;
+            $res['Hairstyle'] = null !== $this->hairstyle ? $this->hairstyle->toArray($noStream) : $this->hairstyle;
         }
+
         if (null !== $this->hat) {
-            $res['Hat'] = null !== $this->hat ? $this->hat->toMap() : null;
+            $res['Hat'] = null !== $this->hat ? $this->hat->toArray($noStream) : $this->hat;
         }
+
         if (null !== $this->location) {
-            $res['Location'] = null !== $this->location ? $this->location->toMap() : null;
+            $res['Location'] = null !== $this->location ? $this->location->toArray($noStream) : $this->location;
         }
+
         if (null !== $this->mask) {
-            $res['Mask'] = null !== $this->mask ? $this->mask->toMap() : null;
+            $res['Mask'] = null !== $this->mask ? $this->mask->toArray($noStream) : $this->mask;
         }
+
         if (null !== $this->mustache) {
-            $res['Mustache'] = null !== $this->mustache ? $this->mustache->toMap() : null;
+            $res['Mustache'] = null !== $this->mustache ? $this->mustache->toArray($noStream) : $this->mustache;
         }
+
         if (null !== $this->quality) {
-            $res['Quality'] = null !== $this->quality ? $this->quality->toMap() : null;
+            $res['Quality'] = null !== $this->quality ? $this->quality->toArray($noStream) : $this->quality;
         }
+
         if (null !== $this->smile) {
             $res['Smile'] = $this->smile;
         }
@@ -157,44 +153,54 @@ class faceData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return faceData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Age'])) {
             $model->age = $map['Age'];
         }
+
         if (isset($map['Bang'])) {
             $model->bang = bang::fromMap($map['Bang']);
         }
+
         if (isset($map['Gender'])) {
             $model->gender = gender::fromMap($map['Gender']);
         }
+
         if (isset($map['Glasses'])) {
             $model->glasses = $map['Glasses'];
         }
+
         if (isset($map['Hairstyle'])) {
             $model->hairstyle = hairstyle::fromMap($map['Hairstyle']);
         }
+
         if (isset($map['Hat'])) {
             $model->hat = hat::fromMap($map['Hat']);
         }
+
         if (isset($map['Location'])) {
             $model->location = location::fromMap($map['Location']);
         }
+
         if (isset($map['Mask'])) {
             $model->mask = mask::fromMap($map['Mask']);
         }
+
         if (isset($map['Mustache'])) {
             $model->mustache = mustache::fromMap($map['Mustache']);
         }
+
         if (isset($map['Quality'])) {
             $model->quality = quality::fromMap($map['Quality']);
         }
+
         if (isset($map['Smile'])) {
             $model->smile = $map['Smile'];
         }

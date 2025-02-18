@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImageAsyncModerationRequest extends Model
 {
     /**
-     * @description The type of the moderation service.
-     *
-     * @example baselineCheck
-     *
      * @var string
      */
     public $service;
-
     /**
-     * @description The parameters required by the moderation service. The value is a JSON string.
-     *
-     * @example {"imageUrl":"https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png","dataId":"img123****"}
-     *
      * @var string
      */
     public $serviceParameters;
@@ -32,14 +23,16 @@ class ImageAsyncModerationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->service) {
             $res['Service'] = $this->service;
         }
+
         if (null !== $this->serviceParameters) {
             $res['ServiceParameters'] = $this->serviceParameters;
         }
@@ -47,17 +40,18 @@ class ImageAsyncModerationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImageAsyncModerationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
         }
+
         if (isset($map['ServiceParameters'])) {
             $model->serviceParameters = $map['ServiceParameters'];
         }

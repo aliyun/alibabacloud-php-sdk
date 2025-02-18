@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\customImage;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\faceData;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\logoData;
@@ -12,62 +13,38 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\recognition;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\textInImage;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponseBody\data\ext\vlContent;
-use AlibabaCloud\Tea\Model;
 
 class ext extends Model
 {
     /**
-     * @description If a custom image library is hit, information about the hit custom image library is returned.
-     *
      * @var customImage[]
      */
     public $customImage;
-
     /**
-     * @description The returned face attribute information
-     *
      * @var faceData[]
      */
     public $faceData;
-
     /**
-     * @description Logo information.
-     *
      * @var logoData[]
      */
     public $logoData;
-
     /**
-     * @description Returns the text information in the recognized image.
-     *
      * @var ocrResult[]
      */
     public $ocrResult;
-
     /**
-     * @description Person information list.
-     *
      * @var publicFigure[]
      */
     public $publicFigure;
-
     /**
-     * @description The result of image recognition.
-     *
      * @var recognition[]
      */
     public $recognition;
-
     /**
-     * @description Returns the text information in the hit image.
-     *
      * @var textInImage
      */
     public $textInImage;
-
     /**
-     * @description the vl output content
-     *
      * @var vlContent
      */
     public $vlContent;
@@ -84,140 +61,179 @@ class ext extends Model
 
     public function validate()
     {
+        if (\is_array($this->customImage)) {
+            Model::validateArray($this->customImage);
+        }
+        if (\is_array($this->faceData)) {
+            Model::validateArray($this->faceData);
+        }
+        if (\is_array($this->logoData)) {
+            Model::validateArray($this->logoData);
+        }
+        if (\is_array($this->ocrResult)) {
+            Model::validateArray($this->ocrResult);
+        }
+        if (\is_array($this->publicFigure)) {
+            Model::validateArray($this->publicFigure);
+        }
+        if (\is_array($this->recognition)) {
+            Model::validateArray($this->recognition);
+        }
+        if (null !== $this->textInImage) {
+            $this->textInImage->validate();
+        }
+        if (null !== $this->vlContent) {
+            $this->vlContent->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customImage) {
-            $res['CustomImage'] = [];
-            if (null !== $this->customImage && \is_array($this->customImage)) {
-                $n = 0;
-                foreach ($this->customImage as $item) {
-                    $res['CustomImage'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customImage)) {
+                $res['CustomImage'] = [];
+                $n1                 = 0;
+                foreach ($this->customImage as $item1) {
+                    $res['CustomImage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->faceData) {
-            $res['FaceData'] = [];
-            if (null !== $this->faceData && \is_array($this->faceData)) {
-                $n = 0;
-                foreach ($this->faceData as $item) {
-                    $res['FaceData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->faceData)) {
+                $res['FaceData'] = [];
+                $n1              = 0;
+                foreach ($this->faceData as $item1) {
+                    $res['FaceData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->logoData) {
-            $res['LogoData'] = [];
-            if (null !== $this->logoData && \is_array($this->logoData)) {
-                $n = 0;
-                foreach ($this->logoData as $item) {
-                    $res['LogoData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->logoData)) {
+                $res['LogoData'] = [];
+                $n1              = 0;
+                foreach ($this->logoData as $item1) {
+                    $res['LogoData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->ocrResult) {
-            $res['OcrResult'] = [];
-            if (null !== $this->ocrResult && \is_array($this->ocrResult)) {
-                $n = 0;
-                foreach ($this->ocrResult as $item) {
-                    $res['OcrResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ocrResult)) {
+                $res['OcrResult'] = [];
+                $n1               = 0;
+                foreach ($this->ocrResult as $item1) {
+                    $res['OcrResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->publicFigure) {
-            $res['PublicFigure'] = [];
-            if (null !== $this->publicFigure && \is_array($this->publicFigure)) {
-                $n = 0;
-                foreach ($this->publicFigure as $item) {
-                    $res['PublicFigure'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->publicFigure)) {
+                $res['PublicFigure'] = [];
+                $n1                  = 0;
+                foreach ($this->publicFigure as $item1) {
+                    $res['PublicFigure'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->recognition) {
-            $res['Recognition'] = [];
-            if (null !== $this->recognition && \is_array($this->recognition)) {
-                $n = 0;
-                foreach ($this->recognition as $item) {
-                    $res['Recognition'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recognition)) {
+                $res['Recognition'] = [];
+                $n1                 = 0;
+                foreach ($this->recognition as $item1) {
+                    $res['Recognition'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->textInImage) {
-            $res['TextInImage'] = null !== $this->textInImage ? $this->textInImage->toMap() : null;
+            $res['TextInImage'] = null !== $this->textInImage ? $this->textInImage->toArray($noStream) : $this->textInImage;
         }
+
         if (null !== $this->vlContent) {
-            $res['VlContent'] = null !== $this->vlContent ? $this->vlContent->toMap() : null;
+            $res['VlContent'] = null !== $this->vlContent ? $this->vlContent->toArray($noStream) : $this->vlContent;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ext
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomImage'])) {
             if (!empty($map['CustomImage'])) {
                 $model->customImage = [];
-                $n                  = 0;
-                foreach ($map['CustomImage'] as $item) {
-                    $model->customImage[$n++] = null !== $item ? customImage::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['CustomImage'] as $item1) {
+                    $model->customImage[$n1++] = customImage::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['FaceData'])) {
             if (!empty($map['FaceData'])) {
                 $model->faceData = [];
-                $n               = 0;
-                foreach ($map['FaceData'] as $item) {
-                    $model->faceData[$n++] = null !== $item ? faceData::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['FaceData'] as $item1) {
+                    $model->faceData[$n1++] = faceData::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['LogoData'])) {
             if (!empty($map['LogoData'])) {
                 $model->logoData = [];
-                $n               = 0;
-                foreach ($map['LogoData'] as $item) {
-                    $model->logoData[$n++] = null !== $item ? logoData::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['LogoData'] as $item1) {
+                    $model->logoData[$n1++] = logoData::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OcrResult'])) {
             if (!empty($map['OcrResult'])) {
                 $model->ocrResult = [];
-                $n                = 0;
-                foreach ($map['OcrResult'] as $item) {
-                    $model->ocrResult[$n++] = null !== $item ? ocrResult::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['OcrResult'] as $item1) {
+                    $model->ocrResult[$n1++] = ocrResult::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PublicFigure'])) {
             if (!empty($map['PublicFigure'])) {
                 $model->publicFigure = [];
-                $n                   = 0;
-                foreach ($map['PublicFigure'] as $item) {
-                    $model->publicFigure[$n++] = null !== $item ? publicFigure::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['PublicFigure'] as $item1) {
+                    $model->publicFigure[$n1++] = publicFigure::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Recognition'])) {
             if (!empty($map['Recognition'])) {
                 $model->recognition = [];
-                $n                  = 0;
-                foreach ($map['Recognition'] as $item) {
-                    $model->recognition[$n++] = null !== $item ? recognition::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['Recognition'] as $item1) {
+                    $model->recognition[$n1++] = recognition::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TextInImage'])) {
             $model->textInImage = textInImage::fromMap($map['TextInImage']);
         }
+
         if (isset($map['VlContent'])) {
             $model->vlContent = vlContent::fromMap($map['VlContent']);
         }

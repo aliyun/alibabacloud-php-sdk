@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusResponseBody\data\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customizedHit extends Model
 {
     /**
-     * @description The terms that are hit. Multiple terms are separated by commas (,).
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $keyWords;
-
     /**
-     * @description The library name.
-     *
-     * @example test
-     *
      * @var string
      */
     public $libName;
@@ -32,14 +23,16 @@ class customizedHit extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyWords) {
             $res['KeyWords'] = $this->keyWords;
         }
+
         if (null !== $this->libName) {
             $res['LibName'] = $this->libName;
         }
@@ -47,17 +40,18 @@ class customizedHit extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customizedHit
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['KeyWords'])) {
             $model->keyWords = $map['KeyWords'];
         }
+
         if (isset($map['LibName'])) {
             $model->libName = $map['LibName'];
         }

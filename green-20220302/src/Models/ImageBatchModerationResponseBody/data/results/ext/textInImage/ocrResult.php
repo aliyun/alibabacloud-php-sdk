@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\ext\textInImage;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponseBody\data\results\ext\textInImage\ocrResult\location;
-use AlibabaCloud\Tea\Model;
 
 class ocrResult extends Model
 {
     /**
-     * @description Text line coordinate information.
-     *
      * @var location
      */
     public $location;
-
     /**
-     * @description Text information.
-     *
-     * @example abcd
-     *
      * @var string
      */
     public $text;
@@ -31,14 +24,19 @@ class ocrResult extends Model
 
     public function validate()
     {
+        if (null !== $this->location) {
+            $this->location->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->location) {
-            $res['Location'] = null !== $this->location ? $this->location->toMap() : null;
+            $res['Location'] = null !== $this->location ? $this->location->toArray($noStream) : $this->location;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -46,17 +44,18 @@ class ocrResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ocrResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Location'])) {
             $model->location = location::fromMap($map['Location']);
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

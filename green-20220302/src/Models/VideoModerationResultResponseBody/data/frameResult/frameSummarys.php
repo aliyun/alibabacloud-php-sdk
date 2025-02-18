@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponseBody\data\frameResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class frameSummarys extends Model
 {
     /**
-     * @description The description of the result.
-     *
-     * @example no risk
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The label against which a captured frame is matched.
-     *
-     * @example violent_armedForces
-     *
      * @var string
      */
     public $label;
-
     /**
-     * @description The number of times that the label is matched.
-     *
-     * @example 8
-     *
      * @var int
      */
     public $labelSum;
@@ -42,17 +28,20 @@ class frameSummarys extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
+
         if (null !== $this->labelSum) {
             $res['LabelSum'] = $this->labelSum;
         }
@@ -60,20 +49,22 @@ class frameSummarys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return frameSummarys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
+
         if (isset($map['LabelSum'])) {
             $model->labelSum = $map['LabelSum'];
         }

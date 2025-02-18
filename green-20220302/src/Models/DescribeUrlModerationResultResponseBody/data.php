@@ -4,40 +4,25 @@
 
 namespace AlibabaCloud\SDK\Green\V20220302\Models\DescribeUrlModerationResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeUrlModerationResultResponseBody\data\extraInfo;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeUrlModerationResultResponseBody\data\result;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The value of dataId that is specified in the API request. If this parameter is not specified in the API request, this field is not available in the response.
-     *
-     * @example 26769ada6e264e7ba9aa048241e12be9
-     *
      * @var string
      */
     public $dataId;
-
     /**
-     * @description The supplementary information.
-     *
      * @var extraInfo
      */
     public $extraInfo;
-
     /**
-     * @description The ReqId field returned by an asynchronous URL moderation operation.
-     *
-     * @example B0963D30-BAB4-562F-9ED0-7A23AEC51C7C
-     *
      * @var string
      */
     public $reqId;
-
     /**
-     * @description The returned results.
-     *
      * @var result[]
      */
     public $result;
@@ -50,26 +35,36 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->extraInfo) {
+            $this->extraInfo->validate();
+        }
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
         }
+
         if (null !== $this->extraInfo) {
-            $res['ExtraInfo'] = null !== $this->extraInfo ? $this->extraInfo->toMap() : null;
+            $res['ExtraInfo'] = null !== $this->extraInfo ? $this->extraInfo->toArray($noStream) : $this->extraInfo;
         }
+
         if (null !== $this->reqId) {
             $res['ReqId'] = $this->reqId;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1            = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -77,29 +72,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
         }
+
         if (isset($map['ExtraInfo'])) {
             $model->extraInfo = extraInfo::fromMap($map['ExtraInfo']);
         }
+
         if (isset($map['ReqId'])) {
             $model->reqId = $map['ReqId'];
         }
+
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
-                foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1++] = result::fromMap($item1);
                 }
             }
         }
