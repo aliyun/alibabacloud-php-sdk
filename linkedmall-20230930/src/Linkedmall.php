@@ -42,6 +42,12 @@ use AlibabaCloud\SDK\Linkedmall\V20230930\Models\RenderPurchaseOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\RenderPurchaseOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\RenderRefundOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\RenderRefundOrderResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SearchProductsRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SearchProductsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SelectionGroupAddProductRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SelectionGroupAddProductResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SelectionGroupRemoveProductRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SelectionGroupRemoveProductResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SplitPurchaseOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\SplitPurchaseOrderResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1354,6 +1360,316 @@ class Linkedmall extends OpenApiClient
         $headers = [];
 
         return $this->renderRefundOrderWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 搜索商品
+     *
+     * @param request - SearchProductsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchProductsResponse
+     *
+     * @param SearchProductsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SearchProductsResponse
+     */
+    public function searchProductsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->brandName) {
+            @$body['brandName'] = $request->brandName;
+        }
+
+        if (null !== $request->categoryIds) {
+            @$body['categoryIds'] = $request->categoryIds;
+        }
+
+        if (null !== $request->createEndTime) {
+            @$body['createEndTime'] = $request->createEndTime;
+        }
+
+        if (null !== $request->createStartTime) {
+            @$body['createStartTime'] = $request->createStartTime;
+        }
+
+        if (null !== $request->distributionHighPrice) {
+            @$body['distributionHighPrice'] = $request->distributionHighPrice;
+        }
+
+        if (null !== $request->distributionHighPriceRatio) {
+            @$body['distributionHighPriceRatio'] = $request->distributionHighPriceRatio;
+        }
+
+        if (null !== $request->distributionLowPrice) {
+            @$body['distributionLowPrice'] = $request->distributionLowPrice;
+        }
+
+        if (null !== $request->distributionLowPriceRatio) {
+            @$body['distributionLowPriceRatio'] = $request->distributionLowPriceRatio;
+        }
+
+        if (null !== $request->highMarkPrice) {
+            @$body['highMarkPrice'] = $request->highMarkPrice;
+        }
+
+        if (null !== $request->highPrice) {
+            @$body['highPrice'] = $request->highPrice;
+        }
+
+        if (null !== $request->inGroup) {
+            @$body['inGroup'] = $request->inGroup;
+        }
+
+        if (null !== $request->inGroupEndTime) {
+            @$body['inGroupEndTime'] = $request->inGroupEndTime;
+        }
+
+        if (null !== $request->inGroupStartTime) {
+            @$body['inGroupStartTime'] = $request->inGroupStartTime;
+        }
+
+        if (null !== $request->inventoryRiskLevel) {
+            @$body['inventoryRiskLevel'] = $request->inventoryRiskLevel;
+        }
+
+        if (null !== $request->lmItemId) {
+            @$body['lmItemId'] = $request->lmItemId;
+        }
+
+        if (null !== $request->lowMarkPrice) {
+            @$body['lowMarkPrice'] = $request->lowMarkPrice;
+        }
+
+        if (null !== $request->lowPrice) {
+            @$body['lowPrice'] = $request->lowPrice;
+        }
+
+        if (null !== $request->modifyEndTime) {
+            @$body['modifyEndTime'] = $request->modifyEndTime;
+        }
+
+        if (null !== $request->modifyStartTime) {
+            @$body['modifyStartTime'] = $request->modifyStartTime;
+        }
+
+        if (null !== $request->orderBy) {
+            @$body['orderBy'] = $request->orderBy;
+        }
+
+        if (null !== $request->orderDirection) {
+            @$body['orderDirection'] = $request->orderDirection;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$body['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->platform) {
+            @$body['platform'] = $request->platform;
+        }
+
+        if (null !== $request->productId) {
+            @$body['productId'] = $request->productId;
+        }
+
+        if (null !== $request->productName) {
+            @$body['productName'] = $request->productName;
+        }
+
+        if (null !== $request->productStatus) {
+            @$body['productStatus'] = $request->productStatus;
+        }
+
+        if (null !== $request->purchaserId) {
+            @$body['purchaserId'] = $request->purchaserId;
+        }
+
+        if (null !== $request->taxRate) {
+            @$body['taxRate'] = $request->taxRate;
+        }
+
+        if (null !== $request->tradeModeAndCredit) {
+            @$body['tradeModeAndCredit'] = $request->tradeModeAndCredit;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchProducts',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/searchProduct',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SearchProductsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 搜索商品
+     *
+     * @param request - SearchProductsRequest
+     * @returns SearchProductsResponse
+     *
+     * @param SearchProductsRequest $request
+     *
+     * @return SearchProductsResponse
+     */
+    public function searchProducts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchProductsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 入库操作.
+     *
+     * @param request - SelectionGroupAddProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SelectionGroupAddProductResponse
+     *
+     * @param SelectionGroupAddProductRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SelectionGroupAddProductResponse
+     */
+    public function selectionGroupAddProductWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->productIds) {
+            @$body['productIds'] = $request->productIds;
+        }
+
+        if (null !== $request->purchaserId) {
+            @$body['purchaserId'] = $request->purchaserId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SelectionGroupAddProduct',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/addProduct',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SelectionGroupAddProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SelectionGroupAddProductResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 入库操作.
+     *
+     * @param request - SelectionGroupAddProductRequest
+     * @returns SelectionGroupAddProductResponse
+     *
+     * @param SelectionGroupAddProductRequest $request
+     *
+     * @return SelectionGroupAddProductResponse
+     */
+    public function selectionGroupAddProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->selectionGroupAddProductWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 出库操作.
+     *
+     * @param request - SelectionGroupRemoveProductRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SelectionGroupRemoveProductResponse
+     *
+     * @param SelectionGroupRemoveProductRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SelectionGroupRemoveProductResponse
+     */
+    public function selectionGroupRemoveProductWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->productIds) {
+            @$body['productIds'] = $request->productIds;
+        }
+
+        if (null !== $request->purchaserId) {
+            @$body['purchaserId'] = $request->purchaserId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SelectionGroupRemoveProduct',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/selection-group/product/command/removeProduct',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SelectionGroupRemoveProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SelectionGroupRemoveProductResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 出库操作.
+     *
+     * @param request - SelectionGroupRemoveProductRequest
+     * @returns SelectionGroupRemoveProductResponse
+     *
+     * @param SelectionGroupRemoveProductRequest $request
+     *
+     * @return SelectionGroupRemoveProductResponse
+     */
+    public function selectionGroupRemoveProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->selectionGroupRemoveProductWithOptions($request, $headers, $runtime);
     }
 
     /**
