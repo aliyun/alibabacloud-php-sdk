@@ -35,6 +35,10 @@ class siteModel extends Model
     /**
      * @var string
      */
+    public $offlineReason;
+    /**
+     * @var string
+     */
     public $planName;
     /**
      * @var string
@@ -83,6 +87,7 @@ class siteModel extends Model
         'createTime'        => 'CreateTime',
         'instanceId'        => 'InstanceId',
         'nameServerList'    => 'NameServerList',
+        'offlineReason'     => 'OfflineReason',
         'planName'          => 'PlanName',
         'planSpecName'      => 'PlanSpecName',
         'resourceGroupId'   => 'ResourceGroupId',
@@ -132,6 +137,10 @@ class siteModel extends Model
 
         if (null !== $this->nameServerList) {
             $res['NameServerList'] = $this->nameServerList;
+        }
+
+        if (null !== $this->offlineReason) {
+            $res['OfflineReason'] = $this->offlineReason;
         }
 
         if (null !== $this->planName) {
@@ -221,6 +230,10 @@ class siteModel extends Model
 
         if (isset($map['NameServerList'])) {
             $model->nameServerList = $map['NameServerList'];
+        }
+
+        if (isset($map['OfflineReason'])) {
+            $model->offlineReason = $map['OfflineReason'];
         }
 
         if (isset($map['PlanName'])) {

@@ -1,3 +1,8 @@
+2025-02-18 Version: 2.15.1
+- Update API GetSite: update response param.
+- Update API ListSites: update response param.
+
+
 2025-02-18 Version: 2.15.0
 - Support API DescribeEdgeContainerAppStats.
 - Support API GetEdgeContainerAppLogRiver.
