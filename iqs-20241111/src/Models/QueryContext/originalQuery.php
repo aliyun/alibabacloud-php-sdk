@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models\QueryContext;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class originalQuery extends Model
 {
@@ -12,17 +12,14 @@ class originalQuery extends Model
      * @var string
      */
     public $industry;
-
     /**
      * @var string
      */
     public $page;
-
     /**
      * @var string
      */
     public $query;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class originalQuery extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->industry) {
             $res['industry'] = $this->industry;
         }
+
         if (null !== $this->page) {
             $res['page'] = $this->page;
         }
+
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
+
         if (null !== $this->timeRange) {
             $res['timeRange'] = $this->timeRange;
         }
@@ -57,23 +58,26 @@ class originalQuery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return originalQuery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['industry'])) {
             $model->industry = $map['industry'];
         }
+
         if (isset($map['page'])) {
             $model->page = $map['page'];
         }
+
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
+
         if (isset($map['timeRange'])) {
             $model->timeRange = $map['timeRange'];
         }

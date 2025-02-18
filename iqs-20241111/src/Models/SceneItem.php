@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SceneItem extends Model
 {
@@ -12,7 +12,6 @@ class SceneItem extends Model
      * @var string
      */
     public $detail;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class SceneItem extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->detail) {
             $res['detail'] = $this->detail;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -39,17 +40,18 @@ class SceneItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SceneItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['detail'])) {
             $model->detail = $map['detail'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

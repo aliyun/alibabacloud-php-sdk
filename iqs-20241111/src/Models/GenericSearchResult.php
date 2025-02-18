@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenericSearchResult extends Model
 {
@@ -12,29 +12,22 @@ class GenericSearchResult extends Model
      * @var ScorePageItem[]
      */
     public $pageItems;
-
     /**
      * @var QueryContext
      */
     public $queryContext;
-
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var SceneItem[]
      */
     public $sceneItems;
-
     /**
      * @var SearchInformation
      */
     public $searchInformation;
-
     /**
      * @var WeiboItem[]
      */
@@ -50,44 +43,65 @@ class GenericSearchResult extends Model
 
     public function validate()
     {
+        if (\is_array($this->pageItems)) {
+            Model::validateArray($this->pageItems);
+        }
+        if (null !== $this->queryContext) {
+            $this->queryContext->validate();
+        }
+        if (\is_array($this->sceneItems)) {
+            Model::validateArray($this->sceneItems);
+        }
+        if (null !== $this->searchInformation) {
+            $this->searchInformation->validate();
+        }
+        if (\is_array($this->weiboItems)) {
+            Model::validateArray($this->weiboItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageItems) {
-            $res['pageItems'] = [];
-            if (null !== $this->pageItems && \is_array($this->pageItems)) {
-                $n = 0;
-                foreach ($this->pageItems as $item) {
-                    $res['pageItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->pageItems)) {
+                $res['pageItems'] = [];
+                $n1               = 0;
+                foreach ($this->pageItems as $item1) {
+                    $res['pageItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->queryContext) {
-            $res['queryContext'] = null !== $this->queryContext ? $this->queryContext->toMap() : null;
+            $res['queryContext'] = null !== $this->queryContext ? $this->queryContext->toArray($noStream) : $this->queryContext;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->sceneItems) {
-            $res['sceneItems'] = [];
-            if (null !== $this->sceneItems && \is_array($this->sceneItems)) {
-                $n = 0;
-                foreach ($this->sceneItems as $item) {
-                    $res['sceneItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sceneItems)) {
+                $res['sceneItems'] = [];
+                $n1                = 0;
+                foreach ($this->sceneItems as $item1) {
+                    $res['sceneItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->searchInformation) {
-            $res['searchInformation'] = null !== $this->searchInformation ? $this->searchInformation->toMap() : null;
+            $res['searchInformation'] = null !== $this->searchInformation ? $this->searchInformation->toArray($noStream) : $this->searchInformation;
         }
+
         if (null !== $this->weiboItems) {
-            $res['weiboItems'] = [];
-            if (null !== $this->weiboItems && \is_array($this->weiboItems)) {
-                $n = 0;
-                foreach ($this->weiboItems as $item) {
-                    $res['weiboItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->weiboItems)) {
+                $res['weiboItems'] = [];
+                $n1                = 0;
+                foreach ($this->weiboItems as $item1) {
+                    $res['weiboItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -95,47 +109,52 @@ class GenericSearchResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenericSearchResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['pageItems'])) {
             if (!empty($map['pageItems'])) {
                 $model->pageItems = [];
-                $n                = 0;
-                foreach ($map['pageItems'] as $item) {
-                    $model->pageItems[$n++] = null !== $item ? ScorePageItem::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['pageItems'] as $item1) {
+                    $model->pageItems[$n1++] = ScorePageItem::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['queryContext'])) {
             $model->queryContext = QueryContext::fromMap($map['queryContext']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['sceneItems'])) {
             if (!empty($map['sceneItems'])) {
                 $model->sceneItems = [];
-                $n                 = 0;
-                foreach ($map['sceneItems'] as $item) {
-                    $model->sceneItems[$n++] = null !== $item ? SceneItem::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['sceneItems'] as $item1) {
+                    $model->sceneItems[$n1++] = SceneItem::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['searchInformation'])) {
             $model->searchInformation = SearchInformation::fromMap($map['searchInformation']);
         }
+
         if (isset($map['weiboItems'])) {
             if (!empty($map['weiboItems'])) {
                 $model->weiboItems = [];
-                $n                 = 0;
-                foreach ($map['weiboItems'] as $item) {
-                    $model->weiboItems[$n++] = null !== $item ? WeiboItem::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['weiboItems'] as $item1) {
+                    $model->weiboItems[$n1++] = WeiboItem::fromMap($item1);
                 }
             }
         }

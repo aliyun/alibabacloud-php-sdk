@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenericAdvancedSearchRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $query;
-
     /**
-     * @example job-4065bee3-e7aa-49fc-aad2-a8e3a7fd6acd
-     *
      * @var string
      */
     public $sessionId;
-
     /**
-     * @example OneWeek
-     *
      * @var string
      */
     public $timeRange;
@@ -36,17 +28,20 @@ class GenericAdvancedSearchRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
+
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
+
         if (null !== $this->timeRange) {
             $res['timeRange'] = $this->timeRange;
         }
@@ -54,20 +49,22 @@ class GenericAdvancedSearchRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenericAdvancedSearchRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
+
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
+
         if (isset($map['timeRange'])) {
             $model->timeRange = $map['timeRange'];
         }
