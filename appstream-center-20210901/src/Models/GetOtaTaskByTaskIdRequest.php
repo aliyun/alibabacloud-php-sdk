@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOtaTaskByTaskIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ota-be7jzm29wrrz5****
-     *
      * @var string
      */
     public $taskId;
@@ -22,9 +18,10 @@ class GetOtaTaskByTaskIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -34,11 +31,11 @@ class GetOtaTaskByTaskIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOtaTaskByTaskIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

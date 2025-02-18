@@ -4,18 +4,15 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTenantConfigResponseBody\tenantConfigModel;
-use AlibabaCloud\Tea\Model;
 
 class ListTenantConfigResponseBody extends Model
 {
     /**
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var tenantConfigModel
      */
@@ -27,32 +24,38 @@ class ListTenantConfigResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->tenantConfigModel) {
+            $this->tenantConfigModel->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tenantConfigModel) {
-            $res['TenantConfigModel'] = null !== $this->tenantConfigModel ? $this->tenantConfigModel->toMap() : null;
+            $res['TenantConfigModel'] = null !== $this->tenantConfigModel ? $this->tenantConfigModel->toArray($noStream) : $this->tenantConfigModel;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTenantConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TenantConfigModel'])) {
             $model->tenantConfigModel = tenantConfigModel::fromMap($map['TenantConfigModel']);
         }

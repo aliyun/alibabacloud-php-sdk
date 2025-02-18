@@ -4,76 +4,47 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetConnectionTicketRequest extends Model
 {
     /**
-     * @example ca-e4s0puhmwi7v****
-     *
      * @var string
      */
     public $appId;
-
     /**
      * @var string[]
      */
     public $appInstanceGroupIdList;
-
     /**
-     * @example ai-1rznfnrvsa99d****
-     *
      * @var string
      */
     public $appInstanceId;
-
     /**
      * @var string
      */
     public $appInstancePersistentId;
-
     /**
-     * @example /q /n
-     *
      * @var string
      */
     public $appStartParam;
-
     /**
-     * @example 1.0.0
-     *
      * @var string
      */
     public $appVersion;
-
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $bizRegionId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example alice
-     *
      * @var string
      */
     public $endUserId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example CloudApp
-     *
      * @var string
      */
     public $productType;
-
     /**
-     * @example 28778acb-a469-4bc0-8e0f****
-     *
      * @var string
      */
     public $taskId;
@@ -92,38 +63,57 @@ class GetConnectionTicketRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->appInstanceGroupIdList)) {
+            Model::validateArray($this->appInstanceGroupIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appInstanceGroupIdList) {
-            $res['AppInstanceGroupIdList'] = $this->appInstanceGroupIdList;
+            if (\is_array($this->appInstanceGroupIdList)) {
+                $res['AppInstanceGroupIdList'] = [];
+                $n1                            = 0;
+                foreach ($this->appInstanceGroupIdList as $item1) {
+                    $res['AppInstanceGroupIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->appInstanceId) {
             $res['AppInstanceId'] = $this->appInstanceId;
         }
+
         if (null !== $this->appInstancePersistentId) {
             $res['AppInstancePersistentId'] = $this->appInstancePersistentId;
         }
+
         if (null !== $this->appStartParam) {
             $res['AppStartParam'] = $this->appStartParam;
         }
+
         if (null !== $this->appVersion) {
             $res['AppVersion'] = $this->appVersion;
         }
+
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -131,43 +121,56 @@ class GetConnectionTicketRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConnectionTicketRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppInstanceGroupIdList'])) {
             if (!empty($map['AppInstanceGroupIdList'])) {
-                $model->appInstanceGroupIdList = $map['AppInstanceGroupIdList'];
+                $model->appInstanceGroupIdList = [];
+                $n1                            = 0;
+                foreach ($map['AppInstanceGroupIdList'] as $item1) {
+                    $model->appInstanceGroupIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AppInstanceId'])) {
             $model->appInstanceId = $map['AppInstanceId'];
         }
+
         if (isset($map['AppInstancePersistentId'])) {
             $model->appInstancePersistentId = $map['AppInstancePersistentId'];
         }
+
         if (isset($map['AppStartParam'])) {
             $model->appStartParam = $map['AppStartParam'];
         }
+
         if (isset($map['AppVersion'])) {
             $model->appVersion = $map['AppVersion'];
         }
+
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

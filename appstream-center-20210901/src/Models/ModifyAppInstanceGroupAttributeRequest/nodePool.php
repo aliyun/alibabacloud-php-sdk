@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class nodePool extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $nodeCapacity;
-
     /**
-     * @example rg-ew7va2g1wl3vm****
-     *
      * @var string
      */
     public $nodePoolId;
@@ -28,14 +23,16 @@ class nodePool extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeCapacity) {
             $res['NodeCapacity'] = $this->nodeCapacity;
         }
+
         if (null !== $this->nodePoolId) {
             $res['NodePoolId'] = $this->nodePoolId;
         }
@@ -43,17 +40,18 @@ class nodePool extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodePool
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeCapacity'])) {
             $model->nodeCapacity = $map['NodeCapacity'];
         }
+
         if (isset($map['NodePoolId'])) {
             $model->nodePoolId = $map['NodePoolId'];
         }

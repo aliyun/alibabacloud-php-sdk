@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupResponseBody\appInstanceGroupModel;
-use AlibabaCloud\Tea\Model;
 
 class CreateAppInstanceGroupResponseBody extends Model
 {
@@ -13,7 +13,6 @@ class CreateAppInstanceGroupResponseBody extends Model
      * @var appInstanceGroupModel
      */
     public $appInstanceGroupModel;
-
     /**
      * @var string
      */
@@ -25,14 +24,19 @@ class CreateAppInstanceGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->appInstanceGroupModel) {
+            $this->appInstanceGroupModel->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceGroupModel) {
-            $res['AppInstanceGroupModel'] = null !== $this->appInstanceGroupModel ? $this->appInstanceGroupModel->toMap() : null;
+            $res['AppInstanceGroupModel'] = null !== $this->appInstanceGroupModel ? $this->appInstanceGroupModel->toArray($noStream) : $this->appInstanceGroupModel;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -40,17 +44,18 @@ class CreateAppInstanceGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAppInstanceGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupModel'])) {
             $model->appInstanceGroupModel = appInstanceGroupModel::fromMap($map['AppInstanceGroupModel']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

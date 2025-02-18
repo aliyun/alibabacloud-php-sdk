@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListTenantConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tenantConfigModel extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $appInstanceGroupExpireRemind;
@@ -20,9 +18,10 @@ class tenantConfigModel extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceGroupExpireRemind) {
@@ -32,11 +31,11 @@ class tenantConfigModel extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tenantConfigModel
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

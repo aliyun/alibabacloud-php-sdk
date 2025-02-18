@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGro
 
 use AlibabaCloud\Dara\Model;
 
-class userProfileFollow extends Model
+class userProfile extends Model
 {
     /**
      * @var string
@@ -15,10 +15,10 @@ class userProfileFollow extends Model
     /**
      * @var bool
      */
-    public $profileFollowSwitch;
+    public $userProfileSwitch;
     protected $_name = [
-        'fileSystemId'        => 'FileSystemId',
-        'profileFollowSwitch' => 'ProfileFollowSwitch',
+        'fileSystemId'      => 'FileSystemId',
+        'userProfileSwitch' => 'UserProfileSwitch',
     ];
 
     public function validate()
@@ -33,8 +33,8 @@ class userProfileFollow extends Model
             $res['FileSystemId'] = $this->fileSystemId;
         }
 
-        if (null !== $this->profileFollowSwitch) {
-            $res['ProfileFollowSwitch'] = $this->profileFollowSwitch;
+        if (null !== $this->userProfileSwitch) {
+            $res['UserProfileSwitch'] = $this->userProfileSwitch;
         }
 
         return $res;
@@ -52,8 +52,8 @@ class userProfileFollow extends Model
             $model->fileSystemId = $map['FileSystemId'];
         }
 
-        if (isset($map['ProfileFollowSwitch'])) {
-            $model->profileFollowSwitch = $map['ProfileFollowSwitch'];
+        if (isset($map['UserProfileSwitch'])) {
+            $model->userProfileSwitch = $map['UserProfileSwitch'];
         }
 
         return $model;

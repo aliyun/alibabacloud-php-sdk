@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\network;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domainRules extends Model
 {
@@ -12,7 +12,6 @@ class domainRules extends Model
      * @var string
      */
     public $domain;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class domainRules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
@@ -39,17 +40,18 @@ class domainRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domainRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }

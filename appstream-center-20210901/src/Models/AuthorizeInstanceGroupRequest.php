@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest\userMeta;
-use AlibabaCloud\Tea\Model;
 
 class AuthorizeInstanceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example aig-9ciijz60n4xsv****
-     *
      * @var string
      */
     public $appInstanceGroupId;
-
     /**
      * @var string[]
      */
     public $authorizeUserIds;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example CloudApp
-     *
      * @var string
      */
     public $productType;
-
     /**
      * @var string[]
      */
     public $unAuthorizeUserIds;
-
     /**
      * @var userMeta
      */
@@ -51,54 +39,92 @@ class AuthorizeInstanceGroupRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->authorizeUserIds)) {
+            Model::validateArray($this->authorizeUserIds);
+        }
+        if (\is_array($this->unAuthorizeUserIds)) {
+            Model::validateArray($this->unAuthorizeUserIds);
+        }
+        if (null !== $this->userMeta) {
+            $this->userMeta->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
+
         if (null !== $this->authorizeUserIds) {
-            $res['AuthorizeUserIds'] = $this->authorizeUserIds;
+            if (\is_array($this->authorizeUserIds)) {
+                $res['AuthorizeUserIds'] = [];
+                $n1                      = 0;
+                foreach ($this->authorizeUserIds as $item1) {
+                    $res['AuthorizeUserIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+
         if (null !== $this->unAuthorizeUserIds) {
-            $res['UnAuthorizeUserIds'] = $this->unAuthorizeUserIds;
+            if (\is_array($this->unAuthorizeUserIds)) {
+                $res['UnAuthorizeUserIds'] = [];
+                $n1                        = 0;
+                foreach ($this->unAuthorizeUserIds as $item1) {
+                    $res['UnAuthorizeUserIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userMeta) {
-            $res['UserMeta'] = null !== $this->userMeta ? $this->userMeta->toMap() : null;
+            $res['UserMeta'] = null !== $this->userMeta ? $this->userMeta->toArray($noStream) : $this->userMeta;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AuthorizeInstanceGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
+
         if (isset($map['AuthorizeUserIds'])) {
             if (!empty($map['AuthorizeUserIds'])) {
-                $model->authorizeUserIds = $map['AuthorizeUserIds'];
+                $model->authorizeUserIds = [];
+                $n1                      = 0;
+                foreach ($map['AuthorizeUserIds'] as $item1) {
+                    $model->authorizeUserIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+
         if (isset($map['UnAuthorizeUserIds'])) {
             if (!empty($map['UnAuthorizeUserIds'])) {
-                $model->unAuthorizeUserIds = $map['UnAuthorizeUserIds'];
+                $model->unAuthorizeUserIds = [];
+                $n1                        = 0;
+                foreach ($map['UnAuthorizeUserIds'] as $item1) {
+                    $model->unAuthorizeUserIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UserMeta'])) {
             $model->userMeta = userMeta::fromMap($map['UserMeta']);
         }

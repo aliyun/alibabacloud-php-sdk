@@ -4,23 +4,19 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\nodePool;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\nodePool\recurrenceSchedules\timerPeriods;
-use AlibabaCloud\Tea\Model;
 
 class recurrenceSchedules extends Model
 {
     /**
-     * @example weekly
-     *
      * @var string
      */
     public $recurrenceType;
-
     /**
      * @var int[]
      */
     public $recurrenceValues;
-
     /**
      * @var timerPeriods[]
      */
@@ -33,23 +29,38 @@ class recurrenceSchedules extends Model
 
     public function validate()
     {
+        if (\is_array($this->recurrenceValues)) {
+            Model::validateArray($this->recurrenceValues);
+        }
+        if (\is_array($this->timerPeriods)) {
+            Model::validateArray($this->timerPeriods);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recurrenceType) {
             $res['RecurrenceType'] = $this->recurrenceType;
         }
+
         if (null !== $this->recurrenceValues) {
-            $res['RecurrenceValues'] = $this->recurrenceValues;
+            if (\is_array($this->recurrenceValues)) {
+                $res['RecurrenceValues'] = [];
+                $n1                      = 0;
+                foreach ($this->recurrenceValues as $item1) {
+                    $res['RecurrenceValues'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->timerPeriods) {
-            $res['TimerPeriods'] = [];
-            if (null !== $this->timerPeriods && \is_array($this->timerPeriods)) {
-                $n = 0;
-                foreach ($this->timerPeriods as $item) {
-                    $res['TimerPeriods'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->timerPeriods)) {
+                $res['TimerPeriods'] = [];
+                $n1                  = 0;
+                foreach ($this->timerPeriods as $item1) {
+                    $res['TimerPeriods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -57,28 +68,34 @@ class recurrenceSchedules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recurrenceSchedules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecurrenceType'])) {
             $model->recurrenceType = $map['RecurrenceType'];
         }
+
         if (isset($map['RecurrenceValues'])) {
             if (!empty($map['RecurrenceValues'])) {
-                $model->recurrenceValues = $map['RecurrenceValues'];
+                $model->recurrenceValues = [];
+                $n1                      = 0;
+                foreach ($map['RecurrenceValues'] as $item1) {
+                    $model->recurrenceValues[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TimerPeriods'])) {
             if (!empty($map['TimerPeriods'])) {
                 $model->timerPeriods = [];
-                $n                   = 0;
-                foreach ($map['TimerPeriods'] as $item) {
-                    $model->timerPeriods[$n++] = null !== $item ? timerPeriods::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['TimerPeriods'] as $item1) {
+                    $model->timerPeriods[$n1++] = timerPeriods::fromMap($item1);
                 }
             }
         }

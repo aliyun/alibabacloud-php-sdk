@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class otaInfo extends Model
 {
     /**
-     * @example 0.0.1-D-20220630.11****
-     *
      * @var string
      */
     public $newOtaVersion;
-
     /**
-     * @example 0.0.1-D-20220615.11****
-     *
      * @var string
      */
     public $otaVersion;
-
     /**
-     * @example ota-e49929gv8acz5****
-     *
      * @var string
      */
     public $taskId;
@@ -36,17 +28,20 @@ class otaInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->newOtaVersion) {
             $res['NewOtaVersion'] = $this->newOtaVersion;
         }
+
         if (null !== $this->otaVersion) {
             $res['OtaVersion'] = $this->otaVersion;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -54,20 +49,22 @@ class otaInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return otaInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NewOtaVersion'])) {
             $model->newOtaVersion = $map['NewOtaVersion'];
         }
+
         if (isset($map['OtaVersion'])) {
             $model->otaVersion = $map['OtaVersion'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
