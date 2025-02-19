@@ -5,10 +5,15 @@
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest\AINodeSpecInfos;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest\tag;
 
 class CreateDBInstanceRequest extends Model
 {
+    /**
+     * @var AINodeSpecInfos[]
+     */
+    public $AINodeSpecInfos;
     /**
      * @var string
      */
@@ -186,6 +191,7 @@ class CreateDBInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'AINodeSpecInfos'           => 'AINodeSpecInfos',
         'backupId'                  => 'BackupId',
         'clientToken'               => 'ClientToken',
         'createSampleData'          => 'CreateSampleData',
@@ -234,6 +240,9 @@ class CreateDBInstanceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->AINodeSpecInfos)) {
+            Model::validateArray($this->AINodeSpecInfos);
+        }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
         }
@@ -243,6 +252,16 @@ class CreateDBInstanceRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->AINodeSpecInfos) {
+            if (\is_array($this->AINodeSpecInfos)) {
+                $res['AINodeSpecInfos'] = [];
+                $n1                     = 0;
+                foreach ($this->AINodeSpecInfos as $item1) {
+                    $res['AINodeSpecInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->backupId) {
             $res['BackupId'] = $this->backupId;
         }
@@ -436,6 +455,16 @@ class CreateDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AINodeSpecInfos'])) {
+            if (!empty($map['AINodeSpecInfos'])) {
+                $model->AINodeSpecInfos = [];
+                $n1                     = 0;
+                foreach ($map['AINodeSpecInfos'] as $item1) {
+                    $model->AINodeSpecInfos[$n1++] = AINodeSpecInfos::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['BackupId'])) {
             $model->backupId = $map['BackupId'];
         }

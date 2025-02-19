@@ -1,3 +1,6 @@
+2025-02-19 Version: 2.6.2
+- Generated php 2016-05-03 for gpdb.
+
 2025-02-12 Version: 2.6.1
 - Update API CreateDBInstance: add param MasterAISpec.
 - Update API DescribeDBInstanceAttribute: update response param.

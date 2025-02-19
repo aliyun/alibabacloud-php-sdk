@@ -1559,6 +1559,10 @@ class Gpdb extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->AINodeSpecInfos) {
+            @$query['AINodeSpecInfos'] = $request->AINodeSpecInfos;
+        }
+
         if (null !== $request->backupId) {
             @$query['BackupId'] = $request->backupId;
         }
