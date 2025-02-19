@@ -4,65 +4,39 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data\brokerInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data\consumerInfos;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data\messageInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data\producerInfo;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Broker trace info.
-     *
      * @var brokerInfo
      */
     public $brokerInfo;
-
     /**
-     * @description Consumer trace info.
-     *
      * @var consumerInfos[]
      */
     public $consumerInfos;
-
     /**
-     * @description The instance ID.
-     *
-     * @example rmq-cn-7e22ody****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The message information.
-     *
      * @var messageInfo
      */
     public $messageInfo;
-
     /**
-     * @description Producer trace info.
-     *
      * @var producerInfo
      */
     public $producerInfo;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The topic name.
-     *
-     * @example topic_test
-     *
      * @var string
      */
     public $topicName;
@@ -78,35 +52,54 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->brokerInfo) {
+            $this->brokerInfo->validate();
+        }
+        if (\is_array($this->consumerInfos)) {
+            Model::validateArray($this->consumerInfos);
+        }
+        if (null !== $this->messageInfo) {
+            $this->messageInfo->validate();
+        }
+        if (null !== $this->producerInfo) {
+            $this->producerInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->brokerInfo) {
-            $res['brokerInfo'] = null !== $this->brokerInfo ? $this->brokerInfo->toMap() : null;
+            $res['brokerInfo'] = null !== $this->brokerInfo ? $this->brokerInfo->toArray($noStream) : $this->brokerInfo;
         }
+
         if (null !== $this->consumerInfos) {
-            $res['consumerInfos'] = [];
-            if (null !== $this->consumerInfos && \is_array($this->consumerInfos)) {
-                $n = 0;
-                foreach ($this->consumerInfos as $item) {
-                    $res['consumerInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->consumerInfos)) {
+                $res['consumerInfos'] = [];
+                $n1                   = 0;
+                foreach ($this->consumerInfos as $item1) {
+                    $res['consumerInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->messageInfo) {
-            $res['messageInfo'] = null !== $this->messageInfo ? $this->messageInfo->toMap() : null;
+            $res['messageInfo'] = null !== $this->messageInfo ? $this->messageInfo->toArray($noStream) : $this->messageInfo;
         }
+
         if (null !== $this->producerInfo) {
-            $res['producerInfo'] = null !== $this->producerInfo ? $this->producerInfo->toMap() : null;
+            $res['producerInfo'] = null !== $this->producerInfo ? $this->producerInfo->toArray($noStream) : $this->producerInfo;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->topicName) {
             $res['topicName'] = $this->topicName;
         }
@@ -114,38 +107,44 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['brokerInfo'])) {
             $model->brokerInfo = brokerInfo::fromMap($map['brokerInfo']);
         }
+
         if (isset($map['consumerInfos'])) {
             if (!empty($map['consumerInfos'])) {
                 $model->consumerInfos = [];
-                $n                    = 0;
-                foreach ($map['consumerInfos'] as $item) {
-                    $model->consumerInfos[$n++] = null !== $item ? consumerInfos::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['consumerInfos'] as $item1) {
+                    $model->consumerInfos[$n1++] = consumerInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['messageInfo'])) {
             $model->messageInfo = messageInfo::fromMap($map['messageInfo']);
         }
+
         if (isset($map['producerInfo'])) {
             $model->producerInfo = producerInfo::fromMap($map['producerInfo']);
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['topicName'])) {
             $model->topicName = $map['topicName'];
         }

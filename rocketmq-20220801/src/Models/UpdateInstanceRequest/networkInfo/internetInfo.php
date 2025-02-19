@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\networkInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class internetInfo extends Model
 {
     /**
-     * @description The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-     *
-     *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-     *   If you configure an IP address whitelist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-     *
      * @var string[]
      */
     public $ipWhitelist;
@@ -23,29 +18,43 @@ class internetInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipWhitelist)) {
+            Model::validateArray($this->ipWhitelist);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipWhitelist) {
-            $res['ipWhitelist'] = $this->ipWhitelist;
+            if (\is_array($this->ipWhitelist)) {
+                $res['ipWhitelist'] = [];
+                $n1                 = 0;
+                foreach ($this->ipWhitelist as $item1) {
+                    $res['ipWhitelist'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return internetInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ipWhitelist'])) {
             if (!empty($map['ipWhitelist'])) {
-                $model->ipWhitelist = $map['ipWhitelist'];
+                $model->ipWhitelist = [];
+                $n1                 = 0;
+                foreach ($map['ipWhitelist'] as $item1) {
+                    $model->ipWhitelist[$n1++] = $item1;
+                }
             }
         }
 

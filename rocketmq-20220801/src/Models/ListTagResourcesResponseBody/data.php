@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTagResourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTagResourcesResponseBody\data\tagResources;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The position from which the next query starts.
-     *
-     * @example d09e2b63e1b12d905b7080ff70
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description Request ID.
-     *
-     * @example F00C6A70-C782-5DD6-9D11-0CFC710100C7
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Resource tag relationships.
-     *
      * @var tagResources[]
      */
     public $tagResources;
@@ -41,23 +29,29 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagResources)) {
+            Model::validateArray($this->tagResources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->tagResources) {
-            $res['tagResources'] = [];
-            if (null !== $this->tagResources && \is_array($this->tagResources)) {
-                $n = 0;
-                foreach ($this->tagResources as $item) {
-                    $res['tagResources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagResources)) {
+                $res['tagResources'] = [];
+                $n1                  = 0;
+                foreach ($this->tagResources as $item1) {
+                    $res['tagResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +59,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['tagResources'])) {
             if (!empty($map['tagResources'])) {
                 $model->tagResources = [];
-                $n                   = 0;
-                foreach ($map['tagResources'] as $item) {
-                    $model->tagResources[$n++] = null !== $item ? tagResources::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['tagResources'] as $item1) {
+                    $model->tagResources[$n1++] = tagResources::fromMap($item1);
                 }
             }
         }

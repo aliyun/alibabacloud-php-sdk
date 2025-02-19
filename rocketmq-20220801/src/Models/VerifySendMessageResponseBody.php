@@ -4,78 +4,39 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifySendMessageResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
-     * @example InvalidConsumerGroupId
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description The returned data.
-     *
-     * @example 0A64228900207A4F0F2931A4E0D40BE5
-     *
      * @var string
      */
     public $data;
-
     /**
-     * @description The dynamic error code.
-     *
-     * @example ConsumerGroupId
-     *
      * @var string
      */
     public $dynamicCode;
-
     /**
-     * @description The dynamic error message.
-     *
-     * @example consumerGroupId
-     *
      * @var string
      */
     public $dynamicMessage;
-
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @description The error message.
-     *
-     * @example The instance cannot be found.
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The request ID.
-     *
-     * @example 3BD2C19B-66DE-59C7-B2F6-FD1BE21DC8C1
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -92,32 +53,40 @@ class VerifySendMessageResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->data) {
             $res['data'] = $this->data;
         }
+
         if (null !== $this->dynamicCode) {
             $res['dynamicCode'] = $this->dynamicCode;
         }
+
         if (null !== $this->dynamicMessage) {
             $res['dynamicMessage'] = $this->dynamicMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['httpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -125,35 +94,42 @@ class VerifySendMessageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifySendMessageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['data'])) {
             $model->data = $map['data'];
         }
+
         if (isset($map['dynamicCode'])) {
             $model->dynamicCode = $map['dynamicCode'];
         }
+
         if (isset($map['dynamicMessage'])) {
             $model->dynamicMessage = $map['dynamicMessage'];
         }
+
         if (isset($map['httpStatusCode'])) {
             $model->httpStatusCode = $map['httpStatusCode'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

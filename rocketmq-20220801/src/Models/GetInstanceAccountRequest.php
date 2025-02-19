@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceAccountRequest extends Model
 {
     /**
-     * @description The username of the account.
-     *
-     * If you do not configure this parameter, the default username of the instance is used.
-     * @example test
-     *
      * @var string
      */
     public $username;
@@ -23,9 +18,10 @@ class GetInstanceAccountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->username) {
@@ -35,11 +31,11 @@ class GetInstanceAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

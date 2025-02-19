@@ -4,42 +4,19 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class endpoints extends Model
 {
     /**
-     * @description The type of the endpoint that is used to access the instance.
-     *
-     * Valid values:
-     *
-     *   TCP_VPC: VPC endpoint
-     *   TCP_INTERNET: public endpoint
-     *
-     * @example TCP_INTERNET
-     *
      * @var string
      */
     public $endpointType;
-
     /**
-     * @description The endpoint that is used to access the instance.
-     *
-     * @example rmq-cn-c4d2tbk****-vpc.cn-hangzhou.rmq.aliyuncs.com:8080
-     *
      * @var string
      */
     public $endpointUrl;
-
     /**
-     * @description The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use the public endpoint to access the instance.
-     *
-     *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-     *   If you configure an IP address whitelist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-     *
-     * We recommend that you configure internetInfo.ipWhitelist instead of this parameter.
-     * @example 192.168.x.x/24
-     *
      * @var string[]
      */
     public $ipWhitelist;
@@ -51,41 +28,59 @@ class endpoints extends Model
 
     public function validate()
     {
+        if (\is_array($this->ipWhitelist)) {
+            Model::validateArray($this->ipWhitelist);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointType) {
             $res['endpointType'] = $this->endpointType;
         }
+
         if (null !== $this->endpointUrl) {
             $res['endpointUrl'] = $this->endpointUrl;
         }
+
         if (null !== $this->ipWhitelist) {
-            $res['ipWhitelist'] = $this->ipWhitelist;
+            if (\is_array($this->ipWhitelist)) {
+                $res['ipWhitelist'] = [];
+                $n1                 = 0;
+                foreach ($this->ipWhitelist as $item1) {
+                    $res['ipWhitelist'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpoints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endpointType'])) {
             $model->endpointType = $map['endpointType'];
         }
+
         if (isset($map['endpointUrl'])) {
             $model->endpointUrl = $map['endpointUrl'];
         }
+
         if (isset($map['ipWhitelist'])) {
             if (!empty($map['ipWhitelist'])) {
-                $model->ipWhitelist = $map['ipWhitelist'];
+                $model->ipWhitelist = [];
+                $n1                 = 0;
+                foreach ($map['ipWhitelist'] as $item1) {
+                    $model->ipWhitelist[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data\networkInfo\vpcInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vSwitches extends Model
 {
     /**
-     * @description The vSwitch ID.
-     *
-     * @example vsw-uf6gwtbn6etadpvz7****
-     *
      * @var string
      */
     public $vSwitchId;
-
     /**
-     * @description The zone ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $zoneId;
@@ -32,14 +23,16 @@ class vSwitches extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['vSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['zoneId'] = $this->zoneId;
         }
@@ -47,17 +40,18 @@ class vSwitches extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vSwitches
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['vSwitchId'])) {
             $model->vSwitchId = $map['vSwitchId'];
         }
+
         if (isset($map['zoneId'])) {
             $model->zoneId = $map['zoneId'];
         }

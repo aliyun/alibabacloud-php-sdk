@@ -4,24 +4,17 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\networkInfo\internetInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\networkInfo\vpcInfo;
-use AlibabaCloud\Tea\Model;
 
 class networkInfo extends Model
 {
     /**
-     * @description The Internet-related configurations.
-     *
-     * This parameter is required.
      * @var internetInfo
      */
     public $internetInfo;
-
     /**
-     * @description The virtual private cloud (VPC)-related configurations.
-     *
-     * This parameter is required.
      * @var vpcInfo
      */
     public $vpcInfo;
@@ -32,32 +25,41 @@ class networkInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->internetInfo) {
+            $this->internetInfo->validate();
+        }
+        if (null !== $this->vpcInfo) {
+            $this->vpcInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->internetInfo) {
-            $res['internetInfo'] = null !== $this->internetInfo ? $this->internetInfo->toMap() : null;
+            $res['internetInfo'] = null !== $this->internetInfo ? $this->internetInfo->toArray($noStream) : $this->internetInfo;
         }
+
         if (null !== $this->vpcInfo) {
-            $res['vpcInfo'] = null !== $this->vpcInfo ? $this->vpcInfo->toMap() : null;
+            $res['vpcInfo'] = null !== $this->vpcInfo ? $this->vpcInfo->toArray($noStream) : $this->vpcInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['internetInfo'])) {
             $model->internetInfo = internetInfo::fromMap($map['internetInfo']);
         }
+
         if (isset($map['vpcInfo'])) {
             $model->vpcInfo = vpcInfo::fromMap($map['vpcInfo']);
         }

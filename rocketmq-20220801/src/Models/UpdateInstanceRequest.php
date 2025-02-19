@@ -4,48 +4,30 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\aclInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\networkInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\productInfo;
-use AlibabaCloud\Tea\Model;
 
 class UpdateInstanceRequest extends Model
 {
     /**
-     * @description The access control list for the instance.
-     *
      * @var aclInfo
      */
     public $aclInfo;
-
     /**
-     * @description The updated name of the instance.
-     *
-     * @example test_instance
-     *
      * @var string
      */
     public $instanceName;
-
     /**
-     * @description The updated network information about the instance.
-     *
      * @var networkInfo
      */
     public $networkInfo;
-
     /**
-     * @description Additional configurations of the instance.
-     *
      * @var productInfo
      */
     public $productInfo;
-
     /**
-     * @description The updated description of the instance.
-     *
-     * @example This is the remark for test.
-     *
      * @var string
      */
     public $remark;
@@ -59,23 +41,37 @@ class UpdateInstanceRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->aclInfo) {
+            $this->aclInfo->validate();
+        }
+        if (null !== $this->networkInfo) {
+            $this->networkInfo->validate();
+        }
+        if (null !== $this->productInfo) {
+            $this->productInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclInfo) {
-            $res['aclInfo'] = null !== $this->aclInfo ? $this->aclInfo->toMap() : null;
+            $res['aclInfo'] = null !== $this->aclInfo ? $this->aclInfo->toArray($noStream) : $this->aclInfo;
         }
+
         if (null !== $this->instanceName) {
             $res['instanceName'] = $this->instanceName;
         }
+
         if (null !== $this->networkInfo) {
-            $res['networkInfo'] = null !== $this->networkInfo ? $this->networkInfo->toMap() : null;
+            $res['networkInfo'] = null !== $this->networkInfo ? $this->networkInfo->toArray($noStream) : $this->networkInfo;
         }
+
         if (null !== $this->productInfo) {
-            $res['productInfo'] = null !== $this->productInfo ? $this->productInfo->toMap() : null;
+            $res['productInfo'] = null !== $this->productInfo ? $this->productInfo->toArray($noStream) : $this->productInfo;
         }
+
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
@@ -83,26 +79,30 @@ class UpdateInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aclInfo'])) {
             $model->aclInfo = aclInfo::fromMap($map['aclInfo']);
         }
+
         if (isset($map['instanceName'])) {
             $model->instanceName = $map['instanceName'];
         }
+
         if (isset($map['networkInfo'])) {
             $model->networkInfo = networkInfo::fromMap($map['networkInfo']);
         }
+
         if (isset($map['productInfo'])) {
             $model->productInfo = productInfo::fromMap($map['productInfo']);
         }
+
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }

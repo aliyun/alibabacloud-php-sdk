@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The tag code.
-     *
-     * @example xx
-     *
      * @var string
      */
     public $tagCode;
-
     /**
-     * @description The tag value.
-     *
-     * @example xx
-     *
      * @var mixed
      */
     public $tagValue;
@@ -32,14 +23,16 @@ class tags extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagCode) {
             $res['tagCode'] = $this->tagCode;
         }
+
         if (null !== $this->tagValue) {
             $res['tagValue'] = $this->tagValue;
         }
@@ -47,17 +40,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tagCode'])) {
             $model->tagCode = $map['tagCode'];
         }
+
         if (isset($map['tagValue'])) {
             $model->tagValue = $map['tagValue'];
         }

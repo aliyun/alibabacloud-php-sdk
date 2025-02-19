@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\AddDisasterRecoveryItemRequest\topics;
-use AlibabaCloud\Tea\Model;
 
 class AddDisasterRecoveryItemRequest extends Model
 {
@@ -19,17 +19,21 @@ class AddDisasterRecoveryItemRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->topics)) {
+            Model::validateArray($this->topics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->topics) {
-            $res['topics'] = [];
-            if (null !== $this->topics && \is_array($this->topics)) {
-                $n = 0;
-                foreach ($this->topics as $item) {
-                    $res['topics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->topics)) {
+                $res['topics'] = [];
+                $n1            = 0;
+                foreach ($this->topics as $item1) {
+                    $res['topics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class AddDisasterRecoveryItemRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddDisasterRecoveryItemRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['topics'])) {
             if (!empty($map['topics'])) {
                 $model->topics = [];
-                $n             = 0;
-                foreach ($map['topics'] as $item) {
-                    $model->topics[$n++] = null !== $item ? topics::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['topics'] as $item1) {
+                    $model->topics[$n1++] = topics::fromMap($item1);
                 }
             }
         }

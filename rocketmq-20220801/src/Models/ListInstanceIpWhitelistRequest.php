@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstanceIpWhitelistRequest extends Model
 {
     /**
-     * @description IP whitelist.
-     *
-     * @example 0.0.0.0/0
-     *
      * @var string
      */
     public $ipWhitelist;
-
     /**
-     * @description The page number. Default value: 1.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries to return on each page.
-     *
-     * This parameter is required.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -44,17 +28,20 @@ class ListInstanceIpWhitelistRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipWhitelist) {
             $res['ipWhitelist'] = $this->ipWhitelist;
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -62,20 +49,22 @@ class ListInstanceIpWhitelistRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceIpWhitelistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ipWhitelist'])) {
             $model->ipWhitelist = $map['ipWhitelist'];
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }

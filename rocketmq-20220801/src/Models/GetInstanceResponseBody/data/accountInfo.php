@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accountInfo extends Model
 {
     /**
-     * @description The username of the instance. If you access a ApsaraMQ for RocketMQ instance over the Internet, you must configure the username and password of the instance in the SDK code for authentication.
-     *
-     * @example 6W0xz2uPfiwp****
-     *
      * @var string
      */
     public $username;
@@ -22,9 +18,10 @@ class accountInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->username) {
@@ -34,11 +31,11 @@ class accountInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accountInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

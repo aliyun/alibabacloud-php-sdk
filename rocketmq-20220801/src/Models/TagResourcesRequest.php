@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The resource IDs, in the JSON format.
-     *
-     * This parameter is required.
-     * @example rmq-cn-pe3355cs707
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The type of resource.
-     *
-     * Set this parameter to **instance**. The value of this parameter cannot be changed.
-     *
-     * This parameter is required.
-     * @example instance
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description tag, in JSON format.
-     *
-     * This parameter is required.
-     * @example [{"key": "rmq-test", "value": "test"}]
-     *
      * @var string
      */
     public $tag;
@@ -58,20 +33,24 @@ class TagResourcesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceId) {
             $res['resourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
         }
@@ -79,23 +58,26 @@ class TagResourcesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['resourceId'])) {
             $model->resourceId = $map['resourceId'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }
+
         if (isset($map['tag'])) {
             $model->tag = $map['tag'];
         }

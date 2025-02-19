@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetInstanceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceQuotas extends Model
 {
     /**
-     * @description The number of topics that are free of charge on the instance.
-     *
-     * @example 20
-     *
      * @var float
      */
     public $freeCount;
-
     /**
-     * @description The quota name.
-     *
-     * Valid value:
-     *
-     *   TOPIC_COUNT: the number of topics that can be created on the instance
-     *
-     * @example TOPIC_COUNT
-     *
      * @var string
      */
     public $quotaName;
-
     /**
-     * @description The total number of topics on the instance.
-     *
-     * @example 100
-     *
      * @var float
      */
     public $totalCount;
-
     /**
-     * @description The number of used topics on the instance.
-     *
-     * @example 10
-     *
      * @var float
      */
     public $usedCount;
@@ -56,20 +33,24 @@ class instanceQuotas extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->freeCount) {
             $res['freeCount'] = $this->freeCount;
         }
+
         if (null !== $this->quotaName) {
             $res['quotaName'] = $this->quotaName;
         }
+
         if (null !== $this->totalCount) {
             $res['totalCount'] = $this->totalCount;
         }
+
         if (null !== $this->usedCount) {
             $res['usedCount'] = $this->usedCount;
         }
@@ -77,23 +58,26 @@ class instanceQuotas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceQuotas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['freeCount'])) {
             $model->freeCount = $map['freeCount'];
         }
+
         if (isset($map['quotaName'])) {
             $model->quotaName = $map['quotaName'];
         }
+
         if (isset($map['totalCount'])) {
             $model->totalCount = $map['totalCount'];
         }
+
         if (isset($map['usedCount'])) {
             $model->usedCount = $map['usedCount'];
         }

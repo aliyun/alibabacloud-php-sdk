@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerStackResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stacks extends Model
 {
     /**
-     * @description Thread id.
-     *
-     * @example 123
-     *
      * @var string
      */
     public $thread;
-
     /**
-     * @description Stack Information.
-     *
      * @var string[]
      */
     public $tracks;
@@ -30,35 +23,51 @@ class stacks extends Model
 
     public function validate()
     {
+        if (\is_array($this->tracks)) {
+            Model::validateArray($this->tracks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->thread) {
             $res['thread'] = $this->thread;
         }
+
         if (null !== $this->tracks) {
-            $res['tracks'] = $this->tracks;
+            if (\is_array($this->tracks)) {
+                $res['tracks'] = [];
+                $n1            = 0;
+                foreach ($this->tracks as $item1) {
+                    $res['tracks'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stacks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['thread'])) {
             $model->thread = $map['thread'];
         }
+
         if (isset($map['tracks'])) {
             if (!empty($map['tracks'])) {
-                $model->tracks = $map['tracks'];
+                $model->tracks = [];
+                $n1            = 0;
+                foreach ($map['tracks'] as $item1) {
+                    $model->tracks[$n1++] = $item1;
+                }
             }
         }
 

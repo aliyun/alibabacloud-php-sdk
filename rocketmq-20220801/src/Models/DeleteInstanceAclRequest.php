@@ -4,31 +4,15 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteInstanceAclRequest extends Model
 {
     /**
-     * @description The name of the resource on which the permissions are granted.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $resourceName;
-
     /**
-     * @description The type of the resource on which the permissions are granted.
-     *
-     * Valid values:
-     *
-     *   Group
-     *   Topic
-     *
-     * This parameter is required.
-     * @example Topic
-     *
      * @var string
      */
     public $resourceType;
@@ -39,14 +23,16 @@ class DeleteInstanceAclRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceName) {
             $res['resourceName'] = $this->resourceName;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -54,17 +40,18 @@ class DeleteInstanceAclRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteInstanceAclRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['resourceName'])) {
             $model->resourceName = $map['resourceName'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

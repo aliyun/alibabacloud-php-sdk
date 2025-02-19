@@ -4,49 +4,29 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupLagResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DataTopicLagMapValue;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupLagResponseBody\data\totalLag;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Consumer Group ID
-     *
-     * @example CID-TEST
-     *
      * @var string
      */
     public $consumerGroupId;
-
     /**
-     * @description Instance ID
-     *
-     * @example rmq-cn-7e22ody****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description Region ID
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description Backlog for each topic
-     *
      * @var DataTopicLagMapValue[]
      */
     public $topicLagMap;
-
     /**
-     * @description Total lag count
-     *
      * @var totalLag
      */
     public $totalLag;
@@ -60,55 +40,75 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->topicLagMap)) {
+            Model::validateArray($this->topicLagMap);
+        }
+        if (null !== $this->totalLag) {
+            $this->totalLag->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumerGroupId) {
             $res['consumerGroupId'] = $this->consumerGroupId;
         }
+
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->topicLagMap) {
-            $res['topicLagMap'] = [];
-            if (null !== $this->topicLagMap && \is_array($this->topicLagMap)) {
-                foreach ($this->topicLagMap as $key => $val) {
-                    $res['topicLagMap'][$key] = null !== $val ? $val->toMap() : $val;
+            if (\is_array($this->topicLagMap)) {
+                $res['topicLagMap'] = [];
+                foreach ($this->topicLagMap as $key1 => $value1) {
+                    $res['topicLagMap'][$key1] = null !== $value1 ? $value1->toArray($noStream) : $value1;
                 }
             }
         }
+
         if (null !== $this->totalLag) {
-            $res['totalLag'] = null !== $this->totalLag ? $this->totalLag->toMap() : null;
+            $res['totalLag'] = null !== $this->totalLag ? $this->totalLag->toArray($noStream) : $this->totalLag;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['consumerGroupId'])) {
             $model->consumerGroupId = $map['consumerGroupId'];
         }
+
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['topicLagMap'])) {
-            $model->topicLagMap = $map['topicLagMap'];
+            if (!empty($map['topicLagMap'])) {
+                $model->topicLagMap = [];
+                foreach ($map['topicLagMap'] as $key1 => $value1) {
+                    $model->topicLagMap[$key1] = DataTopicLagMapValue::fromMap($value1);
+                }
+            }
         }
+
         if (isset($map['totalLag'])) {
             $model->totalLag = totalLag::fromMap($map['totalLag']);
         }

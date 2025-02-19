@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateInstanceAccountRequest extends Model
 {
     /**
-     * @description The status of the account.
-     *
-     * Valid values:
-     *
-     *   DISABLE
-     *   ENABLE
-     *
-     * @example ENABLE
-     *
      * @var string
      */
     public $accountStatus;
-
     /**
-     * @description The password of the account.
-     *
-     * @example test
-     *
      * @var string
      */
     public $password;
@@ -37,14 +23,16 @@ class UpdateInstanceAccountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountStatus) {
             $res['accountStatus'] = $this->accountStatus;
         }
+
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
@@ -52,17 +40,18 @@ class UpdateInstanceAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateInstanceAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accountStatus'])) {
             $model->accountStatus = $map['accountStatus'];
         }
+
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }

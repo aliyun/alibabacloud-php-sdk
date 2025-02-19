@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTopicRequest extends Model
 {
@@ -12,12 +12,7 @@ class UpdateTopicRequest extends Model
      * @var int
      */
     public $maxSendTps;
-
     /**
-     * @description The new remarks on the topic.
-     *
-     * @example This is the remark for test.
-     *
      * @var string
      */
     public $remark;
@@ -28,14 +23,16 @@ class UpdateTopicRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxSendTps) {
             $res['maxSendTps'] = $this->maxSendTps;
         }
+
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
@@ -43,17 +40,18 @@ class UpdateTopicRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTopicRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxSendTps'])) {
             $model->maxSendTps = $map['maxSendTps'];
         }
+
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }

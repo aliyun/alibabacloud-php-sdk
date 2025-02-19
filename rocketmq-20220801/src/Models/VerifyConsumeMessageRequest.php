@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class VerifyConsumeMessageRequest extends Model
 {
     /**
-     * @description The client ID.
-     *
-     * This parameter is required.
-     * @example zeekr-settlement-server-dc555456f-v2lcg@1@1@qfvorazqns
-     *
      * @var string
      */
     public $clientId;
-
     /**
-     * @description The ID of the consumer group.
-     *
-     * This parameter is required.
-     * @example TEST_FINANCE_STOCK_OUT_GROUP
-     *
      * @var string
      */
     public $consumerGroupId;
@@ -34,14 +23,16 @@ class VerifyConsumeMessageRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['clientId'] = $this->clientId;
         }
+
         if (null !== $this->consumerGroupId) {
             $res['consumerGroupId'] = $this->consumerGroupId;
         }
@@ -49,17 +40,18 @@ class VerifyConsumeMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return VerifyConsumeMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clientId'])) {
             $model->clientId = $map['clientId'];
         }
+
         if (isset($map['consumerGroupId'])) {
             $model->consumerGroupId = $map['consumerGroupId'];
         }

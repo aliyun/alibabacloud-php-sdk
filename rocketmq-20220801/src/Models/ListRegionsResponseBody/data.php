@@ -4,68 +4,36 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponseBody\data\tags;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The time when the ApsaraMQ for RocketMQ instance was created.
-     *
-     * @example 2022-08-01 20:05:50
-     *
      * @var string
      */
     public $createTime;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The region name.
-     *
-     * @example hangzhou
-     *
      * @var string
      */
     public $regionName;
-
     /**
-     * @description Indicates whether ApsaraMQ for RocketMQ V4 is activated.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $supportRocketmqV4;
-
     /**
-     * @description Indicates whether ApsaraMQ for RocketMQ V5 is activated.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $supportRocketmqV5;
-
     /**
-     * @description The region tags.
-     *
      * @var tags[]
      */
     public $tags;
-
     /**
-     * @description The time when the ApsaraMQ for RocketMQ instance was last modified.
-     *
-     * @example 2022-08-01 20:05:50
-     *
      * @var string
      */
     public $updateTime;
@@ -81,35 +49,45 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['createTime'] = $this->createTime;
         }
+
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
+
         if (null !== $this->regionName) {
             $res['regionName'] = $this->regionName;
         }
+
         if (null !== $this->supportRocketmqV4) {
             $res['supportRocketmqV4'] = $this->supportRocketmqV4;
         }
+
         if (null !== $this->supportRocketmqV5) {
             $res['supportRocketmqV5'] = $this->supportRocketmqV5;
         }
+
         if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->updateTime) {
             $res['updateTime'] = $this->updateTime;
         }
@@ -117,38 +95,44 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['createTime'])) {
             $model->createTime = $map['createTime'];
         }
+
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
+
         if (isset($map['regionName'])) {
             $model->regionName = $map['regionName'];
         }
+
         if (isset($map['supportRocketmqV4'])) {
             $model->supportRocketmqV4 = $map['supportRocketmqV4'];
         }
+
         if (isset($map['supportRocketmqV5'])) {
             $model->supportRocketmqV5 = $map['supportRocketmqV5'];
         }
+
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['updateTime'])) {
             $model->updateTime = $map['updateTime'];
         }

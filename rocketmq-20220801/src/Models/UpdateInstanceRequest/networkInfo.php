@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest\networkInfo\internetInfo;
-use AlibabaCloud\Tea\Model;
 
 class networkInfo extends Model
 {
     /**
-     * @description The information about the Internet over which the instance is accessed. This parameter takes effect only if the Internet access feature is enabled for the instance.
-     *
      * @var internetInfo
      */
     public $internetInfo;
@@ -21,23 +19,27 @@ class networkInfo extends Model
 
     public function validate()
     {
+        if (null !== $this->internetInfo) {
+            $this->internetInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->internetInfo) {
-            $res['internetInfo'] = null !== $this->internetInfo ? $this->internetInfo->toMap() : null;
+            $res['internetInfo'] = null !== $this->internetInfo ? $this->internetInfo->toArray($noStream) : $this->internetInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return networkInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

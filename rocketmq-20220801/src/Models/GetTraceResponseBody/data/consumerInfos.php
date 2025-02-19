@@ -4,49 +4,29 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data\consumerInfos\deadLetterInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data\consumerInfos\records;
-use AlibabaCloud\Tea\Model;
 
 class consumerInfos extends Model
 {
     /**
-     * @description Consume status.
-     *
-     * @example SUCCESS
-     *
      * @var string
      */
     public $consumeStatus;
-
     /**
-     * @description The consumer group ID.
-     *
-     * @example GID_inspector_group
-     *
      * @var string
      */
     public $consumerGroupId;
-
     /**
-     * @description Dead letter info.
-     *
      * @var deadLetterInfo
      */
     public $deadLetterInfo;
-
     /**
-     * @description Whether it is a dead letter message.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $deadMessage;
-
     /**
-     * @description Consumer record list.
-     *
      * @var records[]
      */
     public $records;
@@ -60,29 +40,40 @@ class consumerInfos extends Model
 
     public function validate()
     {
+        if (null !== $this->deadLetterInfo) {
+            $this->deadLetterInfo->validate();
+        }
+        if (\is_array($this->records)) {
+            Model::validateArray($this->records);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->consumeStatus) {
             $res['consumeStatus'] = $this->consumeStatus;
         }
+
         if (null !== $this->consumerGroupId) {
             $res['consumerGroupId'] = $this->consumerGroupId;
         }
+
         if (null !== $this->deadLetterInfo) {
-            $res['deadLetterInfo'] = null !== $this->deadLetterInfo ? $this->deadLetterInfo->toMap() : null;
+            $res['deadLetterInfo'] = null !== $this->deadLetterInfo ? $this->deadLetterInfo->toArray($noStream) : $this->deadLetterInfo;
         }
+
         if (null !== $this->deadMessage) {
             $res['deadMessage'] = $this->deadMessage;
         }
+
         if (null !== $this->records) {
-            $res['records'] = [];
-            if (null !== $this->records && \is_array($this->records)) {
-                $n = 0;
-                foreach ($this->records as $item) {
-                    $res['records'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->records)) {
+                $res['records'] = [];
+                $n1             = 0;
+                foreach ($this->records as $item1) {
+                    $res['records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -90,32 +81,36 @@ class consumerInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumerInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['consumeStatus'])) {
             $model->consumeStatus = $map['consumeStatus'];
         }
+
         if (isset($map['consumerGroupId'])) {
             $model->consumerGroupId = $map['consumerGroupId'];
         }
+
         if (isset($map['deadLetterInfo'])) {
             $model->deadLetterInfo = deadLetterInfo::fromMap($map['deadLetterInfo']);
         }
+
         if (isset($map['deadMessage'])) {
             $model->deadMessage = $map['deadMessage'];
         }
+
         if (isset($map['records'])) {
             if (!empty($map['records'])) {
                 $model->records = [];
-                $n              = 0;
-                foreach ($map['records'] as $item) {
-                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['records'] as $item1) {
+                    $model->records[$n1++] = records::fromMap($item1);
                 }
             }
         }

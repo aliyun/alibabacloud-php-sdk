@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTopicRequest extends Model
 {
@@ -12,29 +12,11 @@ class CreateTopicRequest extends Model
      * @var int
      */
     public $maxSendTps;
-
     /**
-     * @description The type of messages in the topic that you want to create.
-     *
-     * Valid values:
-     *
-     *   TRANSACTION: transactional messages
-     *   FIFO: ordered messages
-     *   DELAY: scheduled messages or delayed Message
-     *   NORMAL: normal messages
-     *
-     * > The type of messages in the topic must be the same as the type of messages that you want to send. For example, if you create a topic whose message type is ordered messages, the topic can be used to send and receive only ordered messages.
-     * @example NORMAL
-     *
      * @var string
      */
     public $messageType;
-
     /**
-     * @description The description of the topic that you want to create.
-     *
-     * @example This is the remark for test.
-     *
      * @var string
      */
     public $remark;
@@ -46,17 +28,20 @@ class CreateTopicRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxSendTps) {
             $res['maxSendTps'] = $this->maxSendTps;
         }
+
         if (null !== $this->messageType) {
             $res['messageType'] = $this->messageType;
         }
+
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
@@ -64,20 +49,22 @@ class CreateTopicRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTopicRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['maxSendTps'])) {
             $model->maxSendTps = $map['maxSendTps'];
         }
+
         if (isset($map['messageType'])) {
             $model->messageType = $map['messageType'];
         }
+
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }

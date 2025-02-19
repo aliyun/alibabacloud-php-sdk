@@ -4,60 +4,31 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListConsumerConnectionsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class connections extends Model
 {
     /**
-     * @description The ID of the client.
-     *
-     * @example 172.17.135.197@17392#1936705963#551717232#9873695589062458
-     *
      * @var string
      */
     public $clientId;
-
     /**
-     * @description Host IP/Public IP
-     *
-     * @example xx.xx.xx.xx
-     *
      * @var string
      */
     public $egressIp;
-
     /**
-     * @description The `hostname` of the cloud-native box.
-     *
-     * @example vos
-     *
      * @var string
      */
     public $hostname;
-
     /**
-     * @description The language of the client.
-     *
-     * @example java
-     *
      * @var string
      */
     public $language;
-
     /**
-     * @description Consumption Mode
-     * - CLUSTERING
-     * @example BROADCASTING
-     *
      * @var string
      */
     public $messageModel;
-
     /**
-     * @description The version of the client.
-     *
-     * @example 1.0
-     *
      * @var string
      */
     public $version;
@@ -72,26 +43,32 @@ class connections extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['clientId'] = $this->clientId;
         }
+
         if (null !== $this->egressIp) {
             $res['egressIp'] = $this->egressIp;
         }
+
         if (null !== $this->hostname) {
             $res['hostname'] = $this->hostname;
         }
+
         if (null !== $this->language) {
             $res['language'] = $this->language;
         }
+
         if (null !== $this->messageModel) {
             $res['messageModel'] = $this->messageModel;
         }
+
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
@@ -99,29 +76,34 @@ class connections extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return connections
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clientId'])) {
             $model->clientId = $map['clientId'];
         }
+
         if (isset($map['egressIp'])) {
             $model->egressIp = $map['egressIp'];
         }
+
         if (isset($map['hostname'])) {
             $model->hostname = $map['hostname'];
         }
+
         if (isset($map['language'])) {
             $model->language = $map['language'];
         }
+
         if (isset($map['messageModel'])) {
             $model->messageModel = $map['messageModel'];
         }
+
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }

@@ -4,61 +4,40 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMetricMetaResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListMetricMetaResponseBody extends Model
 {
     /**
-     * @example Topic.NotFound
-     *
      * @var string
      */
     public $code;
-
     /**
      * @var data
      */
     public $data;
-
     /**
-     * @example InstanceId
-     *
      * @var string
      */
     public $dynamicCode;
-
     /**
-     * @example instanceId
-     *
      * @var string
      */
     public $dynamicMessage;
-
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @example The topic already exists.
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example 8B459455-4A35-5796-BA9D-98EF1AB9A931
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -75,32 +54,43 @@ class ListMetricMetaResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->dynamicCode) {
             $res['dynamicCode'] = $this->dynamicCode;
         }
+
         if (null !== $this->dynamicMessage) {
             $res['dynamicMessage'] = $this->dynamicMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['httpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -108,35 +98,42 @@ class ListMetricMetaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMetricMetaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
+
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['dynamicCode'])) {
             $model->dynamicCode = $map['dynamicCode'];
         }
+
         if (isset($map['dynamicMessage'])) {
             $model->dynamicMessage = $map['dynamicMessage'];
         }
+
         if (isset($map['httpStatusCode'])) {
             $model->httpStatusCode = $map['httpStatusCode'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

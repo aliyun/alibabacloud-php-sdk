@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\UpdateInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aclInfo extends Model
 {
     /**
-     * @description The authentication type of the instance.
-     *
      * @var string[]
      */
     public $aclTypes;
-
     /**
-     * @description Indicates whether the authentication-free in VPCs feature is enabled.
-     * - false
-     * @example false
-     *
      * @var bool
      */
     public $defaultVpcAuthFree;
@@ -30,14 +23,25 @@ class aclInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->aclTypes)) {
+            Model::validateArray($this->aclTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclTypes) {
-            $res['aclTypes'] = $this->aclTypes;
+            if (\is_array($this->aclTypes)) {
+                $res['aclTypes'] = [];
+                $n1              = 0;
+                foreach ($this->aclTypes as $item1) {
+                    $res['aclTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->defaultVpcAuthFree) {
             $res['defaultVpcAuthFree'] = $this->defaultVpcAuthFree;
         }
@@ -45,19 +49,24 @@ class aclInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aclInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aclTypes'])) {
             if (!empty($map['aclTypes'])) {
-                $model->aclTypes = $map['aclTypes'];
+                $model->aclTypes = [];
+                $n1              = 0;
+                foreach ($map['aclTypes'] as $item1) {
+                    $model->aclTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['defaultVpcAuthFree'])) {
             $model->defaultVpcAuthFree = $map['defaultVpcAuthFree'];
         }

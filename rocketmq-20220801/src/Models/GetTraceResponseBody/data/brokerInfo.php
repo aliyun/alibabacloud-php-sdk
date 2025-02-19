@@ -4,89 +4,98 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data\brokerInfo\operations;
-use AlibabaCloud\Tea\Model;
 
 class brokerInfo extends Model
 {
     /**
-     * @description Delay status.
-     *
-     * @example SUCCESS
-     *
      * @var string
      */
     public $delayStatus;
-
     /**
-     * @description Operation list.
-     *
      * @var operations[]
      */
     public $operations;
-
     /**
-     * @description Preset delivery time.
-     *
-     * @example 2023-03-22 12:17:08
-     *
      * @var string
      */
     public $presetDelayTime;
+    /**
+     * @var string
+     */
+    public $recallResult;
     protected $_name = [
         'delayStatus'     => 'delayStatus',
         'operations'      => 'operations',
         'presetDelayTime' => 'presetDelayTime',
+        'recallResult'    => 'recallResult',
     ];
 
     public function validate()
     {
+        if (\is_array($this->operations)) {
+            Model::validateArray($this->operations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->delayStatus) {
             $res['delayStatus'] = $this->delayStatus;
         }
+
         if (null !== $this->operations) {
-            $res['operations'] = [];
-            if (null !== $this->operations && \is_array($this->operations)) {
-                $n = 0;
-                foreach ($this->operations as $item) {
-                    $res['operations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operations)) {
+                $res['operations'] = [];
+                $n1                = 0;
+                foreach ($this->operations as $item1) {
+                    $res['operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->presetDelayTime) {
             $res['presetDelayTime'] = $this->presetDelayTime;
+        }
+
+        if (null !== $this->recallResult) {
+            $res['recallResult'] = $this->recallResult;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return brokerInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['delayStatus'])) {
             $model->delayStatus = $map['delayStatus'];
         }
+
         if (isset($map['operations'])) {
             if (!empty($map['operations'])) {
                 $model->operations = [];
-                $n                 = 0;
-                foreach ($map['operations'] as $item) {
-                    $model->operations[$n++] = null !== $item ? operations::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['operations'] as $item1) {
+                    $model->operations[$n1++] = operations::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['presetDelayTime'])) {
             $model->presetDelayTime = $map['presetDelayTime'];
+        }
+
+        if (isset($map['recallResult'])) {
+            $model->recallResult = $map['recallResult'];
         }
 
         return $model;

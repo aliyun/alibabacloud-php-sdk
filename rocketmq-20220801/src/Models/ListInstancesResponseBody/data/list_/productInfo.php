@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponseBody\data\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class productInfo extends Model
 {
     /**
-     * @description Indicates whether the message trace feature is enabled. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * This parameter is not in use. By default, the message trace feature is enabled for ApsaraMQ for RocketMQ instances, regardless of whether this parameter is configured.
-     * @example true
-     *
      * @var bool
      */
     public $traceOn;
@@ -26,9 +18,10 @@ class productInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->traceOn) {
@@ -38,11 +31,11 @@ class productInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return productInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

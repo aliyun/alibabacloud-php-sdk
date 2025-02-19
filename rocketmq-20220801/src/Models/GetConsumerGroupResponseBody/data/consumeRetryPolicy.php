@@ -4,43 +4,19 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerGroupResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class consumeRetryPolicy extends Model
 {
     /**
-     * @description The dead-letter topic.
-     *
-     * If a consumer still fails to consume a message after the message is retried for a specified number of times, the message is delivered to a dead-letter topic for subsequent business recovery or troubleshooting. For more information, see [Consumption retry and dead-letter messages](https://help.aliyun.com/document_detail/440356.html).
-     * @example DLQ_mqtest
-     *
      * @var string
      */
     public $deadLetterTargetTopic;
-
     /**
-     * @description The maximum number of retries.
-     *
-     * @example 16
-     *
      * @var int
      */
     public $maxRetryTimes;
-
     /**
-     * @description The retry policy.
-     *
-     * Valid values:
-     *
-     *   FixedRetryPolicy
-     *
-     * .
-     *
-     *   DefaultRetryPolicy
-     *
-     * .
-     * @example DefaultRetryPolicy
-     *
      * @var string
      */
     public $retryPolicy;
@@ -52,17 +28,20 @@ class consumeRetryPolicy extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deadLetterTargetTopic) {
             $res['deadLetterTargetTopic'] = $this->deadLetterTargetTopic;
         }
+
         if (null !== $this->maxRetryTimes) {
             $res['maxRetryTimes'] = $this->maxRetryTimes;
         }
+
         if (null !== $this->retryPolicy) {
             $res['retryPolicy'] = $this->retryPolicy;
         }
@@ -70,20 +49,22 @@ class consumeRetryPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumeRetryPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['deadLetterTargetTopic'])) {
             $model->deadLetterTargetTopic = $map['deadLetterTargetTopic'];
         }
+
         if (isset($map['maxRetryTimes'])) {
             $model->maxRetryTimes = $map['maxRetryTimes'];
         }
+
         if (isset($map['retryPolicy'])) {
             $model->retryPolicy = $map['retryPolicy'];
         }

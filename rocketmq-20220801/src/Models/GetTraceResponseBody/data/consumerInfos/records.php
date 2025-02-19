@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data\consumerInfos;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetTraceResponseBody\data\consumerInfos\records\operations;
-use AlibabaCloud\Tea\Model;
 
 class records extends Model
 {
     /**
-     * @description Client host.
-     *
-     * @example xx.xx.xx.xx
-     *
      * @var string
      */
     public $clientHost;
-
     /**
-     * @description Consume status.
-     *
-     * @example SUCCESS
-     *
      * @var string
      */
     public $consumeStatus;
-
     /**
-     * @description Whether to consume fifo.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $fifoEnable;
-
     /**
-     * @description Operation list.
-     *
      * @var operations[]
      */
     public $operations;
-
     /**
-     * @description POP_CK
-     *
-     * @example 123
-     *
      * @var string
      */
     public $popCk;
-
     /**
-     * @description Consumer name.
-     *
-     * @example test
-     *
      * @var string
      */
     public $userName;
@@ -71,32 +44,41 @@ class records extends Model
 
     public function validate()
     {
+        if (\is_array($this->operations)) {
+            Model::validateArray($this->operations);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientHost) {
             $res['clientHost'] = $this->clientHost;
         }
+
         if (null !== $this->consumeStatus) {
             $res['consumeStatus'] = $this->consumeStatus;
         }
+
         if (null !== $this->fifoEnable) {
             $res['fifoEnable'] = $this->fifoEnable;
         }
+
         if (null !== $this->operations) {
-            $res['operations'] = [];
-            if (null !== $this->operations && \is_array($this->operations)) {
-                $n = 0;
-                foreach ($this->operations as $item) {
-                    $res['operations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operations)) {
+                $res['operations'] = [];
+                $n1                = 0;
+                foreach ($this->operations as $item1) {
+                    $res['operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->popCk) {
             $res['popCk'] = $this->popCk;
         }
+
         if (null !== $this->userName) {
             $res['userName'] = $this->userName;
         }
@@ -104,35 +86,40 @@ class records extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return records
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['clientHost'])) {
             $model->clientHost = $map['clientHost'];
         }
+
         if (isset($map['consumeStatus'])) {
             $model->consumeStatus = $map['consumeStatus'];
         }
+
         if (isset($map['fifoEnable'])) {
             $model->fifoEnable = $map['fifoEnable'];
         }
+
         if (isset($map['operations'])) {
             if (!empty($map['operations'])) {
                 $model->operations = [];
-                $n                 = 0;
-                foreach ($map['operations'] as $item) {
-                    $model->operations[$n++] = null !== $item ? operations::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['operations'] as $item1) {
+                    $model->operations[$n1++] = operations::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['popCk'])) {
             $model->popCk = $map['popCk'];
         }
+
         if (isset($map['userName'])) {
             $model->userName = $map['userName'];
         }

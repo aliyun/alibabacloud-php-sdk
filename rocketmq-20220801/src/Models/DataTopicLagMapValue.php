@@ -4,37 +4,22 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DataTopicLagMapValue extends Model
 {
     /**
-     * @description Ready message count
-     *
-     * @example 1
-     *
      * @var int
      */
     public $readyCount;
-
     /**
-     * @description The number of messages being consumed.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $inflightCount;
-
     /**
-     * @description Delivery delay time, in seconds
-     *
-     * @example 12
-     *
      * @var int
      */
     public $deliveryDuration;
-
     /**
      * @var int
      */
@@ -48,20 +33,24 @@ class DataTopicLagMapValue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->readyCount) {
             $res['readyCount'] = $this->readyCount;
         }
+
         if (null !== $this->inflightCount) {
             $res['inflightCount'] = $this->inflightCount;
         }
+
         if (null !== $this->deliveryDuration) {
             $res['deliveryDuration'] = $this->deliveryDuration;
         }
+
         if (null !== $this->lastConsumeTimestamp) {
             $res['lastConsumeTimestamp'] = $this->lastConsumeTimestamp;
         }
@@ -69,23 +58,26 @@ class DataTopicLagMapValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataTopicLagMapValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['readyCount'])) {
             $model->readyCount = $map['readyCount'];
         }
+
         if (isset($map['inflightCount'])) {
             $model->inflightCount = $map['inflightCount'];
         }
+
         if (isset($map['deliveryDuration'])) {
             $model->deliveryDuration = $map['deliveryDuration'];
         }
+
         if (isset($map['lastConsumeTimestamp'])) {
             $model->lastConsumeTimestamp = $map['lastConsumeTimestamp'];
         }

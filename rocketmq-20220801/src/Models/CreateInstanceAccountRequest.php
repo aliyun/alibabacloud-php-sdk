@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateInstanceAccountRequest extends Model
 {
     /**
-     * @description The password of the account.
-     *
-     * This parameter is required.
-     * @example xxx
-     *
      * @var string
      */
     public $password;
-
     /**
-     * @description The username of the account.
-     *
-     * This parameter is required.
-     * @example xxx
-     *
      * @var string
      */
     public $username;
@@ -34,14 +23,16 @@ class CreateInstanceAccountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
+
         if (null !== $this->username) {
             $res['username'] = $this->username;
         }
@@ -49,17 +40,18 @@ class CreateInstanceAccountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateInstanceAccountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }
+
         if (isset($map['username'])) {
             $model->username = $map['username'];
         }

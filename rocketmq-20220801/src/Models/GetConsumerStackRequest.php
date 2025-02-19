@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetConsumerStackRequest extends Model
 {
     /**
-     * @description The client ID.
-     *
-     * This parameter is required.
-     * @example 172.26.76.48@Lqd7dImlp9KJ5V84
-     *
      * @var string
      */
     public $clientId;
@@ -23,9 +18,10 @@ class GetConsumerStackRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
@@ -35,11 +31,11 @@ class GetConsumerStackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetConsumerStackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

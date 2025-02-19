@@ -4,47 +4,71 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteInstanceIpWhitelistRequest extends Model
 {
     /**
-     * @description The IP address whitelist.
-     *
-     * This parameter is required.
-     * @example 0.0.0.0/0
-     *
      * @var string
      */
     public $ipWhitelist;
+    /**
+     * @var string[]
+     */
+    public $ipWhitelists;
     protected $_name = [
-        'ipWhitelist' => 'ipWhitelist',
+        'ipWhitelist'  => 'ipWhitelist',
+        'ipWhitelists' => 'ipWhitelists',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ipWhitelists)) {
+            Model::validateArray($this->ipWhitelists);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipWhitelist) {
             $res['ipWhitelist'] = $this->ipWhitelist;
         }
 
+        if (null !== $this->ipWhitelists) {
+            if (\is_array($this->ipWhitelists)) {
+                $res['ipWhitelists'] = [];
+                $n1                  = 0;
+                foreach ($this->ipWhitelists as $item1) {
+                    $res['ipWhitelists'][$n1++] = $item1;
+                }
+            }
+        }
+
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteInstanceIpWhitelistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ipWhitelist'])) {
             $model->ipWhitelist = $map['ipWhitelist'];
+        }
+
+        if (isset($map['ipWhitelists'])) {
+            if (!empty($map['ipWhitelists'])) {
+                $model->ipWhitelists = [];
+                $n1                  = 0;
+                foreach ($map['ipWhitelists'] as $item1) {
+                    $model->ipWhitelists[$n1++] = $item1;
+                }
+            }
         }
 
         return $model;

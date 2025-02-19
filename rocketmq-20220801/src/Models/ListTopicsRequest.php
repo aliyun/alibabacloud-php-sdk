@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTopicsRequest extends Model
 {
     /**
-     * @description The condition that you want to use to filter topics in the instance. If you leave this parameter empty, all topics in the instance are queried.
-     *
-     * @example topic_test
-     *
      * @var string
      */
     public $filter;
-
     /**
-     * @description The message types of the topics.
-     *
      * @var string[]
      */
     public $messageTypes;
-
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $pageSize;
@@ -50,20 +33,33 @@ class ListTopicsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->messageTypes)) {
+            Model::validateArray($this->messageTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filter) {
             $res['filter'] = $this->filter;
         }
+
         if (null !== $this->messageTypes) {
-            $res['messageTypes'] = $this->messageTypes;
+            if (\is_array($this->messageTypes)) {
+                $res['messageTypes'] = [];
+                $n1                  = 0;
+                foreach ($this->messageTypes as $item1) {
+                    $res['messageTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -71,25 +67,32 @@ class ListTopicsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTopicsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['filter'])) {
             $model->filter = $map['filter'];
         }
+
         if (isset($map['messageTypes'])) {
             if (!empty($map['messageTypes'])) {
-                $model->messageTypes = $map['messageTypes'];
+                $model->messageTypes = [];
+                $n1                  = 0;
+                foreach ($map['messageTypes'] as $item1) {
+                    $model->messageTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }
