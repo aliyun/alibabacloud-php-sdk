@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\MarketplaceIntl\V20221230;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataRequest;
 use AlibabaCloud\SDK\MarketplaceIntl\V20221230\Models\PushMeteringDataResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class MarketplaceIntl extends OpenApiClient
 {
@@ -37,36 +35,43 @@ class MarketplaceIntl extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 国际云市场推送计量数据
-     *  *
-     * @param PushMeteringDataRequest $request PushMeteringDataRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 国际云市场推送计量数据.
      *
-     * @return PushMeteringDataResponse PushMeteringDataResponse
+     * @param request - PushMeteringDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PushMeteringDataResponse
+     *
+     * @param PushMeteringDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PushMeteringDataResponse
      */
     public function pushMeteringDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->gmtCreate)) {
-            $body['GmtCreate'] = $request->gmtCreate;
+        if (null !== $request->gmtCreate) {
+            @$body['GmtCreate'] = $request->gmtCreate;
         }
-        if (!Utils::isUnset($request->meteringData)) {
-            $body['MeteringData'] = $request->meteringData;
+
+        if (null !== $request->meteringData) {
+            @$body['MeteringData'] = $request->meteringData;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PushMeteringData',
@@ -79,16 +84,22 @@ class MarketplaceIntl extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushMeteringDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 国际云市场推送计量数据
-     *  *
-     * @param PushMeteringDataRequest $request PushMeteringDataRequest
+     * 国际云市场推送计量数据.
      *
-     * @return PushMeteringDataResponse PushMeteringDataResponse
+     * @param request - PushMeteringDataRequest
+     * @returns PushMeteringDataResponse
+     *
+     * @param PushMeteringDataRequest $request
+     *
+     * @return PushMeteringDataResponse
      */
     public function pushMeteringData($request)
     {
