@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Docmindapi\V20220711;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppShrinkRequest;
@@ -71,12 +70,11 @@ use AlibabaCloud\SDK\OSS\OSS;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
 use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Docmindapi extends OpenApiClient
 {
@@ -159,50 +157,61 @@ class Docmindapi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 整票识别
-     *  *
-     * @param AyncTradeDocumentPackageExtractSmartAppRequest $tmpReq  AyncTradeDocumentPackageExtractSmartAppRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     * 整票识别.
      *
-     * @return AyncTradeDocumentPackageExtractSmartAppResponse AyncTradeDocumentPackageExtractSmartAppResponse
+     * @param tmpReq - AyncTradeDocumentPackageExtractSmartAppRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AyncTradeDocumentPackageExtractSmartAppResponse
+     *
+     * @param AyncTradeDocumentPackageExtractSmartAppRequest $tmpReq
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return AyncTradeDocumentPackageExtractSmartAppResponse
      */
     public function ayncTradeDocumentPackageExtractSmartAppWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new AyncTradeDocumentPackageExtractSmartAppShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->customExtractionRange)) {
-            $request->customExtractionRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customExtractionRange, 'CustomExtractionRange', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->customExtractionRange) {
+            $request->customExtractionRangeShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->customExtractionRange, 'CustomExtractionRange', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->customExtractionRangeShrink)) {
-            $query['CustomExtractionRange'] = $request->customExtractionRangeShrink;
+        if (null !== $request->customExtractionRangeShrink) {
+            @$query['CustomExtractionRange'] = $request->customExtractionRangeShrink;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->option)) {
-            $query['Option'] = $request->option;
+
+        if (null !== $request->option) {
+            @$query['Option'] = $request->option;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AyncTradeDocumentPackageExtractSmartApp',
@@ -215,16 +224,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AyncTradeDocumentPackageExtractSmartAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AyncTradeDocumentPackageExtractSmartAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AyncTradeDocumentPackageExtractSmartAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 整票识别
-     *  *
-     * @param AyncTradeDocumentPackageExtractSmartAppRequest $request AyncTradeDocumentPackageExtractSmartAppRequest
+     * 整票识别.
      *
-     * @return AyncTradeDocumentPackageExtractSmartAppResponse AyncTradeDocumentPackageExtractSmartAppResponse
+     * @param request - AyncTradeDocumentPackageExtractSmartAppRequest
+     * @returns AyncTradeDocumentPackageExtractSmartAppResponse
+     *
+     * @param AyncTradeDocumentPackageExtractSmartAppRequest $request
+     *
+     * @return AyncTradeDocumentPackageExtractSmartAppResponse
      */
     public function ayncTradeDocumentPackageExtractSmartApp($request)
     {
@@ -234,28 +249,35 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 文档结构化流式接口
-     *  *
-     * @param GetDocParserResultRequest $request GetDocParserResultRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 文档结构化流式接口.
      *
-     * @return GetDocParserResultResponse GetDocParserResultResponse
+     * @param request - GetDocParserResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDocParserResultResponse
+     *
+     * @param GetDocParserResultRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDocParserResultResponse
      */
     public function getDocParserResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->layoutNum)) {
-            $query['LayoutNum'] = $request->layoutNum;
+
+        if (null !== $request->layoutNum) {
+            @$query['LayoutNum'] = $request->layoutNum;
         }
-        if (!Utils::isUnset($request->layoutStepSize)) {
-            $query['LayoutStepSize'] = $request->layoutStepSize;
+
+        if (null !== $request->layoutStepSize) {
+            @$query['LayoutStepSize'] = $request->layoutStepSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDocParserResult',
@@ -268,16 +290,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDocParserResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDocParserResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDocParserResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档结构化流式接口
-     *  *
-     * @param GetDocParserResultRequest $request GetDocParserResultRequest
+     * 文档结构化流式接口.
      *
-     * @return GetDocParserResultResponse GetDocParserResultResponse
+     * @param request - GetDocParserResultRequest
+     * @returns GetDocParserResultResponse
+     *
+     * @param GetDocParserResultRequest $request
+     *
+     * @return GetDocParserResultResponse
      */
     public function getDocParserResult($request)
     {
@@ -287,31 +315,39 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 文档智能解析结果查询
-     *  *
-     * @param GetDocStructureResultRequest $request GetDocStructureResultRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 文档智能解析结果查询.
      *
-     * @return GetDocStructureResultResponse GetDocStructureResultResponse
+     * @param request - GetDocStructureResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDocStructureResultResponse
+     *
+     * @param GetDocStructureResultRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDocStructureResultResponse
      */
     public function getDocStructureResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->imageStrategy)) {
-            $query['ImageStrategy'] = $request->imageStrategy;
+
+        if (null !== $request->imageStrategy) {
+            @$query['ImageStrategy'] = $request->imageStrategy;
         }
-        if (!Utils::isUnset($request->revealMarkdown)) {
-            $query['RevealMarkdown'] = $request->revealMarkdown;
+
+        if (null !== $request->revealMarkdown) {
+            @$query['RevealMarkdown'] = $request->revealMarkdown;
         }
-        if (!Utils::isUnset($request->useUrlResponseBody)) {
-            $query['UseUrlResponseBody'] = $request->useUrlResponseBody;
+
+        if (null !== $request->useUrlResponseBody) {
+            @$query['UseUrlResponseBody'] = $request->useUrlResponseBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDocStructureResult',
@@ -324,16 +360,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDocStructureResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDocStructureResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDocStructureResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档智能解析结果查询
-     *  *
-     * @param GetDocStructureResultRequest $request GetDocStructureResultRequest
+     * 文档智能解析结果查询.
      *
-     * @return GetDocStructureResultResponse GetDocStructureResultResponse
+     * @param request - GetDocStructureResultRequest
+     * @returns GetDocStructureResultResponse
+     *
+     * @param GetDocStructureResultRequest $request
+     *
+     * @return GetDocStructureResultResponse
      */
     public function getDocStructureResult($request)
     {
@@ -343,22 +385,27 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 文档对比结果查询
-     *  *
-     * @param GetDocumentCompareResultRequest $request GetDocumentCompareResultRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 文档对比结果查询.
      *
-     * @return GetDocumentCompareResultResponse GetDocumentCompareResultResponse
+     * @param request - GetDocumentCompareResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDocumentCompareResultResponse
+     *
+     * @param GetDocumentCompareResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDocumentCompareResultResponse
      */
     public function getDocumentCompareResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDocumentCompareResult',
@@ -371,16 +418,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDocumentCompareResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDocumentCompareResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDocumentCompareResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档对比结果查询
-     *  *
-     * @param GetDocumentCompareResultRequest $request GetDocumentCompareResultRequest
+     * 文档对比结果查询.
      *
-     * @return GetDocumentCompareResultResponse GetDocumentCompareResultResponse
+     * @param request - GetDocumentCompareResultRequest
+     * @returns GetDocumentCompareResultResponse
+     *
+     * @param GetDocumentCompareResultRequest $request
+     *
+     * @return GetDocumentCompareResultResponse
      */
     public function getDocumentCompareResult($request)
     {
@@ -390,22 +443,27 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 文档转换结果查询
-     *  *
-     * @param GetDocumentConvertResultRequest $request GetDocumentConvertResultRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 文档转换结果查询.
      *
-     * @return GetDocumentConvertResultResponse GetDocumentConvertResultResponse
+     * @param request - GetDocumentConvertResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDocumentConvertResultResponse
+     *
+     * @param GetDocumentConvertResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDocumentConvertResultResponse
      */
     public function getDocumentConvertResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDocumentConvertResult',
@@ -418,16 +476,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDocumentConvertResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDocumentConvertResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDocumentConvertResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档转换结果查询
-     *  *
-     * @param GetDocumentConvertResultRequest $request GetDocumentConvertResultRequest
+     * 文档转换结果查询.
      *
-     * @return GetDocumentConvertResultResponse GetDocumentConvertResultResponse
+     * @param request - GetDocumentConvertResultRequest
+     * @returns GetDocumentConvertResultResponse
+     *
+     * @param GetDocumentConvertResultRequest $request
+     *
+     * @return GetDocumentConvertResultResponse
      */
     public function getDocumentConvertResult($request)
     {
@@ -437,22 +501,27 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 文档抽取结果查询
-     *  *
-     * @param GetDocumentExtractResultRequest $request GetDocumentExtractResultRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 文档抽取结果查询.
      *
-     * @return GetDocumentExtractResultResponse GetDocumentExtractResultResponse
+     * @param request - GetDocumentExtractResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDocumentExtractResultResponse
+     *
+     * @param GetDocumentExtractResultRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetDocumentExtractResultResponse
      */
     public function getDocumentExtractResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDocumentExtractResult',
@@ -465,16 +534,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDocumentExtractResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDocumentExtractResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDocumentExtractResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档抽取结果查询
-     *  *
-     * @param GetDocumentExtractResultRequest $request GetDocumentExtractResultRequest
+     * 文档抽取结果查询.
      *
-     * @return GetDocumentExtractResultResponse GetDocumentExtractResultResponse
+     * @param request - GetDocumentExtractResultRequest
+     * @returns GetDocumentExtractResultResponse
+     *
+     * @param GetDocumentExtractResultRequest $request
+     *
+     * @return GetDocumentExtractResultResponse
      */
     public function getDocumentExtractResult($request)
     {
@@ -484,22 +559,27 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary openmind
-     *  *
-     * @param GetPageNumRequest $request GetPageNumRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * openmind.
      *
-     * @return GetPageNumResponse GetPageNumResponse
+     * @param request - GetPageNumRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPageNumResponse
+     *
+     * @param GetPageNumRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetPageNumResponse
      */
     public function getPageNumWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bizId)) {
-            $query['BizId'] = $request->bizId;
+        if (null !== $request->bizId) {
+            @$query['BizId'] = $request->bizId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPageNum',
@@ -512,16 +592,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPageNumResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPageNumResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPageNumResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary openmind
-     *  *
-     * @param GetPageNumRequest $request GetPageNumRequest
+     * openmind.
      *
-     * @return GetPageNumResponse GetPageNumResponse
+     * @param request - GetPageNumRequest
+     * @returns GetPageNumResponse
+     *
+     * @param GetPageNumRequest $request
+     *
+     * @return GetPageNumResponse
      */
     public function getPageNum($request)
     {
@@ -531,22 +617,27 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 表格智能解析结果查询
-     *  *
-     * @param GetTableUnderstandingResultRequest $request GetTableUnderstandingResultRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 表格智能解析结果查询.
      *
-     * @return GetTableUnderstandingResultResponse GetTableUnderstandingResultResponse
+     * @param request - GetTableUnderstandingResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTableUnderstandingResultResponse
+     *
+     * @param GetTableUnderstandingResultRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetTableUnderstandingResultResponse
      */
     public function getTableUnderstandingResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTableUnderstandingResult',
@@ -559,16 +650,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTableUnderstandingResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTableUnderstandingResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTableUnderstandingResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 表格智能解析结果查询
-     *  *
-     * @param GetTableUnderstandingResultRequest $request GetTableUnderstandingResultRequest
+     * 表格智能解析结果查询.
      *
-     * @return GetTableUnderstandingResultResponse GetTableUnderstandingResultResponse
+     * @param request - GetTableUnderstandingResultRequest
+     * @returns GetTableUnderstandingResultResponse
+     *
+     * @param GetTableUnderstandingResultRequest $request
+     *
+     * @return GetTableUnderstandingResultResponse
      */
     public function getTableUnderstandingResult($request)
     {
@@ -578,22 +675,27 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 获取文档智能解析处理状态
-     *  *
-     * @param QueryDocParserStatusRequest $request QueryDocParserStatusRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 获取文档智能解析处理状态
      *
-     * @return QueryDocParserStatusResponse QueryDocParserStatusResponse
+     * @param request - QueryDocParserStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryDocParserStatusResponse
+     *
+     * @param QueryDocParserStatusRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryDocParserStatusResponse
      */
     public function queryDocParserStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$query['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryDocParserStatus',
@@ -606,16 +708,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryDocParserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDocParserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDocParserStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取文档智能解析处理状态
-     *  *
-     * @param QueryDocParserStatusRequest $request QueryDocParserStatusRequest
+     * 获取文档智能解析处理状态
      *
-     * @return QueryDocParserStatusResponse QueryDocParserStatusResponse
+     * @param request - QueryDocParserStatusRequest
+     * @returns QueryDocParserStatusResponse
+     *
+     * @param QueryDocParserStatusRequest $request
+     *
+     * @return QueryDocParserStatusResponse
      */
     public function queryDocParserStatus($request)
     {
@@ -625,39 +733,57 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 图片转excel
-     *  *
-     * @param SubmitConvertImageToExcelJobRequest $tmpReq  SubmitConvertImageToExcelJobRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 图片转excel.
      *
-     * @return SubmitConvertImageToExcelJobResponse SubmitConvertImageToExcelJobResponse
+     * @param tmpReq - SubmitConvertImageToExcelJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitConvertImageToExcelJobResponse
+     *
+     * @param SubmitConvertImageToExcelJobRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitConvertImageToExcelJobResponse
      */
     public function submitConvertImageToExcelJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitConvertImageToExcelJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->imageNames)) {
-            $request->imageNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->imageNames) {
+            $request->imageNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->imageUrls)) {
-            $request->imageUrlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
+
+        if (null !== $tmpReq->imageUrls) {
+            $request->imageUrlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->forceMergeExcel)) {
-            $query['ForceMergeExcel'] = $request->forceMergeExcel;
+        if (null !== $request->forceMergeExcel) {
+            @$query['ForceMergeExcel'] = $request->forceMergeExcel;
         }
-        if (!Utils::isUnset($request->imageNameExtension)) {
-            $query['ImageNameExtension'] = $request->imageNameExtension;
+
+        if (null !== $request->imageNameExtension) {
+            @$query['ImageNameExtension'] = $request->imageNameExtension;
         }
-        if (!Utils::isUnset($request->imageNamesShrink)) {
-            $query['ImageNames'] = $request->imageNamesShrink;
+
+        if (null !== $request->imageNamesShrink) {
+            @$query['ImageNames'] = $request->imageNamesShrink;
         }
-        if (!Utils::isUnset($request->imageUrlsShrink)) {
-            $query['ImageUrls'] = $request->imageUrlsShrink;
+
+        if (null !== $request->imageUrlsShrink) {
+            @$query['ImageUrls'] = $request->imageUrlsShrink;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitConvertImageToExcelJob',
@@ -670,16 +796,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitConvertImageToExcelJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitConvertImageToExcelJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitConvertImageToExcelJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 图片转excel
-     *  *
-     * @param SubmitConvertImageToExcelJobRequest $request SubmitConvertImageToExcelJobRequest
+     * 图片转excel.
      *
-     * @return SubmitConvertImageToExcelJobResponse SubmitConvertImageToExcelJobResponse
+     * @param request - SubmitConvertImageToExcelJobRequest
+     * @returns SubmitConvertImageToExcelJobResponse
+     *
+     * @param SubmitConvertImageToExcelJobRequest $request
+     *
+     * @return SubmitConvertImageToExcelJobResponse
      */
     public function submitConvertImageToExcelJob($request)
     {
@@ -689,36 +821,53 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 图片转markdown
-     *  *
-     * @param SubmitConvertImageToMarkdownJobRequest $tmpReq  SubmitConvertImageToMarkdownJobRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 图片转markdown.
      *
-     * @return SubmitConvertImageToMarkdownJobResponse SubmitConvertImageToMarkdownJobResponse
+     * @param tmpReq - SubmitConvertImageToMarkdownJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitConvertImageToMarkdownJobResponse
+     *
+     * @param SubmitConvertImageToMarkdownJobRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitConvertImageToMarkdownJobResponse
      */
     public function submitConvertImageToMarkdownJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitConvertImageToMarkdownJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->imageNames)) {
-            $request->imageNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->imageNames) {
+            $request->imageNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->imageUrls)) {
-            $request->imageUrlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
+
+        if (null !== $tmpReq->imageUrls) {
+            $request->imageUrlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->imageNameExtension)) {
-            $query['ImageNameExtension'] = $request->imageNameExtension;
+        if (null !== $request->imageNameExtension) {
+            @$query['ImageNameExtension'] = $request->imageNameExtension;
         }
-        if (!Utils::isUnset($request->imageNamesShrink)) {
-            $query['ImageNames'] = $request->imageNamesShrink;
+
+        if (null !== $request->imageNamesShrink) {
+            @$query['ImageNames'] = $request->imageNamesShrink;
         }
-        if (!Utils::isUnset($request->imageUrlsShrink)) {
-            $query['ImageUrls'] = $request->imageUrlsShrink;
+
+        if (null !== $request->imageUrlsShrink) {
+            @$query['ImageUrls'] = $request->imageUrlsShrink;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitConvertImageToMarkdownJob',
@@ -731,16 +880,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitConvertImageToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitConvertImageToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitConvertImageToMarkdownJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 图片转markdown
-     *  *
-     * @param SubmitConvertImageToMarkdownJobRequest $request SubmitConvertImageToMarkdownJobRequest
+     * 图片转markdown.
      *
-     * @return SubmitConvertImageToMarkdownJobResponse SubmitConvertImageToMarkdownJobResponse
+     * @param request - SubmitConvertImageToMarkdownJobRequest
+     * @returns SubmitConvertImageToMarkdownJobResponse
+     *
+     * @param SubmitConvertImageToMarkdownJobRequest $request
+     *
+     * @return SubmitConvertImageToMarkdownJobResponse
      */
     public function submitConvertImageToMarkdownJob($request)
     {
@@ -750,36 +905,53 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 图片转pdf
-     *  *
-     * @param SubmitConvertImageToPdfJobRequest $tmpReq  SubmitConvertImageToPdfJobRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 图片转pdf.
      *
-     * @return SubmitConvertImageToPdfJobResponse SubmitConvertImageToPdfJobResponse
+     * @param tmpReq - SubmitConvertImageToPdfJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitConvertImageToPdfJobResponse
+     *
+     * @param SubmitConvertImageToPdfJobRequest $tmpReq
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitConvertImageToPdfJobResponse
      */
     public function submitConvertImageToPdfJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitConvertImageToPdfJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->imageNames)) {
-            $request->imageNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->imageNames) {
+            $request->imageNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->imageUrls)) {
-            $request->imageUrlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
+
+        if (null !== $tmpReq->imageUrls) {
+            $request->imageUrlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->imageNameExtension)) {
-            $query['ImageNameExtension'] = $request->imageNameExtension;
+        if (null !== $request->imageNameExtension) {
+            @$query['ImageNameExtension'] = $request->imageNameExtension;
         }
-        if (!Utils::isUnset($request->imageNamesShrink)) {
-            $query['ImageNames'] = $request->imageNamesShrink;
+
+        if (null !== $request->imageNamesShrink) {
+            @$query['ImageNames'] = $request->imageNamesShrink;
         }
-        if (!Utils::isUnset($request->imageUrlsShrink)) {
-            $query['ImageUrls'] = $request->imageUrlsShrink;
+
+        if (null !== $request->imageUrlsShrink) {
+            @$query['ImageUrls'] = $request->imageUrlsShrink;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitConvertImageToPdfJob',
@@ -792,16 +964,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitConvertImageToPdfJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitConvertImageToPdfJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitConvertImageToPdfJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 图片转pdf
-     *  *
-     * @param SubmitConvertImageToPdfJobRequest $request SubmitConvertImageToPdfJobRequest
+     * 图片转pdf.
      *
-     * @return SubmitConvertImageToPdfJobResponse SubmitConvertImageToPdfJobResponse
+     * @param request - SubmitConvertImageToPdfJobRequest
+     * @returns SubmitConvertImageToPdfJobResponse
+     *
+     * @param SubmitConvertImageToPdfJobRequest $request
+     *
+     * @return SubmitConvertImageToPdfJobResponse
      */
     public function submitConvertImageToPdfJob($request)
     {
@@ -811,36 +989,53 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 图片转word
-     *  *
-     * @param SubmitConvertImageToWordJobRequest $tmpReq  SubmitConvertImageToWordJobRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 图片转word.
      *
-     * @return SubmitConvertImageToWordJobResponse SubmitConvertImageToWordJobResponse
+     * @param tmpReq - SubmitConvertImageToWordJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitConvertImageToWordJobResponse
+     *
+     * @param SubmitConvertImageToWordJobRequest $tmpReq
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SubmitConvertImageToWordJobResponse
      */
     public function submitConvertImageToWordJobWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new SubmitConvertImageToWordJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->imageNames)) {
-            $request->imageNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->imageNames) {
+            $request->imageNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageNames, 'ImageNames', 'simple');
         }
-        if (!Utils::isUnset($tmpReq->imageUrls)) {
-            $request->imageUrlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
+
+        if (null !== $tmpReq->imageUrls) {
+            $request->imageUrlsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->imageUrls, 'ImageUrls', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->imageNameExtension)) {
-            $query['ImageNameExtension'] = $request->imageNameExtension;
+        if (null !== $request->imageNameExtension) {
+            @$query['ImageNameExtension'] = $request->imageNameExtension;
         }
-        if (!Utils::isUnset($request->imageNamesShrink)) {
-            $query['ImageNames'] = $request->imageNamesShrink;
+
+        if (null !== $request->imageNamesShrink) {
+            @$query['ImageNames'] = $request->imageNamesShrink;
         }
-        if (!Utils::isUnset($request->imageUrlsShrink)) {
-            $query['ImageUrls'] = $request->imageUrlsShrink;
+
+        if (null !== $request->imageUrlsShrink) {
+            @$query['ImageUrls'] = $request->imageUrlsShrink;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitConvertImageToWordJob',
@@ -853,16 +1048,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitConvertImageToWordJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitConvertImageToWordJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitConvertImageToWordJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 图片转word
-     *  *
-     * @param SubmitConvertImageToWordJobRequest $request SubmitConvertImageToWordJobRequest
+     * 图片转word.
      *
-     * @return SubmitConvertImageToWordJobResponse SubmitConvertImageToWordJobResponse
+     * @param request - SubmitConvertImageToWordJobRequest
+     * @returns SubmitConvertImageToWordJobResponse
+     *
+     * @param SubmitConvertImageToWordJobRequest $request
+     *
+     * @return SubmitConvertImageToWordJobResponse
      */
     public function submitConvertImageToWordJob($request)
     {
@@ -872,31 +1073,47 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary pdf转excel
-     *  *
-     * @param SubmitConvertPdfToExcelJobRequest $request SubmitConvertPdfToExcelJobRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * pdf转excel.
      *
-     * @return SubmitConvertPdfToExcelJobResponse SubmitConvertPdfToExcelJobResponse
+     * @param request - SubmitConvertPdfToExcelJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitConvertPdfToExcelJobResponse
+     *
+     * @param SubmitConvertPdfToExcelJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitConvertPdfToExcelJobResponse
      */
     public function submitConvertPdfToExcelJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->forceExportInnerImage)) {
-            $query['ForceExportInnerImage'] = $request->forceExportInnerImage;
+
+        if (null !== $request->forceExportInnerImage) {
+            @$query['ForceExportInnerImage'] = $request->forceExportInnerImage;
         }
-        if (!Utils::isUnset($request->forceMergeExcel)) {
-            $query['ForceMergeExcel'] = $request->forceMergeExcel;
+
+        if (null !== $request->forceMergeExcel) {
+            @$query['ForceMergeExcel'] = $request->forceMergeExcel;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitConvertPdfToExcelJob',
@@ -909,16 +1126,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitConvertPdfToExcelJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitConvertPdfToExcelJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitConvertPdfToExcelJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary pdf转excel
-     *  *
-     * @param SubmitConvertPdfToExcelJobRequest $request SubmitConvertPdfToExcelJobRequest
+     * pdf转excel.
      *
-     * @return SubmitConvertPdfToExcelJobResponse SubmitConvertPdfToExcelJobResponse
+     * @param request - SubmitConvertPdfToExcelJobRequest
+     * @returns SubmitConvertPdfToExcelJobResponse
+     *
+     * @param SubmitConvertPdfToExcelJobRequest $request
+     *
+     * @return SubmitConvertPdfToExcelJobResponse
      */
     public function submitConvertPdfToExcelJob($request)
     {
@@ -941,12 +1164,14 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -974,13 +1199,13 @@ class Docmindapi extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitConvertPdfToExcelJobReq = new SubmitConvertPdfToExcelJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitConvertPdfToExcelJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitConvertPdfToExcelJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -1007,25 +1232,39 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary pdf转图片
-     *  *
-     * @param SubmitConvertPdfToImageJobRequest $request SubmitConvertPdfToImageJobRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * pdf转图片.
      *
-     * @return SubmitConvertPdfToImageJobResponse SubmitConvertPdfToImageJobResponse
+     * @param request - SubmitConvertPdfToImageJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitConvertPdfToImageJobResponse
+     *
+     * @param SubmitConvertPdfToImageJobRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SubmitConvertPdfToImageJobResponse
      */
     public function submitConvertPdfToImageJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitConvertPdfToImageJob',
@@ -1038,16 +1277,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitConvertPdfToImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitConvertPdfToImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitConvertPdfToImageJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary pdf转图片
-     *  *
-     * @param SubmitConvertPdfToImageJobRequest $request SubmitConvertPdfToImageJobRequest
+     * pdf转图片.
      *
-     * @return SubmitConvertPdfToImageJobResponse SubmitConvertPdfToImageJobResponse
+     * @param request - SubmitConvertPdfToImageJobRequest
+     * @returns SubmitConvertPdfToImageJobResponse
+     *
+     * @param SubmitConvertPdfToImageJobRequest $request
+     *
+     * @return SubmitConvertPdfToImageJobResponse
      */
     public function submitConvertPdfToImageJob($request)
     {
@@ -1070,12 +1315,14 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -1103,13 +1350,13 @@ class Docmindapi extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitConvertPdfToImageJobReq = new SubmitConvertPdfToImageJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitConvertPdfToImageJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitConvertPdfToImageJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -1136,25 +1383,39 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary pdf转markdown
-     *  *
-     * @param SubmitConvertPdfToMarkdownJobRequest $request SubmitConvertPdfToMarkdownJobRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * pdf转markdown.
      *
-     * @return SubmitConvertPdfToMarkdownJobResponse SubmitConvertPdfToMarkdownJobResponse
+     * @param request - SubmitConvertPdfToMarkdownJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitConvertPdfToMarkdownJobResponse
+     *
+     * @param SubmitConvertPdfToMarkdownJobRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return SubmitConvertPdfToMarkdownJobResponse
      */
     public function submitConvertPdfToMarkdownJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitConvertPdfToMarkdownJob',
@@ -1167,16 +1428,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitConvertPdfToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitConvertPdfToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitConvertPdfToMarkdownJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary pdf转markdown
-     *  *
-     * @param SubmitConvertPdfToMarkdownJobRequest $request SubmitConvertPdfToMarkdownJobRequest
+     * pdf转markdown.
      *
-     * @return SubmitConvertPdfToMarkdownJobResponse SubmitConvertPdfToMarkdownJobResponse
+     * @param request - SubmitConvertPdfToMarkdownJobRequest
+     * @returns SubmitConvertPdfToMarkdownJobResponse
+     *
+     * @param SubmitConvertPdfToMarkdownJobRequest $request
+     *
+     * @return SubmitConvertPdfToMarkdownJobResponse
      */
     public function submitConvertPdfToMarkdownJob($request)
     {
@@ -1199,12 +1466,14 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -1232,13 +1501,13 @@ class Docmindapi extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitConvertPdfToMarkdownJobReq = new SubmitConvertPdfToMarkdownJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitConvertPdfToMarkdownJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitConvertPdfToMarkdownJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -1265,28 +1534,43 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary pdf转word
-     *  *
-     * @param SubmitConvertPdfToWordJobRequest $request SubmitConvertPdfToWordJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * pdf转word.
      *
-     * @return SubmitConvertPdfToWordJobResponse SubmitConvertPdfToWordJobResponse
+     * @param request - SubmitConvertPdfToWordJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitConvertPdfToWordJobResponse
+     *
+     * @param SubmitConvertPdfToWordJobRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return SubmitConvertPdfToWordJobResponse
      */
     public function submitConvertPdfToWordJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->forceExportInnerImage)) {
-            $query['ForceExportInnerImage'] = $request->forceExportInnerImage;
+
+        if (null !== $request->forceExportInnerImage) {
+            @$query['ForceExportInnerImage'] = $request->forceExportInnerImage;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitConvertPdfToWordJob',
@@ -1299,16 +1583,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitConvertPdfToWordJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitConvertPdfToWordJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitConvertPdfToWordJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary pdf转word
-     *  *
-     * @param SubmitConvertPdfToWordJobRequest $request SubmitConvertPdfToWordJobRequest
+     * pdf转word.
      *
-     * @return SubmitConvertPdfToWordJobResponse SubmitConvertPdfToWordJobResponse
+     * @param request - SubmitConvertPdfToWordJobRequest
+     * @returns SubmitConvertPdfToWordJobResponse
+     *
+     * @param SubmitConvertPdfToWordJobRequest $request
+     *
+     * @return SubmitConvertPdfToWordJobResponse
      */
     public function submitConvertPdfToWordJob($request)
     {
@@ -1331,12 +1621,14 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -1364,13 +1656,13 @@ class Docmindapi extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitConvertPdfToWordJobReq = new SubmitConvertPdfToWordJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitConvertPdfToWordJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitConvertPdfToWordJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -1397,37 +1689,55 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 电子解析
-     *  *
-     * @param SubmitDigitalDocStructureJobRequest $request SubmitDigitalDocStructureJobRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 电子解析.
      *
-     * @return SubmitDigitalDocStructureJobResponse SubmitDigitalDocStructureJobResponse
+     * @param request - SubmitDigitalDocStructureJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitDigitalDocStructureJobResponse
+     *
+     * @param SubmitDigitalDocStructureJobRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitDigitalDocStructureJobResponse
      */
     public function submitDigitalDocStructureJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileNameExtension)) {
-            $query['FileNameExtension'] = $request->fileNameExtension;
+
+        if (null !== $request->fileNameExtension) {
+            @$query['FileNameExtension'] = $request->fileNameExtension;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->imageStrategy)) {
-            $query['ImageStrategy'] = $request->imageStrategy;
+
+        if (null !== $request->imageStrategy) {
+            @$query['ImageStrategy'] = $request->imageStrategy;
         }
-        if (!Utils::isUnset($request->revealMarkdown)) {
-            $query['RevealMarkdown'] = $request->revealMarkdown;
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
         }
-        if (!Utils::isUnset($request->useUrlResponseBody)) {
-            $query['UseUrlResponseBody'] = $request->useUrlResponseBody;
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
         }
+
+        if (null !== $request->revealMarkdown) {
+            @$query['RevealMarkdown'] = $request->revealMarkdown;
+        }
+
+        if (null !== $request->useUrlResponseBody) {
+            @$query['UseUrlResponseBody'] = $request->useUrlResponseBody;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitDigitalDocStructureJob',
@@ -1440,16 +1750,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitDigitalDocStructureJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDigitalDocStructureJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDigitalDocStructureJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 电子解析
-     *  *
-     * @param SubmitDigitalDocStructureJobRequest $request SubmitDigitalDocStructureJobRequest
+     * 电子解析.
      *
-     * @return SubmitDigitalDocStructureJobResponse SubmitDigitalDocStructureJobResponse
+     * @param request - SubmitDigitalDocStructureJobRequest
+     * @returns SubmitDigitalDocStructureJobResponse
+     *
+     * @param SubmitDigitalDocStructureJobRequest $request
+     *
+     * @return SubmitDigitalDocStructureJobResponse
      */
     public function submitDigitalDocStructureJob($request)
     {
@@ -1472,12 +1788,14 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -1505,13 +1823,13 @@ class Docmindapi extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitDigitalDocStructureJobReq = new SubmitDigitalDocStructureJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitDigitalDocStructureJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitDigitalDocStructureJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -1538,34 +1856,51 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 文档智能解析流式输出
-     *  *
-     * @param SubmitDocParserJobRequest $request SubmitDocParserJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 文档智能解析流式输出.
      *
-     * @return SubmitDocParserJobResponse SubmitDocParserJobResponse
+     * @param request - SubmitDocParserJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitDocParserJobResponse
+     *
+     * @param SubmitDocParserJobRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SubmitDocParserJobResponse
      */
     public function submitDocParserJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileNameExtension)) {
-            $query['FileNameExtension'] = $request->fileNameExtension;
+
+        if (null !== $request->fileNameExtension) {
+            @$query['FileNameExtension'] = $request->fileNameExtension;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->formulaEnhancement)) {
-            $query['FormulaEnhancement'] = $request->formulaEnhancement;
+
+        if (null !== $request->formulaEnhancement) {
+            @$query['FormulaEnhancement'] = $request->formulaEnhancement;
         }
-        if (!Utils::isUnset($request->llmEnhancement)) {
-            $query['LlmEnhancement'] = $request->llmEnhancement;
+
+        if (null !== $request->llmEnhancement) {
+            @$query['LlmEnhancement'] = $request->llmEnhancement;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitDocParserJob',
@@ -1578,16 +1913,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitDocParserJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDocParserJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDocParserJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档智能解析流式输出
-     *  *
-     * @param SubmitDocParserJobRequest $request SubmitDocParserJobRequest
+     * 文档智能解析流式输出.
      *
-     * @return SubmitDocParserJobResponse SubmitDocParserJobResponse
+     * @param request - SubmitDocParserJobRequest
+     * @returns SubmitDocParserJobResponse
+     *
+     * @param SubmitDocParserJobRequest $request
+     *
+     * @return SubmitDocParserJobResponse
      */
     public function submitDocParserJob($request)
     {
@@ -1610,12 +1951,14 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -1643,13 +1986,13 @@ class Docmindapi extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitDocParserJobReq = new SubmitDocParserJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitDocParserJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitDocParserJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -1676,37 +2019,55 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 文档智能解析
-     *  *
-     * @param SubmitDocStructureJobRequest $request SubmitDocStructureJobRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 文档智能解析.
      *
-     * @return SubmitDocStructureJobResponse SubmitDocStructureJobResponse
+     * @param request - SubmitDocStructureJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitDocStructureJobResponse
+     *
+     * @param SubmitDocStructureJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SubmitDocStructureJobResponse
      */
     public function submitDocStructureJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowPptFormat)) {
-            $query['AllowPptFormat'] = $request->allowPptFormat;
+        if (null !== $request->allowPptFormat) {
+            @$query['AllowPptFormat'] = $request->allowPptFormat;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileNameExtension)) {
-            $query['FileNameExtension'] = $request->fileNameExtension;
+
+        if (null !== $request->fileNameExtension) {
+            @$query['FileNameExtension'] = $request->fileNameExtension;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
-        if (!Utils::isUnset($request->formulaEnhancement)) {
-            $query['FormulaEnhancement'] = $request->formulaEnhancement;
+
+        if (null !== $request->formulaEnhancement) {
+            @$query['FormulaEnhancement'] = $request->formulaEnhancement;
         }
-        if (!Utils::isUnset($request->structureType)) {
-            $query['StructureType'] = $request->structureType;
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
         }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
+        if (null !== $request->structureType) {
+            @$query['StructureType'] = $request->structureType;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitDocStructureJob',
@@ -1719,16 +2080,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitDocStructureJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDocStructureJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDocStructureJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档智能解析
-     *  *
-     * @param SubmitDocStructureJobRequest $request SubmitDocStructureJobRequest
+     * 文档智能解析.
      *
-     * @return SubmitDocStructureJobResponse SubmitDocStructureJobResponse
+     * @param request - SubmitDocStructureJobRequest
+     * @returns SubmitDocStructureJobResponse
+     *
+     * @param SubmitDocStructureJobRequest $request
+     *
+     * @return SubmitDocStructureJobResponse
      */
     public function submitDocStructureJob($request)
     {
@@ -1751,12 +2118,14 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -1784,13 +2153,13 @@ class Docmindapi extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitDocStructureJobReq = new SubmitDocStructureJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitDocStructureJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitDocStructureJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -1817,28 +2186,43 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 文档抽取
-     *  *
-     * @param SubmitDocumentExtractJobRequest $request SubmitDocumentExtractJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 文档抽取.
      *
-     * @return SubmitDocumentExtractJobResponse SubmitDocumentExtractJobResponse
+     * @param request - SubmitDocumentExtractJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitDocumentExtractJobResponse
+     *
+     * @param SubmitDocumentExtractJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitDocumentExtractJobResponse
      */
     public function submitDocumentExtractJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileNameExtension)) {
-            $query['FileNameExtension'] = $request->fileNameExtension;
+
+        if (null !== $request->fileNameExtension) {
+            @$query['FileNameExtension'] = $request->fileNameExtension;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitDocumentExtractJob',
@@ -1851,16 +2235,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitDocumentExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDocumentExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDocumentExtractJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 文档抽取
-     *  *
-     * @param SubmitDocumentExtractJobRequest $request SubmitDocumentExtractJobRequest
+     * 文档抽取.
      *
-     * @return SubmitDocumentExtractJobResponse SubmitDocumentExtractJobResponse
+     * @param request - SubmitDocumentExtractJobRequest
+     * @returns SubmitDocumentExtractJobResponse
+     *
+     * @param SubmitDocumentExtractJobRequest $request
+     *
+     * @return SubmitDocumentExtractJobResponse
      */
     public function submitDocumentExtractJob($request)
     {
@@ -1883,12 +2273,14 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -1916,13 +2308,13 @@ class Docmindapi extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitDocumentExtractJobReq = new SubmitDocumentExtractJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitDocumentExtractJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitDocumentExtractJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
@@ -1949,28 +2341,43 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
-     * @summary 表格智能解析
-     *  *
-     * @param SubmitTableUnderstandingJobRequest $request SubmitTableUnderstandingJobRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 表格智能解析.
      *
-     * @return SubmitTableUnderstandingJobResponse SubmitTableUnderstandingJobResponse
+     * @param request - SubmitTableUnderstandingJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubmitTableUnderstandingJobResponse
+     *
+     * @param SubmitTableUnderstandingJobRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SubmitTableUnderstandingJobResponse
      */
     public function submitTableUnderstandingJobWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileNameExtension)) {
-            $query['FileNameExtension'] = $request->fileNameExtension;
+
+        if (null !== $request->fileNameExtension) {
+            @$query['FileNameExtension'] = $request->fileNameExtension;
         }
-        if (!Utils::isUnset($request->fileUrl)) {
-            $query['FileUrl'] = $request->fileUrl;
+
+        if (null !== $request->fileUrl) {
+            @$query['FileUrl'] = $request->fileUrl;
         }
+
+        if (null !== $request->ossBucket) {
+            @$query['OssBucket'] = $request->ossBucket;
+        }
+
+        if (null !== $request->ossEndpoint) {
+            @$query['OssEndpoint'] = $request->ossEndpoint;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SubmitTableUnderstandingJob',
@@ -1983,16 +2390,22 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubmitTableUnderstandingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitTableUnderstandingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitTableUnderstandingJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 表格智能解析
-     *  *
-     * @param SubmitTableUnderstandingJobRequest $request SubmitTableUnderstandingJobRequest
+     * 表格智能解析.
      *
-     * @return SubmitTableUnderstandingJobResponse SubmitTableUnderstandingJobResponse
+     * @param request - SubmitTableUnderstandingJobRequest
+     * @returns SubmitTableUnderstandingJobResponse
+     *
+     * @param SubmitTableUnderstandingJobRequest $request
+     *
+     * @return SubmitTableUnderstandingJobResponse
      */
     public function submitTableUnderstandingJob($request)
     {
@@ -2015,12 +2428,14 @@ class Docmindapi extends OpenApiClient
         $securityToken        = $this->_credential->getSecurityToken();
         $credentialType       = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
-        if (Utils::empty_($openPlatformEndpoint)) {
+        if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
         }
-        if (Utils::isUnset($credentialType)) {
+
+        if (null === $credentialType) {
             $credentialType = 'access_key';
         }
+
         $authConfig = new Config([
             'accessKeyId'     => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
@@ -2048,13 +2463,13 @@ class Docmindapi extends OpenApiClient
         $ossHeader     = new header([]);
         $uploadRequest = new PostObjectRequest([]);
         $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
-        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        Utils::convert($runtime, $ossRuntime);
         $submitTableUnderstandingJobReq = new SubmitTableUnderstandingJobRequest([]);
-        OpenApiUtilClient::convert($request, $submitTableUnderstandingJobReq);
-        if (!Utils::isUnset($request->fileUrlObject)) {
+        Utils::convert($request, $submitTableUnderstandingJobReq);
+        if (null !== $request->fileUrlObject) {
             $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
             $ossClient              = new OSS($ossConfig);
             $fileObj                = new FileField([
                 'filename'    => $authResponse->body->objectKey,
