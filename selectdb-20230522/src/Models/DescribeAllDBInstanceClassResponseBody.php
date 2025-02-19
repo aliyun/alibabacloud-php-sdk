@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeAllDBInstanceClassResponseBody\classCodeList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAllDBInstanceClassResponseBody extends Model
 {
     /**
-     * @description The instance specifications.
-     *
      * @var classCodeList[]
      */
     public $classCodeList;
-
     /**
-     * @example 4773E4EC-025D-509F-AEA9-D53123FDFB0F
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +24,25 @@ class DescribeAllDBInstanceClassResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->classCodeList)) {
+            Model::validateArray($this->classCodeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classCodeList) {
-            $res['ClassCodeList'] = [];
-            if (null !== $this->classCodeList && \is_array($this->classCodeList)) {
-                $n = 0;
-                foreach ($this->classCodeList as $item) {
-                    $res['ClassCodeList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->classCodeList)) {
+                $res['ClassCodeList'] = [];
+                $n1                   = 0;
+                foreach ($this->classCodeList as $item1) {
+                    $res['ClassCodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +50,24 @@ class DescribeAllDBInstanceClassResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAllDBInstanceClassResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassCodeList'])) {
             if (!empty($map['ClassCodeList'])) {
                 $model->classCodeList = [];
-                $n                    = 0;
-                foreach ($map['ClassCodeList'] as $item) {
-                    $model->classCodeList[$n++] = null !== $item ? classCodeList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['ClassCodeList'] as $item1) {
+                    $model->classCodeList[$n1++] = classCodeList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

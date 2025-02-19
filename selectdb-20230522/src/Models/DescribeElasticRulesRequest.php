@@ -4,44 +4,26 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeElasticRulesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example selectdb-cn-nwy3jv1oa02-be
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example selectdb-cn-7213cjv****
-     *
      * @var string
      */
     public $dbInstanceId;
-
     /**
-     * @example selectdb
-     *
      * @var string
      */
     public $product;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var int
      */
@@ -56,23 +38,28 @@ class DescribeElasticRulesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->dbInstanceId) {
             $res['DbInstanceId'] = $this->dbInstanceId;
         }
+
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -80,26 +67,30 @@ class DescribeElasticRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeElasticRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DbInstanceId'])) {
             $model->dbInstanceId = $map['DbInstanceId'];
         }
+
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CheckCreateDBInstanceRequest;
@@ -74,11 +73,10 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\StopBEClusterRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\StopBEClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceEngineVersionRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\UpgradeDBInstanceEngineVersionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Selectdb extends OpenApiClient
 {
@@ -103,45 +101,55 @@ class Selectdb extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Applies for a public endpoint for an ApsaraDB for SelectDB instance.
-     *  *
-     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Applies for a public endpoint for an ApsaraDB for SelectDB instance.
      *
-     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
+     * @param request - AllocateInstancePublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AllocateInstancePublicConnectionResponse
+     *
+     * @param AllocateInstancePublicConnectionRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionStringPrefix)) {
-            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        if (null !== $request->connectionStringPrefix) {
+            @$query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->netType)) {
-            $query['NetType'] = $request->netType;
+
+        if (null !== $request->netType) {
+            @$query['NetType'] = $request->netType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AllocateInstancePublicConnection',
@@ -154,16 +162,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AllocateInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Applies for a public endpoint for an ApsaraDB for SelectDB instance.
-     *  *
-     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
+     * Applies for a public endpoint for an ApsaraDB for SelectDB instance.
      *
-     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
+     * @param request - AllocateInstancePublicConnectionRequest
+     * @returns AllocateInstancePublicConnectionResponse
+     *
+     * @param AllocateInstancePublicConnectionRequest $request
+     *
+     * @return AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnection($request)
     {
@@ -173,70 +187,91 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary SelectDB实例创建前检查
-     *  *
-     * @param CheckCreateDBInstanceRequest $request CheckCreateDBInstanceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * SelectDB实例创建前检查.
      *
-     * @return CheckCreateDBInstanceResponse CheckCreateDBInstanceResponse
+     * @param request - CheckCreateDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckCreateDBInstanceResponse
+     *
+     * @param CheckCreateDBInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CheckCreateDBInstanceResponse
      */
     public function checkCreateDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cacheSize)) {
-            $query['CacheSize'] = $request->cacheSize;
+        if (null !== $request->cacheSize) {
+            @$query['CacheSize'] = $request->cacheSize;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionString)) {
-            $query['ConnectionString'] = $request->connectionString;
+
+        if (null !== $request->connectionString) {
+            @$query['ConnectionString'] = $request->connectionString;
         }
-        if (!Utils::isUnset($request->DBInstanceClass)) {
-            $query['DBInstanceClass'] = $request->DBInstanceClass;
+
+        if (null !== $request->DBInstanceClass) {
+            @$query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+
+        if (null !== $request->DBInstanceDescription) {
+            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckCreateDBInstance',
@@ -249,16 +284,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckCreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckCreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckCreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary SelectDB实例创建前检查
-     *  *
-     * @param CheckCreateDBInstanceRequest $request CheckCreateDBInstanceRequest
+     * SelectDB实例创建前检查.
      *
-     * @return CheckCreateDBInstanceResponse CheckCreateDBInstanceResponse
+     * @param request - CheckCreateDBInstanceRequest
+     * @returns CheckCreateDBInstanceResponse
+     *
+     * @param CheckCreateDBInstanceRequest $request
+     *
+     * @return CheckCreateDBInstanceResponse
      */
     public function checkCreateDBInstance($request)
     {
@@ -268,25 +309,31 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 检查服务关联角色
-     *  *
-     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 检查服务关联角色.
      *
-     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
+     * @param request - CheckServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckServiceLinkedRoleResponse
+     *
+     * @param CheckServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CheckServiceLinkedRole',
@@ -299,16 +346,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 检查服务关联角色
-     *  *
-     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * 检查服务关联角色.
      *
-     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
+     * @param request - CheckServiceLinkedRoleRequest
+     * @returns CheckServiceLinkedRoleResponse
+     *
+     * @param CheckServiceLinkedRoleRequest $request
+     *
+     * @return CheckServiceLinkedRoleResponse
      */
     public function checkServiceLinkedRole($request)
     {
@@ -318,65 +371,84 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @description > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
-     *  *
-     * @param CreateDBClusterRequest $request CreateDBClusterRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return CreateDBClusterResponse CreateDBClusterResponse
+     * @remarks
+     * > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
+     *
+     * @param request - CreateDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDBClusterResponse
+     *
+     * @param CreateDBClusterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDBClusterResponse
      */
     public function createDBClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cacheSize)) {
-            $query['CacheSize'] = $request->cacheSize;
+        if (null !== $request->cacheSize) {
+            @$query['CacheSize'] = $request->cacheSize;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->DBClusterClass)) {
-            $query['DBClusterClass'] = $request->DBClusterClass;
+
+        if (null !== $request->DBClusterClass) {
+            @$query['DBClusterClass'] = $request->DBClusterClass;
         }
-        if (!Utils::isUnset($request->DBClusterDescription)) {
-            $query['DBClusterDescription'] = $request->DBClusterDescription;
+
+        if (null !== $request->DBClusterDescription) {
+            @$query['DBClusterDescription'] = $request->DBClusterDescription;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $body['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$body['DBInstanceId'] = $request->DBInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDBCluster',
@@ -389,18 +461,25 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @description > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
-     *  *
-     * @param CreateDBClusterRequest $request CreateDBClusterRequest
+     * Creates a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return CreateDBClusterResponse CreateDBClusterResponse
+     * @remarks
+     * > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
+     *
+     * @param request - CreateDBClusterRequest
+     * @returns CreateDBClusterResponse
+     *
+     * @param CreateDBClusterRequest $request
+     *
+     * @return CreateDBClusterResponse
      */
     public function createDBCluster($request)
     {
@@ -410,80 +489,103 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建SelectDB实例
-     *  *
-     * @param CreateDBInstanceRequest $tmpReq  CreateDBInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建SelectDB实例.
      *
-     * @return CreateDBInstanceResponse CreateDBInstanceResponse
+     * @param tmpReq - CreateDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDBInstanceResponse
+     *
+     * @param CreateDBInstanceRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDBInstanceResponse
      */
     public function createDBInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDBInstanceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->cacheSize)) {
-            $query['CacheSize'] = $request->cacheSize;
+        if (null !== $request->cacheSize) {
+            @$query['CacheSize'] = $request->cacheSize;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->connectionString)) {
-            $query['ConnectionString'] = $request->connectionString;
+
+        if (null !== $request->connectionString) {
+            @$query['ConnectionString'] = $request->connectionString;
         }
-        if (!Utils::isUnset($request->DBInstanceClass)) {
-            $query['DBInstanceClass'] = $request->DBInstanceClass;
+
+        if (null !== $request->DBInstanceClass) {
+            @$query['DBInstanceClass'] = $request->DBInstanceClass;
         }
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+
+        if (null !== $request->DBInstanceDescription) {
+            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
+
+        if (null !== $request->usedTime) {
+            @$query['UsedTime'] = $request->usedTime;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$query['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDBInstance',
@@ -496,16 +598,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建SelectDB实例
-     *  *
-     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * 创建SelectDB实例.
      *
-     * @return CreateDBInstanceResponse CreateDBInstanceResponse
+     * @param request - CreateDBInstanceRequest
+     * @returns CreateDBInstanceResponse
+     *
+     * @param CreateDBInstanceRequest $request
+     *
+     * @return CreateDBInstanceResponse
      */
     public function createDBInstance($request)
     {
@@ -515,40 +623,51 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建分时弹性规则
-     *  *
-     * @param CreateElasticRuleRequest $request CreateElasticRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a scheduled scaling rule.
      *
-     * @return CreateElasticRuleResponse CreateElasticRuleResponse
+     * @param request - CreateElasticRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateElasticRuleResponse
+     *
+     * @param CreateElasticRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateElasticRuleResponse
      */
     public function createElasticRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterClass)) {
-            $query['ClusterClass'] = $request->clusterClass;
+        if (null !== $request->clusterClass) {
+            @$query['ClusterClass'] = $request->clusterClass;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dbInstanceId)) {
-            $query['DbInstanceId'] = $request->dbInstanceId;
+
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
         }
-        if (!Utils::isUnset($request->elasticRuleStartTime)) {
-            $query['ElasticRuleStartTime'] = $request->elasticRuleStartTime;
+
+        if (null !== $request->elasticRuleStartTime) {
+            @$query['ElasticRuleStartTime'] = $request->elasticRuleStartTime;
         }
-        if (!Utils::isUnset($request->executionPeriod)) {
-            $query['ExecutionPeriod'] = $request->executionPeriod;
+
+        if (null !== $request->executionPeriod) {
+            @$query['ExecutionPeriod'] = $request->executionPeriod;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateElasticRule',
@@ -561,16 +680,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateElasticRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建分时弹性规则
-     *  *
-     * @param CreateElasticRuleRequest $request CreateElasticRuleRequest
+     * Creates a scheduled scaling rule.
      *
-     * @return CreateElasticRuleResponse CreateElasticRuleResponse
+     * @param request - CreateElasticRuleRequest
+     * @returns CreateElasticRuleResponse
+     *
+     * @param CreateElasticRuleRequest $request
+     *
+     * @return CreateElasticRuleResponse
      */
     public function createElasticRule($request)
     {
@@ -580,25 +705,31 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a service-linked role for ApsaraDB for SelectDB.
-     *  *
-     * @param CreateServiceLinkedRoleForSelectDBRequest $request CreateServiceLinkedRoleForSelectDBRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Creates a service-linked role for ApsaraDB for SelectDB.
      *
-     * @return CreateServiceLinkedRoleForSelectDBResponse CreateServiceLinkedRoleForSelectDBResponse
+     * @param request - CreateServiceLinkedRoleForSelectDBRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceLinkedRoleForSelectDBResponse
+     *
+     * @param CreateServiceLinkedRoleForSelectDBRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateServiceLinkedRoleForSelectDBResponse
      */
     public function createServiceLinkedRoleForSelectDBWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceLinkedRoleForSelectDB',
@@ -611,16 +742,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceLinkedRoleForSelectDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServiceLinkedRoleForSelectDBResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServiceLinkedRoleForSelectDBResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a service-linked role for ApsaraDB for SelectDB.
-     *  *
-     * @param CreateServiceLinkedRoleForSelectDBRequest $request CreateServiceLinkedRoleForSelectDBRequest
+     * Creates a service-linked role for ApsaraDB for SelectDB.
      *
-     * @return CreateServiceLinkedRoleForSelectDBResponse CreateServiceLinkedRoleForSelectDBResponse
+     * @param request - CreateServiceLinkedRoleForSelectDBRequest
+     * @returns CreateServiceLinkedRoleForSelectDBResponse
+     *
+     * @param CreateServiceLinkedRoleForSelectDBRequest $request
+     *
+     * @return CreateServiceLinkedRoleForSelectDBResponse
      */
     public function createServiceLinkedRoleForSelectDB($request)
     {
@@ -630,36 +767,45 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 释放实例下集群
-     *  *
-     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 释放实例下集群.
      *
-     * @return DeleteDBClusterResponse DeleteDBClusterResponse
+     * @param request - DeleteDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDBClusterResponse
+     *
+     * @param DeleteDBClusterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteDBClusterResponse
      */
     public function deleteDBClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $body['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$body['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteDBCluster',
@@ -672,16 +818,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 释放实例下集群
-     *  *
-     * @param DeleteDBClusterRequest $request DeleteDBClusterRequest
+     * 释放实例下集群.
      *
-     * @return DeleteDBClusterResponse DeleteDBClusterResponse
+     * @param request - DeleteDBClusterRequest
+     * @returns DeleteDBClusterResponse
+     *
+     * @param DeleteDBClusterRequest $request
+     *
+     * @return DeleteDBClusterResponse
      */
     public function deleteDBCluster($request)
     {
@@ -691,30 +843,37 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 删除DB实例
-     *  *
-     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 删除DB实例.
      *
-     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
+     * @param request - DeleteDBInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDBInstanceResponse
+     *
+     * @param DeleteDBInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDBInstanceResponse
      */
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $body['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$body['DBInstanceId'] = $request->DBInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteDBInstance',
@@ -727,16 +886,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDBInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除DB实例
-     *  *
-     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
+     * 删除DB实例.
      *
-     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
+     * @param request - DeleteDBInstanceRequest
+     * @returns DeleteDBInstanceResponse
+     *
+     * @param DeleteDBInstanceRequest $request
+     *
+     * @return DeleteDBInstanceResponse
      */
     public function deleteDBInstance($request)
     {
@@ -746,37 +911,47 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 删除分时弹性规则
-     *  *
-     * @param DeleteElasticRuleRequest $request DeleteElasticRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a scheduled scaling rule.
      *
-     * @return DeleteElasticRuleResponse DeleteElasticRuleResponse
+     * @param request - DeleteElasticRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteElasticRuleResponse
+     *
+     * @param DeleteElasticRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteElasticRuleResponse
      */
     public function deleteElasticRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dbInstanceId)) {
-            $query['DbInstanceId'] = $request->dbInstanceId;
+
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteElasticRule',
@@ -789,16 +964,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteElasticRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除分时弹性规则
-     *  *
-     * @param DeleteElasticRuleRequest $request DeleteElasticRuleRequest
+     * Deletes a scheduled scaling rule.
      *
-     * @return DeleteElasticRuleResponse DeleteElasticRuleResponse
+     * @param request - DeleteElasticRuleRequest
+     * @returns DeleteElasticRuleResponse
+     *
+     * @param DeleteElasticRuleRequest $request
+     *
+     * @return DeleteElasticRuleResponse
      */
     public function deleteElasticRule($request)
     {
@@ -808,25 +989,31 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about all instance specifications.
-     *  *
-     * @param DescribeAllDBInstanceClassRequest $request DescribeAllDBInstanceClassRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the information about all instance specifications.
      *
-     * @return DescribeAllDBInstanceClassResponse DescribeAllDBInstanceClassResponse
+     * @param request - DescribeAllDBInstanceClassRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAllDBInstanceClassResponse
+     *
+     * @param DescribeAllDBInstanceClassRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeAllDBInstanceClassResponse
      */
     public function describeAllDBInstanceClassWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAllDBInstanceClass',
@@ -839,16 +1026,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAllDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAllDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAllDBInstanceClassResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about all instance specifications.
-     *  *
-     * @param DescribeAllDBInstanceClassRequest $request DescribeAllDBInstanceClassRequest
+     * Queries the information about all instance specifications.
      *
-     * @return DescribeAllDBInstanceClassResponse DescribeAllDBInstanceClassResponse
+     * @param request - DescribeAllDBInstanceClassRequest
+     * @returns DescribeAllDBInstanceClassResponse
+     *
+     * @param DescribeAllDBInstanceClassRequest $request
+     *
+     * @return DescribeAllDBInstanceClassResponse
      */
     public function describeAllDBInstanceClass($request)
     {
@@ -858,31 +1051,39 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeDBClusterConfigResponse DescribeDBClusterConfigResponse
+     * @param request - DescribeDBClusterConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBClusterConfigResponse
+     *
+     * @param DescribeDBClusterConfigRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDBClusterConfigResponse
      */
     public function describeDBClusterConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configKey)) {
-            $query['ConfigKey'] = $request->configKey;
+        if (null !== $request->configKey) {
+            @$query['ConfigKey'] = $request->configKey;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBClusterConfig',
@@ -895,16 +1096,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBClusterConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeDBClusterConfigRequest $request DescribeDBClusterConfigRequest
+     * Queries the configuration information about a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeDBClusterConfigResponse DescribeDBClusterConfigResponse
+     * @param request - DescribeDBClusterConfigRequest
+     * @returns DescribeDBClusterConfigResponse
+     *
+     * @param DescribeDBClusterConfigRequest $request
+     *
+     * @return DescribeDBClusterConfigResponse
      */
     public function describeDBClusterConfig($request)
     {
@@ -914,37 +1121,47 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeDBClusterConfigChangeLogsRequest $request DescribeDBClusterConfigChangeLogsRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeDBClusterConfigChangeLogsResponse DescribeDBClusterConfigChangeLogsResponse
+     * @param request - DescribeDBClusterConfigChangeLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBClusterConfigChangeLogsResponse
+     *
+     * @param DescribeDBClusterConfigChangeLogsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDBClusterConfigChangeLogsResponse
      */
     public function describeDBClusterConfigChangeLogsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configKey)) {
-            $query['ConfigKey'] = $request->configKey;
+        if (null !== $request->configKey) {
+            @$query['ConfigKey'] = $request->configKey;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBClusterConfigChangeLogs',
@@ -957,16 +1174,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBClusterConfigChangeLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBClusterConfigChangeLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBClusterConfigChangeLogsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeDBClusterConfigChangeLogsRequest $request DescribeDBClusterConfigChangeLogsRequest
+     * Queries the configuration change logs of a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeDBClusterConfigChangeLogsResponse DescribeDBClusterConfigChangeLogsResponse
+     * @param request - DescribeDBClusterConfigChangeLogsRequest
+     * @returns DescribeDBClusterConfigChangeLogsResponse
+     *
+     * @param DescribeDBClusterConfigChangeLogsRequest $request
+     *
+     * @return DescribeDBClusterConfigChangeLogsResponse
      */
     public function describeDBClusterConfigChangeLogs($request)
     {
@@ -976,28 +1199,35 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the details about an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
+     * @param request - DescribeDBInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstanceAttributeResponse
+     *
+     * @param DescribeDBInstanceAttributeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceAttribute',
@@ -1010,16 +1240,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details about an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
+     * Queries the details about an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
+     * @param request - DescribeDBInstanceAttributeRequest
+     * @returns DescribeDBInstanceAttributeResponse
+     *
+     * @param DescribeDBInstanceAttributeRequest $request
+     *
+     * @return DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttribute($request)
     {
@@ -1029,28 +1265,35 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the network information about an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the network information about an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
+     * @param request - DescribeDBInstanceNetInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstanceNetInfoResponse
+     *
+     * @param DescribeDBInstanceNetInfoRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstanceNetInfo',
@@ -1063,16 +1306,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstanceNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstanceNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstanceNetInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the network information about an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeDBInstanceNetInfoRequest $request DescribeDBInstanceNetInfoRequest
+     * Queries the network information about an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeDBInstanceNetInfoResponse DescribeDBInstanceNetInfoResponse
+     * @param request - DescribeDBInstanceNetInfoRequest
+     * @returns DescribeDBInstanceNetInfoResponse
+     *
+     * @param DescribeDBInstanceNetInfoRequest $request
+     *
+     * @return DescribeDBInstanceNetInfoResponse
      */
     public function describeDBInstanceNetInfo($request)
     {
@@ -1082,51 +1331,65 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about ApsaraDB for SelectDB instances.
-     *  *
-     * @param DescribeDBInstancesRequest $tmpReq  DescribeDBInstancesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the information about ApsaraDB for SelectDB instances.
      *
-     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
+     * @param tmpReq - DescribeDBInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDBInstancesResponse
+     *
+     * @param DescribeDBInstancesRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDBInstancesResponse
      */
     public function describeDBInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DescribeDBInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (null !== $request->DBInstanceDescription) {
+            @$query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
-        if (!Utils::isUnset($request->DBInstanceIds)) {
-            $query['DBInstanceIds'] = $request->DBInstanceIds;
+
+        if (null !== $request->DBInstanceIds) {
+            @$query['DBInstanceIds'] = $request->DBInstanceIds;
         }
-        if (!Utils::isUnset($request->DBInstanceStatus)) {
-            $query['DBInstanceStatus'] = $request->DBInstanceStatus;
+
+        if (null !== $request->DBInstanceStatus) {
+            @$query['DBInstanceStatus'] = $request->DBInstanceStatus;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['Tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['Tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDBInstances',
@@ -1139,16 +1402,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about ApsaraDB for SelectDB instances.
-     *  *
-     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
+     * Queries the information about ApsaraDB for SelectDB instances.
      *
-     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
+     * @param request - DescribeDBInstancesRequest
+     * @returns DescribeDBInstancesResponse
+     *
+     * @param DescribeDBInstancesRequest $request
+     *
+     * @return DescribeDBInstancesResponse
      */
     public function describeDBInstances($request)
     {
@@ -1158,19 +1427,23 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 查询分时弹性规则
-     *  *
-     * @param DescribeElasticRulesRequest $request DescribeElasticRulesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries scheduled scaling rules.
      *
-     * @return DescribeElasticRulesResponse DescribeElasticRulesResponse
+     * @param request - DescribeElasticRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeElasticRulesResponse
+     *
+     * @param DescribeElasticRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeElasticRulesResponse
      */
     public function describeElasticRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeElasticRules',
@@ -1183,16 +1456,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeElasticRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeElasticRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeElasticRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询分时弹性规则
-     *  *
-     * @param DescribeElasticRulesRequest $request DescribeElasticRulesRequest
+     * Queries scheduled scaling rules.
      *
-     * @return DescribeElasticRulesResponse DescribeElasticRulesResponse
+     * @param request - DescribeElasticRulesRequest
+     * @returns DescribeElasticRulesResponse
+     *
+     * @param DescribeElasticRulesRequest $request
+     *
+     * @return DescribeElasticRulesResponse
      */
     public function describeElasticRules($request)
     {
@@ -1202,28 +1481,35 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeSecurityIPListRequest $request DescribeSecurityIPListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeSecurityIPListResponse DescribeSecurityIPListResponse
+     * @param request - DescribeSecurityIPListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSecurityIPListResponse
+     *
+     * @param DescribeSecurityIPListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeSecurityIPListResponse
      */
     public function describeSecurityIPListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSecurityIPList',
@@ -1236,16 +1522,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSecurityIPListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param DescribeSecurityIPListRequest $request DescribeSecurityIPListRequest
+     * Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
      *
-     * @return DescribeSecurityIPListResponse DescribeSecurityIPListResponse
+     * @param request - DescribeSecurityIPListRequest
+     * @returns DescribeSecurityIPListResponse
+     *
+     * @param DescribeSecurityIPListRequest $request
+     *
+     * @return DescribeSecurityIPListResponse
      */
     public function describeSecurityIPList($request)
     {
@@ -1255,37 +1547,47 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 开关分时弹性策略
-     *  *
-     * @param EnDisableScalingRulesRequest $request EnDisableScalingRulesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Uses the scheduled scaling policy.
      *
-     * @return EnDisableScalingRulesResponse EnDisableScalingRulesResponse
+     * @param request - EnDisableScalingRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnDisableScalingRulesResponse
+     *
+     * @param EnDisableScalingRulesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return EnDisableScalingRulesResponse
      */
     public function enDisableScalingRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dbInstanceId)) {
-            $query['DbInstanceId'] = $request->dbInstanceId;
+
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->scalingRulesEnable)) {
-            $query['ScalingRulesEnable'] = $request->scalingRulesEnable;
+
+        if (null !== $request->scalingRulesEnable) {
+            @$query['ScalingRulesEnable'] = $request->scalingRulesEnable;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnDisableScalingRules',
@@ -1298,16 +1600,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnDisableScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnDisableScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnDisableScalingRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 开关分时弹性策略
-     *  *
-     * @param EnDisableScalingRulesRequest $request EnDisableScalingRulesRequest
+     * Uses the scheduled scaling policy.
      *
-     * @return EnDisableScalingRulesResponse EnDisableScalingRulesResponse
+     * @param request - EnDisableScalingRulesRequest
+     * @returns EnDisableScalingRulesResponse
+     *
+     * @param EnDisableScalingRulesRequest $request
+     *
+     * @return EnDisableScalingRulesResponse
      */
     public function enDisableScalingRules($request)
     {
@@ -1317,19 +1625,23 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param GetCreateBEClusterInquiryRequest $request GetCreateBEClusterInquiryRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return GetCreateBEClusterInquiryResponse GetCreateBEClusterInquiryResponse
+     * @param request - GetCreateBEClusterInquiryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCreateBEClusterInquiryResponse
+     *
+     * @param GetCreateBEClusterInquiryRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetCreateBEClusterInquiryResponse
      */
     public function getCreateBEClusterInquiryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCreateBEClusterInquiry',
@@ -1342,16 +1654,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCreateBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCreateBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCreateBEClusterInquiryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param GetCreateBEClusterInquiryRequest $request GetCreateBEClusterInquiryRequest
+     * Queries the pricing for creating a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return GetCreateBEClusterInquiryResponse GetCreateBEClusterInquiryResponse
+     * @param request - GetCreateBEClusterInquiryRequest
+     * @returns GetCreateBEClusterInquiryResponse
+     *
+     * @param GetCreateBEClusterInquiryRequest $request
+     *
+     * @return GetCreateBEClusterInquiryResponse
      */
     public function getCreateBEClusterInquiry($request)
     {
@@ -1361,19 +1679,23 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param GetModifyBEClusterInquiryRequest $request GetModifyBEClusterInquiryRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return GetModifyBEClusterInquiryResponse GetModifyBEClusterInquiryResponse
+     * @param request - GetModifyBEClusterInquiryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetModifyBEClusterInquiryResponse
+     *
+     * @param GetModifyBEClusterInquiryRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetModifyBEClusterInquiryResponse
      */
     public function getModifyBEClusterInquiryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetModifyBEClusterInquiry',
@@ -1386,16 +1708,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetModifyBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetModifyBEClusterInquiryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetModifyBEClusterInquiryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param GetModifyBEClusterInquiryRequest $request GetModifyBEClusterInquiryRequest
+     * Queries the pricing for changing the specifications of a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return GetModifyBEClusterInquiryResponse GetModifyBEClusterInquiryResponse
+     * @param request - GetModifyBEClusterInquiryRequest
+     * @returns GetModifyBEClusterInquiryResponse
+     *
+     * @param GetModifyBEClusterInquiryRequest $request
+     *
+     * @return GetModifyBEClusterInquiryResponse
      */
     public function getModifyBEClusterInquiry($request)
     {
@@ -1405,37 +1733,47 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ModifyBEClusterAttributeRequest $request ModifyBEClusterAttributeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return ModifyBEClusterAttributeResponse ModifyBEClusterAttributeResponse
+     * @param request - ModifyBEClusterAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyBEClusterAttributeResponse
+     *
+     * @param ModifyBEClusterAttributeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyBEClusterAttributeResponse
      */
     public function modifyBEClusterAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->instanceAttributeType)) {
-            $query['InstanceAttributeType'] = $request->instanceAttributeType;
+
+        if (null !== $request->instanceAttributeType) {
+            @$query['InstanceAttributeType'] = $request->instanceAttributeType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyBEClusterAttribute',
@@ -1448,16 +1786,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyBEClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyBEClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyBEClusterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ModifyBEClusterAttributeRequest $request ModifyBEClusterAttributeRequest
+     * Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return ModifyBEClusterAttributeResponse ModifyBEClusterAttributeResponse
+     * @param request - ModifyBEClusterAttributeRequest
+     * @returns ModifyBEClusterAttributeResponse
+     *
+     * @param ModifyBEClusterAttributeRequest $request
+     *
+     * @return ModifyBEClusterAttributeResponse
      */
     public function modifyBEClusterAttribute($request)
     {
@@ -1467,40 +1811,51 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 集群变配
-     *  *
-     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 集群变配.
      *
-     * @return ModifyDBClusterResponse ModifyDBClusterResponse
+     * @param request - ModifyDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBClusterResponse
+     *
+     * @param ModifyDBClusterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyDBClusterResponse
      */
     public function modifyDBClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cacheSize)) {
-            $query['CacheSize'] = $request->cacheSize;
+        if (null !== $request->cacheSize) {
+            @$query['CacheSize'] = $request->cacheSize;
         }
-        if (!Utils::isUnset($request->DBClusterClass)) {
-            $query['DBClusterClass'] = $request->DBClusterClass;
+
+        if (null !== $request->DBClusterClass) {
+            @$query['DBClusterClass'] = $request->DBClusterClass;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBCluster',
@@ -1513,16 +1868,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 集群变配
-     *  *
-     * @param ModifyDBClusterRequest $request ModifyDBClusterRequest
+     * 集群变配.
      *
-     * @return ModifyDBClusterResponse ModifyDBClusterResponse
+     * @param request - ModifyDBClusterRequest
+     * @returns ModifyDBClusterResponse
+     *
+     * @param ModifyDBClusterRequest $request
+     *
+     * @return ModifyDBClusterResponse
      */
     public function modifyDBCluster($request)
     {
@@ -1532,37 +1893,51 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return ModifyDBClusterConfigResponse ModifyDBClusterConfigResponse
+     * @param request - ModifyDBClusterConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBClusterConfigResponse
+     *
+     * @param ModifyDBClusterConfigRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDBClusterConfigResponse
      */
     public function modifyDBClusterConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configKey)) {
-            $query['ConfigKey'] = $request->configKey;
+        if (null !== $request->configKey) {
+            @$query['ConfigKey'] = $request->configKey;
         }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parallelOperation) {
+            @$query['ParallelOperation'] = $request->parallelOperation;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->switchTimeMode)) {
-            $query['SwitchTimeMode'] = $request->switchTimeMode;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
+        if (null !== $request->switchTimeMode) {
+            @$query['SwitchTimeMode'] = $request->switchTimeMode;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBClusterConfig',
@@ -1575,16 +1950,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBClusterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBClusterConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ModifyDBClusterConfigRequest $request ModifyDBClusterConfigRequest
+     * Modifies the configurations of a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return ModifyDBClusterConfigResponse ModifyDBClusterConfigResponse
+     * @param request - ModifyDBClusterConfigRequest
+     * @returns ModifyDBClusterConfigResponse
+     *
+     * @param ModifyDBClusterConfigRequest $request
+     *
+     * @return ModifyDBClusterConfigResponse
      */
     public function modifyDBClusterConfig($request)
     {
@@ -1594,34 +1975,43 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the maintenance window or description of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ModifyDBInstanceAttributeRequest $request ModifyDBInstanceAttributeRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Modifies the maintenance window or description of an ApsaraDB for SelectDB instance.
      *
-     * @return ModifyDBInstanceAttributeResponse ModifyDBInstanceAttributeResponse
+     * @param request - ModifyDBInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDBInstanceAttributeResponse
+     *
+     * @param ModifyDBInstanceAttributeRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyDBInstanceAttributeResponse
      */
     public function modifyDBInstanceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->instanceAttributeType)) {
-            $query['InstanceAttributeType'] = $request->instanceAttributeType;
+
+        if (null !== $request->instanceAttributeType) {
+            @$query['InstanceAttributeType'] = $request->instanceAttributeType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->value)) {
-            $query['Value'] = $request->value;
+
+        if (null !== $request->value) {
+            @$query['Value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDBInstanceAttribute',
@@ -1634,16 +2024,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the maintenance window or description of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ModifyDBInstanceAttributeRequest $request ModifyDBInstanceAttributeRequest
+     * Modifies the maintenance window or description of an ApsaraDB for SelectDB instance.
      *
-     * @return ModifyDBInstanceAttributeResponse ModifyDBInstanceAttributeResponse
+     * @param request - ModifyDBInstanceAttributeRequest
+     * @returns ModifyDBInstanceAttributeResponse
+     *
+     * @param ModifyDBInstanceAttributeRequest $request
+     *
+     * @return ModifyDBInstanceAttributeResponse
      */
     public function modifyDBInstanceAttribute($request)
     {
@@ -1653,46 +2049,59 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 修改分时弹性规则
-     *  *
-     * @param ModifyElasticRuleRequest $request ModifyElasticRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies a scheduled scaling rule.
      *
-     * @return ModifyElasticRuleResponse ModifyElasticRuleResponse
+     * @param request - ModifyElasticRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyElasticRuleResponse
+     *
+     * @param ModifyElasticRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyElasticRuleResponse
      */
     public function modifyElasticRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterClass)) {
-            $query['ClusterClass'] = $request->clusterClass;
+        if (null !== $request->clusterClass) {
+            @$query['ClusterClass'] = $request->clusterClass;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dbInstanceId)) {
-            $query['DbInstanceId'] = $request->dbInstanceId;
+
+        if (null !== $request->dbInstanceId) {
+            @$query['DbInstanceId'] = $request->dbInstanceId;
         }
-        if (!Utils::isUnset($request->elasticRuleStartTime)) {
-            $query['ElasticRuleStartTime'] = $request->elasticRuleStartTime;
+
+        if (null !== $request->elasticRuleStartTime) {
+            @$query['ElasticRuleStartTime'] = $request->elasticRuleStartTime;
         }
-        if (!Utils::isUnset($request->executionPeriod)) {
-            $query['ExecutionPeriod'] = $request->executionPeriod;
+
+        if (null !== $request->executionPeriod) {
+            @$query['ExecutionPeriod'] = $request->executionPeriod;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyElasticRule',
@@ -1705,16 +2114,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyElasticRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改分时弹性规则
-     *  *
-     * @param ModifyElasticRuleRequest $request ModifyElasticRuleRequest
+     * Modifies a scheduled scaling rule.
      *
-     * @return ModifyElasticRuleResponse ModifyElasticRuleResponse
+     * @param request - ModifyElasticRuleRequest
+     * @returns ModifyElasticRuleResponse
+     *
+     * @param ModifyElasticRuleRequest $request
+     *
+     * @return ModifyElasticRuleResponse
      */
     public function modifyElasticRule($request)
     {
@@ -1724,37 +2139,47 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the IP addresses in a whitelist of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ModifySecurityIPListRequest $request ModifySecurityIPListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Modifies the IP addresses in a whitelist of an ApsaraDB for SelectDB instance.
      *
-     * @return ModifySecurityIPListResponse ModifySecurityIPListResponse
+     * @param request - ModifySecurityIPListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifySecurityIPListResponse
+     *
+     * @param ModifySecurityIPListRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifySecurityIPListResponse
      */
     public function modifySecurityIPListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->modifyMode)) {
-            $query['ModifyMode'] = $request->modifyMode;
+
+        if (null !== $request->modifyMode) {
+            @$query['ModifyMode'] = $request->modifyMode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
+
+        if (null !== $request->securityIPList) {
+            @$query['SecurityIPList'] = $request->securityIPList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifySecurityIPList',
@@ -1767,16 +2192,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifySecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySecurityIPListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySecurityIPListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the IP addresses in a whitelist of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ModifySecurityIPListRequest $request ModifySecurityIPListRequest
+     * Modifies the IP addresses in a whitelist of an ApsaraDB for SelectDB instance.
      *
-     * @return ModifySecurityIPListResponse ModifySecurityIPListResponse
+     * @param request - ModifySecurityIPListRequest
+     * @returns ModifySecurityIPListResponse
+     *
+     * @param ModifySecurityIPListRequest $request
+     *
+     * @return ModifySecurityIPListResponse
      */
     public function modifySecurityIPList($request)
     {
@@ -1786,31 +2217,39 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Releases the public endpoint of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Releases the public endpoint of an ApsaraDB for SelectDB instance.
      *
-     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
+     * @param request - ReleaseInstancePublicConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReleaseInstancePublicConnectionResponse
+     *
+     * @param ReleaseInstancePublicConnectionRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->connectionString)) {
-            $query['ConnectionString'] = $request->connectionString;
+        if (null !== $request->connectionString) {
+            @$query['ConnectionString'] = $request->connectionString;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReleaseInstancePublicConnection',
@@ -1823,16 +2262,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseInstancePublicConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases the public endpoint of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
+     * Releases the public endpoint of an ApsaraDB for SelectDB instance.
      *
-     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
+     * @param request - ReleaseInstancePublicConnectionRequest
+     * @returns ReleaseInstancePublicConnectionResponse
+     *
+     * @param ReleaseInstancePublicConnectionRequest $request
+     *
+     * @return ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnection($request)
     {
@@ -1842,19 +2287,23 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Resets the password of an account for an ApsaraDB for SelectDB instance.
      *
-     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
+     * @param request - ResetAccountPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetAccountPasswordResponse
+     *
+     * @param ResetAccountPasswordRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ResetAccountPassword',
@@ -1867,16 +2316,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetAccountPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Resets the password of an account for an ApsaraDB for SelectDB instance.
-     *  *
-     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * Resets the password of an account for an ApsaraDB for SelectDB instance.
      *
-     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
+     * @param request - ResetAccountPasswordRequest
+     * @returns ResetAccountPasswordResponse
+     *
+     * @param ResetAccountPasswordRequest $request
+     *
+     * @return ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -1886,36 +2341,49 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Restarts a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param RestartDBClusterRequest $request RestartDBClusterRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Restarts a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return RestartDBClusterResponse RestartDBClusterResponse
+     * @param request - RestartDBClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestartDBClusterResponse
+     *
+     * @param RestartDBClusterRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RestartDBClusterResponse
      */
     public function restartDBClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->parallelOperation) {
+            @$query['ParallelOperation'] = $request->parallelOperation;
         }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
         $body = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $body['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$body['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RestartDBCluster',
@@ -1928,16 +2396,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RestartDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestartDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestartDBClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Restarts a cluster in an ApsaraDB for SelectDB instance.
-     *  *
-     * @param RestartDBClusterRequest $request RestartDBClusterRequest
+     * Restarts a cluster in an ApsaraDB for SelectDB instance.
      *
-     * @return RestartDBClusterResponse RestartDBClusterResponse
+     * @param request - RestartDBClusterRequest
+     * @returns RestartDBClusterResponse
+     *
+     * @param RestartDBClusterRequest $request
+     *
+     * @return RestartDBClusterResponse
      */
     public function restartDBCluster($request)
     {
@@ -1947,31 +2421,39 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 暂停后恢复集群
-     *  *
-     * @param StartBEClusterRequest $request StartBEClusterRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 暂停后恢复集群.
      *
-     * @return StartBEClusterResponse StartBEClusterResponse
+     * @param request - StartBEClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartBEClusterResponse
+     *
+     * @param StartBEClusterRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StartBEClusterResponse
      */
     public function startBEClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartBECluster',
@@ -1984,16 +2466,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartBEClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartBEClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartBEClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 暂停后恢复集群
-     *  *
-     * @param StartBEClusterRequest $request StartBEClusterRequest
+     * 暂停后恢复集群.
      *
-     * @return StartBEClusterResponse StartBEClusterResponse
+     * @param request - StartBEClusterRequest
+     * @returns StartBEClusterResponse
+     *
+     * @param StartBEClusterRequest $request
+     *
+     * @return StartBEClusterResponse
      */
     public function startBECluster($request)
     {
@@ -2003,31 +2491,39 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 暂停BE集群
-     *  *
-     * @param StopBEClusterRequest $request StopBEClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 暂停BE集群.
      *
-     * @return StopBEClusterResponse StopBEClusterResponse
+     * @param request - StopBEClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopBEClusterResponse
+     *
+     * @param StopBEClusterRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return StopBEClusterResponse
      */
     public function stopBEClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
         }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopBECluster',
@@ -2040,16 +2536,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopBEClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopBEClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopBEClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 暂停BE集群
-     *  *
-     * @param StopBEClusterRequest $request StopBEClusterRequest
+     * 暂停BE集群.
      *
-     * @return StopBEClusterResponse StopBEClusterResponse
+     * @param request - StopBEClusterRequest
+     * @returns StopBEClusterResponse
+     *
+     * @param StopBEClusterRequest $request
+     *
+     * @return StopBEClusterResponse
      */
     public function stopBECluster($request)
     {
@@ -2059,34 +2561,47 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Updates the database engine version of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Updates the database engine version of an ApsaraDB for SelectDB instance.
      *
-     * @return UpgradeDBInstanceEngineVersionResponse UpgradeDBInstanceEngineVersionResponse
+     * @param request - UpgradeDBInstanceEngineVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpgradeDBInstanceEngineVersionResponse
+     *
+     * @param UpgradeDBInstanceEngineVersionRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpgradeDBInstanceEngineVersionResponse
      */
     public function upgradeDBInstanceEngineVersionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
+        if (null !== $request->DBInstanceId) {
+            @$query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
+
+        if (null !== $request->engineVersion) {
+            @$query['EngineVersion'] = $request->engineVersion;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->parallelOperation) {
+            @$query['ParallelOperation'] = $request->parallelOperation;
         }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->switchTimeMode)) {
-            $query['SwitchTimeMode'] = $request->switchTimeMode;
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+
+        if (null !== $request->switchTimeMode) {
+            @$query['SwitchTimeMode'] = $request->switchTimeMode;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpgradeDBInstanceEngineVersion',
@@ -2099,16 +2614,22 @@ class Selectdb extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpgradeDBInstanceEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpgradeDBInstanceEngineVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpgradeDBInstanceEngineVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the database engine version of an ApsaraDB for SelectDB instance.
-     *  *
-     * @param UpgradeDBInstanceEngineVersionRequest $request UpgradeDBInstanceEngineVersionRequest
+     * Updates the database engine version of an ApsaraDB for SelectDB instance.
      *
-     * @return UpgradeDBInstanceEngineVersionResponse UpgradeDBInstanceEngineVersionResponse
+     * @param request - UpgradeDBInstanceEngineVersionRequest
+     * @returns UpgradeDBInstanceEngineVersionResponse
+     *
+     * @param UpgradeDBInstanceEngineVersionRequest $request
+     *
+     * @return UpgradeDBInstanceEngineVersionResponse
      */
     public function upgradeDBInstanceEngineVersion($request)
     {

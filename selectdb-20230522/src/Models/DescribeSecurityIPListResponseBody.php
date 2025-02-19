@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Selectdb\V20230522\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeSecurityIPListResponseBody\groupItems;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityIPListResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example selectdb-cn-7213cjv****
-     *
      * @var string
      */
     public $DBInstanceName;
-
     /**
-     * @description The details about each IP address whitelist returned.
-     *
      * @var groupItems[]
      */
     public $groupItems;
-
     /**
-     * @description The request ID.
-     *
-     * @example 5CBE044D-4594-525D-AC65-E988553D853E
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class DescribeSecurityIPListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupItems)) {
+            Model::validateArray($this->groupItems);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+
         if (null !== $this->groupItems) {
-            $res['GroupItems'] = [];
-            if (null !== $this->groupItems && \is_array($this->groupItems)) {
-                $n = 0;
-                foreach ($this->groupItems as $item) {
-                    $res['GroupItems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupItems)) {
+                $res['GroupItems'] = [];
+                $n1                = 0;
+                foreach ($this->groupItems as $item1) {
+                    $res['GroupItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class DescribeSecurityIPListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecurityIPListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+
         if (isset($map['GroupItems'])) {
             if (!empty($map['GroupItems'])) {
                 $model->groupItems = [];
-                $n                 = 0;
-                foreach ($map['GroupItems'] as $item) {
-                    $model->groupItems[$n++] = null !== $item ? groupItems::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['GroupItems'] as $item1) {
+                    $model->groupItems[$n1++] = groupItems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
