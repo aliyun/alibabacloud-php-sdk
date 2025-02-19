@@ -1,3 +1,12 @@
+2025-02-19 Version: 1.1.0
+- Support API CreateAssociatedResourceRules.
+- Support API DeleteAssociatedResourceRule.
+- Support API ListAssociatedResourceRules.
+- Support API UpdateAssociatedResourceRule.
+- Update API GetEffectivePolicy: add param TagKeys.
+- Update API GetEffectivePolicy: update response param.
+
+
 2025-02-10 Version: 1.0.6
 - Update API GetEffectivePolicy: add param TagKeys.
 - Update API GetEffectivePolicy: update response param.

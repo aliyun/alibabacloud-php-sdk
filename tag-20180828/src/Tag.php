@@ -11,10 +11,14 @@ use AlibabaCloud\SDK\Tag\V20180828\Models\CheckCreatedByEnabledRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CheckCreatedByEnabledResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CloseCreatedByRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CloseCreatedByResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\CreateAssociatedResourceRulesRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\CreateAssociatedResourceRulesResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CreatePolicyResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\DeleteAssociatedResourceRuleRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\DeleteAssociatedResourceRuleResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\DeletePolicyRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\DeletePolicyResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\DeleteTagRequest;
@@ -37,6 +41,8 @@ use AlibabaCloud\SDK\Tag\V20180828\Models\GetPolicyEnableStatusRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\GetPolicyEnableStatusResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\GetPolicyRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\GetPolicyResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\ListAssociatedResourceRulesRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\ListAssociatedResourceRulesResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ListConfigRulesForTargetRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ListConfigRulesForTargetResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ListPoliciesForTargetRequest;
@@ -63,6 +69,8 @@ use AlibabaCloud\SDK\Tag\V20180828\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\UpdateAssociatedResourceRuleRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\UpdateAssociatedResourceRuleResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -376,6 +384,80 @@ class Tag extends OpenApiClient
     }
 
     /**
+     * 创建关联资源打TAG规则.
+     *
+     * @param request - CreateAssociatedResourceRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAssociatedResourceRulesResponse
+     *
+     * @param CreateAssociatedResourceRulesRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateAssociatedResourceRulesResponse
+     */
+    public function createAssociatedResourceRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->createRulesList) {
+            @$query['CreateRulesList'] = $request->createRulesList;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAssociatedResourceRules',
+            'version'     => '2018-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAssociatedResourceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateAssociatedResourceRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建关联资源打TAG规则.
+     *
+     * @param request - CreateAssociatedResourceRulesRequest
+     * @returns CreateAssociatedResourceRulesResponse
+     *
+     * @param CreateAssociatedResourceRulesRequest $request
+     *
+     * @return CreateAssociatedResourceRulesResponse
+     */
+    public function createAssociatedResourceRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAssociatedResourceRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * Creates a tag policy.
      *
      * @remarks
@@ -555,6 +637,80 @@ class Tag extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 删除关联资源打TAG规则.
+     *
+     * @param request - DeleteAssociatedResourceRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAssociatedResourceRuleResponse
+     *
+     * @param DeleteAssociatedResourceRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteAssociatedResourceRuleResponse
+     */
+    public function deleteAssociatedResourceRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->settingName) {
+            @$query['SettingName'] = $request->settingName;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAssociatedResourceRule',
+            'version'     => '2018-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAssociatedResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteAssociatedResourceRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除关联资源打TAG规则.
+     *
+     * @param request - DeleteAssociatedResourceRuleRequest
+     * @returns DeleteAssociatedResourceRuleResponse
+     *
+     * @param DeleteAssociatedResourceRuleRequest $request
+     *
+     * @return DeleteAssociatedResourceRuleResponse
+     */
+    public function deleteAssociatedResourceRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAssociatedResourceRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1493,6 +1649,92 @@ class Tag extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPolicyEnableStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * 用户已设置的关联资源打TAG规则.
+     *
+     * @param request - ListAssociatedResourceRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAssociatedResourceRulesResponse
+     *
+     * @param ListAssociatedResourceRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListAssociatedResourceRulesResponse
+     */
+    public function listAssociatedResourceRulesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResult) {
+            @$query['MaxResult'] = $request->maxResult;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->settingName) {
+            @$query['SettingName'] = $request->settingName;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAssociatedResourceRules',
+            'version'     => '2018-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAssociatedResourceRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListAssociatedResourceRulesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 用户已设置的关联资源打TAG规则.
+     *
+     * @param request - ListAssociatedResourceRulesRequest
+     * @returns ListAssociatedResourceRulesResponse
+     *
+     * @param ListAssociatedResourceRulesRequest $request
+     *
+     * @return ListAssociatedResourceRulesResponse
+     */
+    public function listAssociatedResourceRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssociatedResourceRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -2763,5 +3005,87 @@ class Tag extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * 更新关联资源打TAG规则.
+     *
+     * @param request - UpdateAssociatedResourceRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAssociatedResourceRuleResponse
+     *
+     * @param UpdateAssociatedResourceRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateAssociatedResourceRuleResponse
+     */
+    public function updateAssociatedResourceRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->settingName) {
+            @$query['SettingName'] = $request->settingName;
+        }
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
+        }
+
+        if (null !== $request->tagKeys) {
+            @$query['TagKeys'] = $request->tagKeys;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAssociatedResourceRule',
+            'version'     => '2018-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAssociatedResourceRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateAssociatedResourceRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新关联资源打TAG规则.
+     *
+     * @param request - UpdateAssociatedResourceRuleRequest
+     * @returns UpdateAssociatedResourceRuleResponse
+     *
+     * @param UpdateAssociatedResourceRuleRequest $request
+     *
+     * @return UpdateAssociatedResourceRuleResponse
+     */
+    public function updateAssociatedResourceRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAssociatedResourceRuleWithOptions($request, $runtime);
     }
 }
