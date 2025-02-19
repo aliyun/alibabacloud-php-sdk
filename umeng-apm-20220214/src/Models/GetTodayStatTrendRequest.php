@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Umengapm\V20220214\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTodayStatTrendRequest extends Model
 {
     /**
-     * @example 1.0
-     *
      * @var string
      */
     public $appVersion;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 5fb6001a73749c24fd9cb356
-     *
      * @var string
      */
     public $dataSourceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $type;
@@ -40,17 +28,20 @@ class GetTodayStatTrendRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appVersion) {
             $res['appVersion'] = $this->appVersion;
         }
+
         if (null !== $this->dataSourceId) {
             $res['dataSourceId'] = $this->dataSourceId;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -58,20 +49,22 @@ class GetTodayStatTrendRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTodayStatTrendRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['appVersion'])) {
             $model->appVersion = $map['appVersion'];
         }
+
         if (isset($map['dataSourceId'])) {
             $model->dataSourceId = $map['dataSourceId'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
