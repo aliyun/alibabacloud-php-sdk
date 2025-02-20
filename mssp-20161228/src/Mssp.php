@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\ConfirmDjbhReportRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\ConfirmDjbhReportResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\CreateServiceLinkedRoleRequest;
@@ -61,11 +60,10 @@ use AlibabaCloud\SDK\Mssp\V20161228\Models\PageServiceCustomerRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\PageServiceCustomerResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\SendCustomEventRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\SendCustomEventResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Mssp extends OpenApiClient
 {
@@ -90,33 +88,39 @@ class Mssp extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Confirm Receipt of Security Assessment Report
-     *  *
-     * @param ConfirmDjbhReportRequest $request ConfirmDjbhReportRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Confirm Receipt of Security Assessment Report.
      *
-     * @return ConfirmDjbhReportResponse ConfirmDjbhReportResponse
+     * @param request - ConfirmDjbhReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ConfirmDjbhReportResponse
+     *
+     * @param ConfirmDjbhReportRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ConfirmDjbhReportResponse
      */
     public function confirmDjbhReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ConfirmDjbhReport',
@@ -129,16 +133,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConfirmDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ConfirmDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfirmDjbhReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Confirm Receipt of Security Assessment Report
-     *  *
-     * @param ConfirmDjbhReportRequest $request ConfirmDjbhReportRequest
+     * Confirm Receipt of Security Assessment Report.
      *
-     * @return ConfirmDjbhReportResponse ConfirmDjbhReportResponse
+     * @param request - ConfirmDjbhReportRequest
+     * @returns ConfirmDjbhReportResponse
+     *
+     * @param ConfirmDjbhReportRequest $request
+     *
+     * @return ConfirmDjbhReportResponse
      */
     public function confirmDjbhReport($request)
     {
@@ -148,25 +158,31 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Create Service-Linked Role
-     *  *
-     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Create Service-Linked Role.
      *
-     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     * @param request - CreateServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceLinkedRoleResponse
+     *
+     * @param CreateServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceLinkedRole',
@@ -179,16 +195,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Create Service-Linked Role
-     *  *
-     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * Create Service-Linked Role.
      *
-     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     * @param request - CreateServiceLinkedRoleRequest
+     * @returns CreateServiceLinkedRoleResponse
+     *
+     * @param CreateServiceLinkedRoleRequest $request
+     *
+     * @return CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -198,73 +220,95 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Create Service Work Order
-     *  *
-     * @param CreateServiceWorkOrderRequest $request CreateServiceWorkOrderRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Create Service Work Order.
      *
-     * @return CreateServiceWorkOrderResponse CreateServiceWorkOrderResponse
+     * @param request - CreateServiceWorkOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceWorkOrderResponse
+     *
+     * @param CreateServiceWorkOrderRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateServiceWorkOrderResponse
      */
     public function createServiceWorkOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->creator)) {
-            $body['Creator'] = $request->creator;
+        if (null !== $request->creator) {
+            @$body['Creator'] = $request->creator;
         }
-        if (!Utils::isUnset($request->customerId)) {
-            $body['CustomerId'] = $request->customerId;
+
+        if (null !== $request->customerId) {
+            @$body['CustomerId'] = $request->customerId;
         }
-        if (!Utils::isUnset($request->durationDay)) {
-            $body['DurationDay'] = $request->durationDay;
+
+        if (null !== $request->durationDay) {
+            @$body['DurationDay'] = $request->durationDay;
         }
-        if (!Utils::isUnset($request->isAttachment)) {
-            $body['IsAttachment'] = $request->isAttachment;
+
+        if (null !== $request->isAttachment) {
+            @$body['IsAttachment'] = $request->isAttachment;
         }
-        if (!Utils::isUnset($request->isMilestone)) {
-            $body['IsMilestone'] = $request->isMilestone;
+
+        if (null !== $request->isMilestone) {
+            @$body['IsMilestone'] = $request->isMilestone;
         }
-        if (!Utils::isUnset($request->isWorkOrderNotify)) {
-            $body['IsWorkOrderNotify'] = $request->isWorkOrderNotify;
+
+        if (null !== $request->isWorkOrderNotify) {
+            @$body['IsWorkOrderNotify'] = $request->isWorkOrderNotify;
         }
-        if (!Utils::isUnset($request->notifyDay)) {
-            $body['NotifyDay'] = $request->notifyDay;
+
+        if (null !== $request->notifyDay) {
+            @$body['NotifyDay'] = $request->notifyDay;
         }
-        if (!Utils::isUnset($request->notifyId)) {
-            $body['NotifyId'] = $request->notifyId;
+
+        if (null !== $request->notifyId) {
+            @$body['NotifyId'] = $request->notifyId;
         }
-        if (!Utils::isUnset($request->operateRemark)) {
-            $body['OperateRemark'] = $request->operateRemark;
+
+        if (null !== $request->operateRemark) {
+            @$body['OperateRemark'] = $request->operateRemark;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $body['OperateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$body['OperateType'] = $request->operateType;
         }
-        if (!Utils::isUnset($request->operator)) {
-            $body['Operator'] = $request->operator;
+
+        if (null !== $request->operator) {
+            @$body['Operator'] = $request->operator;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $body['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$body['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->workOrderDetail)) {
-            $body['WorkOrderDetail'] = $request->workOrderDetail;
+
+        if (null !== $request->workOrderDetail) {
+            @$body['WorkOrderDetail'] = $request->workOrderDetail;
         }
-        if (!Utils::isUnset($request->workOrderName)) {
-            $body['WorkOrderName'] = $request->workOrderName;
+
+        if (null !== $request->workOrderName) {
+            @$body['WorkOrderName'] = $request->workOrderName;
         }
-        if (!Utils::isUnset($request->workOrderSource)) {
-            $body['WorkOrderSource'] = $request->workOrderSource;
+
+        if (null !== $request->workOrderSource) {
+            @$body['WorkOrderSource'] = $request->workOrderSource;
         }
-        if (!Utils::isUnset($request->workOrderStatus)) {
-            $body['WorkOrderStatus'] = $request->workOrderStatus;
+
+        if (null !== $request->workOrderStatus) {
+            @$body['WorkOrderStatus'] = $request->workOrderStatus;
         }
-        if (!Utils::isUnset($request->workOrderType)) {
-            $body['WorkOrderType'] = $request->workOrderType;
+
+        if (null !== $request->workOrderType) {
+            @$body['WorkOrderType'] = $request->workOrderType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceWorkOrder',
@@ -277,16 +321,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceWorkOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServiceWorkOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServiceWorkOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Create Service Work Order
-     *  *
-     * @param CreateServiceWorkOrderRequest $request CreateServiceWorkOrderRequest
+     * Create Service Work Order.
      *
-     * @return CreateServiceWorkOrderResponse CreateServiceWorkOrderResponse
+     * @param request - CreateServiceWorkOrderRequest
+     * @returns CreateServiceWorkOrderResponse
+     *
+     * @param CreateServiceWorkOrderRequest $request
+     *
+     * @return CreateServiceWorkOrderResponse
      */
     public function createServiceWorkOrder($request)
     {
@@ -296,22 +346,27 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Delete Security Assessment Report
-     *  *
-     * @param DeleteDjbhReportRequest $request DeleteDjbhReportRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Delete Security Assessment Report.
      *
-     * @return DeleteDjbhReportResponse DeleteDjbhReportResponse
+     * @param request - DeleteDjbhReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDjbhReportResponse
+     *
+     * @param DeleteDjbhReportRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDjbhReportResponse
      */
     public function deleteDjbhReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteDjbhReport',
@@ -324,16 +379,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDjbhReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Delete Security Assessment Report
-     *  *
-     * @param DeleteDjbhReportRequest $request DeleteDjbhReportRequest
+     * Delete Security Assessment Report.
      *
-     * @return DeleteDjbhReportResponse DeleteDjbhReportResponse
+     * @param request - DeleteDjbhReportRequest
+     * @returns DeleteDjbhReportResponse
+     *
+     * @param DeleteDjbhReportRequest $request
+     *
+     * @return DeleteDjbhReportResponse
      */
     public function deleteDjbhReport($request)
     {
@@ -343,25 +404,31 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Query Service-Linked Role
-     *  *
-     * @param DescribeServiceLinkedRoleRequest $request DescribeServiceLinkedRoleRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Query Service-Linked Role.
      *
-     * @return DescribeServiceLinkedRoleResponse DescribeServiceLinkedRoleResponse
+     * @param request - DescribeServiceLinkedRoleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeServiceLinkedRoleResponse
+     *
+     * @param DescribeServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeServiceLinkedRoleResponse
      */
     public function describeServiceLinkedRoleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeServiceLinkedRole',
@@ -374,16 +441,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeServiceLinkedRoleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query Service-Linked Role
-     *  *
-     * @param DescribeServiceLinkedRoleRequest $request DescribeServiceLinkedRoleRequest
+     * Query Service-Linked Role.
      *
-     * @return DescribeServiceLinkedRoleResponse DescribeServiceLinkedRoleResponse
+     * @param request - DescribeServiceLinkedRoleRequest
+     * @returns DescribeServiceLinkedRoleResponse
+     *
+     * @param DescribeServiceLinkedRoleRequest $request
+     *
+     * @return DescribeServiceLinkedRoleResponse
      */
     public function describeServiceLinkedRole($request)
     {
@@ -393,64 +466,83 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Process Service Work Order
-     *  *
-     * @param DisposeServiceWorkOrderRequest $request DisposeServiceWorkOrderRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Process Service Work Order.
      *
-     * @return DisposeServiceWorkOrderResponse DisposeServiceWorkOrderResponse
+     * @param request - DisposeServiceWorkOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisposeServiceWorkOrderResponse
+     *
+     * @param DisposeServiceWorkOrderRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisposeServiceWorkOrderResponse
      */
     public function disposeServiceWorkOrderWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->attachmentName)) {
-            $body['AttachmentName'] = $request->attachmentName;
+        if (null !== $request->attachmentName) {
+            @$body['AttachmentName'] = $request->attachmentName;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->forwardOwnerId)) {
-            $body['ForwardOwnerId'] = $request->forwardOwnerId;
+
+        if (null !== $request->forwardOwnerId) {
+            @$body['ForwardOwnerId'] = $request->forwardOwnerId;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->isAttachment)) {
-            $body['IsAttachment'] = $request->isAttachment;
+
+        if (null !== $request->isAttachment) {
+            @$body['IsAttachment'] = $request->isAttachment;
         }
-        if (!Utils::isUnset($request->isWorkOrderNotify)) {
-            $body['IsWorkOrderNotify'] = $request->isWorkOrderNotify;
+
+        if (null !== $request->isWorkOrderNotify) {
+            @$body['IsWorkOrderNotify'] = $request->isWorkOrderNotify;
         }
-        if (!Utils::isUnset($request->notifyId)) {
-            $body['NotifyId'] = $request->notifyId;
+
+        if (null !== $request->notifyId) {
+            @$body['NotifyId'] = $request->notifyId;
         }
-        if (!Utils::isUnset($request->operateRemark)) {
-            $body['OperateRemark'] = $request->operateRemark;
+
+        if (null !== $request->operateRemark) {
+            @$body['OperateRemark'] = $request->operateRemark;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $body['OperateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$body['OperateType'] = $request->operateType;
         }
-        if (!Utils::isUnset($request->operator)) {
-            $body['Operator'] = $request->operator;
+
+        if (null !== $request->operator) {
+            @$body['Operator'] = $request->operator;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->upgradeOwnerId)) {
-            $body['UpgradeOwnerId'] = $request->upgradeOwnerId;
+
+        if (null !== $request->upgradeOwnerId) {
+            @$body['UpgradeOwnerId'] = $request->upgradeOwnerId;
         }
-        if (!Utils::isUnset($request->workOrderDetail)) {
-            $body['WorkOrderDetail'] = $request->workOrderDetail;
+
+        if (null !== $request->workOrderDetail) {
+            @$body['WorkOrderDetail'] = $request->workOrderDetail;
         }
-        if (!Utils::isUnset($request->workOrderName)) {
-            $body['WorkOrderName'] = $request->workOrderName;
+
+        if (null !== $request->workOrderName) {
+            @$body['WorkOrderName'] = $request->workOrderName;
         }
-        if (!Utils::isUnset($request->workOrderStatus)) {
-            $body['WorkOrderStatus'] = $request->workOrderStatus;
+
+        if (null !== $request->workOrderStatus) {
+            @$body['WorkOrderStatus'] = $request->workOrderStatus;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DisposeServiceWorkOrder',
@@ -463,16 +555,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisposeServiceWorkOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisposeServiceWorkOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisposeServiceWorkOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Process Service Work Order
-     *  *
-     * @param DisposeServiceWorkOrderRequest $request DisposeServiceWorkOrderRequest
+     * Process Service Work Order.
      *
-     * @return DisposeServiceWorkOrderResponse DisposeServiceWorkOrderResponse
+     * @param request - DisposeServiceWorkOrderRequest
+     * @returns DisposeServiceWorkOrderResponse
+     *
+     * @param DisposeServiceWorkOrderRequest $request
+     *
+     * @return DisposeServiceWorkOrderResponse
      */
     public function disposeServiceWorkOrder($request)
     {
@@ -482,31 +580,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Handle Alert Work Order
-     *  *
-     * @param DisposeWorkTaskRequest $request DisposeWorkTaskRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Handle Alert Work Order.
      *
-     * @return DisposeWorkTaskResponse DisposeWorkTaskResponse
+     * @param request - DisposeWorkTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisposeWorkTaskResponse
+     *
+     * @param DisposeWorkTaskRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DisposeWorkTaskResponse
      */
     public function disposeWorkTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->operator)) {
-            $body['Operator'] = $request->operator;
+        if (null !== $request->operator) {
+            @$body['Operator'] = $request->operator;
         }
-        if (!Utils::isUnset($request->optRemark)) {
-            $body['OptRemark'] = $request->optRemark;
+
+        if (null !== $request->optRemark) {
+            @$body['OptRemark'] = $request->optRemark;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->taskIds)) {
-            $body['TaskIds'] = $request->taskIds;
+
+        if (null !== $request->taskIds) {
+            @$body['TaskIds'] = $request->taskIds;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DisposeWorkTask',
@@ -519,16 +625,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisposeWorkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisposeWorkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisposeWorkTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Handle Alert Work Order
-     *  *
-     * @param DisposeWorkTaskRequest $request DisposeWorkTaskRequest
+     * Handle Alert Work Order.
      *
-     * @return DisposeWorkTaskResponse DisposeWorkTaskResponse
+     * @param request - DisposeWorkTaskRequest
+     * @returns DisposeWorkTaskResponse
+     *
+     * @param DisposeWorkTaskRequest $request
+     *
+     * @return DisposeWorkTaskResponse
      */
     public function disposeWorkTask($request)
     {
@@ -538,22 +650,27 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Query Alarm Details
-     *  *
-     * @param GetAlarmDetailByIdRequest $request GetAlarmDetailByIdRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Query Alarm Details.
      *
-     * @return GetAlarmDetailByIdResponse GetAlarmDetailByIdResponse
+     * @param request - GetAlarmDetailByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAlarmDetailByIdResponse
+     *
+     * @param GetAlarmDetailByIdRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetAlarmDetailByIdResponse
      */
     public function getAlarmDetailByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetAlarmDetailById',
@@ -566,16 +683,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAlarmDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAlarmDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAlarmDetailByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query Alarm Details
-     *  *
-     * @param GetAlarmDetailByIdRequest $request GetAlarmDetailByIdRequest
+     * Query Alarm Details.
      *
-     * @return GetAlarmDetailByIdResponse GetAlarmDetailByIdResponse
+     * @param request - GetAlarmDetailByIdRequest
+     * @returns GetAlarmDetailByIdResponse
+     *
+     * @param GetAlarmDetailByIdRequest $request
+     *
+     * @return GetAlarmDetailByIdResponse
      */
     public function getAlarmDetailById($request)
     {
@@ -585,31 +708,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Trend of Attacked Asset Convergence
-     *  *
-     * @param GetAttackedAssetDealRequest $request GetAttackedAssetDealRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Trend of Attacked Asset Convergence.
      *
-     * @return GetAttackedAssetDealResponse GetAttackedAssetDealResponse
+     * @param request - GetAttackedAssetDealRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAttackedAssetDealResponse
+     *
+     * @param GetAttackedAssetDealRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAttackedAssetDealResponse
      */
     public function getAttackedAssetDealWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dateType)) {
-            $body['DateType'] = $request->dateType;
+        if (null !== $request->dateType) {
+            @$body['DateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->suspEventSource)) {
-            $body['SuspEventSource'] = $request->suspEventSource;
+
+        if (null !== $request->suspEventSource) {
+            @$body['SuspEventSource'] = $request->suspEventSource;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetAttackedAssetDeal',
@@ -622,16 +753,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAttackedAssetDealResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAttackedAssetDealResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAttackedAssetDealResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Trend of Attacked Asset Convergence
-     *  *
-     * @param GetAttackedAssetDealRequest $request GetAttackedAssetDealRequest
+     * Trend of Attacked Asset Convergence.
      *
-     * @return GetAttackedAssetDealResponse GetAttackedAssetDealResponse
+     * @param request - GetAttackedAssetDealRequest
+     * @returns GetAttackedAssetDealResponse
+     *
+     * @param GetAttackedAssetDealRequest $request
+     *
+     * @return GetAttackedAssetDealResponse
      */
     public function getAttackedAssetDeal($request)
     {
@@ -641,31 +778,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Compliance Risk Convergence Trend
-     *  *
-     * @param GetBaselineSummaryRequest $request GetBaselineSummaryRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Compliance Risk Convergence Trend.
      *
-     * @return GetBaselineSummaryResponse GetBaselineSummaryResponse
+     * @param request - GetBaselineSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetBaselineSummaryResponse
+     *
+     * @param GetBaselineSummaryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetBaselineSummaryResponse
      */
     public function getBaselineSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dateType)) {
-            $body['DateType'] = $request->dateType;
+        if (null !== $request->dateType) {
+            @$body['DateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->suspEventSource)) {
-            $body['SuspEventSource'] = $request->suspEventSource;
+
+        if (null !== $request->suspEventSource) {
+            @$body['SuspEventSource'] = $request->suspEventSource;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetBaselineSummary',
@@ -678,16 +823,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetBaselineSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBaselineSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBaselineSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Compliance Risk Convergence Trend
-     *  *
-     * @param GetBaselineSummaryRequest $request GetBaselineSummaryRequest
+     * Compliance Risk Convergence Trend.
      *
-     * @return GetBaselineSummaryResponse GetBaselineSummaryResponse
+     * @param request - GetBaselineSummaryRequest
+     * @returns GetBaselineSummaryResponse
+     *
+     * @param GetBaselineSummaryRequest $request
+     *
+     * @return GetBaselineSummaryResponse
      */
     public function getBaselineSummary($request)
     {
@@ -697,31 +848,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Get Console Score
-     *  *
-     * @param GetConsoleScoreRequest $request GetConsoleScoreRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Get Console Score.
      *
-     * @return GetConsoleScoreResponse GetConsoleScoreResponse
+     * @param request - GetConsoleScoreRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetConsoleScoreResponse
+     *
+     * @param GetConsoleScoreRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetConsoleScoreResponse
      */
     public function getConsoleScoreWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dateType)) {
-            $body['DateType'] = $request->dateType;
+        if (null !== $request->dateType) {
+            @$body['DateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->suspEventSource)) {
-            $body['SuspEventSource'] = $request->suspEventSource;
+
+        if (null !== $request->suspEventSource) {
+            @$body['SuspEventSource'] = $request->suspEventSource;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetConsoleScore',
@@ -734,16 +893,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetConsoleScoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetConsoleScoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetConsoleScoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get Console Score
-     *  *
-     * @param GetConsoleScoreRequest $request GetConsoleScoreRequest
+     * Get Console Score.
      *
-     * @return GetConsoleScoreResponse GetConsoleScoreResponse
+     * @param request - GetConsoleScoreRequest
+     * @returns GetConsoleScoreResponse
+     *
+     * @param GetConsoleScoreRequest $request
+     *
+     * @return GetConsoleScoreResponse
      */
     public function getConsoleScore($request)
     {
@@ -753,22 +918,27 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Query Risk Details
-     *  *
-     * @param GetDetailByIdRequest $request GetDetailByIdRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Query Risk Details.
      *
-     * @return GetDetailByIdResponse GetDetailByIdResponse
+     * @param request - GetDetailByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDetailByIdResponse
+     *
+     * @param GetDetailByIdRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDetailByIdResponse
      */
     public function getDetailByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDetailById',
@@ -781,16 +951,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDetailByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query Risk Details
-     *  *
-     * @param GetDetailByIdRequest $request GetDetailByIdRequest
+     * Query Risk Details.
      *
-     * @return GetDetailByIdResponse GetDetailByIdResponse
+     * @param request - GetDetailByIdRequest
+     * @returns GetDetailByIdResponse
+     *
+     * @param GetDetailByIdRequest $request
+     *
+     * @return GetDetailByIdResponse
      */
     public function getDetailById($request)
     {
@@ -800,25 +976,31 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Single Service Report Download
-     *  *
-     * @param GetDocumentDownloadUrlRequest $request GetDocumentDownloadUrlRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Single Service Report Download.
      *
-     * @return GetDocumentDownloadUrlResponse GetDocumentDownloadUrlResponse
+     * @param request - GetDocumentDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDocumentDownloadUrlResponse
+     *
+     * @param GetDocumentDownloadUrlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetDocumentDownloadUrlResponse
      */
     public function getDocumentDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->reportType)) {
-            $body['ReportType'] = $request->reportType;
+
+        if (null !== $request->reportType) {
+            @$body['ReportType'] = $request->reportType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDocumentDownloadUrl',
@@ -831,16 +1013,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDocumentDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDocumentDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDocumentDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Single Service Report Download
-     *  *
-     * @param GetDocumentDownloadUrlRequest $request GetDocumentDownloadUrlRequest
+     * Single Service Report Download.
      *
-     * @return GetDocumentDownloadUrlResponse GetDocumentDownloadUrlResponse
+     * @param request - GetDocumentDownloadUrlRequest
+     * @returns GetDocumentDownloadUrlResponse
+     *
+     * @param GetDocumentDownloadUrlRequest $request
+     *
+     * @return GetDocumentDownloadUrlResponse
      */
     public function getDocumentDownloadUrl($request)
     {
@@ -850,37 +1038,47 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Service Report Query
-     *  *
-     * @param GetDocumentPageRequest $request GetDocumentPageRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Service Report Query.
      *
-     * @return GetDocumentPageResponse GetDocumentPageResponse
+     * @param request - GetDocumentPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDocumentPageResponse
+     *
+     * @param GetDocumentPageRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDocumentPageResponse
      */
     public function getDocumentPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->deliveredBy)) {
-            $body['DeliveredBy'] = $request->deliveredBy;
+
+        if (null !== $request->deliveredBy) {
+            @$body['DeliveredBy'] = $request->deliveredBy;
         }
-        if (!Utils::isUnset($request->documentName)) {
-            $body['DocumentName'] = $request->documentName;
+
+        if (null !== $request->documentName) {
+            @$body['DocumentName'] = $request->documentName;
         }
-        if (!Utils::isUnset($request->documentType)) {
-            $body['DocumentType'] = $request->documentType;
+
+        if (null !== $request->documentType) {
+            @$body['DocumentType'] = $request->documentType;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->reportType)) {
-            $body['ReportType'] = $request->reportType;
+
+        if (null !== $request->reportType) {
+            @$body['ReportType'] = $request->reportType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDocumentPage',
@@ -893,16 +1091,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDocumentPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDocumentPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDocumentPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Service Report Query
-     *  *
-     * @param GetDocumentPageRequest $request GetDocumentPageRequest
+     * Service Report Query.
      *
-     * @return GetDocumentPageResponse GetDocumentPageResponse
+     * @param request - GetDocumentPageRequest
+     * @returns GetDocumentPageResponse
+     *
+     * @param GetDocumentPageRequest $request
+     *
+     * @return GetDocumentPageResponse
      */
     public function getDocumentPage($request)
     {
@@ -912,22 +1116,27 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Service Report Home Page Statistics Acquisition
-     *  *
-     * @param GetDocumentSummaryRequest $request GetDocumentSummaryRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Service Report Home Page Statistics Acquisition.
      *
-     * @return GetDocumentSummaryResponse GetDocumentSummaryResponse
+     * @param request - GetDocumentSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDocumentSummaryResponse
+     *
+     * @param GetDocumentSummaryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetDocumentSummaryResponse
      */
     public function getDocumentSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->reportType)) {
-            $body['ReportType'] = $request->reportType;
+        if (null !== $request->reportType) {
+            @$body['ReportType'] = $request->reportType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDocumentSummary',
@@ -940,16 +1149,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDocumentSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDocumentSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDocumentSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Service Report Home Page Statistics Acquisition
-     *  *
-     * @param GetDocumentSummaryRequest $request GetDocumentSummaryRequest
+     * Service Report Home Page Statistics Acquisition.
      *
-     * @return GetDocumentSummaryResponse GetDocumentSummaryResponse
+     * @param request - GetDocumentSummaryRequest
+     * @returns GetDocumentSummaryResponse
+     *
+     * @param GetDocumentSummaryRequest $request
+     *
+     * @return GetDocumentSummaryResponse
      */
     public function getDocumentSummary($request)
     {
@@ -959,31 +1174,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Get Recently Uploaded Service Reports
-     *  *
-     * @param GetRecentDocumentRequest $request GetRecentDocumentRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Get Recently Uploaded Service Reports.
      *
-     * @return GetRecentDocumentResponse GetRecentDocumentResponse
+     * @param request - GetRecentDocumentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRecentDocumentResponse
+     *
+     * @param GetRecentDocumentRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetRecentDocumentResponse
      */
     public function getRecentDocumentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dateType)) {
-            $body['DateType'] = $request->dateType;
+        if (null !== $request->dateType) {
+            @$body['DateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->suspEventSource)) {
-            $body['SuspEventSource'] = $request->suspEventSource;
+
+        if (null !== $request->suspEventSource) {
+            @$body['SuspEventSource'] = $request->suspEventSource;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetRecentDocument',
@@ -996,16 +1219,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRecentDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRecentDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRecentDocumentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get Recently Uploaded Service Reports
-     *  *
-     * @param GetRecentDocumentRequest $request GetRecentDocumentRequest
+     * Get Recently Uploaded Service Reports.
      *
-     * @return GetRecentDocumentResponse GetRecentDocumentResponse
+     * @param request - GetRecentDocumentRequest
+     * @returns GetRecentDocumentResponse
+     *
+     * @param GetRecentDocumentRequest $request
+     *
+     * @return GetRecentDocumentResponse
      */
     public function getRecentDocument($request)
     {
@@ -1015,31 +1244,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Get Safety Coverage
-     *  *
-     * @param GetSafetyCoverRequest $request GetSafetyCoverRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Get Safety Coverage.
      *
-     * @return GetSafetyCoverResponse GetSafetyCoverResponse
+     * @param request - GetSafetyCoverRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSafetyCoverResponse
+     *
+     * @param GetSafetyCoverRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetSafetyCoverResponse
      */
     public function getSafetyCoverWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dateType)) {
-            $body['DateType'] = $request->dateType;
+        if (null !== $request->dateType) {
+            @$body['DateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->suspEventSource)) {
-            $body['SuspEventSource'] = $request->suspEventSource;
+
+        if (null !== $request->suspEventSource) {
+            @$body['SuspEventSource'] = $request->suspEventSource;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSafetyCover',
@@ -1052,16 +1289,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSafetyCoverResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSafetyCoverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSafetyCoverResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get Safety Coverage
-     *  *
-     * @param GetSafetyCoverRequest $request GetSafetyCoverRequest
+     * Get Safety Coverage.
      *
-     * @return GetSafetyCoverResponse GetSafetyCoverResponse
+     * @param request - GetSafetyCoverRequest
+     * @returns GetSafetyCoverResponse
+     *
+     * @param GetSafetyCoverRequest $request
+     *
+     * @return GetSafetyCoverResponse
      */
     public function getSafetyCover($request)
     {
@@ -1071,31 +1314,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Get SOW List
-     *  *
-     * @param GetSowListRequest $request GetSowListRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Get SOW List.
      *
-     * @return GetSowListResponse GetSowListResponse
+     * @param request - GetSowListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSowListResponse
+     *
+     * @param GetSowListRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return GetSowListResponse
      */
     public function getSowListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dateType)) {
-            $body['DateType'] = $request->dateType;
+        if (null !== $request->dateType) {
+            @$body['DateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->suspEventSource)) {
-            $body['SuspEventSource'] = $request->suspEventSource;
+
+        if (null !== $request->suspEventSource) {
+            @$body['SuspEventSource'] = $request->suspEventSource;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSowList',
@@ -1108,16 +1359,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSowListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSowListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSowListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get SOW List
-     *  *
-     * @param GetSowListRequest $request GetSowListRequest
+     * Get SOW List.
      *
-     * @return GetSowListResponse GetSowListResponse
+     * @param request - GetSowListRequest
+     * @returns GetSowListResponse
+     *
+     * @param GetSowListRequest $request
+     *
+     * @return GetSowListResponse
      */
     public function getSowList($request)
     {
@@ -1127,37 +1384,47 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Alarm Disposal Query
-     *  *
-     * @param GetSuspEventPageRequest $request GetSuspEventPageRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Alarm Disposal Query.
      *
-     * @return GetSuspEventPageResponse GetSuspEventPageResponse
+     * @param request - GetSuspEventPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSuspEventPageResponse
+     *
+     * @param GetSuspEventPageRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetSuspEventPageResponse
      */
     public function getSuspEventPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alarmEndTime)) {
-            $body['AlarmEndTime'] = $request->alarmEndTime;
+        if (null !== $request->alarmEndTime) {
+            @$body['AlarmEndTime'] = $request->alarmEndTime;
         }
-        if (!Utils::isUnset($request->alarmStartTime)) {
-            $body['AlarmStartTime'] = $request->alarmStartTime;
+
+        if (null !== $request->alarmStartTime) {
+            @$body['AlarmStartTime'] = $request->alarmStartTime;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->source)) {
-            $body['Source'] = $request->source;
+
+        if (null !== $request->source) {
+            @$body['Source'] = $request->source;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSuspEventPage',
@@ -1170,16 +1437,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSuspEventPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSuspEventPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSuspEventPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Alarm Disposal Query
-     *  *
-     * @param GetSuspEventPageRequest $request GetSuspEventPageRequest
+     * Alarm Disposal Query.
      *
-     * @return GetSuspEventPageResponse GetSuspEventPageResponse
+     * @param request - GetSuspEventPageRequest
+     * @returns GetSuspEventPageResponse
+     *
+     * @param GetSuspEventPageRequest $request
+     *
+     * @return GetSuspEventPageResponse
      */
     public function getSuspEventPage($request)
     {
@@ -1189,31 +1462,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Get Alert Statistics
-     *  *
-     * @param GetSuspEventSummaryRequest $request GetSuspEventSummaryRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Get Alert Statistics.
      *
-     * @return GetSuspEventSummaryResponse GetSuspEventSummaryResponse
+     * @param request - GetSuspEventSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSuspEventSummaryResponse
+     *
+     * @param GetSuspEventSummaryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetSuspEventSummaryResponse
      */
     public function getSuspEventSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dateType)) {
-            $body['DateType'] = $request->dateType;
+        if (null !== $request->dateType) {
+            @$body['DateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->suspEventSource)) {
-            $body['SuspEventSource'] = $request->suspEventSource;
+
+        if (null !== $request->suspEventSource) {
+            @$body['SuspEventSource'] = $request->suspEventSource;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSuspEventSummary',
@@ -1226,16 +1507,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSuspEventSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSuspEventSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSuspEventSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get Alert Statistics
-     *  *
-     * @param GetSuspEventSummaryRequest $request GetSuspEventSummaryRequest
+     * Get Alert Statistics.
      *
-     * @return GetSuspEventSummaryResponse GetSuspEventSummaryResponse
+     * @param request - GetSuspEventSummaryRequest
+     * @returns GetSuspEventSummaryResponse
+     *
+     * @param GetSuspEventSummaryRequest $request
+     *
+     * @return GetSuspEventSummaryResponse
      */
     public function getSuspEventSummary($request)
     {
@@ -1245,11 +1532,15 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Alarm Page Statistics
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Alarm Page Statistics.
      *
-     * @return GetSuspPageSummaryResponse GetSuspPageSummaryResponse
+     * @param request - GetSuspPageSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSuspPageSummaryResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetSuspPageSummaryResponse
      */
     public function getSuspPageSummaryWithOptions($runtime)
     {
@@ -1265,14 +1556,19 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSuspPageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSuspPageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSuspPageSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Alarm Page Statistics
-     *  *
-     * @return GetSuspPageSummaryResponse GetSuspPageSummaryResponse
+     * Alarm Page Statistics.
+     *
+     * @returns GetSuspPageSummaryResponse
+     *
+     * @return GetSuspPageSummaryResponse
      */
     public function getSuspPageSummary()
     {
@@ -1282,11 +1578,15 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Query User Activation Status
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Query User Activation Status.
      *
-     * @return GetUserStatusResponse GetUserStatusResponse
+     * @param request - GetUserStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetUserStatusResponse
      */
     public function getUserStatusWithOptions($runtime)
     {
@@ -1302,14 +1602,19 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query User Activation Status
-     *  *
-     * @return GetUserStatusResponse GetUserStatusResponse
+     * Query User Activation Status.
+     *
+     * @returns GetUserStatusResponse
+     *
+     * @return GetUserStatusResponse
      */
     public function getUserStatus()
     {
@@ -1319,40 +1624,51 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Risk Query
-     *  *
-     * @param GetVulItemPageRequest $request GetVulItemPageRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Risk Query.
      *
-     * @return GetVulItemPageResponse GetVulItemPageResponse
+     * @param request - GetVulItemPageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVulItemPageResponse
+     *
+     * @param GetVulItemPageRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetVulItemPageResponse
      */
     public function getVulItemPageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aliasName)) {
-            $body['AliasName'] = $request->aliasName;
+        if (null !== $request->aliasName) {
+            @$body['AliasName'] = $request->aliasName;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->dealed)) {
-            $body['Dealed'] = $request->dealed;
+
+        if (null !== $request->dealed) {
+            @$body['Dealed'] = $request->dealed;
         }
-        if (!Utils::isUnset($request->level)) {
-            $body['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$body['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->scanType)) {
-            $body['ScanType'] = $request->scanType;
+
+        if (null !== $request->scanType) {
+            @$body['ScanType'] = $request->scanType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVulItemPage',
@@ -1365,16 +1681,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVulItemPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVulItemPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVulItemPageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Risk Query
-     *  *
-     * @param GetVulItemPageRequest $request GetVulItemPageRequest
+     * Risk Query.
      *
-     * @return GetVulItemPageResponse GetVulItemPageResponse
+     * @param request - GetVulItemPageRequest
+     * @returns GetVulItemPageResponse
+     *
+     * @param GetVulItemPageRequest $request
+     *
+     * @return GetVulItemPageResponse
      */
     public function getVulItemPage($request)
     {
@@ -1384,40 +1706,51 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Query processed details
-     *  *
-     * @param GetVulListByIdRequest $request GetVulListByIdRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Query processed details.
      *
-     * @return GetVulListByIdResponse GetVulListByIdResponse
+     * @param request - GetVulListByIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVulListByIdResponse
+     *
+     * @param GetVulListByIdRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetVulListByIdResponse
      */
     public function getVulListByIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->dealed)) {
-            $body['Dealed'] = $request->dealed;
+
+        if (null !== $request->dealed) {
+            @$body['Dealed'] = $request->dealed;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['Id'] = $request->id;
         }
-        if (!Utils::isUnset($request->necessity)) {
-            $body['Necessity'] = $request->necessity;
+
+        if (null !== $request->necessity) {
+            @$body['Necessity'] = $request->necessity;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $body['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$body['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->uuids)) {
-            $body['Uuids'] = $request->uuids;
+
+        if (null !== $request->uuids) {
+            @$body['Uuids'] = $request->uuids;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVulListById',
@@ -1430,16 +1763,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVulListByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVulListByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVulListByIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query processed details
-     *  *
-     * @param GetVulListByIdRequest $request GetVulListByIdRequest
+     * Query processed details.
      *
-     * @return GetVulListByIdResponse GetVulListByIdResponse
+     * @param request - GetVulListByIdRequest
+     * @returns GetVulListByIdResponse
+     *
+     * @param GetVulListByIdRequest $request
+     *
+     * @return GetVulListByIdResponse
      */
     public function getVulListById($request)
     {
@@ -1449,11 +1788,15 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Risk Page Statistics
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Risk Page Statistics.
      *
-     * @return GetVulPageSummaryResponse GetVulPageSummaryResponse
+     * @param request - GetVulPageSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVulPageSummaryResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetVulPageSummaryResponse
      */
     public function getVulPageSummaryWithOptions($runtime)
     {
@@ -1469,14 +1812,19 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVulPageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVulPageSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVulPageSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Risk Page Statistics
-     *  *
-     * @return GetVulPageSummaryResponse GetVulPageSummaryResponse
+     * Risk Page Statistics.
+     *
+     * @returns GetVulPageSummaryResponse
+     *
+     * @return GetVulPageSummaryResponse
      */
     public function getVulPageSummary()
     {
@@ -1486,31 +1834,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Get Risk Statistics
-     *  *
-     * @param GetVulSummaryRequest $request GetVulSummaryRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Get Risk Statistics.
      *
-     * @return GetVulSummaryResponse GetVulSummaryResponse
+     * @param request - GetVulSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVulSummaryResponse
+     *
+     * @param GetVulSummaryRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetVulSummaryResponse
      */
     public function getVulSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dateType)) {
-            $body['DateType'] = $request->dateType;
+        if (null !== $request->dateType) {
+            @$body['DateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->suspEventSource)) {
-            $body['SuspEventSource'] = $request->suspEventSource;
+
+        if (null !== $request->suspEventSource) {
+            @$body['SuspEventSource'] = $request->suspEventSource;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVulSummary',
@@ -1523,16 +1879,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVulSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVulSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVulSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get Risk Statistics
-     *  *
-     * @param GetVulSummaryRequest $request GetVulSummaryRequest
+     * Get Risk Statistics.
      *
-     * @return GetVulSummaryResponse GetVulSummaryResponse
+     * @param request - GetVulSummaryRequest
+     * @returns GetVulSummaryResponse
+     *
+     * @param GetVulSummaryRequest $request
+     *
+     * @return GetVulSummaryResponse
      */
     public function getVulSummary($request)
     {
@@ -1542,31 +1904,39 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Get the First Line Work Order Statistics
-     *  *
-     * @param GetWorkTaskSummaryRequest $request GetWorkTaskSummaryRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Get the First Line Work Order Statistics.
      *
-     * @return GetWorkTaskSummaryResponse GetWorkTaskSummaryResponse
+     * @param request - GetWorkTaskSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkTaskSummaryResponse
+     *
+     * @param GetWorkTaskSummaryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetWorkTaskSummaryResponse
      */
     public function getWorkTaskSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dateType)) {
-            $body['DateType'] = $request->dateType;
+        if (null !== $request->dateType) {
+            @$body['DateType'] = $request->dateType;
         }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
+
+        if (null !== $request->endDate) {
+            @$body['EndDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['StartDate'] = $request->startDate;
         }
-        if (!Utils::isUnset($request->suspEventSource)) {
-            $body['SuspEventSource'] = $request->suspEventSource;
+
+        if (null !== $request->suspEventSource) {
+            @$body['SuspEventSource'] = $request->suspEventSource;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetWorkTaskSummary',
@@ -1579,16 +1949,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkTaskSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkTaskSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkTaskSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Get the First Line Work Order Statistics
-     *  *
-     * @param GetWorkTaskSummaryRequest $request GetWorkTaskSummaryRequest
+     * Get the First Line Work Order Statistics.
      *
-     * @return GetWorkTaskSummaryResponse GetWorkTaskSummaryResponse
+     * @param request - GetWorkTaskSummaryRequest
+     * @returns GetWorkTaskSummaryResponse
+     *
+     * @param GetWorkTaskSummaryRequest $request
+     *
+     * @return GetWorkTaskSummaryResponse
      */
     public function getWorkTaskSummary($request)
     {
@@ -1598,40 +1974,51 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Service Customer Information Query
-     *  *
-     * @param PageServiceCustomerRequest $request PageServiceCustomerRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Service Customer Information Query.
      *
-     * @return PageServiceCustomerResponse PageServiceCustomerResponse
+     * @param request - PageServiceCustomerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PageServiceCustomerResponse
+     *
+     * @param PageServiceCustomerRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return PageServiceCustomerResponse
      */
     public function pageServiceCustomerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->authStatus)) {
-            $body['AuthStatus'] = $request->authStatus;
+        if (null !== $request->authStatus) {
+            @$body['AuthStatus'] = $request->authStatus;
         }
-        if (!Utils::isUnset($request->cmAuthStatus)) {
-            $body['CmAuthStatus'] = $request->cmAuthStatus;
+
+        if (null !== $request->cmAuthStatus) {
+            @$body['CmAuthStatus'] = $request->cmAuthStatus;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $body['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$body['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->monitorAuthStatus)) {
-            $body['MonitorAuthStatus'] = $request->monitorAuthStatus;
+
+        if (null !== $request->monitorAuthStatus) {
+            @$body['MonitorAuthStatus'] = $request->monitorAuthStatus;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PageServiceCustomer',
@@ -1644,16 +2031,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PageServiceCustomerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PageServiceCustomerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PageServiceCustomerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Service Customer Information Query
-     *  *
-     * @param PageServiceCustomerRequest $request PageServiceCustomerRequest
+     * Service Customer Information Query.
      *
-     * @return PageServiceCustomerResponse PageServiceCustomerResponse
+     * @param request - PageServiceCustomerRequest
+     * @returns PageServiceCustomerResponse
+     *
+     * @param PageServiceCustomerRequest $request
+     *
+     * @return PageServiceCustomerResponse
      */
     public function pageServiceCustomer($request)
     {
@@ -1663,67 +2056,91 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary Send Custom Alert Event
-     *  *
-     * @param SendCustomEventRequest $request SendCustomEventRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Send Custom Alert Event.
      *
-     * @return SendCustomEventResponse SendCustomEventResponse
+     * @param request - SendCustomEventRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendCustomEventResponse
+     *
+     * @param SendCustomEventRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SendCustomEventResponse
      */
     public function sendCustomEventWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->customerId)) {
-            $body['CustomerId'] = $request->customerId;
+        if (null !== $request->customerId) {
+            @$body['CustomerId'] = $request->customerId;
         }
-        if (!Utils::isUnset($request->dataSource)) {
-            $body['DataSource'] = $request->dataSource;
+
+        if (null !== $request->dataSource) {
+            @$body['DataSource'] = $request->dataSource;
         }
-        if (!Utils::isUnset($request->eventDescription)) {
-            $body['EventDescription'] = $request->eventDescription;
+
+        if (null !== $request->eventDescription) {
+            @$body['EventDescription'] = $request->eventDescription;
         }
-        if (!Utils::isUnset($request->eventDetails)) {
-            $body['EventDetails'] = $request->eventDetails;
+
+        if (null !== $request->eventDetails) {
+            @$body['EventDetails'] = $request->eventDetails;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $body['EventName'] = $request->eventName;
+
+        if (null !== $request->eventMarkdown) {
+            @$body['EventMarkdown'] = $request->eventMarkdown;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $body['EventType'] = $request->eventType;
+
+        if (null !== $request->eventName) {
+            @$body['EventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->findTime)) {
-            $body['FindTime'] = $request->findTime;
+
+        if (null !== $request->eventType) {
+            @$body['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->findTime) {
+            @$body['FindTime'] = $request->findTime;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->isSend)) {
-            $body['IsSend'] = $request->isSend;
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->level)) {
-            $body['Level'] = $request->level;
+
+        if (null !== $request->isSend) {
+            @$body['IsSend'] = $request->isSend;
         }
-        if (!Utils::isUnset($request->occurrenceTime)) {
-            $body['OccurrenceTime'] = $request->occurrenceTime;
+
+        if (null !== $request->level) {
+            @$body['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $body['OwnerId'] = $request->ownerId;
+
+        if (null !== $request->occurrenceTime) {
+            @$body['OccurrenceTime'] = $request->occurrenceTime;
         }
-        if (!Utils::isUnset($request->product)) {
-            $body['Product'] = $request->product;
+
+        if (null !== $request->ownerId) {
+            @$body['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->uniqueId)) {
-            $body['UniqueId'] = $request->uniqueId;
+
+        if (null !== $request->product) {
+            @$body['Product'] = $request->product;
         }
-        if (!Utils::isUnset($request->uuid)) {
-            $body['Uuid'] = $request->uuid;
+
+        if (null !== $request->uniqueId) {
+            @$body['UniqueId'] = $request->uniqueId;
         }
+
+        if (null !== $request->uuid) {
+            @$body['Uuid'] = $request->uuid;
+        }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SendCustomEvent',
@@ -1736,16 +2153,22 @@ class Mssp extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SendCustomEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SendCustomEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SendCustomEventResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Send Custom Alert Event
-     *  *
-     * @param SendCustomEventRequest $request SendCustomEventRequest
+     * Send Custom Alert Event.
      *
-     * @return SendCustomEventResponse SendCustomEventResponse
+     * @param request - SendCustomEventRequest
+     * @returns SendCustomEventResponse
+     *
+     * @param SendCustomEventRequest $request
+     *
+     * @return SendCustomEventResponse
      */
     public function sendCustomEvent($request)
     {

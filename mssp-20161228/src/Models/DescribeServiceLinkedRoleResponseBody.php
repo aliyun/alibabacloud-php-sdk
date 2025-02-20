@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeServiceLinkedRoleResponseBody extends Model
 {
     /**
-     * @description Whether the service-linked role permission is granted:
-     * - false: Not granted.
-     * @example true
-     *
      * @var bool
      */
     public $entityRoleGrant;
-
     /**
-     * @description Request ID.
-     *
-     * @example 02F8BBF3-2D61-5982-8911-EEB387BE3AF8
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DescribeServiceLinkedRoleResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entityRoleGrant) {
             $res['EntityRoleGrant'] = $this->entityRoleGrant;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DescribeServiceLinkedRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeServiceLinkedRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EntityRoleGrant'])) {
             $model->entityRoleGrant = $map['EntityRoleGrant'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

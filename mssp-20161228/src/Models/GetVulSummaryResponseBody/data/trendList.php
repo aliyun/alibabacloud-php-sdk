@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models\GetVulSummaryResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class trendList extends Model
 {
     /**
-     * @description Time point.
-     *
-     * @example 202407或者20240701
-     *
      * @var string
      */
     public $date;
-
     /**
-     * @description Number of handled items.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $dealCount;
-
     /**
-     * @description Number of discovered items.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $findCount;
@@ -42,17 +28,20 @@ class trendList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->dealCount) {
             $res['DealCount'] = $this->dealCount;
         }
+
         if (null !== $this->findCount) {
             $res['FindCount'] = $this->findCount;
         }
@@ -60,20 +49,22 @@ class trendList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trendList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['DealCount'])) {
             $model->dealCount = $map['DealCount'];
         }
+
         if (isset($map['FindCount'])) {
             $model->findCount = $map['FindCount'];
         }

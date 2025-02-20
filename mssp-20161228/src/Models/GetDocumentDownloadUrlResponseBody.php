@@ -4,61 +4,31 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDocumentDownloadUrlResponseBody extends Model
 {
     /**
-     * @description API status code.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description OSS file access URL.
-     *
-     * @example https://oos-cn.ctyunapi.cn/example-bucket/test/1.jpg
-     *
      * @var string
      */
     public $data;
-
     /**
-     * @description HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @description Message of the returned result.
-     *
-     * @example successful
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description Request ID.
-     *
-     * This parameter is required.
-     * @example C7BE80B4-7692-54FA-AB22-2A7DF08C4754
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Whether the call was successful: - **true**: The call was successful. - **false**: The call failed.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -73,26 +43,32 @@ class GetDocumentDownloadUrlResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -100,29 +76,34 @@ class GetDocumentDownloadUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDocumentDownloadUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

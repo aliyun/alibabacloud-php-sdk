@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models\GetAttackedAssetDealResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ecsTrendList extends Model
 {
     /**
-     * @description Date point.
-     *
-     * @example 202312或20231205
-     *
      * @var string
      */
     public $date;
-
     /**
-     * @description Number of processed items.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $dealCount;
-
     /**
-     * @description Number of discovered items.
-     *
-     * @example 暂时无值，有疑问请联系管理员
-     *
      * @var int
      */
     public $findCount;
@@ -42,17 +28,20 @@ class ecsTrendList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->date) {
             $res['Date'] = $this->date;
         }
+
         if (null !== $this->dealCount) {
             $res['DealCount'] = $this->dealCount;
         }
+
         if (null !== $this->findCount) {
             $res['FindCount'] = $this->findCount;
         }
@@ -60,20 +49,22 @@ class ecsTrendList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ecsTrendList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
         }
+
         if (isset($map['DealCount'])) {
             $model->dealCount = $map['DealCount'];
         }
+
         if (isset($map['FindCount'])) {
             $model->findCount = $map['FindCount'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateServiceLinkedRoleResponseBody extends Model
 {
     /**
-     * @description Request ID.
-     *
-     * @example 592B80F0-7674-56A4-9027-8A0A9ACDBD56
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateServiceLinkedRoleResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateServiceLinkedRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateServiceLinkedRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

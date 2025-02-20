@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDocumentSummaryRequest extends Model
 {
     /**
-     * @description Type of service report.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $reportType;
@@ -22,9 +18,10 @@ class GetDocumentSummaryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reportType) {
@@ -34,11 +31,11 @@ class GetDocumentSummaryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDocumentSummaryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

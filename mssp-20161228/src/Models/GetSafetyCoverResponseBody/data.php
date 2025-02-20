@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models\GetSafetyCoverResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSafetyCoverResponseBody\data\cfwProtection;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSafetyCoverResponseBody\data\ecsProtection;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSafetyCoverResponseBody\data\wafProtection;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description CFW protection coverage.
-     *
      * @var cfwProtection
      */
     public $cfwProtection;
-
     /**
-     * @description ECS protection coverage.
-     *
      * @var ecsProtection
      */
     public $ecsProtection;
-
     /**
-     * @description WAF protection coverage.
-     *
      * @var wafProtection
      */
     public $wafProtection;
@@ -39,38 +31,52 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->cfwProtection) {
+            $this->cfwProtection->validate();
+        }
+        if (null !== $this->ecsProtection) {
+            $this->ecsProtection->validate();
+        }
+        if (null !== $this->wafProtection) {
+            $this->wafProtection->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cfwProtection) {
-            $res['CfwProtection'] = null !== $this->cfwProtection ? $this->cfwProtection->toMap() : null;
+            $res['CfwProtection'] = null !== $this->cfwProtection ? $this->cfwProtection->toArray($noStream) : $this->cfwProtection;
         }
+
         if (null !== $this->ecsProtection) {
-            $res['EcsProtection'] = null !== $this->ecsProtection ? $this->ecsProtection->toMap() : null;
+            $res['EcsProtection'] = null !== $this->ecsProtection ? $this->ecsProtection->toArray($noStream) : $this->ecsProtection;
         }
+
         if (null !== $this->wafProtection) {
-            $res['WafProtection'] = null !== $this->wafProtection ? $this->wafProtection->toMap() : null;
+            $res['WafProtection'] = null !== $this->wafProtection ? $this->wafProtection->toArray($noStream) : $this->wafProtection;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CfwProtection'])) {
             $model->cfwProtection = cfwProtection::fromMap($map['CfwProtection']);
         }
+
         if (isset($map['EcsProtection'])) {
             $model->ecsProtection = ecsProtection::fromMap($map['EcsProtection']);
         }
+
         if (isset($map['WafProtection'])) {
             $model->wafProtection = wafProtection::fromMap($map['WafProtection']);
         }

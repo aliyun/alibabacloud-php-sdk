@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteDjbhReportRequest extends Model
 {
     /**
-     * @description Primary key ID of the report.
-     *
-     * This parameter is required.
-     * @example 26579
-     *
      * @var int
      */
     public $id;
@@ -23,9 +18,10 @@ class DeleteDjbhReportRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -35,11 +31,11 @@ class DeleteDjbhReportRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteDjbhReportRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

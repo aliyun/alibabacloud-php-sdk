@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models\GetSuspEventSummaryResponseBody\data\suspEventTopDTO;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class suspEventList extends Model
 {
     /**
-     * @description Alert name.
-     *
-     * @example 主动外连风险 IP
-     *
      * @var string
      */
     public $eventName;
-
     /**
-     * @description Count.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $taskCount;
@@ -32,14 +23,16 @@ class suspEventList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
         }
+
         if (null !== $this->taskCount) {
             $res['TaskCount'] = $this->taskCount;
         }
@@ -47,17 +40,18 @@ class suspEventList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return suspEventList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
         }
+
         if (isset($map['TaskCount'])) {
             $model->taskCount = $map['TaskCount'];
         }

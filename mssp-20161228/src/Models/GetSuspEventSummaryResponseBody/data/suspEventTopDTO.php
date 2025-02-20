@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models\GetSuspEventSummaryResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSuspEventSummaryResponseBody\data\suspEventTopDTO\suspEventList;
-use AlibabaCloud\Tea\Model;
 
 class suspEventTopDTO extends Model
 {
     /**
-     * @description Top 10 before handling alarms
-     *
      * @var suspEventList[]
      */
     public $suspEventList;
@@ -21,17 +19,21 @@ class suspEventTopDTO extends Model
 
     public function validate()
     {
+        if (\is_array($this->suspEventList)) {
+            Model::validateArray($this->suspEventList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->suspEventList) {
-            $res['SuspEventList'] = [];
-            if (null !== $this->suspEventList && \is_array($this->suspEventList)) {
-                $n = 0;
-                foreach ($this->suspEventList as $item) {
-                    $res['SuspEventList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->suspEventList)) {
+                $res['SuspEventList'] = [];
+                $n1                   = 0;
+                foreach ($this->suspEventList as $item1) {
+                    $res['SuspEventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class suspEventTopDTO extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return suspEventTopDTO
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SuspEventList'])) {
             if (!empty($map['SuspEventList'])) {
                 $model->suspEventList = [];
-                $n                    = 0;
-                foreach ($map['SuspEventList'] as $item) {
-                    $model->suspEventList[$n++] = null !== $item ? suspEventList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['SuspEventList'] as $item1) {
+                    $model->suspEventList[$n1++] = suspEventList::fromMap($item1);
                 }
             }
         }

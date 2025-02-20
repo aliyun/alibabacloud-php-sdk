@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models\GetAttackedAssetDealResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAttackedAssetDealResponseBody\data\ecsTrendList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Collection of attacked asset convergence trends.
-     *
      * @var ecsTrendList[]
      */
     public $ecsTrendList;
@@ -21,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->ecsTrendList)) {
+            Model::validateArray($this->ecsTrendList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ecsTrendList) {
-            $res['EcsTrendList'] = [];
-            if (null !== $this->ecsTrendList && \is_array($this->ecsTrendList)) {
-                $n = 0;
-                foreach ($this->ecsTrendList as $item) {
-                    $res['EcsTrendList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ecsTrendList)) {
+                $res['EcsTrendList'] = [];
+                $n1                  = 0;
+                foreach ($this->ecsTrendList as $item1) {
+                    $res['EcsTrendList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EcsTrendList'])) {
             if (!empty($map['EcsTrendList'])) {
                 $model->ecsTrendList = [];
-                $n                   = 0;
-                foreach ($map['EcsTrendList'] as $item) {
-                    $model->ecsTrendList[$n++] = null !== $item ? ecsTrendList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['EcsTrendList'] as $item1) {
+                    $model->ecsTrendList[$n1++] = ecsTrendList::fromMap($item1);
                 }
             }
         }

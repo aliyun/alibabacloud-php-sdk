@@ -4,63 +4,31 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDocumentPageRequest extends Model
 {
     /**
-     * @description Current page.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description Delivered by.
-     *
-     * @example luna
-     *
      * @var string
      */
     public $deliveredBy;
-
     /**
-     * @description Document name.
-     *
-     * @example month report
-     *
      * @var string
      */
     public $documentName;
-
     /**
-     * @description Document type.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $documentType;
-
     /**
-     * @description Page size.
-     *
-     * This parameter is required.
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description Report type.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var string
      */
     public $reportType;
@@ -75,26 +43,32 @@ class GetDocumentPageRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->deliveredBy) {
             $res['DeliveredBy'] = $this->deliveredBy;
         }
+
         if (null !== $this->documentName) {
             $res['DocumentName'] = $this->documentName;
         }
+
         if (null !== $this->documentType) {
             $res['DocumentType'] = $this->documentType;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->reportType) {
             $res['ReportType'] = $this->reportType;
         }
@@ -102,29 +76,34 @@ class GetDocumentPageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDocumentPageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['DeliveredBy'])) {
             $model->deliveredBy = $map['DeliveredBy'];
         }
+
         if (isset($map['DocumentName'])) {
             $model->documentName = $map['DocumentName'];
         }
+
         if (isset($map['DocumentType'])) {
             $model->documentType = $map['DocumentType'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ReportType'])) {
             $model->reportType = $map['ReportType'];
         }
