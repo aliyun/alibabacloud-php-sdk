@@ -12,13 +12,23 @@ use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeImageRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeImageResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateVocabRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateVocabResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\DeleteVocabRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\DeleteVocabResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultShrinkRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetVocabRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetVocabResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\ListVocabRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\ListVocabResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\UpdateVocabRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\UpdateVocabResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -345,6 +355,150 @@ class ContactCenterAI extends OpenApiClient
     }
 
     /**
+     * 创建热词.
+     *
+     * @param request - CreateVocabRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVocabResponse
+     *
+     * @param CreateVocabRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateVocabResponse
+     */
+    public function createVocabWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->audioModelCode) {
+            @$body['audioModelCode'] = $request->audioModelCode;
+        }
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->wordWeightList) {
+            @$body['wordWeightList'] = $request->wordWeightList;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVocab',
+            'version'     => '2024-06-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/vocab/createVocab',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVocabResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateVocabResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建热词.
+     *
+     * @param request - CreateVocabRequest
+     * @returns CreateVocabResponse
+     *
+     * @param CreateVocabRequest $request
+     *
+     * @return CreateVocabResponse
+     */
+    public function createVocab($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createVocabWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 删删除热词.
+     *
+     * @param request - DeleteVocabRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVocabResponse
+     *
+     * @param DeleteVocabRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteVocabResponse
+     */
+    public function deleteVocabWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->vocabularyId) {
+            @$body['vocabularyId'] = $request->vocabularyId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVocab',
+            'version'     => '2024-06-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/vocab/deleteVocab',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVocabResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteVocabResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删删除热词.
+     *
+     * @param request - DeleteVocabRequest
+     * @returns DeleteVocabResponse
+     *
+     * @param DeleteVocabRequest $request
+     *
+     * @return DeleteVocabResponse
+     */
+    public function deleteVocab($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteVocabWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 语音文件调用大模型获取结果.
      *
      * @param tmpReq - GetTaskResultRequest
@@ -414,6 +568,134 @@ class ContactCenterAI extends OpenApiClient
         $headers = [];
 
         return $this->getTaskResultWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取热词.
+     *
+     * @param request - GetVocabRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVocabResponse
+     *
+     * @param GetVocabRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetVocabResponse
+     */
+    public function getVocabWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->vocabularyId) {
+            @$body['vocabularyId'] = $request->vocabularyId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVocab',
+            'version'     => '2024-06-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/vocab/getVocab',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVocabResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetVocabResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取热词.
+     *
+     * @param request - GetVocabRequest
+     * @returns GetVocabResponse
+     *
+     * @param GetVocabRequest $request
+     *
+     * @return GetVocabResponse
+     */
+    public function getVocab($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVocabWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 热词列表.
+     *
+     * @param request - ListVocabRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVocabResponse
+     *
+     * @param ListVocabRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListVocabResponse
+     */
+    public function listVocabWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListVocab',
+            'version'     => '2024-06-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/vocab/listVocab',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVocabResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListVocabResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 热词列表.
+     *
+     * @param request - ListVocabRequest
+     * @returns ListVocabResponse
+     *
+     * @param ListVocabRequest $request
+     *
+     * @return ListVocabResponse
+     */
+    public function listVocab($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listVocabWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -574,5 +856,83 @@ class ContactCenterAI extends OpenApiClient
         $headers = [];
 
         return $this->runCompletionMessageWithOptions($workspaceId, $appId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 修改热词.
+     *
+     * @param request - UpdateVocabRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVocabResponse
+     *
+     * @param UpdateVocabRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateVocabResponse
+     */
+    public function updateVocabWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
+        }
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
+        }
+
+        if (null !== $request->vocabularyId) {
+            @$body['vocabularyId'] = $request->vocabularyId;
+        }
+
+        if (null !== $request->wordWeightList) {
+            @$body['wordWeightList'] = $request->wordWeightList;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['workspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVocab',
+            'version'     => '2024-06-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/vocab/updateVocab',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVocabResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateVocabResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改热词.
+     *
+     * @param request - UpdateVocabRequest
+     * @returns UpdateVocabResponse
+     *
+     * @param UpdateVocabRequest $request
+     *
+     * @return UpdateVocabResponse
+     */
+    public function updateVocab($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateVocabWithOptions($request, $headers, $runtime);
     }
 }
