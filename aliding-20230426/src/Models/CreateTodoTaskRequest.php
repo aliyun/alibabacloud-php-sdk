@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Aliding\V20230426\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest\actionList;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest\contentFieldList;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest\detailUrl;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest\notifyConfigs;
@@ -16,6 +17,10 @@ class CreateTodoTaskRequest extends Model
      * @var tenantContext
      */
     public $tenantContext;
+    /**
+     * @var actionList[]
+     */
+    public $actionList;
     /**
      * @var contentFieldList[]
      */
@@ -70,6 +75,7 @@ class CreateTodoTaskRequest extends Model
     public $subject;
     protected $_name = [
         'tenantContext'      => 'TenantContext',
+        'actionList'         => 'actionList',
         'contentFieldList'   => 'contentFieldList',
         'creatorId'          => 'creatorId',
         'description'        => 'description',
@@ -89,6 +95,9 @@ class CreateTodoTaskRequest extends Model
     {
         if (null !== $this->tenantContext) {
             $this->tenantContext->validate();
+        }
+        if (\is_array($this->actionList)) {
+            Model::validateArray($this->actionList);
         }
         if (\is_array($this->contentFieldList)) {
             Model::validateArray($this->contentFieldList);
@@ -113,6 +122,16 @@ class CreateTodoTaskRequest extends Model
         $res = [];
         if (null !== $this->tenantContext) {
             $res['TenantContext'] = null !== $this->tenantContext ? $this->tenantContext->toArray($noStream) : $this->tenantContext;
+        }
+
+        if (null !== $this->actionList) {
+            if (\is_array($this->actionList)) {
+                $res['actionList'] = [];
+                $n1                = 0;
+                foreach ($this->actionList as $item1) {
+                    $res['actionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->contentFieldList) {
@@ -198,6 +217,16 @@ class CreateTodoTaskRequest extends Model
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContext = tenantContext::fromMap($map['TenantContext']);
+        }
+
+        if (isset($map['actionList'])) {
+            if (!empty($map['actionList'])) {
+                $model->actionList = [];
+                $n1                = 0;
+                foreach ($map['actionList'] as $item1) {
+                    $model->actionList[$n1++] = actionList::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['contentFieldList'])) {

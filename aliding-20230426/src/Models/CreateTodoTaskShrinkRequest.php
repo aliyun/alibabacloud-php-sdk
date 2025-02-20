@@ -15,6 +15,10 @@ class CreateTodoTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $actionListShrink;
+    /**
+     * @var string
+     */
     public $contentFieldListShrink;
     /**
      * @var string
@@ -66,6 +70,7 @@ class CreateTodoTaskShrinkRequest extends Model
     public $subject;
     protected $_name = [
         'tenantContextShrink'    => 'TenantContext',
+        'actionListShrink'       => 'actionList',
         'contentFieldListShrink' => 'contentFieldList',
         'creatorId'              => 'creatorId',
         'description'            => 'description',
@@ -91,6 +96,10 @@ class CreateTodoTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->tenantContextShrink) {
             $res['TenantContext'] = $this->tenantContextShrink;
+        }
+
+        if (null !== $this->actionListShrink) {
+            $res['actionList'] = $this->actionListShrink;
         }
 
         if (null !== $this->contentFieldListShrink) {
@@ -158,6 +167,10 @@ class CreateTodoTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['TenantContext'])) {
             $model->tenantContextShrink = $map['TenantContext'];
+        }
+
+        if (isset($map['actionList'])) {
+            $model->actionListShrink = $map['actionList'];
         }
 
         if (isset($map['contentFieldList'])) {

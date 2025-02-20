@@ -973,6 +973,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeCalendarShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeEventHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeEventRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeEventResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeEventShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\SubscribeEventShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\SyncDingTypeResponse;
@@ -991,6 +996,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeCalendarShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UnsubscribeEventShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateFormDataHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateFormDataRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateFormDataResponse;
@@ -5461,6 +5471,10 @@ class Aliding extends OpenApiClient
             $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
         }
 
+        if (null !== $tmpReq->actionList) {
+            $request->actionListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->actionList, 'actionList', 'json');
+        }
+
         if (null !== $tmpReq->contentFieldList) {
             $request->contentFieldListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->contentFieldList, 'contentFieldList', 'json');
         }
@@ -5489,6 +5503,10 @@ class Aliding extends OpenApiClient
         $body = [];
         if (null !== $request->tenantContextShrink) {
             @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        if (null !== $request->actionListShrink) {
+            @$body['actionList'] = $request->actionListShrink;
         }
 
         if (null !== $request->contentFieldListShrink) {
@@ -21130,6 +21148,97 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * 订阅文件变更事件.
+     *
+     * @param tmpReq - SubscribeEventRequest
+     * @param tmpHeader - SubscribeEventHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SubscribeEventResponse
+     *
+     * @param SubscribeEventRequest $tmpReq
+     * @param SubscribeEventHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SubscribeEventResponse
+     */
+    public function subscribeEventWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new SubscribeEventShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new SubscribeEventShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->scope) {
+            @$body['Scope'] = $request->scope;
+        }
+
+        if (null !== $request->scopeId) {
+            @$body['ScopeId'] = $request->scopeId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubscribeEvent',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/subscribeEvent',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SubscribeEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SubscribeEventResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 订阅文件变更事件.
+     *
+     * @param request - SubscribeEventRequest
+     * @returns SubscribeEventResponse
+     *
+     * @param SubscribeEventRequest $request
+     *
+     * @return SubscribeEventResponse
+     */
+    public function subscribeEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SubscribeEventHeaders([]);
+
+        return $this->subscribeEventWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 同步钉钉账号类型.
      *
      * @param tmpReq - SyncDingTypeRequest
@@ -21507,6 +21616,97 @@ class Aliding extends OpenApiClient
         $headers = new UnsubscribeCalendarHeaders([]);
 
         return $this->unsubscribeCalendarWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 取消订阅文件变更事件.
+     *
+     * @param tmpReq - UnsubscribeEventRequest
+     * @param tmpHeader - UnsubscribeEventHeaders
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnsubscribeEventResponse
+     *
+     * @param UnsubscribeEventRequest $tmpReq
+     * @param UnsubscribeEventHeaders $tmpHeader
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UnsubscribeEventResponse
+     */
+    public function unsubscribeEventWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new UnsubscribeEventShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        $headers = new UnsubscribeEventShrinkHeaders([]);
+        Utils::convert($tmpHeader, $headers);
+        if (null !== $tmpHeader->accountContext) {
+            $headers->accountContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+
+        if (null !== $tmpReq->tenantContext) {
+            $request->tenantContextShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+
+        $body = [];
+        if (null !== $request->scope) {
+            @$body['Scope'] = $request->scope;
+        }
+
+        if (null !== $request->scopeId) {
+            @$body['ScopeId'] = $request->scopeId;
+        }
+
+        if (null !== $request->tenantContextShrink) {
+            @$body['TenantContext'] = $request->tenantContextShrink;
+        }
+
+        $realHeaders = [];
+        if (null !== $headers->commonHeaders) {
+            $realHeaders = $headers->commonHeaders;
+        }
+
+        if (null !== $headers->accountContextShrink) {
+            @$realHeaders['AccountContext'] = json_encode($headers->accountContextShrink, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES);
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UnsubscribeEvent',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/documents/unsubscribeEvent',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnsubscribeEventResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UnsubscribeEventResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 取消订阅文件变更事件.
+     *
+     * @param request - UnsubscribeEventRequest
+     * @returns UnsubscribeEventResponse
+     *
+     * @param UnsubscribeEventRequest $request
+     *
+     * @return UnsubscribeEventResponse
+     */
+    public function unsubscribeEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UnsubscribeEventHeaders([]);
+
+        return $this->unsubscribeEventWithOptions($request, $headers, $runtime);
     }
 
     /**
