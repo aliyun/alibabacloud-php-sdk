@@ -4,21 +4,16 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\dialogue\sentences;
-use AlibabaCloud\Tea\Model;
 
 class dialogue extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var sentences[]
      */
     public $sentences;
-
     /**
-     * @example session-01
-     *
      * @var string
      */
     public $sessionId;
@@ -29,20 +24,25 @@ class dialogue extends Model
 
     public function validate()
     {
+        if (\is_array($this->sentences)) {
+            Model::validateArray($this->sentences);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sentences) {
-            $res['sentences'] = [];
-            if (null !== $this->sentences && \is_array($this->sentences)) {
-                $n = 0;
-                foreach ($this->sentences as $item) {
-                    $res['sentences'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sentences)) {
+                $res['sentences'] = [];
+                $n1               = 0;
+                foreach ($this->sentences as $item1) {
+                    $res['sentences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
@@ -50,23 +50,24 @@ class dialogue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dialogue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['sentences'])) {
             if (!empty($map['sentences'])) {
                 $model->sentences = [];
-                $n                = 0;
-                foreach ($map['sentences'] as $item) {
-                    $model->sentences[$n++] = null !== $item ? sentences::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['sentences'] as $item1) {
+                    $model->sentences[$n1++] = sentences::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }

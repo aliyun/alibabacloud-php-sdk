@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\URL;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeImageRequest;
@@ -19,11 +19,10 @@ use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageReques
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class ContactCenterAI extends OpenApiClient
 {
@@ -48,97 +47,122 @@ class ContactCenterAI extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 根据类型调用大模型
-     *  *
+     * 根据类型调用大模型.
+     *
+     * @param request - AnalyzeConversationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AnalyzeConversationResponse
+     *
      * @param string                     $workspaceId
      * @param string                     $appId
-     * @param AnalyzeConversationRequest $request     AnalyzeConversationRequest
-     * @param string[]                   $headers     map
-     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     * @param AnalyzeConversationRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return AnalyzeConversationResponse AnalyzeConversationResponse
+     * @return AnalyzeConversationResponse
      */
     public function analyzeConversationWithOptions($workspaceId, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->categoryTags)) {
-            $body['categoryTags'] = $request->categoryTags;
+        if (null !== $request->categoryTags) {
+            @$body['categoryTags'] = $request->categoryTags;
         }
-        if (!Utils::isUnset($request->customPrompt)) {
-            $body['customPrompt'] = $request->customPrompt;
+
+        if (null !== $request->customPrompt) {
+            @$body['customPrompt'] = $request->customPrompt;
         }
-        if (!Utils::isUnset($request->dialogue)) {
-            $body['dialogue'] = $request->dialogue;
+
+        if (null !== $request->dialogue) {
+            @$body['dialogue'] = $request->dialogue;
         }
-        if (!Utils::isUnset($request->examples)) {
-            $body['examples'] = $request->examples;
+
+        if (null !== $request->examples) {
+            @$body['examples'] = $request->examples;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->modelCode)) {
-            $body['modelCode'] = $request->modelCode;
+
+        if (null !== $request->modelCode) {
+            @$body['modelCode'] = $request->modelCode;
         }
-        if (!Utils::isUnset($request->resultTypes)) {
-            $body['resultTypes'] = $request->resultTypes;
+
+        if (null !== $request->resultTypes) {
+            @$body['resultTypes'] = $request->resultTypes;
         }
-        if (!Utils::isUnset($request->sceneName)) {
-            $body['sceneName'] = $request->sceneName;
+
+        if (null !== $request->sceneName) {
+            @$body['sceneName'] = $request->sceneName;
         }
-        if (!Utils::isUnset($request->serviceInspection)) {
-            $body['serviceInspection'] = $request->serviceInspection;
+
+        if (null !== $request->serviceInspection) {
+            @$body['serviceInspection'] = $request->serviceInspection;
         }
-        if (!Utils::isUnset($request->sourceCallerUid)) {
-            $body['sourceCallerUid'] = $request->sourceCallerUid;
+
+        if (null !== $request->sourceCallerUid) {
+            @$body['sourceCallerUid'] = $request->sourceCallerUid;
         }
-        if (!Utils::isUnset($request->stream)) {
-            $body['stream'] = $request->stream;
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
         }
-        if (!Utils::isUnset($request->timeConstraintList)) {
-            $body['timeConstraintList'] = $request->timeConstraintList;
+
+        if (null !== $request->timeConstraintList) {
+            @$body['timeConstraintList'] = $request->timeConstraintList;
         }
-        if (!Utils::isUnset($request->userProfiles)) {
-            $body['userProfiles'] = $request->userProfiles;
+
+        if (null !== $request->userProfiles) {
+            @$body['userProfiles'] = $request->userProfiles;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AnalyzeConversation',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/analyze_conversation',
+            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/analyze_conversation',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AnalyzeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AnalyzeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AnalyzeConversationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据类型调用大模型
-     *  *
+     * 根据类型调用大模型.
+     *
+     * @param request - AnalyzeConversationRequest
+     * @returns AnalyzeConversationResponse
+     *
      * @param string                     $workspaceId
      * @param string                     $appId
-     * @param AnalyzeConversationRequest $request     AnalyzeConversationRequest
+     * @param AnalyzeConversationRequest $request
      *
-     * @return AnalyzeConversationResponse AnalyzeConversationResponse
+     * @return AnalyzeConversationResponse
      */
     public function analyzeConversation($workspaceId, $appId, $request)
     {
@@ -149,56 +173,70 @@ class ContactCenterAI extends OpenApiClient
     }
 
     /**
-     * @summary 图片分析
-     *  *
+     * 图片分析.
+     *
+     * @param request - AnalyzeImageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AnalyzeImageResponse
+     *
      * @param string              $workspaceId
      * @param string              $appId
-     * @param AnalyzeImageRequest $request     AnalyzeImageRequest
-     * @param string[]            $headers     map
-     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     * @param AnalyzeImageRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return AnalyzeImageResponse AnalyzeImageResponse
+     * @return AnalyzeImageResponse
      */
     public function analyzeImageWithOptions($workspaceId, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->imageUrls)) {
-            $body['imageUrls'] = $request->imageUrls;
+        if (null !== $request->imageUrls) {
+            @$body['imageUrls'] = $request->imageUrls;
         }
-        if (!Utils::isUnset($request->resultTypes)) {
-            $body['resultTypes'] = $request->resultTypes;
+
+        if (null !== $request->resultTypes) {
+            @$body['resultTypes'] = $request->resultTypes;
         }
-        if (!Utils::isUnset($request->stream)) {
-            $body['stream'] = $request->stream;
+
+        if (null !== $request->stream) {
+            @$body['stream'] = $request->stream;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AnalyzeImage',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/analyzeImage',
+            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/analyzeImage',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AnalyzeImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AnalyzeImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AnalyzeImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 图片分析
-     *  *
+     * 图片分析.
+     *
+     * @param request - AnalyzeImageRequest
+     * @returns AnalyzeImageResponse
+     *
      * @param string              $workspaceId
      * @param string              $appId
-     * @param AnalyzeImageRequest $request     AnalyzeImageRequest
+     * @param AnalyzeImageRequest $request
      *
-     * @return AnalyzeImageResponse AnalyzeImageResponse
+     * @return AnalyzeImageResponse
      */
     public function analyzeImage($workspaceId, $appId, $request)
     {
@@ -209,74 +247,94 @@ class ContactCenterAI extends OpenApiClient
     }
 
     /**
-     * @summary 创建语音文件调用llm任务
-     *  *
+     * 创建语音文件调用llm任务
+     *
+     * @param request - CreateTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTaskResponse
+     *
      * @param string            $workspaceId
      * @param string            $appId
-     * @param CreateTaskRequest $request     CreateTaskRequest
-     * @param string[]          $headers     map
-     * @param RuntimeOptions    $runtime     runtime options for this request RuntimeOptions
+     * @param CreateTaskRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @return CreateTaskResponse
      */
     public function createTaskWithOptions($workspaceId, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dialogue)) {
-            $body['dialogue'] = $request->dialogue;
+        if (null !== $request->dialogue) {
+            @$body['dialogue'] = $request->dialogue;
         }
-        if (!Utils::isUnset($request->examples)) {
-            $body['examples'] = $request->examples;
+
+        if (null !== $request->examples) {
+            @$body['examples'] = $request->examples;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->modelCode)) {
-            $body['modelCode'] = $request->modelCode;
+
+        if (null !== $request->modelCode) {
+            @$body['modelCode'] = $request->modelCode;
         }
-        if (!Utils::isUnset($request->resultTypes)) {
-            $body['resultTypes'] = $request->resultTypes;
+
+        if (null !== $request->resultTypes) {
+            @$body['resultTypes'] = $request->resultTypes;
         }
-        if (!Utils::isUnset($request->serviceInspection)) {
-            $body['serviceInspection'] = $request->serviceInspection;
+
+        if (null !== $request->serviceInspection) {
+            @$body['serviceInspection'] = $request->serviceInspection;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['taskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$body['taskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->templateIds)) {
-            $body['templateIds'] = $request->templateIds;
+
+        if (null !== $request->templateIds) {
+            @$body['templateIds'] = $request->templateIds;
         }
-        if (!Utils::isUnset($request->transcription)) {
-            $body['transcription'] = $request->transcription;
+
+        if (null !== $request->transcription) {
+            @$body['transcription'] = $request->transcription;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTask',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/createTask',
+            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/createTask',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建语音文件调用llm任务
-     *  *
+     * 创建语音文件调用llm任务
+     *
+     * @param request - CreateTaskRequest
+     * @returns CreateTaskResponse
+     *
      * @param string            $workspaceId
      * @param string            $appId
-     * @param CreateTaskRequest $request     CreateTaskRequest
+     * @param CreateTaskRequest $request
      *
-     * @return CreateTaskResponse CreateTaskResponse
+     * @return CreateTaskResponse
      */
     public function createTask($workspaceId, $appId, $request)
     {
@@ -287,32 +345,40 @@ class ContactCenterAI extends OpenApiClient
     }
 
     /**
-     * @summary 语音文件调用大模型获取结果
-     *  *
-     * @param GetTaskResultRequest $tmpReq  GetTaskResultRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 语音文件调用大模型获取结果.
      *
-     * @return GetTaskResultResponse GetTaskResultResponse
+     * @param tmpReq - GetTaskResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTaskResultResponse
+     *
+     * @param GetTaskResultRequest $tmpReq
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetTaskResultResponse
      */
     public function getTaskResultWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetTaskResultShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->requiredFieldList)) {
-            $request->requiredFieldListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->requiredFieldList, 'requiredFieldList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->requiredFieldList) {
+            $request->requiredFieldListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->requiredFieldList, 'requiredFieldList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->requiredFieldListShrink)) {
-            $query['requiredFieldList'] = $request->requiredFieldListShrink;
+        if (null !== $request->requiredFieldListShrink) {
+            @$query['requiredFieldList'] = $request->requiredFieldListShrink;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTaskResult',
@@ -325,16 +391,22 @@ class ContactCenterAI extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTaskResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 语音文件调用大模型获取结果
-     *  *
-     * @param GetTaskResultRequest $request GetTaskResultRequest
+     * 语音文件调用大模型获取结果.
      *
-     * @return GetTaskResultResponse GetTaskResultResponse
+     * @param request - GetTaskResultRequest
+     * @returns GetTaskResultResponse
+     *
+     * @param GetTaskResultRequest $request
+     *
+     * @return GetTaskResultResponse
      */
     public function getTaskResult($request)
     {
@@ -345,65 +417,82 @@ class ContactCenterAI extends OpenApiClient
     }
 
     /**
-     * @summary CCAI服务面API
-     *  *
+     * CCAI服务面API.
+     *
+     * @param request - RunCompletionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RunCompletionResponse
+     *
      * @param string               $workspaceId
      * @param string               $appId
-     * @param RunCompletionRequest $request     RunCompletionRequest
-     * @param string[]             $headers     map
-     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
+     * @param RunCompletionRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return RunCompletionResponse RunCompletionResponse
+     * @return RunCompletionResponse
      */
     public function runCompletionWithOptions($workspaceId, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->dialogue)) {
-            $body['Dialogue'] = $request->dialogue;
+        if (null !== $request->dialogue) {
+            @$body['Dialogue'] = $request->dialogue;
         }
-        if (!Utils::isUnset($request->fields)) {
-            $body['Fields'] = $request->fields;
+
+        if (null !== $request->fields) {
+            @$body['Fields'] = $request->fields;
         }
-        if (!Utils::isUnset($request->modelCode)) {
-            $body['ModelCode'] = $request->modelCode;
+
+        if (null !== $request->modelCode) {
+            @$body['ModelCode'] = $request->modelCode;
         }
-        if (!Utils::isUnset($request->serviceInspection)) {
-            $body['ServiceInspection'] = $request->serviceInspection;
+
+        if (null !== $request->serviceInspection) {
+            @$body['ServiceInspection'] = $request->serviceInspection;
         }
-        if (!Utils::isUnset($request->stream)) {
-            $body['Stream'] = $request->stream;
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
         }
-        if (!Utils::isUnset($request->templateIds)) {
-            $body['TemplateIds'] = $request->templateIds;
+
+        if (null !== $request->templateIds) {
+            @$body['TemplateIds'] = $request->templateIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RunCompletion',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/completion',
+            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/completion',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunCompletionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunCompletionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunCompletionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary CCAI服务面API
-     *  *
+     * CCAI服务面API.
+     *
+     * @param request - RunCompletionRequest
+     * @returns RunCompletionResponse
+     *
      * @param string               $workspaceId
      * @param string               $appId
-     * @param RunCompletionRequest $request     RunCompletionRequest
+     * @param RunCompletionRequest $request
      *
-     * @return RunCompletionResponse RunCompletionResponse
+     * @return RunCompletionResponse
      */
     public function runCompletion($workspaceId, $appId, $request)
     {
@@ -414,56 +503,70 @@ class ContactCenterAI extends OpenApiClient
     }
 
     /**
-     * @summary CCAI服务面API
-     *  *
+     * CCAI服务面API.
+     *
+     * @param request - RunCompletionMessageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RunCompletionMessageResponse
+     *
      * @param string                      $workspaceId
      * @param string                      $appId
-     * @param RunCompletionMessageRequest $request     RunCompletionMessageRequest
-     * @param string[]                    $headers     map
-     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     * @param RunCompletionMessageRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return RunCompletionMessageResponse RunCompletionMessageResponse
+     * @return RunCompletionMessageResponse
      */
     public function runCompletionMessageWithOptions($workspaceId, $appId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->messages)) {
-            $body['Messages'] = $request->messages;
+        if (null !== $request->messages) {
+            @$body['Messages'] = $request->messages;
         }
-        if (!Utils::isUnset($request->modelCode)) {
-            $body['ModelCode'] = $request->modelCode;
+
+        if (null !== $request->modelCode) {
+            @$body['ModelCode'] = $request->modelCode;
         }
-        if (!Utils::isUnset($request->stream)) {
-            $body['Stream'] = $request->stream;
+
+        if (null !== $request->stream) {
+            @$body['Stream'] = $request->stream;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RunCompletionMessage',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/completion_message',
+            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/completion_message',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunCompletionMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RunCompletionMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RunCompletionMessageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary CCAI服务面API
-     *  *
+     * CCAI服务面API.
+     *
+     * @param request - RunCompletionMessageRequest
+     * @returns RunCompletionMessageResponse
+     *
      * @param string                      $workspaceId
      * @param string                      $appId
-     * @param RunCompletionMessageRequest $request     RunCompletionMessageRequest
+     * @param RunCompletionMessageRequest $request
      *
-     * @return RunCompletionMessageResponse RunCompletionMessageResponse
+     * @return RunCompletionMessageResponse
      */
     public function runCompletionMessage($workspaceId, $appId, $request)
     {

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTaskResultRequest extends Model
 {
@@ -12,10 +12,7 @@ class GetTaskResultRequest extends Model
      * @var string[]
      */
     public $requiredFieldList;
-
     /**
-     * @example 20240905-********-93E9-5D45-B4EF-045743A34071
-     *
      * @var string
      */
     public $taskId;
@@ -26,14 +23,25 @@ class GetTaskResultRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->requiredFieldList)) {
+            Model::validateArray($this->requiredFieldList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requiredFieldList) {
-            $res['requiredFieldList'] = $this->requiredFieldList;
+            if (\is_array($this->requiredFieldList)) {
+                $res['requiredFieldList'] = [];
+                $n1                       = 0;
+                foreach ($this->requiredFieldList as $item1) {
+                    $res['requiredFieldList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
@@ -41,19 +49,24 @@ class GetTaskResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTaskResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requiredFieldList'])) {
             if (!empty($map['requiredFieldList'])) {
-                $model->requiredFieldList = $map['requiredFieldList'];
+                $model->requiredFieldList = [];
+                $n1                       = 0;
+                foreach ($map['requiredFieldList'] as $item1) {
+                    $model->requiredFieldList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }

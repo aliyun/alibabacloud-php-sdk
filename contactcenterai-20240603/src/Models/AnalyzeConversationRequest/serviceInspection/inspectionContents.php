@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest\serviceInspection;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class inspectionContents extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $title;
@@ -28,14 +23,16 @@ class inspectionContents extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -43,17 +40,18 @@ class inspectionContents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return inspectionContents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

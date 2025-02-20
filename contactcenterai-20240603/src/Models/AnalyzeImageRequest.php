@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AnalyzeImageRequest extends Model
 {
@@ -12,17 +12,11 @@ class AnalyzeImageRequest extends Model
      * @var string[]
      */
     public $imageUrls;
-
     /**
      * @var string[]
      */
     public $resultTypes;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $stream;
@@ -34,17 +28,38 @@ class AnalyzeImageRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->imageUrls)) {
+            Model::validateArray($this->imageUrls);
+        }
+        if (\is_array($this->resultTypes)) {
+            Model::validateArray($this->resultTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageUrls) {
-            $res['imageUrls'] = $this->imageUrls;
+            if (\is_array($this->imageUrls)) {
+                $res['imageUrls'] = [];
+                $n1               = 0;
+                foreach ($this->imageUrls as $item1) {
+                    $res['imageUrls'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resultTypes) {
-            $res['resultTypes'] = $this->resultTypes;
+            if (\is_array($this->resultTypes)) {
+                $res['resultTypes'] = [];
+                $n1                 = 0;
+                foreach ($this->resultTypes as $item1) {
+                    $res['resultTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->stream) {
             $res['stream'] = $this->stream;
         }
@@ -52,24 +67,34 @@ class AnalyzeImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AnalyzeImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['imageUrls'])) {
             if (!empty($map['imageUrls'])) {
-                $model->imageUrls = $map['imageUrls'];
+                $model->imageUrls = [];
+                $n1               = 0;
+                foreach ($map['imageUrls'] as $item1) {
+                    $model->imageUrls[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['resultTypes'])) {
             if (!empty($map['resultTypes'])) {
-                $model->resultTypes = $map['resultTypes'];
+                $model->resultTypes = [];
+                $n1                 = 0;
+                foreach ($map['resultTypes'] as $item1) {
+                    $model->resultTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['stream'])) {
             $model->stream = $map['stream'];
         }

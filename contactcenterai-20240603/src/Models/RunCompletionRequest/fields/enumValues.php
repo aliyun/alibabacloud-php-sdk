@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest\fields;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class enumValues extends Model
 {
@@ -12,10 +12,7 @@ class enumValues extends Model
      * @var string
      */
     public $desc;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $enumValue;
@@ -26,14 +23,16 @@ class enumValues extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
+
         if (null !== $this->enumValue) {
             $res['EnumValue'] = $this->enumValue;
         }
@@ -41,17 +40,18 @@ class enumValues extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return enumValues
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }
+
         if (isset($map['EnumValue'])) {
             $model->enumValue = $map['EnumValue'];
         }

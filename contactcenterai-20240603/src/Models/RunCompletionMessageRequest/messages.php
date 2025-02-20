@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class messages extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example user
-     *
      * @var string
      */
     public $role;
@@ -30,14 +23,16 @@ class messages extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -45,17 +40,18 @@ class messages extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return messages
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\dialogue;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sentences extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example user
-     *
      * @var string
      */
     public $role;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $text;
@@ -30,14 +23,16 @@ class sentences extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
+
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
@@ -45,17 +40,18 @@ class sentences extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sentences
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }
+
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }

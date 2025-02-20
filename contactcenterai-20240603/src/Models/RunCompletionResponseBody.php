@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RunCompletionResponseBody extends Model
 {
@@ -12,29 +12,22 @@ class RunCompletionResponseBody extends Model
      * @var string
      */
     public $finishReason;
-
     /**
-     * @example 17204B98-xxxx-4F9A-8464-2446A84821CA
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var string
      */
     public $text;
-
     /**
      * @var string
      */
     public $inputTokens;
-
     /**
      * @var string
      */
     public $outputTokens;
-
     /**
      * @var string
      */
@@ -50,26 +43,32 @@ class RunCompletionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->finishReason) {
             $res['FinishReason'] = $this->finishReason;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
+
         if (null !== $this->inputTokens) {
             $res['inputTokens'] = $this->inputTokens;
         }
+
         if (null !== $this->outputTokens) {
             $res['outputTokens'] = $this->outputTokens;
         }
+
         if (null !== $this->totalTokens) {
             $res['totalTokens'] = $this->totalTokens;
         }
@@ -77,29 +76,34 @@ class RunCompletionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunCompletionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FinishReason'])) {
             $model->finishReason = $map['FinishReason'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }
+
         if (isset($map['inputTokens'])) {
             $model->inputTokens = $map['inputTokens'];
         }
+
         if (isset($map['outputTokens'])) {
             $model->outputTokens = $map['outputTokens'];
         }
+
         if (isset($map['totalTokens'])) {
             $model->totalTokens = $map['totalTokens'];
         }

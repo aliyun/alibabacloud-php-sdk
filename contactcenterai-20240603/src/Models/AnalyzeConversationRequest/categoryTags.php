@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class categoryTags extends Model
 {
@@ -12,7 +12,6 @@ class categoryTags extends Model
      * @var string
      */
     public $tagDesc;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class categoryTags extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagDesc) {
             $res['tagDesc'] = $this->tagDesc;
         }
+
         if (null !== $this->tagName) {
             $res['tagName'] = $this->tagName;
         }
@@ -39,17 +40,18 @@ class categoryTags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return categoryTags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['tagDesc'])) {
             $model->tagDesc = $map['tagDesc'];
         }
+
         if (isset($map['tagName'])) {
             $model->tagName = $map['tagName'];
         }

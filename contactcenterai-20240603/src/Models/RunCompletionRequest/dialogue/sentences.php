@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest\dialogue;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sentences extends Model
 {
@@ -12,19 +12,11 @@ class sentences extends Model
      * @var string
      */
     public $chatId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example user
-     *
      * @var string
      */
     public $role;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $text;
@@ -36,17 +28,20 @@ class sentences extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chatId) {
             $res['ChatId'] = $this->chatId;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -54,20 +49,22 @@ class sentences extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sentences
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChatId'])) {
             $model->chatId = $map['ChatId'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
         }

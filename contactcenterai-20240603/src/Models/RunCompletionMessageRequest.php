@@ -4,28 +4,20 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageRequest\messages;
-use AlibabaCloud\Tea\Model;
 
 class RunCompletionMessageRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var messages[]
      */
     public $messages;
-
     /**
-     * @example ccai-14b
-     *
      * @var string
      */
     public $modelCode;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $stream;
@@ -37,23 +29,29 @@ class RunCompletionMessageRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->messages)) {
+            Model::validateArray($this->messages);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messages) {
-            $res['Messages'] = [];
-            if (null !== $this->messages && \is_array($this->messages)) {
-                $n = 0;
-                foreach ($this->messages as $item) {
-                    $res['Messages'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messages)) {
+                $res['Messages'] = [];
+                $n1              = 0;
+                foreach ($this->messages as $item1) {
+                    $res['Messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->modelCode) {
             $res['ModelCode'] = $this->modelCode;
         }
+
         if (null !== $this->stream) {
             $res['Stream'] = $this->stream;
         }
@@ -61,26 +59,28 @@ class RunCompletionMessageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunCompletionMessageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = [];
-                $n               = 0;
-                foreach ($map['Messages'] as $item) {
-                    $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Messages'] as $item1) {
+                    $model->messages[$n1++] = messages::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ModelCode'])) {
             $model->modelCode = $map['ModelCode'];
         }
+
         if (isset($map['Stream'])) {
             $model->stream = $map['Stream'];
         }

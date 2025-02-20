@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class CreateTaskResponseBody extends Model
 {
@@ -13,17 +13,11 @@ class CreateTaskResponseBody extends Model
      * @var data
      */
     public $data;
-
     /**
-     * @example 9F1DB065-AE0D-5EE3-B1AF-48632CB0831C
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example True
-     *
      * @var string
      */
     public $success;
@@ -35,17 +29,23 @@ class CreateTaskResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -53,20 +53,22 @@ class CreateTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['data'])) {
             $model->data = data::fromMap($map['data']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

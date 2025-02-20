@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultResponseBody\data\asrResult;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -13,31 +13,22 @@ class data extends Model
      * @var asrResult[]
      */
     public $asrResult;
-
     /**
      * @var string
      */
     public $extra;
-
     /**
      * @var string
      */
     public $taskErrorMessage;
-
     /**
-     * @example 20240905-********-93E9-5D45-B4EF-045743A34071
-     *
      * @var string
      */
     public $taskId;
-
     /**
-     * @example FINISH
-     *
      * @var string
      */
     public $taskStatus;
-
     /**
      * @var string
      */
@@ -53,32 +44,41 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->asrResult)) {
+            Model::validateArray($this->asrResult);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asrResult) {
-            $res['asrResult'] = [];
-            if (null !== $this->asrResult && \is_array($this->asrResult)) {
-                $n = 0;
-                foreach ($this->asrResult as $item) {
-                    $res['asrResult'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->asrResult)) {
+                $res['asrResult'] = [];
+                $n1               = 0;
+                foreach ($this->asrResult as $item1) {
+                    $res['asrResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->extra) {
             $res['extra'] = $this->extra;
         }
+
         if (null !== $this->taskErrorMessage) {
             $res['taskErrorMessage'] = $this->taskErrorMessage;
         }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
+
         if (null !== $this->taskStatus) {
             $res['taskStatus'] = $this->taskStatus;
         }
+
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
@@ -86,35 +86,40 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['asrResult'])) {
             if (!empty($map['asrResult'])) {
                 $model->asrResult = [];
-                $n                = 0;
-                foreach ($map['asrResult'] as $item) {
-                    $model->asrResult[$n++] = null !== $item ? asrResult::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['asrResult'] as $item1) {
+                    $model->asrResult[$n1++] = asrResult::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['extra'])) {
             $model->extra = $map['extra'];
         }
+
         if (isset($map['taskErrorMessage'])) {
             $model->taskErrorMessage = $map['taskErrorMessage'];
         }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }
+
         if (isset($map['taskStatus'])) {
             $model->taskStatus = $map['taskStatus'];
         }
+
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }

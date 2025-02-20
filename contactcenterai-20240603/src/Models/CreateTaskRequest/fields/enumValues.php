@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\fields;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class enumValues extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $desc;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $enumValue;
@@ -28,14 +23,16 @@ class enumValues extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desc) {
             $res['desc'] = $this->desc;
         }
+
         if (null !== $this->enumValue) {
             $res['enumValue'] = $this->enumValue;
         }
@@ -43,17 +40,18 @@ class enumValues extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return enumValues
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['desc'])) {
             $model->desc = $map['desc'];
         }
+
         if (isset($map['enumValue'])) {
             $model->enumValue = $map['enumValue'];
         }
