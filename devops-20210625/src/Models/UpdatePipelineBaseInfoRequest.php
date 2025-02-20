@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePipelineBaseInfoRequest extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $envId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $pipelineName;
-
     /**
-     * @example "11,222,33"
-     *
      * @var string
      */
     public $tagList;
@@ -36,17 +28,20 @@ class UpdatePipelineBaseInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->envId) {
             $res['envId'] = $this->envId;
         }
+
         if (null !== $this->pipelineName) {
             $res['pipelineName'] = $this->pipelineName;
         }
+
         if (null !== $this->tagList) {
             $res['tagList'] = $this->tagList;
         }
@@ -54,20 +49,22 @@ class UpdatePipelineBaseInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePipelineBaseInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['envId'])) {
             $model->envId = $map['envId'];
         }
+
         if (isset($map['pipelineName'])) {
             $model->pipelineName = $map['pipelineName'];
         }
+
         if (isset($map['tagList'])) {
             $model->tagList = $map['tagList'];
         }

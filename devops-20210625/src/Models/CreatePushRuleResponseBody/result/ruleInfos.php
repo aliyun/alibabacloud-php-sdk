@@ -4,31 +4,22 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreatePushRuleResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleInfos extends Model
 {
     /**
-     * @example ForcePushChecker
-     *
      * @var string
      */
     public $checkerName;
-
     /**
-     * @example warn
-     *
      * @var string
      */
     public $checkerType;
-
     /**
-     * @example disabled
-     *
      * @var string
      */
     public $extraMessage;
-
     /**
      * @var string[]
      */
@@ -42,47 +33,67 @@ class ruleInfos extends Model
 
     public function validate()
     {
+        if (\is_array($this->fileRuleRegexes)) {
+            Model::validateArray($this->fileRuleRegexes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkerName) {
             $res['checkerName'] = $this->checkerName;
         }
+
         if (null !== $this->checkerType) {
             $res['checkerType'] = $this->checkerType;
         }
+
         if (null !== $this->extraMessage) {
             $res['extraMessage'] = $this->extraMessage;
         }
+
         if (null !== $this->fileRuleRegexes) {
-            $res['fileRuleRegexes'] = $this->fileRuleRegexes;
+            if (\is_array($this->fileRuleRegexes)) {
+                $res['fileRuleRegexes'] = [];
+                $n1                     = 0;
+                foreach ($this->fileRuleRegexes as $item1) {
+                    $res['fileRuleRegexes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['checkerName'])) {
             $model->checkerName = $map['checkerName'];
         }
+
         if (isset($map['checkerType'])) {
             $model->checkerType = $map['checkerType'];
         }
+
         if (isset($map['extraMessage'])) {
             $model->extraMessage = $map['extraMessage'];
         }
+
         if (isset($map['fileRuleRegexes'])) {
             if (!empty($map['fileRuleRegexes'])) {
-                $model->fileRuleRegexes = $map['fileRuleRegexes'];
+                $model->fileRuleRegexes = [];
+                $n1                     = 0;
+                foreach ($map['fileRuleRegexes'] as $item1) {
+                    $model->fileRuleRegexes[$n1++] = $item1;
+                }
             }
         }
 

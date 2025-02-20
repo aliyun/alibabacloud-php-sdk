@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponseBody\activities;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class oldValue extends Model
 {
     /**
-     * @example Sprint-221124
-     *
      * @var string
      */
     public $displayValue;
-
     /**
-     * @example bed1cca179badeb501a72d1194
-     *
      * @var string
      */
     public $plainValue;
-
     /**
-     * @example Sprint
-     *
      * @var string
      */
     public $resourceType;
@@ -36,17 +28,20 @@ class oldValue extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayValue) {
             $res['displayValue'] = $this->displayValue;
         }
+
         if (null !== $this->plainValue) {
             $res['plainValue'] = $this->plainValue;
         }
+
         if (null !== $this->resourceType) {
             $res['resourceType'] = $this->resourceType;
         }
@@ -54,20 +49,22 @@ class oldValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return oldValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['displayValue'])) {
             $model->displayValue = $map['displayValue'];
         }
+
         if (isset($map['plainValue'])) {
             $model->plainValue = $map['plainValue'];
         }
+
         if (isset($map['resourceType'])) {
             $model->resourceType = $map['resourceType'];
         }

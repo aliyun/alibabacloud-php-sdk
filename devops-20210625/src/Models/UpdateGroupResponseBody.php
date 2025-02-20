@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateGroupResponseBody\result;
-use AlibabaCloud\Tea\Model;
 
 class UpdateGroupResponseBody extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @example InvalidParam.NoPermission
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var result
      */
     public $result;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -51,23 +39,31 @@ class UpdateGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -75,26 +71,30 @@ class UpdateGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

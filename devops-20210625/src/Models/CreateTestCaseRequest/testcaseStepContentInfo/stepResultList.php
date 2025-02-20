@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateTestCaseRequest\testcaseStepContentInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stepResultList extends Model
 {
@@ -12,7 +12,6 @@ class stepResultList extends Model
      * @var string
      */
     public $expected;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class stepResultList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expected) {
             $res['expected'] = $this->expected;
         }
+
         if (null !== $this->step) {
             $res['step'] = $this->step;
         }
@@ -39,17 +40,18 @@ class stepResultList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stepResultList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['expected'])) {
             $model->expected = $map['expected'];
         }
+
         if (isset($map['step'])) {
             $model->step = $map['step'];
         }

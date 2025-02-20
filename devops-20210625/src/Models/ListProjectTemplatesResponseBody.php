@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectTemplatesResponseBody\templates;
-use AlibabaCloud\Tea\Model;
 
 class ListProjectTemplatesResponseBody extends Model
 {
     /**
-     * @example Openapi.RequestError
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @example error
-     *
      * @var string
      */
     public $errorMsg;
-
     /**
-     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
-
     /**
      * @var templates[]
      */
@@ -51,29 +39,37 @@ class ListProjectTemplatesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->templates)) {
+            Model::validateArray($this->templates);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
+
         if (null !== $this->templates) {
-            $res['templates'] = [];
-            if (null !== $this->templates && \is_array($this->templates)) {
-                $n = 0;
-                foreach ($this->templates as $item) {
-                    $res['templates'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->templates)) {
+                $res['templates'] = [];
+                $n1               = 0;
+                foreach ($this->templates as $item1) {
+                    $res['templates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -81,32 +77,36 @@ class ListProjectTemplatesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProjectTemplatesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
+
         if (isset($map['templates'])) {
             if (!empty($map['templates'])) {
                 $model->templates = [];
-                $n                = 0;
-                foreach ($map['templates'] as $item) {
-                    $model->templates[$n++] = null !== $item ? templates::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['templates'] as $item1) {
+                    $model->templates[$n1++] = templates::fromMap($item1);
                 }
             }
         }

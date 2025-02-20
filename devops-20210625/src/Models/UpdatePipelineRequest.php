@@ -4,29 +4,19 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePipelineRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 111xxx
-     *
      * @var string
      */
     public $pipelineId;
@@ -38,17 +28,20 @@ class UpdatePipelineRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->pipelineId) {
             $res['pipelineId'] = $this->pipelineId;
         }
@@ -56,20 +49,22 @@ class UpdatePipelineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePipelineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['pipelineId'])) {
             $model->pipelineId = $map['pipelineId'];
         }

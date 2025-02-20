@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPipelineScanReportUrlResponseBody extends Model
 {
     /**
-     * @example ”“
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @example ”“
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
-     * @example http://aliyun.com
-     *
      * @var string
      */
     public $reportUrl;
-
     /**
-     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example true 接口调用成功，false 接口调用失败
-     *
      * @var bool
      */
     public $success;
@@ -52,23 +38,28 @@ class GetPipelineScanReportUrlResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->reportUrl) {
             $res['reportUrl'] = $this->reportUrl;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -76,26 +67,30 @@ class GetPipelineScanReportUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPipelineScanReportUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
+
         if (isset($map['reportUrl'])) {
             $model->reportUrl = $map['reportUrl'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

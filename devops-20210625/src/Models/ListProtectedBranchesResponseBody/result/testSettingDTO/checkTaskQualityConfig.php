@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListProtectedBranchesResponseBody\result\testSettingDTO;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class checkTaskQualityConfig extends Model
 {
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $bizNo;
-
     /**
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @example test_task_quality
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @example biz-task-quality
-     *
      * @var string
      */
     public $taskName;
@@ -44,20 +33,24 @@ class checkTaskQualityConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizNo) {
             $res['bizNo'] = $this->bizNo;
         }
+
         if (null !== $this->enabled) {
             $res['enabled'] = $this->enabled;
         }
+
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->taskName) {
             $res['taskName'] = $this->taskName;
         }
@@ -65,23 +58,26 @@ class checkTaskQualityConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checkTaskQualityConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['bizNo'])) {
             $model->bizNo = $map['bizNo'];
         }
+
         if (isset($map['enabled'])) {
             $model->enabled = $map['enabled'];
         }
+
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['taskName'])) {
             $model->taskName = $map['taskName'];
         }

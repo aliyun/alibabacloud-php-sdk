@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class JoinPipelineGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $groupId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 122,122
-     *
      * @var string
      */
     public $pipelineIds;
@@ -32,14 +23,16 @@ class JoinPipelineGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['groupId'] = $this->groupId;
         }
+
         if (null !== $this->pipelineIds) {
             $res['pipelineIds'] = $this->pipelineIds;
         }
@@ -47,17 +40,18 @@ class JoinPipelineGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return JoinPipelineGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['groupId'])) {
             $model->groupId = $map['groupId'];
         }
+
         if (isset($map['pipelineIds'])) {
             $model->pipelineIds = $map['pipelineIds'];
         }

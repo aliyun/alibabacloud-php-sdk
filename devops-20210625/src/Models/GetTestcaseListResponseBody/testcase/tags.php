@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetTestcaseListResponseBody\testcase;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
@@ -12,10 +12,7 @@ class tags extends Model
      * @var string
      */
     public $name;
-
     /**
-     * @example 85702b33f14bxxxxxx58173ba
-     *
      * @var string
      */
     public $tagIdentifier;
@@ -26,14 +23,16 @@ class tags extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->tagIdentifier) {
             $res['tagIdentifier'] = $this->tagIdentifier;
         }
@@ -41,17 +40,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['tagIdentifier'])) {
             $model->tagIdentifier = $map['tagIdentifier'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetTestResultListResponseBody\testResult;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class assignedTo extends Model
 {
@@ -12,7 +12,6 @@ class assignedTo extends Model
      * @var string
      */
     public $assignedToIdenttifier;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class assignedTo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assignedToIdenttifier) {
             $res['assignedToIdenttifier'] = $this->assignedToIdenttifier;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -39,17 +40,18 @@ class assignedTo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assignedTo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['assignedToIdenttifier'])) {
             $model->assignedToIdenttifier = $map['assignedToIdenttifier'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

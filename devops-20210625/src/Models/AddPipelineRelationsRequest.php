@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddPipelineRelationsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 11,22
-     *
      * @var string
      */
     public $relObjectIds;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example VARIABLE_GROUP
-     *
      * @var string
      */
     public $relObjectType;
@@ -32,14 +23,16 @@ class AddPipelineRelationsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->relObjectIds) {
             $res['relObjectIds'] = $this->relObjectIds;
         }
+
         if (null !== $this->relObjectType) {
             $res['relObjectType'] = $this->relObjectType;
         }
@@ -47,17 +40,18 @@ class AddPipelineRelationsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddPipelineRelationsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['relObjectIds'])) {
             $model->relObjectIds = $map['relObjectIds'];
         }
+
         if (isset($map['relObjectType'])) {
             $model->relObjectType = $map['relObjectType'];
         }

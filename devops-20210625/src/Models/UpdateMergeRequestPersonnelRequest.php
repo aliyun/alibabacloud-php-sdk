@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMergeRequestPersonnelRequest extends Model
 {
     /**
-     * @example f0b1e61db5961df5975a93f9129d2513
-     *
      * @var string
      */
     public $accessToken;
-
     /**
      * @var string[]
      */
     public $newUserIdList;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 5ebbc0228123212b59xxxxx
-     *
      * @var string
      */
     public $organizationId;
@@ -36,17 +28,29 @@ class UpdateMergeRequestPersonnelRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->newUserIdList)) {
+            Model::validateArray($this->newUserIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessToken) {
             $res['accessToken'] = $this->accessToken;
         }
+
         if (null !== $this->newUserIdList) {
-            $res['newUserIdList'] = $this->newUserIdList;
+            if (\is_array($this->newUserIdList)) {
+                $res['newUserIdList'] = [];
+                $n1                   = 0;
+                foreach ($this->newUserIdList as $item1) {
+                    $res['newUserIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
@@ -54,22 +58,28 @@ class UpdateMergeRequestPersonnelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMergeRequestPersonnelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accessToken'])) {
             $model->accessToken = $map['accessToken'];
         }
+
         if (isset($map['newUserIdList'])) {
             if (!empty($map['newUserIdList'])) {
-                $model->newUserIdList = $map['newUserIdList'];
+                $model->newUserIdList = [];
+                $n1                   = 0;
+                foreach ($map['newUserIdList'] as $item1) {
+                    $model->newUserIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }

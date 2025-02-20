@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\CreateTestCaseResponseBody\testcase\detailInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class precondition extends Model
 {
@@ -12,17 +12,11 @@ class precondition extends Model
      * @var string
      */
     public $preContent;
-
     /**
-     * @example RICHTEXT
-     *
      * @var string
      */
     public $preContentType;
-
     /**
-     * @example 59253164xxxxxxf2e98dbc7e27
-     *
      * @var string
      */
     public $preIdentifier;
@@ -34,17 +28,20 @@ class precondition extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->preContent) {
             $res['preContent'] = $this->preContent;
         }
+
         if (null !== $this->preContentType) {
             $res['preContentType'] = $this->preContentType;
         }
+
         if (null !== $this->preIdentifier) {
             $res['preIdentifier'] = $this->preIdentifier;
         }
@@ -52,20 +49,22 @@ class precondition extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return precondition
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['preContent'])) {
             $model->preContent = $map['preContent'];
         }
+
         if (isset($map['preContentType'])) {
             $model->preContentType = $map['preContentType'];
         }
+
         if (isset($map['preIdentifier'])) {
             $model->preIdentifier = $map['preIdentifier'];
         }

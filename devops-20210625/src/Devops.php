@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddGroupMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddGroupMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\AddPipelineRelationsRequest;
@@ -447,11 +447,10 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkItemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkItemResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\WorkitemAttachmentCreateRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\WorkitemAttachmentCreateResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Devops extends OpenApiClient
 {
@@ -476,70 +475,86 @@ class Devops extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加组成员
-     *  *
-     * @param string                $groupId
-     * @param AddGroupMemberRequest $request AddGroupMemberRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 添加组成员.
      *
-     * @return AddGroupMemberResponse AddGroupMemberResponse
+     * @param request - AddGroupMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddGroupMemberResponse
+     *
+     * @param string                $groupId
+     * @param AddGroupMemberRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return AddGroupMemberResponse
      */
     public function addGroupMemberWithOptions($groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->accessLevel)) {
-            $body['accessLevel'] = $request->accessLevel;
+        if (null !== $request->accessLevel) {
+            @$body['accessLevel'] = $request->accessLevel;
         }
-        if (!Utils::isUnset($request->aliyunPks)) {
-            $body['aliyunPks'] = $request->aliyunPks;
+
+        if (null !== $request->aliyunPks) {
+            @$body['aliyunPks'] = $request->aliyunPks;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddGroupMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/members/create',
+            'pathname'    => '/repository/groups/' . Url::percentEncode($groupId) . '/members/create',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加组成员
-     *  *
-     * @param string                $groupId
-     * @param AddGroupMemberRequest $request AddGroupMemberRequest
+     * 添加组成员.
      *
-     * @return AddGroupMemberResponse AddGroupMemberResponse
+     * @param request - AddGroupMemberRequest
+     * @returns AddGroupMemberResponse
+     *
+     * @param string                $groupId
+     * @param AddGroupMemberRequest $request
+     *
+     * @return AddGroupMemberResponse
      */
     public function addGroupMember($groupId, $request)
     {
@@ -550,53 +565,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 添加流水线关联
-     *  *
+     * 添加流水线关联.
+     *
+     * @param request - AddPipelineRelationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddPipelineRelationsResponse
+     *
      * @param string                      $organizationId
      * @param string                      $pipelineId
-     * @param AddPipelineRelationsRequest $request        AddPipelineRelationsRequest
-     * @param string[]                    $headers        map
-     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
+     * @param AddPipelineRelationsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return AddPipelineRelationsResponse AddPipelineRelationsResponse
+     * @return AddPipelineRelationsResponse
      */
     public function addPipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->relObjectIds)) {
-            $query['relObjectIds'] = $request->relObjectIds;
+        if (null !== $request->relObjectIds) {
+            @$query['relObjectIds'] = $request->relObjectIds;
         }
-        if (!Utils::isUnset($request->relObjectType)) {
-            $query['relObjectType'] = $request->relObjectType;
+
+        if (null !== $request->relObjectType) {
+            @$query['relObjectType'] = $request->relObjectType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddPipelineRelations',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRelations',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/' . Url::percentEncode($pipelineId) . '/pipelineRelations',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddPipelineRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddPipelineRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddPipelineRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加流水线关联
-     *  *
+     * 添加流水线关联.
+     *
+     * @param request - AddPipelineRelationsRequest
+     * @returns AddPipelineRelationsResponse
+     *
      * @param string                      $organizationId
      * @param string                      $pipelineId
-     * @param AddPipelineRelationsRequest $request        AddPipelineRelationsRequest
+     * @param AddPipelineRelationsRequest $request
      *
-     * @return AddPipelineRelationsResponse AddPipelineRelationsResponse
+     * @return AddPipelineRelationsResponse
      */
     public function addPipelineRelations($organizationId, $pipelineId, $request)
     {
@@ -607,59 +635,74 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 添加代码库成员
-     *  *
-     * @param string                     $repositoryId
-     * @param AddRepositoryMemberRequest $request      AddRepositoryMemberRequest
-     * @param string[]                   $headers      map
-     * @param RuntimeOptions             $runtime      runtime options for this request RuntimeOptions
+     * 添加代码库成员.
      *
-     * @return AddRepositoryMemberResponse AddRepositoryMemberResponse
+     * @param request - AddRepositoryMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddRepositoryMemberResponse
+     *
+     * @param string                     $repositoryId
+     * @param AddRepositoryMemberRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return AddRepositoryMemberResponse
      */
     public function addRepositoryMemberWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->accessLevel)) {
-            $body['accessLevel'] = $request->accessLevel;
+        if (null !== $request->accessLevel) {
+            @$body['accessLevel'] = $request->accessLevel;
         }
-        if (!Utils::isUnset($request->aliyunPks)) {
-            $body['aliyunPks'] = $request->aliyunPks;
+
+        if (null !== $request->aliyunPks) {
+            @$body['aliyunPks'] = $request->aliyunPks;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddRepositoryMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/members',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddRepositoryMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddRepositoryMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddRepositoryMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加代码库成员
-     *  *
-     * @param string                     $repositoryId
-     * @param AddRepositoryMemberRequest $request      AddRepositoryMemberRequest
+     * 添加代码库成员.
      *
-     * @return AddRepositoryMemberResponse AddRepositoryMemberResponse
+     * @param request - AddRepositoryMemberRequest
+     * @returns AddRepositoryMemberResponse
+     *
+     * @param string                     $repositoryId
+     * @param AddRepositoryMemberRequest $request
+     *
+     * @return AddRepositoryMemberResponse
      */
     public function addRepositoryMember($repositoryId, $request)
     {
@@ -670,77 +713,98 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 添加代码库Webhook
-     *  *
-     * @param string            $repositoryId
-     * @param AddWebhookRequest $request      AddWebhookRequest
-     * @param string[]          $headers      map
-     * @param RuntimeOptions    $runtime      runtime options for this request RuntimeOptions
+     * 添加代码库Webhook.
      *
-     * @return AddWebhookResponse AddWebhookResponse
+     * @param request - AddWebhookRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddWebhookResponse
+     *
+     * @param string            $repositoryId
+     * @param AddWebhookRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AddWebhookResponse
      */
     public function addWebhookWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enableSslVerification)) {
-            $body['enableSslVerification'] = $request->enableSslVerification;
+
+        if (null !== $request->enableSslVerification) {
+            @$body['enableSslVerification'] = $request->enableSslVerification;
         }
-        if (!Utils::isUnset($request->mergeRequestsEvents)) {
-            $body['mergeRequestsEvents'] = $request->mergeRequestsEvents;
+
+        if (null !== $request->mergeRequestsEvents) {
+            @$body['mergeRequestsEvents'] = $request->mergeRequestsEvents;
         }
-        if (!Utils::isUnset($request->noteEvents)) {
-            $body['noteEvents'] = $request->noteEvents;
+
+        if (null !== $request->noteEvents) {
+            @$body['noteEvents'] = $request->noteEvents;
         }
-        if (!Utils::isUnset($request->pushEvents)) {
-            $body['pushEvents'] = $request->pushEvents;
+
+        if (null !== $request->pushEvents) {
+            @$body['pushEvents'] = $request->pushEvents;
         }
-        if (!Utils::isUnset($request->secretToken)) {
-            $body['secretToken'] = $request->secretToken;
+
+        if (null !== $request->secretToken) {
+            @$body['secretToken'] = $request->secretToken;
         }
-        if (!Utils::isUnset($request->tagPushEvents)) {
-            $body['tagPushEvents'] = $request->tagPushEvents;
+
+        if (null !== $request->tagPushEvents) {
+            @$body['tagPushEvents'] = $request->tagPushEvents;
         }
-        if (!Utils::isUnset($request->url)) {
-            $body['url'] = $request->url;
+
+        if (null !== $request->url) {
+            @$body['url'] = $request->url;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddWebhook',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/webhooks/create',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/webhooks/create',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddWebhookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加代码库Webhook
-     *  *
-     * @param string            $repositoryId
-     * @param AddWebhookRequest $request      AddWebhookRequest
+     * 添加代码库Webhook.
      *
-     * @return AddWebhookResponse AddWebhookResponse
+     * @param request - AddWebhookRequest
+     * @returns AddWebhookResponse
+     *
+     * @param string            $repositoryId
+     * @param AddWebhookRequest $request
+     *
+     * @return AddWebhookResponse
      */
     public function addWebhook($repositoryId, $request)
     {
@@ -751,54 +815,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 取消执行研发阶段流水线
-     *  *
+     * 取消执行研发阶段流水线
+     *
+     * @param request - CancelExecutionReleaseStageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelExecutionReleaseStageResponse
+     *
      * @param string                             $appName
      * @param string                             $releaseWorkflowSn
      * @param string                             $releaseStageSn
      * @param string                             $executionNumber
-     * @param CancelExecutionReleaseStageRequest $request           CancelExecutionReleaseStageRequest
-     * @param string[]                           $headers           map
-     * @param RuntimeOptions                     $runtime           runtime options for this request RuntimeOptions
+     * @param CancelExecutionReleaseStageRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
-     * @return CancelExecutionReleaseStageResponse CancelExecutionReleaseStageResponse
+     * @return CancelExecutionReleaseStageResponse
      */
     public function cancelExecutionReleaseStageWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelExecutionReleaseStage',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '%3Acancel',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/releaseWorkflows/' . Url::percentEncode($releaseWorkflowSn) . '/releaseStages/' . Url::percentEncode($releaseStageSn) . '/executions/' . Url::percentEncode($executionNumber) . '%3Acancel',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelExecutionReleaseStageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelExecutionReleaseStageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelExecutionReleaseStageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消执行研发阶段流水线
-     *  *
+     * 取消执行研发阶段流水线
+     *
+     * @param request - CancelExecutionReleaseStageRequest
+     * @returns CancelExecutionReleaseStageResponse
+     *
      * @param string                             $appName
      * @param string                             $releaseWorkflowSn
      * @param string                             $releaseStageSn
      * @param string                             $executionNumber
-     * @param CancelExecutionReleaseStageRequest $request           CancelExecutionReleaseStageRequest
+     * @param CancelExecutionReleaseStageRequest $request
      *
-     * @return CancelExecutionReleaseStageResponse CancelExecutionReleaseStageResponse
+     * @return CancelExecutionReleaseStageResponse
      */
     public function cancelExecutionReleaseStage($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
     {
@@ -809,53 +885,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 关闭代码评审
-     *  *
+     * 关闭代码评审
+     *
+     * @param request - CloseMergeRequestRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CloseMergeRequestResponse
+     *
      * @param string                   $repositoryId
      * @param string                   $localId
-     * @param CloseMergeRequestRequest $request      CloseMergeRequestRequest
-     * @param string[]                 $headers      map
-     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
+     * @param CloseMergeRequestRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return CloseMergeRequestResponse CloseMergeRequestResponse
+     * @return CloseMergeRequestResponse
      */
     public function closeMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CloseMergeRequest',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/merge_requests/' . OpenApiUtilClient::getEncodeParam($localId) . '/close',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/merge_requests/' . Url::percentEncode($localId) . '/close',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CloseMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CloseMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloseMergeRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 关闭代码评审
-     *  *
+     * 关闭代码评审
+     *
+     * @param request - CloseMergeRequestRequest
+     * @returns CloseMergeRequestResponse
+     *
      * @param string                   $repositoryId
      * @param string                   $localId
-     * @param CloseMergeRequestRequest $request      CloseMergeRequestRequest
+     * @param CloseMergeRequestRequest $request
      *
-     * @return CloseMergeRequestResponse CloseMergeRequestResponse
+     * @return CloseMergeRequestResponse
      */
     public function closeMergeRequest($repositoryId, $localId, $request)
     {
@@ -866,56 +955,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 添加应用成员
-     *  *
-     * @param string                  $appName
-     * @param CreateAppMembersRequest $request CreateAppMembersRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 添加应用成员.
      *
-     * @return CreateAppMembersResponse CreateAppMembersResponse
+     * @param request - CreateAppMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAppMembersResponse
+     *
+     * @param string                  $appName
+     * @param CreateAppMembersRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateAppMembersResponse
      */
     public function createAppMembersWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->playerList)) {
-            $body['playerList'] = $request->playerList;
+        if (null !== $request->playerList) {
+            @$body['playerList'] = $request->playerList;
         }
-        if (!Utils::isUnset($request->roleNames)) {
-            $body['roleNames'] = $request->roleNames;
+
+        if (null !== $request->roleNames) {
+            @$body['roleNames'] = $request->roleNames;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAppMembers',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/members',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/members',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'string',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAppMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAppMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAppMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加应用成员
-     *  *
-     * @param string                  $appName
-     * @param CreateAppMembersRequest $request CreateAppMembersRequest
+     * 添加应用成员.
      *
-     * @return CreateAppMembersResponse CreateAppMembersResponse
+     * @param request - CreateAppMembersRequest
+     * @returns CreateAppMembersResponse
+     *
+     * @param string                  $appName
+     * @param CreateAppMembersRequest $request
+     *
+     * @return CreateAppMembersResponse
      */
     public function createAppMembers($appName, $request)
     {
@@ -926,59 +1029,74 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建分支
-     *  *
-     * @param string              $repositoryId
-     * @param CreateBranchRequest $request      CreateBranchRequest
-     * @param string[]            $headers      map
-     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
+     * 创建分支.
      *
-     * @return CreateBranchResponse CreateBranchResponse
+     * @param request - CreateBranchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateBranchResponse
+     *
+     * @param string              $repositoryId
+     * @param CreateBranchRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateBranchResponse
      */
     public function createBranchWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->branchName)) {
-            $body['branchName'] = $request->branchName;
+        if (null !== $request->branchName) {
+            @$body['branchName'] = $request->branchName;
         }
-        if (!Utils::isUnset($request->ref)) {
-            $body['ref'] = $request->ref;
+
+        if (null !== $request->ref) {
+            @$body['ref'] = $request->ref;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateBranch',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/branches',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/branches',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateBranchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建分支
-     *  *
-     * @param string              $repositoryId
-     * @param CreateBranchRequest $request      CreateBranchRequest
+     * 创建分支.
      *
-     * @return CreateBranchResponse CreateBranchResponse
+     * @param request - CreateBranchRequest
+     * @returns CreateBranchResponse
+     *
+     * @param string              $repositoryId
+     * @param CreateBranchRequest $request
+     *
+     * @return CreateBranchResponse
      */
     public function createBranch($repositoryId, $request)
     {
@@ -989,71 +1107,90 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建变更
-     *  *
-     * @param string                     $appName
-     * @param CreateChangeRequestRequest $request CreateChangeRequestRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 创建变更.
      *
-     * @return CreateChangeRequestResponse CreateChangeRequestResponse
+     * @param request - CreateChangeRequestRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateChangeRequestResponse
+     *
+     * @param string                     $appName
+     * @param CreateChangeRequestRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateChangeRequestResponse
      */
     public function createChangeRequestWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appCodeRepoSn)) {
-            $body['appCodeRepoSn'] = $request->appCodeRepoSn;
+        if (null !== $request->appCodeRepoSn) {
+            @$body['appCodeRepoSn'] = $request->appCodeRepoSn;
         }
-        if (!Utils::isUnset($request->autoDeleteBranchWhenEnd)) {
-            $body['autoDeleteBranchWhenEnd'] = $request->autoDeleteBranchWhenEnd;
+
+        if (null !== $request->autoDeleteBranchWhenEnd) {
+            @$body['autoDeleteBranchWhenEnd'] = $request->autoDeleteBranchWhenEnd;
         }
-        if (!Utils::isUnset($request->branchName)) {
-            $body['branchName'] = $request->branchName;
+
+        if (null !== $request->branchName) {
+            @$body['branchName'] = $request->branchName;
         }
-        if (!Utils::isUnset($request->createBranch)) {
-            $body['createBranch'] = $request->createBranch;
+
+        if (null !== $request->createBranch) {
+            @$body['createBranch'] = $request->createBranch;
         }
-        if (!Utils::isUnset($request->ownerAccountId)) {
-            $body['ownerAccountId'] = $request->ownerAccountId;
+
+        if (null !== $request->ownerAccountId) {
+            @$body['ownerAccountId'] = $request->ownerAccountId;
         }
-        if (!Utils::isUnset($request->ownerId)) {
-            $body['ownerId'] = $request->ownerId;
+
+        if (null !== $request->ownerId) {
+            @$body['ownerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateChangeRequest',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/changeRequests',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/changeRequests',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateChangeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateChangeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateChangeRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建变更
-     *  *
-     * @param string                     $appName
-     * @param CreateChangeRequestRequest $request CreateChangeRequestRequest
+     * 创建变更.
      *
-     * @return CreateChangeRequestResponse CreateChangeRequestResponse
+     * @param request - CreateChangeRequestRequest
+     * @returns CreateChangeRequestResponse
+     *
+     * @param string                     $appName
+     * @param CreateChangeRequestRequest $request
+     *
+     * @return CreateChangeRequestResponse
      */
     public function createChangeRequest($appName, $request)
     {
@@ -1064,62 +1201,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 添加检查运行记录
-     *  *
-     * @param CreateCheckRunRequest $request CreateCheckRunRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 添加检查运行记录.
      *
-     * @return CreateCheckRunResponse CreateCheckRunResponse
+     * @param request - CreateCheckRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCheckRunResponse
+     *
+     * @param CreateCheckRunRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateCheckRunResponse
      */
     public function createCheckRunWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->annotations)) {
-            $body['annotations'] = $request->annotations;
+        if (null !== $request->annotations) {
+            @$body['annotations'] = $request->annotations;
         }
-        if (!Utils::isUnset($request->completedAt)) {
-            $body['completedAt'] = $request->completedAt;
+
+        if (null !== $request->completedAt) {
+            @$body['completedAt'] = $request->completedAt;
         }
-        if (!Utils::isUnset($request->conclusion)) {
-            $body['conclusion'] = $request->conclusion;
+
+        if (null !== $request->conclusion) {
+            @$body['conclusion'] = $request->conclusion;
         }
-        if (!Utils::isUnset($request->detailsUrl)) {
-            $body['detailsUrl'] = $request->detailsUrl;
+
+        if (null !== $request->detailsUrl) {
+            @$body['detailsUrl'] = $request->detailsUrl;
         }
-        if (!Utils::isUnset($request->externalId)) {
-            $body['externalId'] = $request->externalId;
+
+        if (null !== $request->externalId) {
+            @$body['externalId'] = $request->externalId;
         }
-        if (!Utils::isUnset($request->headSha)) {
-            $body['headSha'] = $request->headSha;
+
+        if (null !== $request->headSha) {
+            @$body['headSha'] = $request->headSha;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->output)) {
-            $body['output'] = $request->output;
+
+        if (null !== $request->output) {
+            @$body['output'] = $request->output;
         }
-        if (!Utils::isUnset($request->startedAt)) {
-            $body['startedAt'] = $request->startedAt;
+
+        if (null !== $request->startedAt) {
+            @$body['startedAt'] = $request->startedAt;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCheckRun',
@@ -1132,16 +1287,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCheckRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCheckRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCheckRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加检查运行记录
-     *  *
-     * @param CreateCheckRunRequest $request CreateCheckRunRequest
+     * 添加检查运行记录.
      *
-     * @return CreateCheckRunResponse CreateCheckRunResponse
+     * @param request - CreateCheckRunRequest
+     * @returns CreateCheckRunResponse
+     *
+     * @param CreateCheckRunRequest $request
+     *
+     * @return CreateCheckRunResponse
      */
     public function createCheckRun($request)
     {
@@ -1152,59 +1313,84 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建评论
-     *  *
-     * @param CreateCommentRequest $request CreateCommentRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 创建评论.
      *
-     * @return CreateCommentResponse CreateCommentResponse
+     * @param request - CreateCommentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCommentResponse
+     *
+     * @param CreateCommentRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateCommentResponse
      */
     public function createCommentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->localId)) {
-            $query['localId'] = $request->localId;
+
+        if (null !== $request->localId) {
+            @$query['localId'] = $request->localId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->commentType)) {
-            $body['commentType'] = $request->commentType;
+        if (null !== $request->commentType) {
+            @$body['commentType'] = $request->commentType;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->draft)) {
-            $body['draft'] = $request->draft;
+
+        if (null !== $request->draft) {
+            @$body['draft'] = $request->draft;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $body['filePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$body['filePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->lineNumber)) {
-            $body['lineNumber'] = $request->lineNumber;
+
+        if (null !== $request->fromPachSetBizId) {
+            @$body['fromPachSetBizId'] = $request->fromPachSetBizId;
         }
-        if (!Utils::isUnset($request->parentCommentBizId)) {
-            $body['parentCommentBizId'] = $request->parentCommentBizId;
+
+        if (null !== $request->lineNumber) {
+            @$body['lineNumber'] = $request->lineNumber;
         }
-        if (!Utils::isUnset($request->patchSetBizId)) {
-            $body['patchSetBizId'] = $request->patchSetBizId;
+
+        if (null !== $request->parentCommentBizId) {
+            @$body['parentCommentBizId'] = $request->parentCommentBizId;
         }
-        if (!Utils::isUnset($request->resolved)) {
-            $body['resolved'] = $request->resolved;
+
+        if (null !== $request->patchSetBizId) {
+            @$body['patchSetBizId'] = $request->patchSetBizId;
         }
+
+        if (null !== $request->resolved) {
+            @$body['resolved'] = $request->resolved;
+        }
+
+        if (null !== $request->toPatchSetBizId) {
+            @$body['toPatchSetBizId'] = $request->toPatchSetBizId;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateComment',
@@ -1217,16 +1403,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCommentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建评论
-     *  *
-     * @param CreateCommentRequest $request CreateCommentRequest
+     * 创建评论.
      *
-     * @return CreateCommentResponse CreateCommentResponse
+     * @param request - CreateCommentRequest
+     * @returns CreateCommentResponse
+     *
+     * @param CreateCommentRequest $request
+     *
+     * @return CreateCommentResponse
      */
     public function createComment($request)
     {
@@ -1237,47 +1429,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建提交状态记录
-     *  *
-     * @param CreateCommitStatusRequest $request CreateCommitStatusRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 创建提交状态记录.
      *
-     * @return CreateCommitStatusResponse CreateCommitStatusResponse
+     * @param request - CreateCommitStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCommitStatusResponse
+     *
+     * @param CreateCommitStatusRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateCommitStatusResponse
      */
     public function createCommitStatusWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
-        if (!Utils::isUnset($request->sha)) {
-            $query['sha'] = $request->sha;
+
+        if (null !== $request->sha) {
+            @$query['sha'] = $request->sha;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->context)) {
-            $body['context'] = $request->context;
+        if (null !== $request->context) {
+            @$body['context'] = $request->context;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->state)) {
-            $body['state'] = $request->state;
+
+        if (null !== $request->state) {
+            @$body['state'] = $request->state;
         }
-        if (!Utils::isUnset($request->targetUrl)) {
-            $body['targetUrl'] = $request->targetUrl;
+
+        if (null !== $request->targetUrl) {
+            @$body['targetUrl'] = $request->targetUrl;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCommitStatus',
@@ -1290,16 +1495,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCommitStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCommitStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCommitStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建提交状态记录
-     *  *
-     * @param CreateCommitStatusRequest $request CreateCommitStatusRequest
+     * 创建提交状态记录.
      *
-     * @return CreateCommitStatusResponse CreateCommitStatusResponse
+     * @param request - CreateCommitStatusRequest
+     * @returns CreateCommitStatusResponse
+     *
+     * @param CreateCommitStatusRequest $request
+     *
+     * @return CreateCommitStatusResponse
      */
     public function createCommitStatus($request)
     {
@@ -1310,41 +1521,52 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 单提交变更多个文件
-     *  *
-     * @param CreateCommitWithMultipleFilesRequest $request CreateCommitWithMultipleFilesRequest
-     * @param string[]                             $headers map
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * 单提交变更多个文件.
      *
-     * @return CreateCommitWithMultipleFilesResponse CreateCommitWithMultipleFilesResponse
+     * @param request - CreateCommitWithMultipleFilesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCommitWithMultipleFilesResponse
+     *
+     * @param CreateCommitWithMultipleFilesRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateCommitWithMultipleFilesResponse
      */
     public function createCommitWithMultipleFilesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->actions)) {
-            $body['actions'] = $request->actions;
+        if (null !== $request->actions) {
+            @$body['actions'] = $request->actions;
         }
-        if (!Utils::isUnset($request->branch)) {
-            $body['branch'] = $request->branch;
+
+        if (null !== $request->branch) {
+            @$body['branch'] = $request->branch;
         }
-        if (!Utils::isUnset($request->commitMessage)) {
-            $body['commitMessage'] = $request->commitMessage;
+
+        if (null !== $request->commitMessage) {
+            @$body['commitMessage'] = $request->commitMessage;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateCommitWithMultipleFiles',
@@ -1357,16 +1579,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCommitWithMultipleFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCommitWithMultipleFilesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCommitWithMultipleFilesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 单提交变更多个文件
-     *  *
-     * @param CreateCommitWithMultipleFilesRequest $request CreateCommitWithMultipleFilesRequest
+     * 单提交变更多个文件.
      *
-     * @return CreateCommitWithMultipleFilesResponse CreateCommitWithMultipleFilesResponse
+     * @param request - CreateCommitWithMultipleFilesRequest
+     * @returns CreateCommitWithMultipleFilesResponse
+     *
+     * @param CreateCommitWithMultipleFilesRequest $request
+     *
+     * @return CreateCommitWithMultipleFilesResponse
      */
     public function createCommitWithMultipleFiles($request)
     {
@@ -1377,59 +1605,74 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建部署密钥
-     *  *
-     * @param string                 $repositoryId
-     * @param CreateDeployKeyRequest $request      CreateDeployKeyRequest
-     * @param string[]               $headers      map
-     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
+     * 创建部署密钥.
      *
-     * @return CreateDeployKeyResponse CreateDeployKeyResponse
+     * @param request - CreateDeployKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDeployKeyResponse
+     *
+     * @param string                 $repositoryId
+     * @param CreateDeployKeyRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDeployKeyResponse
      */
     public function createDeployKeyWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->key)) {
-            $body['key'] = $request->key;
+        if (null !== $request->key) {
+            @$body['key'] = $request->key;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDeployKey',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/keys/create',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/keys/create',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDeployKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDeployKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeployKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建部署密钥
-     *  *
-     * @param string                 $repositoryId
-     * @param CreateDeployKeyRequest $request      CreateDeployKeyRequest
+     * 创建部署密钥.
      *
-     * @return CreateDeployKeyResponse CreateDeployKeyResponse
+     * @param request - CreateDeployKeyRequest
+     * @returns CreateDeployKeyResponse
+     *
+     * @param string                 $repositoryId
+     * @param CreateDeployKeyRequest $request
+     *
+     * @return CreateDeployKeyResponse
      */
     public function createDeployKey($repositoryId, $request)
     {
@@ -1440,68 +1683,86 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建文件
-     *  *
-     * @param string            $repositoryId
-     * @param CreateFileRequest $request      CreateFileRequest
-     * @param string[]          $headers      map
-     * @param RuntimeOptions    $runtime      runtime options for this request RuntimeOptions
+     * 创建文件.
      *
-     * @return CreateFileResponse CreateFileResponse
+     * @param request - CreateFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFileResponse
+     *
+     * @param string            $repositoryId
+     * @param CreateFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return CreateFileResponse
      */
     public function createFileWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->branchName)) {
-            $body['branchName'] = $request->branchName;
+        if (null !== $request->branchName) {
+            @$body['branchName'] = $request->branchName;
         }
-        if (!Utils::isUnset($request->commitMessage)) {
-            $body['commitMessage'] = $request->commitMessage;
+
+        if (null !== $request->commitMessage) {
+            @$body['commitMessage'] = $request->commitMessage;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->encoding)) {
-            $body['encoding'] = $request->encoding;
+
+        if (null !== $request->encoding) {
+            @$body['encoding'] = $request->encoding;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $body['filePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$body['filePath'] = $request->filePath;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateFile',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/files',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建文件
-     *  *
-     * @param string            $repositoryId
-     * @param CreateFileRequest $request      CreateFileRequest
+     * 创建文件.
      *
-     * @return CreateFileResponse CreateFileResponse
+     * @param request - CreateFileRequest
+     * @returns CreateFileResponse
+     *
+     * @param string            $repositoryId
+     * @param CreateFileRequest $request
+     *
+     * @return CreateFileResponse
      */
     public function createFile($repositoryId, $request)
     {
@@ -1512,54 +1773,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建标签
-     *  *
-     * @param string               $organizationId
-     * @param CreateFlowTagRequest $request        CreateFlowTagRequest
-     * @param string[]             $headers        map
-     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
+     * 创建标签.
      *
-     * @return CreateFlowTagResponse CreateFlowTagResponse
+     * @param request - CreateFlowTagRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFlowTagResponse
+     *
+     * @param string               $organizationId
+     * @param CreateFlowTagRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateFlowTagResponse
      */
     public function createFlowTagWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->color)) {
-            $query['color'] = $request->color;
+        if (null !== $request->color) {
+            @$query['color'] = $request->color;
         }
-        if (!Utils::isUnset($request->flowTagGroupId)) {
-            $query['flowTagGroupId'] = $request->flowTagGroupId;
+
+        if (null !== $request->flowTagGroupId) {
+            @$query['flowTagGroupId'] = $request->flowTagGroupId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFlowTag',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tags',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/flow/tags',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFlowTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFlowTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFlowTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建标签
-     *  *
-     * @param string               $organizationId
-     * @param CreateFlowTagRequest $request        CreateFlowTagRequest
+     * 创建标签.
      *
-     * @return CreateFlowTagResponse CreateFlowTagResponse
+     * @param request - CreateFlowTagRequest
+     * @returns CreateFlowTagResponse
+     *
+     * @param string               $organizationId
+     * @param CreateFlowTagRequest $request
+     *
+     * @return CreateFlowTagResponse
      */
     public function createFlowTag($organizationId, $request)
     {
@@ -1570,48 +1845,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建标签分类
-     *  *
-     * @param string                    $organizationId
-     * @param CreateFlowTagGroupRequest $request        CreateFlowTagGroupRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * 创建标签分类.
      *
-     * @return CreateFlowTagGroupResponse CreateFlowTagGroupResponse
+     * @param request - CreateFlowTagGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFlowTagGroupResponse
+     *
+     * @param string                    $organizationId
+     * @param CreateFlowTagGroupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateFlowTagGroupResponse
      */
     public function createFlowTagGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFlowTagGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/flow/tagGroups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFlowTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFlowTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFlowTagGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建标签分类
-     *  *
-     * @param string                    $organizationId
-     * @param CreateFlowTagGroupRequest $request        CreateFlowTagGroupRequest
+     * 创建标签分类.
      *
-     * @return CreateFlowTagGroupResponse CreateFlowTagGroupResponse
+     * @param request - CreateFlowTagGroupRequest
+     * @returns CreateFlowTagGroupResponse
+     *
+     * @param string                    $organizationId
+     * @param CreateFlowTagGroupRequest $request
+     *
+     * @return CreateFlowTagGroupResponse
      */
     public function createFlowTagGroup($organizationId, $request)
     {
@@ -1622,75 +1909,96 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建主机组
-     *  *
-     * @param string                 $organizationId
-     * @param CreateHostGroupRequest $request        CreateHostGroupRequest
-     * @param string[]               $headers        map
-     * @param RuntimeOptions         $runtime        runtime options for this request RuntimeOptions
+     * 创建主机组.
      *
-     * @return CreateHostGroupResponse CreateHostGroupResponse
+     * @param request - CreateHostGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateHostGroupResponse
+     *
+     * @param string                 $organizationId
+     * @param CreateHostGroupRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateHostGroupResponse
      */
     public function createHostGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aliyunRegion)) {
-            $body['aliyunRegion'] = $request->aliyunRegion;
+        if (null !== $request->aliyunRegion) {
+            @$body['aliyunRegion'] = $request->aliyunRegion;
         }
-        if (!Utils::isUnset($request->ecsLabelKey)) {
-            $body['ecsLabelKey'] = $request->ecsLabelKey;
+
+        if (null !== $request->ecsLabelKey) {
+            @$body['ecsLabelKey'] = $request->ecsLabelKey;
         }
-        if (!Utils::isUnset($request->ecsLabelValue)) {
-            $body['ecsLabelValue'] = $request->ecsLabelValue;
+
+        if (null !== $request->ecsLabelValue) {
+            @$body['ecsLabelValue'] = $request->ecsLabelValue;
         }
-        if (!Utils::isUnset($request->ecsType)) {
-            $body['ecsType'] = $request->ecsType;
+
+        if (null !== $request->ecsType) {
+            @$body['ecsType'] = $request->ecsType;
         }
-        if (!Utils::isUnset($request->envId)) {
-            $body['envId'] = $request->envId;
+
+        if (null !== $request->envId) {
+            @$body['envId'] = $request->envId;
         }
-        if (!Utils::isUnset($request->machineInfos)) {
-            $body['machineInfos'] = $request->machineInfos;
+
+        if (null !== $request->machineInfos) {
+            @$body['machineInfos'] = $request->machineInfos;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->serviceConnectionId)) {
-            $body['serviceConnectionId'] = $request->serviceConnectionId;
+
+        if (null !== $request->serviceConnectionId) {
+            @$body['serviceConnectionId'] = $request->serviceConnectionId;
         }
-        if (!Utils::isUnset($request->tagIds)) {
-            $body['tagIds'] = $request->tagIds;
+
+        if (null !== $request->tagIds) {
+            @$body['tagIds'] = $request->tagIds;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateHostGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/hostGroups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateHostGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建主机组
-     *  *
-     * @param string                 $organizationId
-     * @param CreateHostGroupRequest $request        CreateHostGroupRequest
+     * 创建主机组.
      *
-     * @return CreateHostGroupResponse CreateHostGroupResponse
+     * @param request - CreateHostGroupRequest
+     * @returns CreateHostGroupResponse
+     *
+     * @param string                 $organizationId
+     * @param CreateHostGroupRequest $request
+     *
+     * @return CreateHostGroupResponse
      */
     public function createHostGroup($organizationId, $request)
     {
@@ -1701,80 +2009,102 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建代码评审
-     *  *
-     * @param string                    $repositoryId
-     * @param CreateMergeRequestRequest $request      CreateMergeRequestRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * 创建代码评审
      *
-     * @return CreateMergeRequestResponse CreateMergeRequestResponse
+     * @param request - CreateMergeRequestRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateMergeRequestResponse
+     *
+     * @param string                    $repositoryId
+     * @param CreateMergeRequestRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateMergeRequestResponse
      */
     public function createMergeRequestWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->createFrom)) {
-            $body['createFrom'] = $request->createFrom;
+        if (null !== $request->createFrom) {
+            @$body['createFrom'] = $request->createFrom;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->reviewerIds)) {
-            $body['reviewerIds'] = $request->reviewerIds;
+
+        if (null !== $request->reviewerIds) {
+            @$body['reviewerIds'] = $request->reviewerIds;
         }
-        if (!Utils::isUnset($request->sourceBranch)) {
-            $body['sourceBranch'] = $request->sourceBranch;
+
+        if (null !== $request->sourceBranch) {
+            @$body['sourceBranch'] = $request->sourceBranch;
         }
-        if (!Utils::isUnset($request->sourceProjectId)) {
-            $body['sourceProjectId'] = $request->sourceProjectId;
+
+        if (null !== $request->sourceProjectId) {
+            @$body['sourceProjectId'] = $request->sourceProjectId;
         }
-        if (!Utils::isUnset($request->targetBranch)) {
-            $body['targetBranch'] = $request->targetBranch;
+
+        if (null !== $request->targetBranch) {
+            @$body['targetBranch'] = $request->targetBranch;
         }
-        if (!Utils::isUnset($request->targetProjectId)) {
-            $body['targetProjectId'] = $request->targetProjectId;
+
+        if (null !== $request->targetProjectId) {
+            @$body['targetProjectId'] = $request->targetProjectId;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
-        if (!Utils::isUnset($request->workItemIds)) {
-            $body['workItemIds'] = $request->workItemIds;
+
+        if (null !== $request->workItemIds) {
+            @$body['workItemIds'] = $request->workItemIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateMergeRequest',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/merge_requests',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/merge_requests',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMergeRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建代码评审
-     *  *
-     * @param string                    $repositoryId
-     * @param CreateMergeRequestRequest $request      CreateMergeRequestRequest
+     * 创建代码评审
      *
-     * @return CreateMergeRequestResponse CreateMergeRequestResponse
+     * @param request - CreateMergeRequestRequest
+     * @returns CreateMergeRequestResponse
+     *
+     * @param string                    $repositoryId
+     * @param CreateMergeRequestRequest $request
+     *
+     * @return CreateMergeRequestResponse
      */
     public function createMergeRequest($repositoryId, $request)
     {
@@ -1785,39 +2115,50 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建OAuth令牌
-     *  *
-     * @param CreateOAuthTokenRequest $request CreateOAuthTokenRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建OAuth令牌.
      *
-     * @return CreateOAuthTokenResponse CreateOAuthTokenResponse
+     * @param request - CreateOAuthTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateOAuthTokenResponse
+     *
+     * @param CreateOAuthTokenRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateOAuthTokenResponse
      */
     public function createOAuthTokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $body['clientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$body['clientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->clientSecret)) {
-            $body['clientSecret'] = $request->clientSecret;
+
+        if (null !== $request->clientSecret) {
+            @$body['clientSecret'] = $request->clientSecret;
         }
-        if (!Utils::isUnset($request->code)) {
-            $body['code'] = $request->code;
+
+        if (null !== $request->code) {
+            @$body['code'] = $request->code;
         }
-        if (!Utils::isUnset($request->grantType)) {
-            $body['grantType'] = $request->grantType;
+
+        if (null !== $request->grantType) {
+            @$body['grantType'] = $request->grantType;
         }
-        if (!Utils::isUnset($request->login)) {
-            $body['login'] = $request->login;
+
+        if (null !== $request->login) {
+            @$body['login'] = $request->login;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOAuthToken',
@@ -1830,16 +2171,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateOAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateOAuthTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOAuthTokenResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建OAuth令牌
-     *  *
-     * @param CreateOAuthTokenRequest $request CreateOAuthTokenRequest
+     * 创建OAuth令牌.
      *
-     * @return CreateOAuthTokenResponse CreateOAuthTokenResponse
+     * @param request - CreateOAuthTokenRequest
+     * @returns CreateOAuthTokenResponse
+     *
+     * @param CreateOAuthTokenRequest $request
+     *
+     * @return CreateOAuthTokenResponse
      */
     public function createOAuthToken($request)
     {
@@ -1850,51 +2197,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建流水线。
-     *  *
-     * @param string                $organizationId
-     * @param CreatePipelineRequest $request        CreatePipelineRequest
-     * @param string[]              $headers        map
-     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
+     * 创建流水线。
      *
-     * @return CreatePipelineResponse CreatePipelineResponse
+     * @param request - CreatePipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePipelineResponse
+     *
+     * @param string                $organizationId
+     * @param CreatePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePipelineResponse
      */
     public function createPipelineWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreatePipeline',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePipelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建流水线。
-     *  *
-     * @param string                $organizationId
-     * @param CreatePipelineRequest $request        CreatePipelineRequest
+     * 创建流水线。
      *
-     * @return CreatePipelineResponse CreatePipelineResponse
+     * @param request - CreatePipelineRequest
+     * @returns CreatePipelineResponse
+     *
+     * @param string                $organizationId
+     * @param CreatePipelineRequest $request
+     *
+     * @return CreatePipelineResponse
      */
     public function createPipeline($organizationId, $request)
     {
@@ -1905,48 +2265,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建流水线分组
-     *  *
-     * @param string                     $organizationId
-     * @param CreatePipelineGroupRequest $request        CreatePipelineGroupRequest
-     * @param string[]                   $headers        map
-     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     * 创建流水线分组.
      *
-     * @return CreatePipelineGroupResponse CreatePipelineGroupResponse
+     * @param request - CreatePipelineGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePipelineGroupResponse
+     *
+     * @param string                     $organizationId
+     * @param CreatePipelineGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreatePipelineGroupResponse
      */
     public function createPipelineGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelineGroups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePipelineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建流水线分组
-     *  *
-     * @param string                     $organizationId
-     * @param CreatePipelineGroupRequest $request        CreatePipelineGroupRequest
+     * 创建流水线分组.
      *
-     * @return CreatePipelineGroupResponse CreatePipelineGroupResponse
+     * @param request - CreatePipelineGroupRequest
+     * @returns CreatePipelineGroupResponse
+     *
+     * @param string                     $organizationId
+     * @param CreatePipelineGroupRequest $request
+     *
+     * @return CreatePipelineGroupResponse
      */
     public function createPipelineGroup($organizationId, $request)
     {
@@ -1957,57 +2329,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建项目
-     *  *
-     * @param string               $organizationId
-     * @param CreateProjectRequest $request        CreateProjectRequest
-     * @param string[]             $headers        map
-     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
+     * 创建项目.
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param request - CreateProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProjectResponse
+     *
+     * @param string               $organizationId
+     * @param CreateProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateProjectResponse
      */
     public function createProjectWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->customCode)) {
-            $body['customCode'] = $request->customCode;
+        if (null !== $request->customCode) {
+            @$body['customCode'] = $request->customCode;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->templateIdentifier)) {
-            $body['templateIdentifier'] = $request->templateIdentifier;
+
+        if (null !== $request->templateIdentifier) {
+            @$body['templateIdentifier'] = $request->templateIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateProject',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/createProject',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/projects/createProject',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建项目
-     *  *
-     * @param string               $organizationId
-     * @param CreateProjectRequest $request        CreateProjectRequest
+     * 创建项目.
      *
-     * @return CreateProjectResponse CreateProjectResponse
+     * @param request - CreateProjectRequest
+     * @returns CreateProjectResponse
+     *
+     * @param string               $organizationId
+     * @param CreateProjectRequest $request
+     *
+     * @return CreateProjectResponse
      */
     public function createProject($organizationId, $request)
     {
@@ -2018,41 +2405,52 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建代码库Label
-     *  *
-     * @param CreateProjectLabelRequest $request CreateProjectLabelRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 创建代码库Label.
      *
-     * @return CreateProjectLabelResponse CreateProjectLabelResponse
+     * @param request - CreateProjectLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProjectLabelResponse
+     *
+     * @param CreateProjectLabelRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateProjectLabelResponse
      */
     public function createProjectLabelWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->color)) {
-            $body['color'] = $request->color;
+        if (null !== $request->color) {
+            @$body['color'] = $request->color;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateProjectLabel',
@@ -2065,16 +2463,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProjectLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProjectLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProjectLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建代码库Label
-     *  *
-     * @param CreateProjectLabelRequest $request CreateProjectLabelRequest
+     * 创建代码库Label.
      *
-     * @return CreateProjectLabelResponse CreateProjectLabelResponse
+     * @param request - CreateProjectLabelRequest
+     * @returns CreateProjectLabelResponse
+     *
+     * @param CreateProjectLabelRequest $request
+     *
+     * @return CreateProjectLabelResponse
      */
     public function createProjectLabel($request)
     {
@@ -2085,77 +2489,98 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建保护分支
-     *  *
-     * @param string                      $repositoryId
-     * @param CreateProtectdBranchRequest $request      CreateProtectdBranchRequest
-     * @param string[]                    $headers      map
-     * @param RuntimeOptions              $runtime      runtime options for this request RuntimeOptions
+     * 创建保护分支.
      *
-     * @return CreateProtectdBranchResponse CreateProtectdBranchResponse
+     * @param request - CreateProtectdBranchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateProtectdBranchResponse
+     *
+     * @param string                      $repositoryId
+     * @param CreateProtectdBranchRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateProtectdBranchResponse
      */
     public function createProtectdBranchWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->allowMergeRoles)) {
-            $body['allowMergeRoles'] = $request->allowMergeRoles;
+        if (null !== $request->allowMergeRoles) {
+            @$body['allowMergeRoles'] = $request->allowMergeRoles;
         }
-        if (!Utils::isUnset($request->allowMergeUserIds)) {
-            $body['allowMergeUserIds'] = $request->allowMergeUserIds;
+
+        if (null !== $request->allowMergeUserIds) {
+            @$body['allowMergeUserIds'] = $request->allowMergeUserIds;
         }
-        if (!Utils::isUnset($request->allowPushRoles)) {
-            $body['allowPushRoles'] = $request->allowPushRoles;
+
+        if (null !== $request->allowPushRoles) {
+            @$body['allowPushRoles'] = $request->allowPushRoles;
         }
-        if (!Utils::isUnset($request->allowPushUserIds)) {
-            $body['allowPushUserIds'] = $request->allowPushUserIds;
+
+        if (null !== $request->allowPushUserIds) {
+            @$body['allowPushUserIds'] = $request->allowPushUserIds;
         }
-        if (!Utils::isUnset($request->branch)) {
-            $body['branch'] = $request->branch;
+
+        if (null !== $request->branch) {
+            @$body['branch'] = $request->branch;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mergeRequestSetting)) {
-            $body['mergeRequestSetting'] = $request->mergeRequestSetting;
+
+        if (null !== $request->mergeRequestSetting) {
+            @$body['mergeRequestSetting'] = $request->mergeRequestSetting;
         }
-        if (!Utils::isUnset($request->testSettingDTO)) {
-            $body['testSettingDTO'] = $request->testSettingDTO;
+
+        if (null !== $request->testSettingDTO) {
+            @$body['testSettingDTO'] = $request->testSettingDTO;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateProtectdBranch',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/protect_branches',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/protect_branches',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateProtectdBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateProtectdBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProtectdBranchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建保护分支
-     *  *
-     * @param string                      $repositoryId
-     * @param CreateProtectdBranchRequest $request      CreateProtectdBranchRequest
+     * 创建保护分支.
      *
-     * @return CreateProtectdBranchResponse CreateProtectdBranchResponse
+     * @param request - CreateProtectdBranchRequest
+     * @returns CreateProtectdBranchResponse
+     *
+     * @param string                      $repositoryId
+     * @param CreateProtectdBranchRequest $request
+     *
+     * @return CreateProtectdBranchResponse
      */
     public function createProtectdBranch($repositoryId, $request)
     {
@@ -2166,56 +2591,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建推送规则
-     *  *
-     * @param string                $repositoryId
-     * @param CreatePushRuleRequest $request      CreatePushRuleRequest
-     * @param string[]              $headers      map
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * 创建推送规则.
      *
-     * @return CreatePushRuleResponse CreatePushRuleResponse
+     * @param request - CreatePushRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePushRuleResponse
+     *
+     * @param string                $repositoryId
+     * @param CreatePushRuleRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePushRuleResponse
      */
     public function createPushRuleWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->ruleInfos)) {
-            $body['ruleInfos'] = $request->ruleInfos;
+        if (null !== $request->ruleInfos) {
+            @$body['ruleInfos'] = $request->ruleInfos;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreatePushRule',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/push_rule',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePushRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建推送规则
-     *  *
-     * @param string                $repositoryId
-     * @param CreatePushRuleRequest $request      CreatePushRuleRequest
+     * 创建推送规则.
      *
-     * @return CreatePushRuleResponse CreatePushRuleResponse
+     * @param request - CreatePushRuleRequest
+     * @returns CreatePushRuleResponse
+     *
+     * @param string                $repositoryId
+     * @param CreatePushRuleRequest $request
+     *
+     * @return CreatePushRuleResponse
      */
     public function createPushRule($repositoryId, $request)
     {
@@ -2226,86 +2665,112 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建(导入)代码库
-     *  *
-     * @param CreateRepositoryRequest $request CreateRepositoryRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 创建(导入)代码库.
      *
-     * @return CreateRepositoryResponse CreateRepositoryResponse
+     * @param request - CreateRepositoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRepositoryResponse
+     *
+     * @param CreateRepositoryRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateRepositoryResponse
      */
     public function createRepositoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->createParentPath)) {
-            $query['createParentPath'] = $request->createParentPath;
+
+        if (null !== $request->createParentPath) {
+            @$query['createParentPath'] = $request->createParentPath;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->sync)) {
-            $query['sync'] = $request->sync;
+
+        if (null !== $request->sync) {
+            @$query['sync'] = $request->sync;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->avatarUrl)) {
-            $body['avatarUrl'] = $request->avatarUrl;
+        if (null !== $request->avatarUrl) {
+            @$body['avatarUrl'] = $request->avatarUrl;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->gitignoreType)) {
-            $body['gitignoreType'] = $request->gitignoreType;
+
+        if (null !== $request->gitignoreType) {
+            @$body['gitignoreType'] = $request->gitignoreType;
         }
-        if (!Utils::isUnset($request->importAccount)) {
-            $body['importAccount'] = $request->importAccount;
+
+        if (null !== $request->importAccount) {
+            @$body['importAccount'] = $request->importAccount;
         }
-        if (!Utils::isUnset($request->importDemoProject)) {
-            $body['importDemoProject'] = $request->importDemoProject;
+
+        if (null !== $request->importDemoProject) {
+            @$body['importDemoProject'] = $request->importDemoProject;
         }
-        if (!Utils::isUnset($request->importRepoType)) {
-            $body['importRepoType'] = $request->importRepoType;
+
+        if (null !== $request->importRepoType) {
+            @$body['importRepoType'] = $request->importRepoType;
         }
-        if (!Utils::isUnset($request->importToken)) {
-            $body['importToken'] = $request->importToken;
+
+        if (null !== $request->importToken) {
+            @$body['importToken'] = $request->importToken;
         }
-        if (!Utils::isUnset($request->importTokenEncrypted)) {
-            $body['importTokenEncrypted'] = $request->importTokenEncrypted;
+
+        if (null !== $request->importTokenEncrypted) {
+            @$body['importTokenEncrypted'] = $request->importTokenEncrypted;
         }
-        if (!Utils::isUnset($request->importUrl)) {
-            $body['importUrl'] = $request->importUrl;
+
+        if (null !== $request->importUrl) {
+            @$body['importUrl'] = $request->importUrl;
         }
-        if (!Utils::isUnset($request->initStandardService)) {
-            $body['initStandardService'] = $request->initStandardService;
+
+        if (null !== $request->initStandardService) {
+            @$body['initStandardService'] = $request->initStandardService;
         }
-        if (!Utils::isUnset($request->isCryptoEnabled)) {
-            $body['isCryptoEnabled'] = $request->isCryptoEnabled;
+
+        if (null !== $request->isCryptoEnabled) {
+            @$body['isCryptoEnabled'] = $request->isCryptoEnabled;
         }
-        if (!Utils::isUnset($request->localImportUrl)) {
-            $body['localImportUrl'] = $request->localImportUrl;
+
+        if (null !== $request->localImportUrl) {
+            @$body['localImportUrl'] = $request->localImportUrl;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->namespaceId)) {
-            $body['namespaceId'] = $request->namespaceId;
+
+        if (null !== $request->namespaceId) {
+            @$body['namespaceId'] = $request->namespaceId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $body['path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$body['path'] = $request->path;
         }
-        if (!Utils::isUnset($request->readmeType)) {
-            $body['readmeType'] = $request->readmeType;
+
+        if (null !== $request->readmeType) {
+            @$body['readmeType'] = $request->readmeType;
         }
-        if (!Utils::isUnset($request->visibilityLevel)) {
-            $body['visibilityLevel'] = $request->visibilityLevel;
+
+        if (null !== $request->visibilityLevel) {
+            @$body['visibilityLevel'] = $request->visibilityLevel;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRepository',
@@ -2318,16 +2783,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建(导入)代码库
-     *  *
-     * @param CreateRepositoryRequest $request CreateRepositoryRequest
+     * 创建(导入)代码库.
      *
-     * @return CreateRepositoryResponse CreateRepositoryResponse
+     * @param request - CreateRepositoryRequest
+     * @returns CreateRepositoryResponse
+     *
+     * @param CreateRepositoryRequest $request
+     *
+     * @return CreateRepositoryResponse
      */
     public function createRepository($request)
     {
@@ -2338,47 +2809,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建代码组
-     *  *
-     * @param CreateRepositoryGroupRequest $request CreateRepositoryGroupRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 创建代码组.
      *
-     * @return CreateRepositoryGroupResponse CreateRepositoryGroupResponse
+     * @param request - CreateRepositoryGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateRepositoryGroupResponse
+     *
+     * @param CreateRepositoryGroupRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateRepositoryGroupResponse
      */
     public function createRepositoryGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->avatarUrl)) {
-            $body['avatarUrl'] = $request->avatarUrl;
+        if (null !== $request->avatarUrl) {
+            @$body['avatarUrl'] = $request->avatarUrl;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $body['parentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$body['parentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $body['path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$body['path'] = $request->path;
         }
-        if (!Utils::isUnset($request->visibilityLevel)) {
-            $body['visibilityLevel'] = $request->visibilityLevel;
+
+        if (null !== $request->visibilityLevel) {
+            @$body['visibilityLevel'] = $request->visibilityLevel;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRepositoryGroup',
@@ -2391,16 +2875,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepositoryGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepositoryGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepositoryGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建代码组
-     *  *
-     * @param CreateRepositoryGroupRequest $request CreateRepositoryGroupRequest
+     * 创建代码组.
      *
-     * @return CreateRepositoryGroupResponse CreateRepositoryGroupResponse
+     * @param request - CreateRepositoryGroupRequest
+     * @returns CreateRepositoryGroupResponse
+     *
+     * @param CreateRepositoryGroupRequest $request
+     *
+     * @return CreateRepositoryGroupResponse
      */
     public function createRepositoryGroup($request)
     {
@@ -2411,55 +2901,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 插入资源成员
-     *  *
+     * 插入资源成员.
+     *
+     * @param request - CreateResourceMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateResourceMemberResponse
+     *
      * @param string                      $organizationId
      * @param string                      $resourceType
      * @param string                      $resourceId
-     * @param CreateResourceMemberRequest $request        CreateResourceMemberRequest
-     * @param string[]                    $headers        map
-     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
+     * @param CreateResourceMemberRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return CreateResourceMemberResponse CreateResourceMemberResponse
+     * @return CreateResourceMemberResponse
      */
     public function createResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $body['accountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$body['accountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->roleName)) {
-            $body['roleName'] = $request->roleName;
+
+        if (null !== $request->roleName) {
+            @$body['roleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateResourceMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($resourceType) . '/' . OpenApiUtilClient::getEncodeParam($resourceId) . '/members',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/' . Url::percentEncode($resourceType) . '/' . Url::percentEncode($resourceId) . '/members',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateResourceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateResourceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateResourceMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 插入资源成员
-     *  *
+     * 插入资源成员.
+     *
+     * @param request - CreateResourceMemberRequest
+     * @returns CreateResourceMemberResponse
+     *
      * @param string                      $organizationId
      * @param string                      $resourceType
      * @param string                      $resourceId
-     * @param CreateResourceMemberRequest $request        CreateResourceMemberRequest
+     * @param CreateResourceMemberRequest $request
      *
-     * @return CreateResourceMemberResponse CreateResourceMemberResponse
+     * @return CreateResourceMemberResponse
      */
     public function createResourceMember($organizationId, $resourceType, $resourceId, $request)
     {
@@ -2470,48 +2973,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建服务授权
-     *  *
-     * @param string                   $organizationId
-     * @param CreateServiceAuthRequest $request        CreateServiceAuthRequest
-     * @param string[]                 $headers        map
-     * @param RuntimeOptions           $runtime        runtime options for this request RuntimeOptions
+     * 创建服务授权.
      *
-     * @return CreateServiceAuthResponse CreateServiceAuthResponse
+     * @param request - CreateServiceAuthRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceAuthResponse
+     *
+     * @param string                   $organizationId
+     * @param CreateServiceAuthRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateServiceAuthResponse
      */
     public function createServiceAuthWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->serviceAuthType)) {
-            $query['serviceAuthType'] = $request->serviceAuthType;
+        if (null !== $request->serviceAuthType) {
+            @$query['serviceAuthType'] = $request->serviceAuthType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceAuth',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceAuths',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/serviceAuths',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServiceAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServiceAuthResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建服务授权
-     *  *
-     * @param string                   $organizationId
-     * @param CreateServiceAuthRequest $request        CreateServiceAuthRequest
+     * 创建服务授权.
      *
-     * @return CreateServiceAuthResponse CreateServiceAuthResponse
+     * @param request - CreateServiceAuthRequest
+     * @returns CreateServiceAuthResponse
+     *
+     * @param string                   $organizationId
+     * @param CreateServiceAuthRequest $request
+     *
+     * @return CreateServiceAuthResponse
      */
     public function createServiceAuth($organizationId, $request)
     {
@@ -2522,60 +3037,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建服务连接
-     *  *
-     * @param string                         $organizationId
-     * @param CreateServiceConnectionRequest $request        CreateServiceConnectionRequest
-     * @param string[]                       $headers        map
-     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
+     * 创建服务连接.
      *
-     * @return CreateServiceConnectionResponse CreateServiceConnectionResponse
+     * @param request - CreateServiceConnectionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceConnectionResponse
+     *
+     * @param string                         $organizationId
+     * @param CreateServiceConnectionRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServiceConnectionResponse
      */
     public function createServiceConnectionWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->authType)) {
-            $body['authType'] = $request->authType;
+        if (null !== $request->authType) {
+            @$body['authType'] = $request->authType;
         }
-        if (!Utils::isUnset($request->connectionName)) {
-            $body['connectionName'] = $request->connectionName;
+
+        if (null !== $request->connectionName) {
+            @$body['connectionName'] = $request->connectionName;
         }
-        if (!Utils::isUnset($request->connectionType)) {
-            $body['connectionType'] = $request->connectionType;
+
+        if (null !== $request->connectionType) {
+            @$body['connectionType'] = $request->connectionType;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->serviceAuthId)) {
-            $body['serviceAuthId'] = $request->serviceAuthId;
+
+        if (null !== $request->serviceAuthId) {
+            @$body['serviceAuthId'] = $request->serviceAuthId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceConnection',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/createServiceConnection',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/createServiceConnection',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServiceConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServiceConnectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建服务连接
-     *  *
-     * @param string                         $organizationId
-     * @param CreateServiceConnectionRequest $request        CreateServiceConnectionRequest
+     * 创建服务连接.
      *
-     * @return CreateServiceConnectionResponse CreateServiceConnectionResponse
+     * @param request - CreateServiceConnectionRequest
+     * @returns CreateServiceConnectionResponse
+     *
+     * @param string                         $organizationId
+     * @param CreateServiceConnectionRequest $request
+     *
+     * @return CreateServiceConnectionResponse
      */
     public function createServiceConnection($organizationId, $request)
     {
@@ -2586,60 +3117,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建用户名密码类型的证书
-     *  *
-     * @param string                         $organizationId
-     * @param CreateServiceCredentialRequest $request        CreateServiceCredentialRequest
-     * @param string[]                       $headers        map
-     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
+     * 创建用户名密码类型的证书.
      *
-     * @return CreateServiceCredentialResponse CreateServiceCredentialResponse
+     * @param request - CreateServiceCredentialRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateServiceCredentialResponse
+     *
+     * @param string                         $organizationId
+     * @param CreateServiceCredentialRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServiceCredentialResponse
      */
     public function createServiceCredentialWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->password)) {
-            $body['password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$body['password'] = $request->password;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->username)) {
-            $body['username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$body['username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceCredential',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceCredentials',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/serviceCredentials',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateServiceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateServiceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateServiceCredentialResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建用户名密码类型的证书
-     *  *
-     * @param string                         $organizationId
-     * @param CreateServiceCredentialRequest $request        CreateServiceCredentialRequest
+     * 创建用户名密码类型的证书.
      *
-     * @return CreateServiceCredentialResponse CreateServiceCredentialResponse
+     * @param request - CreateServiceCredentialRequest
+     * @returns CreateServiceCredentialResponse
+     *
+     * @param string                         $organizationId
+     * @param CreateServiceCredentialRequest $request
+     *
+     * @return CreateServiceCredentialResponse
      */
     public function createServiceCredential($organizationId, $request)
     {
@@ -2650,60 +3197,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建迭代
-     *  *
-     * @param string              $organizationId
-     * @param CreateSprintRequest $request        CreateSprintRequest
-     * @param string[]            $headers        map
-     * @param RuntimeOptions      $runtime        runtime options for this request RuntimeOptions
+     * 创建迭代.
      *
-     * @return CreateSprintResponse CreateSprintResponse
+     * @param request - CreateSprintRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSprintResponse
+     *
+     * @param string              $organizationId
+     * @param CreateSprintRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSprintResponse
      */
     public function createSprintWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endDate)) {
-            $body['endDate'] = $request->endDate;
+        if (null !== $request->endDate) {
+            @$body['endDate'] = $request->endDate;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $body['spaceIdentifier'] = $request->spaceIdentifier;
+
+        if (null !== $request->spaceIdentifier) {
+            @$body['spaceIdentifier'] = $request->spaceIdentifier;
         }
-        if (!Utils::isUnset($request->staffIds)) {
-            $body['staffIds'] = $request->staffIds;
+
+        if (null !== $request->staffIds) {
+            @$body['staffIds'] = $request->staffIds;
         }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['startDate'] = $request->startDate;
+
+        if (null !== $request->startDate) {
+            @$body['startDate'] = $request->startDate;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateSprint',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sprints/create',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/sprints/create',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSprintResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSprintResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSprintResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建迭代
-     *  *
-     * @param string              $organizationId
-     * @param CreateSprintRequest $request        CreateSprintRequest
+     * 创建迭代.
      *
-     * @return CreateSprintResponse CreateSprintResponse
+     * @param request - CreateSprintRequest
+     * @returns CreateSprintResponse
+     *
+     * @param string              $organizationId
+     * @param CreateSprintRequest $request
+     *
+     * @return CreateSprintResponse
      */
     public function createSprint($organizationId, $request)
     {
@@ -2714,13 +3277,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建企业公钥
-     *  *
-     * @param string         $organizationId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * 创建企业公钥.
      *
-     * @return CreateSshKeyResponse CreateSshKeyResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSshKeyResponse
+     *
+     * @param string         $organizationId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CreateSshKeyResponse
      */
     public function createSshKeyWithOptions($organizationId, $headers, $runtime)
     {
@@ -2731,23 +3298,28 @@ class Devops extends OpenApiClient
             'action'      => 'CreateSshKey',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sshKey',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/sshKey',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSshKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSshKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSshKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建企业公钥
-     *  *
+     * 创建企业公钥.
+     *
+     * @returns CreateSshKeyResponse
+     *
      * @param string $organizationId
      *
-     * @return CreateSshKeyResponse CreateSshKeyResponse
+     * @return CreateSshKeyResponse
      */
     public function createSshKey($organizationId)
     {
@@ -2758,62 +3330,78 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建标签Tag
-     *  *
-     * @param string           $repositoryId
-     * @param CreateTagRequest $request      CreateTagRequest
-     * @param string[]         $headers      map
-     * @param RuntimeOptions   $runtime      runtime options for this request RuntimeOptions
+     * 创建标签Tag.
      *
-     * @return CreateTagResponse CreateTagResponse
+     * @param request - CreateTagRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTagResponse
+     *
+     * @param string           $repositoryId
+     * @param CreateTagRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateTagResponse
      */
     public function createTagWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->message)) {
-            $body['message'] = $request->message;
+        if (null !== $request->message) {
+            @$body['message'] = $request->message;
         }
-        if (!Utils::isUnset($request->ref)) {
-            $body['ref'] = $request->ref;
+
+        if (null !== $request->ref) {
+            @$body['ref'] = $request->ref;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $body['tagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$body['tagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTag',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/tags/create',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/tags/create',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建标签Tag
-     *  *
-     * @param string           $repositoryId
-     * @param CreateTagRequest $request      CreateTagRequest
+     * 创建标签Tag.
      *
-     * @return CreateTagResponse CreateTagResponse
+     * @param request - CreateTagRequest
+     * @returns CreateTagResponse
+     *
+     * @param string           $repositoryId
+     * @param CreateTagRequest $request
+     *
+     * @return CreateTagResponse
      */
     public function createTag($repositoryId, $request)
     {
@@ -2824,69 +3412,88 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建测试用例
-     *  *
-     * @param string                $organizationId
-     * @param CreateTestCaseRequest $request        CreateTestCaseRequest
-     * @param string[]              $headers        map
-     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
+     * 创建测试用例.
      *
-     * @return CreateTestCaseResponse CreateTestCaseResponse
+     * @param request - CreateTestCaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTestCaseResponse
+     *
+     * @param string                $organizationId
+     * @param CreateTestCaseRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTestCaseResponse
      */
     public function createTestCaseWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->assignedTo)) {
-            $body['assignedTo'] = $request->assignedTo;
+        if (null !== $request->assignedTo) {
+            @$body['assignedTo'] = $request->assignedTo;
         }
-        if (!Utils::isUnset($request->directoryIdentifier)) {
-            $body['directoryIdentifier'] = $request->directoryIdentifier;
+
+        if (null !== $request->directoryIdentifier) {
+            @$body['directoryIdentifier'] = $request->directoryIdentifier;
         }
-        if (!Utils::isUnset($request->fieldValueList)) {
-            $body['fieldValueList'] = $request->fieldValueList;
+
+        if (null !== $request->fieldValueList) {
+            @$body['fieldValueList'] = $request->fieldValueList;
         }
-        if (!Utils::isUnset($request->priority)) {
-            $body['priority'] = $request->priority;
+
+        if (null !== $request->priority) {
+            @$body['priority'] = $request->priority;
         }
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $body['spaceIdentifier'] = $request->spaceIdentifier;
+
+        if (null !== $request->spaceIdentifier) {
+            @$body['spaceIdentifier'] = $request->spaceIdentifier;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $body['subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$body['subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->testcaseStepContentInfo)) {
-            $body['testcaseStepContentInfo'] = $request->testcaseStepContentInfo;
+
+        if (null !== $request->testcaseStepContentInfo) {
+            @$body['testcaseStepContentInfo'] = $request->testcaseStepContentInfo;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTestCase',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testcase',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/testhub/testcase',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTestCaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建测试用例
-     *  *
-     * @param string                $organizationId
-     * @param CreateTestCaseRequest $request        CreateTestCaseRequest
+     * 创建测试用例.
      *
-     * @return CreateTestCaseResponse CreateTestCaseResponse
+     * @param request - CreateTestCaseRequest
+     * @returns CreateTestCaseResponse
+     *
+     * @param string                $organizationId
+     * @param CreateTestCaseRequest $request
+     *
+     * @return CreateTestCaseResponse
      */
     public function createTestCase($organizationId, $request)
     {
@@ -2897,41 +3504,52 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建SSH Key密钥
-     *  *
-     * @param CreateUserKeyRequest $request CreateUserKeyRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 创建SSH Key密钥.
      *
-     * @return CreateUserKeyResponse CreateUserKeyResponse
+     * @param request - CreateUserKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateUserKeyResponse
+     *
+     * @param CreateUserKeyRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateUserKeyResponse
      */
     public function createUserKeyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->expireTime)) {
-            $body['expireTime'] = $request->expireTime;
+        if (null !== $request->expireTime) {
+            @$body['expireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->keyScope)) {
-            $body['keyScope'] = $request->keyScope;
+
+        if (null !== $request->keyScope) {
+            @$body['keyScope'] = $request->keyScope;
         }
-        if (!Utils::isUnset($request->publicKey)) {
-            $body['publicKey'] = $request->publicKey;
+
+        if (null !== $request->publicKey) {
+            @$body['publicKey'] = $request->publicKey;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateUserKey',
@@ -2944,16 +3562,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateUserKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUserKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUserKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建SSH Key密钥
-     *  *
-     * @param CreateUserKeyRequest $request CreateUserKeyRequest
+     * 创建SSH Key密钥.
      *
-     * @return CreateUserKeyResponse CreateUserKeyResponse
+     * @param request - CreateUserKeyRequest
+     * @returns CreateUserKeyResponse
+     *
+     * @param CreateUserKeyRequest $request
+     *
+     * @return CreateUserKeyResponse
      */
     public function createUserKey($request)
     {
@@ -2964,54 +3588,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建变量组
-     *  *
-     * @param string                     $organizationId
-     * @param CreateVariableGroupRequest $request        CreateVariableGroupRequest
-     * @param string[]                   $headers        map
-     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     * 创建变量组.
      *
-     * @return CreateVariableGroupResponse CreateVariableGroupResponse
+     * @param request - CreateVariableGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVariableGroupResponse
+     *
+     * @param string                     $organizationId
+     * @param CreateVariableGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVariableGroupResponse
      */
     public function createVariableGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->variables)) {
-            $body['variables'] = $request->variables;
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateVariableGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/variableGroups',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVariableGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建变量组
-     *  *
-     * @param string                     $organizationId
-     * @param CreateVariableGroupRequest $request        CreateVariableGroupRequest
+     * 创建变量组.
      *
-     * @return CreateVariableGroupResponse CreateVariableGroupResponse
+     * @param request - CreateVariableGroupRequest
+     * @returns CreateVariableGroupResponse
+     *
+     * @param string                     $organizationId
+     * @param CreateVariableGroupRequest $request
+     *
+     * @return CreateVariableGroupResponse
      */
     public function createVariableGroup($organizationId, $request)
     {
@@ -3022,90 +3660,116 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 新建工作项
-     *  *
-     * @param string                $organizationId
-     * @param CreateWorkitemRequest $request        CreateWorkitemRequest
-     * @param string[]              $headers        map
-     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
+     * 新建工作项.
      *
-     * @return CreateWorkitemResponse CreateWorkitemResponse
+     * @param request - CreateWorkitemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWorkitemResponse
+     *
+     * @param string                $organizationId
+     * @param CreateWorkitemRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateWorkitemResponse
      */
     public function createWorkitemWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->assignedTo)) {
-            $body['assignedTo'] = $request->assignedTo;
+        if (null !== $request->assignedTo) {
+            @$body['assignedTo'] = $request->assignedTo;
         }
-        if (!Utils::isUnset($request->category)) {
-            $body['category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$body['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->descriptionFormat)) {
-            $body['descriptionFormat'] = $request->descriptionFormat;
+
+        if (null !== $request->descriptionFormat) {
+            @$body['descriptionFormat'] = $request->descriptionFormat;
         }
-        if (!Utils::isUnset($request->fieldValueList)) {
-            $body['fieldValueList'] = $request->fieldValueList;
+
+        if (null !== $request->fieldValueList) {
+            @$body['fieldValueList'] = $request->fieldValueList;
         }
-        if (!Utils::isUnset($request->parent)) {
-            $body['parent'] = $request->parent;
+
+        if (null !== $request->parent) {
+            @$body['parent'] = $request->parent;
         }
-        if (!Utils::isUnset($request->participant)) {
-            $body['participant'] = $request->participant;
+
+        if (null !== $request->participant) {
+            @$body['participant'] = $request->participant;
         }
-        if (!Utils::isUnset($request->space)) {
-            $body['space'] = $request->space;
+
+        if (null !== $request->space) {
+            @$body['space'] = $request->space;
         }
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $body['spaceIdentifier'] = $request->spaceIdentifier;
+
+        if (null !== $request->spaceIdentifier) {
+            @$body['spaceIdentifier'] = $request->spaceIdentifier;
         }
-        if (!Utils::isUnset($request->spaceType)) {
-            $body['spaceType'] = $request->spaceType;
+
+        if (null !== $request->spaceType) {
+            @$body['spaceType'] = $request->spaceType;
         }
-        if (!Utils::isUnset($request->sprint)) {
-            $body['sprint'] = $request->sprint;
+
+        if (null !== $request->sprint) {
+            @$body['sprint'] = $request->sprint;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $body['subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$body['subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->tracker)) {
-            $body['tracker'] = $request->tracker;
+
+        if (null !== $request->tracker) {
+            @$body['tracker'] = $request->tracker;
         }
-        if (!Utils::isUnset($request->verifier)) {
-            $body['verifier'] = $request->verifier;
+
+        if (null !== $request->verifier) {
+            @$body['verifier'] = $request->verifier;
         }
-        if (!Utils::isUnset($request->workitemType)) {
-            $body['workitemType'] = $request->workitemType;
+
+        if (null !== $request->workitemType) {
+            @$body['workitemType'] = $request->workitemType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateWorkitem',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/create',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/create',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWorkitemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWorkitemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWorkitemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 新建工作项
-     *  *
-     * @param string                $organizationId
-     * @param CreateWorkitemRequest $request        CreateWorkitemRequest
+     * 新建工作项.
      *
-     * @return CreateWorkitemResponse CreateWorkitemResponse
+     * @param request - CreateWorkitemRequest
+     * @returns CreateWorkitemResponse
+     *
+     * @param string                $organizationId
+     * @param CreateWorkitemRequest $request
+     *
+     * @return CreateWorkitemResponse
      */
     public function createWorkitem($organizationId, $request)
     {
@@ -3116,57 +3780,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个评论
-     *  *
-     * @param string                       $organizationId
-     * @param CreateWorkitemCommentRequest $request        CreateWorkitemCommentRequest
-     * @param string[]                     $headers        map
-     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     * 创建一个评论.
      *
-     * @return CreateWorkitemCommentResponse CreateWorkitemCommentResponse
+     * @param request - CreateWorkitemCommentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWorkitemCommentResponse
+     *
+     * @param string                       $organizationId
+     * @param CreateWorkitemCommentRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateWorkitemCommentResponse
      */
     public function createWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->formatType)) {
-            $body['formatType'] = $request->formatType;
+
+        if (null !== $request->formatType) {
+            @$body['formatType'] = $request->formatType;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $body['parentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$body['parentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->workitemIdentifier)) {
-            $body['workitemIdentifier'] = $request->workitemIdentifier;
+
+        if (null !== $request->workitemIdentifier) {
+            @$body['workitemIdentifier'] = $request->workitemIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateWorkitemComment',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/comment',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/comment',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWorkitemCommentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建一个评论
-     *  *
-     * @param string                       $organizationId
-     * @param CreateWorkitemCommentRequest $request        CreateWorkitemCommentRequest
+     * 创建一个评论.
      *
-     * @return CreateWorkitemCommentResponse CreateWorkitemCommentResponse
+     * @param request - CreateWorkitemCommentRequest
+     * @returns CreateWorkitemCommentResponse
+     *
+     * @param string                       $organizationId
+     * @param CreateWorkitemCommentRequest $request
+     *
+     * @return CreateWorkitemCommentResponse
      */
     public function createWorkitemComment($organizationId, $request)
     {
@@ -3177,60 +3856,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 登记预计工时
-     *  *
-     * @param string                        $organizationId
-     * @param CreateWorkitemEstimateRequest $request        CreateWorkitemEstimateRequest
-     * @param string[]                      $headers        map
-     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
+     * 登记预计工时.
      *
-     * @return CreateWorkitemEstimateResponse CreateWorkitemEstimateResponse
+     * @param request - CreateWorkitemEstimateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWorkitemEstimateResponse
+     *
+     * @param string                        $organizationId
+     * @param CreateWorkitemEstimateRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateWorkitemEstimateResponse
      */
     public function createWorkitemEstimateWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->recordUserIdentifier)) {
-            $body['recordUserIdentifier'] = $request->recordUserIdentifier;
+
+        if (null !== $request->recordUserIdentifier) {
+            @$body['recordUserIdentifier'] = $request->recordUserIdentifier;
         }
-        if (!Utils::isUnset($request->spentTime)) {
-            $body['spentTime'] = $request->spentTime;
+
+        if (null !== $request->spentTime) {
+            @$body['spentTime'] = $request->spentTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workitemIdentifier)) {
-            $body['workitemIdentifier'] = $request->workitemIdentifier;
+
+        if (null !== $request->workitemIdentifier) {
+            @$body['workitemIdentifier'] = $request->workitemIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateWorkitemEstimate',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/estimate',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/estimate',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWorkitemEstimateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWorkitemEstimateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWorkitemEstimateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 登记预计工时
-     *  *
-     * @param string                        $organizationId
-     * @param CreateWorkitemEstimateRequest $request        CreateWorkitemEstimateRequest
+     * 登记预计工时.
      *
-     * @return CreateWorkitemEstimateResponse CreateWorkitemEstimateResponse
+     * @param request - CreateWorkitemEstimateRequest
+     * @returns CreateWorkitemEstimateResponse
+     *
+     * @param string                        $organizationId
+     * @param CreateWorkitemEstimateRequest $request
+     *
+     * @return CreateWorkitemEstimateResponse
      */
     public function createWorkitemEstimate($organizationId, $request)
     {
@@ -3241,66 +3936,84 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 登记实际工时
-     *  *
-     * @param string                      $organizationId
-     * @param CreateWorkitemRecordRequest $request        CreateWorkitemRecordRequest
-     * @param string[]                    $headers        map
-     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
+     * 登记实际工时.
      *
-     * @return CreateWorkitemRecordResponse CreateWorkitemRecordResponse
+     * @param request - CreateWorkitemRecordRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWorkitemRecordResponse
+     *
+     * @param string                      $organizationId
+     * @param CreateWorkitemRecordRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateWorkitemRecordResponse
      */
     public function createWorkitemRecordWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->actualTime)) {
-            $body['actualTime'] = $request->actualTime;
+        if (null !== $request->actualTime) {
+            @$body['actualTime'] = $request->actualTime;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->gmtEnd)) {
-            $body['gmtEnd'] = $request->gmtEnd;
+
+        if (null !== $request->gmtEnd) {
+            @$body['gmtEnd'] = $request->gmtEnd;
         }
-        if (!Utils::isUnset($request->gmtStart)) {
-            $body['gmtStart'] = $request->gmtStart;
+
+        if (null !== $request->gmtStart) {
+            @$body['gmtStart'] = $request->gmtStart;
         }
-        if (!Utils::isUnset($request->recordUserIdentifier)) {
-            $body['recordUserIdentifier'] = $request->recordUserIdentifier;
+
+        if (null !== $request->recordUserIdentifier) {
+            @$body['recordUserIdentifier'] = $request->recordUserIdentifier;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->workitemIdentifier)) {
-            $body['workitemIdentifier'] = $request->workitemIdentifier;
+
+        if (null !== $request->workitemIdentifier) {
+            @$body['workitemIdentifier'] = $request->workitemIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateWorkitemRecord',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/record',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/record',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWorkitemRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWorkitemRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWorkitemRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 登记实际工时
-     *  *
-     * @param string                      $organizationId
-     * @param CreateWorkitemRecordRequest $request        CreateWorkitemRecordRequest
+     * 登记实际工时.
      *
-     * @return CreateWorkitemRecordResponse CreateWorkitemRecordResponse
+     * @param request - CreateWorkitemRecordRequest
+     * @returns CreateWorkitemRecordResponse
+     *
+     * @param string                      $organizationId
+     * @param CreateWorkitemRecordRequest $request
+     *
+     * @return CreateWorkitemRecordResponse
      */
     public function createWorkitemRecord($organizationId, $request)
     {
@@ -3311,87 +4024,112 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建工作项
-     *  *
-     * @param string                  $organizationId
-     * @param CreateWorkitemV2Request $request        CreateWorkitemV2Request
-     * @param string[]                $headers        map
-     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
+     * 创建工作项.
      *
-     * @return CreateWorkitemV2Response CreateWorkitemV2Response
+     * @param request - CreateWorkitemV2Request
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateWorkitemV2Response
+     *
+     * @param string                  $organizationId
+     * @param CreateWorkitemV2Request $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateWorkitemV2Response
      */
     public function createWorkitemV2WithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->assignedTo)) {
-            $body['assignedTo'] = $request->assignedTo;
+        if (null !== $request->assignedTo) {
+            @$body['assignedTo'] = $request->assignedTo;
         }
-        if (!Utils::isUnset($request->category)) {
-            $body['category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$body['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->fieldValueList)) {
-            $body['fieldValueList'] = $request->fieldValueList;
+
+        if (null !== $request->fieldValueList) {
+            @$body['fieldValueList'] = $request->fieldValueList;
         }
-        if (!Utils::isUnset($request->parentIdentifier)) {
-            $body['parentIdentifier'] = $request->parentIdentifier;
+
+        if (null !== $request->parentIdentifier) {
+            @$body['parentIdentifier'] = $request->parentIdentifier;
         }
-        if (!Utils::isUnset($request->participants)) {
-            $body['participants'] = $request->participants;
+
+        if (null !== $request->participants) {
+            @$body['participants'] = $request->participants;
         }
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $body['spaceIdentifier'] = $request->spaceIdentifier;
+
+        if (null !== $request->spaceIdentifier) {
+            @$body['spaceIdentifier'] = $request->spaceIdentifier;
         }
-        if (!Utils::isUnset($request->sprintIdentifier)) {
-            $body['sprintIdentifier'] = $request->sprintIdentifier;
+
+        if (null !== $request->sprintIdentifier) {
+            @$body['sprintIdentifier'] = $request->sprintIdentifier;
         }
-        if (!Utils::isUnset($request->subject)) {
-            $body['subject'] = $request->subject;
+
+        if (null !== $request->subject) {
+            @$body['subject'] = $request->subject;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $body['tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$body['tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->trackers)) {
-            $body['trackers'] = $request->trackers;
+
+        if (null !== $request->trackers) {
+            @$body['trackers'] = $request->trackers;
         }
-        if (!Utils::isUnset($request->verifier)) {
-            $body['verifier'] = $request->verifier;
+
+        if (null !== $request->verifier) {
+            @$body['verifier'] = $request->verifier;
         }
-        if (!Utils::isUnset($request->versions)) {
-            $body['versions'] = $request->versions;
+
+        if (null !== $request->versions) {
+            @$body['versions'] = $request->versions;
         }
-        if (!Utils::isUnset($request->workitemTypeIdentifier)) {
-            $body['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
+
+        if (null !== $request->workitemTypeIdentifier) {
+            @$body['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateWorkitemV2',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitem',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateWorkitemV2Response::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateWorkitemV2Response::fromMap($this->callApi($params, $req, $runtime));
+        return CreateWorkitemV2Response::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建工作项
-     *  *
-     * @param string                  $organizationId
-     * @param CreateWorkitemV2Request $request        CreateWorkitemV2Request
+     * 创建工作项.
      *
-     * @return CreateWorkitemV2Response CreateWorkitemV2Response
+     * @param request - CreateWorkitemV2Request
+     * @returns CreateWorkitemV2Response
+     *
+     * @param string                  $organizationId
+     * @param CreateWorkitemV2Request $request
+     *
+     * @return CreateWorkitemV2Response
      */
     public function createWorkitemV2($organizationId, $request)
     {
@@ -3402,54 +4140,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除应用成员
-     *  *
-     * @param string                 $appName
-     * @param DeleteAppMemberRequest $request DeleteAppMemberRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 删除应用成员.
      *
-     * @return DeleteAppMemberResponse DeleteAppMemberResponse
+     * @param request - DeleteAppMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteAppMemberResponse
+     *
+     * @param string                 $appName
+     * @param DeleteAppMemberRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteAppMemberResponse
      */
     public function deleteAppMemberWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->subjectId)) {
-            $query['subjectId'] = $request->subjectId;
+
+        if (null !== $request->subjectId) {
+            @$query['subjectId'] = $request->subjectId;
         }
-        if (!Utils::isUnset($request->subjectType)) {
-            $query['subjectType'] = $request->subjectType;
+
+        if (null !== $request->subjectType) {
+            @$query['subjectType'] = $request->subjectType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteAppMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/members',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/members',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'string',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteAppMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAppMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAppMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除应用成员
-     *  *
-     * @param string                 $appName
-     * @param DeleteAppMemberRequest $request DeleteAppMemberRequest
+     * 删除应用成员.
      *
-     * @return DeleteAppMemberResponse DeleteAppMemberResponse
+     * @param request - DeleteAppMemberRequest
+     * @returns DeleteAppMemberResponse
+     *
+     * @param string                 $appName
+     * @param DeleteAppMemberRequest $request
+     *
+     * @return DeleteAppMemberResponse
      */
     public function deleteAppMember($appName, $request)
     {
@@ -3460,54 +4212,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除分支
-     *  *
-     * @param string              $repositoryId
-     * @param DeleteBranchRequest $request      DeleteBranchRequest
-     * @param string[]            $headers      map
-     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
+     * 删除分支.
      *
-     * @return DeleteBranchResponse DeleteBranchResponse
+     * @param request - DeleteBranchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteBranchResponse
+     *
+     * @param string              $repositoryId
+     * @param DeleteBranchRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteBranchResponse
      */
     public function deleteBranchWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->branchName)) {
-            $query['branchName'] = $request->branchName;
+
+        if (null !== $request->branchName) {
+            @$query['branchName'] = $request->branchName;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteBranch',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/branches/delete',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/branches/delete',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteBranchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除分支
-     *  *
-     * @param string              $repositoryId
-     * @param DeleteBranchRequest $request      DeleteBranchRequest
+     * 删除分支.
      *
-     * @return DeleteBranchResponse DeleteBranchResponse
+     * @param request - DeleteBranchRequest
+     * @returns DeleteBranchResponse
+     *
+     * @param string              $repositoryId
+     * @param DeleteBranchRequest $request
+     *
+     * @return DeleteBranchResponse
      */
     public function deleteBranch($repositoryId, $request)
     {
@@ -3518,60 +4284,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除文件
-     *  *
-     * @param string            $repositoryId
-     * @param DeleteFileRequest $request      DeleteFileRequest
-     * @param string[]          $headers      map
-     * @param RuntimeOptions    $runtime      runtime options for this request RuntimeOptions
+     * 删除文件.
      *
-     * @return DeleteFileResponse DeleteFileResponse
+     * @param request - DeleteFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFileResponse
+     *
+     * @param string            $repositoryId
+     * @param DeleteFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return DeleteFileResponse
      */
     public function deleteFileWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->branchName)) {
-            $query['branchName'] = $request->branchName;
+
+        if (null !== $request->branchName) {
+            @$query['branchName'] = $request->branchName;
         }
-        if (!Utils::isUnset($request->commitMessage)) {
-            $query['commitMessage'] = $request->commitMessage;
+
+        if (null !== $request->commitMessage) {
+            @$query['commitMessage'] = $request->commitMessage;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['filePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['filePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFile',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/delete',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/files/delete',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除文件
-     *  *
-     * @param string            $repositoryId
-     * @param DeleteFileRequest $request      DeleteFileRequest
+     * 删除文件.
      *
-     * @return DeleteFileResponse DeleteFileResponse
+     * @param request - DeleteFileRequest
+     * @returns DeleteFileResponse
+     *
+     * @param string            $repositoryId
+     * @param DeleteFileRequest $request
+     *
+     * @return DeleteFileResponse
      */
     public function deleteFile($repositoryId, $request)
     {
@@ -3582,14 +4364,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除标签
-     *  *
+     * 删除标签.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFlowTagResponse
+     *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFlowTagResponse DeleteFlowTagResponse
+     * @return DeleteFlowTagResponse
      */
     public function deleteFlowTagWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -3600,24 +4386,29 @@ class Devops extends OpenApiClient
             'action'      => 'DeleteFlowTag',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tags/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/flow/tags/' . Url::percentEncode($id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFlowTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFlowTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFlowTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除标签
-     *  *
+     * 删除标签.
+     *
+     * @returns DeleteFlowTagResponse
+     *
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteFlowTagResponse DeleteFlowTagResponse
+     * @return DeleteFlowTagResponse
      */
     public function deleteFlowTag($organizationId, $id)
     {
@@ -3628,14 +4419,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除标签分类
-     *  *
+     * 删除标签分类.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFlowTagGroupResponse
+     *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteFlowTagGroupResponse DeleteFlowTagGroupResponse
+     * @return DeleteFlowTagGroupResponse
      */
     public function deleteFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -3646,24 +4441,29 @@ class Devops extends OpenApiClient
             'action'      => 'DeleteFlowTagGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/flow/tagGroups/' . Url::percentEncode($id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFlowTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFlowTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFlowTagGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除标签分类
-     *  *
+     * 删除标签分类.
+     *
+     * @returns DeleteFlowTagGroupResponse
+     *
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteFlowTagGroupResponse DeleteFlowTagGroupResponse
+     * @return DeleteFlowTagGroupResponse
      */
     public function deleteFlowTagGroup($organizationId, $id)
     {
@@ -3674,59 +4474,74 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除组成员
-     *  *
-     * @param string                   $groupId
-     * @param DeleteGroupMemberRequest $request DeleteGroupMemberRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 删除组成员.
      *
-     * @return DeleteGroupMemberResponse DeleteGroupMemberResponse
+     * @param request - DeleteGroupMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteGroupMemberResponse
+     *
+     * @param string                   $groupId
+     * @param DeleteGroupMemberRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteGroupMemberResponse
      */
     public function deleteGroupMemberWithOptions($groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->aliyunPk)) {
-            $query['aliyunPk'] = $request->aliyunPk;
+
+        if (null !== $request->aliyunPk) {
+            @$query['aliyunPk'] = $request->aliyunPk;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->memberType)) {
-            $body['memberType'] = $request->memberType;
+        if (null !== $request->memberType) {
+            @$body['memberType'] = $request->memberType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteGroupMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/members/remove/aliyun_pk',
+            'pathname'    => '/repository/groups/' . Url::percentEncode($groupId) . '/members/remove/aliyun_pk',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除组成员
-     *  *
-     * @param string                   $groupId
-     * @param DeleteGroupMemberRequest $request DeleteGroupMemberRequest
+     * 删除组成员.
      *
-     * @return DeleteGroupMemberResponse DeleteGroupMemberResponse
+     * @param request - DeleteGroupMemberRequest
+     * @returns DeleteGroupMemberResponse
+     *
+     * @param string                   $groupId
+     * @param DeleteGroupMemberRequest $request
+     *
+     * @return DeleteGroupMemberResponse
      */
     public function deleteGroupMember($groupId, $request)
     {
@@ -3737,14 +4552,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除主机组
-     *  *
+     * 删除主机组.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteHostGroupResponse
+     *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteHostGroupResponse DeleteHostGroupResponse
+     * @return DeleteHostGroupResponse
      */
     public function deleteHostGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -3755,24 +4574,29 @@ class Devops extends OpenApiClient
             'action'      => 'DeleteHostGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/hostGroups/' . Url::percentEncode($id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteHostGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除主机组
-     *  *
+     * 删除主机组.
+     *
+     * @returns DeleteHostGroupResponse
+     *
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteHostGroupResponse DeleteHostGroupResponse
+     * @return DeleteHostGroupResponse
      */
     public function deleteHostGroup($organizationId, $id)
     {
@@ -3783,14 +4607,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除流水线
-     *  *
+     * 删除流水线
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePipelineResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeletePipelineResponse DeletePipelineResponse
+     * @return DeletePipelineResponse
      */
     public function deletePipelineWithOptions($organizationId, $pipelineId, $headers, $runtime)
     {
@@ -3801,24 +4629,29 @@ class Devops extends OpenApiClient
             'action'      => 'DeletePipeline',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePipelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除流水线
-     *  *
+     * 删除流水线
+     *
+     * @returns DeletePipelineResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      *
-     * @return DeletePipelineResponse DeletePipelineResponse
+     * @return DeletePipelineResponse
      */
     public function deletePipeline($organizationId, $pipelineId)
     {
@@ -3829,14 +4662,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除流水线分组
-     *  *
+     * 删除流水线分组.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePipelineGroupResponse
+     *
      * @param string         $organizationId
      * @param string         $groupId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeletePipelineGroupResponse DeletePipelineGroupResponse
+     * @return DeletePipelineGroupResponse
      */
     public function deletePipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime)
     {
@@ -3847,24 +4684,29 @@ class Devops extends OpenApiClient
             'action'      => 'DeletePipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelineGroups/' . Url::percentEncode($groupId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePipelineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除流水线分组
-     *  *
+     * 删除流水线分组.
+     *
+     * @returns DeletePipelineGroupResponse
+     *
      * @param string $organizationId
      * @param string $groupId
      *
-     * @return DeletePipelineGroupResponse DeletePipelineGroupResponse
+     * @return DeletePipelineGroupResponse
      */
     public function deletePipelineGroup($organizationId, $groupId)
     {
@@ -3875,53 +4717,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除流水线关联
-     *  *
+     * 删除流水线关联.
+     *
+     * @param request - DeletePipelineRelationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePipelineRelationsResponse
+     *
      * @param string                         $organizationId
      * @param string                         $pipelineId
-     * @param DeletePipelineRelationsRequest $request        DeletePipelineRelationsRequest
-     * @param string[]                       $headers        map
-     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
+     * @param DeletePipelineRelationsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DeletePipelineRelationsResponse DeletePipelineRelationsResponse
+     * @return DeletePipelineRelationsResponse
      */
     public function deletePipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->relObjectId)) {
-            $query['relObjectId'] = $request->relObjectId;
+        if (null !== $request->relObjectId) {
+            @$query['relObjectId'] = $request->relObjectId;
         }
-        if (!Utils::isUnset($request->relObjectType)) {
-            $query['relObjectType'] = $request->relObjectType;
+
+        if (null !== $request->relObjectType) {
+            @$query['relObjectType'] = $request->relObjectType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePipelineRelations',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRelations',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/' . Url::percentEncode($pipelineId) . '/pipelineRelations',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePipelineRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePipelineRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePipelineRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除流水线关联
-     *  *
+     * 删除流水线关联.
+     *
+     * @param request - DeletePipelineRelationsRequest
+     * @returns DeletePipelineRelationsResponse
+     *
      * @param string                         $organizationId
      * @param string                         $pipelineId
-     * @param DeletePipelineRelationsRequest $request        DeletePipelineRelationsRequest
+     * @param DeletePipelineRelationsRequest $request
      *
-     * @return DeletePipelineRelationsResponse DeletePipelineRelationsResponse
+     * @return DeletePipelineRelationsResponse
      */
     public function deletePipelineRelations($organizationId, $pipelineId, $request)
     {
@@ -3932,48 +4787,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除项目
-     *  *
-     * @param string               $organizationId
-     * @param DeleteProjectRequest $request        DeleteProjectRequest
-     * @param string[]             $headers        map
-     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
+     * 删除项目.
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @param request - DeleteProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProjectResponse
+     *
+     * @param string               $organizationId
+     * @param DeleteProjectRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteProjectResponse
      */
     public function deleteProjectWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identifier)) {
-            $query['identifier'] = $request->identifier;
+        if (null !== $request->identifier) {
+            @$query['identifier'] = $request->identifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProject',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/delete',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/projects/delete',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除项目
-     *  *
-     * @param string               $organizationId
-     * @param DeleteProjectRequest $request        DeleteProjectRequest
+     * 删除项目.
      *
-     * @return DeleteProjectResponse DeleteProjectResponse
+     * @param request - DeleteProjectRequest
+     * @returns DeleteProjectResponse
+     *
+     * @param string               $organizationId
+     * @param DeleteProjectRequest $request
+     *
+     * @return DeleteProjectResponse
      */
     public function deleteProject($organizationId, $request)
     {
@@ -3984,54 +4851,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除代码库Label
-     *  *
-     * @param string                    $labelId
-     * @param DeleteProjectLabelRequest $request DeleteProjectLabelRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 删除代码库Label.
      *
-     * @return DeleteProjectLabelResponse DeleteProjectLabelResponse
+     * @param request - DeleteProjectLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProjectLabelResponse
+     *
+     * @param string                    $labelId
+     * @param DeleteProjectLabelRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteProjectLabelResponse
      */
     public function deleteProjectLabelWithOptions($labelId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProjectLabel',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/labels/' . OpenApiUtilClient::getEncodeParam($labelId) . '',
+            'pathname'    => '/api/v4/projects/labels/' . Url::percentEncode($labelId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProjectLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProjectLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProjectLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除代码库Label
-     *  *
-     * @param string                    $labelId
-     * @param DeleteProjectLabelRequest $request DeleteProjectLabelRequest
+     * 删除代码库Label.
      *
-     * @return DeleteProjectLabelResponse DeleteProjectLabelResponse
+     * @param request - DeleteProjectLabelRequest
+     * @returns DeleteProjectLabelResponse
+     *
+     * @param string                    $labelId
+     * @param DeleteProjectLabelRequest $request
+     *
+     * @return DeleteProjectLabelResponse
      */
     public function deleteProjectLabel($labelId, $request)
     {
@@ -4042,53 +4923,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除保护分支
-     *  *
+     * 删除保护分支.
+     *
+     * @param request - DeleteProtectedBranchRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteProtectedBranchResponse
+     *
      * @param string                       $repositoryId
      * @param string                       $protectedBranchId
-     * @param DeleteProtectedBranchRequest $request           DeleteProtectedBranchRequest
-     * @param string[]                     $headers           map
-     * @param RuntimeOptions               $runtime           runtime options for this request RuntimeOptions
+     * @param DeleteProtectedBranchRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return DeleteProtectedBranchResponse DeleteProtectedBranchResponse
+     * @return DeleteProtectedBranchResponse
      */
     public function deleteProtectedBranchWithOptions($repositoryId, $protectedBranchId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteProtectedBranch',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/protect_branches/' . OpenApiUtilClient::getEncodeParam($protectedBranchId) . '',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/protect_branches/' . Url::percentEncode($protectedBranchId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteProtectedBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteProtectedBranchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProtectedBranchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除保护分支
-     *  *
+     * 删除保护分支.
+     *
+     * @param request - DeleteProtectedBranchRequest
+     * @returns DeleteProtectedBranchResponse
+     *
      * @param string                       $repositoryId
      * @param string                       $protectedBranchId
-     * @param DeleteProtectedBranchRequest $request           DeleteProtectedBranchRequest
+     * @param DeleteProtectedBranchRequest $request
      *
-     * @return DeleteProtectedBranchResponse DeleteProtectedBranchResponse
+     * @return DeleteProtectedBranchResponse
      */
     public function deleteProtectedBranch($repositoryId, $protectedBranchId, $request)
     {
@@ -4099,53 +4993,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除推送规则
-     *  *
+     * 删除推送规则.
+     *
+     * @param request - DeletePushRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeletePushRuleResponse
+     *
      * @param string                $repositoryId
      * @param string                $pushRuleId
-     * @param DeletePushRuleRequest $request      DeletePushRuleRequest
-     * @param string[]              $headers      map
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * @param DeletePushRuleRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return DeletePushRuleResponse DeletePushRuleResponse
+     * @return DeletePushRuleResponse
      */
     public function deletePushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeletePushRule',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule/' . OpenApiUtilClient::getEncodeParam($pushRuleId) . '',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/push_rule/' . Url::percentEncode($pushRuleId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeletePushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeletePushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeletePushRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除推送规则
-     *  *
+     * 删除推送规则.
+     *
+     * @param request - DeletePushRuleRequest
+     * @returns DeletePushRuleResponse
+     *
      * @param string                $repositoryId
      * @param string                $pushRuleId
-     * @param DeletePushRuleRequest $request      DeletePushRuleRequest
+     * @param DeletePushRuleRequest $request
      *
-     * @return DeletePushRuleResponse DeletePushRuleResponse
+     * @return DeletePushRuleResponse
      */
     public function deletePushRule($repositoryId, $pushRuleId, $request)
     {
@@ -4156,56 +5063,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除代码库
-     *  *
-     * @param string                  $repositoryId
-     * @param DeleteRepositoryRequest $request      DeleteRepositoryRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * 删除代码库.
      *
-     * @return DeleteRepositoryResponse DeleteRepositoryResponse
+     * @param request - DeleteRepositoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRepositoryResponse
+     *
+     * @param string                  $repositoryId
+     * @param DeleteRepositoryRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteRepositoryResponse
      */
     public function deleteRepositoryWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->reason)) {
-            $body['reason'] = $request->reason;
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRepository',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/remove',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/remove',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除代码库
-     *  *
-     * @param string                  $repositoryId
-     * @param DeleteRepositoryRequest $request      DeleteRepositoryRequest
+     * 删除代码库.
      *
-     * @return DeleteRepositoryResponse DeleteRepositoryResponse
+     * @param request - DeleteRepositoryRequest
+     * @returns DeleteRepositoryResponse
+     *
+     * @param string                  $repositoryId
+     * @param DeleteRepositoryRequest $request
+     *
+     * @return DeleteRepositoryResponse
      */
     public function deleteRepository($repositoryId, $request)
     {
@@ -4216,56 +5137,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除代码组
-     *  *
-     * @param string                       $groupId
-     * @param DeleteRepositoryGroupRequest $request DeleteRepositoryGroupRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 删除代码组.
      *
-     * @return DeleteRepositoryGroupResponse DeleteRepositoryGroupResponse
+     * @param request - DeleteRepositoryGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRepositoryGroupResponse
+     *
+     * @param string                       $groupId
+     * @param DeleteRepositoryGroupRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteRepositoryGroupResponse
      */
     public function deleteRepositoryGroupWithOptions($groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->reason)) {
-            $body['reason'] = $request->reason;
+        if (null !== $request->reason) {
+            @$body['reason'] = $request->reason;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRepositoryGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/remove',
+            'pathname'    => '/repository/groups/' . Url::percentEncode($groupId) . '/remove',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRepositoryGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRepositoryGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRepositoryGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除代码组
-     *  *
-     * @param string                       $groupId
-     * @param DeleteRepositoryGroupRequest $request DeleteRepositoryGroupRequest
+     * 删除代码组.
      *
-     * @return DeleteRepositoryGroupResponse DeleteRepositoryGroupResponse
+     * @param request - DeleteRepositoryGroupRequest
+     * @returns DeleteRepositoryGroupResponse
+     *
+     * @param string                       $groupId
+     * @param DeleteRepositoryGroupRequest $request
+     *
+     * @return DeleteRepositoryGroupResponse
      */
     public function deleteRepositoryGroup($groupId, $request)
     {
@@ -4276,58 +5211,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除代码库成员
-     *  *
+     * 删除代码库成员.
+     *
+     * @param request - DeleteRepositoryMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRepositoryMemberResponse
+     *
      * @param string                        $repositoryId
      * @param string                        $aliyunPk
-     * @param DeleteRepositoryMemberRequest $request      DeleteRepositoryMemberRequest
-     * @param string[]                      $headers      map
-     * @param RuntimeOptions                $runtime      runtime options for this request RuntimeOptions
+     * @param DeleteRepositoryMemberRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return DeleteRepositoryMemberResponse DeleteRepositoryMemberResponse
+     * @return DeleteRepositoryMemberResponse
      */
     public function deleteRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->memberType)) {
-            $body['memberType'] = $request->memberType;
+        if (null !== $request->memberType) {
+            @$body['memberType'] = $request->memberType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteRepositoryMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members/delete/' . OpenApiUtilClient::getEncodeParam($aliyunPk) . '',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/members/delete/' . Url::percentEncode($aliyunPk) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRepositoryMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRepositoryMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRepositoryMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除代码库成员
-     *  *
+     * 删除代码库成员.
+     *
+     * @param request - DeleteRepositoryMemberRequest
+     * @returns DeleteRepositoryMemberResponse
+     *
      * @param string                        $repositoryId
      * @param string                        $aliyunPk
-     * @param DeleteRepositoryMemberRequest $request      DeleteRepositoryMemberRequest
+     * @param DeleteRepositoryMemberRequest $request
      *
-     * @return DeleteRepositoryMemberResponse DeleteRepositoryMemberResponse
+     * @return DeleteRepositoryMemberResponse
      */
     public function deleteRepositoryMember($repositoryId, $aliyunPk, $request)
     {
@@ -4338,53 +5287,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除代码库Webhook
-     *  *
+     * 删除代码库Webhook.
+     *
+     * @param request - DeleteRepositoryWebhookRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteRepositoryWebhookResponse
+     *
      * @param string                         $repositoryId
      * @param string                         $hookId
-     * @param DeleteRepositoryWebhookRequest $request      DeleteRepositoryWebhookRequest
-     * @param string[]                       $headers      map
-     * @param RuntimeOptions                 $runtime      runtime options for this request RuntimeOptions
+     * @param DeleteRepositoryWebhookRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DeleteRepositoryWebhookResponse DeleteRepositoryWebhookResponse
+     * @return DeleteRepositoryWebhookResponse
      */
     public function deleteRepositoryWebhookWithOptions($repositoryId, $hookId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteRepositoryWebhook',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/hooks/' . OpenApiUtilClient::getEncodeParam($hookId) . '',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/hooks/' . Url::percentEncode($hookId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRepositoryWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRepositoryWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRepositoryWebhookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除代码库Webhook
-     *  *
+     * 删除代码库Webhook.
+     *
+     * @param request - DeleteRepositoryWebhookRequest
+     * @returns DeleteRepositoryWebhookResponse
+     *
      * @param string                         $repositoryId
      * @param string                         $hookId
-     * @param DeleteRepositoryWebhookRequest $request      DeleteRepositoryWebhookRequest
+     * @param DeleteRepositoryWebhookRequest $request
      *
-     * @return DeleteRepositoryWebhookResponse DeleteRepositoryWebhookResponse
+     * @return DeleteRepositoryWebhookResponse
      */
     public function deleteRepositoryWebhook($repositoryId, $hookId, $request)
     {
@@ -4395,16 +5357,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除资源成员
-     *  *
+     * 删除资源成员.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteResourceMemberResponse
+     *
      * @param string         $organizationId
      * @param string         $resourceType
      * @param string         $resourceId
      * @param string         $accountId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteResourceMemberResponse DeleteResourceMemberResponse
+     * @return DeleteResourceMemberResponse
      */
     public function deleteResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $headers, $runtime)
     {
@@ -4415,26 +5381,31 @@ class Devops extends OpenApiClient
             'action'      => 'DeleteResourceMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($resourceType) . '/' . OpenApiUtilClient::getEncodeParam($resourceId) . '/members/' . OpenApiUtilClient::getEncodeParam($accountId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/' . Url::percentEncode($resourceType) . '/' . Url::percentEncode($resourceId) . '/members/' . Url::percentEncode($accountId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteResourceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteResourceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteResourceMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除资源成员
-     *  *
+     * 删除资源成员.
+     *
+     * @returns DeleteResourceMemberResponse
+     *
      * @param string $organizationId
      * @param string $resourceType
      * @param string $resourceId
      * @param string $accountId
      *
-     * @return DeleteResourceMemberResponse DeleteResourceMemberResponse
+     * @return DeleteResourceMemberResponse
      */
     public function deleteResourceMember($organizationId, $resourceType, $resourceId, $accountId)
     {
@@ -4445,54 +5416,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param string           $repositoryId
-     * @param DeleteTagRequest $request      DeleteTagRequest
-     * @param string[]         $headers      map
-     * @param RuntimeOptions   $runtime      runtime options for this request RuntimeOptions
+     * 删除标签.
      *
-     * @return DeleteTagResponse DeleteTagResponse
+     * @param request - DeleteTagRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTagResponse
+     *
+     * @param string           $repositoryId
+     * @param DeleteTagRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteTagResponse
      */
     public function deleteTagWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['tagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['tagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTag',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/tags/delete',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/tags/delete',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param string           $repositoryId
-     * @param DeleteTagRequest $request      DeleteTagRequest
+     * 删除标签.
      *
-     * @return DeleteTagResponse DeleteTagResponse
+     * @param request - DeleteTagRequest
+     * @returns DeleteTagResponse
+     *
+     * @param string           $repositoryId
+     * @param DeleteTagRequest $request
+     *
+     * @return DeleteTagResponse
      */
     public function deleteTag($repositoryId, $request)
     {
@@ -4503,51 +5488,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除用户的SSH Key
-     *  *
-     * @param string               $keyId
-     * @param DeleteUserKeyRequest $request DeleteUserKeyRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 删除用户的SSH Key.
      *
-     * @return DeleteUserKeyResponse DeleteUserKeyResponse
+     * @param request - DeleteUserKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteUserKeyResponse
+     *
+     * @param string               $keyId
+     * @param DeleteUserKeyRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteUserKeyResponse
      */
     public function deleteUserKeyWithOptions($keyId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteUserKey',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v3/user/keys/' . OpenApiUtilClient::getEncodeParam($keyId) . '',
+            'pathname'    => '/api/v3/user/keys/' . Url::percentEncode($keyId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteUserKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteUserKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteUserKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除用户的SSH Key
-     *  *
-     * @param string               $keyId
-     * @param DeleteUserKeyRequest $request DeleteUserKeyRequest
+     * 删除用户的SSH Key.
      *
-     * @return DeleteUserKeyResponse DeleteUserKeyResponse
+     * @param request - DeleteUserKeyRequest
+     * @returns DeleteUserKeyResponse
+     *
+     * @param string               $keyId
+     * @param DeleteUserKeyRequest $request
+     *
+     * @return DeleteUserKeyResponse
      */
     public function deleteUserKey($keyId, $request)
     {
@@ -4558,14 +5556,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除变量组
-     *  *
+     * 删除变量组.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVariableGroupResponse
+     *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteVariableGroupResponse DeleteVariableGroupResponse
+     * @return DeleteVariableGroupResponse
      */
     public function deleteVariableGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -4576,24 +5578,29 @@ class Devops extends OpenApiClient
             'action'      => 'DeleteVariableGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/variableGroups/' . Url::percentEncode($id) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVariableGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除变量组
-     *  *
+     * 删除变量组.
+     *
+     * @returns DeleteVariableGroupResponse
+     *
      * @param string $organizationId
      * @param string $id
      *
-     * @return DeleteVariableGroupResponse DeleteVariableGroupResponse
+     * @return DeleteVariableGroupResponse
      */
     public function deleteVariableGroup($organizationId, $id)
     {
@@ -4604,48 +5611,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除工作项
-     *  *
-     * @param string                $organizationId
-     * @param DeleteWorkitemRequest $request        DeleteWorkitemRequest
-     * @param string[]              $headers        map
-     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
+     * 删除工作项.
      *
-     * @return DeleteWorkitemResponse DeleteWorkitemResponse
+     * @param request - DeleteWorkitemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWorkitemResponse
+     *
+     * @param string                $organizationId
+     * @param DeleteWorkitemRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteWorkitemResponse
      */
     public function deleteWorkitemWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identifier)) {
-            $query['identifier'] = $request->identifier;
+        if (null !== $request->identifier) {
+            @$query['identifier'] = $request->identifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWorkitem',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/delete',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitem/delete',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWorkitemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWorkitemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWorkitemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除工作项
-     *  *
-     * @param string                $organizationId
-     * @param DeleteWorkitemRequest $request        DeleteWorkitemRequest
+     * 删除工作项.
      *
-     * @return DeleteWorkitemResponse DeleteWorkitemResponse
+     * @param request - DeleteWorkitemRequest
+     * @returns DeleteWorkitemResponse
+     *
+     * @param string                $organizationId
+     * @param DeleteWorkitemRequest $request
+     *
+     * @return DeleteWorkitemResponse
      */
     public function deleteWorkitem($organizationId, $request)
     {
@@ -4656,48 +5675,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除所有评论
-     *  *
-     * @param string                          $organizationId
-     * @param DeleteWorkitemAllCommentRequest $request        DeleteWorkitemAllCommentRequest
-     * @param string[]                        $headers        map
-     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
+     * 删除所有评论.
      *
-     * @return DeleteWorkitemAllCommentResponse DeleteWorkitemAllCommentResponse
+     * @param request - DeleteWorkitemAllCommentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWorkitemAllCommentResponse
+     *
+     * @param string                          $organizationId
+     * @param DeleteWorkitemAllCommentRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteWorkitemAllCommentResponse
      */
     public function deleteWorkitemAllCommentWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identifier)) {
-            $query['identifier'] = $request->identifier;
+        if (null !== $request->identifier) {
+            @$query['identifier'] = $request->identifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteWorkitemAllComment',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/deleteAllComment',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/deleteAllComment',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWorkitemAllCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWorkitemAllCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWorkitemAllCommentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除所有评论
-     *  *
-     * @param string                          $organizationId
-     * @param DeleteWorkitemAllCommentRequest $request        DeleteWorkitemAllCommentRequest
+     * 删除所有评论.
      *
-     * @return DeleteWorkitemAllCommentResponse DeleteWorkitemAllCommentResponse
+     * @param request - DeleteWorkitemAllCommentRequest
+     * @returns DeleteWorkitemAllCommentResponse
+     *
+     * @param string                          $organizationId
+     * @param DeleteWorkitemAllCommentRequest $request
+     *
+     * @return DeleteWorkitemAllCommentResponse
      */
     public function deleteWorkitemAllComment($organizationId, $request)
     {
@@ -4708,51 +5739,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除单条评论
-     *  *
-     * @param string                       $organizationId
-     * @param DeleteWorkitemCommentRequest $request        DeleteWorkitemCommentRequest
-     * @param string[]                     $headers        map
-     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     * 删除单条评论.
      *
-     * @return DeleteWorkitemCommentResponse DeleteWorkitemCommentResponse
+     * @param request - DeleteWorkitemCommentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteWorkitemCommentResponse
+     *
+     * @param string                       $organizationId
+     * @param DeleteWorkitemCommentRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteWorkitemCommentResponse
      */
     public function deleteWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->commentId)) {
-            $body['commentId'] = $request->commentId;
+        if (null !== $request->commentId) {
+            @$body['commentId'] = $request->commentId;
         }
-        if (!Utils::isUnset($request->identifier)) {
-            $body['identifier'] = $request->identifier;
+
+        if (null !== $request->identifier) {
+            @$body['identifier'] = $request->identifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteWorkitemComment',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/deleteComent',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/deleteComent',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWorkitemCommentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除单条评论
-     *  *
-     * @param string                       $organizationId
-     * @param DeleteWorkitemCommentRequest $request        DeleteWorkitemCommentRequest
+     * 删除单条评论.
      *
-     * @return DeleteWorkitemCommentResponse DeleteWorkitemCommentResponse
+     * @param request - DeleteWorkitemCommentRequest
+     * @returns DeleteWorkitemCommentResponse
+     *
+     * @param string                       $organizationId
+     * @param DeleteWorkitemCommentRequest $request
+     *
+     * @return DeleteWorkitemCommentResponse
      */
     public function deleteWorkitemComment($organizationId, $request)
     {
@@ -4763,53 +5807,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 启用部署密钥
-     *  *
+     * 启用部署密钥.
+     *
+     * @param request - EnableDeployKeyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableDeployKeyResponse
+     *
      * @param string                 $repositoryId
      * @param string                 $keyId
-     * @param EnableDeployKeyRequest $request      EnableDeployKeyRequest
-     * @param string[]               $headers      map
-     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
+     * @param EnableDeployKeyRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return EnableDeployKeyResponse EnableDeployKeyResponse
+     * @return EnableDeployKeyResponse
      */
     public function enableDeployKeyWithOptions($repositoryId, $keyId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableDeployKey',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/keys/' . OpenApiUtilClient::getEncodeParam($keyId) . '/enable',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/keys/' . Url::percentEncode($keyId) . '/enable',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableDeployKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableDeployKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableDeployKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 启用部署密钥
-     *  *
+     * 启用部署密钥.
+     *
+     * @param request - EnableDeployKeyRequest
+     * @returns EnableDeployKeyResponse
+     *
      * @param string                 $repositoryId
      * @param string                 $keyId
-     * @param EnableDeployKeyRequest $request      EnableDeployKeyRequest
+     * @param EnableDeployKeyRequest $request
      *
-     * @return EnableDeployKeyResponse EnableDeployKeyResponse
+     * @return EnableDeployKeyResponse
      */
     public function enableDeployKey($repositoryId, $keyId, $request)
     {
@@ -4820,57 +5877,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 执行研发阶段流水线
-     *  *
+     * 执行研发阶段流水线
+     *
+     * @param request - ExecuteChangeRequestReleaseStageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteChangeRequestReleaseStageResponse
+     *
      * @param string                                  $appName
      * @param string                                  $releaseWorkflowSn
      * @param string                                  $releaseStageSn
-     * @param ExecuteChangeRequestReleaseStageRequest $request           ExecuteChangeRequestReleaseStageRequest
-     * @param string[]                                $headers           map
-     * @param RuntimeOptions                          $runtime           runtime options for this request RuntimeOptions
+     * @param ExecuteChangeRequestReleaseStageRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
      *
-     * @return ExecuteChangeRequestReleaseStageResponse ExecuteChangeRequestReleaseStageResponse
+     * @return ExecuteChangeRequestReleaseStageResponse
      */
     public function executeChangeRequestReleaseStageWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->params)) {
-            $body['params'] = $request->params;
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExecuteChangeRequestReleaseStage',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '%3Aexecute',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/releaseWorkflows/' . Url::percentEncode($releaseWorkflowSn) . '/releaseStages/' . Url::percentEncode($releaseStageSn) . '%3Aexecute',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteChangeRequestReleaseStageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteChangeRequestReleaseStageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteChangeRequestReleaseStageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 执行研发阶段流水线
-     *  *
+     * 执行研发阶段流水线
+     *
+     * @param request - ExecuteChangeRequestReleaseStageRequest
+     * @returns ExecuteChangeRequestReleaseStageResponse
+     *
      * @param string                                  $appName
      * @param string                                  $releaseWorkflowSn
      * @param string                                  $releaseStageSn
-     * @param ExecuteChangeRequestReleaseStageRequest $request           ExecuteChangeRequestReleaseStageRequest
+     * @param ExecuteChangeRequestReleaseStageRequest $request
      *
-     * @return ExecuteChangeRequestReleaseStageResponse ExecuteChangeRequestReleaseStageResponse
+     * @return ExecuteChangeRequestReleaseStageResponse
      */
     public function executeChangeRequestReleaseStage($appName, $releaseWorkflowSn, $releaseStageSn, $request)
     {
@@ -4881,57 +5951,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight custom_value表
-     *  *
-     * @param string                          $organizationId
-     * @param ExportInsightCustomValueRequest $request        ExportInsightCustomValueRequest
-     * @param string[]                        $headers        map
-     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight custom_value表.
      *
-     * @return ExportInsightCustomValueResponse ExportInsightCustomValueResponse
+     * @param request - ExportInsightCustomValueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightCustomValueResponse
+     *
+     * @param string                          $organizationId
+     * @param ExportInsightCustomValueRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ExportInsightCustomValueResponse
      */
     public function exportInsightCustomValueWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightCustomValue',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/customValues',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/customValues',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightCustomValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightCustomValueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightCustomValueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight custom_value表
-     *  *
-     * @param string                          $organizationId
-     * @param ExportInsightCustomValueRequest $request        ExportInsightCustomValueRequest
+     * 导出Insight custom_value表.
      *
-     * @return ExportInsightCustomValueResponse ExportInsightCustomValueResponse
+     * @param request - ExportInsightCustomValueRequest
+     * @returns ExportInsightCustomValueResponse
+     *
+     * @param string                          $organizationId
+     * @param ExportInsightCustomValueRequest $request
+     *
+     * @return ExportInsightCustomValueResponse
      */
     public function exportInsightCustomValue($organizationId, $request)
     {
@@ -4942,57 +6027,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight expected_work_time表数据
-     *  *
-     * @param string                               $organizationId
-     * @param ExportInsightExpectedWorkTimeRequest $request        ExportInsightExpectedWorkTimeRequest
-     * @param string[]                             $headers        map
-     * @param RuntimeOptions                       $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight expected_work_time表数据.
      *
-     * @return ExportInsightExpectedWorkTimeResponse ExportInsightExpectedWorkTimeResponse
+     * @param request - ExportInsightExpectedWorkTimeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightExpectedWorkTimeResponse
+     *
+     * @param string                               $organizationId
+     * @param ExportInsightExpectedWorkTimeRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ExportInsightExpectedWorkTimeResponse
      */
     public function exportInsightExpectedWorkTimeWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightExpectedWorkTime',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/expectedWorkTimes',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/expectedWorkTimes',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightExpectedWorkTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightExpectedWorkTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightExpectedWorkTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight expected_work_time表数据
-     *  *
-     * @param string                               $organizationId
-     * @param ExportInsightExpectedWorkTimeRequest $request        ExportInsightExpectedWorkTimeRequest
+     * 导出Insight expected_work_time表数据.
      *
-     * @return ExportInsightExpectedWorkTimeResponse ExportInsightExpectedWorkTimeResponse
+     * @param request - ExportInsightExpectedWorkTimeRequest
+     * @returns ExportInsightExpectedWorkTimeResponse
+     *
+     * @param string                               $organizationId
+     * @param ExportInsightExpectedWorkTimeRequest $request
+     *
+     * @return ExportInsightExpectedWorkTimeResponse
      */
     public function exportInsightExpectedWorkTime($organizationId, $request)
     {
@@ -5003,57 +6103,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight field表
-     *  *
-     * @param string                    $organizationId
-     * @param ExportInsightFieldRequest $request        ExportInsightFieldRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight field表.
      *
-     * @return ExportInsightFieldResponse ExportInsightFieldResponse
+     * @param request - ExportInsightFieldRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightFieldResponse
+     *
+     * @param string                    $organizationId
+     * @param ExportInsightFieldRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ExportInsightFieldResponse
      */
     public function exportInsightFieldWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightField',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/fields',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/fields',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightFieldResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight field表
-     *  *
-     * @param string                    $organizationId
-     * @param ExportInsightFieldRequest $request        ExportInsightFieldRequest
+     * 导出Insight field表.
      *
-     * @return ExportInsightFieldResponse ExportInsightFieldResponse
+     * @param request - ExportInsightFieldRequest
+     * @returns ExportInsightFieldResponse
+     *
+     * @param string                    $organizationId
+     * @param ExportInsightFieldRequest $request
+     *
+     * @return ExportInsightFieldResponse
      */
     public function exportInsightField($organizationId, $request)
     {
@@ -5064,57 +6179,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight space表数据
-     *  *
-     * @param string                    $organizationId
-     * @param ExportInsightSpaceRequest $request        ExportInsightSpaceRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight space表数据.
      *
-     * @return ExportInsightSpaceResponse ExportInsightSpaceResponse
+     * @param request - ExportInsightSpaceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightSpaceResponse
+     *
+     * @param string                    $organizationId
+     * @param ExportInsightSpaceRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ExportInsightSpaceResponse
      */
     public function exportInsightSpaceWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightSpace',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/spaces',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/spaces',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightSpaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight space表数据
-     *  *
-     * @param string                    $organizationId
-     * @param ExportInsightSpaceRequest $request        ExportInsightSpaceRequest
+     * 导出Insight space表数据.
      *
-     * @return ExportInsightSpaceResponse ExportInsightSpaceResponse
+     * @param request - ExportInsightSpaceRequest
+     * @returns ExportInsightSpaceResponse
+     *
+     * @param string                    $organizationId
+     * @param ExportInsightSpaceRequest $request
+     *
+     * @return ExportInsightSpaceResponse
      */
     public function exportInsightSpace($organizationId, $request)
     {
@@ -5125,57 +6255,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight space_ref表数据
-     *  *
-     * @param string                       $organizationId
-     * @param ExportInsightSpaceRefRequest $request        ExportInsightSpaceRefRequest
-     * @param string[]                     $headers        map
-     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight space_ref表数据.
      *
-     * @return ExportInsightSpaceRefResponse ExportInsightSpaceRefResponse
+     * @param request - ExportInsightSpaceRefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightSpaceRefResponse
+     *
+     * @param string                       $organizationId
+     * @param ExportInsightSpaceRefRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ExportInsightSpaceRefResponse
      */
     public function exportInsightSpaceRefWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightSpaceRef',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/spaceRefs',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/spaceRefs',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightSpaceRefResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightSpaceRefResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightSpaceRefResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight space_ref表数据
-     *  *
-     * @param string                       $organizationId
-     * @param ExportInsightSpaceRefRequest $request        ExportInsightSpaceRefRequest
+     * 导出Insight space_ref表数据.
      *
-     * @return ExportInsightSpaceRefResponse ExportInsightSpaceRefResponse
+     * @param request - ExportInsightSpaceRefRequest
+     * @returns ExportInsightSpaceRefResponse
+     *
+     * @param string                       $organizationId
+     * @param ExportInsightSpaceRefRequest $request
+     *
+     * @return ExportInsightSpaceRefResponse
      */
     public function exportInsightSpaceRef($organizationId, $request)
     {
@@ -5186,57 +6331,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight sprint表数据
-     *  *
-     * @param string                     $organizationId
-     * @param ExportInsightSprintRequest $request        ExportInsightSprintRequest
-     * @param string[]                   $headers        map
-     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight sprint表数据.
      *
-     * @return ExportInsightSprintResponse ExportInsightSprintResponse
+     * @param request - ExportInsightSprintRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightSprintResponse
+     *
+     * @param string                     $organizationId
+     * @param ExportInsightSprintRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ExportInsightSprintResponse
      */
     public function exportInsightSprintWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightSprint',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/sprints',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/sprints',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightSprintResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightSprintResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightSprintResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight sprint表数据
-     *  *
-     * @param string                     $organizationId
-     * @param ExportInsightSprintRequest $request        ExportInsightSprintRequest
+     * 导出Insight sprint表数据.
      *
-     * @return ExportInsightSprintResponse ExportInsightSprintResponse
+     * @param request - ExportInsightSprintRequest
+     * @returns ExportInsightSprintResponse
+     *
+     * @param string                     $organizationId
+     * @param ExportInsightSprintRequest $request
+     *
+     * @return ExportInsightSprintResponse
      */
     public function exportInsightSprint($organizationId, $request)
     {
@@ -5247,57 +6407,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight tag_ref表数据
-     *  *
-     * @param string                     $organizationId
-     * @param ExportInsightTagRefRequest $request        ExportInsightTagRefRequest
-     * @param string[]                   $headers        map
-     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight tag_ref表数据.
      *
-     * @return ExportInsightTagRefResponse ExportInsightTagRefResponse
+     * @param request - ExportInsightTagRefRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightTagRefResponse
+     *
+     * @param string                     $organizationId
+     * @param ExportInsightTagRefRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ExportInsightTagRefResponse
      */
     public function exportInsightTagRefWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightTagRef',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/tagRefs',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/tagRefs',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightTagRefResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightTagRefResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightTagRefResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight tag_ref表数据
-     *  *
-     * @param string                     $organizationId
-     * @param ExportInsightTagRefRequest $request        ExportInsightTagRefRequest
+     * 导出Insight tag_ref表数据.
      *
-     * @return ExportInsightTagRefResponse ExportInsightTagRefResponse
+     * @param request - ExportInsightTagRefRequest
+     * @returns ExportInsightTagRefResponse
+     *
+     * @param string                     $organizationId
+     * @param ExportInsightTagRefRequest $request
+     *
+     * @return ExportInsightTagRefResponse
      */
     public function exportInsightTagRef($organizationId, $request)
     {
@@ -5308,57 +6483,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight work_time表数据
-     *  *
-     * @param string                       $organizationId
-     * @param ExportInsightWorkTimeRequest $request        ExportInsightWorkTimeRequest
-     * @param string[]                     $headers        map
-     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight work_time表数据.
      *
-     * @return ExportInsightWorkTimeResponse ExportInsightWorkTimeResponse
+     * @param request - ExportInsightWorkTimeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightWorkTimeResponse
+     *
+     * @param string                       $organizationId
+     * @param ExportInsightWorkTimeRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ExportInsightWorkTimeResponse
      */
     public function exportInsightWorkTimeWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightWorkTime',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workTimes',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/workTimes',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightWorkTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightWorkTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightWorkTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight work_time表数据
-     *  *
-     * @param string                       $organizationId
-     * @param ExportInsightWorkTimeRequest $request        ExportInsightWorkTimeRequest
+     * 导出Insight work_time表数据.
      *
-     * @return ExportInsightWorkTimeResponse ExportInsightWorkTimeResponse
+     * @param request - ExportInsightWorkTimeRequest
+     * @returns ExportInsightWorkTimeResponse
+     *
+     * @param string                       $organizationId
+     * @param ExportInsightWorkTimeRequest $request
+     *
+     * @return ExportInsightWorkTimeResponse
      */
     public function exportInsightWorkTime($organizationId, $request)
     {
@@ -5369,57 +6559,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight workitem_stauts表数据
-     *  *
-     * @param string                             $organizationId
-     * @param ExportInsightWorkitemStatusRequest $request        ExportInsightWorkitemStatusRequest
-     * @param string[]                           $headers        map
-     * @param RuntimeOptions                     $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight workitem_stauts表数据.
      *
-     * @return ExportInsightWorkitemStatusResponse ExportInsightWorkitemStatusResponse
+     * @param request - ExportInsightWorkitemStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightWorkitemStatusResponse
+     *
+     * @param string                             $organizationId
+     * @param ExportInsightWorkitemStatusRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ExportInsightWorkitemStatusResponse
      */
     public function exportInsightWorkitemStatusWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightWorkitemStatus',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workitemStatuses',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/workitemStatuses',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightWorkitemStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightWorkitemStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightWorkitemStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight workitem_stauts表数据
-     *  *
-     * @param string                             $organizationId
-     * @param ExportInsightWorkitemStatusRequest $request        ExportInsightWorkitemStatusRequest
+     * 导出Insight workitem_stauts表数据.
      *
-     * @return ExportInsightWorkitemStatusResponse ExportInsightWorkitemStatusResponse
+     * @param request - ExportInsightWorkitemStatusRequest
+     * @returns ExportInsightWorkitemStatusResponse
+     *
+     * @param string                             $organizationId
+     * @param ExportInsightWorkitemStatusRequest $request
+     *
+     * @return ExportInsightWorkitemStatusResponse
      */
     public function exportInsightWorkitemStatus($organizationId, $request)
     {
@@ -5430,57 +6635,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight workitem_stauts表 join workitem_defect_extra表表数据
-     *  *
-     * @param string                                                    $organizationId
-     * @param ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest $request        ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest
-     * @param string[]                                                  $headers        map
-     * @param RuntimeOptions                                            $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight workitem_stauts表 join workitem_defect_extra表表数据.
      *
-     * @return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse
+     * @param request - ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse
+     *
+     * @param string                                                    $organizationId
+     * @param ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest $request
+     * @param string[]                                                  $headers
+     * @param RuntimeOptions                                            $runtime
+     *
+     * @return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse
      */
     public function exportInsightWorkitemStatusJoinWorkitemDefectExtraWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightWorkitemStatusJoinWorkitemDefectExtra',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workitemStatusJoinWorkitemDefectExtras',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/workitemStatusJoinWorkitemDefectExtras',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight workitem_stauts表 join workitem_defect_extra表表数据
-     *  *
-     * @param string                                                    $organizationId
-     * @param ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest $request        ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest
+     * 导出Insight workitem_stauts表 join workitem_defect_extra表表数据.
      *
-     * @return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse
+     * @param request - ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest
+     * @returns ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse
+     *
+     * @param string                                                    $organizationId
+     * @param ExportInsightWorkitemStatusJoinWorkitemDefectExtraRequest $request
+     *
+     * @return ExportInsightWorkitemStatusJoinWorkitemDefectExtraResponse
      */
     public function exportInsightWorkitemStatusJoinWorkitemDefectExtra($organizationId, $request)
     {
@@ -5491,57 +6711,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight workitem_version表数据
-     *  *
-     * @param string                              $organizationId
-     * @param ExportInsightWorkitemVersionRequest $request        ExportInsightWorkitemVersionRequest
-     * @param string[]                            $headers        map
-     * @param RuntimeOptions                      $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight workitem_version表数据.
      *
-     * @return ExportInsightWorkitemVersionResponse ExportInsightWorkitemVersionResponse
+     * @param request - ExportInsightWorkitemVersionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportInsightWorkitemVersionResponse
+     *
+     * @param string                              $organizationId
+     * @param ExportInsightWorkitemVersionRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ExportInsightWorkitemVersionResponse
      */
     public function exportInsightWorkitemVersionWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportInsightWorkitemVersion',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workitemVersions',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/workitemVersions',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportInsightWorkitemVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportInsightWorkitemVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportInsightWorkitemVersionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight workitem_version表数据
-     *  *
-     * @param string                              $organizationId
-     * @param ExportInsightWorkitemVersionRequest $request        ExportInsightWorkitemVersionRequest
+     * 导出Insight workitem_version表数据.
      *
-     * @return ExportInsightWorkitemVersionResponse ExportInsightWorkitemVersionResponse
+     * @param request - ExportInsightWorkitemVersionRequest
+     * @returns ExportInsightWorkitemVersionResponse
+     *
+     * @param string                              $organizationId
+     * @param ExportInsightWorkitemVersionRequest $request
+     *
+     * @return ExportInsightWorkitemVersionResponse
      */
     public function exportInsightWorkitemVersion($organizationId, $request)
     {
@@ -5552,57 +6787,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 导出Insight workitem_activity表数据
-     *  *
-     * @param string                        $organizationId
-     * @param ExportWorkitemActivityRequest $request        ExportWorkitemActivityRequest
-     * @param string[]                      $headers        map
-     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
+     * 导出Insight workitem_activity表数据.
      *
-     * @return ExportWorkitemActivityResponse ExportWorkitemActivityResponse
+     * @param request - ExportWorkitemActivityRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportWorkitemActivityResponse
+     *
+     * @param string                        $organizationId
+     * @param ExportWorkitemActivityRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ExportWorkitemActivityResponse
      */
     public function exportWorkitemActivityWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $body['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$body['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $body['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$body['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['startTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ExportWorkitemActivity',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/data/workitemActivities',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/data/workitemActivities',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportWorkitemActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportWorkitemActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportWorkitemActivityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 导出Insight workitem_activity表数据
-     *  *
-     * @param string                        $organizationId
-     * @param ExportWorkitemActivityRequest $request        ExportWorkitemActivityRequest
+     * 导出Insight workitem_activity表数据.
      *
-     * @return ExportWorkitemActivityResponse ExportWorkitemActivityResponse
+     * @param request - ExportWorkitemActivityRequest
+     * @returns ExportWorkitemActivityResponse
+     *
+     * @param string                        $organizationId
+     * @param ExportWorkitemActivityRequest $request
+     *
+     * @return ExportWorkitemActivityResponse
      */
     public function exportWorkitemActivity($organizationId, $request)
     {
@@ -5613,48 +6863,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查找应用详情
-     *  *
-     * @param string                $appName
-     * @param GetApplicationRequest $request GetApplicationRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查找应用详情.
      *
-     * @return GetApplicationResponse GetApplicationResponse
+     * @param request - GetApplicationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetApplicationResponse
+     *
+     * @param string                $appName
+     * @param GetApplicationRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetApplicationResponse
      */
     public function getApplicationWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetApplication',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查找应用详情
-     *  *
-     * @param string                $appName
-     * @param GetApplicationRequest $request GetApplicationRequest
+     * 查找应用详情.
      *
-     * @return GetApplicationResponse GetApplicationResponse
+     * @param request - GetApplicationRequest
+     * @returns GetApplicationResponse
+     *
+     * @param string                $appName
+     * @param GetApplicationRequest $request
+     *
+     * @return GetApplicationResponse
      */
     public function getApplication($appName, $request)
     {
@@ -5665,54 +6927,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个分支
-     *  *
-     * @param string               $repositoryId
-     * @param GetBranchInfoRequest $request      GetBranchInfoRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * 查询单个分支.
      *
-     * @return GetBranchInfoResponse GetBranchInfoResponse
+     * @param request - GetBranchInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetBranchInfoResponse
+     *
+     * @param string               $repositoryId
+     * @param GetBranchInfoRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetBranchInfoResponse
      */
     public function getBranchInfoWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->branchName)) {
-            $query['branchName'] = $request->branchName;
+
+        if (null !== $request->branchName) {
+            @$query['branchName'] = $request->branchName;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetBranchInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/branches/detail',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/branches/detail',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetBranchInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetBranchInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetBranchInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询单个分支
-     *  *
-     * @param string               $repositoryId
-     * @param GetBranchInfoRequest $request      GetBranchInfoRequest
+     * 查询单个分支.
      *
-     * @return GetBranchInfoResponse GetBranchInfoResponse
+     * @param request - GetBranchInfoRequest
+     * @returns GetBranchInfoResponse
+     *
+     * @param string               $repositoryId
+     * @param GetBranchInfoRequest $request
+     *
+     * @return GetBranchInfoResponse
      */
     public function getBranchInfo($repositoryId, $request)
     {
@@ -5723,33 +6999,42 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询检查运行
-     *  *
-     * @param GetCheckRunRequest $request GetCheckRunRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 查询检查运行.
      *
-     * @return GetCheckRunResponse GetCheckRunResponse
+     * @param request - GetCheckRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCheckRunResponse
+     *
+     * @param GetCheckRunRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetCheckRunResponse
      */
     public function getCheckRunWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->checkRunId)) {
-            $query['checkRunId'] = $request->checkRunId;
+
+        if (null !== $request->checkRunId) {
+            @$query['checkRunId'] = $request->checkRunId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCheckRun',
@@ -5762,16 +7047,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCheckRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCheckRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCheckRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询检查运行
-     *  *
-     * @param GetCheckRunRequest $request GetCheckRunRequest
+     * 查询检查运行.
      *
-     * @return GetCheckRunResponse GetCheckRunResponse
+     * @param request - GetCheckRunRequest
+     * @returns GetCheckRunResponse
+     *
+     * @param GetCheckRunRequest $request
+     *
+     * @return GetCheckRunResponse
      */
     public function getCheckRun($request)
     {
@@ -5782,48 +7073,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取企业信息
-     *  *
-     * @param string                       $identity
-     * @param GetCodeupOrganizationRequest $request  GetCodeupOrganizationRequest
-     * @param string[]                     $headers  map
-     * @param RuntimeOptions               $runtime  runtime options for this request RuntimeOptions
+     * 获取企业信息.
      *
-     * @return GetCodeupOrganizationResponse GetCodeupOrganizationResponse
+     * @param request - GetCodeupOrganizationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCodeupOrganizationResponse
+     *
+     * @param string                       $identity
+     * @param GetCodeupOrganizationRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetCodeupOrganizationResponse
      */
     public function getCodeupOrganizationWithOptions($identity, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCodeupOrganization',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/organization/' . OpenApiUtilClient::getEncodeParam($identity) . '',
+            'pathname'    => '/api/organization/' . Url::percentEncode($identity) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCodeupOrganizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCodeupOrganizationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCodeupOrganizationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取企业信息
-     *  *
-     * @param string                       $identity
-     * @param GetCodeupOrganizationRequest $request  GetCodeupOrganizationRequest
+     * 获取企业信息.
      *
-     * @return GetCodeupOrganizationResponse GetCodeupOrganizationResponse
+     * @param request - GetCodeupOrganizationRequest
+     * @returns GetCodeupOrganizationResponse
+     *
+     * @param string                       $identity
+     * @param GetCodeupOrganizationRequest $request
+     *
+     * @return GetCodeupOrganizationResponse
      */
     public function getCodeupOrganization($identity, $request)
     {
@@ -5834,63 +7137,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取比较详情
-     *  *
-     * @param string                  $repositoryId
-     * @param GetCompareDetailRequest $request      GetCompareDetailRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * 获取比较详情.
      *
-     * @return GetCompareDetailResponse GetCompareDetailResponse
+     * @param request - GetCompareDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCompareDetailResponse
+     *
+     * @param string                  $repositoryId
+     * @param GetCompareDetailRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetCompareDetailResponse
      */
     public function getCompareDetailWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->from)) {
-            $query['from'] = $request->from;
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
         }
-        if (!Utils::isUnset($request->maxDiffByte)) {
-            $query['maxDiffByte'] = $request->maxDiffByte;
+
+        if (null !== $request->maxDiffByte) {
+            @$query['maxDiffByte'] = $request->maxDiffByte;
         }
-        if (!Utils::isUnset($request->maxDiffFile)) {
-            $query['maxDiffFile'] = $request->maxDiffFile;
+
+        if (null !== $request->maxDiffFile) {
+            @$query['maxDiffFile'] = $request->maxDiffFile;
         }
-        if (!Utils::isUnset($request->mergeBase)) {
-            $query['mergeBase'] = $request->mergeBase;
+
+        if (null !== $request->mergeBase) {
+            @$query['mergeBase'] = $request->mergeBase;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->to)) {
-            $query['to'] = $request->to;
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCompareDetail',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/commits/compare/detail',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/commits/compare/detail',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCompareDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCompareDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCompareDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取比较详情
-     *  *
-     * @param string                  $repositoryId
-     * @param GetCompareDetailRequest $request      GetCompareDetailRequest
+     * 获取比较详情.
      *
-     * @return GetCompareDetailResponse GetCompareDetailResponse
+     * @param request - GetCompareDetailRequest
+     * @returns GetCompareDetailResponse
+     *
+     * @param string                  $repositoryId
+     * @param GetCompareDetailRequest $request
+     *
+     * @return GetCompareDetailResponse
      */
     public function getCompareDetail($repositoryId, $request)
     {
@@ -5901,56 +7221,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义字段的选项值
-     *  *
+     * 获取自定义字段的选项值
+     *
+     * @param request - GetCustomFieldOptionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCustomFieldOptionResponse
+     *
      * @param string                      $organizationId
      * @param string                      $fieldId
-     * @param GetCustomFieldOptionRequest $request        GetCustomFieldOptionRequest
-     * @param string[]                    $headers        map
-     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
+     * @param GetCustomFieldOptionRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return GetCustomFieldOptionResponse GetCustomFieldOptionResponse
+     * @return GetCustomFieldOptionResponse
      */
     public function getCustomFieldOptionWithOptions($organizationId, $fieldId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $query['spaceIdentifier'] = $request->spaceIdentifier;
+        if (null !== $request->spaceIdentifier) {
+            @$query['spaceIdentifier'] = $request->spaceIdentifier;
         }
-        if (!Utils::isUnset($request->spaceType)) {
-            $query['spaceType'] = $request->spaceType;
+
+        if (null !== $request->spaceType) {
+            @$query['spaceType'] = $request->spaceType;
         }
-        if (!Utils::isUnset($request->workitemTypeIdentifier)) {
-            $query['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
+
+        if (null !== $request->workitemTypeIdentifier) {
+            @$query['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCustomFieldOption',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/fields/' . OpenApiUtilClient::getEncodeParam($fieldId) . '/getCustomOption',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/fields/' . Url::percentEncode($fieldId) . '/getCustomOption',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetCustomFieldOptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCustomFieldOptionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCustomFieldOptionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取自定义字段的选项值
-     *  *
+     * 获取自定义字段的选项值
+     *
+     * @param request - GetCustomFieldOptionRequest
+     * @returns GetCustomFieldOptionResponse
+     *
      * @param string                      $organizationId
      * @param string                      $fieldId
-     * @param GetCustomFieldOptionRequest $request        GetCustomFieldOptionRequest
+     * @param GetCustomFieldOptionRequest $request
      *
-     * @return GetCustomFieldOptionResponse GetCustomFieldOptionResponse
+     * @return GetCustomFieldOptionResponse
      */
     public function getCustomFieldOption($organizationId, $fieldId, $request)
     {
@@ -5961,63 +7295,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询文件
-     *  *
-     * @param string              $repositoryId
-     * @param GetFileBlobsRequest $request      GetFileBlobsRequest
-     * @param string[]            $headers      map
-     * @param RuntimeOptions      $runtime      runtime options for this request RuntimeOptions
+     * 查询文件.
      *
-     * @return GetFileBlobsResponse GetFileBlobsResponse
+     * @param request - GetFileBlobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFileBlobsResponse
+     *
+     * @param string              $repositoryId
+     * @param GetFileBlobsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetFileBlobsResponse
      */
     public function getFileBlobsWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['filePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['filePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->from)) {
-            $query['from'] = $request->from;
+
+        if (null !== $request->from) {
+            @$query['from'] = $request->from;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->ref)) {
-            $query['ref'] = $request->ref;
+
+        if (null !== $request->ref) {
+            @$query['ref'] = $request->ref;
         }
-        if (!Utils::isUnset($request->to)) {
-            $query['to'] = $request->to;
+
+        if (null !== $request->to) {
+            @$query['to'] = $request->to;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetFileBlobs',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/blobs',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/files/blobs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFileBlobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFileBlobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFileBlobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询文件
-     *  *
-     * @param string              $repositoryId
-     * @param GetFileBlobsRequest $request      GetFileBlobsRequest
+     * 查询文件.
      *
-     * @return GetFileBlobsResponse GetFileBlobsResponse
+     * @param request - GetFileBlobsRequest
+     * @returns GetFileBlobsResponse
+     *
+     * @param string              $repositoryId
+     * @param GetFileBlobsRequest $request
+     *
+     * @return GetFileBlobsResponse
      */
     public function getFileBlobs($repositoryId, $request)
     {
@@ -6028,60 +7379,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取文件上一次提交信息
-     *  *
-     * @param string                   $repositoryId
-     * @param GetFileLastCommitRequest $request      GetFileLastCommitRequest
-     * @param string[]                 $headers      map
-     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
+     * 获取文件上一次提交信息.
      *
-     * @return GetFileLastCommitResponse GetFileLastCommitResponse
+     * @param request - GetFileLastCommitRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFileLastCommitResponse
+     *
+     * @param string                   $repositoryId
+     * @param GetFileLastCommitRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetFileLastCommitResponse
      */
     public function getFileLastCommitWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['filePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['filePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->sha)) {
-            $query['sha'] = $request->sha;
+
+        if (null !== $request->sha) {
+            @$query['sha'] = $request->sha;
         }
-        if (!Utils::isUnset($request->showSignature)) {
-            $query['showSignature'] = $request->showSignature;
+
+        if (null !== $request->showSignature) {
+            @$query['showSignature'] = $request->showSignature;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetFileLastCommit',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/lastCommit',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/files/lastCommit',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFileLastCommitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFileLastCommitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFileLastCommitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取文件上一次提交信息
-     *  *
-     * @param string                   $repositoryId
-     * @param GetFileLastCommitRequest $request      GetFileLastCommitRequest
+     * 获取文件上一次提交信息.
      *
-     * @return GetFileLastCommitResponse GetFileLastCommitResponse
+     * @param request - GetFileLastCommitRequest
+     * @returns GetFileLastCommitResponse
+     *
+     * @param string                   $repositoryId
+     * @param GetFileLastCommitRequest $request
+     *
+     * @return GetFileLastCommitResponse
      */
     public function getFileLastCommit($repositoryId, $request)
     {
@@ -6092,14 +7459,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取标签分类
-     *  *
+     * 获取标签分类.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFlowTagGroupResponse
+     *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetFlowTagGroupResponse GetFlowTagGroupResponse
+     * @return GetFlowTagGroupResponse
      */
     public function getFlowTagGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -6110,24 +7481,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetFlowTagGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/flow/tagGroups/' . Url::percentEncode($id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFlowTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFlowTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFlowTagGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取标签分类
-     *  *
+     * 获取标签分类.
+     *
+     * @returns GetFlowTagGroupResponse
+     *
      * @param string $organizationId
      * @param string $id
      *
-     * @return GetFlowTagGroupResponse GetFlowTagGroupResponse
+     * @return GetFlowTagGroupResponse
      */
     public function getFlowTagGroup($organizationId, $id)
     {
@@ -6138,27 +7514,34 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 根据路径查询代码组
-     *  *
-     * @param GetGroupByPathRequest $request GetGroupByPathRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 根据路径查询代码组.
      *
-     * @return GetGroupByPathResponse GetGroupByPathResponse
+     * @param request - GetGroupByPathRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGroupByPathResponse
+     *
+     * @param GetGroupByPathRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetGroupByPathResponse
      */
     public function getGroupByPathWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->identity)) {
-            $query['identity'] = $request->identity;
+        if (null !== $request->identity) {
+            @$query['identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetGroupByPath',
@@ -6171,16 +7554,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGroupByPathResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGroupByPathResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGroupByPathResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据路径查询代码组
-     *  *
-     * @param GetGroupByPathRequest $request GetGroupByPathRequest
+     * 根据路径查询代码组.
      *
-     * @return GetGroupByPathResponse GetGroupByPathResponse
+     * @param request - GetGroupByPathRequest
+     * @returns GetGroupByPathResponse
+     *
+     * @param GetGroupByPathRequest $request
+     *
+     * @return GetGroupByPathResponse
      */
     public function getGroupByPath($request)
     {
@@ -6191,30 +7580,38 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码组信息
-     *  *
-     * @param GetGroupDetailRequest $request GetGroupDetailRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询代码组信息.
      *
-     * @return GetGroupDetailResponse GetGroupDetailResponse
+     * @param request - GetGroupDetailRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetGroupDetailResponse
+     *
+     * @param GetGroupDetailRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetGroupDetailResponse
      */
     public function getGroupDetailWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['groupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['groupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetGroupDetail',
@@ -6227,16 +7624,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGroupDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码组信息
-     *  *
-     * @param GetGroupDetailRequest $request GetGroupDetailRequest
+     * 查询代码组信息.
      *
-     * @return GetGroupDetailResponse GetGroupDetailResponse
+     * @param request - GetGroupDetailRequest
+     * @returns GetGroupDetailResponse
+     *
+     * @param GetGroupDetailRequest $request
+     *
+     * @return GetGroupDetailResponse
      */
     public function getGroupDetail($request)
     {
@@ -6247,14 +7650,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取主机组信息
-     *  *
+     * 获取主机组信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetHostGroupResponse
+     *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetHostGroupResponse GetHostGroupResponse
+     * @return GetHostGroupResponse
      */
     public function getHostGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -6265,24 +7672,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetHostGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/hostGroups/' . Url::percentEncode($id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetHostGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取主机组信息
-     *  *
+     * 获取主机组信息.
+     *
+     * @returns GetHostGroupResponse
+     *
      * @param string $organizationId
      * @param string $id
      *
-     * @return GetHostGroupResponse GetHostGroupResponse
+     * @return GetHostGroupResponse
      */
     public function getHostGroup($organizationId, $id)
     {
@@ -6293,53 +7705,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询合并请求详情
-     *  *
+     * 查询合并请求详情.
+     *
+     * @param request - GetMergeRequestRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMergeRequestResponse
+     *
      * @param string                 $repositoryId
      * @param string                 $localId
-     * @param GetMergeRequestRequest $request      GetMergeRequestRequest
-     * @param string[]               $headers      map
-     * @param RuntimeOptions         $runtime      runtime options for this request RuntimeOptions
+     * @param GetMergeRequestRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return GetMergeRequestResponse GetMergeRequestResponse
+     * @return GetMergeRequestResponse
      */
     public function getMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMergeRequest',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/merge_requests/' . OpenApiUtilClient::getEncodeParam($localId) . '/detail',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/merge_requests/' . Url::percentEncode($localId) . '/detail',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMergeRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询合并请求详情
-     *  *
+     * 查询合并请求详情.
+     *
+     * @param request - GetMergeRequestRequest
+     * @returns GetMergeRequestResponse
+     *
      * @param string                 $repositoryId
      * @param string                 $localId
-     * @param GetMergeRequestRequest $request      GetMergeRequestRequest
+     * @param GetMergeRequestRequest $request
      *
-     * @return GetMergeRequestResponse GetMergeRequestResponse
+     * @return GetMergeRequestResponse
      */
     public function getMergeRequest($repositoryId, $localId, $request)
     {
@@ -6350,39 +7775,50 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询合并请求的变更信息
-     *  *
-     * @param GetMergeRequestChangeTreeRequest $request GetMergeRequestChangeTreeRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询合并请求的变更信息.
      *
-     * @return GetMergeRequestChangeTreeResponse GetMergeRequestChangeTreeResponse
+     * @param request - GetMergeRequestChangeTreeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMergeRequestChangeTreeResponse
+     *
+     * @param GetMergeRequestChangeTreeRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetMergeRequestChangeTreeResponse
      */
     public function getMergeRequestChangeTreeWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->fromPatchSetBizId)) {
-            $query['fromPatchSetBizId'] = $request->fromPatchSetBizId;
+
+        if (null !== $request->fromPatchSetBizId) {
+            @$query['fromPatchSetBizId'] = $request->fromPatchSetBizId;
         }
-        if (!Utils::isUnset($request->localId)) {
-            $query['localId'] = $request->localId;
+
+        if (null !== $request->localId) {
+            @$query['localId'] = $request->localId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
-        if (!Utils::isUnset($request->toPatchSetBizId)) {
-            $query['toPatchSetBizId'] = $request->toPatchSetBizId;
+
+        if (null !== $request->toPatchSetBizId) {
+            @$query['toPatchSetBizId'] = $request->toPatchSetBizId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMergeRequestChangeTree',
@@ -6395,16 +7831,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMergeRequestChangeTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMergeRequestChangeTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMergeRequestChangeTreeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询合并请求的变更信息
-     *  *
-     * @param GetMergeRequestChangeTreeRequest $request GetMergeRequestChangeTreeRequest
+     * 查询合并请求的变更信息.
      *
-     * @return GetMergeRequestChangeTreeResponse GetMergeRequestChangeTreeResponse
+     * @param request - GetMergeRequestChangeTreeRequest
+     * @returns GetMergeRequestChangeTreeResponse
+     *
+     * @param GetMergeRequestChangeTreeRequest $request
+     *
+     * @return GetMergeRequestChangeTreeResponse
      */
     public function getMergeRequestChangeTree($request)
     {
@@ -6415,14 +7857,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取企业成员
-     *  *
+     * 获取企业成员.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetOrganizationMemberResponse
+     *
      * @param string         $organizationId
      * @param string         $accountId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetOrganizationMemberResponse GetOrganizationMemberResponse
+     * @return GetOrganizationMemberResponse
      */
     public function getOrganizationMemberWithOptions($organizationId, $accountId, $headers, $runtime)
     {
@@ -6433,24 +7879,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetOrganizationMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/members/' . OpenApiUtilClient::getEncodeParam($accountId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/members/' . Url::percentEncode($accountId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetOrganizationMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取企业成员
-     *  *
+     * 获取企业成员.
+     *
+     * @returns GetOrganizationMemberResponse
+     *
      * @param string $organizationId
      * @param string $accountId
      *
-     * @return GetOrganizationMemberResponse GetOrganizationMemberResponse
+     * @return GetOrganizationMemberResponse
      */
     public function getOrganizationMember($organizationId, $accountId)
     {
@@ -6461,14 +7912,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线
-     *  *
+     * 获取流水线
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPipelineResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetPipelineResponse GetPipelineResponse
+     * @return GetPipelineResponse
      */
     public function getPipelineWithOptions($organizationId, $pipelineId, $headers, $runtime)
     {
@@ -6479,24 +7934,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetPipeline',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPipelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线
-     *  *
+     * 获取流水线
+     *
+     * @returns GetPipelineResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      *
-     * @return GetPipelineResponse GetPipelineResponse
+     * @return GetPipelineResponse
      */
     public function getPipeline($organizationId, $pipelineId)
     {
@@ -6507,51 +7967,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取构建物下载链接
-     *  *
-     * @param string                        $organizationId
-     * @param GetPipelineArtifactUrlRequest $request        GetPipelineArtifactUrlRequest
-     * @param string[]                      $headers        map
-     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
+     * 获取构建物下载链接.
      *
-     * @return GetPipelineArtifactUrlResponse GetPipelineArtifactUrlResponse
+     * @param request - GetPipelineArtifactUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPipelineArtifactUrlResponse
+     *
+     * @param string                        $organizationId
+     * @param GetPipelineArtifactUrlRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetPipelineArtifactUrlResponse
      */
     public function getPipelineArtifactUrlWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['filePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['filePath'] = $request->filePath;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPipelineArtifactUrl',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/getArtifactDownloadUrl',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipeline/getArtifactDownloadUrl',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPipelineArtifactUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPipelineArtifactUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPipelineArtifactUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取构建物下载链接
-     *  *
-     * @param string                        $organizationId
-     * @param GetPipelineArtifactUrlRequest $request        GetPipelineArtifactUrlRequest
+     * 获取构建物下载链接.
      *
-     * @return GetPipelineArtifactUrlResponse GetPipelineArtifactUrlResponse
+     * @param request - GetPipelineArtifactUrlRequest
+     * @returns GetPipelineArtifactUrlResponse
+     *
+     * @param string                        $organizationId
+     * @param GetPipelineArtifactUrlRequest $request
+     *
+     * @return GetPipelineArtifactUrlResponse
      */
     public function getPipelineArtifactUrl($organizationId, $request)
     {
@@ -6562,56 +8035,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取emase构建物下载链接
-     *  *
+     * 获取emase构建物下载链接.
+     *
+     * @param request - GetPipelineEmasArtifactUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPipelineEmasArtifactUrlResponse
+     *
      * @param string                            $organizationId
      * @param string                            $emasJobInstanceId
      * @param string                            $md5
      * @param string                            $pipelineId
      * @param string                            $pipelineRunId
-     * @param GetPipelineEmasArtifactUrlRequest $request           GetPipelineEmasArtifactUrlRequest
-     * @param string[]                          $headers           map
-     * @param RuntimeOptions                    $runtime           runtime options for this request RuntimeOptions
+     * @param GetPipelineEmasArtifactUrlRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
-     * @return GetPipelineEmasArtifactUrlResponse GetPipelineEmasArtifactUrlResponse
+     * @return GetPipelineEmasArtifactUrlResponse
      */
     public function getPipelineEmasArtifactUrlWithOptions($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->serviceConnectionId)) {
-            $query['serviceConnectionId'] = $request->serviceConnectionId;
+        if (null !== $request->serviceConnectionId) {
+            @$query['serviceConnectionId'] = $request->serviceConnectionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetPipelineEmasArtifactUrl',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRun/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/emas/artifact/' . OpenApiUtilClient::getEncodeParam($emasJobInstanceId) . '/' . OpenApiUtilClient::getEncodeParam($md5) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipeline/' . Url::percentEncode($pipelineId) . '/pipelineRun/' . Url::percentEncode($pipelineRunId) . '/emas/artifact/' . Url::percentEncode($emasJobInstanceId) . '/' . Url::percentEncode($md5) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPipelineEmasArtifactUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPipelineEmasArtifactUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPipelineEmasArtifactUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取emase构建物下载链接
-     *  *
+     * 获取emase构建物下载链接.
+     *
+     * @param request - GetPipelineEmasArtifactUrlRequest
+     * @returns GetPipelineEmasArtifactUrlResponse
+     *
      * @param string                            $organizationId
      * @param string                            $emasJobInstanceId
      * @param string                            $md5
      * @param string                            $pipelineId
      * @param string                            $pipelineRunId
-     * @param GetPipelineEmasArtifactUrlRequest $request           GetPipelineEmasArtifactUrlRequest
+     * @param GetPipelineEmasArtifactUrlRequest $request
      *
-     * @return GetPipelineEmasArtifactUrlResponse GetPipelineEmasArtifactUrlResponse
+     * @return GetPipelineEmasArtifactUrlResponse
      */
     public function getPipelineEmasArtifactUrl($organizationId, $emasJobInstanceId, $md5, $pipelineId, $pipelineRunId, $request)
     {
@@ -6622,14 +8107,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线分组
-     *  *
+     * 获取流水线分组.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPipelineGroupResponse
+     *
      * @param string         $organizationId
      * @param string         $groupId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetPipelineGroupResponse GetPipelineGroupResponse
+     * @return GetPipelineGroupResponse
      */
     public function getPipelineGroupWithOptions($organizationId, $groupId, $headers, $runtime)
     {
@@ -6640,24 +8129,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetPipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelineGroups/' . Url::percentEncode($groupId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPipelineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线分组
-     *  *
+     * 获取流水线分组.
+     *
+     * @returns GetPipelineGroupResponse
+     *
      * @param string $organizationId
      * @param string $groupId
      *
-     * @return GetPipelineGroupResponse GetPipelineGroupResponse
+     * @return GetPipelineGroupResponse
      */
     public function getPipelineGroup($organizationId, $groupId)
     {
@@ -6668,15 +8162,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线运行信息
-     *  *
+     * 获取流水线运行信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPipelineRunResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetPipelineRunResponse GetPipelineRunResponse
+     * @return GetPipelineRunResponse
      */
     public function getPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime)
     {
@@ -6687,25 +8185,30 @@ class Devops extends OpenApiClient
             'action'      => 'GetPipelineRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/pipelineRuns/' . Url::percentEncode($pipelineRunId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPipelineRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线运行信息
-     *  *
+     * 获取流水线运行信息.
+     *
+     * @returns GetPipelineRunResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      *
-     * @return GetPipelineRunResponse GetPipelineRunResponse
+     * @return GetPipelineRunResponse
      */
     public function getPipelineRun($organizationId, $pipelineId, $pipelineRunId)
     {
@@ -6716,48 +8219,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取扫描报告下载链接
-     *  *
-     * @param string                          $organizationId
-     * @param GetPipelineScanReportUrlRequest $request        GetPipelineScanReportUrlRequest
-     * @param string[]                        $headers        map
-     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
+     * 获取扫描报告下载链接.
      *
-     * @return GetPipelineScanReportUrlResponse GetPipelineScanReportUrlResponse
+     * @param request - GetPipelineScanReportUrlRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetPipelineScanReportUrlResponse
+     *
+     * @param string                          $organizationId
+     * @param GetPipelineScanReportUrlRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetPipelineScanReportUrlResponse
      */
     public function getPipelineScanReportUrlWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->reportPath)) {
-            $body['reportPath'] = $request->reportPath;
+        if (null !== $request->reportPath) {
+            @$body['reportPath'] = $request->reportPath;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetPipelineScanReportUrl',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/getPipelineScanReportUrl',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipeline/getPipelineScanReportUrl',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetPipelineScanReportUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPipelineScanReportUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPipelineScanReportUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取扫描报告下载链接
-     *  *
-     * @param string                          $organizationId
-     * @param GetPipelineScanReportUrlRequest $request        GetPipelineScanReportUrlRequest
+     * 获取扫描报告下载链接.
      *
-     * @return GetPipelineScanReportUrlResponse GetPipelineScanReportUrlResponse
+     * @param request - GetPipelineScanReportUrlRequest
+     * @returns GetPipelineScanReportUrlResponse
+     *
+     * @param string                          $organizationId
+     * @param GetPipelineScanReportUrlRequest $request
+     *
+     * @return GetPipelineScanReportUrlResponse
      */
     public function getPipelineScanReportUrl($organizationId, $request)
     {
@@ -6768,14 +8283,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 根据id获取项目详情-Projex
-     *  *
+     * 根据id获取项目详情-Projex.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProjectInfoResponse
+     *
      * @param string         $organizationId
      * @param string         $projectId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetProjectInfoResponse GetProjectInfoResponse
+     * @return GetProjectInfoResponse
      */
     public function getProjectInfoWithOptions($organizationId, $projectId, $headers, $runtime)
     {
@@ -6786,24 +8305,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetProjectInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/project/' . OpenApiUtilClient::getEncodeParam($projectId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/project/' . Url::percentEncode($projectId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProjectInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据id获取项目详情-Projex
-     *  *
+     * 根据id获取项目详情-Projex.
+     *
+     * @returns GetProjectInfoResponse
+     *
      * @param string $organizationId
      * @param string $projectId
      *
-     * @return GetProjectInfoResponse GetProjectInfoResponse
+     * @return GetProjectInfoResponse
      */
     public function getProjectInfo($organizationId, $projectId)
     {
@@ -6814,53 +8338,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码库成员
-     *  *
+     * 查询代码库成员.
+     *
+     * @param request - GetProjectMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetProjectMemberResponse
+     *
      * @param string                  $repositoryId
      * @param string                  $aliyunPk
-     * @param GetProjectMemberRequest $request      GetProjectMemberRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * @param GetProjectMemberRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetProjectMemberResponse GetProjectMemberResponse
+     * @return GetProjectMemberResponse
      */
     public function getProjectMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetProjectMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members/get/' . OpenApiUtilClient::getEncodeParam($aliyunPk) . '',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/members/get/' . Url::percentEncode($aliyunPk) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetProjectMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码库成员
-     *  *
+     * 查询代码库成员.
+     *
+     * @param request - GetProjectMemberRequest
+     * @returns GetProjectMemberResponse
+     *
      * @param string                  $repositoryId
      * @param string                  $aliyunPk
-     * @param GetProjectMemberRequest $request      GetProjectMemberRequest
+     * @param GetProjectMemberRequest $request
      *
-     * @return GetProjectMemberResponse GetProjectMemberResponse
+     * @return GetProjectMemberResponse
      */
     public function getProjectMember($repositoryId, $aliyunPk, $request)
     {
@@ -6871,54 +8408,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取研发阶段流水线运行实例
-     *  *
+     * 获取研发阶段流水线运行实例.
+     *
+     * @param request - GetReleaseStagePipelineRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetReleaseStagePipelineRunResponse
+     *
      * @param string                            $appName
      * @param string                            $releaseWorkflowSn
      * @param string                            $releaseStageSn
      * @param string                            $executionNumber
-     * @param GetReleaseStagePipelineRunRequest $request           GetReleaseStagePipelineRunRequest
-     * @param string[]                          $headers           map
-     * @param RuntimeOptions                    $runtime           runtime options for this request RuntimeOptions
+     * @param GetReleaseStagePipelineRunRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
-     * @return GetReleaseStagePipelineRunResponse GetReleaseStagePipelineRunResponse
+     * @return GetReleaseStagePipelineRunResponse
      */
     public function getReleaseStagePipelineRunWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetReleaseStagePipelineRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '%3AgetPipelineRun',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/releaseWorkflows/' . Url::percentEncode($releaseWorkflowSn) . '/releaseStages/' . Url::percentEncode($releaseStageSn) . '/executions/' . Url::percentEncode($executionNumber) . '%3AgetPipelineRun',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetReleaseStagePipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetReleaseStagePipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetReleaseStagePipelineRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取研发阶段流水线运行实例
-     *  *
+     * 获取研发阶段流水线运行实例.
+     *
+     * @param request - GetReleaseStagePipelineRunRequest
+     * @returns GetReleaseStagePipelineRunResponse
+     *
      * @param string                            $appName
      * @param string                            $releaseWorkflowSn
      * @param string                            $releaseStageSn
      * @param string                            $executionNumber
-     * @param GetReleaseStagePipelineRunRequest $request           GetReleaseStagePipelineRunRequest
+     * @param GetReleaseStagePipelineRunRequest $request
      *
-     * @return GetReleaseStagePipelineRunResponse GetReleaseStagePipelineRunResponse
+     * @return GetReleaseStagePipelineRunResponse
      */
     public function getReleaseStagePipelineRun($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
     {
@@ -6929,30 +8478,38 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 使用代码库ID或路径查询代码库信息
-     *  *
-     * @param GetRepositoryRequest $request GetRepositoryRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 使用代码库ID或路径查询代码库信息.
      *
-     * @return GetRepositoryResponse GetRepositoryResponse
+     * @param request - GetRepositoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRepositoryResponse
+     *
+     * @param GetRepositoryRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetRepositoryResponse
      */
     public function getRepositoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->identity)) {
-            $query['identity'] = $request->identity;
+
+        if (null !== $request->identity) {
+            @$query['identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRepository',
@@ -6965,16 +8522,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 使用代码库ID或路径查询代码库信息
-     *  *
-     * @param GetRepositoryRequest $request GetRepositoryRequest
+     * 使用代码库ID或路径查询代码库信息.
      *
-     * @return GetRepositoryResponse GetRepositoryResponse
+     * @param request - GetRepositoryRequest
+     * @returns GetRepositoryResponse
+     *
+     * @param GetRepositoryRequest $request
+     *
+     * @return GetRepositoryResponse
      */
     public function getRepository($request)
     {
@@ -6985,56 +8548,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码库提交信息
-     *  *
+     * 查询代码库提交信息.
+     *
+     * @param request - GetRepositoryCommitRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRepositoryCommitResponse
+     *
      * @param string                     $repositoryId
      * @param string                     $sha
-     * @param GetRepositoryCommitRequest $request      GetRepositoryCommitRequest
-     * @param string[]                   $headers      map
-     * @param RuntimeOptions             $runtime      runtime options for this request RuntimeOptions
+     * @param GetRepositoryCommitRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return GetRepositoryCommitResponse GetRepositoryCommitResponse
+     * @return GetRepositoryCommitResponse
      */
     public function getRepositoryCommitWithOptions($repositoryId, $sha, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->showSignature)) {
-            $query['showSignature'] = $request->showSignature;
+
+        if (null !== $request->showSignature) {
+            @$query['showSignature'] = $request->showSignature;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRepositoryCommit',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/commits/' . OpenApiUtilClient::getEncodeParam($sha) . '',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/commits/' . Url::percentEncode($sha) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepositoryCommitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepositoryCommitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepositoryCommitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码库提交信息
-     *  *
+     * 查询代码库提交信息.
+     *
+     * @param request - GetRepositoryCommitRequest
+     * @returns GetRepositoryCommitResponse
+     *
      * @param string                     $repositoryId
      * @param string                     $sha
-     * @param GetRepositoryCommitRequest $request      GetRepositoryCommitRequest
+     * @param GetRepositoryCommitRequest $request
      *
-     * @return GetRepositoryCommitResponse GetRepositoryCommitResponse
+     * @return GetRepositoryCommitResponse
      */
     public function getRepositoryCommit($repositoryId, $sha, $request)
     {
@@ -7045,54 +8622,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个标签
-     *  *
-     * @param string                  $repositoryId
-     * @param GetRepositoryTagRequest $request      GetRepositoryTagRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * 查询单个标签.
      *
-     * @return GetRepositoryTagResponse GetRepositoryTagResponse
+     * @param request - GetRepositoryTagRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRepositoryTagResponse
+     *
+     * @param string                  $repositoryId
+     * @param GetRepositoryTagRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetRepositoryTagResponse
      */
     public function getRepositoryTagWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->tagName)) {
-            $query['tagName'] = $request->tagName;
+
+        if (null !== $request->tagName) {
+            @$query['tagName'] = $request->tagName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRepositoryTag',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/tag/info',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/tag/info',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepositoryTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepositoryTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepositoryTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询单个标签
-     *  *
-     * @param string                  $repositoryId
-     * @param GetRepositoryTagRequest $request      GetRepositoryTagRequest
+     * 查询单个标签.
      *
-     * @return GetRepositoryTagResponse GetRepositoryTagResponse
+     * @param request - GetRepositoryTagRequest
+     * @returns GetRepositoryTagResponse
+     *
+     * @param string                  $repositoryId
+     * @param GetRepositoryTagRequest $request
+     *
+     * @return GetRepositoryTagResponse
      */
     public function getRepositoryTag($repositoryId, $request)
     {
@@ -7103,33 +8694,42 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 预览代码片段
-     *  *
-     * @param GetSearchCodePreviewRequest $request GetSearchCodePreviewRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 预览代码片段.
      *
-     * @return GetSearchCodePreviewResponse GetSearchCodePreviewResponse
+     * @param request - GetSearchCodePreviewRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSearchCodePreviewResponse
+     *
+     * @param GetSearchCodePreviewRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSearchCodePreviewResponse
      */
     public function getSearchCodePreviewWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->docId)) {
-            $query['docId'] = $request->docId;
+        if (null !== $request->docId) {
+            @$query['docId'] = $request->docId;
         }
-        if (!Utils::isUnset($request->isDsl)) {
-            $query['isDsl'] = $request->isDsl;
+
+        if (null !== $request->isDsl) {
+            @$query['isDsl'] = $request->isDsl;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSearchCodePreview',
@@ -7142,16 +8742,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSearchCodePreviewResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSearchCodePreviewResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSearchCodePreviewResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 预览代码片段
-     *  *
-     * @param GetSearchCodePreviewRequest $request GetSearchCodePreviewRequest
+     * 预览代码片段.
      *
-     * @return GetSearchCodePreviewResponse GetSearchCodePreviewResponse
+     * @param request - GetSearchCodePreviewRequest
+     * @returns GetSearchCodePreviewResponse
+     *
+     * @param GetSearchCodePreviewRequest $request
+     *
+     * @return GetSearchCodePreviewResponse
      */
     public function getSearchCodePreview($request)
     {
@@ -7162,14 +8768,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取迭代详情
-     *  *
+     * 获取迭代详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSprintInfoResponse
+     *
      * @param string         $organizationId
      * @param string         $sprintId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetSprintInfoResponse GetSprintInfoResponse
+     * @return GetSprintInfoResponse
      */
     public function getSprintInfoWithOptions($organizationId, $sprintId, $headers, $runtime)
     {
@@ -7180,24 +8790,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetSprintInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sprints/' . OpenApiUtilClient::getEncodeParam($sprintId) . '/getSprintinfo',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/sprints/' . Url::percentEncode($sprintId) . '/getSprintinfo',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSprintInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSprintInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSprintInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取迭代详情
-     *  *
+     * 获取迭代详情.
+     *
+     * @returns GetSprintInfoResponse
+     *
      * @param string $organizationId
      * @param string $sprintId
      *
-     * @return GetSprintInfoResponse GetSprintInfoResponse
+     * @return GetSprintInfoResponse
      */
     public function getSprintInfo($organizationId, $sprintId)
     {
@@ -7208,53 +8823,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取测试计划中的测试用例列表
-     *  *
+     * 获取测试计划中的测试用例列表.
+     *
+     * @param request - GetTestResultListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTestResultListResponse
+     *
      * @param string                   $organizationId
      * @param string                   $testPlanIdentifier
-     * @param GetTestResultListRequest $request            GetTestResultListRequest
-     * @param string[]                 $headers            map
-     * @param RuntimeOptions           $runtime            runtime options for this request RuntimeOptions
+     * @param GetTestResultListRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return GetTestResultListResponse GetTestResultListResponse
+     * @return GetTestResultListResponse
      */
     public function getTestResultListWithOptions($organizationId, $testPlanIdentifier, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->conditions)) {
-            $body['conditions'] = $request->conditions;
+        if (null !== $request->conditions) {
+            @$body['conditions'] = $request->conditions;
         }
-        if (!Utils::isUnset($request->directoryIdentifier)) {
-            $body['directoryIdentifier'] = $request->directoryIdentifier;
+
+        if (null !== $request->directoryIdentifier) {
+            @$body['directoryIdentifier'] = $request->directoryIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetTestResultList',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testplan/' . OpenApiUtilClient::getEncodeParam($testPlanIdentifier) . '/testresults',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/testhub/testplan/' . Url::percentEncode($testPlanIdentifier) . '/testresults',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTestResultListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTestResultListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTestResultListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取测试计划中的测试用例列表
-     *  *
+     * 获取测试计划中的测试用例列表.
+     *
+     * @param request - GetTestResultListRequest
+     * @returns GetTestResultListResponse
+     *
      * @param string                   $organizationId
      * @param string                   $testPlanIdentifier
-     * @param GetTestResultListRequest $request            GetTestResultListRequest
+     * @param GetTestResultListRequest $request
      *
-     * @return GetTestResultListResponse GetTestResultListResponse
+     * @return GetTestResultListResponse
      */
     public function getTestResultList($organizationId, $testPlanIdentifier, $request)
     {
@@ -7265,60 +8893,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取测试用例列表
-     *  *
-     * @param string                 $organizationId
-     * @param GetTestcaseListRequest $request        GetTestcaseListRequest
-     * @param string[]               $headers        map
-     * @param RuntimeOptions         $runtime        runtime options for this request RuntimeOptions
+     * 获取测试用例列表.
      *
-     * @return GetTestcaseListResponse GetTestcaseListResponse
+     * @param request - GetTestcaseListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTestcaseListResponse
+     *
+     * @param string                 $organizationId
+     * @param GetTestcaseListRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetTestcaseListResponse
      */
     public function getTestcaseListWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->conditions)) {
-            $body['conditions'] = $request->conditions;
+        if (null !== $request->conditions) {
+            @$body['conditions'] = $request->conditions;
         }
-        if (!Utils::isUnset($request->directoryIdentifier)) {
-            $body['directoryIdentifier'] = $request->directoryIdentifier;
+
+        if (null !== $request->directoryIdentifier) {
+            @$body['directoryIdentifier'] = $request->directoryIdentifier;
         }
-        if (!Utils::isUnset($request->maxResult)) {
-            $body['maxResult'] = $request->maxResult;
+
+        if (null !== $request->maxResult) {
+            @$body['maxResult'] = $request->maxResult;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $body['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$body['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $body['spaceIdentifier'] = $request->spaceIdentifier;
+
+        if (null !== $request->spaceIdentifier) {
+            @$body['spaceIdentifier'] = $request->spaceIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetTestcaseList',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testcases',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/testhub/testcases',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTestcaseListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTestcaseListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTestcaseListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取测试用例列表
-     *  *
-     * @param string                 $organizationId
-     * @param GetTestcaseListRequest $request        GetTestcaseListRequest
+     * 获取测试用例列表.
      *
-     * @return GetTestcaseListResponse GetTestcaseListResponse
+     * @param request - GetTestcaseListRequest
+     * @returns GetTestcaseListResponse
+     *
+     * @param string                 $organizationId
+     * @param GetTestcaseListRequest $request
+     *
+     * @return GetTestcaseListResponse
      */
     public function getTestcaseList($organizationId, $request)
     {
@@ -7329,24 +8973,30 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询当前用户信息
-     *  *
-     * @param GetUserInfoRequest $request GetUserInfoRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 查询当前用户信息.
      *
-     * @return GetUserInfoResponse GetUserInfoResponse
+     * @param request - GetUserInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetUserInfoResponse
+     *
+     * @param GetUserInfoRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetUserInfoResponse
      */
     public function getUserInfoWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetUserInfo',
@@ -7359,16 +9009,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUserInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUserInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询当前用户信息
-     *  *
-     * @param GetUserInfoRequest $request GetUserInfoRequest
+     * 查询当前用户信息.
      *
-     * @return GetUserInfoResponse GetUserInfoResponse
+     * @param request - GetUserInfoRequest
+     * @returns GetUserInfoResponse
+     *
+     * @param GetUserInfoRequest $request
+     *
+     * @return GetUserInfoResponse
      */
     public function getUserInfo($request)
     {
@@ -7379,15 +9035,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取部署单信息
-     *  *
+     * 获取部署单信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVMDeployOrderResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetVMDeployOrderResponse GetVMDeployOrderResponse
+     * @return GetVMDeployOrderResponse
      */
     public function getVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
     {
@@ -7398,25 +9058,30 @@ class Devops extends OpenApiClient
             'action'      => 'GetVMDeployOrder',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/deploy/' . Url::percentEncode($deployOrderId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVMDeployOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVMDeployOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVMDeployOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取部署单信息
-     *  *
+     * 获取部署单信息.
+     *
+     * @returns GetVMDeployOrderResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      *
-     * @return GetVMDeployOrderResponse GetVMDeployOrderResponse
+     * @return GetVMDeployOrderResponse
      */
     public function getVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
     {
@@ -7427,14 +9092,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取变量组
-     *  *
+     * 获取变量组.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVariableGroupResponse
+     *
      * @param string         $organizationId
      * @param string         $id
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetVariableGroupResponse GetVariableGroupResponse
+     * @return GetVariableGroupResponse
      */
     public function getVariableGroupWithOptions($organizationId, $id, $headers, $runtime)
     {
@@ -7445,24 +9114,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetVariableGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/variableGroups/' . Url::percentEncode($id) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVariableGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取变量组
-     *  *
+     * 获取变量组.
+     *
+     * @returns GetVariableGroupResponse
+     *
      * @param string $organizationId
      * @param string $id
      *
-     * @return GetVariableGroupResponse GetVariableGroupResponse
+     * @return GetVariableGroupResponse
      */
     public function getVariableGroup($organizationId, $id)
     {
@@ -7473,14 +9147,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作项动态
-     *  *
+     * 获取工作项动态
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkItemActivityResponse
+     *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetWorkItemActivityResponse GetWorkItemActivityResponse
+     * @return GetWorkItemActivityResponse
      */
     public function getWorkItemActivityWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -7491,24 +9169,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetWorkItemActivity',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/getActivity',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/' . Url::percentEncode($workitemId) . '/getActivity',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkItemActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkItemActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkItemActivityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作项动态
-     *  *
+     * 获取工作项动态
+     *
+     * @returns GetWorkItemActivityResponse
+     *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return GetWorkItemActivityResponse GetWorkItemActivityResponse
+     * @return GetWorkItemActivityResponse
      */
     public function getWorkItemActivity($organizationId, $workitemId)
     {
@@ -7519,14 +9202,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 根据id获取工作项详情
-     *  *
+     * 根据id获取工作项详情.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkItemInfoResponse
+     *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetWorkItemInfoResponse GetWorkItemInfoResponse
+     * @return GetWorkItemInfoResponse
      */
     public function getWorkItemInfoWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -7537,24 +9224,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetWorkItemInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/' . Url::percentEncode($workitemId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkItemInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkItemInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkItemInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据id获取工作项详情
-     *  *
+     * 根据id获取工作项详情.
+     *
+     * @returns GetWorkItemInfoResponse
+     *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return GetWorkItemInfoResponse GetWorkItemInfoResponse
+     * @return GetWorkItemInfoResponse
      */
     public function getWorkItemInfo($organizationId, $workitemId)
     {
@@ -7565,50 +9257,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作项工作流信息
-     *  *
+     * 获取工作项工作流信息.
+     *
+     * @param request - GetWorkItemWorkFlowInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkItemWorkFlowInfoResponse
+     *
      * @param string                         $organizationId
      * @param string                         $workitemId
-     * @param GetWorkItemWorkFlowInfoRequest $request        GetWorkItemWorkFlowInfoRequest
-     * @param string[]                       $headers        map
-     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
+     * @param GetWorkItemWorkFlowInfoRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return GetWorkItemWorkFlowInfoResponse GetWorkItemWorkFlowInfoResponse
+     * @return GetWorkItemWorkFlowInfoResponse
      */
     public function getWorkItemWorkFlowInfoWithOptions($organizationId, $workitemId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configurationId)) {
-            $query['configurationId'] = $request->configurationId;
+        if (null !== $request->configurationId) {
+            @$query['configurationId'] = $request->configurationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetWorkItemWorkFlowInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/getWorkflowInfo',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/' . Url::percentEncode($workitemId) . '/getWorkflowInfo',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkItemWorkFlowInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkItemWorkFlowInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkItemWorkFlowInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作项工作流信息
-     *  *
+     * 获取工作项工作流信息.
+     *
+     * @param request - GetWorkItemWorkFlowInfoRequest
+     * @returns GetWorkItemWorkFlowInfoResponse
+     *
      * @param string                         $organizationId
      * @param string                         $workitemId
-     * @param GetWorkItemWorkFlowInfoRequest $request        GetWorkItemWorkFlowInfoRequest
+     * @param GetWorkItemWorkFlowInfoRequest $request
      *
-     * @return GetWorkItemWorkFlowInfoResponse GetWorkItemWorkFlowInfoResponse
+     * @return GetWorkItemWorkFlowInfoResponse
      */
     public function getWorkItemWorkFlowInfo($organizationId, $workitemId, $request)
     {
@@ -7619,50 +9323,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取附件上传的元信息
-     *  *
+     * 获取附件上传的元信息.
+     *
+     * @param request - GetWorkitemAttachmentCreatemetaRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkitemAttachmentCreatemetaResponse
+     *
      * @param string                                 $organizationId
      * @param string                                 $workitemIdentifier
-     * @param GetWorkitemAttachmentCreatemetaRequest $request            GetWorkitemAttachmentCreatemetaRequest
-     * @param string[]                               $headers            map
-     * @param RuntimeOptions                         $runtime            runtime options for this request RuntimeOptions
+     * @param GetWorkitemAttachmentCreatemetaRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
      *
-     * @return GetWorkitemAttachmentCreatemetaResponse GetWorkitemAttachmentCreatemetaResponse
+     * @return GetWorkitemAttachmentCreatemetaResponse
      */
     public function getWorkitemAttachmentCreatemetaWithOptions($organizationId, $workitemIdentifier, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetWorkitemAttachmentCreatemeta',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/' . OpenApiUtilClient::getEncodeParam($workitemIdentifier) . '/attachment/createmeta',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitem/' . Url::percentEncode($workitemIdentifier) . '/attachment/createmeta',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkitemAttachmentCreatemetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkitemAttachmentCreatemetaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkitemAttachmentCreatemetaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取附件上传的元信息
-     *  *
+     * 获取附件上传的元信息.
+     *
+     * @param request - GetWorkitemAttachmentCreatemetaRequest
+     * @returns GetWorkitemAttachmentCreatemetaResponse
+     *
      * @param string                                 $organizationId
      * @param string                                 $workitemIdentifier
-     * @param GetWorkitemAttachmentCreatemetaRequest $request            GetWorkitemAttachmentCreatemetaRequest
+     * @param GetWorkitemAttachmentCreatemetaRequest $request
      *
-     * @return GetWorkitemAttachmentCreatemetaResponse GetWorkitemAttachmentCreatemetaResponse
+     * @return GetWorkitemAttachmentCreatemetaResponse
      */
     public function getWorkitemAttachmentCreatemeta($organizationId, $workitemIdentifier, $request)
     {
@@ -7673,14 +9389,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获得所有评论
-     *  *
+     * 获得所有评论.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkitemCommentListResponse
+     *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetWorkitemCommentListResponse GetWorkitemCommentListResponse
+     * @return GetWorkitemCommentListResponse
      */
     public function getWorkitemCommentListWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -7691,24 +9411,29 @@ class Devops extends OpenApiClient
             'action'      => 'GetWorkitemCommentList',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/commentList',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/' . Url::percentEncode($workitemId) . '/commentList',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkitemCommentListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkitemCommentListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkitemCommentListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获得所有评论
-     *  *
+     * 获得所有评论.
+     *
+     * @returns GetWorkitemCommentListResponse
+     *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return GetWorkitemCommentListResponse GetWorkitemCommentListResponse
+     * @return GetWorkitemCommentListResponse
      */
     public function getWorkitemCommentList($organizationId, $workitemId)
     {
@@ -7719,15 +9444,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作项文件信息
-     *  *
+     * 获取工作项文件信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkitemFileResponse
+     *
      * @param string         $organizationId
      * @param string         $workitemIdentifier
      * @param string         $fileIdentifier
-     * @param string[]       $headers            map
-     * @param RuntimeOptions $runtime            runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetWorkitemFileResponse GetWorkitemFileResponse
+     * @return GetWorkitemFileResponse
      */
     public function getWorkitemFileWithOptions($organizationId, $workitemIdentifier, $fileIdentifier, $headers, $runtime)
     {
@@ -7738,25 +9467,30 @@ class Devops extends OpenApiClient
             'action'      => 'GetWorkitemFile',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/' . OpenApiUtilClient::getEncodeParam($workitemIdentifier) . '/files/' . OpenApiUtilClient::getEncodeParam($fileIdentifier) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitem/' . Url::percentEncode($workitemIdentifier) . '/files/' . Url::percentEncode($fileIdentifier) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkitemFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkitemFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkitemFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作项文件信息
-     *  *
+     * 获取工作项文件信息.
+     *
+     * @returns GetWorkitemFileResponse
+     *
      * @param string $organizationId
      * @param string $workitemIdentifier
      * @param string $fileIdentifier
      *
-     * @return GetWorkitemFileResponse GetWorkitemFileResponse
+     * @return GetWorkitemFileResponse
      */
     public function getWorkitemFile($organizationId, $workitemIdentifier, $fileIdentifier)
     {
@@ -7767,50 +9501,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获得一个工作项的指定关联项
-     *  *
+     * 获得一个工作项的指定关联项.
+     *
+     * @param request - GetWorkitemRelationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkitemRelationsResponse
+     *
      * @param string                      $organizationId
      * @param string                      $workitemId
-     * @param GetWorkitemRelationsRequest $request        GetWorkitemRelationsRequest
-     * @param string[]                    $headers        map
-     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
+     * @param GetWorkitemRelationsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return GetWorkitemRelationsResponse GetWorkitemRelationsResponse
+     * @return GetWorkitemRelationsResponse
      */
     public function getWorkitemRelationsWithOptions($organizationId, $workitemId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->relationType)) {
-            $query['relationType'] = $request->relationType;
+        if (null !== $request->relationType) {
+            @$query['relationType'] = $request->relationType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetWorkitemRelations',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/getRelations',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/' . Url::percentEncode($workitemId) . '/getRelations',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkitemRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkitemRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkitemRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获得一个工作项的指定关联项
-     *  *
+     * 获得一个工作项的指定关联项.
+     *
+     * @param request - GetWorkitemRelationsRequest
+     * @returns GetWorkitemRelationsResponse
+     *
      * @param string                      $organizationId
      * @param string                      $workitemId
-     * @param GetWorkitemRelationsRequest $request        GetWorkitemRelationsRequest
+     * @param GetWorkitemRelationsRequest $request
      *
-     * @return GetWorkitemRelationsResponse GetWorkitemRelationsResponse
+     * @return GetWorkitemRelationsResponse
      */
     public function getWorkitemRelations($organizationId, $workitemId, $request)
     {
@@ -7821,13 +9567,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获得一个企业下所有工时类型
-     *  *
-     * @param string         $organizationId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * 获得一个企业下所有工时类型.
      *
-     * @return GetWorkitemTimeTypeListResponse GetWorkitemTimeTypeListResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetWorkitemTimeTypeListResponse
+     *
+     * @param string         $organizationId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetWorkitemTimeTypeListResponse
      */
     public function getWorkitemTimeTypeListWithOptions($organizationId, $headers, $runtime)
     {
@@ -7838,23 +9588,28 @@ class Devops extends OpenApiClient
             'action'      => 'GetWorkitemTimeTypeList',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/type/list',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/type/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetWorkitemTimeTypeListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWorkitemTimeTypeListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWorkitemTimeTypeListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获得一个企业下所有工时类型
-     *  *
+     * 获得一个企业下所有工时类型.
+     *
+     * @returns GetWorkitemTimeTypeListResponse
+     *
      * @param string $organizationId
      *
-     * @return GetWorkitemTimeTypeListResponse GetWorkitemTimeTypeListResponse
+     * @return GetWorkitemTimeTypeListResponse
      */
     public function getWorkitemTimeTypeList($organizationId)
     {
@@ -7865,51 +9620,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 加入流水线分组
-     *  *
-     * @param string                   $organizationId
-     * @param JoinPipelineGroupRequest $request        JoinPipelineGroupRequest
-     * @param string[]                 $headers        map
-     * @param RuntimeOptions           $runtime        runtime options for this request RuntimeOptions
+     * 加入流水线分组.
      *
-     * @return JoinPipelineGroupResponse JoinPipelineGroupResponse
+     * @param request - JoinPipelineGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns JoinPipelineGroupResponse
+     *
+     * @param string                   $organizationId
+     * @param JoinPipelineGroupRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return JoinPipelineGroupResponse
      */
     public function joinPipelineGroupWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['groupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['groupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->pipelineIds)) {
-            $query['pipelineIds'] = $request->pipelineIds;
+
+        if (null !== $request->pipelineIds) {
+            @$query['pipelineIds'] = $request->pipelineIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'JoinPipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/join',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelineGroups/join',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return JoinPipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return JoinPipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return JoinPipelineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 加入流水线分组
-     *  *
-     * @param string                   $organizationId
-     * @param JoinPipelineGroupRequest $request        JoinPipelineGroupRequest
+     * 加入流水线分组.
      *
-     * @return JoinPipelineGroupResponse JoinPipelineGroupResponse
+     * @param request - JoinPipelineGroupRequest
+     * @returns JoinPipelineGroupResponse
+     *
+     * @param string                   $organizationId
+     * @param JoinPipelineGroupRequest $request
+     *
+     * @return JoinPipelineGroupResponse
      */
     public function joinPipelineGroup($organizationId, $request)
     {
@@ -7920,38 +9688,48 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 关联合并请求Label
-     *  *
-     * @param LinkMergeRequestLabelRequest $request LinkMergeRequestLabelRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 关联合并请求Label.
      *
-     * @return LinkMergeRequestLabelResponse LinkMergeRequestLabelResponse
+     * @param request - LinkMergeRequestLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LinkMergeRequestLabelResponse
+     *
+     * @param LinkMergeRequestLabelRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return LinkMergeRequestLabelResponse
      */
     public function linkMergeRequestLabelWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->localId)) {
-            $query['localId'] = $request->localId;
+
+        if (null !== $request->localId) {
+            @$query['localId'] = $request->localId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->labelIds)) {
-            $body['labelIds'] = $request->labelIds;
+        if (null !== $request->labelIds) {
+            @$body['labelIds'] = $request->labelIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'LinkMergeRequestLabel',
@@ -7964,16 +9742,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LinkMergeRequestLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LinkMergeRequestLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LinkMergeRequestLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 关联合并请求Label
-     *  *
-     * @param LinkMergeRequestLabelRequest $request LinkMergeRequestLabelRequest
+     * 关联合并请求Label.
      *
-     * @return LinkMergeRequestLabelResponse LinkMergeRequestLabelResponse
+     * @param request - LinkMergeRequestLabelRequest
+     * @returns LinkMergeRequestLabelResponse
+     *
+     * @param LinkMergeRequestLabelRequest $request
+     *
+     * @return LinkMergeRequestLabelResponse
      */
     public function linkMergeRequestLabel($request)
     {
@@ -7984,48 +9768,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查找应用下所有的研发流程
-     *  *
-     * @param string                         $appName
-     * @param ListAllReleaseWorkflowsRequest $request ListAllReleaseWorkflowsRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 查找应用下所有的研发流程.
      *
-     * @return ListAllReleaseWorkflowsResponse ListAllReleaseWorkflowsResponse
+     * @param request - ListAllReleaseWorkflowsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAllReleaseWorkflowsResponse
+     *
+     * @param string                         $appName
+     * @param ListAllReleaseWorkflowsRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListAllReleaseWorkflowsResponse
      */
     public function listAllReleaseWorkflowsWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAllReleaseWorkflows',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/releaseWorkflows',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'array',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAllReleaseWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAllReleaseWorkflowsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAllReleaseWorkflowsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查找应用下所有的研发流程
-     *  *
-     * @param string                         $appName
-     * @param ListAllReleaseWorkflowsRequest $request ListAllReleaseWorkflowsRequest
+     * 查找应用下所有的研发流程.
      *
-     * @return ListAllReleaseWorkflowsResponse ListAllReleaseWorkflowsResponse
+     * @param request - ListAllReleaseWorkflowsRequest
+     * @returns ListAllReleaseWorkflowsResponse
+     *
+     * @param string                         $appName
+     * @param ListAllReleaseWorkflowsRequest $request
+     *
+     * @return ListAllReleaseWorkflowsResponse
      */
     public function listAllReleaseWorkflows($appName, $request)
     {
@@ -8036,54 +9832,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询研发阶段执行记录集成变更信息
-     *  *
+     * 查询研发阶段执行记录集成变更信息.
+     *
+     * @param request - ListAppReleaseStageExecutionIntegratedMetadataRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAppReleaseStageExecutionIntegratedMetadataResponse
+     *
      * @param string                                                $appName
      * @param string                                                $releaseWorkflowSn
      * @param string                                                $releaseStageSn
      * @param string                                                $executionNumber
-     * @param ListAppReleaseStageExecutionIntegratedMetadataRequest $request           ListAppReleaseStageExecutionIntegratedMetadataRequest
-     * @param string[]                                              $headers           map
-     * @param RuntimeOptions                                        $runtime           runtime options for this request RuntimeOptions
+     * @param ListAppReleaseStageExecutionIntegratedMetadataRequest $request
+     * @param string[]                                              $headers
+     * @param RuntimeOptions                                        $runtime
      *
-     * @return ListAppReleaseStageExecutionIntegratedMetadataResponse ListAppReleaseStageExecutionIntegratedMetadataResponse
+     * @return ListAppReleaseStageExecutionIntegratedMetadataResponse
      */
     public function listAppReleaseStageExecutionIntegratedMetadataWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAppReleaseStageExecutionIntegratedMetadata',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '/integratedMetadata',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/releaseWorkflows/' . Url::percentEncode($releaseWorkflowSn) . '/releaseStages/' . Url::percentEncode($releaseStageSn) . '/executions/' . Url::percentEncode($executionNumber) . '/integratedMetadata',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'array',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAppReleaseStageExecutionIntegratedMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAppReleaseStageExecutionIntegratedMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAppReleaseStageExecutionIntegratedMetadataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询研发阶段执行记录集成变更信息
-     *  *
+     * 查询研发阶段执行记录集成变更信息.
+     *
+     * @param request - ListAppReleaseStageExecutionIntegratedMetadataRequest
+     * @returns ListAppReleaseStageExecutionIntegratedMetadataResponse
+     *
      * @param string                                                $appName
      * @param string                                                $releaseWorkflowSn
      * @param string                                                $releaseStageSn
      * @param string                                                $executionNumber
-     * @param ListAppReleaseStageExecutionIntegratedMetadataRequest $request           ListAppReleaseStageExecutionIntegratedMetadataRequest
+     * @param ListAppReleaseStageExecutionIntegratedMetadataRequest $request
      *
-     * @return ListAppReleaseStageExecutionIntegratedMetadataResponse ListAppReleaseStageExecutionIntegratedMetadataResponse
+     * @return ListAppReleaseStageExecutionIntegratedMetadataResponse
      */
     public function listAppReleaseStageExecutionIntegratedMetadata($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
     {
@@ -8094,70 +9902,88 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询研发阶段执行记录
-     *  *
+     * 批量查询研发阶段执行记录.
+     *
+     * @param request - ListAppReleaseStageExecutionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAppReleaseStageExecutionsResponse
+     *
      * @param string                               $appName
      * @param string                               $releaseWorkflowSn
      * @param string                               $releaseStageSn
-     * @param ListAppReleaseStageExecutionsRequest $request           ListAppReleaseStageExecutionsRequest
-     * @param string[]                             $headers           map
-     * @param RuntimeOptions                       $runtime           runtime options for this request RuntimeOptions
+     * @param ListAppReleaseStageExecutionsRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
      *
-     * @return ListAppReleaseStageExecutionsResponse ListAppReleaseStageExecutionsResponse
+     * @return ListAppReleaseStageExecutionsResponse
      */
     public function listAppReleaseStageExecutionsWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pagination)) {
-            $query['pagination'] = $request->pagination;
+
+        if (null !== $request->pagination) {
+            @$query['pagination'] = $request->pagination;
         }
-        if (!Utils::isUnset($request->perPage)) {
-            $query['perPage'] = $request->perPage;
+
+        if (null !== $request->perPage) {
+            @$query['perPage'] = $request->perPage;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAppReleaseStageExecutions',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/releaseWorkflows/' . Url::percentEncode($releaseWorkflowSn) . '/releaseStages/' . Url::percentEncode($releaseStageSn) . '/executions',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAppReleaseStageExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAppReleaseStageExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAppReleaseStageExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量查询研发阶段执行记录
-     *  *
+     * 批量查询研发阶段执行记录.
+     *
+     * @param request - ListAppReleaseStageExecutionsRequest
+     * @returns ListAppReleaseStageExecutionsResponse
+     *
      * @param string                               $appName
      * @param string                               $releaseWorkflowSn
      * @param string                               $releaseStageSn
-     * @param ListAppReleaseStageExecutionsRequest $request           ListAppReleaseStageExecutionsRequest
+     * @param ListAppReleaseStageExecutionsRequest $request
      *
-     * @return ListAppReleaseStageExecutionsResponse ListAppReleaseStageExecutionsResponse
+     * @return ListAppReleaseStageExecutionsResponse
      */
     public function listAppReleaseStageExecutions($appName, $releaseWorkflowSn, $releaseStageSn, $request)
     {
@@ -8168,48 +9994,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查找应用成员列表
-     *  *
-     * @param string                        $appName
-     * @param ListApplicationMembersRequest $request ListApplicationMembersRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查找应用成员列表.
      *
-     * @return ListApplicationMembersResponse ListApplicationMembersResponse
+     * @param request - ListApplicationMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListApplicationMembersResponse
+     *
+     * @param string                        $appName
+     * @param ListApplicationMembersRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListApplicationMembersResponse
      */
     public function listApplicationMembersWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListApplicationMembers',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/members',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/members',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListApplicationMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListApplicationMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListApplicationMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查找应用成员列表
-     *  *
-     * @param string                        $appName
-     * @param ListApplicationMembersRequest $request ListApplicationMembersRequest
+     * 查找应用成员列表.
      *
-     * @return ListApplicationMembersResponse ListApplicationMembersResponse
+     * @param request - ListApplicationMembersRequest
+     * @returns ListApplicationMembersResponse
+     *
+     * @param string                        $appName
+     * @param ListApplicationMembersRequest $request
+     *
+     * @return ListApplicationMembersResponse
      */
     public function listApplicationMembers($appName, $request)
     {
@@ -8220,39 +10058,50 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 分页查找应用详情
-     *  *
-     * @param ListApplicationsRequest $request ListApplicationsRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 分页查找应用详情.
      *
-     * @return ListApplicationsResponse ListApplicationsResponse
+     * @param request - ListApplicationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListApplicationsResponse
+     *
+     * @param ListApplicationsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListApplicationsResponse
      */
     public function listApplicationsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->pagination)) {
-            $query['pagination'] = $request->pagination;
+
+        if (null !== $request->pagination) {
+            @$query['pagination'] = $request->pagination;
         }
-        if (!Utils::isUnset($request->perPage)) {
-            $query['perPage'] = $request->perPage;
+
+        if (null !== $request->perPage) {
+            @$query['perPage'] = $request->perPage;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListApplications',
@@ -8265,16 +10114,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 分页查找应用详情
-     *  *
-     * @param ListApplicationsRequest $request ListApplicationsRequest
+     * 分页查找应用详情.
      *
-     * @return ListApplicationsResponse ListApplicationsResponse
+     * @param request - ListApplicationsRequest
+     * @returns ListApplicationsResponse
+     *
+     * @param ListApplicationsRequest $request
+     *
+     * @return ListApplicationsResponse
      */
     public function listApplications($request)
     {
@@ -8285,68 +10140,86 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询变更研发流程运行记录
-     *  *
+     * 查询变更研发流程运行记录.
+     *
+     * @param request - ListChangeRequestWorkflowExecutionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListChangeRequestWorkflowExecutionsResponse
+     *
      * @param string                                     $appName
      * @param string                                     $sn
-     * @param ListChangeRequestWorkflowExecutionsRequest $request ListChangeRequestWorkflowExecutionsRequest
-     * @param string[]                                   $headers map
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * @param ListChangeRequestWorkflowExecutionsRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
      *
-     * @return ListChangeRequestWorkflowExecutionsResponse ListChangeRequestWorkflowExecutionsResponse
+     * @return ListChangeRequestWorkflowExecutionsResponse
      */
     public function listChangeRequestWorkflowExecutionsWithOptions($appName, $sn, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->perPage)) {
-            $query['perPage'] = $request->perPage;
+
+        if (null !== $request->perPage) {
+            @$query['perPage'] = $request->perPage;
         }
-        if (!Utils::isUnset($request->releaseStageSn)) {
-            $query['releaseStageSn'] = $request->releaseStageSn;
+
+        if (null !== $request->releaseStageSn) {
+            @$query['releaseStageSn'] = $request->releaseStageSn;
         }
-        if (!Utils::isUnset($request->releaseWorkflowSn)) {
-            $query['releaseWorkflowSn'] = $request->releaseWorkflowSn;
+
+        if (null !== $request->releaseWorkflowSn) {
+            @$query['releaseWorkflowSn'] = $request->releaseWorkflowSn;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListChangeRequestWorkflowExecutions',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/changeRequests/' . OpenApiUtilClient::getEncodeParam($sn) . '/executions',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/changeRequests/' . Url::percentEncode($sn) . '/executions',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChangeRequestWorkflowExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChangeRequestWorkflowExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChangeRequestWorkflowExecutionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变更研发流程运行记录
-     *  *
+     * 查询变更研发流程运行记录.
+     *
+     * @param request - ListChangeRequestWorkflowExecutionsRequest
+     * @returns ListChangeRequestWorkflowExecutionsResponse
+     *
      * @param string                                     $appName
      * @param string                                     $sn
-     * @param ListChangeRequestWorkflowExecutionsRequest $request ListChangeRequestWorkflowExecutionsRequest
+     * @param ListChangeRequestWorkflowExecutionsRequest $request
      *
-     * @return ListChangeRequestWorkflowExecutionsResponse ListChangeRequestWorkflowExecutionsResponse
+     * @return ListChangeRequestWorkflowExecutionsResponse
      */
     public function listChangeRequestWorkflowExecutions($appName, $sn, $request)
     {
@@ -8357,89 +10230,114 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询变更列表
-     *  *
-     * @param string                    $appName
-     * @param ListChangeRequestsRequest $tmpReq  ListChangeRequestsRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询变更列表.
      *
-     * @return ListChangeRequestsResponse ListChangeRequestsResponse
+     * @param tmpReq - ListChangeRequestsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListChangeRequestsResponse
+     *
+     * @param string                    $appName
+     * @param ListChangeRequestsRequest $tmpReq
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListChangeRequestsResponse
      */
     public function listChangeRequestsWithOptions($appName, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListChangeRequestsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->appNameList)) {
-            $request->appNameListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->appNameList, 'appNameList', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->appNameList) {
+            $request->appNameListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->appNameList, 'appNameList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->ownerIdList)) {
-            $request->ownerIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ownerIdList, 'ownerIdList', 'json');
+
+        if (null !== $tmpReq->ownerIdList) {
+            $request->ownerIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->ownerIdList, 'ownerIdList', 'json');
         }
-        if (!Utils::isUnset($tmpReq->stateList)) {
-            $request->stateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stateList, 'stateList', 'json');
+
+        if (null !== $tmpReq->stateList) {
+            $request->stateListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stateList, 'stateList', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->appNameListShrink)) {
-            $query['appNameList'] = $request->appNameListShrink;
+        if (null !== $request->appNameListShrink) {
+            @$query['appNameList'] = $request->appNameListShrink;
         }
-        if (!Utils::isUnset($request->displayNameKeyword)) {
-            $query['displayNameKeyword'] = $request->displayNameKeyword;
+
+        if (null !== $request->displayNameKeyword) {
+            @$query['displayNameKeyword'] = $request->displayNameKeyword;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->ownerIdListShrink)) {
-            $query['ownerIdList'] = $request->ownerIdListShrink;
+
+        if (null !== $request->ownerIdListShrink) {
+            @$query['ownerIdList'] = $request->ownerIdListShrink;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pagination)) {
-            $query['pagination'] = $request->pagination;
+
+        if (null !== $request->pagination) {
+            @$query['pagination'] = $request->pagination;
         }
-        if (!Utils::isUnset($request->perPage)) {
-            $query['perPage'] = $request->perPage;
+
+        if (null !== $request->perPage) {
+            @$query['perPage'] = $request->perPage;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->stateListShrink)) {
-            $query['stateList'] = $request->stateListShrink;
+
+        if (null !== $request->stateListShrink) {
+            @$query['stateList'] = $request->stateListShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListChangeRequests',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/changeRequests',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/changeRequests',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChangeRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChangeRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChangeRequestsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询变更列表
-     *  *
-     * @param string                    $appName
-     * @param ListChangeRequestsRequest $request ListChangeRequestsRequest
+     * 查询变更列表.
      *
-     * @return ListChangeRequestsResponse ListChangeRequestsResponse
+     * @param request - ListChangeRequestsRequest
+     * @returns ListChangeRequestsResponse
+     *
+     * @param string                    $appName
+     * @param ListChangeRequestsRequest $request
+     *
+     * @return ListChangeRequestsResponse
      */
     public function listChangeRequests($appName, $request)
     {
@@ -8450,39 +10348,50 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询检查运行列表
-     *  *
-     * @param ListCheckRunsRequest $request ListCheckRunsRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * 查询检查运行列表.
      *
-     * @return ListCheckRunsResponse ListCheckRunsResponse
+     * @param request - ListCheckRunsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCheckRunsResponse
+     *
+     * @param ListCheckRunsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListCheckRunsResponse
      */
     public function listCheckRunsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->ref)) {
-            $query['ref'] = $request->ref;
+
+        if (null !== $request->ref) {
+            @$query['ref'] = $request->ref;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCheckRuns',
@@ -8495,16 +10404,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCheckRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCheckRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCheckRunsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询检查运行列表
-     *  *
-     * @param ListCheckRunsRequest $request ListCheckRunsRequest
+     * 查询检查运行列表.
      *
-     * @return ListCheckRunsResponse ListCheckRunsResponse
+     * @param request - ListCheckRunsRequest
+     * @returns ListCheckRunsResponse
+     *
+     * @param ListCheckRunsRequest $request
+     *
+     * @return ListCheckRunsResponse
      */
     public function listCheckRuns($request)
     {
@@ -8515,39 +10430,50 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询提交状态列表
-     *  *
-     * @param ListCommitStatusesRequest $request ListCommitStatusesRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询提交状态列表.
      *
-     * @return ListCommitStatusesResponse ListCommitStatusesResponse
+     * @param request - ListCommitStatusesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCommitStatusesResponse
+     *
+     * @param ListCommitStatusesRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListCommitStatusesResponse
      */
     public function listCommitStatusesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
-        if (!Utils::isUnset($request->sha)) {
-            $query['sha'] = $request->sha;
+
+        if (null !== $request->sha) {
+            @$query['sha'] = $request->sha;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCommitStatuses',
@@ -8560,16 +10486,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListCommitStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListCommitStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListCommitStatusesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询提交状态列表
-     *  *
-     * @param ListCommitStatusesRequest $request ListCommitStatusesRequest
+     * 查询提交状态列表.
      *
-     * @return ListCommitStatusesResponse ListCommitStatusesResponse
+     * @param request - ListCommitStatusesRequest
+     * @returns ListCommitStatusesResponse
+     *
+     * @param ListCommitStatusesRequest $request
+     *
+     * @return ListCommitStatusesResponse
      */
     public function listCommitStatuses($request)
     {
@@ -8580,13 +10512,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取标签分类列表
-     *  *
-     * @param string         $organizationId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * 获取标签分类列表.
      *
-     * @return ListFlowTagGroupsResponse ListFlowTagGroupsResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListFlowTagGroupsResponse
+     *
+     * @param string         $organizationId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListFlowTagGroupsResponse
      */
     public function listFlowTagGroupsWithOptions($organizationId, $headers, $runtime)
     {
@@ -8597,23 +10533,28 @@ class Devops extends OpenApiClient
             'action'      => 'ListFlowTagGroups',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/flow/tagGroups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListFlowTagGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFlowTagGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFlowTagGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取标签分类列表
-     *  *
+     * 获取标签分类列表.
+     *
+     * @returns ListFlowTagGroupsResponse
+     *
      * @param string $organizationId
      *
-     * @return ListFlowTagGroupsResponse ListFlowTagGroupsResponse
+     * @return ListFlowTagGroupsResponse
      */
     public function listFlowTagGroups($organizationId)
     {
@@ -8624,51 +10565,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询组成员列表
-     *  *
-     * @param string                 $groupId
-     * @param ListGroupMemberRequest $request ListGroupMemberRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询组成员列表.
      *
-     * @return ListGroupMemberResponse ListGroupMemberResponse
+     * @param request - ListGroupMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListGroupMemberResponse
+     *
+     * @param string                 $groupId
+     * @param ListGroupMemberRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListGroupMemberResponse
      */
     public function listGroupMemberWithOptions($groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListGroupMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/list',
+            'pathname'    => '/repository/groups/' . Url::percentEncode($groupId) . '/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询组成员列表
-     *  *
-     * @param string                 $groupId
-     * @param ListGroupMemberRequest $request ListGroupMemberRequest
+     * 查询组成员列表.
      *
-     * @return ListGroupMemberResponse ListGroupMemberResponse
+     * @param request - ListGroupMemberRequest
+     * @returns ListGroupMemberResponse
+     *
+     * @param string                 $groupId
+     * @param ListGroupMemberRequest $request
+     *
+     * @return ListGroupMemberResponse
      */
     public function listGroupMember($groupId, $request)
     {
@@ -8679,60 +10633,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码组下的库列表
-     *  *
-     * @param string                       $groupId
-     * @param ListGroupRepositoriesRequest $request ListGroupRepositoriesRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询代码组下的库列表.
      *
-     * @return ListGroupRepositoriesResponse ListGroupRepositoriesResponse
+     * @param request - ListGroupRepositoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListGroupRepositoriesResponse
+     *
+     * @param string                       $groupId
+     * @param ListGroupRepositoriesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListGroupRepositoriesResponse
      */
     public function listGroupRepositoriesWithOptions($groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListGroupRepositories',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/projects',
+            'pathname'    => '/repository/groups/' . Url::percentEncode($groupId) . '/projects',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListGroupRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListGroupRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListGroupRepositoriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码组下的库列表
-     *  *
-     * @param string                       $groupId
-     * @param ListGroupRepositoriesRequest $request ListGroupRepositoriesRequest
+     * 查询代码组下的库列表.
      *
-     * @return ListGroupRepositoriesResponse ListGroupRepositoriesResponse
+     * @param request - ListGroupRepositoriesRequest
+     * @returns ListGroupRepositoriesResponse
+     *
+     * @param string                       $groupId
+     * @param ListGroupRepositoriesRequest $request
+     *
+     * @return ListGroupRepositoriesResponse
      */
     public function listGroupRepositories($groupId, $request)
     {
@@ -8743,72 +10713,92 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取主机组列表
-     *  *
-     * @param string                $organizationId
-     * @param ListHostGroupsRequest $request        ListHostGroupsRequest
-     * @param string[]              $headers        map
-     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
+     * 获取主机组列表.
      *
-     * @return ListHostGroupsResponse ListHostGroupsResponse
+     * @param request - ListHostGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListHostGroupsResponse
+     *
+     * @param string                $organizationId
+     * @param ListHostGroupsRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListHostGroupsResponse
      */
     public function listHostGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createEndTime)) {
-            $query['createEndTime'] = $request->createEndTime;
+        if (null !== $request->createEndTime) {
+            @$query['createEndTime'] = $request->createEndTime;
         }
-        if (!Utils::isUnset($request->createStartTime)) {
-            $query['createStartTime'] = $request->createStartTime;
+
+        if (null !== $request->createStartTime) {
+            @$query['createStartTime'] = $request->createStartTime;
         }
-        if (!Utils::isUnset($request->creatorAccountIds)) {
-            $query['creatorAccountIds'] = $request->creatorAccountIds;
+
+        if (null !== $request->creatorAccountIds) {
+            @$query['creatorAccountIds'] = $request->creatorAccountIds;
         }
-        if (!Utils::isUnset($request->ids)) {
-            $query['ids'] = $request->ids;
+
+        if (null !== $request->ids) {
+            @$query['ids'] = $request->ids;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageOrder)) {
-            $query['pageOrder'] = $request->pageOrder;
+
+        if (null !== $request->pageOrder) {
+            @$query['pageOrder'] = $request->pageOrder;
         }
-        if (!Utils::isUnset($request->pageSort)) {
-            $query['pageSort'] = $request->pageSort;
+
+        if (null !== $request->pageSort) {
+            @$query['pageSort'] = $request->pageSort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListHostGroups',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/hostGroups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListHostGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListHostGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListHostGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取主机组列表
-     *  *
-     * @param string                $organizationId
-     * @param ListHostGroupsRequest $request        ListHostGroupsRequest
+     * 获取主机组列表.
      *
-     * @return ListHostGroupsResponse ListHostGroupsResponse
+     * @param request - ListHostGroupsRequest
+     * @returns ListHostGroupsResponse
+     *
+     * @param string                $organizationId
+     * @param ListHostGroupsRequest $request
+     *
+     * @return ListHostGroupsResponse
      */
     public function listHostGroups($organizationId, $request)
     {
@@ -8819,12 +10809,16 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 当前用户加入的企业列表
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 当前用户加入的企业列表.
      *
-     * @return ListJoinedOrganizationsResponse ListJoinedOrganizationsResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListJoinedOrganizationsResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListJoinedOrganizationsResponse
      */
     public function listJoinedOrganizationsWithOptions($headers, $runtime)
     {
@@ -8842,14 +10836,19 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListJoinedOrganizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListJoinedOrganizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListJoinedOrganizationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 当前用户加入的企业列表
-     *  *
-     * @return ListJoinedOrganizationsResponse ListJoinedOrganizationsResponse
+     * 当前用户加入的企业列表.
+     *
+     * @returns ListJoinedOrganizationsResponse
+     *
+     * @return ListJoinedOrganizationsResponse
      */
     public function listJoinedOrganizations()
     {
@@ -8860,50 +10859,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询合并请求评论列表
-     *  *
-     * @param ListMergeRequestCommentsRequest $request ListMergeRequestCommentsRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 查询合并请求评论列表.
      *
-     * @return ListMergeRequestCommentsResponse ListMergeRequestCommentsResponse
+     * @param request - ListMergeRequestCommentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMergeRequestCommentsResponse
+     *
+     * @param ListMergeRequestCommentsRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListMergeRequestCommentsResponse
      */
     public function listMergeRequestCommentsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->localId)) {
-            $query['localId'] = $request->localId;
+
+        if (null !== $request->localId) {
+            @$query['localId'] = $request->localId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->commentType)) {
-            $body['commentType'] = $request->commentType;
+        if (null !== $request->commentType) {
+            @$body['commentType'] = $request->commentType;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $body['filePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$body['filePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->patchSetBizIds)) {
-            $body['patchSetBizIds'] = $request->patchSetBizIds;
+
+        if (null !== $request->patchSetBizIds) {
+            @$body['patchSetBizIds'] = $request->patchSetBizIds;
         }
-        if (!Utils::isUnset($request->resolved)) {
-            $body['resolved'] = $request->resolved;
+
+        if (null !== $request->resolved) {
+            @$body['resolved'] = $request->resolved;
         }
-        if (!Utils::isUnset($request->state)) {
-            $body['state'] = $request->state;
+
+        if (null !== $request->state) {
+            @$body['state'] = $request->state;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListMergeRequestComments',
@@ -8916,16 +10929,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMergeRequestCommentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMergeRequestCommentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMergeRequestCommentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询合并请求评论列表
-     *  *
-     * @param ListMergeRequestCommentsRequest $request ListMergeRequestCommentsRequest
+     * 查询合并请求评论列表.
      *
-     * @return ListMergeRequestCommentsResponse ListMergeRequestCommentsResponse
+     * @param request - ListMergeRequestCommentsRequest
+     * @returns ListMergeRequestCommentsResponse
+     *
+     * @param ListMergeRequestCommentsRequest $request
+     *
+     * @return ListMergeRequestCommentsResponse
      */
     public function listMergeRequestComments($request)
     {
@@ -8936,39 +10955,50 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询合并请求文件已读列表
-     *  *
-     * @param ListMergeRequestFilesReadsRequest $request ListMergeRequestFilesReadsRequest
-     * @param string[]                          $headers map
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 查询合并请求文件已读列表.
      *
-     * @return ListMergeRequestFilesReadsResponse ListMergeRequestFilesReadsResponse
+     * @param request - ListMergeRequestFilesReadsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMergeRequestFilesReadsResponse
+     *
+     * @param ListMergeRequestFilesReadsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListMergeRequestFilesReadsResponse
      */
     public function listMergeRequestFilesReadsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->fromPatchSetBizId)) {
-            $query['fromPatchSetBizId'] = $request->fromPatchSetBizId;
+
+        if (null !== $request->fromPatchSetBizId) {
+            @$query['fromPatchSetBizId'] = $request->fromPatchSetBizId;
         }
-        if (!Utils::isUnset($request->localId)) {
-            $query['localId'] = $request->localId;
+
+        if (null !== $request->localId) {
+            @$query['localId'] = $request->localId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
-        if (!Utils::isUnset($request->toPatchSetBizId)) {
-            $query['toPatchSetBizId'] = $request->toPatchSetBizId;
+
+        if (null !== $request->toPatchSetBizId) {
+            @$query['toPatchSetBizId'] = $request->toPatchSetBizId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMergeRequestFilesReads',
@@ -8981,16 +11011,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMergeRequestFilesReadsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMergeRequestFilesReadsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMergeRequestFilesReadsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询合并请求文件已读列表
-     *  *
-     * @param ListMergeRequestFilesReadsRequest $request ListMergeRequestFilesReadsRequest
+     * 查询合并请求文件已读列表.
      *
-     * @return ListMergeRequestFilesReadsResponse ListMergeRequestFilesReadsResponse
+     * @param request - ListMergeRequestFilesReadsRequest
+     * @returns ListMergeRequestFilesReadsResponse
+     *
+     * @param ListMergeRequestFilesReadsRequest $request
+     *
+     * @return ListMergeRequestFilesReadsResponse
      */
     public function listMergeRequestFilesReads($request)
     {
@@ -9001,33 +11037,42 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询合并请求Label列表
-     *  *
-     * @param ListMergeRequestLabelsRequest $request ListMergeRequestLabelsRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 查询合并请求Label列表.
      *
-     * @return ListMergeRequestLabelsResponse ListMergeRequestLabelsResponse
+     * @param request - ListMergeRequestLabelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMergeRequestLabelsResponse
+     *
+     * @param ListMergeRequestLabelsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListMergeRequestLabelsResponse
      */
     public function listMergeRequestLabelsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->localId)) {
-            $query['localId'] = $request->localId;
+
+        if (null !== $request->localId) {
+            @$query['localId'] = $request->localId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMergeRequestLabels',
@@ -9040,16 +11085,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMergeRequestLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMergeRequestLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMergeRequestLabelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询合并请求Label列表
-     *  *
-     * @param ListMergeRequestLabelsRequest $request ListMergeRequestLabelsRequest
+     * 查询合并请求Label列表.
      *
-     * @return ListMergeRequestLabelsResponse ListMergeRequestLabelsResponse
+     * @param request - ListMergeRequestLabelsRequest
+     * @returns ListMergeRequestLabelsResponse
+     *
+     * @param ListMergeRequestLabelsRequest $request
+     *
+     * @return ListMergeRequestLabelsResponse
      */
     public function listMergeRequestLabels($request)
     {
@@ -9060,33 +11111,42 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询合并请求的版本列表
-     *  *
-     * @param ListMergeRequestPatchSetsRequest $request ListMergeRequestPatchSetsRequest
-     * @param string[]                         $headers map
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * 查询合并请求的版本列表.
      *
-     * @return ListMergeRequestPatchSetsResponse ListMergeRequestPatchSetsResponse
+     * @param request - ListMergeRequestPatchSetsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMergeRequestPatchSetsResponse
+     *
+     * @param ListMergeRequestPatchSetsRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListMergeRequestPatchSetsResponse
      */
     public function listMergeRequestPatchSetsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->localId)) {
-            $query['localId'] = $request->localId;
+
+        if (null !== $request->localId) {
+            @$query['localId'] = $request->localId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMergeRequestPatchSets',
@@ -9099,16 +11159,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMergeRequestPatchSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMergeRequestPatchSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMergeRequestPatchSetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询合并请求的版本列表
-     *  *
-     * @param ListMergeRequestPatchSetsRequest $request ListMergeRequestPatchSetsRequest
+     * 查询合并请求的版本列表.
      *
-     * @return ListMergeRequestPatchSetsResponse ListMergeRequestPatchSetsResponse
+     * @param request - ListMergeRequestPatchSetsRequest
+     * @returns ListMergeRequestPatchSetsResponse
+     *
+     * @param ListMergeRequestPatchSetsRequest $request
+     *
+     * @return ListMergeRequestPatchSetsResponse
      */
     public function listMergeRequestPatchSets($request)
     {
@@ -9119,69 +11185,90 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码评审列表
-     *  *
-     * @param ListMergeRequestsRequest $request ListMergeRequestsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询代码评审列表.
      *
-     * @return ListMergeRequestsResponse ListMergeRequestsResponse
+     * @param request - ListMergeRequestsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMergeRequestsResponse
+     *
+     * @param ListMergeRequestsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListMergeRequestsResponse
      */
     public function listMergeRequestsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->authorIds)) {
-            $query['authorIds'] = $request->authorIds;
+
+        if (null !== $request->authorIds) {
+            @$query['authorIds'] = $request->authorIds;
         }
-        if (!Utils::isUnset($request->createdAfter)) {
-            $query['createdAfter'] = $request->createdAfter;
+
+        if (null !== $request->createdAfter) {
+            @$query['createdAfter'] = $request->createdAfter;
         }
-        if (!Utils::isUnset($request->createdBefore)) {
-            $query['createdBefore'] = $request->createdBefore;
+
+        if (null !== $request->createdBefore) {
+            @$query['createdBefore'] = $request->createdBefore;
         }
-        if (!Utils::isUnset($request->filter)) {
-            $query['filter'] = $request->filter;
+
+        if (null !== $request->filter) {
+            @$query['filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['groupIds'] = $request->groupIds;
+
+        if (null !== $request->groupIds) {
+            @$query['groupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->labelIds)) {
-            $query['labelIds'] = $request->labelIds;
+
+        if (null !== $request->labelIds) {
+            @$query['labelIds'] = $request->labelIds;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectIds)) {
-            $query['projectIds'] = $request->projectIds;
+
+        if (null !== $request->projectIds) {
+            @$query['projectIds'] = $request->projectIds;
         }
-        if (!Utils::isUnset($request->reviewerIds)) {
-            $query['reviewerIds'] = $request->reviewerIds;
+
+        if (null !== $request->reviewerIds) {
+            @$query['reviewerIds'] = $request->reviewerIds;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['state'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['state'] = $request->state;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMergeRequests',
@@ -9194,16 +11281,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMergeRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMergeRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMergeRequestsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码评审列表
-     *  *
-     * @param ListMergeRequestsRequest $request ListMergeRequestsRequest
+     * 查询代码评审列表.
      *
-     * @return ListMergeRequestsResponse ListMergeRequestsResponse
+     * @param request - ListMergeRequestsRequest
+     * @returns ListMergeRequestsResponse
+     *
+     * @param ListMergeRequestsRequest $request
+     *
+     * @return ListMergeRequestsResponse
      */
     public function listMergeRequests($request)
     {
@@ -9214,72 +11307,92 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取企业成员列表
-     *  *
-     * @param string                         $organizationId
-     * @param ListOrganizationMembersRequest $request        ListOrganizationMembersRequest
-     * @param string[]                       $headers        map
-     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
+     * 获取企业成员列表.
      *
-     * @return ListOrganizationMembersResponse ListOrganizationMembersResponse
+     * @param request - ListOrganizationMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOrganizationMembersResponse
+     *
+     * @param string                         $organizationId
+     * @param ListOrganizationMembersRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListOrganizationMembersResponse
      */
     public function listOrganizationMembersWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->containsExternInfo)) {
-            $query['containsExternInfo'] = $request->containsExternInfo;
+        if (null !== $request->containsExternInfo) {
+            @$query['containsExternInfo'] = $request->containsExternInfo;
         }
-        if (!Utils::isUnset($request->externUid)) {
-            $query['externUid'] = $request->externUid;
+
+        if (null !== $request->externUid) {
+            @$query['externUid'] = $request->externUid;
         }
-        if (!Utils::isUnset($request->joinTimeFrom)) {
-            $query['joinTimeFrom'] = $request->joinTimeFrom;
+
+        if (null !== $request->joinTimeFrom) {
+            @$query['joinTimeFrom'] = $request->joinTimeFrom;
         }
-        if (!Utils::isUnset($request->joinTimeTo)) {
-            $query['joinTimeTo'] = $request->joinTimeTo;
+
+        if (null !== $request->joinTimeTo) {
+            @$query['joinTimeTo'] = $request->joinTimeTo;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->organizationMemberName)) {
-            $query['organizationMemberName'] = $request->organizationMemberName;
+
+        if (null !== $request->organizationMemberName) {
+            @$query['organizationMemberName'] = $request->organizationMemberName;
         }
-        if (!Utils::isUnset($request->provider)) {
-            $query['provider'] = $request->provider;
+
+        if (null !== $request->provider) {
+            @$query['provider'] = $request->provider;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['state'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['state'] = $request->state;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOrganizationMembers',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/members',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/members',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOrganizationMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrganizationMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrganizationMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取企业成员列表
-     *  *
-     * @param string                         $organizationId
-     * @param ListOrganizationMembersRequest $request        ListOrganizationMembersRequest
+     * 获取企业成员列表.
      *
-     * @return ListOrganizationMembersResponse ListOrganizationMembersResponse
+     * @param request - ListOrganizationMembersRequest
+     * @returns ListOrganizationMembersResponse
+     *
+     * @param string                         $organizationId
+     * @param ListOrganizationMembersRequest $request
+     *
+     * @return ListOrganizationMembersResponse
      */
     public function listOrganizationMembers($organizationId, $request)
     {
@@ -9290,30 +11403,38 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户企业列表
-     *  *
-     * @param ListOrganizationsRequest $request ListOrganizationsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询用户企业列表.
      *
-     * @return ListOrganizationsResponse ListOrganizationsResponse
+     * @param request - ListOrganizationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListOrganizationsResponse
+     *
+     * @param ListOrganizationsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListOrganizationsResponse
      */
     public function listOrganizationsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessLevel)) {
-            $query['accessLevel'] = $request->accessLevel;
+        if (null !== $request->accessLevel) {
+            @$query['accessLevel'] = $request->accessLevel;
         }
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->minAccessLevel)) {
-            $query['minAccessLevel'] = $request->minAccessLevel;
+
+        if (null !== $request->minAccessLevel) {
+            @$query['minAccessLevel'] = $request->minAccessLevel;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListOrganizations',
@@ -9326,16 +11447,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListOrganizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListOrganizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOrganizationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户企业列表
-     *  *
-     * @param ListOrganizationsRequest $request ListOrganizationsRequest
+     * 查询用户企业列表.
      *
-     * @return ListOrganizationsResponse ListOrganizationsResponse
+     * @param request - ListOrganizationsRequest
+     * @returns ListOrganizationsResponse
+     *
+     * @param ListOrganizationsRequest $request
+     *
+     * @return ListOrganizationsResponse
      */
     public function listOrganizations($request)
     {
@@ -9346,71 +11473,90 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线分组下流水线列表列表
-     *  *
+     * 获取流水线分组下流水线列表列表.
+     *
+     * @param request - ListPipelineGroupPipelinesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPipelineGroupPipelinesResponse
+     *
      * @param string                            $organizationId
      * @param string                            $groupId
-     * @param ListPipelineGroupPipelinesRequest $request        ListPipelineGroupPipelinesRequest
-     * @param string[]                          $headers        map
-     * @param RuntimeOptions                    $runtime        runtime options for this request RuntimeOptions
+     * @param ListPipelineGroupPipelinesRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
      *
-     * @return ListPipelineGroupPipelinesResponse ListPipelineGroupPipelinesResponse
+     * @return ListPipelineGroupPipelinesResponse
      */
     public function listPipelineGroupPipelinesWithOptions($organizationId, $groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createEndTime)) {
-            $query['createEndTime'] = $request->createEndTime;
+        if (null !== $request->createEndTime) {
+            @$query['createEndTime'] = $request->createEndTime;
         }
-        if (!Utils::isUnset($request->createStartTime)) {
-            $query['createStartTime'] = $request->createStartTime;
+
+        if (null !== $request->createStartTime) {
+            @$query['createStartTime'] = $request->createStartTime;
         }
-        if (!Utils::isUnset($request->executeEndTime)) {
-            $query['executeEndTime'] = $request->executeEndTime;
+
+        if (null !== $request->executeEndTime) {
+            @$query['executeEndTime'] = $request->executeEndTime;
         }
-        if (!Utils::isUnset($request->executeStartTime)) {
-            $query['executeStartTime'] = $request->executeStartTime;
+
+        if (null !== $request->executeStartTime) {
+            @$query['executeStartTime'] = $request->executeStartTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pipelineName)) {
-            $query['pipelineName'] = $request->pipelineName;
+
+        if (null !== $request->pipelineName) {
+            @$query['pipelineName'] = $request->pipelineName;
         }
-        if (!Utils::isUnset($request->resultStatusList)) {
-            $query['resultStatusList'] = $request->resultStatusList;
+
+        if (null !== $request->resultStatusList) {
+            @$query['resultStatusList'] = $request->resultStatusList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPipelineGroupPipelines',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/pipelines',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelineGroups/' . Url::percentEncode($groupId) . '/pipelines',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPipelineGroupPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPipelineGroupPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPipelineGroupPipelinesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线分组下流水线列表列表
-     *  *
+     * 获取流水线分组下流水线列表列表.
+     *
+     * @param request - ListPipelineGroupPipelinesRequest
+     * @returns ListPipelineGroupPipelinesResponse
+     *
      * @param string                            $organizationId
      * @param string                            $groupId
-     * @param ListPipelineGroupPipelinesRequest $request        ListPipelineGroupPipelinesRequest
+     * @param ListPipelineGroupPipelinesRequest $request
      *
-     * @return ListPipelineGroupPipelinesResponse ListPipelineGroupPipelinesResponse
+     * @return ListPipelineGroupPipelinesResponse
      */
     public function listPipelineGroupPipelines($organizationId, $groupId, $request)
     {
@@ -9421,51 +11567,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线分组列表
-     *  *
-     * @param string                    $organizationId
-     * @param ListPipelineGroupsRequest $request        ListPipelineGroupsRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * 获取流水线分组列表.
      *
-     * @return ListPipelineGroupsResponse ListPipelineGroupsResponse
+     * @param request - ListPipelineGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPipelineGroupsResponse
+     *
+     * @param string                    $organizationId
+     * @param ListPipelineGroupsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListPipelineGroupsResponse
      */
     public function listPipelineGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPipelineGroups',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelineGroups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPipelineGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPipelineGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPipelineGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线分组列表
-     *  *
-     * @param string                    $organizationId
-     * @param ListPipelineGroupsRequest $request        ListPipelineGroupsRequest
+     * 获取流水线分组列表.
      *
-     * @return ListPipelineGroupsResponse ListPipelineGroupsResponse
+     * @param request - ListPipelineGroupsRequest
+     * @returns ListPipelineGroupsResponse
+     *
+     * @param string                    $organizationId
+     * @param ListPipelineGroupsRequest $request
+     *
+     * @return ListPipelineGroupsResponse
      */
     public function listPipelineGroups($organizationId, $request)
     {
@@ -9476,59 +11635,74 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线运行过的任务历史
-     *  *
+     * 获取流水线运行过的任务历史.
+     *
+     * @param request - ListPipelineJobHistorysRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPipelineJobHistorysResponse
+     *
      * @param string                         $organizationId
      * @param string                         $pipelineId
-     * @param ListPipelineJobHistorysRequest $request        ListPipelineJobHistorysRequest
-     * @param string[]                       $headers        map
-     * @param RuntimeOptions                 $runtime        runtime options for this request RuntimeOptions
+     * @param ListPipelineJobHistorysRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return ListPipelineJobHistorysResponse ListPipelineJobHistorysResponse
+     * @return ListPipelineJobHistorysResponse
      */
     public function listPipelineJobHistorysWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['identifier'] = $request->identifier;
+
+        if (null !== $request->identifier) {
+            @$query['identifier'] = $request->identifier;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPipelineJobHistorys',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/job/historys',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipeline/' . Url::percentEncode($pipelineId) . '/job/historys',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPipelineJobHistorysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPipelineJobHistorysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPipelineJobHistorysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线运行过的任务历史
-     *  *
+     * 获取流水线运行过的任务历史.
+     *
+     * @param request - ListPipelineJobHistorysRequest
+     * @returns ListPipelineJobHistorysResponse
+     *
      * @param string                         $organizationId
      * @param string                         $pipelineId
-     * @param ListPipelineJobHistorysRequest $request        ListPipelineJobHistorysRequest
+     * @param ListPipelineJobHistorysRequest $request
      *
-     * @return ListPipelineJobHistorysResponse ListPipelineJobHistorysResponse
+     * @return ListPipelineJobHistorysResponse
      */
     public function listPipelineJobHistorys($organizationId, $pipelineId, $request)
     {
@@ -9539,50 +11713,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线运行过的任务
-     *  *
+     * 获取流水线运行过的任务
+     *
+     * @param request - ListPipelineJobsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPipelineJobsResponse
+     *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param ListPipelineJobsRequest $request        ListPipelineJobsRequest
-     * @param string[]                $headers        map
-     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
+     * @param ListPipelineJobsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return ListPipelineJobsResponse ListPipelineJobsResponse
+     * @return ListPipelineJobsResponse
      */
     public function listPipelineJobsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPipelineJobs',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/jobs',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipeline/' . Url::percentEncode($pipelineId) . '/jobs',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPipelineJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPipelineJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPipelineJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线运行过的任务
-     *  *
+     * 获取流水线运行过的任务
+     *
+     * @param request - ListPipelineJobsRequest
+     * @returns ListPipelineJobsResponse
+     *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param ListPipelineJobsRequest $request        ListPipelineJobsRequest
+     * @param ListPipelineJobsRequest $request
      *
-     * @return ListPipelineJobsResponse ListPipelineJobsResponse
+     * @return ListPipelineJobsResponse
      */
     public function listPipelineJobs($organizationId, $pipelineId, $request)
     {
@@ -9593,50 +11779,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线关联列表
-     *  *
+     * 获取流水线关联列表.
+     *
+     * @param request - ListPipelineRelationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPipelineRelationsResponse
+     *
      * @param string                       $organizationId
      * @param string                       $pipelineId
-     * @param ListPipelineRelationsRequest $request        ListPipelineRelationsRequest
-     * @param string[]                     $headers        map
-     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     * @param ListPipelineRelationsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return ListPipelineRelationsResponse ListPipelineRelationsResponse
+     * @return ListPipelineRelationsResponse
      */
     public function listPipelineRelationsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->relObjectType)) {
-            $query['relObjectType'] = $request->relObjectType;
+        if (null !== $request->relObjectType) {
+            @$query['relObjectType'] = $request->relObjectType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPipelineRelations',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRelations',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/' . Url::percentEncode($pipelineId) . '/pipelineRelations',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPipelineRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPipelineRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPipelineRelationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线关联列表
-     *  *
+     * 获取流水线关联列表.
+     *
+     * @param request - ListPipelineRelationsRequest
+     * @returns ListPipelineRelationsResponse
+     *
      * @param string                       $organizationId
      * @param string                       $pipelineId
-     * @param ListPipelineRelationsRequest $request        ListPipelineRelationsRequest
+     * @param ListPipelineRelationsRequest $request
      *
-     * @return ListPipelineRelationsResponse ListPipelineRelationsResponse
+     * @return ListPipelineRelationsResponse
      */
     public function listPipelineRelations($organizationId, $pipelineId, $request)
     {
@@ -9647,65 +11845,82 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线运行历史
-     *  *
+     * 获取流水线运行历史.
+     *
+     * @param request - ListPipelineRunsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPipelineRunsResponse
+     *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param ListPipelineRunsRequest $request        ListPipelineRunsRequest
-     * @param string[]                $headers        map
-     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
+     * @param ListPipelineRunsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return ListPipelineRunsResponse ListPipelineRunsResponse
+     * @return ListPipelineRunsResponse
      */
     public function listPipelineRunsWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['endTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['endTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['startTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['startTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->triggerMode)) {
-            $query['triggerMode'] = $request->triggerMode;
+
+        if (null !== $request->triggerMode) {
+            @$query['triggerMode'] = $request->triggerMode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPipelineRuns',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/pipelineRuns',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPipelineRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPipelineRunsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPipelineRunsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线运行历史
-     *  *
+     * 获取流水线运行历史.
+     *
+     * @param request - ListPipelineRunsRequest
+     * @returns ListPipelineRunsResponse
+     *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param ListPipelineRunsRequest $request        ListPipelineRunsRequest
+     * @param ListPipelineRunsRequest $request
      *
-     * @return ListPipelineRunsResponse ListPipelineRunsResponse
+     * @return ListPipelineRunsResponse
      */
     public function listPipelineRuns($organizationId, $pipelineId, $request)
     {
@@ -9716,75 +11931,96 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线列表
-     *  *
-     * @param string               $organizationId
-     * @param ListPipelinesRequest $request        ListPipelinesRequest
-     * @param string[]             $headers        map
-     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
+     * 获取流水线列表.
      *
-     * @return ListPipelinesResponse ListPipelinesResponse
+     * @param request - ListPipelinesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPipelinesResponse
+     *
+     * @param string               $organizationId
+     * @param ListPipelinesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListPipelinesResponse
      */
     public function listPipelinesWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->createEndTime)) {
-            $query['createEndTime'] = $request->createEndTime;
+        if (null !== $request->createEndTime) {
+            @$query['createEndTime'] = $request->createEndTime;
         }
-        if (!Utils::isUnset($request->createStartTime)) {
-            $query['createStartTime'] = $request->createStartTime;
+
+        if (null !== $request->createStartTime) {
+            @$query['createStartTime'] = $request->createStartTime;
         }
-        if (!Utils::isUnset($request->creatorAccountIds)) {
-            $query['creatorAccountIds'] = $request->creatorAccountIds;
+
+        if (null !== $request->creatorAccountIds) {
+            @$query['creatorAccountIds'] = $request->creatorAccountIds;
         }
-        if (!Utils::isUnset($request->executeAccountIds)) {
-            $query['executeAccountIds'] = $request->executeAccountIds;
+
+        if (null !== $request->executeAccountIds) {
+            @$query['executeAccountIds'] = $request->executeAccountIds;
         }
-        if (!Utils::isUnset($request->executeEndTime)) {
-            $query['executeEndTime'] = $request->executeEndTime;
+
+        if (null !== $request->executeEndTime) {
+            @$query['executeEndTime'] = $request->executeEndTime;
         }
-        if (!Utils::isUnset($request->executeStartTime)) {
-            $query['executeStartTime'] = $request->executeStartTime;
+
+        if (null !== $request->executeStartTime) {
+            @$query['executeStartTime'] = $request->executeStartTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pipelineName)) {
-            $query['pipelineName'] = $request->pipelineName;
+
+        if (null !== $request->pipelineName) {
+            @$query['pipelineName'] = $request->pipelineName;
         }
-        if (!Utils::isUnset($request->statusList)) {
-            $query['statusList'] = $request->statusList;
+
+        if (null !== $request->statusList) {
+            @$query['statusList'] = $request->statusList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPipelines',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPipelinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPipelinesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线列表
-     *  *
-     * @param string               $organizationId
-     * @param ListPipelinesRequest $request        ListPipelinesRequest
+     * 获取流水线列表.
      *
-     * @return ListPipelinesResponse ListPipelinesResponse
+     * @param request - ListPipelinesRequest
+     * @returns ListPipelinesResponse
+     *
+     * @param string               $organizationId
+     * @param ListPipelinesRequest $request
+     *
+     * @return ListPipelinesResponse
      */
     public function listPipelines($organizationId, $request)
     {
@@ -9795,48 +12031,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码库Label列表
-     *  *
-     * @param ListProjectLabelsRequest $request ListProjectLabelsRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询代码库Label列表.
      *
-     * @return ListProjectLabelsResponse ListProjectLabelsResponse
+     * @param request - ListProjectLabelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProjectLabelsResponse
+     *
+     * @param ListProjectLabelsRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListProjectLabelsResponse
      */
     public function listProjectLabelsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->withCounts)) {
-            $query['withCounts'] = $request->withCounts;
+
+        if (null !== $request->withCounts) {
+            @$query['withCounts'] = $request->withCounts;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProjectLabels',
@@ -9849,16 +12099,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProjectLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProjectLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProjectLabelsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码库Label列表
-     *  *
-     * @param ListProjectLabelsRequest $request ListProjectLabelsRequest
+     * 查询代码库Label列表.
      *
-     * @return ListProjectLabelsResponse ListProjectLabelsResponse
+     * @param request - ListProjectLabelsRequest
+     * @returns ListProjectLabelsResponse
+     *
+     * @param ListProjectLabelsRequest $request
+     *
+     * @return ListProjectLabelsResponse
      */
     public function listProjectLabels($request)
     {
@@ -9869,50 +12125,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 根据项目id获取项目所以成员
-     *  *
+     * 根据项目id获取项目所以成员.
+     *
+     * @param request - ListProjectMembersRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProjectMembersResponse
+     *
      * @param string                    $organizationId
      * @param string                    $projectId
-     * @param ListProjectMembersRequest $request        ListProjectMembersRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * @param ListProjectMembersRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return ListProjectMembersResponse ListProjectMembersResponse
+     * @return ListProjectMembersResponse
      */
     public function listProjectMembersWithOptions($organizationId, $projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->targetType)) {
-            $query['targetType'] = $request->targetType;
+        if (null !== $request->targetType) {
+            @$query['targetType'] = $request->targetType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProjectMembers',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/listMembers',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/projects/' . Url::percentEncode($projectId) . '/listMembers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProjectMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 根据项目id获取项目所以成员
-     *  *
+     * 根据项目id获取项目所以成员.
+     *
+     * @param request - ListProjectMembersRequest
+     * @returns ListProjectMembersResponse
+     *
      * @param string                    $organizationId
      * @param string                    $projectId
-     * @param ListProjectMembersRequest $request        ListProjectMembersRequest
+     * @param ListProjectMembersRequest $request
      *
-     * @return ListProjectMembersResponse ListProjectMembersResponse
+     * @return ListProjectMembersResponse
      */
     public function listProjectMembers($organizationId, $projectId, $request)
     {
@@ -9923,48 +12191,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目模板列表
-     *  *
-     * @param string                      $organizationId
-     * @param ListProjectTemplatesRequest $request        ListProjectTemplatesRequest
-     * @param string[]                    $headers        map
-     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
+     * 获取项目模板列表.
      *
-     * @return ListProjectTemplatesResponse ListProjectTemplatesResponse
+     * @param request - ListProjectTemplatesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProjectTemplatesResponse
+     *
+     * @param string                      $organizationId
+     * @param ListProjectTemplatesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListProjectTemplatesResponse
      */
     public function listProjectTemplatesWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProjectTemplates',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/listTemplates',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/projects/listTemplates',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProjectTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProjectTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProjectTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取项目模板列表
-     *  *
-     * @param string                      $organizationId
-     * @param ListProjectTemplatesRequest $request        ListProjectTemplatesRequest
+     * 获取项目模板列表.
      *
-     * @return ListProjectTemplatesResponse ListProjectTemplatesResponse
+     * @param request - ListProjectTemplatesRequest
+     * @returns ListProjectTemplatesResponse
+     *
+     * @param string                      $organizationId
+     * @param ListProjectTemplatesRequest $request
+     *
+     * @return ListProjectTemplatesResponse
      */
     public function listProjectTemplates($organizationId, $request)
     {
@@ -9975,53 +12255,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目下开启的工作项类型
-     *  *
+     * 获取项目下开启的工作项类型.
+     *
+     * @param request - ListProjectWorkitemTypesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProjectWorkitemTypesResponse
+     *
      * @param string                          $organizationId
      * @param string                          $projectId
-     * @param ListProjectWorkitemTypesRequest $request        ListProjectWorkitemTypesRequest
-     * @param string[]                        $headers        map
-     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
+     * @param ListProjectWorkitemTypesRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return ListProjectWorkitemTypesResponse ListProjectWorkitemTypesResponse
+     * @return ListProjectWorkitemTypesResponse
      */
     public function listProjectWorkitemTypesWithOptions($organizationId, $projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->spaceType)) {
-            $query['spaceType'] = $request->spaceType;
+
+        if (null !== $request->spaceType) {
+            @$query['spaceType'] = $request->spaceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProjectWorkitemTypes',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/getWorkitemType',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/projects/' . Url::percentEncode($projectId) . '/getWorkitemType',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProjectWorkitemTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProjectWorkitemTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProjectWorkitemTypesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取项目下开启的工作项类型
-     *  *
+     * 获取项目下开启的工作项类型.
+     *
+     * @param request - ListProjectWorkitemTypesRequest
+     * @returns ListProjectWorkitemTypesResponse
+     *
      * @param string                          $organizationId
      * @param string                          $projectId
-     * @param ListProjectWorkitemTypesRequest $request        ListProjectWorkitemTypesRequest
+     * @param ListProjectWorkitemTypesRequest $request
      *
-     * @return ListProjectWorkitemTypesResponse ListProjectWorkitemTypesResponse
+     * @return ListProjectWorkitemTypesResponse
      */
     public function listProjectWorkitemTypes($organizationId, $projectId, $request)
     {
@@ -10032,63 +12325,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目列表
-     *  *
-     * @param string              $organizationId
-     * @param ListProjectsRequest $request        ListProjectsRequest
-     * @param string[]            $headers        map
-     * @param RuntimeOptions      $runtime        runtime options for this request RuntimeOptions
+     * 获取项目列表.
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param request - ListProjectsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProjectsResponse
+     *
+     * @param string              $organizationId
+     * @param ListProjectsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListProjectsResponse
      */
     public function listProjectsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->conditions)) {
-            $query['conditions'] = $request->conditions;
+
+        if (null !== $request->conditions) {
+            @$query['conditions'] = $request->conditions;
         }
-        if (!Utils::isUnset($request->extraConditions)) {
-            $query['extraConditions'] = $request->extraConditions;
+
+        if (null !== $request->extraConditions) {
+            @$query['extraConditions'] = $request->extraConditions;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['scope'] = $request->scope;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProjects',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/listProjects',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/listProjects',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProjectsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取项目列表
-     *  *
-     * @param string              $organizationId
-     * @param ListProjectsRequest $request        ListProjectsRequest
+     * 获取项目列表.
      *
-     * @return ListProjectsResponse ListProjectsResponse
+     * @param request - ListProjectsRequest
+     * @returns ListProjectsResponse
+     *
+     * @param string              $organizationId
+     * @param ListProjectsRequest $request
+     *
+     * @return ListProjectsResponse
      */
     public function listProjects($organizationId, $request)
     {
@@ -10099,51 +12409,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询保护分支列表
-     *  *
-     * @param string                       $repositoryId
-     * @param ListProtectedBranchesRequest $request      ListProtectedBranchesRequest
-     * @param string[]                     $headers      map
-     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
+     * 查询保护分支列表.
      *
-     * @return ListProtectedBranchesResponse ListProtectedBranchesResponse
+     * @param request - ListProtectedBranchesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListProtectedBranchesResponse
+     *
+     * @param string                       $repositoryId
+     * @param ListProtectedBranchesRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListProtectedBranchesResponse
      */
     public function listProtectedBranchesWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListProtectedBranches',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/protect_branches',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/protect_branches',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListProtectedBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListProtectedBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProtectedBranchesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询保护分支列表
-     *  *
-     * @param string                       $repositoryId
-     * @param ListProtectedBranchesRequest $request      ListProtectedBranchesRequest
+     * 查询保护分支列表.
      *
-     * @return ListProtectedBranchesResponse ListProtectedBranchesResponse
+     * @param request - ListProtectedBranchesRequest
+     * @returns ListProtectedBranchesResponse
+     *
+     * @param string                       $repositoryId
+     * @param ListProtectedBranchesRequest $request
+     *
+     * @return ListProtectedBranchesResponse
      */
     public function listProtectedBranches($repositoryId, $request)
     {
@@ -10154,51 +12477,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询推送规则列表
-     *  *
-     * @param string               $repositoryId
-     * @param ListPushRulesRequest $request      ListPushRulesRequest
-     * @param string[]             $headers      map
-     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     * 查询推送规则列表.
      *
-     * @return ListPushRulesResponse ListPushRulesResponse
+     * @param request - ListPushRulesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPushRulesResponse
+     *
+     * @param string               $repositoryId
+     * @param ListPushRulesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListPushRulesResponse
      */
     public function listPushRulesWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListPushRules',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule/push_rules/list',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/push_rule/push_rules/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPushRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListPushRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPushRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询推送规则列表
-     *  *
-     * @param string               $repositoryId
-     * @param ListPushRulesRequest $request      ListPushRulesRequest
+     * 查询推送规则列表.
      *
-     * @return ListPushRulesResponse ListPushRulesResponse
+     * @param request - ListPushRulesRequest
+     * @returns ListPushRulesResponse
+     *
+     * @param string               $repositoryId
+     * @param ListPushRulesRequest $request
+     *
+     * @return ListPushRulesResponse
      */
     public function listPushRules($repositoryId, $request)
     {
@@ -10209,48 +12545,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码库列表
-     *  *
-     * @param ListRepositoriesRequest $request ListRepositoriesRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询代码库列表.
      *
-     * @return ListRepositoriesResponse ListRepositoriesResponse
+     * @param request - ListRepositoriesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRepositoriesResponse
+     *
+     * @param ListRepositoriesRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListRepositoriesResponse
      */
     public function listRepositoriesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->archived)) {
-            $query['archived'] = $request->archived;
+
+        if (null !== $request->archived) {
+            @$query['archived'] = $request->archived;
         }
-        if (!Utils::isUnset($request->minAccessLevel)) {
-            $query['minAccessLevel'] = $request->minAccessLevel;
+
+        if (null !== $request->minAccessLevel) {
+            @$query['minAccessLevel'] = $request->minAccessLevel;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->perPage)) {
-            $query['perPage'] = $request->perPage;
+
+        if (null !== $request->perPage) {
+            @$query['perPage'] = $request->perPage;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRepositories',
@@ -10263,16 +12613,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码库列表
-     *  *
-     * @param ListRepositoriesRequest $request ListRepositoriesRequest
+     * 查询代码库列表.
      *
-     * @return ListRepositoriesResponse ListRepositoriesResponse
+     * @param request - ListRepositoriesRequest
+     * @returns ListRepositoriesResponse
+     *
+     * @param ListRepositoriesRequest $request
+     *
+     * @return ListRepositoriesResponse
      */
     public function listRepositories($request)
     {
@@ -10283,63 +12639,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询分支列表
-     *  *
-     * @param string                        $repositoryId
-     * @param ListRepositoryBranchesRequest $request      ListRepositoryBranchesRequest
-     * @param string[]                      $headers      map
-     * @param RuntimeOptions                $runtime      runtime options for this request RuntimeOptions
+     * 查询分支列表.
      *
-     * @return ListRepositoryBranchesResponse ListRepositoryBranchesResponse
+     * @param request - ListRepositoryBranchesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRepositoryBranchesResponse
+     *
+     * @param string                        $repositoryId
+     * @param ListRepositoryBranchesRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListRepositoryBranchesResponse
      */
     public function listRepositoryBranchesWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRepositoryBranches',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/branches',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/branches',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoryBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoryBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoryBranchesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询分支列表
-     *  *
-     * @param string                        $repositoryId
-     * @param ListRepositoryBranchesRequest $request      ListRepositoryBranchesRequest
+     * 查询分支列表.
      *
-     * @return ListRepositoryBranchesResponse ListRepositoryBranchesResponse
+     * @param request - ListRepositoryBranchesRequest
+     * @returns ListRepositoryBranchesResponse
+     *
+     * @param string                        $repositoryId
+     * @param ListRepositoryBranchesRequest $request
+     *
+     * @return ListRepositoryBranchesResponse
      */
     public function listRepositoryBranches($repositoryId, $request)
     {
@@ -10350,56 +12723,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码库单个提交（Commit）的提交内容
-     *  *
+     * 查询代码库单个提交（Commit）的提交内容.
+     *
+     * @param request - ListRepositoryCommitDiffRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRepositoryCommitDiffResponse
+     *
      * @param string                          $repositoryId
      * @param string                          $sha
-     * @param ListRepositoryCommitDiffRequest $request      ListRepositoryCommitDiffRequest
-     * @param string[]                        $headers      map
-     * @param RuntimeOptions                  $runtime      runtime options for this request RuntimeOptions
+     * @param ListRepositoryCommitDiffRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return ListRepositoryCommitDiffResponse ListRepositoryCommitDiffResponse
+     * @return ListRepositoryCommitDiffResponse
      */
     public function listRepositoryCommitDiffWithOptions($repositoryId, $sha, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->contextLine)) {
-            $query['contextLine'] = $request->contextLine;
+
+        if (null !== $request->contextLine) {
+            @$query['contextLine'] = $request->contextLine;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRepositoryCommitDiff',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/commits/' . OpenApiUtilClient::getEncodeParam($sha) . '/diff',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/commits/' . Url::percentEncode($sha) . '/diff',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoryCommitDiffResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoryCommitDiffResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoryCommitDiffResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码库单个提交（Commit）的提交内容
-     *  *
+     * 查询代码库单个提交（Commit）的提交内容.
+     *
+     * @param request - ListRepositoryCommitDiffRequest
+     * @returns ListRepositoryCommitDiffResponse
+     *
      * @param string                          $repositoryId
      * @param string                          $sha
-     * @param ListRepositoryCommitDiffRequest $request      ListRepositoryCommitDiffRequest
+     * @param ListRepositoryCommitDiffRequest $request
      *
-     * @return ListRepositoryCommitDiffResponse ListRepositoryCommitDiffResponse
+     * @return ListRepositoryCommitDiffResponse
      */
     public function listRepositoryCommitDiff($repositoryId, $sha, $request)
     {
@@ -10410,78 +12797,100 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码库提交历史
-     *  *
-     * @param string                       $repositoryId
-     * @param ListRepositoryCommitsRequest $request      ListRepositoryCommitsRequest
-     * @param string[]                     $headers      map
-     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
+     * 查询代码库提交历史.
      *
-     * @return ListRepositoryCommitsResponse ListRepositoryCommitsResponse
+     * @param request - ListRepositoryCommitsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRepositoryCommitsResponse
+     *
+     * @param string                       $repositoryId
+     * @param ListRepositoryCommitsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListRepositoryCommitsResponse
      */
     public function listRepositoryCommitsWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->end)) {
-            $query['end'] = $request->end;
+
+        if (null !== $request->end) {
+            @$query['end'] = $request->end;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['path'] = $request->path;
         }
-        if (!Utils::isUnset($request->refName)) {
-            $query['refName'] = $request->refName;
+
+        if (null !== $request->refName) {
+            @$query['refName'] = $request->refName;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
         }
-        if (!Utils::isUnset($request->showCommentsCount)) {
-            $query['showCommentsCount'] = $request->showCommentsCount;
+
+        if (null !== $request->showCommentsCount) {
+            @$query['showCommentsCount'] = $request->showCommentsCount;
         }
-        if (!Utils::isUnset($request->showSignature)) {
-            $query['showSignature'] = $request->showSignature;
+
+        if (null !== $request->showSignature) {
+            @$query['showSignature'] = $request->showSignature;
         }
-        if (!Utils::isUnset($request->start)) {
-            $query['start'] = $request->start;
+
+        if (null !== $request->start) {
+            @$query['start'] = $request->start;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRepositoryCommits',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/commits',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/commits',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoryCommitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoryCommitsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoryCommitsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码库提交历史
-     *  *
-     * @param string                       $repositoryId
-     * @param ListRepositoryCommitsRequest $request      ListRepositoryCommitsRequest
+     * 查询代码库提交历史.
      *
-     * @return ListRepositoryCommitsResponse ListRepositoryCommitsResponse
+     * @param request - ListRepositoryCommitsRequest
+     * @returns ListRepositoryCommitsResponse
+     *
+     * @param string                       $repositoryId
+     * @param ListRepositoryCommitsRequest $request
+     *
+     * @return ListRepositoryCommitsResponse
      */
     public function listRepositoryCommits($repositoryId, $request)
     {
@@ -10492,48 +12901,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码组列表
-     *  *
-     * @param ListRepositoryGroupsRequest $request ListRepositoryGroupsRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 查询代码组列表.
      *
-     * @return ListRepositoryGroupsResponse ListRepositoryGroupsResponse
+     * @param request - ListRepositoryGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRepositoryGroupsResponse
+     *
+     * @param ListRepositoryGroupsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListRepositoryGroupsResponse
      */
     public function listRepositoryGroupsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->includePersonal)) {
-            $query['includePersonal'] = $request->includePersonal;
+
+        if (null !== $request->includePersonal) {
+            @$query['includePersonal'] = $request->includePersonal;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentId)) {
-            $query['parentId'] = $request->parentId;
+
+        if (null !== $request->parentId) {
+            @$query['parentId'] = $request->parentId;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRepositoryGroups',
@@ -10546,16 +12969,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoryGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoryGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoryGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码组列表
-     *  *
-     * @param ListRepositoryGroupsRequest $request ListRepositoryGroupsRequest
+     * 查询代码组列表.
      *
-     * @return ListRepositoryGroupsResponse ListRepositoryGroupsResponse
+     * @param request - ListRepositoryGroupsRequest
+     * @returns ListRepositoryGroupsResponse
+     *
+     * @param ListRepositoryGroupsRequest $request
+     *
+     * @return ListRepositoryGroupsResponse
      */
     public function listRepositoryGroups($request)
     {
@@ -10566,51 +12995,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码库成员列表
-     *  *
-     * @param string                                   $repositoryId
-     * @param ListRepositoryMemberWithInheritedRequest $request      ListRepositoryMemberWithInheritedRequest
-     * @param string[]                                 $headers      map
-     * @param RuntimeOptions                           $runtime      runtime options for this request RuntimeOptions
+     * 查询代码库成员列表.
      *
-     * @return ListRepositoryMemberWithInheritedResponse ListRepositoryMemberWithInheritedResponse
+     * @param request - ListRepositoryMemberWithInheritedRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRepositoryMemberWithInheritedResponse
+     *
+     * @param string                                   $repositoryId
+     * @param ListRepositoryMemberWithInheritedRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListRepositoryMemberWithInheritedResponse
      */
     public function listRepositoryMemberWithInheritedWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRepositoryMemberWithInherited',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members/list',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/members/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoryMemberWithInheritedResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoryMemberWithInheritedResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoryMemberWithInheritedResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码库成员列表
-     *  *
-     * @param string                                   $repositoryId
-     * @param ListRepositoryMemberWithInheritedRequest $request      ListRepositoryMemberWithInheritedRequest
+     * 查询代码库成员列表.
      *
-     * @return ListRepositoryMemberWithInheritedResponse ListRepositoryMemberWithInheritedResponse
+     * @param request - ListRepositoryMemberWithInheritedRequest
+     * @returns ListRepositoryMemberWithInheritedResponse
+     *
+     * @param string                                   $repositoryId
+     * @param ListRepositoryMemberWithInheritedRequest $request
+     *
+     * @return ListRepositoryMemberWithInheritedResponse
      */
     public function listRepositoryMemberWithInherited($repositoryId, $request)
     {
@@ -10621,63 +13063,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询标签列表
-     *  *
-     * @param string                    $repositoryId
-     * @param ListRepositoryTagsRequest $request      ListRepositoryTagsRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * 查询标签列表.
      *
-     * @return ListRepositoryTagsResponse ListRepositoryTagsResponse
+     * @param request - ListRepositoryTagsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRepositoryTagsResponse
+     *
+     * @param string                    $repositoryId
+     * @param ListRepositoryTagsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListRepositoryTagsResponse
      */
     public function listRepositoryTagsWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->search)) {
-            $query['search'] = $request->search;
+
+        if (null !== $request->search) {
+            @$query['search'] = $request->search;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRepositoryTags',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/tag/list',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/tag/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoryTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoryTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoryTagsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询标签列表
-     *  *
-     * @param string                    $repositoryId
-     * @param ListRepositoryTagsRequest $request      ListRepositoryTagsRequest
+     * 查询标签列表.
      *
-     * @return ListRepositoryTagsResponse ListRepositoryTagsResponse
+     * @param request - ListRepositoryTagsRequest
+     * @returns ListRepositoryTagsResponse
+     *
+     * @param string                    $repositoryId
+     * @param ListRepositoryTagsRequest $request
+     *
+     * @return ListRepositoryTagsResponse
      */
     public function listRepositoryTags($repositoryId, $request)
     {
@@ -10688,60 +13147,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码库文件树
-     *  *
-     * @param string                    $repositoryId
-     * @param ListRepositoryTreeRequest $request      ListRepositoryTreeRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * 查询代码库文件树.
      *
-     * @return ListRepositoryTreeResponse ListRepositoryTreeResponse
+     * @param request - ListRepositoryTreeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRepositoryTreeResponse
+     *
+     * @param string                    $repositoryId
+     * @param ListRepositoryTreeRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListRepositoryTreeResponse
      */
     public function listRepositoryTreeWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->path)) {
-            $query['path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$query['path'] = $request->path;
         }
-        if (!Utils::isUnset($request->refName)) {
-            $query['refName'] = $request->refName;
+
+        if (null !== $request->refName) {
+            @$query['refName'] = $request->refName;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRepositoryTree',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/tree',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/files/tree',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoryTreeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码库文件树
-     *  *
-     * @param string                    $repositoryId
-     * @param ListRepositoryTreeRequest $request      ListRepositoryTreeRequest
+     * 查询代码库文件树.
      *
-     * @return ListRepositoryTreeResponse ListRepositoryTreeResponse
+     * @param request - ListRepositoryTreeRequest
+     * @returns ListRepositoryTreeResponse
+     *
+     * @param string                    $repositoryId
+     * @param ListRepositoryTreeRequest $request
+     *
+     * @return ListRepositoryTreeResponse
      */
     public function listRepositoryTree($repositoryId, $request)
     {
@@ -10752,57 +13227,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询代码库Webhook列表
-     *  *
-     * @param string                       $repositoryId
-     * @param ListRepositoryWebhookRequest $request      ListRepositoryWebhookRequest
-     * @param string[]                     $headers      map
-     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
+     * 查询代码库Webhook列表.
      *
-     * @return ListRepositoryWebhookResponse ListRepositoryWebhookResponse
+     * @param request - ListRepositoryWebhookRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListRepositoryWebhookResponse
+     *
+     * @param string                       $repositoryId
+     * @param ListRepositoryWebhookRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListRepositoryWebhookResponse
      */
     public function listRepositoryWebhookWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListRepositoryWebhook',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/webhooks/list',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/webhooks/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoryWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoryWebhookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoryWebhookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询代码库Webhook列表
-     *  *
-     * @param string                       $repositoryId
-     * @param ListRepositoryWebhookRequest $request      ListRepositoryWebhookRequest
+     * 查询代码库Webhook列表.
      *
-     * @return ListRepositoryWebhookResponse ListRepositoryWebhookResponse
+     * @param request - ListRepositoryWebhookRequest
+     * @returns ListRepositoryWebhookResponse
+     *
+     * @param string                       $repositoryId
+     * @param ListRepositoryWebhookRequest $request
+     *
+     * @return ListRepositoryWebhookResponse
      */
     public function listRepositoryWebhook($repositoryId, $request)
     {
@@ -10813,15 +13303,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源成员列表
-     *  *
+     * 获取资源成员列表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourceMembersResponse
+     *
      * @param string         $organizationId
      * @param string         $resourceType
      * @param string         $resourceId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListResourceMembersResponse ListResourceMembersResponse
+     * @return ListResourceMembersResponse
      */
     public function listResourceMembersWithOptions($organizationId, $resourceType, $resourceId, $headers, $runtime)
     {
@@ -10832,25 +13326,30 @@ class Devops extends OpenApiClient
             'action'      => 'ListResourceMembers',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($resourceType) . '/' . OpenApiUtilClient::getEncodeParam($resourceId) . '/members',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/' . Url::percentEncode($resourceType) . '/' . Url::percentEncode($resourceId) . '/members',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourceMembersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourceMembersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取资源成员列表
-     *  *
+     * 获取资源成员列表.
+     *
+     * @returns ListResourceMembersResponse
+     *
      * @param string $organizationId
      * @param string $resourceType
      * @param string $resourceId
      *
-     * @return ListResourceMembersResponse ListResourceMembersResponse
+     * @return ListResourceMembersResponse
      */
     public function listResourceMembers($organizationId, $resourceType, $resourceId)
     {
@@ -10861,47 +13360,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 搜索代码提交数据
-     *  *
-     * @param ListSearchCommitRequest $request ListSearchCommitRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 搜索代码提交数据.
      *
-     * @return ListSearchCommitResponse ListSearchCommitResponse
+     * @param request - ListSearchCommitRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSearchCommitResponse
+     *
+     * @param ListSearchCommitRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSearchCommitResponse
      */
     public function listSearchCommitWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $body['keyword'] = $request->keyword;
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$body['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->page)) {
-            $body['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoPath)) {
-            $body['repoPath'] = $request->repoPath;
+
+        if (null !== $request->repoPath) {
+            @$body['repoPath'] = $request->repoPath;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $body['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$body['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListSearchCommit',
@@ -10914,16 +13426,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSearchCommitResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSearchCommitResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSearchCommitResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 搜索代码提交数据
-     *  *
-     * @param ListSearchCommitRequest $request ListSearchCommitRequest
+     * 搜索代码提交数据.
      *
-     * @return ListSearchCommitResponse ListSearchCommitResponse
+     * @param request - ListSearchCommitRequest
+     * @returns ListSearchCommitResponse
+     *
+     * @param ListSearchCommitRequest $request
+     *
+     * @return ListSearchCommitResponse
      */
     public function listSearchCommit($request)
     {
@@ -10934,53 +13452,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 搜索代码仓库数据
-     *  *
-     * @param ListSearchRepositoryRequest $request ListSearchRepositoryRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 搜索代码仓库数据.
      *
-     * @return ListSearchRepositoryResponse ListSearchRepositoryResponse
+     * @param request - ListSearchRepositoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSearchRepositoryResponse
+     *
+     * @param ListSearchRepositoryRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSearchRepositoryResponse
      */
     public function listSearchRepositoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->aliyunPk)) {
-            $body['aliyunPk'] = $request->aliyunPk;
+        if (null !== $request->aliyunPk) {
+            @$body['aliyunPk'] = $request->aliyunPk;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$body['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->page)) {
-            $body['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoPath)) {
-            $body['repoPath'] = $request->repoPath;
+
+        if (null !== $request->repoPath) {
+            @$body['repoPath'] = $request->repoPath;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $body['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$body['sort'] = $request->sort;
         }
-        if (!Utils::isUnset($request->visibilityLevel)) {
-            $body['visibilityLevel'] = $request->visibilityLevel;
+
+        if (null !== $request->visibilityLevel) {
+            @$body['visibilityLevel'] = $request->visibilityLevel;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListSearchRepository',
@@ -10993,16 +13526,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSearchRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSearchRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSearchRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 搜索代码仓库数据
-     *  *
-     * @param ListSearchRepositoryRequest $request ListSearchRepositoryRequest
+     * 搜索代码仓库数据.
      *
-     * @return ListSearchRepositoryResponse ListSearchRepositoryResponse
+     * @param request - ListSearchRepositoryRequest
+     * @returns ListSearchRepositoryResponse
+     *
+     * @param ListSearchRepositoryRequest $request
+     *
+     * @return ListSearchRepositoryResponse
      */
     public function listSearchRepository($request)
     {
@@ -11013,56 +13552,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 搜索代码片段
-     *  *
-     * @param ListSearchSourceCodeRequest $request ListSearchSourceCodeRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 搜索代码片段.
      *
-     * @return ListSearchSourceCodeResponse ListSearchSourceCodeResponse
+     * @param request - ListSearchSourceCodeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSearchSourceCodeResponse
+     *
+     * @param ListSearchSourceCodeRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSearchSourceCodeResponse
      */
     public function listSearchSourceCodeWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->filePath)) {
-            $body['filePath'] = $request->filePath;
+        if (null !== $request->filePath) {
+            @$body['filePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->isCodeBlock)) {
-            $body['isCodeBlock'] = $request->isCodeBlock;
+
+        if (null !== $request->isCodeBlock) {
+            @$body['isCodeBlock'] = $request->isCodeBlock;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $body['keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$body['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->language)) {
-            $body['language'] = $request->language;
+
+        if (null !== $request->language) {
+            @$body['language'] = $request->language;
         }
-        if (!Utils::isUnset($request->order)) {
-            $body['order'] = $request->order;
+
+        if (null !== $request->order) {
+            @$body['order'] = $request->order;
         }
-        if (!Utils::isUnset($request->page)) {
-            $body['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$body['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoPath)) {
-            $body['repoPath'] = $request->repoPath;
+
+        if (null !== $request->repoPath) {
+            @$body['repoPath'] = $request->repoPath;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $body['scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$body['scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $body['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$body['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListSearchSourceCode',
@@ -11075,16 +13630,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSearchSourceCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSearchSourceCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSearchSourceCodeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 搜索代码片段
-     *  *
-     * @param ListSearchSourceCodeRequest $request ListSearchSourceCodeRequest
+     * 搜索代码片段.
      *
-     * @return ListSearchSourceCodeResponse ListSearchSourceCodeResponse
+     * @param request - ListSearchSourceCodeRequest
+     * @returns ListSearchSourceCodeResponse
+     *
+     * @param ListSearchSourceCodeRequest $request
+     *
+     * @return ListSearchSourceCodeResponse
      */
     public function listSearchSourceCode($request)
     {
@@ -11095,48 +13656,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务授权列表
-     *  *
-     * @param string                  $organizationId
-     * @param ListServiceAuthsRequest $request        ListServiceAuthsRequest
-     * @param string[]                $headers        map
-     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
+     * 获取服务授权列表.
      *
-     * @return ListServiceAuthsResponse ListServiceAuthsResponse
+     * @param request - ListServiceAuthsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceAuthsResponse
+     *
+     * @param string                  $organizationId
+     * @param ListServiceAuthsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListServiceAuthsResponse
      */
     public function listServiceAuthsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->serviceAuthType)) {
-            $query['serviceAuthType'] = $request->serviceAuthType;
+        if (null !== $request->serviceAuthType) {
+            @$query['serviceAuthType'] = $request->serviceAuthType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListServiceAuths',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceAuths',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/serviceAuths',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceAuthsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListServiceAuthsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServiceAuthsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取服务授权列表
-     *  *
-     * @param string                  $organizationId
-     * @param ListServiceAuthsRequest $request        ListServiceAuthsRequest
+     * 获取服务授权列表.
      *
-     * @return ListServiceAuthsResponse ListServiceAuthsResponse
+     * @param request - ListServiceAuthsRequest
+     * @returns ListServiceAuthsResponse
+     *
+     * @param string                  $organizationId
+     * @param ListServiceAuthsRequest $request
+     *
+     * @return ListServiceAuthsResponse
      */
     public function listServiceAuths($organizationId, $request)
     {
@@ -11147,48 +13720,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务连接列表
-     *  *
-     * @param string                        $organizationId
-     * @param ListServiceConnectionsRequest $request        ListServiceConnectionsRequest
-     * @param string[]                      $headers        map
-     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
+     * 获取服务连接列表.
      *
-     * @return ListServiceConnectionsResponse ListServiceConnectionsResponse
+     * @param request - ListServiceConnectionsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceConnectionsResponse
+     *
+     * @param string                        $organizationId
+     * @param ListServiceConnectionsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListServiceConnectionsResponse
      */
     public function listServiceConnectionsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sericeConnectionType)) {
-            $query['sericeConnectionType'] = $request->sericeConnectionType;
+        if (null !== $request->sericeConnectionType) {
+            @$query['sericeConnectionType'] = $request->sericeConnectionType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListServiceConnections',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceConnections',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/serviceConnections',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListServiceConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServiceConnectionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取服务连接列表
-     *  *
-     * @param string                        $organizationId
-     * @param ListServiceConnectionsRequest $request        ListServiceConnectionsRequest
+     * 获取服务连接列表.
      *
-     * @return ListServiceConnectionsResponse ListServiceConnectionsResponse
+     * @param request - ListServiceConnectionsRequest
+     * @returns ListServiceConnectionsResponse
+     *
+     * @param string                        $organizationId
+     * @param ListServiceConnectionsRequest $request
+     *
+     * @return ListServiceConnectionsResponse
      */
     public function listServiceConnections($organizationId, $request)
     {
@@ -11199,48 +13784,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务证书列表
-     *  *
-     * @param string                        $organizationId
-     * @param ListServiceCredentialsRequest $request        ListServiceCredentialsRequest
-     * @param string[]                      $headers        map
-     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
+     * 获取服务证书列表.
      *
-     * @return ListServiceCredentialsResponse ListServiceCredentialsResponse
+     * @param request - ListServiceCredentialsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListServiceCredentialsResponse
+     *
+     * @param string                        $organizationId
+     * @param ListServiceCredentialsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListServiceCredentialsResponse
      */
     public function listServiceCredentialsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->serviceCredentialType)) {
-            $query['serviceCredentialType'] = $request->serviceCredentialType;
+        if (null !== $request->serviceCredentialType) {
+            @$query['serviceCredentialType'] = $request->serviceCredentialType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListServiceCredentials',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceCredentials',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/serviceCredentials',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListServiceCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListServiceCredentialsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取服务证书列表
-     *  *
-     * @param string                        $organizationId
-     * @param ListServiceCredentialsRequest $request        ListServiceCredentialsRequest
+     * 获取服务证书列表.
      *
-     * @return ListServiceCredentialsResponse ListServiceCredentialsResponse
+     * @param request - ListServiceCredentialsRequest
+     * @returns ListServiceCredentialsResponse
+     *
+     * @param string                        $organizationId
+     * @param ListServiceCredentialsRequest $request
+     *
+     * @return ListServiceCredentialsResponse
      */
     public function listServiceCredentials($organizationId, $request)
     {
@@ -11251,57 +13848,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取迭代列表
-     *  *
-     * @param string             $organizationId
-     * @param ListSprintsRequest $request        ListSprintsRequest
-     * @param string[]           $headers        map
-     * @param RuntimeOptions     $runtime        runtime options for this request RuntimeOptions
+     * 获取迭代列表.
      *
-     * @return ListSprintsResponse ListSprintsResponse
+     * @param request - ListSprintsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSprintsResponse
+     *
+     * @param string             $organizationId
+     * @param ListSprintsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSprintsResponse
      */
     public function listSprintsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $query['spaceIdentifier'] = $request->spaceIdentifier;
+
+        if (null !== $request->spaceIdentifier) {
+            @$query['spaceIdentifier'] = $request->spaceIdentifier;
         }
-        if (!Utils::isUnset($request->spaceType)) {
-            $query['spaceType'] = $request->spaceType;
+
+        if (null !== $request->spaceType) {
+            @$query['spaceType'] = $request->spaceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSprints',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sprints/list',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/sprints/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSprintsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSprintsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSprintsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取迭代列表
-     *  *
-     * @param string             $organizationId
-     * @param ListSprintsRequest $request        ListSprintsRequest
+     * 获取迭代列表.
      *
-     * @return ListSprintsResponse ListSprintsResponse
+     * @param request - ListSprintsRequest
+     * @returns ListSprintsResponse
+     *
+     * @param string             $organizationId
+     * @param ListSprintsRequest $request
+     *
+     * @return ListSprintsResponse
      */
     public function listSprints($organizationId, $request)
     {
@@ -11312,48 +13924,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取测试用例全部字段
-     *  *
-     * @param string                    $organizationId
-     * @param ListTestCaseFieldsRequest $request        ListTestCaseFieldsRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * 获取测试用例全部字段.
      *
-     * @return ListTestCaseFieldsResponse ListTestCaseFieldsResponse
+     * @param request - ListTestCaseFieldsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTestCaseFieldsResponse
+     *
+     * @param string                    $organizationId
+     * @param ListTestCaseFieldsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListTestCaseFieldsResponse
      */
     public function listTestCaseFieldsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $query['spaceIdentifier'] = $request->spaceIdentifier;
+        if (null !== $request->spaceIdentifier) {
+            @$query['spaceIdentifier'] = $request->spaceIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTestCaseFields',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testcase/fields',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/testhub/testcase/fields',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTestCaseFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTestCaseFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTestCaseFieldsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取测试用例全部字段
-     *  *
-     * @param string                    $organizationId
-     * @param ListTestCaseFieldsRequest $request        ListTestCaseFieldsRequest
+     * 获取测试用例全部字段.
      *
-     * @return ListTestCaseFieldsResponse ListTestCaseFieldsResponse
+     * @param request - ListTestCaseFieldsRequest
+     * @returns ListTestCaseFieldsResponse
+     *
+     * @param string                    $organizationId
+     * @param ListTestCaseFieldsRequest $request
+     *
+     * @return ListTestCaseFieldsResponse
      */
     public function listTestCaseFields($organizationId, $request)
     {
@@ -11364,30 +13988,38 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 测试DrawService
-     *  *
-     * @param ListUserDrawRecordByPkRequest $request ListUserDrawRecordByPkRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 测试DrawService.
      *
-     * @return ListUserDrawRecordByPkResponse ListUserDrawRecordByPkResponse
+     * @param request - ListUserDrawRecordByPkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserDrawRecordByPkResponse
+     *
+     * @param ListUserDrawRecordByPkRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListUserDrawRecordByPkResponse
      */
     public function listUserDrawRecordByPkWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliyunPk)) {
-            $query['aliyunPk'] = $request->aliyunPk;
+        if (null !== $request->aliyunPk) {
+            @$query['aliyunPk'] = $request->aliyunPk;
         }
-        if (!Utils::isUnset($request->drawGroup)) {
-            $query['drawGroup'] = $request->drawGroup;
+
+        if (null !== $request->drawGroup) {
+            @$query['drawGroup'] = $request->drawGroup;
         }
-        if (!Utils::isUnset($request->drawPoolName)) {
-            $query['drawPoolName'] = $request->drawPoolName;
+
+        if (null !== $request->drawPoolName) {
+            @$query['drawPoolName'] = $request->drawPoolName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserDrawRecordByPk',
@@ -11400,16 +14032,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserDrawRecordByPkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserDrawRecordByPkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserDrawRecordByPkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 测试DrawService
-     *  *
-     * @param ListUserDrawRecordByPkRequest $request ListUserDrawRecordByPkRequest
+     * 测试DrawService.
      *
-     * @return ListUserDrawRecordByPkResponse ListUserDrawRecordByPkResponse
+     * @param request - ListUserDrawRecordByPkRequest
+     * @returns ListUserDrawRecordByPkResponse
+     *
+     * @param ListUserDrawRecordByPkRequest $request
+     *
+     * @return ListUserDrawRecordByPkResponse
      */
     public function listUserDrawRecordByPk($request)
     {
@@ -11420,39 +14058,50 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询当前用户的SSH Key列表
-     *  *
-     * @param ListUserKeysRequest $request ListUserKeysRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 查询当前用户的SSH Key列表.
      *
-     * @return ListUserKeysResponse ListUserKeysResponse
+     * @param request - ListUserKeysRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserKeysResponse
+     *
+     * @param ListUserKeysRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListUserKeysResponse
      */
     public function listUserKeysWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sort)) {
-            $query['sort'] = $request->sort;
+
+        if (null !== $request->sort) {
+            @$query['sort'] = $request->sort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserKeys',
@@ -11465,16 +14114,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询当前用户的SSH Key列表
-     *  *
-     * @param ListUserKeysRequest $request ListUserKeysRequest
+     * 查询当前用户的SSH Key列表.
      *
-     * @return ListUserKeysResponse ListUserKeysResponse
+     * @param request - ListUserKeysRequest
+     * @returns ListUserKeysResponse
+     *
+     * @param ListUserKeysRequest $request
+     *
+     * @return ListUserKeysResponse
      */
     public function listUserKeys($request)
     {
@@ -11485,36 +14140,46 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户有权限的资源（代码库、组）
-     *  *
-     * @param ListUserResourcesRequest $request ListUserResourcesRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询用户有权限的资源（代码库、组）.
      *
-     * @return ListUserResourcesResponse ListUserResourcesResponse
+     * @param request - ListUserResourcesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListUserResourcesResponse
+     *
+     * @param ListUserResourcesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUserResourcesResponse
      */
     public function listUserResourcesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->page)) {
-            $query['page'] = $request->page;
+
+        if (null !== $request->page) {
+            @$query['page'] = $request->page;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->userIds)) {
-            $query['userIds'] = $request->userIds;
+
+        if (null !== $request->userIds) {
+            @$query['userIds'] = $request->userIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListUserResources',
@@ -11527,16 +14192,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListUserResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListUserResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListUserResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户有权限的资源（代码库、组）
-     *  *
-     * @param ListUserResourcesRequest $request ListUserResourcesRequest
+     * 查询用户有权限的资源（代码库、组）.
      *
-     * @return ListUserResourcesResponse ListUserResourcesResponse
+     * @param request - ListUserResourcesRequest
+     * @returns ListUserResourcesResponse
+     *
+     * @param ListUserResourcesRequest $request
+     *
+     * @return ListUserResourcesResponse
      */
     public function listUserResources($request)
     {
@@ -11547,57 +14218,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取变量组列表
-     *  *
-     * @param string                    $organizationId
-     * @param ListVariableGroupsRequest $request        ListVariableGroupsRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * 获取变量组列表.
      *
-     * @return ListVariableGroupsResponse ListVariableGroupsResponse
+     * @param request - ListVariableGroupsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVariableGroupsResponse
+     *
+     * @param string                    $organizationId
+     * @param ListVariableGroupsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListVariableGroupsResponse
      */
     public function listVariableGroupsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageOrder)) {
-            $query['pageOrder'] = $request->pageOrder;
+
+        if (null !== $request->pageOrder) {
+            @$query['pageOrder'] = $request->pageOrder;
         }
-        if (!Utils::isUnset($request->pageSort)) {
-            $query['pageSort'] = $request->pageSort;
+
+        if (null !== $request->pageSort) {
+            @$query['pageSort'] = $request->pageSort;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListVariableGroups',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/variableGroups',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVariableGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVariableGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVariableGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取变量组列表
-     *  *
-     * @param string                    $organizationId
-     * @param ListVariableGroupsRequest $request        ListVariableGroupsRequest
+     * 获取变量组列表.
      *
-     * @return ListVariableGroupsResponse ListVariableGroupsResponse
+     * @param request - ListVariableGroupsRequest
+     * @returns ListVariableGroupsResponse
+     *
+     * @param string                    $organizationId
+     * @param ListVariableGroupsRequest $request
+     *
+     * @return ListVariableGroupsResponse
      */
     public function listVariableGroups($organizationId, $request)
     {
@@ -11608,54 +14294,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取项目下工作项的所有字段
-     *  *
-     * @param string                       $organizationId
-     * @param ListWorkItemAllFieldsRequest $request        ListWorkItemAllFieldsRequest
-     * @param string[]                     $headers        map
-     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     * 获取项目下工作项的所有字段.
      *
-     * @return ListWorkItemAllFieldsResponse ListWorkItemAllFieldsResponse
+     * @param request - ListWorkItemAllFieldsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkItemAllFieldsResponse
+     *
+     * @param string                       $organizationId
+     * @param ListWorkItemAllFieldsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListWorkItemAllFieldsResponse
      */
     public function listWorkItemAllFieldsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $query['spaceIdentifier'] = $request->spaceIdentifier;
+        if (null !== $request->spaceIdentifier) {
+            @$query['spaceIdentifier'] = $request->spaceIdentifier;
         }
-        if (!Utils::isUnset($request->spaceType)) {
-            $query['spaceType'] = $request->spaceType;
+
+        if (null !== $request->spaceType) {
+            @$query['spaceType'] = $request->spaceType;
         }
-        if (!Utils::isUnset($request->workitemTypeIdentifier)) {
-            $query['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
+
+        if (null !== $request->workitemTypeIdentifier) {
+            @$query['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWorkItemAllFields',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/fields/listAll',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/fields/listAll',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkItemAllFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkItemAllFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkItemAllFieldsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取项目下工作项的所有字段
-     *  *
-     * @param string                       $organizationId
-     * @param ListWorkItemAllFieldsRequest $request        ListWorkItemAllFieldsRequest
+     * 获取项目下工作项的所有字段.
      *
-     * @return ListWorkItemAllFieldsResponse ListWorkItemAllFieldsResponse
+     * @param request - ListWorkItemAllFieldsRequest
+     * @returns ListWorkItemAllFieldsResponse
+     *
+     * @param string                       $organizationId
+     * @param ListWorkItemAllFieldsRequest $request
+     *
+     * @return ListWorkItemAllFieldsResponse
      */
     public function listWorkItemAllFields($organizationId, $request)
     {
@@ -11666,57 +14366,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作项工作流的所有状态
-     *  *
-     * @param string                            $organizationId
-     * @param ListWorkItemWorkFlowStatusRequest $request        ListWorkItemWorkFlowStatusRequest
-     * @param string[]                          $headers        map
-     * @param RuntimeOptions                    $runtime        runtime options for this request RuntimeOptions
+     * 查询工作项工作流的所有状态
      *
-     * @return ListWorkItemWorkFlowStatusResponse ListWorkItemWorkFlowStatusResponse
+     * @param request - ListWorkItemWorkFlowStatusRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkItemWorkFlowStatusResponse
+     *
+     * @param string                            $organizationId
+     * @param ListWorkItemWorkFlowStatusRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListWorkItemWorkFlowStatusResponse
      */
     public function listWorkItemWorkFlowStatusWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $query['spaceIdentifier'] = $request->spaceIdentifier;
+        if (null !== $request->spaceIdentifier) {
+            @$query['spaceIdentifier'] = $request->spaceIdentifier;
         }
-        if (!Utils::isUnset($request->spaceType)) {
-            $query['spaceType'] = $request->spaceType;
+
+        if (null !== $request->spaceType) {
+            @$query['spaceType'] = $request->spaceType;
         }
-        if (!Utils::isUnset($request->workitemCategoryIdentifier)) {
-            $query['workitemCategoryIdentifier'] = $request->workitemCategoryIdentifier;
+
+        if (null !== $request->workitemCategoryIdentifier) {
+            @$query['workitemCategoryIdentifier'] = $request->workitemCategoryIdentifier;
         }
-        if (!Utils::isUnset($request->workitemTypeIdentifier)) {
-            $query['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
+
+        if (null !== $request->workitemTypeIdentifier) {
+            @$query['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWorkItemWorkFlowStatus',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/workflow/listWorkflowStatus',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/workflow/listWorkflowStatus',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkItemWorkFlowStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkItemWorkFlowStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkItemWorkFlowStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询工作项工作流的所有状态
-     *  *
-     * @param string                            $organizationId
-     * @param ListWorkItemWorkFlowStatusRequest $request        ListWorkItemWorkFlowStatusRequest
+     * 查询工作项工作流的所有状态
      *
-     * @return ListWorkItemWorkFlowStatusResponse ListWorkItemWorkFlowStatusResponse
+     * @param request - ListWorkItemWorkFlowStatusRequest
+     * @returns ListWorkItemWorkFlowStatusResponse
+     *
+     * @param string                            $organizationId
+     * @param ListWorkItemWorkFlowStatusRequest $request
+     *
+     * @return ListWorkItemWorkFlowStatusResponse
      */
     public function listWorkItemWorkFlowStatus($organizationId, $request)
     {
@@ -11727,14 +14442,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作项的附件列表
-     *  *
+     * 获取工作项的附件列表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkitemAttachmentsResponse
+     *
      * @param string         $organizationId
      * @param string         $workitemIdentifier
-     * @param string[]       $headers            map
-     * @param RuntimeOptions $runtime            runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListWorkitemAttachmentsResponse ListWorkitemAttachmentsResponse
+     * @return ListWorkitemAttachmentsResponse
      */
     public function listWorkitemAttachmentsWithOptions($organizationId, $workitemIdentifier, $headers, $runtime)
     {
@@ -11745,24 +14464,29 @@ class Devops extends OpenApiClient
             'action'      => 'ListWorkitemAttachments',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/' . OpenApiUtilClient::getEncodeParam($workitemIdentifier) . '/attachments',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitem/' . Url::percentEncode($workitemIdentifier) . '/attachments',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkitemAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkitemAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkitemAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作项的附件列表
-     *  *
+     * 获取工作项的附件列表.
+     *
+     * @returns ListWorkitemAttachmentsResponse
+     *
      * @param string $organizationId
      * @param string $workitemIdentifier
      *
-     * @return ListWorkitemAttachmentsResponse ListWorkitemAttachmentsResponse
+     * @return ListWorkitemAttachmentsResponse
      */
     public function listWorkitemAttachments($organizationId, $workitemIdentifier)
     {
@@ -11773,14 +14497,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作项预计工时明细列表
-     *  *
+     * 获取工作项预计工时明细列表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkitemEstimateResponse
+     *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListWorkitemEstimateResponse ListWorkitemEstimateResponse
+     * @return ListWorkitemEstimateResponse
      */
     public function listWorkitemEstimateWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -11791,24 +14519,29 @@ class Devops extends OpenApiClient
             'action'      => 'ListWorkitemEstimate',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/estimate/list',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/' . Url::percentEncode($workitemId) . '/estimate/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkitemEstimateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkitemEstimateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkitemEstimateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作项预计工时明细列表
-     *  *
+     * 获取工作项预计工时明细列表.
+     *
+     * @returns ListWorkitemEstimateResponse
+     *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return ListWorkitemEstimateResponse ListWorkitemEstimateResponse
+     * @return ListWorkitemEstimateResponse
      */
     public function listWorkitemEstimate($organizationId, $workitemId)
     {
@@ -11819,14 +14552,18 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作项工时明细列表
-     *  *
+     * 获取工作项工时明细列表.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkitemTimeResponse
+     *
      * @param string         $organizationId
      * @param string         $workitemId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ListWorkitemTimeResponse ListWorkitemTimeResponse
+     * @return ListWorkitemTimeResponse
      */
     public function listWorkitemTimeWithOptions($organizationId, $workitemId, $headers, $runtime)
     {
@@ -11837,24 +14574,29 @@ class Devops extends OpenApiClient
             'action'      => 'ListWorkitemTime',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/time/list',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/' . Url::percentEncode($workitemId) . '/time/list',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkitemTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkitemTimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkitemTimeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作项工时明细列表
-     *  *
+     * 获取工作项工时明细列表.
+     *
+     * @returns ListWorkitemTimeResponse
+     *
      * @param string $organizationId
      * @param string $workitemId
      *
-     * @return ListWorkitemTimeResponse ListWorkitemTimeResponse
+     * @return ListWorkitemTimeResponse
      */
     public function listWorkitemTime($organizationId, $workitemId)
     {
@@ -11865,75 +14607,96 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取工作项列表
-     *  *
-     * @param string               $organizationId
-     * @param ListWorkitemsRequest $request        ListWorkitemsRequest
-     * @param string[]             $headers        map
-     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
+     * 获取工作项列表.
      *
-     * @return ListWorkitemsResponse ListWorkitemsResponse
+     * @param request - ListWorkitemsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListWorkitemsResponse
+     *
+     * @param string               $organizationId
+     * @param ListWorkitemsRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListWorkitemsResponse
      */
     public function listWorkitemsWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['category'] = $request->category;
+        if (null !== $request->category) {
+            @$query['category'] = $request->category;
         }
-        if (!Utils::isUnset($request->conditions)) {
-            $query['conditions'] = $request->conditions;
+
+        if (null !== $request->conditions) {
+            @$query['conditions'] = $request->conditions;
         }
-        if (!Utils::isUnset($request->extraConditions)) {
-            $query['extraConditions'] = $request->extraConditions;
+
+        if (null !== $request->extraConditions) {
+            @$query['extraConditions'] = $request->extraConditions;
         }
-        if (!Utils::isUnset($request->groupCondition)) {
-            $query['groupCondition'] = $request->groupCondition;
+
+        if (null !== $request->groupCondition) {
+            @$query['groupCondition'] = $request->groupCondition;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['maxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['nextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['orderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['orderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->searchType)) {
-            $query['searchType'] = $request->searchType;
+
+        if (null !== $request->searchType) {
+            @$query['searchType'] = $request->searchType;
         }
-        if (!Utils::isUnset($request->spaceIdentifier)) {
-            $query['spaceIdentifier'] = $request->spaceIdentifier;
+
+        if (null !== $request->spaceIdentifier) {
+            @$query['spaceIdentifier'] = $request->spaceIdentifier;
         }
-        if (!Utils::isUnset($request->spaceType)) {
-            $query['spaceType'] = $request->spaceType;
+
+        if (null !== $request->spaceType) {
+            @$query['spaceType'] = $request->spaceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListWorkitems',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/listWorkitems',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/listWorkitems',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListWorkitemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWorkitemsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWorkitemsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取工作项列表
-     *  *
-     * @param string               $organizationId
-     * @param ListWorkitemsRequest $request        ListWorkitemsRequest
+     * 获取工作项列表.
      *
-     * @return ListWorkitemsResponse ListWorkitemsResponse
+     * @param request - ListWorkitemsRequest
+     * @returns ListWorkitemsResponse
+     *
+     * @param string               $organizationId
+     * @param ListWorkitemsRequest $request
+     *
+     * @return ListWorkitemsResponse
      */
     public function listWorkitems($organizationId, $request)
     {
@@ -11944,16 +14707,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取流水线运行任务日志
-     *  *
+     * 获取流水线运行任务日志.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LogPipelineJobRunResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $jobId
      * @param string         $pipelineRunId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return LogPipelineJobRunResponse LogPipelineJobRunResponse
+     * @return LogPipelineJobRunResponse
      */
     public function logPipelineJobRunWithOptions($organizationId, $pipelineId, $jobId, $pipelineRunId, $headers, $runtime)
     {
@@ -11964,26 +14731,31 @@ class Devops extends OpenApiClient
             'action'      => 'LogPipelineJobRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipeline/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRun/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/job/' . OpenApiUtilClient::getEncodeParam($jobId) . '/logs',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipeline/' . Url::percentEncode($pipelineId) . '/pipelineRun/' . Url::percentEncode($pipelineRunId) . '/job/' . Url::percentEncode($jobId) . '/logs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LogPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LogPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LogPipelineJobRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取流水线运行任务日志
-     *  *
+     * 获取流水线运行任务日志.
+     *
+     * @returns LogPipelineJobRunResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $jobId
      * @param string $pipelineRunId
      *
-     * @return LogPipelineJobRunResponse LogPipelineJobRunResponse
+     * @return LogPipelineJobRunResponse
      */
     public function logPipelineJobRun($organizationId, $pipelineId, $jobId, $pipelineRunId)
     {
@@ -11994,16 +14766,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 获取机器部署日志
-     *  *
+     * 获取机器部署日志.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns LogVMDeployMachineResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
      * @param string         $machineSn
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return LogVMDeployMachineResponse LogVMDeployMachineResponse
+     * @return LogVMDeployMachineResponse
      */
     public function logVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
     {
@@ -12014,26 +14790,31 @@ class Devops extends OpenApiClient
             'action'      => 'LogVMDeployMachine',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/machine/' . OpenApiUtilClient::getEncodeParam($machineSn) . '/log',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/deploy/' . Url::percentEncode($deployOrderId) . '/machine/' . Url::percentEncode($machineSn) . '/log',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return LogVMDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return LogVMDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return LogVMDeployMachineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 获取机器部署日志
-     *  *
+     * 获取机器部署日志.
+     *
+     * @returns LogVMDeployMachineResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      * @param string $machineSn
      *
-     * @return LogVMDeployMachineResponse LogVMDeployMachineResponse
+     * @return LogVMDeployMachineResponse
      */
     public function logVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
     {
@@ -12044,64 +14825,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 合并代码评审
-     *  *
+     * 合并代码评审
+     *
+     * @param request - MergeMergeRequestRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MergeMergeRequestResponse
+     *
      * @param string                   $repositoryId
      * @param string                   $localId
-     * @param MergeMergeRequestRequest $request      MergeMergeRequestRequest
-     * @param string[]                 $headers      map
-     * @param RuntimeOptions           $runtime      runtime options for this request RuntimeOptions
+     * @param MergeMergeRequestRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return MergeMergeRequestResponse MergeMergeRequestResponse
+     * @return MergeMergeRequestResponse
      */
     public function mergeMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->mergeMessage)) {
-            $body['mergeMessage'] = $request->mergeMessage;
+        if (null !== $request->mergeMessage) {
+            @$body['mergeMessage'] = $request->mergeMessage;
         }
-        if (!Utils::isUnset($request->mergeType)) {
-            $body['mergeType'] = $request->mergeType;
+
+        if (null !== $request->mergeType) {
+            @$body['mergeType'] = $request->mergeType;
         }
-        if (!Utils::isUnset($request->removeSourceBranch)) {
-            $body['removeSourceBranch'] = $request->removeSourceBranch;
+
+        if (null !== $request->removeSourceBranch) {
+            @$body['removeSourceBranch'] = $request->removeSourceBranch;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'MergeMergeRequest',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/merge_requests/' . OpenApiUtilClient::getEncodeParam($localId) . '/merge',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/merge_requests/' . Url::percentEncode($localId) . '/merge',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MergeMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MergeMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MergeMergeRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 合并代码评审
-     *  *
+     * 合并代码评审
+     *
+     * @param request - MergeMergeRequestRequest
+     * @returns MergeMergeRequestResponse
+     *
      * @param string                   $repositoryId
      * @param string                   $localId
-     * @param MergeMergeRequestRequest $request      MergeMergeRequestRequest
+     * @param MergeMergeRequestRequest $request
      *
-     * @return MergeMergeRequestResponse MergeMergeRequestResponse
+     * @return MergeMergeRequestResponse
      */
     public function mergeMergeRequest($repositoryId, $localId, $request)
     {
@@ -12112,16 +14909,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 通过人工卡点
-     *  *
+     * 通过人工卡点.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PassPipelineValidateResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return PassPipelineValidateResponse PassPipelineValidateResponse
+     * @return PassPipelineValidateResponse
      */
     public function passPipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -12132,26 +14933,31 @@ class Devops extends OpenApiClient
             'action'      => 'PassPipelineValidate',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/pass',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/pipelineRuns/' . Url::percentEncode($pipelineRunId) . '/jobs/' . Url::percentEncode($jobId) . '/pass',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PassPipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PassPipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PassPipelineValidateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过人工卡点
-     *  *
+     * 通过人工卡点.
+     *
+     * @returns PassPipelineValidateResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return PassPipelineValidateResponse PassPipelineValidateResponse
+     * @return PassPipelineValidateResponse
      */
     public function passPipelineValidate($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -12162,57 +14968,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 通过人工卡点
-     *  *
+     * 通过人工卡点.
+     *
+     * @param request - PassReleaseStagePipelineValidateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PassReleaseStagePipelineValidateResponse
+     *
      * @param string                                  $appName
      * @param string                                  $releaseWorkflowSn
      * @param string                                  $releaseStageSn
      * @param string                                  $executionNumber
-     * @param PassReleaseStagePipelineValidateRequest $request           PassReleaseStagePipelineValidateRequest
-     * @param string[]                                $headers           map
-     * @param RuntimeOptions                          $runtime           runtime options for this request RuntimeOptions
+     * @param PassReleaseStagePipelineValidateRequest $request
+     * @param string[]                                $headers
+     * @param RuntimeOptions                          $runtime
      *
-     * @return PassReleaseStagePipelineValidateResponse PassReleaseStagePipelineValidateResponse
+     * @return PassReleaseStagePipelineValidateResponse
      */
     public function passReleaseStagePipelineValidateWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['jobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['jobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'PassReleaseStagePipelineValidate',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '%3ApassPipelineValidate',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/releaseWorkflows/' . Url::percentEncode($releaseWorkflowSn) . '/releaseStages/' . Url::percentEncode($releaseStageSn) . '/executions/' . Url::percentEncode($executionNumber) . '%3ApassPipelineValidate',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PassReleaseStagePipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PassReleaseStagePipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PassReleaseStagePipelineValidateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 通过人工卡点
-     *  *
+     * 通过人工卡点.
+     *
+     * @param request - PassReleaseStagePipelineValidateRequest
+     * @returns PassReleaseStagePipelineValidateResponse
+     *
      * @param string                                  $appName
      * @param string                                  $releaseWorkflowSn
      * @param string                                  $releaseStageSn
      * @param string                                  $executionNumber
-     * @param PassReleaseStagePipelineValidateRequest $request           PassReleaseStagePipelineValidateRequest
+     * @param PassReleaseStagePipelineValidateRequest $request
      *
-     * @return PassReleaseStagePipelineValidateResponse PassReleaseStagePipelineValidateResponse
+     * @return PassReleaseStagePipelineValidateResponse
      */
     public function passReleaseStagePipelineValidate($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
     {
@@ -12223,16 +15042,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 拒绝人工卡点
-     *  *
+     * 拒绝人工卡点.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RefusePipelineValidateResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RefusePipelineValidateResponse RefusePipelineValidateResponse
+     * @return RefusePipelineValidateResponse
      */
     public function refusePipelineValidateWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -12243,26 +15066,31 @@ class Devops extends OpenApiClient
             'action'      => 'RefusePipelineValidate',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/refuse',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/pipelineRuns/' . Url::percentEncode($pipelineRunId) . '/jobs/' . Url::percentEncode($jobId) . '/refuse',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RefusePipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefusePipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefusePipelineValidateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 拒绝人工卡点
-     *  *
+     * 拒绝人工卡点.
+     *
+     * @returns RefusePipelineValidateResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return RefusePipelineValidateResponse RefusePipelineValidateResponse
+     * @return RefusePipelineValidateResponse
      */
     public function refusePipelineValidate($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -12273,57 +15101,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 拒绝人工卡点
-     *  *
+     * 拒绝人工卡点.
+     *
+     * @param request - RefuseReleaseStagePipelineValidateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RefuseReleaseStagePipelineValidateResponse
+     *
      * @param string                                    $appName
      * @param string                                    $releaseWorkflowSn
      * @param string                                    $releaseStageSn
      * @param string                                    $executionNumber
-     * @param RefuseReleaseStagePipelineValidateRequest $request           RefuseReleaseStagePipelineValidateRequest
-     * @param string[]                                  $headers           map
-     * @param RuntimeOptions                            $runtime           runtime options for this request RuntimeOptions
+     * @param RefuseReleaseStagePipelineValidateRequest $request
+     * @param string[]                                  $headers
+     * @param RuntimeOptions                            $runtime
      *
-     * @return RefuseReleaseStagePipelineValidateResponse RefuseReleaseStagePipelineValidateResponse
+     * @return RefuseReleaseStagePipelineValidateResponse
      */
     public function refuseReleaseStagePipelineValidateWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['jobId'] = $request->jobId;
+        if (null !== $request->jobId) {
+            @$query['jobId'] = $request->jobId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RefuseReleaseStagePipelineValidate',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/releaseWorkflows/' . OpenApiUtilClient::getEncodeParam($releaseWorkflowSn) . '/releaseStages/' . OpenApiUtilClient::getEncodeParam($releaseStageSn) . '/executions/' . OpenApiUtilClient::getEncodeParam($executionNumber) . '%3ArefusePipelineValidate',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/releaseWorkflows/' . Url::percentEncode($releaseWorkflowSn) . '/releaseStages/' . Url::percentEncode($releaseStageSn) . '/executions/' . Url::percentEncode($executionNumber) . '%3ArefusePipelineValidate',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RefuseReleaseStagePipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefuseReleaseStagePipelineValidateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefuseReleaseStagePipelineValidateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 拒绝人工卡点
-     *  *
+     * 拒绝人工卡点.
+     *
+     * @param request - RefuseReleaseStagePipelineValidateRequest
+     * @returns RefuseReleaseStagePipelineValidateResponse
+     *
      * @param string                                    $appName
      * @param string                                    $releaseWorkflowSn
      * @param string                                    $releaseStageSn
      * @param string                                    $executionNumber
-     * @param RefuseReleaseStagePipelineValidateRequest $request           RefuseReleaseStagePipelineValidateRequest
+     * @param RefuseReleaseStagePipelineValidateRequest $request
      *
-     * @return RefuseReleaseStagePipelineValidateResponse RefuseReleaseStagePipelineValidateResponse
+     * @return RefuseReleaseStagePipelineValidateResponse
      */
     public function refuseReleaseStagePipelineValidate($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request)
     {
@@ -12334,53 +15175,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 重新打开代码评审
-     *  *
+     * 重新打开代码评审
+     *
+     * @param request - ReopenMergeRequestRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReopenMergeRequestResponse
+     *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param ReopenMergeRequestRequest $request      ReopenMergeRequestRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * @param ReopenMergeRequestRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return ReopenMergeRequestResponse ReopenMergeRequestResponse
+     * @return ReopenMergeRequestResponse
      */
     public function reopenMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReopenMergeRequest',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/merge_requests/' . OpenApiUtilClient::getEncodeParam($localId) . '/reopen',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/merge_requests/' . Url::percentEncode($localId) . '/reopen',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReopenMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReopenMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReopenMergeRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 重新打开代码评审
-     *  *
+     * 重新打开代码评审
+     *
+     * @param request - ReopenMergeRequestRequest
+     * @returns ReopenMergeRequestResponse
+     *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param ReopenMergeRequestRequest $request      ReopenMergeRequestRequest
+     * @param ReopenMergeRequestRequest $request
      *
-     * @return ReopenMergeRequestResponse ReopenMergeRequestResponse
+     * @return ReopenMergeRequestResponse
      */
     public function reopenMergeRequest($repositoryId, $localId, $request)
     {
@@ -12391,13 +15245,17 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 重置企业公钥
-     *  *
-     * @param string         $organizationId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * 重置企业公钥.
      *
-     * @return ResetSshKeyResponse ResetSshKeyResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResetSshKeyResponse
+     *
+     * @param string         $organizationId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ResetSshKeyResponse
      */
     public function resetSshKeyWithOptions($organizationId, $headers, $runtime)
     {
@@ -12408,23 +15266,28 @@ class Devops extends OpenApiClient
             'action'      => 'ResetSshKey',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/sshKey',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/sshKey',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetSshKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetSshKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetSshKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 重置企业公钥
-     *  *
+     * 重置企业公钥.
+     *
+     * @returns ResetSshKeyResponse
+     *
      * @param string $organizationId
      *
-     * @return ResetSshKeyResponse ResetSshKeyResponse
+     * @return ResetSshKeyResponse
      */
     public function resetSshKey($organizationId)
     {
@@ -12435,15 +15298,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 继续部署
-     *  *
+     * 继续部署.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ResumeVMDeployOrderResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return ResumeVMDeployOrderResponse ResumeVMDeployOrderResponse
+     * @return ResumeVMDeployOrderResponse
      */
     public function resumeVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
     {
@@ -12454,25 +15321,30 @@ class Devops extends OpenApiClient
             'action'      => 'ResumeVMDeployOrder',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/resume',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/deploy/' . Url::percentEncode($deployOrderId) . '/resume',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResumeVMDeployOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResumeVMDeployOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResumeVMDeployOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 继续部署
-     *  *
+     * 继续部署.
+     *
+     * @returns ResumeVMDeployOrderResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      *
-     * @return ResumeVMDeployOrderResponse ResumeVMDeployOrderResponse
+     * @return ResumeVMDeployOrderResponse
      */
     public function resumeVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
     {
@@ -12483,16 +15355,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 重试流水线运行
-     *  *
+     * 重试流水线运行.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RetryPipelineJobRunResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RetryPipelineJobRunResponse RetryPipelineJobRunResponse
+     * @return RetryPipelineJobRunResponse
      */
     public function retryPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -12503,26 +15379,31 @@ class Devops extends OpenApiClient
             'action'      => 'RetryPipelineJobRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/pipelineRuns/' . Url::percentEncode($pipelineRunId) . '/jobs/' . Url::percentEncode($jobId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RetryPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RetryPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RetryPipelineJobRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 重试流水线运行
-     *  *
+     * 重试流水线运行.
+     *
+     * @returns RetryPipelineJobRunResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return RetryPipelineJobRunResponse RetryPipelineJobRunResponse
+     * @return RetryPipelineJobRunResponse
      */
     public function retryPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -12533,16 +15414,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 重试机器部署
-     *  *
+     * 重试机器部署.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RetryVMDeployMachineResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
      * @param string         $machineSn
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return RetryVMDeployMachineResponse RetryVMDeployMachineResponse
+     * @return RetryVMDeployMachineResponse
      */
     public function retryVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
     {
@@ -12553,26 +15438,31 @@ class Devops extends OpenApiClient
             'action'      => 'RetryVMDeployMachine',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/machine/' . OpenApiUtilClient::getEncodeParam($machineSn) . '/retry',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/deploy/' . Url::percentEncode($deployOrderId) . '/machine/' . Url::percentEncode($machineSn) . '/retry',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RetryVMDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RetryVMDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RetryVMDeployMachineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 重试机器部署
-     *  *
+     * 重试机器部署.
+     *
+     * @returns RetryVMDeployMachineResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      * @param string $machineSn
      *
-     * @return RetryVMDeployMachineResponse RetryVMDeployMachineResponse
+     * @return RetryVMDeployMachineResponse
      */
     public function retryVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
     {
@@ -12583,64 +15473,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 提交变更请求的评审意见
-     *  *
+     * 提交变更请求的评审意见
+     *
+     * @param request - ReviewMergeRequestRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReviewMergeRequestResponse
+     *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param ReviewMergeRequestRequest $request      ReviewMergeRequestRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * @param ReviewMergeRequestRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return ReviewMergeRequestResponse ReviewMergeRequestResponse
+     * @return ReviewMergeRequestResponse
      */
     public function reviewMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->draftCommentIds)) {
-            $body['draftCommentIds'] = $request->draftCommentIds;
+        if (null !== $request->draftCommentIds) {
+            @$body['draftCommentIds'] = $request->draftCommentIds;
         }
-        if (!Utils::isUnset($request->reviewComment)) {
-            $body['reviewComment'] = $request->reviewComment;
+
+        if (null !== $request->reviewComment) {
+            @$body['reviewComment'] = $request->reviewComment;
         }
-        if (!Utils::isUnset($request->reviewOpinion)) {
-            $body['reviewOpinion'] = $request->reviewOpinion;
+
+        if (null !== $request->reviewOpinion) {
+            @$body['reviewOpinion'] = $request->reviewOpinion;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ReviewMergeRequest',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/merge_requests/' . OpenApiUtilClient::getEncodeParam($localId) . '/submit_review_opinion',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/merge_requests/' . Url::percentEncode($localId) . '/submit_review_opinion',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReviewMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReviewMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReviewMergeRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 提交变更请求的评审意见
-     *  *
+     * 提交变更请求的评审意见
+     *
+     * @param request - ReviewMergeRequestRequest
+     * @returns ReviewMergeRequestResponse
+     *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param ReviewMergeRequestRequest $request      ReviewMergeRequestRequest
+     * @param ReviewMergeRequestRequest $request
      *
-     * @return ReviewMergeRequestResponse ReviewMergeRequestResponse
+     * @return ReviewMergeRequestResponse
      */
     public function reviewMergeRequest($repositoryId, $localId, $request)
     {
@@ -12651,16 +15557,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 跳过流水线任务运行
-     *  *
+     * 跳过流水线任务运行.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SkipPipelineJobRunResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return SkipPipelineJobRunResponse SkipPipelineJobRunResponse
+     * @return SkipPipelineJobRunResponse
      */
     public function skipPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -12671,26 +15581,31 @@ class Devops extends OpenApiClient
             'action'      => 'SkipPipelineJobRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/skip',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/pipelineRuns/' . Url::percentEncode($pipelineRunId) . '/jobs/' . Url::percentEncode($jobId) . '/skip',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SkipPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SkipPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SkipPipelineJobRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 跳过流水线任务运行
-     *  *
+     * 跳过流水线任务运行.
+     *
+     * @returns SkipPipelineJobRunResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return SkipPipelineJobRunResponse SkipPipelineJobRunResponse
+     * @return SkipPipelineJobRunResponse
      */
     public function skipPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -12701,16 +15616,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 跳过机器部署
-     *  *
+     * 跳过机器部署.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SkipVMDeployMachineResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
      * @param string         $machineSn
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return SkipVMDeployMachineResponse SkipVMDeployMachineResponse
+     * @return SkipVMDeployMachineResponse
      */
     public function skipVMDeployMachineWithOptions($organizationId, $pipelineId, $deployOrderId, $machineSn, $headers, $runtime)
     {
@@ -12721,26 +15640,31 @@ class Devops extends OpenApiClient
             'action'      => 'SkipVMDeployMachine',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/machine/' . OpenApiUtilClient::getEncodeParam($machineSn) . '/skip',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/deploy/' . Url::percentEncode($deployOrderId) . '/machine/' . Url::percentEncode($machineSn) . '/skip',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SkipVMDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SkipVMDeployMachineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SkipVMDeployMachineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 跳过机器部署
-     *  *
+     * 跳过机器部署.
+     *
+     * @returns SkipVMDeployMachineResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      * @param string $machineSn
      *
-     * @return SkipVMDeployMachineResponse SkipVMDeployMachineResponse
+     * @return SkipVMDeployMachineResponse
      */
     public function skipVMDeployMachine($organizationId, $pipelineId, $deployOrderId, $machineSn)
     {
@@ -12751,50 +15675,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 运行流水线
-     *  *
+     * 运行流水线
+     *
+     * @param request - StartPipelineRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartPipelineRunResponse
+     *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param StartPipelineRunRequest $request        StartPipelineRunRequest
-     * @param string[]                $headers        map
-     * @param RuntimeOptions          $runtime        runtime options for this request RuntimeOptions
+     * @param StartPipelineRunRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return StartPipelineRunResponse StartPipelineRunResponse
+     * @return StartPipelineRunResponse
      */
     public function startPipelineRunWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->params)) {
-            $body['params'] = $request->params;
+        if (null !== $request->params) {
+            @$body['params'] = $request->params;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'StartPipelineRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organizations/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/run',
+            'pathname'    => '/organizations/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/run',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartPipelineRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 运行流水线
-     *  *
+     * 运行流水线
+     *
+     * @param request - StartPipelineRunRequest
+     * @returns StartPipelineRunResponse
+     *
      * @param string                  $organizationId
      * @param string                  $pipelineId
-     * @param StartPipelineRunRequest $request        StartPipelineRunRequest
+     * @param StartPipelineRunRequest $request
      *
-     * @return StartPipelineRunResponse StartPipelineRunResponse
+     * @return StartPipelineRunResponse
      */
     public function startPipelineRun($organizationId, $pipelineId, $request)
     {
@@ -12805,16 +15741,20 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 终止流水线任务运行
-     *  *
+     * 终止流水线任务运行.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopPipelineJobRunResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
      * @param string         $jobId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopPipelineJobRunResponse StopPipelineJobRunResponse
+     * @return StopPipelineJobRunResponse
      */
     public function stopPipelineJobRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $jobId, $headers, $runtime)
     {
@@ -12825,26 +15765,31 @@ class Devops extends OpenApiClient
             'action'      => 'StopPipelineJobRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/jobs/' . OpenApiUtilClient::getEncodeParam($jobId) . '/stop',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/pipelineRuns/' . Url::percentEncode($pipelineRunId) . '/jobs/' . Url::percentEncode($jobId) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopPipelineJobRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopPipelineJobRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 终止流水线任务运行
-     *  *
+     * 终止流水线任务运行.
+     *
+     * @returns StopPipelineJobRunResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      * @param string $jobId
      *
-     * @return StopPipelineJobRunResponse StopPipelineJobRunResponse
+     * @return StopPipelineJobRunResponse
      */
     public function stopPipelineJobRun($organizationId, $pipelineId, $pipelineRunId, $jobId)
     {
@@ -12855,15 +15800,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 终止流水线运行
-     *  *
+     * 终止流水线运行.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopPipelineRunResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $pipelineRunId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopPipelineRunResponse StopPipelineRunResponse
+     * @return StopPipelineRunResponse
      */
     public function stopPipelineRunWithOptions($organizationId, $pipelineId, $pipelineRunId, $headers, $runtime)
     {
@@ -12874,25 +15823,30 @@ class Devops extends OpenApiClient
             'action'      => 'StopPipelineRun',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/pipelineRuns/' . OpenApiUtilClient::getEncodeParam($pipelineRunId) . '/stop',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/pipelineRuns/' . Url::percentEncode($pipelineRunId) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopPipelineRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopPipelineRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 终止流水线运行
-     *  *
+     * 终止流水线运行.
+     *
+     * @returns StopPipelineRunResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $pipelineRunId
      *
-     * @return StopPipelineRunResponse StopPipelineRunResponse
+     * @return StopPipelineRunResponse
      */
     public function stopPipelineRun($organizationId, $pipelineId, $pipelineRunId)
     {
@@ -12903,15 +15857,19 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 取消部署单
-     *  *
+     * 取消部署单.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopVMDeployOrderResponse
+     *
      * @param string         $organizationId
      * @param string         $pipelineId
      * @param string         $deployOrderId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return StopVMDeployOrderResponse StopVMDeployOrderResponse
+     * @return StopVMDeployOrderResponse
      */
     public function stopVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime)
     {
@@ -12922,25 +15880,30 @@ class Devops extends OpenApiClient
             'action'      => 'StopVMDeployOrder',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/deploy/' . OpenApiUtilClient::getEncodeParam($deployOrderId) . '/stop',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/deploy/' . Url::percentEncode($deployOrderId) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopVMDeployOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopVMDeployOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopVMDeployOrderResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 取消部署单
-     *  *
+     * 取消部署单.
+     *
+     * @returns StopVMDeployOrderResponse
+     *
      * @param string $organizationId
      * @param string $pipelineId
      * @param string $deployOrderId
      *
-     * @return StopVMDeployOrderResponse StopVMDeployOrderResponse
+     * @return StopVMDeployOrderResponse
      */
     public function stopVMDeployOrder($organizationId, $pipelineId, $deployOrderId)
     {
@@ -12951,33 +15914,42 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 转移代码库
-     *  *
-     * @param TransferRepositoryRequest $request TransferRepositoryRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 转移代码库.
      *
-     * @return TransferRepositoryResponse TransferRepositoryResponse
+     * @param request - TransferRepositoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TransferRepositoryResponse
+     *
+     * @param TransferRepositoryRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TransferRepositoryResponse
      */
     public function transferRepositoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['groupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['groupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryId)) {
-            $query['repositoryId'] = $request->repositoryId;
+
+        if (null !== $request->repositoryId) {
+            @$query['repositoryId'] = $request->repositoryId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TransferRepository',
@@ -12990,16 +15962,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TransferRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TransferRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TransferRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 转移代码库
-     *  *
-     * @param TransferRepositoryRequest $request TransferRepositoryRequest
+     * 转移代码库.
      *
-     * @return TransferRepositoryResponse TransferRepositoryResponse
+     * @param request - TransferRepositoryRequest
+     * @returns TransferRepositoryResponse
+     *
+     * @param TransferRepositoryRequest $request
+     *
+     * @return TransferRepositoryResponse
      */
     public function transferRepository($request)
     {
@@ -13010,57 +15988,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 触发仓库同步
-     *  *
-     * @param string                             $repositoryId
-     * @param TriggerRepositoryMirrorSyncRequest $request      TriggerRepositoryMirrorSyncRequest
-     * @param string[]                           $headers      map
-     * @param RuntimeOptions                     $runtime      runtime options for this request RuntimeOptions
+     * 触发仓库同步.
      *
-     * @return TriggerRepositoryMirrorSyncResponse TriggerRepositoryMirrorSyncResponse
+     * @param request - TriggerRepositoryMirrorSyncRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TriggerRepositoryMirrorSyncResponse
+     *
+     * @param string                             $repositoryId
+     * @param TriggerRepositoryMirrorSyncRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return TriggerRepositoryMirrorSyncResponse
      */
     public function triggerRepositoryMirrorSyncWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->account)) {
-            $query['account'] = $request->account;
+
+        if (null !== $request->account) {
+            @$query['account'] = $request->account;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TriggerRepositoryMirrorSync',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/mirror',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/mirror',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TriggerRepositoryMirrorSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TriggerRepositoryMirrorSyncResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TriggerRepositoryMirrorSyncResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 触发仓库同步
-     *  *
-     * @param string                             $repositoryId
-     * @param TriggerRepositoryMirrorSyncRequest $request      TriggerRepositoryMirrorSyncRequest
+     * 触发仓库同步.
      *
-     * @return TriggerRepositoryMirrorSyncResponse TriggerRepositoryMirrorSyncResponse
+     * @param request - TriggerRepositoryMirrorSyncRequest
+     * @returns TriggerRepositoryMirrorSyncResponse
+     *
+     * @param string                             $repositoryId
+     * @param TriggerRepositoryMirrorSyncRequest $request
+     *
+     * @return TriggerRepositoryMirrorSyncResponse
      */
     public function triggerRepositoryMirrorSync($repositoryId, $request)
     {
@@ -13071,56 +16064,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新应用成员
-     *  *
-     * @param string                 $appName
-     * @param UpdateAppMemberRequest $request UpdateAppMemberRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 更新应用成员.
      *
-     * @return UpdateAppMemberResponse UpdateAppMemberResponse
+     * @param request - UpdateAppMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateAppMemberResponse
+     *
+     * @param string                 $appName
+     * @param UpdateAppMemberRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateAppMemberResponse
      */
     public function updateAppMemberWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->player)) {
-            $body['player'] = $request->player;
+        if (null !== $request->player) {
+            @$body['player'] = $request->player;
         }
-        if (!Utils::isUnset($request->roleNames)) {
-            $body['roleNames'] = $request->roleNames;
+
+        if (null !== $request->roleNames) {
+            @$body['roleNames'] = $request->roleNames;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateAppMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '/members',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '/members',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'string',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateAppMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAppMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAppMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新应用成员
-     *  *
-     * @param string                 $appName
-     * @param UpdateAppMemberRequest $request UpdateAppMemberRequest
+     * 更新应用成员.
      *
-     * @return UpdateAppMemberResponse UpdateAppMemberResponse
+     * @param request - UpdateAppMemberRequest
+     * @returns UpdateAppMemberResponse
+     *
+     * @param string                 $appName
+     * @param UpdateAppMemberRequest $request
+     *
+     * @return UpdateAppMemberResponse
      */
     public function updateAppMember($appName, $request)
     {
@@ -13131,53 +16138,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新应用
-     *  *
-     * @param string                   $appName
-     * @param UpdateApplicationRequest $request UpdateApplicationRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 更新应用.
      *
-     * @return UpdateApplicationResponse UpdateApplicationResponse
+     * @param request - UpdateApplicationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateApplicationResponse
+     *
+     * @param string                   $appName
+     * @param UpdateApplicationRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateApplicationResponse
      */
     public function updateApplicationWithOptions($appName, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->ownerAccountId)) {
-            $body['ownerAccountId'] = $request->ownerAccountId;
+        if (null !== $request->ownerAccountId) {
+            @$body['ownerAccountId'] = $request->ownerAccountId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateApplication',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/appstack/apps/' . OpenApiUtilClient::getEncodeParam($appName) . '',
+            'pathname'    => '/appstack/apps/' . Url::percentEncode($appName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新应用
-     *  *
-     * @param string                   $appName
-     * @param UpdateApplicationRequest $request UpdateApplicationRequest
+     * 更新应用.
      *
-     * @return UpdateApplicationResponse UpdateApplicationResponse
+     * @param request - UpdateApplicationRequest
+     * @returns UpdateApplicationResponse
+     *
+     * @param string                   $appName
+     * @param UpdateApplicationRequest $request
+     *
+     * @return UpdateApplicationResponse
      */
     public function updateApplication($appName, $request)
     {
@@ -13188,62 +16208,80 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新检查运行记录
-     *  *
-     * @param UpdateCheckRunRequest $request UpdateCheckRunRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 更新检查运行记录.
      *
-     * @return UpdateCheckRunResponse UpdateCheckRunResponse
+     * @param request - UpdateCheckRunRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCheckRunResponse
+     *
+     * @param UpdateCheckRunRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateCheckRunResponse
      */
     public function updateCheckRunWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->checkRunId)) {
-            $query['checkRunId'] = $request->checkRunId;
+
+        if (null !== $request->checkRunId) {
+            @$query['checkRunId'] = $request->checkRunId;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->annotations)) {
-            $body['annotations'] = $request->annotations;
+        if (null !== $request->annotations) {
+            @$body['annotations'] = $request->annotations;
         }
-        if (!Utils::isUnset($request->completedAt)) {
-            $body['completedAt'] = $request->completedAt;
+
+        if (null !== $request->completedAt) {
+            @$body['completedAt'] = $request->completedAt;
         }
-        if (!Utils::isUnset($request->conclusion)) {
-            $body['conclusion'] = $request->conclusion;
+
+        if (null !== $request->conclusion) {
+            @$body['conclusion'] = $request->conclusion;
         }
-        if (!Utils::isUnset($request->detailsUrl)) {
-            $body['detailsUrl'] = $request->detailsUrl;
+
+        if (null !== $request->detailsUrl) {
+            @$body['detailsUrl'] = $request->detailsUrl;
         }
-        if (!Utils::isUnset($request->externalId)) {
-            $body['externalId'] = $request->externalId;
+
+        if (null !== $request->externalId) {
+            @$body['externalId'] = $request->externalId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->output)) {
-            $body['output'] = $request->output;
+
+        if (null !== $request->output) {
+            @$body['output'] = $request->output;
         }
-        if (!Utils::isUnset($request->startedAt)) {
-            $body['startedAt'] = $request->startedAt;
+
+        if (null !== $request->startedAt) {
+            @$body['startedAt'] = $request->startedAt;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCheckRun',
@@ -13256,16 +16294,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateCheckRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCheckRunResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCheckRunResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新检查运行记录
-     *  *
-     * @param UpdateCheckRunRequest $request UpdateCheckRunRequest
+     * 更新检查运行记录.
      *
-     * @return UpdateCheckRunResponse UpdateCheckRunResponse
+     * @param request - UpdateCheckRunRequest
+     * @returns UpdateCheckRunResponse
+     *
+     * @param UpdateCheckRunRequest $request
+     *
+     * @return UpdateCheckRunResponse
      */
     public function updateCheckRun($request)
     {
@@ -13276,71 +16320,90 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新代码库文件
-     *  *
-     * @param string            $repositoryId
-     * @param UpdateFileRequest $request      UpdateFileRequest
-     * @param string[]          $headers      map
-     * @param RuntimeOptions    $runtime      runtime options for this request RuntimeOptions
+     * 更新代码库文件.
      *
-     * @return UpdateFileResponse UpdateFileResponse
+     * @param request - UpdateFileRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateFileResponse
+     *
+     * @param string            $repositoryId
+     * @param UpdateFileRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return UpdateFileResponse
      */
     public function updateFileWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->branchName)) {
-            $body['branchName'] = $request->branchName;
+        if (null !== $request->branchName) {
+            @$body['branchName'] = $request->branchName;
         }
-        if (!Utils::isUnset($request->commitMessage)) {
-            $body['commitMessage'] = $request->commitMessage;
+
+        if (null !== $request->commitMessage) {
+            @$body['commitMessage'] = $request->commitMessage;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->encoding)) {
-            $body['encoding'] = $request->encoding;
+
+        if (null !== $request->encoding) {
+            @$body['encoding'] = $request->encoding;
         }
-        if (!Utils::isUnset($request->newPath)) {
-            $body['newPath'] = $request->newPath;
+
+        if (null !== $request->newPath) {
+            @$body['newPath'] = $request->newPath;
         }
-        if (!Utils::isUnset($request->oldPath)) {
-            $body['oldPath'] = $request->oldPath;
+
+        if (null !== $request->oldPath) {
+            @$body['oldPath'] = $request->oldPath;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateFile',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/files/update',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/files/update',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFileResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新代码库文件
-     *  *
-     * @param string            $repositoryId
-     * @param UpdateFileRequest $request      UpdateFileRequest
+     * 更新代码库文件.
      *
-     * @return UpdateFileResponse UpdateFileResponse
+     * @param request - UpdateFileRequest
+     * @returns UpdateFileResponse
+     *
+     * @param string            $repositoryId
+     * @param UpdateFileRequest $request
+     *
+     * @return UpdateFileResponse
      */
     public function updateFile($repositoryId, $request)
     {
@@ -13351,56 +16414,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新标签
-     *  *
+     * 更新标签.
+     *
+     * @param request - UpdateFlowTagRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateFlowTagResponse
+     *
      * @param string               $organizationId
      * @param string               $id
-     * @param UpdateFlowTagRequest $request        UpdateFlowTagRequest
-     * @param string[]             $headers        map
-     * @param RuntimeOptions       $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateFlowTagRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
      *
-     * @return UpdateFlowTagResponse UpdateFlowTagResponse
+     * @return UpdateFlowTagResponse
      */
     public function updateFlowTagWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->color)) {
-            $query['color'] = $request->color;
+        if (null !== $request->color) {
+            @$query['color'] = $request->color;
         }
-        if (!Utils::isUnset($request->flowTagGroupId)) {
-            $query['flowTagGroupId'] = $request->flowTagGroupId;
+
+        if (null !== $request->flowTagGroupId) {
+            @$query['flowTagGroupId'] = $request->flowTagGroupId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateFlowTag',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tags/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/flow/tags/' . Url::percentEncode($id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateFlowTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFlowTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFlowTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新标签
-     *  *
+     * 更新标签.
+     *
+     * @param request - UpdateFlowTagRequest
+     * @returns UpdateFlowTagResponse
+     *
      * @param string               $organizationId
      * @param string               $id
-     * @param UpdateFlowTagRequest $request        UpdateFlowTagRequest
+     * @param UpdateFlowTagRequest $request
      *
-     * @return UpdateFlowTagResponse UpdateFlowTagResponse
+     * @return UpdateFlowTagResponse
      */
     public function updateFlowTag($organizationId, $id, $request)
     {
@@ -13411,50 +16488,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 标签分类
-     *  *
+     * 标签分类.
+     *
+     * @param request - UpdateFlowTagGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateFlowTagGroupResponse
+     *
      * @param string                    $organizationId
      * @param string                    $id
-     * @param UpdateFlowTagGroupRequest $request        UpdateFlowTagGroupRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateFlowTagGroupRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateFlowTagGroupResponse UpdateFlowTagGroupResponse
+     * @return UpdateFlowTagGroupResponse
      */
     public function updateFlowTagGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateFlowTagGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/flow/tagGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/flow/tagGroups/' . Url::percentEncode($id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateFlowTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFlowTagGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFlowTagGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 标签分类
-     *  *
+     * 标签分类.
+     *
+     * @param request - UpdateFlowTagGroupRequest
+     * @returns UpdateFlowTagGroupResponse
+     *
      * @param string                    $organizationId
      * @param string                    $id
-     * @param UpdateFlowTagGroupRequest $request        UpdateFlowTagGroupRequest
+     * @param UpdateFlowTagGroupRequest $request
      *
-     * @return UpdateFlowTagGroupResponse UpdateFlowTagGroupResponse
+     * @return UpdateFlowTagGroupResponse
      */
     public function updateFlowTagGroup($organizationId, $id, $request)
     {
@@ -13465,47 +16554,60 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新单个代码组信息
-     *  *
-     * @param UpdateGroupRequest $request UpdateGroupRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 更新单个代码组信息.
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @param request - UpdateGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateGroupResponse
+     *
+     * @param UpdateGroupRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->avatarUrl)) {
-            $body['avatarUrl'] = $request->avatarUrl;
+        if (null !== $request->avatarUrl) {
+            @$body['avatarUrl'] = $request->avatarUrl;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->path)) {
-            $body['path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$body['path'] = $request->path;
         }
-        if (!Utils::isUnset($request->pathWithNamespace)) {
-            $body['pathWithNamespace'] = $request->pathWithNamespace;
+
+        if (null !== $request->pathWithNamespace) {
+            @$body['pathWithNamespace'] = $request->pathWithNamespace;
         }
-        if (!Utils::isUnset($request->visibilityLevel)) {
-            $body['visibilityLevel'] = $request->visibilityLevel;
+
+        if (null !== $request->visibilityLevel) {
+            @$body['visibilityLevel'] = $request->visibilityLevel;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateGroup',
@@ -13518,16 +16620,22 @@ class Devops extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新单个代码组信息
-     *  *
-     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * 更新单个代码组信息.
      *
-     * @return UpdateGroupResponse UpdateGroupResponse
+     * @param request - UpdateGroupRequest
+     * @returns UpdateGroupResponse
+     *
+     * @param UpdateGroupRequest $request
+     *
+     * @return UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -13538,62 +16646,78 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 修改组成员
-     *  *
-     * @param string                   $groupId
-     * @param UpdateGroupMemberRequest $request UpdateGroupMemberRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 修改组成员.
      *
-     * @return UpdateGroupMemberResponse UpdateGroupMemberResponse
+     * @param request - UpdateGroupMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateGroupMemberResponse
+     *
+     * @param string                   $groupId
+     * @param UpdateGroupMemberRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateGroupMemberResponse
      */
     public function updateGroupMemberWithOptions($groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->aliyunPk)) {
-            $query['aliyunPk'] = $request->aliyunPk;
+
+        if (null !== $request->aliyunPk) {
+            @$query['aliyunPk'] = $request->aliyunPk;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->accessLevel)) {
-            $body['accessLevel'] = $request->accessLevel;
+        if (null !== $request->accessLevel) {
+            @$body['accessLevel'] = $request->accessLevel;
         }
-        if (!Utils::isUnset($request->memberType)) {
-            $body['memberType'] = $request->memberType;
+
+        if (null !== $request->memberType) {
+            @$body['memberType'] = $request->memberType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateGroupMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/groups/' . OpenApiUtilClient::getEncodeParam($groupId) . '/members/update/aliyun_pk',
+            'pathname'    => '/repository/groups/' . Url::percentEncode($groupId) . '/members/update/aliyun_pk',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateGroupMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateGroupMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改组成员
-     *  *
-     * @param string                   $groupId
-     * @param UpdateGroupMemberRequest $request UpdateGroupMemberRequest
+     * 修改组成员.
      *
-     * @return UpdateGroupMemberResponse UpdateGroupMemberResponse
+     * @param request - UpdateGroupMemberRequest
+     * @returns UpdateGroupMemberResponse
+     *
+     * @param string                   $groupId
+     * @param UpdateGroupMemberRequest $request
+     *
+     * @return UpdateGroupMemberResponse
      */
     public function updateGroupMember($groupId, $request)
     {
@@ -13604,77 +16728,98 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新主机组
-     *  *
+     * 更新主机组.
+     *
+     * @param request - UpdateHostGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateHostGroupResponse
+     *
      * @param string                 $organizationId
      * @param string                 $id
-     * @param UpdateHostGroupRequest $request        UpdateHostGroupRequest
-     * @param string[]               $headers        map
-     * @param RuntimeOptions         $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateHostGroupRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
      *
-     * @return UpdateHostGroupResponse UpdateHostGroupResponse
+     * @return UpdateHostGroupResponse
      */
     public function updateHostGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aliyunRegion)) {
-            $body['aliyunRegion'] = $request->aliyunRegion;
+        if (null !== $request->aliyunRegion) {
+            @$body['aliyunRegion'] = $request->aliyunRegion;
         }
-        if (!Utils::isUnset($request->ecsLabelKey)) {
-            $body['ecsLabelKey'] = $request->ecsLabelKey;
+
+        if (null !== $request->ecsLabelKey) {
+            @$body['ecsLabelKey'] = $request->ecsLabelKey;
         }
-        if (!Utils::isUnset($request->ecsLabelValue)) {
-            $body['ecsLabelValue'] = $request->ecsLabelValue;
+
+        if (null !== $request->ecsLabelValue) {
+            @$body['ecsLabelValue'] = $request->ecsLabelValue;
         }
-        if (!Utils::isUnset($request->ecsType)) {
-            $body['ecsType'] = $request->ecsType;
+
+        if (null !== $request->ecsType) {
+            @$body['ecsType'] = $request->ecsType;
         }
-        if (!Utils::isUnset($request->envId)) {
-            $body['envId'] = $request->envId;
+
+        if (null !== $request->envId) {
+            @$body['envId'] = $request->envId;
         }
-        if (!Utils::isUnset($request->machineInfos)) {
-            $body['machineInfos'] = $request->machineInfos;
+
+        if (null !== $request->machineInfos) {
+            @$body['machineInfos'] = $request->machineInfos;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->serviceConnectionId)) {
-            $body['serviceConnectionId'] = $request->serviceConnectionId;
+
+        if (null !== $request->serviceConnectionId) {
+            @$body['serviceConnectionId'] = $request->serviceConnectionId;
         }
-        if (!Utils::isUnset($request->tagIds)) {
-            $body['tagIds'] = $request->tagIds;
+
+        if (null !== $request->tagIds) {
+            @$body['tagIds'] = $request->tagIds;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateHostGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/hostGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/hostGroups/' . Url::percentEncode($id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateHostGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateHostGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新主机组
-     *  *
+     * 更新主机组.
+     *
+     * @param request - UpdateHostGroupRequest
+     * @returns UpdateHostGroupResponse
+     *
      * @param string                 $organizationId
      * @param string                 $id
-     * @param UpdateHostGroupRequest $request        UpdateHostGroupRequest
+     * @param UpdateHostGroupRequest $request
      *
-     * @return UpdateHostGroupResponse UpdateHostGroupResponse
+     * @return UpdateHostGroupResponse
      */
     public function updateHostGroup($organizationId, $id, $request)
     {
@@ -13685,61 +16830,76 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新代码评审的标题和描述
-     *  *
+     * 更新代码评审的标题和描述.
+     *
+     * @param request - UpdateMergeRequestRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMergeRequestResponse
+     *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param UpdateMergeRequestRequest $request      UpdateMergeRequestRequest
-     * @param string[]                  $headers      map
-     * @param RuntimeOptions            $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateMergeRequestRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateMergeRequestResponse UpdateMergeRequestResponse
+     * @return UpdateMergeRequestResponse
      */
     public function updateMergeRequestWithOptions($repositoryId, $localId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->title)) {
-            $body['title'] = $request->title;
+
+        if (null !== $request->title) {
+            @$body['title'] = $request->title;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateMergeRequest',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/merge_requests/' . OpenApiUtilClient::getEncodeParam($localId) . '',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/merge_requests/' . Url::percentEncode($localId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMergeRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMergeRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新代码评审的标题和描述
-     *  *
+     * 更新代码评审的标题和描述.
+     *
+     * @param request - UpdateMergeRequestRequest
+     * @returns UpdateMergeRequestResponse
+     *
      * @param string                    $repositoryId
      * @param string                    $localId
-     * @param UpdateMergeRequestRequest $request      UpdateMergeRequestRequest
+     * @param UpdateMergeRequestRequest $request
      *
-     * @return UpdateMergeRequestResponse UpdateMergeRequestResponse
+     * @return UpdateMergeRequestResponse
      */
     public function updateMergeRequest($repositoryId, $localId, $request)
     {
@@ -13750,60 +16910,74 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新代码评审的干系人
-     *  *
+     * 更新代码评审的干系人.
+     *
+     * @param request - UpdateMergeRequestPersonnelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateMergeRequestPersonnelResponse
+     *
      * @param string                             $repositoryId
      * @param string                             $localId
      * @param string                             $personType
-     * @param UpdateMergeRequestPersonnelRequest $request      UpdateMergeRequestPersonnelRequest
-     * @param string[]                           $headers      map
-     * @param RuntimeOptions                     $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateMergeRequestPersonnelRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
      *
-     * @return UpdateMergeRequestPersonnelResponse UpdateMergeRequestPersonnelResponse
+     * @return UpdateMergeRequestPersonnelResponse
      */
     public function updateMergeRequestPersonnelWithOptions($repositoryId, $localId, $personType, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->newUserIdList)) {
-            $body['newUserIdList'] = $request->newUserIdList;
+        if (null !== $request->newUserIdList) {
+            @$body['newUserIdList'] = $request->newUserIdList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateMergeRequestPersonnel',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/merge_requests/' . OpenApiUtilClient::getEncodeParam($localId) . '/person/' . OpenApiUtilClient::getEncodeParam($personType) . '',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/merge_requests/' . Url::percentEncode($localId) . '/person/' . Url::percentEncode($personType) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateMergeRequestPersonnelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMergeRequestPersonnelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMergeRequestPersonnelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新代码评审的干系人
-     *  *
+     * 更新代码评审的干系人.
+     *
+     * @param request - UpdateMergeRequestPersonnelRequest
+     * @returns UpdateMergeRequestPersonnelResponse
+     *
      * @param string                             $repositoryId
      * @param string                             $localId
      * @param string                             $personType
-     * @param UpdateMergeRequestPersonnelRequest $request      UpdateMergeRequestPersonnelRequest
+     * @param UpdateMergeRequestPersonnelRequest $request
      *
-     * @return UpdateMergeRequestPersonnelResponse UpdateMergeRequestPersonnelResponse
+     * @return UpdateMergeRequestPersonnelResponse
      */
     public function updateMergeRequestPersonnel($repositoryId, $localId, $personType, $request)
     {
@@ -13814,50 +16988,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 当前用户加入的企业列表
-     *  *
+     * 当前用户加入的企业列表.
+     *
+     * @param request - UpdateOrganizationMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateOrganizationMemberResponse
+     *
      * @param string                          $organizationId
      * @param string                          $accountId
-     * @param UpdateOrganizationMemberRequest $request        UpdateOrganizationMemberRequest
-     * @param string[]                        $headers        map
-     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateOrganizationMemberRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return UpdateOrganizationMemberResponse UpdateOrganizationMemberResponse
+     * @return UpdateOrganizationMemberResponse
      */
     public function updateOrganizationMemberWithOptions($organizationId, $accountId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationMemberName)) {
-            $query['organizationMemberName'] = $request->organizationMemberName;
+        if (null !== $request->organizationMemberName) {
+            @$query['organizationMemberName'] = $request->organizationMemberName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateOrganizationMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/members/' . OpenApiUtilClient::getEncodeParam($accountId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/members/' . Url::percentEncode($accountId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateOrganizationMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateOrganizationMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 当前用户加入的企业列表
-     *  *
+     * 当前用户加入的企业列表.
+     *
+     * @param request - UpdateOrganizationMemberRequest
+     * @returns UpdateOrganizationMemberResponse
+     *
      * @param string                          $organizationId
      * @param string                          $accountId
-     * @param UpdateOrganizationMemberRequest $request        UpdateOrganizationMemberRequest
+     * @param UpdateOrganizationMemberRequest $request
      *
-     * @return UpdateOrganizationMemberResponse UpdateOrganizationMemberResponse
+     * @return UpdateOrganizationMemberResponse
      */
     public function updateOrganizationMember($organizationId, $accountId, $request)
     {
@@ -13868,54 +17054,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新流水线。
-     *  *
-     * @param string                $organizationId
-     * @param UpdatePipelineRequest $request        UpdatePipelineRequest
-     * @param string[]              $headers        map
-     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
+     * 更新流水线。
      *
-     * @return UpdatePipelineResponse UpdatePipelineResponse
+     * @param request - UpdatePipelineRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePipelineResponse
+     *
+     * @param string                $organizationId
+     * @param UpdatePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdatePipelineResponse
      */
     public function updatePipelineWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pipelineId)) {
-            $body['pipelineId'] = $request->pipelineId;
+
+        if (null !== $request->pipelineId) {
+            @$body['pipelineId'] = $request->pipelineId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdatePipeline',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/update',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/update',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePipelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新流水线。
-     *  *
-     * @param string                $organizationId
-     * @param UpdatePipelineRequest $request        UpdatePipelineRequest
+     * 更新流水线。
      *
-     * @return UpdatePipelineResponse UpdatePipelineResponse
+     * @param request - UpdatePipelineRequest
+     * @returns UpdatePipelineResponse
+     *
+     * @param string                $organizationId
+     * @param UpdatePipelineRequest $request
+     *
+     * @return UpdatePipelineResponse
      */
     public function updatePipeline($organizationId, $request)
     {
@@ -13926,56 +17126,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 删除标签
-     *  *
+     * 删除标签.
+     *
+     * @param request - UpdatePipelineBaseInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePipelineBaseInfoResponse
+     *
      * @param string                        $organizationId
      * @param string                        $pipelineId
-     * @param UpdatePipelineBaseInfoRequest $request        UpdatePipelineBaseInfoRequest
-     * @param string[]                      $headers        map
-     * @param RuntimeOptions                $runtime        runtime options for this request RuntimeOptions
+     * @param UpdatePipelineBaseInfoRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return UpdatePipelineBaseInfoResponse UpdatePipelineBaseInfoResponse
+     * @return UpdatePipelineBaseInfoResponse
      */
     public function updatePipelineBaseInfoWithOptions($organizationId, $pipelineId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->envId)) {
-            $query['envId'] = $request->envId;
+        if (null !== $request->envId) {
+            @$query['envId'] = $request->envId;
         }
-        if (!Utils::isUnset($request->pipelineName)) {
-            $query['pipelineName'] = $request->pipelineName;
+
+        if (null !== $request->pipelineName) {
+            @$query['pipelineName'] = $request->pipelineName;
         }
-        if (!Utils::isUnset($request->tagList)) {
-            $query['tagList'] = $request->tagList;
+
+        if (null !== $request->tagList) {
+            @$query['tagList'] = $request->tagList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePipelineBaseInfo',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/' . OpenApiUtilClient::getEncodeParam($pipelineId) . '/baseInfo',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelines/' . Url::percentEncode($pipelineId) . '/baseInfo',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePipelineBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePipelineBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePipelineBaseInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 删除标签
-     *  *
+     * 删除标签.
+     *
+     * @param request - UpdatePipelineBaseInfoRequest
+     * @returns UpdatePipelineBaseInfoResponse
+     *
      * @param string                        $organizationId
      * @param string                        $pipelineId
-     * @param UpdatePipelineBaseInfoRequest $request        UpdatePipelineBaseInfoRequest
+     * @param UpdatePipelineBaseInfoRequest $request
      *
-     * @return UpdatePipelineBaseInfoResponse UpdatePipelineBaseInfoResponse
+     * @return UpdatePipelineBaseInfoResponse
      */
     public function updatePipelineBaseInfo($organizationId, $pipelineId, $request)
     {
@@ -13986,50 +17200,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新流水线分组
-     *  *
+     * 更新流水线分组.
+     *
+     * @param request - UpdatePipelineGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePipelineGroupResponse
+     *
      * @param string                     $organizationId
      * @param string                     $groupId
-     * @param UpdatePipelineGroupRequest $request        UpdatePipelineGroupRequest
-     * @param string[]                   $headers        map
-     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     * @param UpdatePipelineGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdatePipelineGroupResponse UpdatePipelineGroupResponse
+     * @return UpdatePipelineGroupResponse
      */
     public function updatePipelineGroupWithOptions($organizationId, $groupId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePipelineGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelineGroups/' . OpenApiUtilClient::getEncodeParam($groupId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/pipelineGroups/' . Url::percentEncode($groupId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePipelineGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePipelineGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新流水线分组
-     *  *
+     * 更新流水线分组.
+     *
+     * @param request - UpdatePipelineGroupRequest
+     * @returns UpdatePipelineGroupResponse
+     *
      * @param string                     $organizationId
      * @param string                     $groupId
-     * @param UpdatePipelineGroupRequest $request        UpdatePipelineGroupRequest
+     * @param UpdatePipelineGroupRequest $request
      *
-     * @return UpdatePipelineGroupResponse UpdatePipelineGroupResponse
+     * @return UpdatePipelineGroupResponse
      */
     public function updatePipelineGroup($organizationId, $groupId, $request)
     {
@@ -14040,56 +17266,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新项目属性与字段
-     *  *
+     * 更新项目属性与字段.
+     *
+     * @param request - UpdateProjectFieldRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateProjectFieldResponse
+     *
      * @param string                    $organizationId
      * @param string                    $identifier
-     * @param UpdateProjectFieldRequest $request        UpdateProjectFieldRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateProjectFieldRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateProjectFieldResponse UpdateProjectFieldResponse
+     * @return UpdateProjectFieldResponse
      */
     public function updateProjectFieldWithOptions($organizationId, $identifier, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->statusIdentifier)) {
-            $body['statusIdentifier'] = $request->statusIdentifier;
+        if (null !== $request->statusIdentifier) {
+            @$body['statusIdentifier'] = $request->statusIdentifier;
         }
-        if (!Utils::isUnset($request->updateBasicFieldRequestList)) {
-            $body['updateBasicFieldRequestList'] = $request->updateBasicFieldRequestList;
+
+        if (null !== $request->updateBasicFieldRequestList) {
+            @$body['updateBasicFieldRequestList'] = $request->updateBasicFieldRequestList;
         }
-        if (!Utils::isUnset($request->updateForOpenApiList)) {
-            $body['updateForOpenApiList'] = $request->updateForOpenApiList;
+
+        if (null !== $request->updateForOpenApiList) {
+            @$body['updateForOpenApiList'] = $request->updateForOpenApiList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateProjectField',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/project/' . OpenApiUtilClient::getEncodeParam($identifier) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/project/' . Url::percentEncode($identifier) . '',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateProjectFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateProjectFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateProjectFieldResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新项目属性与字段
-     *  *
+     * 更新项目属性与字段.
+     *
+     * @param request - UpdateProjectFieldRequest
+     * @returns UpdateProjectFieldResponse
+     *
      * @param string                    $organizationId
      * @param string                    $identifier
-     * @param UpdateProjectFieldRequest $request        UpdateProjectFieldRequest
+     * @param UpdateProjectFieldRequest $request
      *
-     * @return UpdateProjectFieldResponse UpdateProjectFieldResponse
+     * @return UpdateProjectFieldResponse
      */
     public function updateProjectField($organizationId, $identifier, $request)
     {
@@ -14100,65 +17340,82 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新代码库Label
-     *  *
-     * @param string                    $labelId
-     * @param UpdateProjectLabelRequest $request UpdateProjectLabelRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 更新代码库Label.
      *
-     * @return UpdateProjectLabelResponse UpdateProjectLabelResponse
+     * @param request - UpdateProjectLabelRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateProjectLabelResponse
+     *
+     * @param string                    $labelId
+     * @param UpdateProjectLabelRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateProjectLabelResponse
      */
     public function updateProjectLabelWithOptions($labelId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->repositoryIdentity)) {
-            $query['repositoryIdentity'] = $request->repositoryIdentity;
+
+        if (null !== $request->repositoryIdentity) {
+            @$query['repositoryIdentity'] = $request->repositoryIdentity;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->color)) {
-            $body['color'] = $request->color;
+        if (null !== $request->color) {
+            @$body['color'] = $request->color;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateProjectLabel',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/labels/' . OpenApiUtilClient::getEncodeParam($labelId) . '',
+            'pathname'    => '/api/v4/projects/labels/' . Url::percentEncode($labelId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateProjectLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateProjectLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateProjectLabelResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新代码库Label
-     *  *
-     * @param string                    $labelId
-     * @param UpdateProjectLabelRequest $request UpdateProjectLabelRequest
+     * 更新代码库Label.
      *
-     * @return UpdateProjectLabelResponse UpdateProjectLabelResponse
+     * @param request - UpdateProjectLabelRequest
+     * @returns UpdateProjectLabelResponse
+     *
+     * @param string                    $labelId
+     * @param UpdateProjectLabelRequest $request
+     *
+     * @return UpdateProjectLabelResponse
      */
     public function updateProjectLabel($labelId, $request)
     {
@@ -14169,62 +17426,78 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 添加项目成员
-     *  *
+     * 添加项目成员.
+     *
+     * @param request - UpdateProjectMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateProjectMemberResponse
+     *
      * @param string                     $organizationId
      * @param string                     $projectId
-     * @param UpdateProjectMemberRequest $request        UpdateProjectMemberRequest
-     * @param string[]                   $headers        map
-     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateProjectMemberRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdateProjectMemberResponse UpdateProjectMemberResponse
+     * @return UpdateProjectMemberResponse
      */
     public function updateProjectMemberWithOptions($organizationId, $projectId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->roleIdentifier)) {
-            $body['roleIdentifier'] = $request->roleIdentifier;
+        if (null !== $request->roleIdentifier) {
+            @$body['roleIdentifier'] = $request->roleIdentifier;
         }
-        if (!Utils::isUnset($request->targetIdentifier)) {
-            $body['targetIdentifier'] = $request->targetIdentifier;
+
+        if (null !== $request->targetIdentifier) {
+            @$body['targetIdentifier'] = $request->targetIdentifier;
         }
-        if (!Utils::isUnset($request->targetType)) {
-            $body['targetType'] = $request->targetType;
+
+        if (null !== $request->targetType) {
+            @$body['targetType'] = $request->targetType;
         }
-        if (!Utils::isUnset($request->userIdentifier)) {
-            $body['userIdentifier'] = $request->userIdentifier;
+
+        if (null !== $request->userIdentifier) {
+            @$body['userIdentifier'] = $request->userIdentifier;
         }
-        if (!Utils::isUnset($request->userType)) {
-            $body['userType'] = $request->userType;
+
+        if (null !== $request->userType) {
+            @$body['userType'] = $request->userType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateProjectMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/projects/' . OpenApiUtilClient::getEncodeParam($projectId) . '/updateMember',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/projects/' . Url::percentEncode($projectId) . '/updateMember',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateProjectMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 添加项目成员
-     *  *
+     * 添加项目成员.
+     *
+     * @param request - UpdateProjectMemberRequest
+     * @returns UpdateProjectMemberResponse
+     *
      * @param string                     $organizationId
      * @param string                     $projectId
-     * @param UpdateProjectMemberRequest $request        UpdateProjectMemberRequest
+     * @param UpdateProjectMemberRequest $request
      *
-     * @return UpdateProjectMemberResponse UpdateProjectMemberResponse
+     * @return UpdateProjectMemberResponse
      */
     public function updateProjectMember($organizationId, $projectId, $request)
     {
@@ -14235,79 +17508,100 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更改保护分支设置
-     *  *
+     * 更改保护分支设置.
+     *
+     * @param request - UpdateProtectedBranchesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateProtectedBranchesResponse
+     *
      * @param string                         $repositoryId
      * @param string                         $id
-     * @param UpdateProtectedBranchesRequest $request      UpdateProtectedBranchesRequest
-     * @param string[]                       $headers      map
-     * @param RuntimeOptions                 $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateProtectedBranchesRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
      *
-     * @return UpdateProtectedBranchesResponse UpdateProtectedBranchesResponse
+     * @return UpdateProtectedBranchesResponse
      */
     public function updateProtectedBranchesWithOptions($repositoryId, $id, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->allowMergeRoles)) {
-            $body['allowMergeRoles'] = $request->allowMergeRoles;
+        if (null !== $request->allowMergeRoles) {
+            @$body['allowMergeRoles'] = $request->allowMergeRoles;
         }
-        if (!Utils::isUnset($request->allowMergeUserIds)) {
-            $body['allowMergeUserIds'] = $request->allowMergeUserIds;
+
+        if (null !== $request->allowMergeUserIds) {
+            @$body['allowMergeUserIds'] = $request->allowMergeUserIds;
         }
-        if (!Utils::isUnset($request->allowPushRoles)) {
-            $body['allowPushRoles'] = $request->allowPushRoles;
+
+        if (null !== $request->allowPushRoles) {
+            @$body['allowPushRoles'] = $request->allowPushRoles;
         }
-        if (!Utils::isUnset($request->allowPushUserIds)) {
-            $body['allowPushUserIds'] = $request->allowPushUserIds;
+
+        if (null !== $request->allowPushUserIds) {
+            @$body['allowPushUserIds'] = $request->allowPushUserIds;
         }
-        if (!Utils::isUnset($request->branch)) {
-            $body['branch'] = $request->branch;
+
+        if (null !== $request->branch) {
+            @$body['branch'] = $request->branch;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->mergeRequestSetting)) {
-            $body['mergeRequestSetting'] = $request->mergeRequestSetting;
+
+        if (null !== $request->mergeRequestSetting) {
+            @$body['mergeRequestSetting'] = $request->mergeRequestSetting;
         }
-        if (!Utils::isUnset($request->testSettingDTO)) {
-            $body['testSettingDTO'] = $request->testSettingDTO;
+
+        if (null !== $request->testSettingDTO) {
+            @$body['testSettingDTO'] = $request->testSettingDTO;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateProtectedBranches',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/protect_branches/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/' . Url::percentEncode($repositoryId) . '/protect_branches/' . Url::percentEncode($id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateProtectedBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateProtectedBranchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateProtectedBranchesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更改保护分支设置
-     *  *
+     * 更改保护分支设置.
+     *
+     * @param request - UpdateProtectedBranchesRequest
+     * @returns UpdateProtectedBranchesResponse
+     *
      * @param string                         $repositoryId
      * @param string                         $id
-     * @param UpdateProtectedBranchesRequest $request      UpdateProtectedBranchesRequest
+     * @param UpdateProtectedBranchesRequest $request
      *
-     * @return UpdateProtectedBranchesResponse UpdateProtectedBranchesResponse
+     * @return UpdateProtectedBranchesResponse
      */
     public function updateProtectedBranches($repositoryId, $id, $request)
     {
@@ -14318,51 +17612,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 推送评审模式开关
-     *  *
-     * @param string                       $repositoryId
-     * @param UpdatePushReviewOnOffRequest $request      UpdatePushReviewOnOffRequest
-     * @param string[]                     $headers      map
-     * @param RuntimeOptions               $runtime      runtime options for this request RuntimeOptions
+     * 推送评审模式开关.
      *
-     * @return UpdatePushReviewOnOffResponse UpdatePushReviewOnOffResponse
+     * @param request - UpdatePushReviewOnOffRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePushReviewOnOffResponse
+     *
+     * @param string                       $repositoryId
+     * @param UpdatePushReviewOnOffRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdatePushReviewOnOffResponse
      */
     public function updatePushReviewOnOffWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
-        if (!Utils::isUnset($request->trunkMode)) {
-            $query['trunkMode'] = $request->trunkMode;
+
+        if (null !== $request->trunkMode) {
+            @$query['trunkMode'] = $request->trunkMode;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query'   => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdatePushReviewOnOff',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/settings/trunk_mode',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/settings/trunk_mode',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePushReviewOnOffResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePushReviewOnOffResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePushReviewOnOffResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 推送评审模式开关
-     *  *
-     * @param string                       $repositoryId
-     * @param UpdatePushReviewOnOffRequest $request      UpdatePushReviewOnOffRequest
+     * 推送评审模式开关.
      *
-     * @return UpdatePushReviewOnOffResponse UpdatePushReviewOnOffResponse
+     * @param request - UpdatePushReviewOnOffRequest
+     * @returns UpdatePushReviewOnOffResponse
+     *
+     * @param string                       $repositoryId
+     * @param UpdatePushReviewOnOffRequest $request
+     *
+     * @return UpdatePushReviewOnOffResponse
      */
     public function updatePushReviewOnOff($repositoryId, $request)
     {
@@ -14373,58 +17680,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新推送规则
-     *  *
+     * 更新推送规则.
+     *
+     * @param request - UpdatePushRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdatePushRuleResponse
+     *
      * @param string                $repositoryId
      * @param string                $pushRuleId
-     * @param UpdatePushRuleRequest $request      UpdatePushRuleRequest
-     * @param string[]              $headers      map
-     * @param RuntimeOptions        $runtime      runtime options for this request RuntimeOptions
+     * @param UpdatePushRuleRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdatePushRuleResponse UpdatePushRuleResponse
+     * @return UpdatePushRuleResponse
      */
     public function updatePushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->ruleInfos)) {
-            $body['ruleInfos'] = $request->ruleInfos;
+        if (null !== $request->ruleInfos) {
+            @$body['ruleInfos'] = $request->ruleInfos;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdatePushRule',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule/' . OpenApiUtilClient::getEncodeParam($pushRuleId) . '',
+            'pathname'    => '/api/v4/projects/' . Url::percentEncode($repositoryId) . '/push_rule/' . Url::percentEncode($pushRuleId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdatePushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdatePushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdatePushRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新推送规则
-     *  *
+     * 更新推送规则.
+     *
+     * @param request - UpdatePushRuleRequest
+     * @returns UpdatePushRuleResponse
+     *
      * @param string                $repositoryId
      * @param string                $pushRuleId
-     * @param UpdatePushRuleRequest $request      UpdatePushRuleRequest
+     * @param UpdatePushRuleRequest $request
      *
-     * @return UpdatePushRuleResponse UpdatePushRuleResponse
+     * @return UpdatePushRuleResponse
      */
     public function updatePushRule($repositoryId, $pushRuleId, $request)
     {
@@ -14435,104 +17756,134 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新代码库名称、路径、描述、默认分支等设置
-     *  *
-     * @param string                  $repositoryId
-     * @param UpdateRepositoryRequest $request      UpdateRepositoryRequest
-     * @param string[]                $headers      map
-     * @param RuntimeOptions          $runtime      runtime options for this request RuntimeOptions
+     * 更新代码库名称、路径、描述、默认分支等设置.
      *
-     * @return UpdateRepositoryResponse UpdateRepositoryResponse
+     * @param request - UpdateRepositoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRepositoryResponse
+     *
+     * @param string                  $repositoryId
+     * @param UpdateRepositoryRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateRepositoryResponse
      */
     public function updateRepositoryWithOptions($repositoryId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->adminSettingLanguage)) {
-            $body['adminSettingLanguage'] = $request->adminSettingLanguage;
+        if (null !== $request->adminSettingLanguage) {
+            @$body['adminSettingLanguage'] = $request->adminSettingLanguage;
         }
-        if (!Utils::isUnset($request->avatar)) {
-            $body['avatar'] = $request->avatar;
+
+        if (null !== $request->avatar) {
+            @$body['avatar'] = $request->avatar;
         }
-        if (!Utils::isUnset($request->buildsEnabled)) {
-            $body['buildsEnabled'] = $request->buildsEnabled;
+
+        if (null !== $request->buildsEnabled) {
+            @$body['buildsEnabled'] = $request->buildsEnabled;
         }
-        if (!Utils::isUnset($request->checkEmail)) {
-            $body['checkEmail'] = $request->checkEmail;
+
+        if (null !== $request->checkEmail) {
+            @$body['checkEmail'] = $request->checkEmail;
         }
-        if (!Utils::isUnset($request->defaultBranch)) {
-            $body['defaultBranch'] = $request->defaultBranch;
+
+        if (null !== $request->defaultBranch) {
+            @$body['defaultBranch'] = $request->defaultBranch;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->id)) {
-            $body['id'] = $request->id;
+
+        if (null !== $request->id) {
+            @$body['id'] = $request->id;
         }
-        if (!Utils::isUnset($request->issuesEnabled)) {
-            $body['issuesEnabled'] = $request->issuesEnabled;
+
+        if (null !== $request->issuesEnabled) {
+            @$body['issuesEnabled'] = $request->issuesEnabled;
         }
-        if (!Utils::isUnset($request->mergeRequestsEnabled)) {
-            $body['mergeRequestsEnabled'] = $request->mergeRequestsEnabled;
+
+        if (null !== $request->mergeRequestsEnabled) {
+            @$body['mergeRequestsEnabled'] = $request->mergeRequestsEnabled;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->openCloneDownloadControl)) {
-            $body['openCloneDownloadControl'] = $request->openCloneDownloadControl;
+
+        if (null !== $request->openCloneDownloadControl) {
+            @$body['openCloneDownloadControl'] = $request->openCloneDownloadControl;
         }
-        if (!Utils::isUnset($request->path)) {
-            $body['path'] = $request->path;
+
+        if (null !== $request->path) {
+            @$body['path'] = $request->path;
         }
-        if (!Utils::isUnset($request->projectCloneDownloadMethodList)) {
-            $body['projectCloneDownloadMethodList'] = $request->projectCloneDownloadMethodList;
+
+        if (null !== $request->projectCloneDownloadMethodList) {
+            @$body['projectCloneDownloadMethodList'] = $request->projectCloneDownloadMethodList;
         }
-        if (!Utils::isUnset($request->projectCloneDownloadRoleList)) {
-            $body['projectCloneDownloadRoleList'] = $request->projectCloneDownloadRoleList;
+
+        if (null !== $request->projectCloneDownloadRoleList) {
+            @$body['projectCloneDownloadRoleList'] = $request->projectCloneDownloadRoleList;
         }
-        if (!Utils::isUnset($request->snippetsEnabled)) {
-            $body['snippetsEnabled'] = $request->snippetsEnabled;
+
+        if (null !== $request->snippetsEnabled) {
+            @$body['snippetsEnabled'] = $request->snippetsEnabled;
         }
-        if (!Utils::isUnset($request->visibilityLevel)) {
-            $body['visibilityLevel'] = $request->visibilityLevel;
+
+        if (null !== $request->visibilityLevel) {
+            @$body['visibilityLevel'] = $request->visibilityLevel;
         }
-        if (!Utils::isUnset($request->wikiEnabled)) {
-            $body['wikiEnabled'] = $request->wikiEnabled;
+
+        if (null !== $request->wikiEnabled) {
+            @$body['wikiEnabled'] = $request->wikiEnabled;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRepository',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新代码库名称、路径、描述、默认分支等设置
-     *  *
-     * @param string                  $repositoryId
-     * @param UpdateRepositoryRequest $request      UpdateRepositoryRequest
+     * 更新代码库名称、路径、描述、默认分支等设置.
      *
-     * @return UpdateRepositoryResponse UpdateRepositoryResponse
+     * @param request - UpdateRepositoryRequest
+     * @returns UpdateRepositoryResponse
+     *
+     * @param string                  $repositoryId
+     * @param UpdateRepositoryRequest $request
+     *
+     * @return UpdateRepositoryResponse
      */
     public function updateRepository($repositoryId, $request)
     {
@@ -14543,70 +17894,88 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 修改代码库成员的权限（角色）
-     *  *
+     * 修改代码库成员的权限（角色）.
+     *
+     * @param request - UpdateRepositoryMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateRepositoryMemberResponse
+     *
      * @param string                        $repositoryId
      * @param string                        $aliyunPk
-     * @param UpdateRepositoryMemberRequest $request      UpdateRepositoryMemberRequest
-     * @param string[]                      $headers      map
-     * @param RuntimeOptions                $runtime      runtime options for this request RuntimeOptions
+     * @param UpdateRepositoryMemberRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return UpdateRepositoryMemberResponse UpdateRepositoryMemberResponse
+     * @return UpdateRepositoryMemberResponse
      */
     public function updateRepositoryMemberWithOptions($repositoryId, $aliyunPk, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
+        if (null !== $request->accessToken) {
+            @$query['accessToken'] = $request->accessToken;
         }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
+
+        if (null !== $request->organizationId) {
+            @$query['organizationId'] = $request->organizationId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->accessLevel)) {
-            $body['accessLevel'] = $request->accessLevel;
+        if (null !== $request->accessLevel) {
+            @$body['accessLevel'] = $request->accessLevel;
         }
-        if (!Utils::isUnset($request->expireAt)) {
-            $body['expireAt'] = $request->expireAt;
+
+        if (null !== $request->expireAt) {
+            @$body['expireAt'] = $request->expireAt;
         }
-        if (!Utils::isUnset($request->memberType)) {
-            $body['memberType'] = $request->memberType;
+
+        if (null !== $request->memberType) {
+            @$body['memberType'] = $request->memberType;
         }
-        if (!Utils::isUnset($request->relatedId)) {
-            $body['relatedId'] = $request->relatedId;
+
+        if (null !== $request->relatedId) {
+            @$body['relatedId'] = $request->relatedId;
         }
-        if (!Utils::isUnset($request->relatedInfos)) {
-            $body['relatedInfos'] = $request->relatedInfos;
+
+        if (null !== $request->relatedInfos) {
+            @$body['relatedInfos'] = $request->relatedInfos;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => Utils::query($query),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRepositoryMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/repository/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/members/' . OpenApiUtilClient::getEncodeParam($aliyunPk) . '',
+            'pathname'    => '/repository/' . Url::percentEncode($repositoryId) . '/members/' . Url::percentEncode($aliyunPk) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRepositoryMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRepositoryMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRepositoryMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改代码库成员的权限（角色）
-     *  *
+     * 修改代码库成员的权限（角色）.
+     *
+     * @param request - UpdateRepositoryMemberRequest
+     * @returns UpdateRepositoryMemberResponse
+     *
      * @param string                        $repositoryId
      * @param string                        $aliyunPk
-     * @param UpdateRepositoryMemberRequest $request      UpdateRepositoryMemberRequest
+     * @param UpdateRepositoryMemberRequest $request
      *
-     * @return UpdateRepositoryMemberResponse UpdateRepositoryMemberResponse
+     * @return UpdateRepositoryMemberResponse
      */
     public function updateRepositoryMember($repositoryId, $aliyunPk, $request)
     {
@@ -14617,54 +17986,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新资源成员
-     *  *
+     * 更新资源成员.
+     *
+     * @param request - UpdateResourceMemberRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateResourceMemberResponse
+     *
      * @param string                      $organizationId
      * @param string                      $resourceType
      * @param string                      $resourceId
      * @param string                      $accountId
-     * @param UpdateResourceMemberRequest $request        UpdateResourceMemberRequest
-     * @param string[]                    $headers        map
-     * @param RuntimeOptions              $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateResourceMemberRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return UpdateResourceMemberResponse UpdateResourceMemberResponse
+     * @return UpdateResourceMemberResponse
      */
     public function updateResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->roleName)) {
-            $body['roleName'] = $request->roleName;
+        if (null !== $request->roleName) {
+            @$body['roleName'] = $request->roleName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateResourceMember',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/' . OpenApiUtilClient::getEncodeParam($resourceType) . '/' . OpenApiUtilClient::getEncodeParam($resourceId) . '/members/' . OpenApiUtilClient::getEncodeParam($accountId) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/' . Url::percentEncode($resourceType) . '/' . Url::percentEncode($resourceId) . '/members/' . Url::percentEncode($accountId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateResourceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateResourceMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateResourceMemberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新资源成员
-     *  *
+     * 更新资源成员.
+     *
+     * @param request - UpdateResourceMemberRequest
+     * @returns UpdateResourceMemberResponse
+     *
      * @param string                      $organizationId
      * @param string                      $resourceType
      * @param string                      $resourceId
      * @param string                      $accountId
-     * @param UpdateResourceMemberRequest $request        UpdateResourceMemberRequest
+     * @param UpdateResourceMemberRequest $request
      *
-     * @return UpdateResourceMemberResponse UpdateResourceMemberResponse
+     * @return UpdateResourceMemberResponse
      */
     public function updateResourceMember($organizationId, $resourceType, $resourceId, $accountId, $request)
     {
@@ -14675,50 +18056,62 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新测试用例字段
-     *  *
+     * 更新测试用例字段.
+     *
+     * @param request - UpdateTestCaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTestCaseResponse
+     *
      * @param string                $organizationId
      * @param string                $testcaseIdentifier
-     * @param UpdateTestCaseRequest $request            UpdateTestCaseRequest
-     * @param string[]              $headers            map
-     * @param RuntimeOptions        $runtime            runtime options for this request RuntimeOptions
+     * @param UpdateTestCaseRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdateTestCaseResponse UpdateTestCaseResponse
+     * @return UpdateTestCaseResponse
      */
     public function updateTestCaseWithOptions($organizationId, $testcaseIdentifier, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->updateWorkitemPropertyRequest)) {
-            $body['updateWorkitemPropertyRequest'] = $request->updateWorkitemPropertyRequest;
+        if (null !== $request->updateWorkitemPropertyRequest) {
+            @$body['updateWorkitemPropertyRequest'] = $request->updateWorkitemPropertyRequest;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTestCase',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testcase/' . OpenApiUtilClient::getEncodeParam($testcaseIdentifier) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/testhub/testcase/' . Url::percentEncode($testcaseIdentifier) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTestCaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新测试用例字段
-     *  *
+     * 更新测试用例字段.
+     *
+     * @param request - UpdateTestCaseRequest
+     * @returns UpdateTestCaseResponse
+     *
      * @param string                $organizationId
      * @param string                $testcaseIdentifier
-     * @param UpdateTestCaseRequest $request            UpdateTestCaseRequest
+     * @param UpdateTestCaseRequest $request
      *
-     * @return UpdateTestCaseResponse UpdateTestCaseResponse
+     * @return UpdateTestCaseResponse
      */
     public function updateTestCase($organizationId, $testcaseIdentifier, $request)
     {
@@ -14729,55 +18122,68 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新了测试计划中测试用例的执行人与状态
-     *  *
+     * 更新了测试计划中测试用例的执行人与状态
+     *
+     * @param request - UpdateTestResultRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTestResultResponse
+     *
      * @param string                  $organizationId
      * @param string                  $testPlanIdentifier
      * @param string                  $testcaseIdentifier
-     * @param UpdateTestResultRequest $request            UpdateTestResultRequest
-     * @param string[]                $headers            map
-     * @param RuntimeOptions          $runtime            runtime options for this request RuntimeOptions
+     * @param UpdateTestResultRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
      *
-     * @return UpdateTestResultResponse UpdateTestResultResponse
+     * @return UpdateTestResultResponse
      */
     public function updateTestResultWithOptions($organizationId, $testPlanIdentifier, $testcaseIdentifier, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->executor)) {
-            $body['executor'] = $request->executor;
+        if (null !== $request->executor) {
+            @$body['executor'] = $request->executor;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTestResult',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testplan/' . OpenApiUtilClient::getEncodeParam($testPlanIdentifier) . '/testresult/' . OpenApiUtilClient::getEncodeParam($testcaseIdentifier) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/testhub/testplan/' . Url::percentEncode($testPlanIdentifier) . '/testresult/' . Url::percentEncode($testcaseIdentifier) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTestResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新了测试计划中测试用例的执行人与状态
-     *  *
+     * 更新了测试计划中测试用例的执行人与状态
+     *
+     * @param request - UpdateTestResultRequest
+     * @returns UpdateTestResultResponse
+     *
      * @param string                  $organizationId
      * @param string                  $testPlanIdentifier
      * @param string                  $testcaseIdentifier
-     * @param UpdateTestResultRequest $request            UpdateTestResultRequest
+     * @param UpdateTestResultRequest $request
      *
-     * @return UpdateTestResultResponse UpdateTestResultResponse
+     * @return UpdateTestResultResponse
      */
     public function updateTestResult($organizationId, $testPlanIdentifier, $testcaseIdentifier, $request)
     {
@@ -14788,56 +18194,70 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新变量组
-     *  *
+     * 更新变量组.
+     *
+     * @param request - UpdateVariableGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVariableGroupResponse
+     *
      * @param string                     $organizationId
      * @param string                     $id
-     * @param UpdateVariableGroupRequest $request        UpdateVariableGroupRequest
-     * @param string[]                   $headers        map
-     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     * @param UpdateVariableGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdateVariableGroupResponse UpdateVariableGroupResponse
+     * @return UpdateVariableGroupResponse
      */
     public function updateVariableGroupWithOptions($organizationId, $id, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->variables)) {
-            $body['variables'] = $request->variables;
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateVariableGroup',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/variableGroups/' . OpenApiUtilClient::getEncodeParam($id) . '',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/variableGroups/' . Url::percentEncode($id) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVariableGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVariableGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新变量组
-     *  *
+     * 更新变量组.
+     *
+     * @param request - UpdateVariableGroupRequest
+     * @returns UpdateVariableGroupResponse
+     *
      * @param string                     $organizationId
      * @param string                     $id
-     * @param UpdateVariableGroupRequest $request        UpdateVariableGroupRequest
+     * @param UpdateVariableGroupRequest $request
      *
-     * @return UpdateVariableGroupResponse UpdateVariableGroupResponse
+     * @return UpdateVariableGroupResponse
      */
     public function updateVariableGroup($organizationId, $id, $request)
     {
@@ -14848,57 +18268,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新工作项信息
-     *  *
-     * @param string                $organizationId
-     * @param UpdateWorkItemRequest $request        UpdateWorkItemRequest
-     * @param string[]              $headers        map
-     * @param RuntimeOptions        $runtime        runtime options for this request RuntimeOptions
+     * 更新工作项信息.
      *
-     * @return UpdateWorkItemResponse UpdateWorkItemResponse
+     * @param request - UpdateWorkItemRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWorkItemResponse
+     *
+     * @param string                $organizationId
+     * @param UpdateWorkItemRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateWorkItemResponse
      */
     public function updateWorkItemWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fieldType)) {
-            $body['fieldType'] = $request->fieldType;
+        if (null !== $request->fieldType) {
+            @$body['fieldType'] = $request->fieldType;
         }
-        if (!Utils::isUnset($request->identifier)) {
-            $body['identifier'] = $request->identifier;
+
+        if (null !== $request->identifier) {
+            @$body['identifier'] = $request->identifier;
         }
-        if (!Utils::isUnset($request->propertyKey)) {
-            $body['propertyKey'] = $request->propertyKey;
+
+        if (null !== $request->propertyKey) {
+            @$body['propertyKey'] = $request->propertyKey;
         }
-        if (!Utils::isUnset($request->propertyValue)) {
-            $body['propertyValue'] = $request->propertyValue;
+
+        if (null !== $request->propertyValue) {
+            @$body['propertyValue'] = $request->propertyValue;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateWorkItem',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/update',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/update',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWorkItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWorkItemResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新工作项信息
-     *  *
-     * @param string                $organizationId
-     * @param UpdateWorkItemRequest $request        UpdateWorkItemRequest
+     * 更新工作项信息.
      *
-     * @return UpdateWorkItemResponse UpdateWorkItemResponse
+     * @param request - UpdateWorkItemRequest
+     * @returns UpdateWorkItemResponse
+     *
+     * @param string                $organizationId
+     * @param UpdateWorkItemRequest $request
+     *
+     * @return UpdateWorkItemResponse
      */
     public function updateWorkItem($organizationId, $request)
     {
@@ -14909,57 +18344,72 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 更新工作项评论
-     *  *
-     * @param string                       $organizationId
-     * @param UpdateWorkitemCommentRequest $request        UpdateWorkitemCommentRequest
-     * @param string[]                     $headers        map
-     * @param RuntimeOptions               $runtime        runtime options for this request RuntimeOptions
+     * 更新工作项评论.
      *
-     * @return UpdateWorkitemCommentResponse UpdateWorkitemCommentResponse
+     * @param request - UpdateWorkitemCommentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWorkitemCommentResponse
+     *
+     * @param string                       $organizationId
+     * @param UpdateWorkitemCommentRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateWorkitemCommentResponse
      */
     public function updateWorkitemCommentWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->commentId)) {
-            $body['commentId'] = $request->commentId;
+        if (null !== $request->commentId) {
+            @$body['commentId'] = $request->commentId;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->formatType)) {
-            $body['formatType'] = $request->formatType;
+
+        if (null !== $request->formatType) {
+            @$body['formatType'] = $request->formatType;
         }
-        if (!Utils::isUnset($request->workitemIdentifier)) {
-            $body['workitemIdentifier'] = $request->workitemIdentifier;
+
+        if (null !== $request->workitemIdentifier) {
+            @$body['workitemIdentifier'] = $request->workitemIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateWorkitemComment',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/commentUpdate',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/commentUpdate',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWorkitemCommentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWorkitemCommentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新工作项评论
-     *  *
-     * @param string                       $organizationId
-     * @param UpdateWorkitemCommentRequest $request        UpdateWorkitemCommentRequest
+     * 更新工作项评论.
      *
-     * @return UpdateWorkitemCommentResponse UpdateWorkitemCommentResponse
+     * @param request - UpdateWorkitemCommentRequest
+     * @returns UpdateWorkitemCommentResponse
+     *
+     * @param string                       $organizationId
+     * @param UpdateWorkitemCommentRequest $request
+     *
+     * @return UpdateWorkitemCommentResponse
      */
     public function updateWorkitemComment($organizationId, $request)
     {
@@ -14970,51 +18420,64 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 批量更新工作项字段信息
-     *  *
-     * @param string                     $organizationId
-     * @param UpdateWorkitemFieldRequest $request        UpdateWorkitemFieldRequest
-     * @param string[]                   $headers        map
-     * @param RuntimeOptions             $runtime        runtime options for this request RuntimeOptions
+     * 批量更新工作项字段信息.
      *
-     * @return UpdateWorkitemFieldResponse UpdateWorkitemFieldResponse
+     * @param request - UpdateWorkitemFieldRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateWorkitemFieldResponse
+     *
+     * @param string                     $organizationId
+     * @param UpdateWorkitemFieldRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateWorkitemFieldResponse
      */
     public function updateWorkitemFieldWithOptions($organizationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->updateWorkitemPropertyRequest)) {
-            $body['updateWorkitemPropertyRequest'] = $request->updateWorkitemPropertyRequest;
+        if (null !== $request->updateWorkitemPropertyRequest) {
+            @$body['updateWorkitemPropertyRequest'] = $request->updateWorkitemPropertyRequest;
         }
-        if (!Utils::isUnset($request->workitemIdentifier)) {
-            $body['workitemIdentifier'] = $request->workitemIdentifier;
+
+        if (null !== $request->workitemIdentifier) {
+            @$body['workitemIdentifier'] = $request->workitemIdentifier;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateWorkitemField',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/updateWorkitemField',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitems/updateWorkitemField',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateWorkitemFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWorkitemFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWorkitemFieldResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 批量更新工作项字段信息
-     *  *
-     * @param string                     $organizationId
-     * @param UpdateWorkitemFieldRequest $request        UpdateWorkitemFieldRequest
+     * 批量更新工作项字段信息.
      *
-     * @return UpdateWorkitemFieldResponse UpdateWorkitemFieldResponse
+     * @param request - UpdateWorkitemFieldRequest
+     * @returns UpdateWorkitemFieldResponse
+     *
+     * @param string                     $organizationId
+     * @param UpdateWorkitemFieldRequest $request
+     *
+     * @return UpdateWorkitemFieldResponse
      */
     public function updateWorkitemField($organizationId, $request)
     {
@@ -15025,53 +18488,66 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 工作项附件创建
-     *  *
+     * 工作项附件创建.
+     *
+     * @param request - WorkitemAttachmentCreateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns WorkitemAttachmentCreateResponse
+     *
      * @param string                          $organizationId
      * @param string                          $workitemIdentifier
-     * @param WorkitemAttachmentCreateRequest $request            WorkitemAttachmentCreateRequest
-     * @param string[]                        $headers            map
-     * @param RuntimeOptions                  $runtime            runtime options for this request RuntimeOptions
+     * @param WorkitemAttachmentCreateRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return WorkitemAttachmentCreateResponse WorkitemAttachmentCreateResponse
+     * @return WorkitemAttachmentCreateResponse
      */
     public function workitemAttachmentCreateWithOptions($organizationId, $workitemIdentifier, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->fileKey)) {
-            $body['fileKey'] = $request->fileKey;
+        if (null !== $request->fileKey) {
+            @$body['fileKey'] = $request->fileKey;
         }
-        if (!Utils::isUnset($request->originalFilename)) {
-            $body['originalFilename'] = $request->originalFilename;
+
+        if (null !== $request->originalFilename) {
+            @$body['originalFilename'] = $request->originalFilename;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'WorkitemAttachmentCreate',
             'version'     => '2021-06-25',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/' . OpenApiUtilClient::getEncodeParam($workitemIdentifier) . '/attachment',
+            'pathname'    => '/organization/' . Url::percentEncode($organizationId) . '/workitem/' . Url::percentEncode($workitemIdentifier) . '/attachment',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return WorkitemAttachmentCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return WorkitemAttachmentCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return WorkitemAttachmentCreateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 工作项附件创建
-     *  *
+     * 工作项附件创建.
+     *
+     * @param request - WorkitemAttachmentCreateRequest
+     * @returns WorkitemAttachmentCreateResponse
+     *
      * @param string                          $organizationId
      * @param string                          $workitemIdentifier
-     * @param WorkitemAttachmentCreateRequest $request            WorkitemAttachmentCreateRequest
+     * @param WorkitemAttachmentCreateRequest $request
      *
-     * @return WorkitemAttachmentCreateResponse WorkitemAttachmentCreateResponse
+     * @return WorkitemAttachmentCreateResponse
      */
     public function workitemAttachmentCreate($organizationId, $workitemIdentifier, $request)
     {

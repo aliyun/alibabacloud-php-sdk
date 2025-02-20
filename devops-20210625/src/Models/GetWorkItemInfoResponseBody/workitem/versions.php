@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class versions extends Model
 {
@@ -12,7 +12,6 @@ class versions extends Model
      * @var string
      */
     public $identifier;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class versions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identifier) {
             $res['identifier'] = $this->identifier;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -39,17 +40,18 @@ class versions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return versions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['identifier'])) {
             $model->identifier = $map['identifier'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

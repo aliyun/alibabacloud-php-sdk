@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineRunResponseBody\pipelineRun\sources;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example master
-     *
      * @var string
      */
     public $branch;
-
     /**
-     * @example {}
-     *
      * @var string
      */
     public $commint;
-
     /**
-     * @example http://codeup.aliyun.com/a.git
-     *
      * @var string
      */
     public $repo;
@@ -36,17 +28,20 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->branch) {
             $res['branch'] = $this->branch;
         }
+
         if (null !== $this->commint) {
             $res['commint'] = $this->commint;
         }
+
         if (null !== $this->repo) {
             $res['repo'] = $this->repo;
         }
@@ -54,20 +49,22 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['branch'])) {
             $model->branch = $map['branch'];
         }
+
         if (isset($map['commint'])) {
             $model->commint = $map['commint'];
         }
+
         if (isset($map['repo'])) {
             $model->repo = $map['repo'];
         }

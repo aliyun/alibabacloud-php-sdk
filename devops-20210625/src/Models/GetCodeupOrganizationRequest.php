@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCodeupOrganizationRequest extends Model
 {
     /**
-     * @example f0b1e61db5961df5975a93f9129d2513
-     *
      * @var string
      */
     public $accessToken;
@@ -20,9 +18,10 @@ class GetCodeupOrganizationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessToken) {
@@ -32,11 +31,11 @@ class GetCodeupOrganizationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCodeupOrganizationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

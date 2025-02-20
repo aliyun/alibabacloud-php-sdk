@@ -4,27 +4,19 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponseBody\deployOrder;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class actions extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $disable;
-
     /**
-     * @example {}
-     *
      * @var mixed
      */
     public $params;
-
     /**
-     * @example StopVMDeployOrder
-     *
      * @var string
      */
     public $type;
@@ -36,17 +28,20 @@ class actions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disable) {
             $res['disable'] = $this->disable;
         }
+
         if (null !== $this->params) {
             $res['params'] = $this->params;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -54,20 +49,22 @@ class actions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return actions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['disable'])) {
             $model->disable = $map['disable'];
         }
+
         if (isset($map['params'])) {
             $model->params = $map['params'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

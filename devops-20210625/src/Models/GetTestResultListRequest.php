@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTestResultListRequest extends Model
 {
     /**
-     * @example {\\"conditionGroups\\": [[{\\"fieldIdentifier\\": \\"gmtModified\\", \\"operator\\": \\"MORE_THAN_AND_EQUAL\\", \\"value\\": [\\"2023-04-20 18:03:12.442140\\"], \\"className\\": \\"dateTime\\", \\"format\\": \\"input\\"}]]}
-     *
      * @var string
      */
     public $conditions;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example e27b8eace6501ce51cf5d56784
-     *
      * @var string
      */
     public $directoryIdentifier;
@@ -30,14 +23,16 @@ class GetTestResultListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditions) {
             $res['conditions'] = $this->conditions;
         }
+
         if (null !== $this->directoryIdentifier) {
             $res['directoryIdentifier'] = $this->directoryIdentifier;
         }
@@ -45,17 +40,18 @@ class GetTestResultListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTestResultListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['conditions'])) {
             $model->conditions = $map['conditions'];
         }
+
         if (isset($map['directoryIdentifier'])) {
             $model->directoryIdentifier = $map['directoryIdentifier'];
         }

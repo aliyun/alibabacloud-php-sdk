@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListMergeRequestFilesReadsResponseBody\result;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class readUsers extends Model
 {
     /**
-     * @example 204485087002425236
-     *
      * @var string
      */
     public $aliyunPk;
-
     /**
-     * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
-     *
      * @var string
      */
     public $avatarUrl;
-
     /**
-     * @example username@example.com
-     *
      * @var string
      */
     public $email;
-
     /**
-     * @example codeup
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example active
-     *
      * @var string
      */
     public $state;
-
     /**
-     * @example test-codeup
-     *
      * @var string
      */
     public $username;
@@ -60,26 +43,32 @@ class readUsers extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunPk) {
             $res['aliyunPk'] = $this->aliyunPk;
         }
+
         if (null !== $this->avatarUrl) {
             $res['avatarUrl'] = $this->avatarUrl;
         }
+
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->state) {
             $res['state'] = $this->state;
         }
+
         if (null !== $this->username) {
             $res['username'] = $this->username;
         }
@@ -87,29 +76,34 @@ class readUsers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return readUsers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aliyunPk'])) {
             $model->aliyunPk = $map['aliyunPk'];
         }
+
         if (isset($map['avatarUrl'])) {
             $model->avatarUrl = $map['avatarUrl'];
         }
+
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['state'])) {
             $model->state = $map['state'];
         }
+
         if (isset($map['username'])) {
             $model->username = $map['username'];
         }

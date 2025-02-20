@@ -4,25 +4,19 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListAllReleaseWorkflowsResponse\body\releaseStages;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class variableGroups extends Model
 {
     /**
-     * @example dev
-     *
      * @var string
      */
     public $name;
-
     /**
      * @var string
      */
     public $displayName;
-
     /**
-     * @example APP
-     *
      * @var string
      */
     public $type;
@@ -34,17 +28,20 @@ class variableGroups extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -52,20 +49,22 @@ class variableGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return variableGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

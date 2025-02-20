@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateApplicationRequest extends Model
 {
     /**
-     * @example 1332695887xxxxxx
-     *
      * @var string
      */
     public $ownerAccountId;
-
     /**
-     * @example 66c0c9fffeb86b450c199fcd
-     *
      * @var string
      */
     public $organizationId;
@@ -28,14 +23,16 @@ class UpdateApplicationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ownerAccountId) {
             $res['ownerAccountId'] = $this->ownerAccountId;
         }
+
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
@@ -43,17 +40,18 @@ class UpdateApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ownerAccountId'])) {
             $model->ownerAccountId = $map['ownerAccountId'];
         }
+
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }

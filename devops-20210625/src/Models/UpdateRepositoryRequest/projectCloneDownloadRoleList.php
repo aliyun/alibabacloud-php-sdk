@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class projectCloneDownloadRoleList extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $allowed;
-
     /**
-     * @example 15
-     *
      * @var int
      */
     public $roleCode;
@@ -28,14 +23,16 @@ class projectCloneDownloadRoleList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowed) {
             $res['allowed'] = $this->allowed;
         }
+
         if (null !== $this->roleCode) {
             $res['roleCode'] = $this->roleCode;
         }
@@ -43,17 +40,18 @@ class projectCloneDownloadRoleList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return projectCloneDownloadRoleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['allowed'])) {
             $model->allowed = $map['allowed'];
         }
+
         if (isset($map['roleCode'])) {
             $model->roleCode = $map['roleCode'];
         }

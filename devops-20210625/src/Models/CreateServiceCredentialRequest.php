@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateServiceCredentialRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 张三的Git证书
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example zhangsan
-     *
      * @var string
      */
     public $password;
-
     /**
-     * @example PERSON
-     *
      * @var string
      */
     public $scope;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example USERNAME_PASSWORD
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example zhangsan
-     *
      * @var string
      */
     public $username;
@@ -60,23 +38,28 @@ class CreateServiceCredentialRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->password) {
             $res['password'] = $this->password;
         }
+
         if (null !== $this->scope) {
             $res['scope'] = $this->scope;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
+
         if (null !== $this->username) {
             $res['username'] = $this->username;
         }
@@ -84,26 +67,30 @@ class CreateServiceCredentialRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateServiceCredentialRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['password'])) {
             $model->password = $map['password'];
         }
+
         if (isset($map['scope'])) {
             $model->scope = $map['scope'];
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }
+
         if (isset($map['username'])) {
             $model->username = $map['username'];
         }

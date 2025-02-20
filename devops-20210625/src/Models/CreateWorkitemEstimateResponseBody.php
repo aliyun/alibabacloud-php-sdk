@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemEstimateResponseBody\workitemTimeEstimate;
-use AlibabaCloud\Tea\Model;
 
 class CreateWorkitemEstimateResponseBody extends Model
 {
@@ -13,30 +13,18 @@ class CreateWorkitemEstimateResponseBody extends Model
      * @var workitemTimeEstimate
      */
     public $workitemTimeEstimate;
-
     /**
-     * @example Openapi.RequestError
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @example error
-     *
      * @var string
      */
     public $errorMsg;
-
     /**
-     * @description Id of the request
-     *
-     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
-     *
      * @var string
      */
     public $requestId;
-
     /**
      * @var bool
      */
@@ -51,23 +39,31 @@ class CreateWorkitemEstimateResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->workitemTimeEstimate) {
+            $this->workitemTimeEstimate->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->workitemTimeEstimate) {
-            $res['WorkitemTimeEstimate'] = null !== $this->workitemTimeEstimate ? $this->workitemTimeEstimate->toMap() : null;
+            $res['WorkitemTimeEstimate'] = null !== $this->workitemTimeEstimate ? $this->workitemTimeEstimate->toArray($noStream) : $this->workitemTimeEstimate;
         }
+
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -75,26 +71,30 @@ class CreateWorkitemEstimateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateWorkitemEstimateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['WorkitemTimeEstimate'])) {
             $model->workitemTimeEstimate = workitemTimeEstimate::fromMap($map['WorkitemTimeEstimate']);
         }
+
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

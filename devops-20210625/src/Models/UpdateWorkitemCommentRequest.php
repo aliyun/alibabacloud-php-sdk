@@ -4,40 +4,23 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateWorkitemCommentRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1964584
-     *
      * @var int
      */
     public $commentId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example MARKDOWN/RICHTEXT
-     *
      * @var string
      */
     public $formatType;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 9144ef6b72d8exxxxx9e61a4d0
-     *
      * @var string
      */
     public $workitemIdentifier;
@@ -50,20 +33,24 @@ class UpdateWorkitemCommentRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commentId) {
             $res['commentId'] = $this->commentId;
         }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->formatType) {
             $res['formatType'] = $this->formatType;
         }
+
         if (null !== $this->workitemIdentifier) {
             $res['workitemIdentifier'] = $this->workitemIdentifier;
         }
@@ -71,23 +58,26 @@ class UpdateWorkitemCommentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateWorkitemCommentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['commentId'])) {
             $model->commentId = $map['commentId'];
         }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['formatType'])) {
             $model->formatType = $map['formatType'];
         }
+
         if (isset($map['workitemIdentifier'])) {
             $model->workitemIdentifier = $map['workitemIdentifier'];
         }

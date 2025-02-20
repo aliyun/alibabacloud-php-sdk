@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetGroupByPathRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 60de7a6852743a5162b5f957/test-group
-     *
      * @var string
      */
     public $identity;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 60de7a6852743a5162b5f957
-     *
      * @var string
      */
     public $organizationId;
@@ -32,14 +23,16 @@ class GetGroupByPathRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->identity) {
             $res['identity'] = $this->identity;
         }
+
         if (null !== $this->organizationId) {
             $res['organizationId'] = $this->organizationId;
         }
@@ -47,17 +40,18 @@ class GetGroupByPathRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetGroupByPathRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['identity'])) {
             $model->identity = $map['identity'];
         }
+
         if (isset($map['organizationId'])) {
             $model->organizationId = $map['organizationId'];
         }

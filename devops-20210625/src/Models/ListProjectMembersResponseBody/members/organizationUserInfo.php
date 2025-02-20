@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListProjectMembersResponseBody\members;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class organizationUserInfo extends Model
 {
     /**
-     * @example 5e7xxxxb3cd3711dd6xxx2c
-     *
      * @var string
      */
     public $organizationIdentifier;
@@ -20,9 +18,10 @@ class organizationUserInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->organizationIdentifier) {
@@ -32,11 +31,11 @@ class organizationUserInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return organizationUserInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

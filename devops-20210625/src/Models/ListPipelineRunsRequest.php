@@ -4,48 +4,31 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPipelineRunsRequest extends Model
 {
     /**
-     * @example 1586863220000
-     *
      * @var int
      */
     public $endTime;
-
     /**
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @example aaaaaa
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @example 1586863220000
-     *
      * @var int
      */
     public $startTime;
-
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $triggerMode;
@@ -60,26 +43,32 @@ class ListPipelineRunsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->maxResults) {
             $res['maxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->triggerMode) {
             $res['triggerMode'] = $this->triggerMode;
         }
@@ -87,29 +76,34 @@ class ListPipelineRunsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPipelineRunsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['maxResults'])) {
             $model->maxResults = $map['maxResults'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['triggerMode'])) {
             $model->triggerMode = $map['triggerMode'];
         }

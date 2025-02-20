@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\Devops\V20210625\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetHostGroupResponseBody\hostGroup;
-use AlibabaCloud\Tea\Model;
 
 class GetHostGroupResponseBody extends Model
 {
     /**
-     * @example ""
-     *
      * @var string
      */
     public $errorCode;
-
     /**
-     * @example ""
-     *
      * @var string
      */
     public $errorMessage;
-
     /**
      * @var hostGroup
      */
     public $hostGroup;
-
     /**
-     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -51,23 +39,31 @@ class GetHostGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->hostGroup) {
+            $this->hostGroup->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['errorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->hostGroup) {
-            $res['hostGroup'] = null !== $this->hostGroup ? $this->hostGroup->toMap() : null;
+            $res['hostGroup'] = null !== $this->hostGroup ? $this->hostGroup->toArray($noStream) : $this->hostGroup;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -75,26 +71,30 @@ class GetHostGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHostGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorCode'])) {
             $model->errorCode = $map['errorCode'];
         }
+
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
+
         if (isset($map['hostGroup'])) {
             $model->hostGroup = hostGroup::fromMap($map['hostGroup']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }
