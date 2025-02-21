@@ -4,92 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEnterpriseSnapshotPolicyRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The IDs of disks.
-     *
      * @var string[]
      */
     public $diskIds;
-
     /**
-     * @description The maximum number of entries per page.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The IDs of enterprise-level snapshot policies.
-     *
      * @var string[]
      */
     public $policyIds;
-
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the resource group.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The tags of the enterprise-level snapshot policies. Valid values of N: 1 to 20.
-     *
      * @var tag[]
      */
     public $tag;
@@ -108,44 +64,75 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->diskIds)) {
+            Model::validateArray($this->diskIds);
+        }
+        if (\is_array($this->policyIds)) {
+            Model::validateArray($this->policyIds);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->diskIds) {
-            $res['DiskIds'] = $this->diskIds;
+            if (\is_array($this->diskIds)) {
+                $res['DiskIds'] = [];
+                $n1             = 0;
+                foreach ($this->diskIds as $item1) {
+                    $res['DiskIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->policyIds) {
-            $res['PolicyIds'] = $this->policyIds;
+            if (\is_array($this->policyIds)) {
+                $res['PolicyIds'] = [];
+                $n1               = 0;
+                foreach ($this->policyIds as $item1) {
+                    $res['PolicyIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -153,51 +140,68 @@ class DescribeEnterpriseSnapshotPolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEnterpriseSnapshotPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DiskIds'])) {
             if (!empty($map['DiskIds'])) {
-                $model->diskIds = $map['DiskIds'];
+                $model->diskIds = [];
+                $n1             = 0;
+                foreach ($map['DiskIds'] as $item1) {
+                    $model->diskIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PolicyIds'])) {
             if (!empty($map['PolicyIds'])) {
-                $model->policyIds = $map['PolicyIds'];
+                $model->policyIds = [];
+                $n1               = 0;
+                foreach ($map['PolicyIds'] as $item1) {
+                    $model->policyIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskEventsResponseBody\diskEvents;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDiskEventsResponseBody extends Model
 {
     /**
-     * @description The risk events of the disk.
-     *
      * @var diskEvents[]
      */
     public $diskEvents;
-
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class DescribeDiskEventsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->diskEvents)) {
+            Model::validateArray($this->diskEvents);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskEvents) {
-            $res['DiskEvents'] = [];
-            if (null !== $this->diskEvents && \is_array($this->diskEvents)) {
-                $n = 0;
-                foreach ($this->diskEvents as $item) {
-                    $res['DiskEvents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->diskEvents)) {
+                $res['DiskEvents'] = [];
+                $n1                = 0;
+                foreach ($this->diskEvents as $item1) {
+                    $res['DiskEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class DescribeDiskEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiskEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskEvents'])) {
             if (!empty($map['DiskEvents'])) {
                 $model->diskEvents = [];
-                $n                 = 0;
-                foreach ($map['DiskEvents'] as $item) {
-                    $model->diskEvents[$n++] = null !== $item ? diskEvents::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['DiskEvents'] as $item1) {
+                    $model->diskEvents[$n1++] = diskEvents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

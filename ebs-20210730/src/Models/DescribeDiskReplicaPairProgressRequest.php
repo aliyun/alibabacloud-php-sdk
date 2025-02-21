@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDiskReplicaPairProgressRequest extends Model
 {
     /**
-     * @description The region ID of the replication pair.
-     *
-     * This parameter is required.
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html)operation to query the IDs of existing replication pairs.
-     *
-     * This parameter is required.
-     * @example pair-cn-tl32ribst0z
-     *
      * @var string
      */
     public $replicaPairId;
@@ -34,14 +23,16 @@ class DescribeDiskReplicaPairProgressRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->replicaPairId) {
             $res['ReplicaPairId'] = $this->replicaPairId;
         }
@@ -49,17 +40,18 @@ class DescribeDiskReplicaPairProgressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiskReplicaPairProgressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ReplicaPairId'])) {
             $model->replicaPairId = $map['ReplicaPairId'];
         }

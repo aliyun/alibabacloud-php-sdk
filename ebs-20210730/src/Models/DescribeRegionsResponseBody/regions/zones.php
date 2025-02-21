@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeRegionsResponseBody\regions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zones extends Model
 {
     /**
-     * @description The name of the zone.
-     *
-     * @example Hangzhou Zone H
-     *
      * @var string
      */
     public $localName;
-
     /**
-     * @description The type of resource list.
-     *
      * @var string[]
      */
     public $resourceTypes;
-
     /**
-     * @description The ID of the zone.
-     *
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $zoneId;
@@ -40,17 +28,29 @@ class zones extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceTypes)) {
+            Model::validateArray($this->resourceTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
+
         if (null !== $this->resourceTypes) {
-            $res['ResourceTypes'] = $this->resourceTypes;
+            if (\is_array($this->resourceTypes)) {
+                $res['ResourceTypes'] = [];
+                $n1                   = 0;
+                foreach ($this->resourceTypes as $item1) {
+                    $res['ResourceTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -58,22 +58,28 @@ class zones extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zones
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
+
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
-                $model->resourceTypes = $map['ResourceTypes'];
+                $model->resourceTypes = [];
+                $n1                   = 0;
+                foreach ($map['ResourceTypes'] as $item1) {
+                    $model->resourceTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

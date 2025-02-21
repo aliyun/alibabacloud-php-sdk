@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyRequest\specialRetainRules\rules;
-use AlibabaCloud\Tea\Model;
 
 class specialRetainRules extends Model
 {
     /**
-     * @description Indicates whether the special retention is enabled.
-     *
-     *   true: enable
-     *   false: disable
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description The special retention rules.
-     *
      * @var rules[]
      */
     public $rules;
@@ -34,20 +24,25 @@ class specialRetainRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rules)) {
+                $res['Rules'] = [];
+                $n1           = 0;
+                foreach ($this->rules as $item1) {
+                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -55,23 +50,24 @@ class specialRetainRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specialRetainRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Rules'] as $item1) {
+                    $model->rules[$n1++] = rules::fromMap($item1);
                 }
             }
         }

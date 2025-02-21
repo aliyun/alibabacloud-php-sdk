@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateEnterpriseSnapshotPolicyResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example BA903E56-48CE-5B81-9611-ED7962EED3DF
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateEnterpriseSnapshotPolicyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateEnterpriseSnapshotPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateEnterpriseSnapshotPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

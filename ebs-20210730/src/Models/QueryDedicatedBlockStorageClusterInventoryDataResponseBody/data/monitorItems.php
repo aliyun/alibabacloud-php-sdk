@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\QueryDedicatedBlockStorageClusterInventoryDataResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class monitorItems extends Model
 {
     /**
-     * @description Available capacity size of the dedicated block storage cluster.
-     *
-     * @example 61360
-     *
      * @var int
      */
     public $availableSize;
-
     /**
-     * @description Total capacity size of the dedicated block storage cluster.
-     *
-     * @example 61440
-     *
      * @var int
      */
     public $totalSize;
@@ -32,14 +23,16 @@ class monitorItems extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableSize) {
             $res['AvailableSize'] = $this->availableSize;
         }
+
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
         }
@@ -47,17 +40,18 @@ class monitorItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return monitorItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableSize'])) {
             $model->availableSize = $map['AvailableSize'];
         }
+
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEnterpriseSnapshotPolicyResponseBody\policies;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schedule extends Model
 {
     /**
-     * @description The cron expression of the enterprise-level snapshot policy.
-     *
      * @var string
      */
     public $cronExpression;
@@ -20,9 +18,10 @@ class schedule extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cronExpression) {
@@ -32,11 +31,11 @@ class schedule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schedule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

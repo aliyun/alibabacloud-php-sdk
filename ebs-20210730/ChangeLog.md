@@ -1,3 +1,8 @@
+2025-02-21 Version: 3.1.0
+- Support API DescribeUserTagKeys.
+- Support API DescribeUserTagValues.
+
+
 2025-01-03 Version: 3.0.2
 - Update API DescribeLensMonitorDisks: add param DiskIdPattern.
 

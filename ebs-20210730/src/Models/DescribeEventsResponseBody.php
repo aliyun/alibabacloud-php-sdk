@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeEventsResponseBody\resourceEvents;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEventsResponseBody extends Model
 {
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example AAAAAdDWBF2****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description Id of the request
-     *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The events.
-     *
      * @var resourceEvents[]
      */
     public $resourceEvents;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -51,26 +34,33 @@ class DescribeEventsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceEvents)) {
+            Model::validateArray($this->resourceEvents);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceEvents) {
-            $res['ResourceEvents'] = [];
-            if (null !== $this->resourceEvents && \is_array($this->resourceEvents)) {
-                $n = 0;
-                foreach ($this->resourceEvents as $item) {
-                    $res['ResourceEvents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceEvents)) {
+                $res['ResourceEvents'] = [];
+                $n1                    = 0;
+                foreach ($this->resourceEvents as $item1) {
+                    $res['ResourceEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -78,29 +68,32 @@ class DescribeEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceEvents'])) {
             if (!empty($map['ResourceEvents'])) {
                 $model->resourceEvents = [];
-                $n                     = 0;
-                foreach ($map['ResourceEvents'] as $item) {
-                    $model->resourceEvents[$n++] = null !== $item ? resourceEvents::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ResourceEvents'] as $item1) {
+                    $model->resourceEvents[$n1++] = resourceEvents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

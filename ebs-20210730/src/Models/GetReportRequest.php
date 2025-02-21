@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetReportRequest extends Model
 {
     /**
-     * @description Optional, AppName only takes effect when ReportType=present.
-     *
-     * @example App1
-     *
      * @var string
      */
     public $appName;
-
     /**
-     * @description Region name.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description When ReportType=history, ReportId is required to query historical reports based on ReportId.
-     *
-     * @example report-74fbea80e802xxxx
-     *
      * @var string
      */
     public $reportId;
-
     /**
-     * @description Optional values: history/present.
-     *
-     * @example history
-     *
      * @var string
      */
     public $reportType;
@@ -52,20 +33,24 @@ class GetReportRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->reportId) {
             $res['ReportId'] = $this->reportId;
         }
+
         if (null !== $this->reportType) {
             $res['ReportType'] = $this->reportType;
         }
@@ -73,23 +58,26 @@ class GetReportRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetReportRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ReportId'])) {
             $model->reportId = $map['ReportId'];
         }
+
         if (isset($map['ReportType'])) {
             $model->reportType = $map['ReportType'];
         }

@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-     *
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The ID of the request of SetDedicatedBlockStorageClusterDiskThroughput api.
-     *
-     * This parameter is required.
-     * @example A37597B5-BB99-19B3-85EA-4C2B91F0****
-     *
      * @var string
      */
     public $qosRequestId;
-
     /**
-     * @description The region ID of the dedicated block storage cluster.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -44,17 +28,20 @@ class QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->qosRequestId) {
             $res['QosRequestId'] = $this->qosRequestId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -62,20 +49,22 @@ class QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['QosRequestId'])) {
             $model->qosRequestId = $map['QosRequestId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

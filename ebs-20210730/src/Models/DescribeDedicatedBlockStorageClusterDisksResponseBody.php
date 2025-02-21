@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClusterDisksResponseBody\disks;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDedicatedBlockStorageClusterDisksResponseBody extends Model
 {
     /**
-     * @description Details about the cloud disks.
-     *
      * @var disks
      */
     public $disks;
-
     /**
-     * @description The query token returned in this call.
-     *
-     * @example AAAAAdDWBF2
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 11B55F58-D3A4-4A9B-9596-342420D0****
-     *
      * @var string
      */
     public $requestId;
@@ -41,17 +29,23 @@ class DescribeDedicatedBlockStorageClusterDisksResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->disks) {
+            $this->disks->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->disks) {
-            $res['Disks'] = null !== $this->disks ? $this->disks->toMap() : null;
+            $res['Disks'] = null !== $this->disks ? $this->disks->toArray($noStream) : $this->disks;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +53,22 @@ class DescribeDedicatedBlockStorageClusterDisksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDedicatedBlockStorageClusterDisksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Disks'])) {
             $model->disks = disks::fromMap($map['Disks']);
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

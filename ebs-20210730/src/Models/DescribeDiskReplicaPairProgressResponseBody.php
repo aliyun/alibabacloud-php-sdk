@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDiskReplicaPairProgressResponseBody extends Model
 {
     /**
-     * @description The replication progress of the replication pair.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $progress;
-
     /**
-     * @description The timestamp that indicates the last recovery point in time. The value is returned only after the replication pair works for replicating data.
-     *
-     * @example 1661917424
-     *
      * @var int
      */
     public $recoverPoint;
-
     /**
-     * @description The request ID.
-     *
-     * @example AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class DescribeDiskReplicaPairProgressResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
+
         if (null !== $this->recoverPoint) {
             $res['RecoverPoint'] = $this->recoverPoint;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class DescribeDiskReplicaPairProgressResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDiskReplicaPairProgressResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
+
         if (isset($map['RecoverPoint'])) {
             $model->recoverPoint = $map['RecoverPoint'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\CreateEnterpriseSnapshotPolicyRequest\crossRegionCopyInfo\regions;
-use AlibabaCloud\Tea\Model;
 
 class crossRegionCopyInfo extends Model
 {
     /**
-     * @description Whether cross-region replication is enabled. The range of values:
-     *
-     * - false
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description The list of destination regions.
-     *
      * @var regions[]
      */
     public $regions;
@@ -32,20 +24,25 @@ class crossRegionCopyInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->regions)) {
+            Model::validateArray($this->regions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->regions) {
-            $res['Regions'] = [];
-            if (null !== $this->regions && \is_array($this->regions)) {
-                $n = 0;
-                foreach ($this->regions as $item) {
-                    $res['Regions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->regions)) {
+                $res['Regions'] = [];
+                $n1             = 0;
+                foreach ($this->regions as $item1) {
+                    $res['Regions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -53,23 +50,24 @@ class crossRegionCopyInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return crossRegionCopyInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
                 $model->regions = [];
-                $n              = 0;
-                foreach ($map['Regions'] as $item) {
-                    $model->regions[$n++] = null !== $item ? regions::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Regions'] as $item1) {
+                    $model->regions[$n1++] = regions::fromMap($item1);
                 }
             }
         }

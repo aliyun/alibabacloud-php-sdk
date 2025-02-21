@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeMetricDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataList extends Model
 {
     /**
-     * @description The datapoints that consist of consecutive timestamps in seconds and metric values that were recorded at these time points.
-     *
-     * @example {
-     * }
      * @var mixed
      */
     public $datapoints;
-
     /**
-     * @description The tags.
-     *
-     * @example {"DiskId": "d-1234"}
-     *
      * @var mixed
      */
     public $labels;
@@ -32,14 +23,16 @@ class dataList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->datapoints) {
             $res['Datapoints'] = $this->datapoints;
         }
+
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
         }
@@ -47,17 +40,18 @@ class dataList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Datapoints'])) {
             $model->datapoints = $map['Datapoints'];
         }
+
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];
         }

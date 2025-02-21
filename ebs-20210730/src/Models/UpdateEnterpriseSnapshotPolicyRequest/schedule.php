@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateEnterpriseSnapshotPolicyRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class schedule extends Model
 {
     /**
-     * @description The time when the policy will to be scheduled. Valid values: Set the parameter in a cron expression.
-     *
-     * For example, you can use `0 0 4 1/1 * ?` to specify 04:00:00 (UTC+8) on the first day of each month.
-     *
-     * This parameter is required.
      * @var string
      */
     public $cronExpression;
@@ -23,9 +18,10 @@ class schedule extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cronExpression) {
@@ -35,11 +31,11 @@ class schedule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return schedule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

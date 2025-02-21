@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartPairDrillResponseBody extends Model
 {
     /**
-     * @description The drill ID.
-     *
-     * @example drill-xxx
-     *
      * @var string
      */
     public $drillId;
-
     /**
-     * @description The request ID.
-     *
-     * @example C123F94F-4E38-19AE-942A-A8D6F44F****
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class StartPairDrillResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->drillId) {
             $res['DrillId'] = $this->drillId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class StartPairDrillResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartPairDrillResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DrillId'])) {
             $model->drillId = $map['DrillId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

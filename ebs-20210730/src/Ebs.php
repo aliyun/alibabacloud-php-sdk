@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\AddDiskReplicaPairRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\AddDiskReplicaPairResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\ApplyLensServiceResponse;
@@ -66,6 +65,10 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeReplicaGroupDrillsRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeReplicaGroupDrillsResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeSolutionInstanceConfigurationRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeSolutionInstanceConfigurationResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeUserTagKeysRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeUserTagKeysResponse;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeUserTagValuesRequest;
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeUserTagValuesResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaGroupResponse;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\FailoverDiskReplicaPairRequest;
@@ -117,11 +120,10 @@ use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateEnterpriseSnapshotPolicyResponse
 use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateEnterpriseSnapshotPolicyShrinkRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateSolutionInstanceAttributeRequest;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\UpdateSolutionInstanceAttributeResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Ebs extends OpenApiClient
 {
@@ -146,49 +148,59 @@ class Ebs extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Adds a replication pair to a replication pair-consistent group. You can use a replication pair-consistent group to batch manage replication pairs. When you call this operation, you can specify parameters, such as ReplicaGroupId, ReplicaPairId, and ClientToken, in the request.
-     *  *
-     * @description ## [](#)Usage notes
+     * Adds a replication pair to a replication pair-consistent group. You can use a replication pair-consistent group to batch manage replication pairs. When you call this operation, you can specify parameters, such as ReplicaGroupId, ReplicaPairId, and ClientToken, in the request.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added only to a replication pair-consistent group that replicates in the same direction as the replication pair.
      * *   Before you can add a replication pair to a replication pair-consistent group, make sure that the pair and the group are in the **Created** (`created`) or **Stopped** (`stopped`) state.
      * *   Up to 17 replication pairs can be added to a single replication pair-consistent group.
      * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
-     *  *
-     * @param AddDiskReplicaPairRequest $request AddDiskReplicaPairRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDiskReplicaPairResponse AddDiskReplicaPairResponse
+     * @param request - AddDiskReplicaPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddDiskReplicaPairResponse
+     *
+     * @param AddDiskReplicaPairRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return AddDiskReplicaPairResponse
      */
     public function addDiskReplicaPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaGroupId)) {
-            $query['ReplicaGroupId'] = $request->replicaGroupId;
+
+        if (null !== $request->replicaGroupId) {
+            @$query['ReplicaGroupId'] = $request->replicaGroupId;
         }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
+
+        if (null !== $request->replicaPairId) {
+            @$query['ReplicaPairId'] = $request->replicaPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AddDiskReplicaPair',
@@ -201,23 +213,30 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AddDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a replication pair to a replication pair-consistent group. You can use a replication pair-consistent group to batch manage replication pairs. When you call this operation, you can specify parameters, such as ReplicaGroupId, ReplicaPairId, and ClientToken, in the request.
-     *  *
-     * @description ## [](#)Usage notes
+     * Adds a replication pair to a replication pair-consistent group. You can use a replication pair-consistent group to batch manage replication pairs. When you call this operation, you can specify parameters, such as ReplicaGroupId, ReplicaPairId, and ClientToken, in the request.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   A replication pair and a replication pair-consistent group replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added only to a replication pair-consistent group that replicates in the same direction as the replication pair.
      * *   Before you can add a replication pair to a replication pair-consistent group, make sure that the pair and the group are in the **Created** (`created`) or **Stopped** (`stopped`) state.
      * *   Up to 17 replication pairs can be added to a single replication pair-consistent group.
      * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs in place of their original RPOs.
-     *  *
-     * @param AddDiskReplicaPairRequest $request AddDiskReplicaPairRequest
      *
-     * @return AddDiskReplicaPairResponse AddDiskReplicaPairResponse
+     * @param request - AddDiskReplicaPairRequest
+     * @returns AddDiskReplicaPairResponse
+     *
+     * @param AddDiskReplicaPairRequest $request
+     *
+     * @return AddDiskReplicaPairResponse
      */
     public function addDiskReplicaPair($request)
     {
@@ -227,14 +246,19 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Enables CloudLens for EBS.
-     *  *
-     * @description ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Enables CloudLens for EBS.
      *
-     * @return ApplyLensServiceResponse ApplyLensServiceResponse
+     * @remarks
+     * ## Usage notes
+     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
+     * @param request - ApplyLensServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApplyLensServiceResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ApplyLensServiceResponse
      */
     public function applyLensServiceWithOptions($runtime)
     {
@@ -250,17 +274,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ApplyLensServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyLensServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyLensServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables CloudLens for EBS.
-     *  *
-     * @description ## Usage notes
+     * Enables CloudLens for EBS.
+     *
+     * @remarks
+     * ## Usage notes
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @return ApplyLensServiceResponse ApplyLensServiceResponse
+     * @returns ApplyLensServiceResponse
+     *
+     * @return ApplyLensServiceResponse
      */
     public function applyLensService()
     {
@@ -270,31 +299,39 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Bind disks into a enterprise-level snapshot policy.
-     *  *
-     * @param BindEnterpriseSnapshotPolicyRequest $request BindEnterpriseSnapshotPolicyRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Bind disks into a enterprise-level snapshot policy.
      *
-     * @return BindEnterpriseSnapshotPolicyResponse BindEnterpriseSnapshotPolicyResponse
+     * @param request - BindEnterpriseSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BindEnterpriseSnapshotPolicyResponse
+     *
+     * @param BindEnterpriseSnapshotPolicyRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BindEnterpriseSnapshotPolicyResponse
      */
     public function bindEnterpriseSnapshotPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->diskTargets)) {
-            $query['DiskTargets'] = $request->diskTargets;
+
+        if (null !== $request->diskTargets) {
+            @$query['DiskTargets'] = $request->diskTargets;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BindEnterpriseSnapshotPolicy',
@@ -307,16 +344,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Bind disks into a enterprise-level snapshot policy.
-     *  *
-     * @param BindEnterpriseSnapshotPolicyRequest $request BindEnterpriseSnapshotPolicyRequest
+     * Bind disks into a enterprise-level snapshot policy.
      *
-     * @return BindEnterpriseSnapshotPolicyResponse BindEnterpriseSnapshotPolicyResponse
+     * @param request - BindEnterpriseSnapshotPolicyRequest
+     * @returns BindEnterpriseSnapshotPolicyResponse
+     *
+     * @param BindEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return BindEnterpriseSnapshotPolicyResponse
      */
     public function bindEnterpriseSnapshotPolicy($request)
     {
@@ -326,14 +369,19 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Disables CloudLens for EBS.
-     *  *
-     * @description ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Disables CloudLens for EBS.
      *
-     * @return CancelLensServiceResponse CancelLensServiceResponse
+     * @remarks
+     * ## Usage notes
+     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
+     * @param request - CancelLensServiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelLensServiceResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return CancelLensServiceResponse
      */
     public function cancelLensServiceWithOptions($runtime)
     {
@@ -349,17 +397,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelLensServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelLensServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelLensServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables CloudLens for EBS.
-     *  *
-     * @description ## Usage notes
+     * Disables CloudLens for EBS.
+     *
+     * @remarks
+     * ## Usage notes
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @return CancelLensServiceResponse CancelLensServiceResponse
+     * @returns CancelLensServiceResponse
+     *
+     * @return CancelLensServiceResponse
      */
     public function cancelLensService()
     {
@@ -369,34 +422,43 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Changes the resource group to which an Elastic Block Storage (EBS) resource belongs.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Changes the resource group to which an Elastic Block Storage (EBS) resource belongs.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeResourceGroup',
@@ -409,16 +471,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the resource group to which an Elastic Block Storage (EBS) resource belongs.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Changes the resource group to which an Elastic Block Storage (EBS) resource belongs.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -428,28 +496,35 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Clears the disaster recovery drills that were initiated from the secondary disk of a replication pair and deletes the auto-created drill disks.
-     *  *
-     * @param ClearPairDrillRequest $request ClearPairDrillRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Clears the disaster recovery drills that were initiated from the secondary disk of a replication pair and deletes the auto-created drill disks.
      *
-     * @return ClearPairDrillResponse ClearPairDrillResponse
+     * @param request - ClearPairDrillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ClearPairDrillResponse
+     *
+     * @param ClearPairDrillRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ClearPairDrillResponse
      */
     public function clearPairDrillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drillId)) {
-            $query['DrillId'] = $request->drillId;
+        if (null !== $request->drillId) {
+            @$query['DrillId'] = $request->drillId;
         }
-        if (!Utils::isUnset($request->pairId)) {
-            $query['PairId'] = $request->pairId;
+
+        if (null !== $request->pairId) {
+            @$query['PairId'] = $request->pairId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ClearPairDrill',
@@ -462,16 +537,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ClearPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ClearPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ClearPairDrillResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Clears the disaster recovery drills that were initiated from the secondary disk of a replication pair and deletes the auto-created drill disks.
-     *  *
-     * @param ClearPairDrillRequest $request ClearPairDrillRequest
+     * Clears the disaster recovery drills that were initiated from the secondary disk of a replication pair and deletes the auto-created drill disks.
      *
-     * @return ClearPairDrillResponse ClearPairDrillResponse
+     * @param request - ClearPairDrillRequest
+     * @returns ClearPairDrillResponse
+     *
+     * @param ClearPairDrillRequest $request
+     *
+     * @return ClearPairDrillResponse
      */
     public function clearPairDrill($request)
     {
@@ -481,28 +562,35 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Clears the disaster recovery drills that were initiated from the secondary disks of a replication pair-consistent group and deletes the auto-created drill disks.
-     *  *
-     * @param ClearReplicaGroupDrillRequest $request ClearReplicaGroupDrillRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Clears the disaster recovery drills that were initiated from the secondary disks of a replication pair-consistent group and deletes the auto-created drill disks.
      *
-     * @return ClearReplicaGroupDrillResponse ClearReplicaGroupDrillResponse
+     * @param request - ClearReplicaGroupDrillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ClearReplicaGroupDrillResponse
+     *
+     * @param ClearReplicaGroupDrillRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ClearReplicaGroupDrillResponse
      */
     public function clearReplicaGroupDrillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drillId)) {
-            $query['DrillId'] = $request->drillId;
+        if (null !== $request->drillId) {
+            @$query['DrillId'] = $request->drillId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ClearReplicaGroupDrill',
@@ -515,16 +603,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ClearReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ClearReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ClearReplicaGroupDrillResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Clears the disaster recovery drills that were initiated from the secondary disks of a replication pair-consistent group and deletes the auto-created drill disks.
-     *  *
-     * @param ClearReplicaGroupDrillRequest $request ClearReplicaGroupDrillRequest
+     * Clears the disaster recovery drills that were initiated from the secondary disks of a replication pair-consistent group and deletes the auto-created drill disks.
      *
-     * @return ClearReplicaGroupDrillResponse ClearReplicaGroupDrillResponse
+     * @param request - ClearReplicaGroupDrillRequest
+     * @returns ClearReplicaGroupDrillResponse
+     *
+     * @param ClearReplicaGroupDrillRequest $request
+     *
+     * @return ClearReplicaGroupDrillResponse
      */
     public function clearReplicaGroupDrill($request)
     {
@@ -534,55 +628,70 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a dedicated block storage cluster. When you call this operation, you can specify parameters, such as Azone, Capacity, Type, and PeriodUnit, in the request.
-     *  *
-     * @description ## [](#)Usage notes
+     * Creates a dedicated block storage cluster. When you call this operation, you can specify parameters, such as Azone, Capacity, Type, and PeriodUnit, in the request.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster.
      * *   Disks created in a dedicated block storage cluster can be attached only to Elastic Compute Service (ECS) instances that reside in the same zone as the cluster. Before you create a dedicated block storage cluster, decide the regions and zones in which to deploy your cloud resources.
      * *   Dedicated block storage clusters are classified into basic and performance types. When you create a dedicated block storage cluster, select a cluster type based on your business requirements.
      * *   You are charged for creating dedicated block storage clusters.
-     *  *
-     * @param CreateDedicatedBlockStorageClusterRequest $request CreateDedicatedBlockStorageClusterRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDedicatedBlockStorageClusterResponse CreateDedicatedBlockStorageClusterResponse
+     * @param request - CreateDedicatedBlockStorageClusterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDedicatedBlockStorageClusterResponse
+     *
+     * @param CreateDedicatedBlockStorageClusterRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateDedicatedBlockStorageClusterResponse
      */
     public function createDedicatedBlockStorageClusterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->azone)) {
-            $query['Azone'] = $request->azone;
+        if (null !== $request->azone) {
+            @$query['Azone'] = $request->azone;
         }
-        if (!Utils::isUnset($request->capacity)) {
-            $query['Capacity'] = $request->capacity;
+
+        if (null !== $request->capacity) {
+            @$query['Capacity'] = $request->capacity;
         }
-        if (!Utils::isUnset($request->dbscId)) {
-            $query['DbscId'] = $request->dbscId;
+
+        if (null !== $request->dbscId) {
+            @$query['DbscId'] = $request->dbscId;
         }
-        if (!Utils::isUnset($request->dbscName)) {
-            $query['DbscName'] = $request->dbscName;
+
+        if (null !== $request->dbscName) {
+            @$query['DbscName'] = $request->dbscName;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDedicatedBlockStorageCluster',
@@ -595,22 +704,29 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDedicatedBlockStorageClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDedicatedBlockStorageClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDedicatedBlockStorageClusterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a dedicated block storage cluster. When you call this operation, you can specify parameters, such as Azone, Capacity, Type, and PeriodUnit, in the request.
-     *  *
-     * @description ## [](#)Usage notes
+     * Creates a dedicated block storage cluster. When you call this operation, you can specify parameters, such as Azone, Capacity, Type, and PeriodUnit, in the request.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   Dedicated block storage clusters are physically isolated from public block storage clusters. The owner of each dedicated block storage cluster has exclusive access to all resources in the cluster.
      * *   Disks created in a dedicated block storage cluster can be attached only to Elastic Compute Service (ECS) instances that reside in the same zone as the cluster. Before you create a dedicated block storage cluster, decide the regions and zones in which to deploy your cloud resources.
      * *   Dedicated block storage clusters are classified into basic and performance types. When you create a dedicated block storage cluster, select a cluster type based on your business requirements.
      * *   You are charged for creating dedicated block storage clusters.
-     *  *
-     * @param CreateDedicatedBlockStorageClusterRequest $request CreateDedicatedBlockStorageClusterRequest
      *
-     * @return CreateDedicatedBlockStorageClusterResponse CreateDedicatedBlockStorageClusterResponse
+     * @param request - CreateDedicatedBlockStorageClusterRequest
+     * @returns CreateDedicatedBlockStorageClusterResponse
+     *
+     * @param CreateDedicatedBlockStorageClusterRequest $request
+     *
+     * @return CreateDedicatedBlockStorageClusterResponse
      */
     public function createDedicatedBlockStorageCluster($request)
     {
@@ -620,60 +736,76 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Creates a replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of instances.
      * Take note of the following items:
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Replication pair-consistent groups can be used to implement disaster recovery across zones within the same region and disaster recovery across regions.
      * *   A replication pair and a replication pair-consistent group can replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added to only a replication pair-consistent group that replicates in the same direction as the replication pair.
      * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs instead of their original RPOs.
-     *  *
-     * @param CreateDiskReplicaGroupRequest $request CreateDiskReplicaGroupRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDiskReplicaGroupResponse CreateDiskReplicaGroupResponse
+     * @param request - CreateDiskReplicaGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDiskReplicaGroupResponse
+     *
+     * @param CreateDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDiskReplicaGroupResponse
      */
     public function createDiskReplicaGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->destinationRegionId)) {
-            $query['DestinationRegionId'] = $request->destinationRegionId;
+
+        if (null !== $request->destinationRegionId) {
+            @$query['DestinationRegionId'] = $request->destinationRegionId;
         }
-        if (!Utils::isUnset($request->destinationZoneId)) {
-            $query['DestinationZoneId'] = $request->destinationZoneId;
+
+        if (null !== $request->destinationZoneId) {
+            @$query['DestinationZoneId'] = $request->destinationZoneId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->RPO)) {
-            $query['RPO'] = $request->RPO;
+
+        if (null !== $request->RPO) {
+            @$query['RPO'] = $request->RPO;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceZoneId)) {
-            $query['SourceZoneId'] = $request->sourceZoneId;
+
+        if (null !== $request->sourceZoneId) {
+            @$query['SourceZoneId'] = $request->sourceZoneId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDiskReplicaGroup',
@@ -686,24 +818,31 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Creates a replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * The replication pair-consistent group feature allows you to batch manage multiple disks in disaster recovery scenarios. You can restore the data of all disks in the same replication pair-consistent group to the same point in time to allow for disaster recovery of instances.
      * Take note of the following items:
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Replication pair-consistent groups can be used to implement disaster recovery across zones within the same region and disaster recovery across regions.
      * *   A replication pair and a replication pair-consistent group can replicate in the same direction if they have the same primary region (production region), primary zone (production zone), secondary region (disaster recovery region), and secondary zone (disaster recovery zone). A replication pair can be added to only a replication pair-consistent group that replicates in the same direction as the replication pair.
      * *   After replication pairs are added to a replication pair-consistent group, the recovery point objective (RPO) of the group takes effect on the pairs instead of their original RPOs.
-     *  *
-     * @param CreateDiskReplicaGroupRequest $request CreateDiskReplicaGroupRequest
      *
-     * @return CreateDiskReplicaGroupResponse CreateDiskReplicaGroupResponse
+     * @param request - CreateDiskReplicaGroupRequest
+     * @returns CreateDiskReplicaGroupResponse
+     *
+     * @param CreateDiskReplicaGroupRequest $request
+     *
+     * @return CreateDiskReplicaGroupResponse
      */
     public function createDiskReplicaGroup($request)
     {
@@ -713,74 +852,95 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a replication pair to asynchronously replicate data between disks.
-     *  *
-     * @description Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity.
+     * Creates a replication pair to asynchronously replicate data between disks.
+     *
+     * @remarks
+     * Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity.
      * Currently, the async replication feature can asynchronously replicate data only between enhanced SSDs (ESSDs). The functionality of disks in replication pairs is limited. You are charged on a subscription basis for the bandwidth that is used by the async replication feature.
      * Before you call this operation, take note of the following items:
      * *   Make sure that the source disk (primary disk) from which to replicate data and the destination disk (secondary disk) to which to replicate data are created. You can call the [CreateDisk](https://help.aliyun.com/document_detail/25513.html) operation to create disks.
      * *   The secondary disk cannot reside the same region as the primary disk. The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
      * *   After you call this operation to create a replication pair, you must call the [StartDiskReplicaPair](https://help.aliyun.com/document_detail/354205.html) operation to enable async replication to periodically replicate data from the primary disk to the secondary disk across regions.
-     *  *
-     * @param CreateDiskReplicaPairRequest $request CreateDiskReplicaPairRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDiskReplicaPairResponse CreateDiskReplicaPairResponse
+     * @param request - CreateDiskReplicaPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDiskReplicaPairResponse
+     *
+     * @param CreateDiskReplicaPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDiskReplicaPairResponse
      */
     public function createDiskReplicaPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->chargeType)) {
-            $query['ChargeType'] = $request->chargeType;
+
+        if (null !== $request->chargeType) {
+            @$query['ChargeType'] = $request->chargeType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->destinationDiskId)) {
-            $query['DestinationDiskId'] = $request->destinationDiskId;
+
+        if (null !== $request->destinationDiskId) {
+            @$query['DestinationDiskId'] = $request->destinationDiskId;
         }
-        if (!Utils::isUnset($request->destinationRegionId)) {
-            $query['DestinationRegionId'] = $request->destinationRegionId;
+
+        if (null !== $request->destinationRegionId) {
+            @$query['DestinationRegionId'] = $request->destinationRegionId;
         }
-        if (!Utils::isUnset($request->destinationZoneId)) {
-            $query['DestinationZoneId'] = $request->destinationZoneId;
+
+        if (null !== $request->destinationZoneId) {
+            @$query['DestinationZoneId'] = $request->destinationZoneId;
         }
-        if (!Utils::isUnset($request->diskId)) {
-            $query['DiskId'] = $request->diskId;
+
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
         }
-        if (!Utils::isUnset($request->pairName)) {
-            $query['PairName'] = $request->pairName;
+
+        if (null !== $request->pairName) {
+            @$query['PairName'] = $request->pairName;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->periodUnit)) {
-            $query['PeriodUnit'] = $request->periodUnit;
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
         }
-        if (!Utils::isUnset($request->RPO)) {
-            $query['RPO'] = $request->RPO;
+
+        if (null !== $request->RPO) {
+            @$query['RPO'] = $request->RPO;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceZoneId)) {
-            $query['SourceZoneId'] = $request->sourceZoneId;
+
+        if (null !== $request->sourceZoneId) {
+            @$query['SourceZoneId'] = $request->sourceZoneId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDiskReplicaPair',
@@ -793,23 +953,30 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a replication pair to asynchronously replicate data between disks.
-     *  *
-     * @description Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity.
+     * Creates a replication pair to asynchronously replicate data between disks.
+     *
+     * @remarks
+     * Async replication is a feature that protects data across regions by using the data replication capability of Elastic Block Storage (EBS). This feature can be used to asynchronously replicate data from a disk in one region to a disk in another region for disaster recovery purposes. You can use this feature to implement disaster recovery for critical business to protect data in your databases and improve business continuity.
      * Currently, the async replication feature can asynchronously replicate data only between enhanced SSDs (ESSDs). The functionality of disks in replication pairs is limited. You are charged on a subscription basis for the bandwidth that is used by the async replication feature.
      * Before you call this operation, take note of the following items:
      * *   Make sure that the source disk (primary disk) from which to replicate data and the destination disk (secondary disk) to which to replicate data are created. You can call the [CreateDisk](https://help.aliyun.com/document_detail/25513.html) operation to create disks.
      * *   The secondary disk cannot reside the same region as the primary disk. The async replication feature is supported in the China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Heyuan), China (Chengdu), China (Hong Kong), Singapore, US (Silicon Valley), and US (Virginia) regions.
      * *   After you call this operation to create a replication pair, you must call the [StartDiskReplicaPair](https://help.aliyun.com/document_detail/354205.html) operation to enable async replication to periodically replicate data from the primary disk to the secondary disk across regions.
-     *  *
-     * @param CreateDiskReplicaPairRequest $request CreateDiskReplicaPairRequest
      *
-     * @return CreateDiskReplicaPairResponse CreateDiskReplicaPairResponse
+     * @param request - CreateDiskReplicaPairRequest
+     * @returns CreateDiskReplicaPairResponse
+     *
+     * @param CreateDiskReplicaPairRequest $request
+     *
+     * @return CreateDiskReplicaPairResponse
      */
     public function createDiskReplicaPair($request)
     {
@@ -819,75 +986,97 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Create an enterprise-level snapshot policy
-     *  *
-     * @param CreateEnterpriseSnapshotPolicyRequest $tmpReq  CreateEnterpriseSnapshotPolicyRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Create an enterprise-level snapshot policy.
      *
-     * @return CreateEnterpriseSnapshotPolicyResponse CreateEnterpriseSnapshotPolicyResponse
+     * @param tmpReq - CreateEnterpriseSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateEnterpriseSnapshotPolicyResponse
+     *
+     * @param CreateEnterpriseSnapshotPolicyRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateEnterpriseSnapshotPolicyResponse
      */
     public function createEnterpriseSnapshotPolicyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateEnterpriseSnapshotPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->crossRegionCopyInfo)) {
-            $request->crossRegionCopyInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->crossRegionCopyInfo, 'CrossRegionCopyInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->crossRegionCopyInfo) {
+            $request->crossRegionCopyInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->crossRegionCopyInfo, 'CrossRegionCopyInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->retainRule)) {
-            $request->retainRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retainRule, 'RetainRule', 'json');
+
+        if (null !== $tmpReq->retainRule) {
+            $request->retainRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->retainRule, 'RetainRule', 'json');
         }
-        if (!Utils::isUnset($tmpReq->schedule)) {
-            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+
+        if (null !== $tmpReq->schedule) {
+            $request->scheduleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
         }
-        if (!Utils::isUnset($tmpReq->specialRetainRules)) {
-            $request->specialRetainRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->specialRetainRules, 'SpecialRetainRules', 'json');
+
+        if (null !== $tmpReq->specialRetainRules) {
+            $request->specialRetainRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->specialRetainRules, 'SpecialRetainRules', 'json');
         }
-        if (!Utils::isUnset($tmpReq->storageRule)) {
-            $request->storageRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storageRule, 'StorageRule', 'json');
+
+        if (null !== $tmpReq->storageRule) {
+            $request->storageRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storageRule, 'StorageRule', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->crossRegionCopyInfoShrink)) {
-            $query['CrossRegionCopyInfo'] = $request->crossRegionCopyInfoShrink;
+
+        if (null !== $request->crossRegionCopyInfoShrink) {
+            @$query['CrossRegionCopyInfo'] = $request->crossRegionCopyInfoShrink;
         }
-        if (!Utils::isUnset($request->desc)) {
-            $query['Desc'] = $request->desc;
+
+        if (null !== $request->desc) {
+            @$query['Desc'] = $request->desc;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->retainRuleShrink)) {
-            $query['RetainRule'] = $request->retainRuleShrink;
+
+        if (null !== $request->retainRuleShrink) {
+            @$query['RetainRule'] = $request->retainRuleShrink;
         }
-        if (!Utils::isUnset($request->scheduleShrink)) {
-            $query['Schedule'] = $request->scheduleShrink;
+
+        if (null !== $request->scheduleShrink) {
+            @$query['Schedule'] = $request->scheduleShrink;
         }
-        if (!Utils::isUnset($request->specialRetainRulesShrink)) {
-            $query['SpecialRetainRules'] = $request->specialRetainRulesShrink;
+
+        if (null !== $request->specialRetainRulesShrink) {
+            @$query['SpecialRetainRules'] = $request->specialRetainRulesShrink;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
-        if (!Utils::isUnset($request->storageRuleShrink)) {
-            $query['StorageRule'] = $request->storageRuleShrink;
+
+        if (null !== $request->storageRuleShrink) {
+            @$query['StorageRule'] = $request->storageRuleShrink;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->targetType)) {
-            $query['TargetType'] = $request->targetType;
+
+        if (null !== $request->targetType) {
+            @$query['TargetType'] = $request->targetType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateEnterpriseSnapshotPolicy',
@@ -900,16 +1089,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Create an enterprise-level snapshot policy
-     *  *
-     * @param CreateEnterpriseSnapshotPolicyRequest $request CreateEnterpriseSnapshotPolicyRequest
+     * Create an enterprise-level snapshot policy.
      *
-     * @return CreateEnterpriseSnapshotPolicyResponse CreateEnterpriseSnapshotPolicyResponse
+     * @param request - CreateEnterpriseSnapshotPolicyRequest
+     * @returns CreateEnterpriseSnapshotPolicyResponse
+     *
+     * @param CreateEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return CreateEnterpriseSnapshotPolicyResponse
      */
     public function createEnterpriseSnapshotPolicy($request)
     {
@@ -919,33 +1114,41 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Deletes a replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs exist in the group.
      * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failovered** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
-     *  *
-     * @param DeleteDiskReplicaGroupRequest $request DeleteDiskReplicaGroupRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDiskReplicaGroupResponse DeleteDiskReplicaGroupResponse
+     * @param request - DeleteDiskReplicaGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDiskReplicaGroupResponse
+     *
+     * @param DeleteDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDiskReplicaGroupResponse
      */
     public function deleteDiskReplicaGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaGroupId)) {
-            $query['ReplicaGroupId'] = $request->replicaGroupId;
+
+        if (null !== $request->replicaGroupId) {
+            @$query['ReplicaGroupId'] = $request->replicaGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDiskReplicaGroup',
@@ -958,21 +1161,28 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Deletes a replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Before you can delete a replication pair-consistent group, make sure that no replication pairs exist in the group.
      * *   The replication pair-consistent group that you want to delete must be in the **Created** (`created`), **Creation Failed** (`create_failed`), **Stopped** (`stopped`), **Failovered** (`failovered`), **Deleting** (`deleting`), **Deletion Failed** (`delete_failed`), or **Invalid** (`invalid`) state.
-     *  *
-     * @param DeleteDiskReplicaGroupRequest $request DeleteDiskReplicaGroupRequest
      *
-     * @return DeleteDiskReplicaGroupResponse DeleteDiskReplicaGroupResponse
+     * @param request - DeleteDiskReplicaGroupRequest
+     * @returns DeleteDiskReplicaGroupResponse
+     *
+     * @param DeleteDiskReplicaGroupRequest $request
+     *
+     * @return DeleteDiskReplicaGroupResponse
      */
     public function deleteDiskReplicaGroup($request)
     {
@@ -982,33 +1192,41 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes replication pairs.
-     *  *
-     * @description ## [](#)Usage notes
+     * Deletes replication pairs.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failovered** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
      * *   To delete a replication pair, you must call this operation in the region where the primary disk is located. After the replication pair is deleted, the functionality limits are lifted from the primary and secondary disks. For example, you can attach the secondary disk, resize the disk, or read data from or write data to the disk.
-     *  *
-     * @param DeleteDiskReplicaPairRequest $request DeleteDiskReplicaPairRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDiskReplicaPairResponse DeleteDiskReplicaPairResponse
+     * @param request - DeleteDiskReplicaPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDiskReplicaPairResponse
+     *
+     * @param DeleteDiskReplicaPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDiskReplicaPairResponse
      */
     public function deleteDiskReplicaPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
+
+        if (null !== $request->replicaPairId) {
+            @$query['ReplicaPairId'] = $request->replicaPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDiskReplicaPair',
@@ -1021,21 +1239,28 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes replication pairs.
-     *  *
-     * @description ## [](#)Usage notes
+     * Deletes replication pairs.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Only replication pairs that are in the **Stopped** (`stopped`), **Invalid** (`invalid`), or **Failovered** (`failovered`) state can be deleted. This operation deletes only replication pairs. The primary and secondary disks in the deleted replication pairs are retained.
      * *   To delete a replication pair, you must call this operation in the region where the primary disk is located. After the replication pair is deleted, the functionality limits are lifted from the primary and secondary disks. For example, you can attach the secondary disk, resize the disk, or read data from or write data to the disk.
-     *  *
-     * @param DeleteDiskReplicaPairRequest $request DeleteDiskReplicaPairRequest
      *
-     * @return DeleteDiskReplicaPairResponse DeleteDiskReplicaPairResponse
+     * @param request - DeleteDiskReplicaPairRequest
+     * @returns DeleteDiskReplicaPairResponse
+     *
+     * @param DeleteDiskReplicaPairRequest $request
+     *
+     * @return DeleteDiskReplicaPairResponse
      */
     public function deleteDiskReplicaPair($request)
     {
@@ -1045,28 +1270,35 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Delete a enterprise-level snapshot policy.
-     *  *
-     * @param DeleteEnterpriseSnapshotPolicyRequest $request DeleteEnterpriseSnapshotPolicyRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Delete a enterprise-level snapshot policy.
      *
-     * @return DeleteEnterpriseSnapshotPolicyResponse DeleteEnterpriseSnapshotPolicyResponse
+     * @param request - DeleteEnterpriseSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteEnterpriseSnapshotPolicyResponse
+     *
+     * @param DeleteEnterpriseSnapshotPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteEnterpriseSnapshotPolicyResponse
      */
     public function deleteEnterpriseSnapshotPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteEnterpriseSnapshotPolicy',
@@ -1079,16 +1311,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Delete a enterprise-level snapshot policy.
-     *  *
-     * @param DeleteEnterpriseSnapshotPolicyRequest $request DeleteEnterpriseSnapshotPolicyRequest
+     * Delete a enterprise-level snapshot policy.
      *
-     * @return DeleteEnterpriseSnapshotPolicyResponse DeleteEnterpriseSnapshotPolicyResponse
+     * @param request - DeleteEnterpriseSnapshotPolicyRequest
+     * @returns DeleteEnterpriseSnapshotPolicyResponse
+     *
+     * @param DeleteEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return DeleteEnterpriseSnapshotPolicyResponse
      */
     public function deleteEnterpriseSnapshotPolicy($request)
     {
@@ -1098,38 +1336,47 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more disks in a dedicated block storage cluster.
-     *  *
-     * @description *   You can use one of the following methods to check the responses:
+     * Queries the details of one or more disks in a dedicated block storage cluster.
+     *
+     * @remarks
+     *   You can use one of the following methods to check the responses:
      *     *   Method 1: Use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
      *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
      *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `NextToken` is specified, `PageSize` and `PageNumber` do not take effect and `TotalCount` in the response is invalid.
      * *   A disk that has the multi-attach feature enabled can be attached to multiple instances. You can query the attachment information of the disk based on the `Attachment` values in the response.
      * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
-     *  *
-     * @param DescribeDedicatedBlockStorageClusterDisksRequest $request DescribeDedicatedBlockStorageClusterDisksRequest
-     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDedicatedBlockStorageClusterDisksResponse DescribeDedicatedBlockStorageClusterDisksResponse
+     * @param request - DescribeDedicatedBlockStorageClusterDisksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDedicatedBlockStorageClusterDisksResponse
+     *
+     * @param DescribeDedicatedBlockStorageClusterDisksRequest $request
+     * @param RuntimeOptions                                   $runtime
+     *
+     * @return DescribeDedicatedBlockStorageClusterDisksResponse
      */
     public function describeDedicatedBlockStorageClusterDisksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dbscId)) {
-            $query['DbscId'] = $request->dbscId;
+        if (null !== $request->dbscId) {
+            @$query['DbscId'] = $request->dbscId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDedicatedBlockStorageClusterDisks',
@@ -1142,23 +1389,30 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDedicatedBlockStorageClusterDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDedicatedBlockStorageClusterDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDedicatedBlockStorageClusterDisksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of one or more disks in a dedicated block storage cluster.
-     *  *
-     * @description *   You can use one of the following methods to check the responses:
+     * Queries the details of one or more disks in a dedicated block storage cluster.
+     *
+     * @remarks
+     *   You can use one of the following methods to check the responses:
      *     *   Method 1: Use `NextToken` to configure the query token. Set the value to the `NextToken` value that is returned in the last call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
      *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return.
      *         You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use method 1. When `NextToken` is specified, `PageSize` and `PageNumber` do not take effect and `TotalCount` in the response is invalid.
      * *   A disk that has the multi-attach feature enabled can be attached to multiple instances. You can query the attachment information of the disk based on the `Attachment` values in the response.
      * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
-     *  *
-     * @param DescribeDedicatedBlockStorageClusterDisksRequest $request DescribeDedicatedBlockStorageClusterDisksRequest
      *
-     * @return DescribeDedicatedBlockStorageClusterDisksResponse DescribeDedicatedBlockStorageClusterDisksResponse
+     * @param request - DescribeDedicatedBlockStorageClusterDisksRequest
+     * @returns DescribeDedicatedBlockStorageClusterDisksResponse
+     *
+     * @param DescribeDedicatedBlockStorageClusterDisksRequest $request
+     *
+     * @return DescribeDedicatedBlockStorageClusterDisksResponse
      */
     public function describeDedicatedBlockStorageClusterDisks($request)
     {
@@ -1168,62 +1422,79 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the dedicated block storage clusters that are created.
-     *  *
-     * @description ## [](#)Usage notes
+     * Queries the dedicated block storage clusters that are created.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * >  The Dedicated Block Storage Cluster feature is available only in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
      * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions.
      * *   We recommend that you use NextToken and MaxResults to perform paged queries. We recommend that you use MaxResults to specify the maximum number of entries to return in each request. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value that is returned in the previous call and specify MaxResults to limit the number of entries returned.
-     *  *
-     * @param DescribeDedicatedBlockStorageClustersRequest $request DescribeDedicatedBlockStorageClustersRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDedicatedBlockStorageClustersResponse DescribeDedicatedBlockStorageClustersResponse
+     * @param request - DescribeDedicatedBlockStorageClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDedicatedBlockStorageClustersResponse
+     *
+     * @param DescribeDedicatedBlockStorageClustersRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeDedicatedBlockStorageClustersResponse
      */
     public function describeDedicatedBlockStorageClustersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dedicatedBlockStorageClusterId)) {
-            $query['DedicatedBlockStorageClusterId'] = $request->dedicatedBlockStorageClusterId;
+
+        if (null !== $request->dedicatedBlockStorageClusterId) {
+            @$query['DedicatedBlockStorageClusterId'] = $request->dedicatedBlockStorageClusterId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->azoneId)) {
-            $body['AzoneId'] = $request->azoneId;
+        if (null !== $request->azoneId) {
+            @$body['AzoneId'] = $request->azoneId;
         }
-        if (!Utils::isUnset($request->category)) {
-            $body['Category'] = $request->category;
+
+        if (null !== $request->category) {
+            @$body['Category'] = $request->category;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeDedicatedBlockStorageClusters',
@@ -1236,21 +1507,28 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDedicatedBlockStorageClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDedicatedBlockStorageClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDedicatedBlockStorageClustersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the dedicated block storage clusters that are created.
-     *  *
-     * @description ## [](#)Usage notes
+     * Queries the dedicated block storage clusters that are created.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * >  The Dedicated Block Storage Cluster feature is available only in the China (Heyuan), Indonesia (Jakarta), and China (Shenzhen) regions.
      * *   You can specify multiple request parameters to be queried. Specified parameters are evaluated by using the AND operator. Only the specified parameters are included in the filter conditions.
      * *   We recommend that you use NextToken and MaxResults to perform paged queries. We recommend that you use MaxResults to specify the maximum number of entries to return in each request. The return value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeDedicatedBlockStorageClusters operation to retrieve a new page of results, set NextToken to the NextToken value that is returned in the previous call and specify MaxResults to limit the number of entries returned.
-     *  *
-     * @param DescribeDedicatedBlockStorageClustersRequest $request DescribeDedicatedBlockStorageClustersRequest
      *
-     * @return DescribeDedicatedBlockStorageClustersResponse DescribeDedicatedBlockStorageClustersResponse
+     * @param request - DescribeDedicatedBlockStorageClustersRequest
+     * @returns DescribeDedicatedBlockStorageClustersResponse
+     *
+     * @param DescribeDedicatedBlockStorageClustersRequest $request
+     *
+     * @return DescribeDedicatedBlockStorageClustersResponse
      */
     public function describeDedicatedBlockStorageClusters($request)
     {
@@ -1260,46 +1538,59 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the risk events of a disk.
-     *  *
-     * @description ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @param DescribeDiskEventsRequest $request DescribeDiskEventsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the risk events of a disk.
      *
-     * @return DescribeDiskEventsResponse DescribeDiskEventsResponse
+     * @remarks
+     * ## Usage notes
+     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
+     * @param request - DescribeDiskEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDiskEventsResponse
+     *
+     * @param DescribeDiskEventsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDiskEventsResponse
      */
     public function describeDiskEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->diskCategory)) {
-            $query['DiskCategory'] = $request->diskCategory;
+        if (null !== $request->diskCategory) {
+            @$query['DiskCategory'] = $request->diskCategory;
         }
-        if (!Utils::isUnset($request->diskId)) {
-            $query['DiskId'] = $request->diskId;
+
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDiskEvents',
@@ -1312,19 +1603,26 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDiskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDiskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDiskEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the risk events of a disk.
-     *  *
-     * @description ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @param DescribeDiskEventsRequest $request DescribeDiskEventsRequest
+     * Queries the risk events of a disk.
      *
-     * @return DescribeDiskEventsResponse DescribeDiskEventsResponse
+     * @remarks
+     * ## Usage notes
+     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
+     * @param request - DescribeDiskEventsRequest
+     * @returns DescribeDiskEventsResponse
+     *
+     * @param DescribeDiskEventsRequest $request
+     *
+     * @return DescribeDiskEventsResponse
      */
     public function describeDiskEvents($request)
     {
@@ -1334,42 +1632,53 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the near real-time monitoring data of a disk.
-     *  *
-     * @description ## Usage notes
+     * Queries the near real-time monitoring data of a disk.
+     *
+     * @remarks
+     * ## Usage notes
      * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value calculated based on the following formula is greater than 400: `(EndTime - StartTime)/Period`.
      * *   You can query the monitoring data collected in the last three days. An error is returned if the time specified by `StartTime` is more than three days prior to the current time.
-     *  *
-     * @param DescribeDiskMonitorDataRequest $request DescribeDiskMonitorDataRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiskMonitorDataResponse DescribeDiskMonitorDataResponse
+     * @param request - DescribeDiskMonitorDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDiskMonitorDataResponse
+     *
+     * @param DescribeDiskMonitorDataRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDiskMonitorDataResponse
      */
     public function describeDiskMonitorDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->diskId)) {
-            $query['DiskId'] = $request->diskId;
+        if (null !== $request->diskId) {
+            @$query['DiskId'] = $request->diskId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDiskMonitorData',
@@ -1382,21 +1691,28 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDiskMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDiskMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDiskMonitorDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the near real-time monitoring data of a disk.
-     *  *
-     * @description ## Usage notes
+     * Queries the near real-time monitoring data of a disk.
+     *
+     * @remarks
+     * ## Usage notes
      * *   CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
      * *   Up to 400 monitoring data entries can be returned at a time. An error is returned if the value calculated based on the following formula is greater than 400: `(EndTime - StartTime)/Period`.
      * *   You can query the monitoring data collected in the last three days. An error is returned if the time specified by `StartTime` is more than three days prior to the current time.
-     *  *
-     * @param DescribeDiskMonitorDataRequest $request DescribeDiskMonitorDataRequest
      *
-     * @return DescribeDiskMonitorDataResponse DescribeDiskMonitorDataResponse
+     * @param request - DescribeDiskMonitorDataRequest
+     * @returns DescribeDiskMonitorDataResponse
+     *
+     * @param DescribeDiskMonitorDataRequest $request
+     *
+     * @return DescribeDiskMonitorDataResponse
      */
     public function describeDiskMonitorData($request)
     {
@@ -1406,43 +1722,55 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the near real-time monitoring data of disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
-     *  *
-     * @description ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @param DescribeDiskMonitorDataListRequest $request DescribeDiskMonitorDataListRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the near real-time monitoring data of disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
      *
-     * @return DescribeDiskMonitorDataListResponse DescribeDiskMonitorDataListResponse
+     * @remarks
+     * ## Usage notes
+     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
+     * @param request - DescribeDiskMonitorDataListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDiskMonitorDataListResponse
+     *
+     * @param DescribeDiskMonitorDataListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDiskMonitorDataListResponse
      */
     public function describeDiskMonitorDataListWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->diskIds)) {
-            $query['DiskIds'] = $request->diskIds;
+        if (null !== $request->diskIds) {
+            @$query['DiskIds'] = $request->diskIds;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDiskMonitorDataList',
@@ -1455,19 +1783,26 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDiskMonitorDataListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDiskMonitorDataListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDiskMonitorDataListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the near real-time monitoring data of disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
-     *  *
-     * @description ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @param DescribeDiskMonitorDataListRequest $request DescribeDiskMonitorDataListRequest
+     * Queries the near real-time monitoring data of disks. You can query only the burst performance data of ESSD AutoPL disks. The data is aggregated by hour.
      *
-     * @return DescribeDiskMonitorDataListResponse DescribeDiskMonitorDataListResponse
+     * @remarks
+     * ## Usage notes
+     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
+     * @param request - DescribeDiskMonitorDataListRequest
+     * @returns DescribeDiskMonitorDataListResponse
+     *
+     * @param DescribeDiskMonitorDataListRequest $request
+     *
+     * @return DescribeDiskMonitorDataListResponse
      */
     public function describeDiskMonitorDataList($request)
     {
@@ -1477,53 +1812,68 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of replication pair-consistent groups in a specific region.
-     *  *
-     * @description ## [](#)Usage notes
+     * Queries the details of replication pair-consistent groups in a specific region.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * To perform a paged query, specify the MaxResults and NextToken parameters.
      * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     *  *
-     * @param DescribeDiskReplicaGroupsRequest $request DescribeDiskReplicaGroupsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiskReplicaGroupsResponse DescribeDiskReplicaGroupsResponse
+     * @param request - DescribeDiskReplicaGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDiskReplicaGroupsResponse
+     *
+     * @param DescribeDiskReplicaGroupsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDiskReplicaGroupsResponse
      */
     public function describeDiskReplicaGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupIds)) {
-            $query['GroupIds'] = $request->groupIds;
+        if (null !== $request->groupIds) {
+            @$query['GroupIds'] = $request->groupIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->site)) {
-            $query['Site'] = $request->site;
+
+        if (null !== $request->site) {
+            @$query['Site'] = $request->site;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDiskReplicaGroups',
@@ -1536,20 +1886,27 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDiskReplicaGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDiskReplicaGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDiskReplicaGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of replication pair-consistent groups in a specific region.
-     *  *
-     * @description ## [](#)Usage notes
+     * Queries the details of replication pair-consistent groups in a specific region.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * To perform a paged query, specify the MaxResults and NextToken parameters.
      * During a paged query, when you call the DescribeDiskReplicaGroups operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaGroups operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     *  *
-     * @param DescribeDiskReplicaGroupsRequest $request DescribeDiskReplicaGroupsRequest
      *
-     * @return DescribeDiskReplicaGroupsResponse DescribeDiskReplicaGroupsResponse
+     * @param request - DescribeDiskReplicaGroupsRequest
+     * @returns DescribeDiskReplicaGroupsResponse
+     *
+     * @param DescribeDiskReplicaGroupsRequest $request
+     *
+     * @return DescribeDiskReplicaGroupsResponse
      */
     public function describeDiskReplicaGroups($request)
     {
@@ -1559,25 +1916,31 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the replication progress of a replication pair.
-     *  *
-     * @param DescribeDiskReplicaPairProgressRequest $request DescribeDiskReplicaPairProgressRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the replication progress of a replication pair.
      *
-     * @return DescribeDiskReplicaPairProgressResponse DescribeDiskReplicaPairProgressResponse
+     * @param request - DescribeDiskReplicaPairProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDiskReplicaPairProgressResponse
+     *
+     * @param DescribeDiskReplicaPairProgressRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeDiskReplicaPairProgressResponse
      */
     public function describeDiskReplicaPairProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
+
+        if (null !== $request->replicaPairId) {
+            @$query['ReplicaPairId'] = $request->replicaPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDiskReplicaPairProgress',
@@ -1590,16 +1953,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDiskReplicaPairProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDiskReplicaPairProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDiskReplicaPairProgressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the replication progress of a replication pair.
-     *  *
-     * @param DescribeDiskReplicaPairProgressRequest $request DescribeDiskReplicaPairProgressRequest
+     * Queries the replication progress of a replication pair.
      *
-     * @return DescribeDiskReplicaPairProgressResponse DescribeDiskReplicaPairProgressResponse
+     * @param request - DescribeDiskReplicaPairProgressRequest
+     * @returns DescribeDiskReplicaPairProgressResponse
+     *
+     * @param DescribeDiskReplicaPairProgressRequest $request
+     *
+     * @return DescribeDiskReplicaPairProgressResponse
      */
     public function describeDiskReplicaPairProgress($request)
     {
@@ -1609,57 +1978,73 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about replication pairs in a specific region.
-     *  *
-     * @description ## [](#)Usage notes
+     * Queries information about replication pairs in a specific region.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides in the region, information about the replication pair is displayed in the response.
      * *   If you want to perform a paged query, configure the `NextToken` and `MaxResults` parameters. During a paged query, when you call the DescribeDiskReplicaPairs operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaPairs operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     *  *
-     * @param DescribeDiskReplicaPairsRequest $request DescribeDiskReplicaPairsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiskReplicaPairsResponse DescribeDiskReplicaPairsResponse
+     * @param request - DescribeDiskReplicaPairsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDiskReplicaPairsResponse
+     *
+     * @param DescribeDiskReplicaPairsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDiskReplicaPairsResponse
      */
     public function describeDiskReplicaPairsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pairIds)) {
-            $query['PairIds'] = $request->pairIds;
+
+        if (null !== $request->pairIds) {
+            @$query['PairIds'] = $request->pairIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaGroupId)) {
-            $query['ReplicaGroupId'] = $request->replicaGroupId;
+
+        if (null !== $request->replicaGroupId) {
+            @$query['ReplicaGroupId'] = $request->replicaGroupId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->site)) {
-            $query['Site'] = $request->site;
+
+        if (null !== $request->site) {
+            @$query['Site'] = $request->site;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDiskReplicaPairs',
@@ -1672,21 +2057,28 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDiskReplicaPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDiskReplicaPairsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDiskReplicaPairsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about replication pairs in a specific region.
-     *  *
-     * @description ## [](#)Usage notes
+     * Queries information about replication pairs in a specific region.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   When you call this operation for a specific region, if the primary disk (source disk) or secondary disk (destination disk) of a replication pair resides in the region, information about the replication pair is displayed in the response.
      * *   If you want to perform a paged query, configure the `NextToken` and `MaxResults` parameters. During a paged query, when you call the DescribeDiskReplicaPairs operation to retrieve the first page of results, set `MaxResults` to limit the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which can be used in the next call to retrieve a new page of results. When you call the DescribeDiskReplicaPairs operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and set MaxResults to specify the maximum number of entries to return in this call.
-     *  *
-     * @param DescribeDiskReplicaPairsRequest $request DescribeDiskReplicaPairsRequest
      *
-     * @return DescribeDiskReplicaPairsResponse DescribeDiskReplicaPairsResponse
+     * @param request - DescribeDiskReplicaPairsRequest
+     * @returns DescribeDiskReplicaPairsResponse
+     *
+     * @param DescribeDiskReplicaPairsRequest $request
+     *
+     * @return DescribeDiskReplicaPairsResponse
      */
     public function describeDiskReplicaPairs($request)
     {
@@ -1696,49 +2088,63 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about enterprise-level snapshot policies. When you call this operation, you can specify parameters, such as PolicyIds, ResourceGroupId, and Tag, in the request.
-     *  *
-     * @param DescribeEnterpriseSnapshotPolicyRequest $request DescribeEnterpriseSnapshotPolicyRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about enterprise-level snapshot policies. When you call this operation, you can specify parameters, such as PolicyIds, ResourceGroupId, and Tag, in the request.
      *
-     * @return DescribeEnterpriseSnapshotPolicyResponse DescribeEnterpriseSnapshotPolicyResponse
+     * @param request - DescribeEnterpriseSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEnterpriseSnapshotPolicyResponse
+     *
+     * @param DescribeEnterpriseSnapshotPolicyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeEnterpriseSnapshotPolicyResponse
      */
     public function describeEnterpriseSnapshotPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->diskIds)) {
-            $query['DiskIds'] = $request->diskIds;
+
+        if (null !== $request->diskIds) {
+            @$query['DiskIds'] = $request->diskIds;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->policyIds)) {
-            $query['PolicyIds'] = $request->policyIds;
+
+        if (null !== $request->policyIds) {
+            @$query['PolicyIds'] = $request->policyIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEnterpriseSnapshotPolicy',
@@ -1751,16 +2157,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about enterprise-level snapshot policies. When you call this operation, you can specify parameters, such as PolicyIds, ResourceGroupId, and Tag, in the request.
-     *  *
-     * @param DescribeEnterpriseSnapshotPolicyRequest $request DescribeEnterpriseSnapshotPolicyRequest
+     * Queries the information about enterprise-level snapshot policies. When you call this operation, you can specify parameters, such as PolicyIds, ResourceGroupId, and Tag, in the request.
      *
-     * @return DescribeEnterpriseSnapshotPolicyResponse DescribeEnterpriseSnapshotPolicyResponse
+     * @param request - DescribeEnterpriseSnapshotPolicyRequest
+     * @returns DescribeEnterpriseSnapshotPolicyResponse
+     *
+     * @param DescribeEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return DescribeEnterpriseSnapshotPolicyResponse
      */
     public function describeEnterpriseSnapshotPolicy($request)
     {
@@ -1770,49 +2182,63 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the risk events of a disk.
-     *  *
-     * @param DescribeEventsRequest $request DescribeEventsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries the risk events of a disk.
      *
-     * @return DescribeEventsResponse DescribeEventsResponse
+     * @param request - DescribeEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeEventsResponse
+     *
+     * @param DescribeEventsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribeEventsResponse
      */
     public function describeEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->eventLevel)) {
-            $query['EventLevel'] = $request->eventLevel;
+
+        if (null !== $request->eventLevel) {
+            @$query['EventLevel'] = $request->eventLevel;
         }
-        if (!Utils::isUnset($request->eventName)) {
-            $query['EventName'] = $request->eventName;
+
+        if (null !== $request->eventName) {
+            @$query['EventName'] = $request->eventName;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeEvents',
@@ -1825,16 +2251,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the risk events of a disk.
-     *  *
-     * @param DescribeEventsRequest $request DescribeEventsRequest
+     * Queries the risk events of a disk.
      *
-     * @return DescribeEventsResponse DescribeEventsResponse
+     * @param request - DescribeEventsRequest
+     * @returns DescribeEventsResponse
+     *
+     * @param DescribeEventsRequest $request
+     *
+     * @return DescribeEventsResponse
      */
     public function describeEvents($request)
     {
@@ -1844,40 +2276,51 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries one or more Elastic Block Storage (EBS) devices that you created.
-     *  *
-     * @param DescribeLensMonitorDisksRequest $request DescribeLensMonitorDisksRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries one or more Elastic Block Storage (EBS) devices that you created.
      *
-     * @return DescribeLensMonitorDisksResponse DescribeLensMonitorDisksResponse
+     * @param request - DescribeLensMonitorDisksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeLensMonitorDisksResponse
+     *
+     * @param DescribeLensMonitorDisksRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeLensMonitorDisksResponse
      */
     public function describeLensMonitorDisksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->diskCategory)) {
-            $query['DiskCategory'] = $request->diskCategory;
+        if (null !== $request->diskCategory) {
+            @$query['DiskCategory'] = $request->diskCategory;
         }
-        if (!Utils::isUnset($request->diskIdPattern)) {
-            $query['DiskIdPattern'] = $request->diskIdPattern;
+
+        if (null !== $request->diskIdPattern) {
+            @$query['DiskIdPattern'] = $request->diskIdPattern;
         }
-        if (!Utils::isUnset($request->diskIds)) {
-            $query['DiskIds'] = $request->diskIds;
+
+        if (null !== $request->diskIds) {
+            @$query['DiskIds'] = $request->diskIds;
         }
-        if (!Utils::isUnset($request->lensTags)) {
-            $query['LensTags'] = $request->lensTags;
+
+        if (null !== $request->lensTags) {
+            @$query['LensTags'] = $request->lensTags;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeLensMonitorDisks',
@@ -1890,16 +2333,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeLensMonitorDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLensMonitorDisksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLensMonitorDisksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries one or more Elastic Block Storage (EBS) devices that you created.
-     *  *
-     * @param DescribeLensMonitorDisksRequest $request DescribeLensMonitorDisksRequest
+     * Queries one or more Elastic Block Storage (EBS) devices that you created.
      *
-     * @return DescribeLensMonitorDisksResponse DescribeLensMonitorDisksResponse
+     * @param request - DescribeLensMonitorDisksRequest
+     * @returns DescribeLensMonitorDisksResponse
+     *
+     * @param DescribeLensMonitorDisksRequest $request
+     *
+     * @return DescribeLensMonitorDisksResponse
      */
     public function describeLensMonitorDisks($request)
     {
@@ -1909,14 +2358,19 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户开通ebs数据洞察服务状态
-     *  *
-     * @description ## Usage notes
-     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询用户开通ebs数据洞察服务状态
      *
-     * @return DescribeLensServiceStatusResponse DescribeLensServiceStatusResponse
+     * @remarks
+     * ## Usage notes
+     * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
+     *
+     * @param request - DescribeLensServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeLensServiceStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeLensServiceStatusResponse
      */
     public function describeLensServiceStatusWithOptions($runtime)
     {
@@ -1932,17 +2386,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeLensServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLensServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLensServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询用户开通ebs数据洞察服务状态
-     *  *
-     * @description ## Usage notes
+     * 查询用户开通ebs数据洞察服务状态
+     *
+     * @remarks
+     * ## Usage notes
      * CloudLens for EBS is in invitational preview in the China (Hangzhou), China (Shanghai), China (Zhangjiakou), China (Shenzhen), and China (Hong Kong) regions. To use the feature, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex).
-     *  *
-     * @return DescribeLensServiceStatusResponse DescribeLensServiceStatusResponse
+     * @returns DescribeLensServiceStatusResponse
+     *
+     * @return DescribeLensServiceStatusResponse
      */
     public function describeLensServiceStatus()
     {
@@ -1952,40 +2411,51 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics about a metric of Elastic Block Storage (EBS) disks.
-     *  *
-     * @param DescribeMetricDataRequest $request DescribeMetricDataRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics about a metric of Elastic Block Storage (EBS) disks.
      *
-     * @return DescribeMetricDataResponse DescribeMetricDataResponse
+     * @param request - DescribeMetricDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMetricDataResponse
+     *
+     * @param DescribeMetricDataRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricDataResponse
      */
     public function describeMetricDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aggreOps)) {
-            $query['AggreOps'] = $request->aggreOps;
+        if (null !== $request->aggreOps) {
+            @$query['AggreOps'] = $request->aggreOps;
         }
-        if (!Utils::isUnset($request->dimensions)) {
-            $query['Dimensions'] = $request->dimensions;
+
+        if (null !== $request->dimensions) {
+            @$query['Dimensions'] = $request->dimensions;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $query['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$query['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMetricData',
@@ -1998,16 +2468,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMetricDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics about a metric of Elastic Block Storage (EBS) disks.
-     *  *
-     * @param DescribeMetricDataRequest $request DescribeMetricDataRequest
+     * Queries the statistics about a metric of Elastic Block Storage (EBS) disks.
      *
-     * @return DescribeMetricDataResponse DescribeMetricDataResponse
+     * @param request - DescribeMetricDataRequest
+     * @returns DescribeMetricDataResponse
+     *
+     * @param DescribeMetricDataRequest $request
+     *
+     * @return DescribeMetricDataResponse
      */
     public function describeMetricData($request)
     {
@@ -2017,40 +2493,51 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the disaster recovery drills that were performed on the replication pair whose secondary disk resides in a specific region.
-     *  *
-     * @param DescribePairDrillsRequest $request DescribePairDrillsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the disaster recovery drills that were performed on the replication pair whose secondary disk resides in a specific region.
      *
-     * @return DescribePairDrillsResponse DescribePairDrillsResponse
+     * @param request - DescribePairDrillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePairDrillsResponse
+     *
+     * @param DescribePairDrillsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribePairDrillsResponse
      */
     public function describePairDrillsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drillId)) {
-            $query['DrillId'] = $request->drillId;
+        if (null !== $request->drillId) {
+            @$query['DrillId'] = $request->drillId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pairId)) {
-            $query['PairId'] = $request->pairId;
+
+        if (null !== $request->pairId) {
+            @$query['PairId'] = $request->pairId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePairDrills',
@@ -2063,16 +2550,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePairDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePairDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePairDrillsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the disaster recovery drills that were performed on the replication pair whose secondary disk resides in a specific region.
-     *  *
-     * @param DescribePairDrillsRequest $request DescribePairDrillsRequest
+     * Queries the disaster recovery drills that were performed on the replication pair whose secondary disk resides in a specific region.
      *
-     * @return DescribePairDrillsResponse DescribePairDrillsResponse
+     * @param request - DescribePairDrillsRequest
+     * @returns DescribePairDrillsResponse
+     *
+     * @param DescribePairDrillsRequest $request
+     *
+     * @return DescribePairDrillsResponse
      */
     public function describePairDrills($request)
     {
@@ -2082,28 +2575,35 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of regions in which Elastic Block Storage (EBS) features (such as async replication, CloudLens for EBS, and Dedicated Block Storage Cluster) are supported.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the details of regions in which Elastic Block Storage (EBS) features (such as async replication, CloudLens for EBS, and Dedicated Block Storage Cluster) are supported.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -2116,16 +2616,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of regions in which Elastic Block Storage (EBS) features (such as async replication, CloudLens for EBS, and Dedicated Block Storage Cluster) are supported.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries the details of regions in which Elastic Block Storage (EBS) features (such as async replication, CloudLens for EBS, and Dedicated Block Storage Cluster) are supported.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -2135,40 +2641,51 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the disaster recovery drills that were performed on the replication pair-consistent group whose secondary disk resides in a specific region.
-     *  *
-     * @param DescribeReplicaGroupDrillsRequest $request DescribeReplicaGroupDrillsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the disaster recovery drills that were performed on the replication pair-consistent group whose secondary disk resides in a specific region.
      *
-     * @return DescribeReplicaGroupDrillsResponse DescribeReplicaGroupDrillsResponse
+     * @param request - DescribeReplicaGroupDrillsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeReplicaGroupDrillsResponse
+     *
+     * @param DescribeReplicaGroupDrillsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeReplicaGroupDrillsResponse
      */
     public function describeReplicaGroupDrillsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->drillId)) {
-            $query['DrillId'] = $request->drillId;
+        if (null !== $request->drillId) {
+            @$query['DrillId'] = $request->drillId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeReplicaGroupDrills',
@@ -2181,16 +2698,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeReplicaGroupDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeReplicaGroupDrillsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeReplicaGroupDrillsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the disaster recovery drills that were performed on the replication pair-consistent group whose secondary disk resides in a specific region.
-     *  *
-     * @param DescribeReplicaGroupDrillsRequest $request DescribeReplicaGroupDrillsRequest
+     * Queries the disaster recovery drills that were performed on the replication pair-consistent group whose secondary disk resides in a specific region.
      *
-     * @return DescribeReplicaGroupDrillsResponse DescribeReplicaGroupDrillsResponse
+     * @param request - DescribeReplicaGroupDrillsRequest
+     * @returns DescribeReplicaGroupDrillsResponse
+     *
+     * @param DescribeReplicaGroupDrillsRequest $request
+     *
+     * @return DescribeReplicaGroupDrillsResponse
      */
     public function describeReplicaGroupDrills($request)
     {
@@ -2200,31 +2723,39 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary 查询解决方案实例默认配置
-     *  *
-     * @param DescribeSolutionInstanceConfigurationRequest $request DescribeSolutionInstanceConfigurationRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * 查询解决方案实例默认配置.
      *
-     * @return DescribeSolutionInstanceConfigurationResponse DescribeSolutionInstanceConfigurationResponse
+     * @param request - DescribeSolutionInstanceConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSolutionInstanceConfigurationResponse
+     *
+     * @param DescribeSolutionInstanceConfigurationRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeSolutionInstanceConfigurationResponse
      */
     public function describeSolutionInstanceConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->solutionId)) {
-            $query['SolutionId'] = $request->solutionId;
+
+        if (null !== $request->solutionId) {
+            @$query['SolutionId'] = $request->solutionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSolutionInstanceConfiguration',
@@ -2237,16 +2768,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSolutionInstanceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSolutionInstanceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSolutionInstanceConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 查询解决方案实例默认配置
-     *  *
-     * @param DescribeSolutionInstanceConfigurationRequest $request DescribeSolutionInstanceConfigurationRequest
+     * 查询解决方案实例默认配置.
      *
-     * @return DescribeSolutionInstanceConfigurationResponse DescribeSolutionInstanceConfigurationResponse
+     * @param request - DescribeSolutionInstanceConfigurationRequest
+     * @returns DescribeSolutionInstanceConfigurationResponse
+     *
+     * @param DescribeSolutionInstanceConfigurationRequest $request
+     *
+     * @return DescribeSolutionInstanceConfigurationResponse
      */
     public function describeSolutionInstanceConfiguration($request)
     {
@@ -2256,34 +2793,206 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Enables the failover feature for replication pairs in a replication pair-consistent group. When the primary disks of specific replication pairs in a replication pair-consistent group fail, you can call this operation to enable the read and write permissions on the secondary disks.
-     *  *
-     * @description ## [](#)Usage notes
+     * Centralized Role: Query User Disk Snapshot tagKeys.
+     *
+     * @remarks
+     * ## Interface Description
+     * Query the tag key-value pairs of user\\"s cloud disk and snapshot. The search scope can be narrowed down by using filterTagKey.
+     *
+     * @param request - DescribeUserTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserTagKeysResponse
+     *
+     * @param DescribeUserTagKeysRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeUserTagKeysResponse
+     */
+    public function describeUserTagKeysWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tagFilterKey) {
+            @$body['TagFilterKey'] = $request->tagFilterKey;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserTagKeys',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeUserTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Centralized Role: Query User Disk Snapshot tagKeys.
+     *
+     * @remarks
+     * ## Interface Description
+     * Query the tag key-value pairs of user\\"s cloud disk and snapshot. The search scope can be narrowed down by using filterTagKey.
+     *
+     * @param request - DescribeUserTagKeysRequest
+     * @returns DescribeUserTagKeysResponse
+     *
+     * @param DescribeUserTagKeysRequest $request
+     *
+     * @return DescribeUserTagKeysResponse
+     */
+    public function describeUserTagKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserTagKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * Centralized Role: Query User Disk and Snapshot tagValues.
+     *
+     * @remarks
+     * ## Interface Description
+     * > The dedicated block storage cluster feature is currently supported in the following regions: South China 2 (Heyuan), Indonesia (Jakarta), and South China 1 (Shenzhen).
+     * - The request parameters act as a filter, with a logical AND relationship. If any parameter is empty, the filter does not take effect.
+     * - For paginated queries, it is recommended to use the MaxResults and NextToken parameters. Usage instructions: When querying the first page, set only MaxResults to limit the number of returned entries. The NextToken in the response will serve as the token for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response, and set MaxResults to limit the number of returned entries.
+     *
+     * @param request - DescribeUserTagValuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserTagValuesResponse
+     *
+     * @param DescribeUserTagValuesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeUserTagValuesResponse
+     */
+    public function describeUserTagValuesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->maxResults) {
+            @$body['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$body['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->tagFilterValue) {
+            @$body['TagFilterValue'] = $request->tagFilterValue;
+        }
+
+        if (null !== $request->tagKey) {
+            @$body['TagKey'] = $request->tagKey;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserTagValues',
+            'version'     => '2021-07-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeUserTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Centralized Role: Query User Disk and Snapshot tagValues.
+     *
+     * @remarks
+     * ## Interface Description
+     * > The dedicated block storage cluster feature is currently supported in the following regions: South China 2 (Heyuan), Indonesia (Jakarta), and South China 1 (Shenzhen).
+     * - The request parameters act as a filter, with a logical AND relationship. If any parameter is empty, the filter does not take effect.
+     * - For paginated queries, it is recommended to use the MaxResults and NextToken parameters. Usage instructions: When querying the first page, set only MaxResults to limit the number of returned entries. The NextToken in the response will serve as the token for querying subsequent pages. When querying subsequent pages, set the NextToken parameter to the value obtained from the previous response, and set MaxResults to limit the number of returned entries.
+     *
+     * @param request - DescribeUserTagValuesRequest
+     * @returns DescribeUserTagValuesResponse
+     *
+     * @param DescribeUserTagValuesRequest $request
+     *
+     * @return DescribeUserTagValuesResponse
+     */
+    public function describeUserTagValues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserTagValuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * Enables the failover feature for replication pairs in a replication pair-consistent group. When the primary disks of specific replication pairs in a replication pair-consistent group fail, you can call this operation to enable the read and write permissions on the secondary disks.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), **Stopped** (`stopped`), **In Failover** (`failovering`), **Failover Failed** (`failover_failed`), or **Failovered** (`failovered`) state.
      * *   After a failover is performed, the replication pair-consistent group enters the **Failovered** (`failovered`) state.
      * *   Before you perform a failover, make sure that the first full data synchronization is completed between the primary site and secondary site.
-     *  *
-     * @param FailoverDiskReplicaGroupRequest $request FailoverDiskReplicaGroupRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return FailoverDiskReplicaGroupResponse FailoverDiskReplicaGroupResponse
+     * @param request - FailoverDiskReplicaGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns FailoverDiskReplicaGroupResponse
+     *
+     * @param FailoverDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return FailoverDiskReplicaGroupResponse
      */
     public function failoverDiskReplicaGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaGroupId)) {
-            $query['ReplicaGroupId'] = $request->replicaGroupId;
+
+        if (null !== $request->replicaGroupId) {
+            @$query['ReplicaGroupId'] = $request->replicaGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'FailoverDiskReplicaGroup',
@@ -2296,22 +3005,29 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FailoverDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return FailoverDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FailoverDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the failover feature for replication pairs in a replication pair-consistent group. When the primary disks of specific replication pairs in a replication pair-consistent group fail, you can call this operation to enable the read and write permissions on the secondary disks.
-     *  *
-     * @description ## [](#)Usage notes
+     * Enables the failover feature for replication pairs in a replication pair-consistent group. When the primary disks of specific replication pairs in a replication pair-consistent group fail, you can call this operation to enable the read and write permissions on the secondary disks.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), **Stopped** (`stopped`), **In Failover** (`failovering`), **Failover Failed** (`failover_failed`), or **Failovered** (`failovered`) state.
      * *   After a failover is performed, the replication pair-consistent group enters the **Failovered** (`failovered`) state.
      * *   Before you perform a failover, make sure that the first full data synchronization is completed between the primary site and secondary site.
-     *  *
-     * @param FailoverDiskReplicaGroupRequest $request FailoverDiskReplicaGroupRequest
      *
-     * @return FailoverDiskReplicaGroupResponse FailoverDiskReplicaGroupResponse
+     * @param request - FailoverDiskReplicaGroupRequest
+     * @returns FailoverDiskReplicaGroupResponse
+     *
+     * @param FailoverDiskReplicaGroupRequest $request
+     *
+     * @return FailoverDiskReplicaGroupResponse
      */
     public function failoverDiskReplicaGroup($request)
     {
@@ -2321,33 +3037,41 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Enables the failover feature for replication pairs.
-     *  *
-     * @description ## [](#)Usage notes
+     * Enables the failover feature for replication pairs.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair for which you want to enable failover cannot be in the **Invalid** (`invalid`) or **Deleted** (`deleted`) state.
      * *   After a failover is performed, the replication pair enters the **Failovered** (`failovered`) state.
-     *  *
-     * @param FailoverDiskReplicaPairRequest $request FailoverDiskReplicaPairRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return FailoverDiskReplicaPairResponse FailoverDiskReplicaPairResponse
+     * @param request - FailoverDiskReplicaPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns FailoverDiskReplicaPairResponse
+     *
+     * @param FailoverDiskReplicaPairRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return FailoverDiskReplicaPairResponse
      */
     public function failoverDiskReplicaPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
+
+        if (null !== $request->replicaPairId) {
+            @$query['ReplicaPairId'] = $request->replicaPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'FailoverDiskReplicaPair',
@@ -2360,21 +3084,28 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FailoverDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return FailoverDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return FailoverDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the failover feature for replication pairs.
-     *  *
-     * @description ## [](#)Usage notes
+     * Enables the failover feature for replication pairs.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair for which you want to enable failover cannot be in the **Invalid** (`invalid`) or **Deleted** (`deleted`) state.
      * *   After a failover is performed, the replication pair enters the **Failovered** (`failovered`) state.
-     *  *
-     * @param FailoverDiskReplicaPairRequest $request FailoverDiskReplicaPairRequest
      *
-     * @return FailoverDiskReplicaPairResponse FailoverDiskReplicaPairResponse
+     * @param request - FailoverDiskReplicaPairRequest
+     * @returns FailoverDiskReplicaPairResponse
+     *
+     * @param FailoverDiskReplicaPairRequest $request
+     *
+     * @return FailoverDiskReplicaPairResponse
      */
     public function failoverDiskReplicaPair($request)
     {
@@ -2384,33 +3115,41 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Centralized Role: Obtain User Usage Report with reportId
-     *  *
-     * @param GetReportRequest $request GetReportRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Centralized Role: Obtain User Usage Report with reportId.
      *
-     * @return GetReportResponse GetReportResponse
+     * @param request - GetReportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetReportResponse
+     *
+     * @param GetReportRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetReportResponse
      */
     public function getReportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$query['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->reportType)) {
-            $query['ReportType'] = $request->reportType;
+
+        if (null !== $request->reportType) {
+            @$query['ReportType'] = $request->reportType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->reportId)) {
-            $body['ReportId'] = $request->reportId;
+
+        if (null !== $request->reportId) {
+            @$body['ReportId'] = $request->reportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetReport',
@@ -2423,16 +3162,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Centralized Role: Obtain User Usage Report with reportId
-     *  *
-     * @param GetReportRequest $request GetReportRequest
+     * Centralized Role: Obtain User Usage Report with reportId.
      *
-     * @return GetReportResponse GetReportResponse
+     * @param request - GetReportRequest
+     * @returns GetReportResponse
+     *
+     * @param GetReportRequest $request
+     *
+     * @return GetReportResponse
      */
     public function getReport($request)
     {
@@ -2442,39 +3187,49 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Centralized Role: Query Historical Reports
-     *  *
-     * @param ListReportsRequest $request ListReportsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Centralized Role: Query Historical Reports.
      *
-     * @return ListReportsResponse ListReportsResponse
+     * @param request - ListReportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListReportsResponse
+     *
+     * @param ListReportsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListReportsResponse
      */
     public function listReportsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->appName)) {
-            $body['AppName'] = $request->appName;
+        if (null !== $request->appName) {
+            @$body['AppName'] = $request->appName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListReports',
@@ -2487,16 +3242,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListReportsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Centralized Role: Query Historical Reports
-     *  *
-     * @param ListReportsRequest $request ListReportsRequest
+     * Centralized Role: Query Historical Reports.
      *
-     * @return ListReportsResponse ListReportsResponse
+     * @param request - ListReportsRequest
+     * @returns ListReportsResponse
+     *
+     * @param ListReportsRequest $request
+     *
+     * @return ListReportsResponse
      */
     public function listReports($request)
     {
@@ -2506,42 +3267,53 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are added to one or more Elastic Block Storage (EBS) resources, or queries the IDs and tags of resources in a specified non-default resource group.
-     *  *
-     * @description Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+     * Queries the tags that are added to one or more Elastic Block Storage (EBS) resources, or queries the IDs and tags of resources in a specified non-default resource group.
+     *
+     * @remarks
+     * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
      * *   `ResourceId.N`
      * *   `Tag.N` parameter pair (`Tag.N.Key` and `Tag.N.Value`)
      * If you set `Tag.N` and `ResourceId.N` at the same time, the EBS resources that match both the parameters are returned.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -2554,21 +3326,28 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tags that are added to one or more Elastic Block Storage (EBS) resources, or queries the IDs and tags of resources in a specified non-default resource group.
-     *  *
-     * @description Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+     * Queries the tags that are added to one or more Elastic Block Storage (EBS) resources, or queries the IDs and tags of resources in a specified non-default resource group.
+     *
+     * @remarks
+     * Specify at least one of the following parameters or parameter pairs in a request to determine a query object:
      * *   `ResourceId.N`
      * *   `Tag.N` parameter pair (`Tag.N.Key` and `Tag.N.Value`)
      * If you set `Tag.N` and `ResourceId.N` at the same time, the EBS resources that match both the parameters are returned.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -2578,36 +3357,46 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary 修改专属集群属性OpenApi
-     *  *
-     * @description You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
-     *  *
-     * @param ModifyDedicatedBlockStorageClusterAttributeRequest $request ModifyDedicatedBlockStorageClusterAttributeRequest
-     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
+     * 修改专属集群属性OpenApi.
      *
-     * @return ModifyDedicatedBlockStorageClusterAttributeResponse ModifyDedicatedBlockStorageClusterAttributeResponse
+     * @remarks
+     * You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
+     *
+     * @param request - ModifyDedicatedBlockStorageClusterAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDedicatedBlockStorageClusterAttributeResponse
+     *
+     * @param ModifyDedicatedBlockStorageClusterAttributeRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return ModifyDedicatedBlockStorageClusterAttributeResponse
      */
     public function modifyDedicatedBlockStorageClusterAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dbscId)) {
-            $query['DbscId'] = $request->dbscId;
+
+        if (null !== $request->dbscId) {
+            @$query['DbscId'] = $request->dbscId;
         }
-        if (!Utils::isUnset($request->dbscName)) {
-            $query['DbscName'] = $request->dbscName;
+
+        if (null !== $request->dbscName) {
+            @$query['DbscName'] = $request->dbscName;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDedicatedBlockStorageClusterAttribute',
@@ -2620,18 +3409,25 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDedicatedBlockStorageClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDedicatedBlockStorageClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDedicatedBlockStorageClusterAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 修改专属集群属性OpenApi
-     *  *
-     * @description You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
-     *  *
-     * @param ModifyDedicatedBlockStorageClusterAttributeRequest $request ModifyDedicatedBlockStorageClusterAttributeRequest
+     * 修改专属集群属性OpenApi.
      *
-     * @return ModifyDedicatedBlockStorageClusterAttributeResponse ModifyDedicatedBlockStorageClusterAttributeResponse
+     * @remarks
+     * You can call this operation to modify the information of a dedicated block storage cluster. The information includes the name and description of the cluster.
+     *
+     * @param request - ModifyDedicatedBlockStorageClusterAttributeRequest
+     * @returns ModifyDedicatedBlockStorageClusterAttributeResponse
+     *
+     * @param ModifyDedicatedBlockStorageClusterAttributeRequest $request
+     *
+     * @return ModifyDedicatedBlockStorageClusterAttributeResponse
      */
     public function modifyDedicatedBlockStorageClusterAttribute($request)
     {
@@ -2641,44 +3437,56 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the name, description, or recovery point objective (RPO) of a replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Modifies the name, description, or recovery point objective (RPO) of a replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group must be in the **Created** (`created`) or **Stopped** (`stopped`) state.
-     *  *
-     * @param ModifyDiskReplicaGroupRequest $request ModifyDiskReplicaGroupRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDiskReplicaGroupResponse ModifyDiskReplicaGroupResponse
+     * @param request - ModifyDiskReplicaGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDiskReplicaGroupResponse
+     *
+     * @param ModifyDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyDiskReplicaGroupResponse
      */
     public function modifyDiskReplicaGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->RPO)) {
-            $query['RPO'] = $request->RPO;
+
+        if (null !== $request->RPO) {
+            @$query['RPO'] = $request->RPO;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaGroupId)) {
-            $query['ReplicaGroupId'] = $request->replicaGroupId;
+
+        if (null !== $request->replicaGroupId) {
+            @$query['ReplicaGroupId'] = $request->replicaGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDiskReplicaGroup',
@@ -2691,20 +3499,27 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the name, description, or recovery point objective (RPO) of a replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Modifies the name, description, or recovery point objective (RPO) of a replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group must be in the **Created** (`created`) or **Stopped** (`stopped`) state.
-     *  *
-     * @param ModifyDiskReplicaGroupRequest $request ModifyDiskReplicaGroupRequest
      *
-     * @return ModifyDiskReplicaGroupResponse ModifyDiskReplicaGroupResponse
+     * @param request - ModifyDiskReplicaGroupRequest
+     * @returns ModifyDiskReplicaGroupResponse
+     *
+     * @param ModifyDiskReplicaGroupRequest $request
+     *
+     * @return ModifyDiskReplicaGroupResponse
      */
     public function modifyDiskReplicaGroup($request)
     {
@@ -2714,44 +3529,56 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a replication pair.
-     *  *
-     * @description ## [](#)Usage notes
+     * Modifies a replication pair.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can have their names or descriptions modified.
-     *  *
-     * @param ModifyDiskReplicaPairRequest $request ModifyDiskReplicaPairRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDiskReplicaPairResponse ModifyDiskReplicaPairResponse
+     * @param request - ModifyDiskReplicaPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDiskReplicaPairResponse
+     *
+     * @param ModifyDiskReplicaPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDiskReplicaPairResponse
      */
     public function modifyDiskReplicaPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $query['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$query['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->pairName)) {
-            $query['PairName'] = $request->pairName;
+
+        if (null !== $request->pairName) {
+            @$query['PairName'] = $request->pairName;
         }
-        if (!Utils::isUnset($request->RPO)) {
-            $query['RPO'] = $request->RPO;
+
+        if (null !== $request->RPO) {
+            @$query['RPO'] = $request->RPO;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
+
+        if (null !== $request->replicaPairId) {
+            @$query['ReplicaPairId'] = $request->replicaPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDiskReplicaPair',
@@ -2764,20 +3591,27 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a replication pair.
-     *  *
-     * @description ## [](#)Usage notes
+     * Modifies a replication pair.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can have their names or descriptions modified.
-     *  *
-     * @param ModifyDiskReplicaPairRequest $request ModifyDiskReplicaPairRequest
      *
-     * @return ModifyDiskReplicaPairResponse ModifyDiskReplicaPairResponse
+     * @param request - ModifyDiskReplicaPairRequest
+     * @returns ModifyDiskReplicaPairResponse
+     *
+     * @param ModifyDiskReplicaPairRequest $request
+     *
+     * @return ModifyDiskReplicaPairResponse
      */
     public function modifyDiskReplicaPair($request)
     {
@@ -2787,30 +3621,37 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Query the throughput status of a dedicated block storage cluster disk which has been set through the SetDedicatedBlockStorageClusterDiskThroughput API.
-     *  *
-     * @param QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest $request QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest
-     * @param RuntimeOptions                                               $runtime runtime options for this request RuntimeOptions
+     * Query the throughput status of a dedicated block storage cluster disk which has been set through the SetDedicatedBlockStorageClusterDiskThroughput API.
      *
-     * @return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
+     * @param request - QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
+     *
+     * @param QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest $request
+     * @param RuntimeOptions                                               $runtime
+     *
+     * @return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
      */
     public function queryDedicatedBlockStorageClusterDiskThroughputStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->qosRequestId)) {
-            $body['QosRequestId'] = $request->qosRequestId;
+        if (null !== $request->qosRequestId) {
+            @$body['QosRequestId'] = $request->qosRequestId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryDedicatedBlockStorageClusterDiskThroughputStatus',
@@ -2823,16 +3664,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query the throughput status of a dedicated block storage cluster disk which has been set through the SetDedicatedBlockStorageClusterDiskThroughput API.
-     *  *
-     * @param QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest $request QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest
+     * Query the throughput status of a dedicated block storage cluster disk which has been set through the SetDedicatedBlockStorageClusterDiskThroughput API.
      *
-     * @return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
+     * @param request - QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest
+     * @returns QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
+     *
+     * @param QueryDedicatedBlockStorageClusterDiskThroughputStatusRequest $request
+     *
+     * @return QueryDedicatedBlockStorageClusterDiskThroughputStatusResponse
      */
     public function queryDedicatedBlockStorageClusterDiskThroughputStatus($request)
     {
@@ -2842,41 +3689,52 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Query dedicated block storage cluster capacity trend data, includ available capacity size and total capacity size.
-     *  *
-     * @description Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
-     *  *
-     * @param QueryDedicatedBlockStorageClusterInventoryDataRequest $request QueryDedicatedBlockStorageClusterInventoryDataRequest
-     * @param RuntimeOptions                                        $runtime runtime options for this request RuntimeOptions
+     * Query dedicated block storage cluster capacity trend data, includ available capacity size and total capacity size.
      *
-     * @return QueryDedicatedBlockStorageClusterInventoryDataResponse QueryDedicatedBlockStorageClusterInventoryDataResponse
+     * @remarks
+     * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
+     *
+     * @param request - QueryDedicatedBlockStorageClusterInventoryDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryDedicatedBlockStorageClusterInventoryDataResponse
+     *
+     * @param QueryDedicatedBlockStorageClusterInventoryDataRequest $request
+     * @param RuntimeOptions                                        $runtime
+     *
+     * @return QueryDedicatedBlockStorageClusterInventoryDataResponse
      */
     public function queryDedicatedBlockStorageClusterInventoryDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->dbscId)) {
-            $body['DbscId'] = $request->dbscId;
+        if (null !== $request->dbscId) {
+            @$body['DbscId'] = $request->dbscId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$body['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->period)) {
-            $body['Period'] = $request->period;
+
+        if (null !== $request->period) {
+            @$body['Period'] = $request->period;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$body['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryDedicatedBlockStorageClusterInventoryData',
@@ -2889,18 +3747,25 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryDedicatedBlockStorageClusterInventoryDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryDedicatedBlockStorageClusterInventoryDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDedicatedBlockStorageClusterInventoryDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query dedicated block storage cluster capacity trend data, includ available capacity size and total capacity size.
-     *  *
-     * @description Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
-     *  *
-     * @param QueryDedicatedBlockStorageClusterInventoryDataRequest $request QueryDedicatedBlockStorageClusterInventoryDataRequest
+     * Query dedicated block storage cluster capacity trend data, includ available capacity size and total capacity size.
      *
-     * @return QueryDedicatedBlockStorageClusterInventoryDataResponse QueryDedicatedBlockStorageClusterInventoryDataResponse
+     * @remarks
+     * Period is the time interval between data retrieval points. When set to 60 (minute interval), a maximum of 1440 data points can be returned; when set to 3600 (hour interval), a maximum of 744 data points can be returned; and when set to 86400 (day interval), a maximum of 366 data points can be returned.
+     *
+     * @param request - QueryDedicatedBlockStorageClusterInventoryDataRequest
+     * @returns QueryDedicatedBlockStorageClusterInventoryDataResponse
+     *
+     * @param QueryDedicatedBlockStorageClusterInventoryDataRequest $request
+     *
+     * @return QueryDedicatedBlockStorageClusterInventoryDataResponse
      */
     public function queryDedicatedBlockStorageClusterInventoryData($request)
     {
@@ -2910,35 +3775,44 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Removes a replication pair from a replication pair-consistent group. After a replication pair is removed from a replication pair-consistent group, the pair is disassociated from the group but is not deleted.
-     *  *
-     * @description ## [](#)Usage notes
+     * Removes a replication pair from a replication pair-consistent group. After a replication pair is removed from a replication pair-consistent group, the pair is disassociated from the group but is not deleted.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
-     *  *
-     * @param RemoveDiskReplicaPairRequest $request RemoveDiskReplicaPairRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveDiskReplicaPairResponse RemoveDiskReplicaPairResponse
+     * @param request - RemoveDiskReplicaPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RemoveDiskReplicaPairResponse
+     *
+     * @param RemoveDiskReplicaPairRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RemoveDiskReplicaPairResponse
      */
     public function removeDiskReplicaPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaGroupId)) {
-            $query['ReplicaGroupId'] = $request->replicaGroupId;
+
+        if (null !== $request->replicaGroupId) {
+            @$query['ReplicaGroupId'] = $request->replicaGroupId;
         }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
+
+        if (null !== $request->replicaPairId) {
+            @$query['ReplicaPairId'] = $request->replicaPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RemoveDiskReplicaPair',
@@ -2951,20 +3825,27 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RemoveDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a replication pair from a replication pair-consistent group. After a replication pair is removed from a replication pair-consistent group, the pair is disassociated from the group but is not deleted.
-     *  *
-     * @description ## [](#)Usage notes
+     * Removes a replication pair from a replication pair-consistent group. After a replication pair is removed from a replication pair-consistent group, the pair is disassociated from the group but is not deleted.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group from which you want to remove a replication pair must be in the **Created** (`created`), **Stopped** (`stopped`), or **Invalid** (`invalid`) state.
-     *  *
-     * @param RemoveDiskReplicaPairRequest $request RemoveDiskReplicaPairRequest
      *
-     * @return RemoveDiskReplicaPairResponse RemoveDiskReplicaPairResponse
+     * @param request - RemoveDiskReplicaPairRequest
+     * @returns RemoveDiskReplicaPairResponse
+     *
+     * @param RemoveDiskReplicaPairRequest $request
+     *
+     * @return RemoveDiskReplicaPairResponse
      */
     public function removeDiskReplicaPair($request)
     {
@@ -2974,38 +3855,47 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Enables the reverse replication feature for replication pairs that belong to a replication pair-consistent group. After reverse replication is enabled, data stored on the original secondary disks is replicated to the original primary disks. When a reverse replication is being performed, the primary and secondary sites of the replication pair-consistent group remain unchanged, but data is replicated from the secondary site to the primary site.
-     *  *
-     * @description ## [](#)Usage notes
+     * Enables the reverse replication feature for replication pairs that belong to a replication pair-consistent group. After reverse replication is enabled, data stored on the original secondary disks is replicated to the original primary disks. When a reverse replication is being performed, the primary and secondary sites of the replication pair-consistent group remain unchanged, but data is replicated from the secondary site to the primary site.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the `FailoverDiskReplicaPair` operation to enable failover.
      * *   Before a reverse replication is performed, the primary disks must be detached from its associated Elastic Compute Service (ECS) instance and must be in the Unattached state. You can call the [DetachDisk](https://help.aliyun.com/document_detail/25516.html) operation to detach the disks.
      * *   After you enable reverse replication, you must call the `StartDiskReplicaPair` operation again to enable the async replication feature before data can be replicated from the original secondary disks to the original primary disks.
      * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
-     *  *
-     * @param ReprotectDiskReplicaGroupRequest $request ReprotectDiskReplicaGroupRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReprotectDiskReplicaGroupResponse ReprotectDiskReplicaGroupResponse
+     * @param request - ReprotectDiskReplicaGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReprotectDiskReplicaGroupResponse
+     *
+     * @param ReprotectDiskReplicaGroupRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ReprotectDiskReplicaGroupResponse
      */
     public function reprotectDiskReplicaGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaGroupId)) {
-            $query['ReplicaGroupId'] = $request->replicaGroupId;
+
+        if (null !== $request->replicaGroupId) {
+            @$query['ReplicaGroupId'] = $request->replicaGroupId;
         }
-        if (!Utils::isUnset($request->reverseReplicate)) {
-            $query['ReverseReplicate'] = $request->reverseReplicate;
+
+        if (null !== $request->reverseReplicate) {
+            @$query['ReverseReplicate'] = $request->reverseReplicate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReprotectDiskReplicaGroup',
@@ -3018,23 +3908,30 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReprotectDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReprotectDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReprotectDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the reverse replication feature for replication pairs that belong to a replication pair-consistent group. After reverse replication is enabled, data stored on the original secondary disks is replicated to the original primary disks. When a reverse replication is being performed, the primary and secondary sites of the replication pair-consistent group remain unchanged, but data is replicated from the secondary site to the primary site.
-     *  *
-     * @description ## [](#)Usage notes
+     * Enables the reverse replication feature for replication pairs that belong to a replication pair-consistent group. After reverse replication is enabled, data stored on the original secondary disks is replicated to the original primary disks. When a reverse replication is being performed, the primary and secondary sites of the replication pair-consistent group remain unchanged, but data is replicated from the secondary site to the primary site.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the `FailoverDiskReplicaPair` operation to enable failover.
      * *   Before a reverse replication is performed, the primary disks must be detached from its associated Elastic Compute Service (ECS) instance and must be in the Unattached state. You can call the [DetachDisk](https://help.aliyun.com/document_detail/25516.html) operation to detach the disks.
      * *   After you enable reverse replication, you must call the `StartDiskReplicaPair` operation again to enable the async replication feature before data can be replicated from the original secondary disks to the original primary disks.
      * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
-     *  *
-     * @param ReprotectDiskReplicaGroupRequest $request ReprotectDiskReplicaGroupRequest
      *
-     * @return ReprotectDiskReplicaGroupResponse ReprotectDiskReplicaGroupResponse
+     * @param request - ReprotectDiskReplicaGroupRequest
+     * @returns ReprotectDiskReplicaGroupResponse
+     *
+     * @param ReprotectDiskReplicaGroupRequest $request
+     *
+     * @return ReprotectDiskReplicaGroupResponse
      */
     public function reprotectDiskReplicaGroup($request)
     {
@@ -3044,38 +3941,47 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Enables the reverse replication feature for a replication pair.
-     *  *
-     * @description ## [](#)Usage notes
+     * Enables the reverse replication feature for a replication pair.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the [FailoverDiskReplicaPair](https://help.aliyun.com/document_detail/354358.html) operation to enable failover.
      * *   The primary disk must be detached from its associated Elastic Compute Service (ECS) instance and is in the Unattached state. You can call the [DetachDisk](https://help.aliyun.com/document_detail/25516.html) operation to detach the disk.
      * *   After you enable reverse replication, you must call the [StartDiskReplicaPair](https://help.aliyun.com/document_detail/354205.html) operation again to activate the replication pair before data can be replicated from the original secondary disk to the original primary disk.
      * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
-     *  *
-     * @param ReprotectDiskReplicaPairRequest $request ReprotectDiskReplicaPairRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReprotectDiskReplicaPairResponse ReprotectDiskReplicaPairResponse
+     * @param request - ReprotectDiskReplicaPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReprotectDiskReplicaPairResponse
+     *
+     * @param ReprotectDiskReplicaPairRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ReprotectDiskReplicaPairResponse
      */
     public function reprotectDiskReplicaPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
+
+        if (null !== $request->replicaPairId) {
+            @$query['ReplicaPairId'] = $request->replicaPairId;
         }
-        if (!Utils::isUnset($request->reverseReplicate)) {
-            $query['ReverseReplicate'] = $request->reverseReplicate;
+
+        if (null !== $request->reverseReplicate) {
+            @$query['ReverseReplicate'] = $request->reverseReplicate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReprotectDiskReplicaPair',
@@ -3088,23 +3994,30 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReprotectDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReprotectDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReprotectDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the reverse replication feature for a replication pair.
-     *  *
-     * @description ## [](#)Usage notes
+     * Enables the reverse replication feature for a replication pair.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair for which you want to enable reverse replication must be in the **Failovered** (`failovered`) state. You can call the [FailoverDiskReplicaPair](https://help.aliyun.com/document_detail/354358.html) operation to enable failover.
      * *   The primary disk must be detached from its associated Elastic Compute Service (ECS) instance and is in the Unattached state. You can call the [DetachDisk](https://help.aliyun.com/document_detail/25516.html) operation to detach the disk.
      * *   After you enable reverse replication, you must call the [StartDiskReplicaPair](https://help.aliyun.com/document_detail/354205.html) operation again to activate the replication pair before data can be replicated from the original secondary disk to the original primary disk.
      * *   You can set the ReverseReplicate parameter to false to cancel the **Failovered** (`failovered`) state and restore the original replication direction.
-     *  *
-     * @param ReprotectDiskReplicaPairRequest $request ReprotectDiskReplicaPairRequest
      *
-     * @return ReprotectDiskReplicaPairResponse ReprotectDiskReplicaPairResponse
+     * @param request - ReprotectDiskReplicaPairRequest
+     * @returns ReprotectDiskReplicaPairResponse
+     *
+     * @param ReprotectDiskReplicaPairRequest $request
+     *
+     * @return ReprotectDiskReplicaPairResponse
      */
     public function reprotectDiskReplicaPair($request)
     {
@@ -3114,33 +4027,41 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary In the elastic type dedicated block storage cluster, you can easily achieve the specified throughput (Bps) for the target disk. You only need to set the cloud disk ID and the target throughput, simplifying the process of configuring.
-     *  *
-     * @param SetDedicatedBlockStorageClusterDiskThroughputRequest $request SetDedicatedBlockStorageClusterDiskThroughputRequest
-     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
+     * In the elastic type dedicated block storage cluster, you can easily achieve the specified throughput (Bps) for the target disk. You only need to set the cloud disk ID and the target throughput, simplifying the process of configuring.
      *
-     * @return SetDedicatedBlockStorageClusterDiskThroughputResponse SetDedicatedBlockStorageClusterDiskThroughputResponse
+     * @param request - SetDedicatedBlockStorageClusterDiskThroughputRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetDedicatedBlockStorageClusterDiskThroughputResponse
+     *
+     * @param SetDedicatedBlockStorageClusterDiskThroughputRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return SetDedicatedBlockStorageClusterDiskThroughputResponse
      */
     public function setDedicatedBlockStorageClusterDiskThroughputWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->bps)) {
-            $body['Bps'] = $request->bps;
+        if (null !== $request->bps) {
+            @$body['Bps'] = $request->bps;
         }
-        if (!Utils::isUnset($request->diskId)) {
-            $body['DiskId'] = $request->diskId;
+
+        if (null !== $request->diskId) {
+            @$body['DiskId'] = $request->diskId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'SetDedicatedBlockStorageClusterDiskThroughput',
@@ -3153,16 +4074,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetDedicatedBlockStorageClusterDiskThroughputResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDedicatedBlockStorageClusterDiskThroughputResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDedicatedBlockStorageClusterDiskThroughputResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary In the elastic type dedicated block storage cluster, you can easily achieve the specified throughput (Bps) for the target disk. You only need to set the cloud disk ID and the target throughput, simplifying the process of configuring.
-     *  *
-     * @param SetDedicatedBlockStorageClusterDiskThroughputRequest $request SetDedicatedBlockStorageClusterDiskThroughputRequest
+     * In the elastic type dedicated block storage cluster, you can easily achieve the specified throughput (Bps) for the target disk. You only need to set the cloud disk ID and the target throughput, simplifying the process of configuring.
      *
-     * @return SetDedicatedBlockStorageClusterDiskThroughputResponse SetDedicatedBlockStorageClusterDiskThroughputResponse
+     * @param request - SetDedicatedBlockStorageClusterDiskThroughputRequest
+     * @returns SetDedicatedBlockStorageClusterDiskThroughputResponse
+     *
+     * @param SetDedicatedBlockStorageClusterDiskThroughputRequest $request
+     *
+     * @return SetDedicatedBlockStorageClusterDiskThroughputResponse
      */
     public function setDedicatedBlockStorageClusterDiskThroughput($request)
     {
@@ -3172,37 +4099,46 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. When the async replication feature is enabled for the pairs for the first time, the system first performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks) and then periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. When the async replication feature is enabled for the pairs for the first time, the system first performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks) and then periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   If you set the `OneShot` to `false`, the replication pair-consistent group must be in the **Created** (`created` ), **Synchronizing** (`syncing` ), **Normal** (`normal` ), or **Stopped** (`stopped`) state.
      * *   If you set `OneShot` to `true`, the replication pair-consistent group must be in the **Created** (`created` ), **One-time Syncing** (`manual_syncing` ), or **Stopped** (`stopped`) state. The time interval between two consecutive one-time synchronizations must be longer than one half of the recovery point objective (RPO).
      * *   After a replication pair-consistent group is activated, the group enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first async replication to replicate all data from the primary disks to secondary disks.
-     *  *
-     * @param StartDiskReplicaGroupRequest $request StartDiskReplicaGroupRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartDiskReplicaGroupResponse StartDiskReplicaGroupResponse
+     * @param request - StartDiskReplicaGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartDiskReplicaGroupResponse
+     *
+     * @param StartDiskReplicaGroupRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return StartDiskReplicaGroupResponse
      */
     public function startDiskReplicaGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->oneShot)) {
-            $query['OneShot'] = $request->oneShot;
+
+        if (null !== $request->oneShot) {
+            @$query['OneShot'] = $request->oneShot;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaGroupId)) {
-            $query['ReplicaGroupId'] = $request->replicaGroupId;
+
+        if (null !== $request->replicaGroupId) {
+            @$query['ReplicaGroupId'] = $request->replicaGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartDiskReplicaGroup',
@@ -3215,22 +4151,29 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. When the async replication feature is enabled for the pairs for the first time, the system first performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks) and then periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Enables the async replication feature for replication pairs that belong to a replication pair-consistent group. When the async replication feature is enabled for the pairs for the first time, the system first performs a full synchronization to synchronize all data from disks at the primary site (primary disks) to disks at the secondary site (secondary disks) and then periodically synchronizes incremental data based on the recovery point objective (RPO) of the replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   If you set the `OneShot` to `false`, the replication pair-consistent group must be in the **Created** (`created` ), **Synchronizing** (`syncing` ), **Normal** (`normal` ), or **Stopped** (`stopped`) state.
      * *   If you set `OneShot` to `true`, the replication pair-consistent group must be in the **Created** (`created` ), **One-time Syncing** (`manual_syncing` ), or **Stopped** (`stopped`) state. The time interval between two consecutive one-time synchronizations must be longer than one half of the recovery point objective (RPO).
      * *   After a replication pair-consistent group is activated, the group enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first async replication to replicate all data from the primary disks to secondary disks.
-     *  *
-     * @param StartDiskReplicaGroupRequest $request StartDiskReplicaGroupRequest
      *
-     * @return StartDiskReplicaGroupResponse StartDiskReplicaGroupResponse
+     * @param request - StartDiskReplicaGroupRequest
+     * @returns StartDiskReplicaGroupResponse
+     *
+     * @param StartDiskReplicaGroupRequest $request
+     *
+     * @return StartDiskReplicaGroupResponse
      */
     public function startDiskReplicaGroup($request)
     {
@@ -3240,36 +4183,45 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Activates a replication pair.
-     *  *
-     * @description ## [](#)Usage notes
+     * Activates a replication pair.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can be activated.
      * *   After a replication pair is activated, it enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first asynchronous replication to replicate all data from the primary disk to the secondary disk.
-     *  *
-     * @param StartDiskReplicaPairRequest $request StartDiskReplicaPairRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartDiskReplicaPairResponse StartDiskReplicaPairResponse
+     * @param request - StartDiskReplicaPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartDiskReplicaPairResponse
+     *
+     * @param StartDiskReplicaPairRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartDiskReplicaPairResponse
      */
     public function startDiskReplicaPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->oneShot)) {
-            $query['OneShot'] = $request->oneShot;
+
+        if (null !== $request->oneShot) {
+            @$query['OneShot'] = $request->oneShot;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
+
+        if (null !== $request->replicaPairId) {
+            @$query['ReplicaPairId'] = $request->replicaPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartDiskReplicaPair',
@@ -3282,21 +4234,28 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates a replication pair.
-     *  *
-     * @description ## [](#)Usage notes
+     * Activates a replication pair.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Only replication pairs that are in the **Created** (`created`) or **Stopped** (`stopped`) state can be activated.
      * *   After a replication pair is activated, it enters the **Initial Syncing** (`initial_syncing`) state and the system performs the first asynchronous replication to replicate all data from the primary disk to the secondary disk.
-     *  *
-     * @param StartDiskReplicaPairRequest $request StartDiskReplicaPairRequest
      *
-     * @return StartDiskReplicaPairResponse StartDiskReplicaPairResponse
+     * @param request - StartDiskReplicaPairRequest
+     * @returns StartDiskReplicaPairResponse
+     *
+     * @param StartDiskReplicaPairRequest $request
+     *
+     * @return StartDiskReplicaPairResponse
      */
     public function startDiskReplicaPair($request)
     {
@@ -3306,30 +4265,38 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Starts a disaster recovery drill to ensure the continued replication and clone the data from the last recovery point of the secondary disk to a new disk. This helps you test the completeness and correctness of applications that are deployed on the disaster recovery site on a regular basis.
-     *  *
-     * @description After the disaster recovery drill is complete on the secondary disk, a pay-as-you-go drill disk that has the same capacity and category as the secondary disk is created in the zone where the secondary disk resides. The drill disk contains last-recovery-point data that can be used to test the completeness and correctness of applications.
-     *  *
-     * @param StartPairDrillRequest $request StartPairDrillRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Starts a disaster recovery drill to ensure the continued replication and clone the data from the last recovery point of the secondary disk to a new disk. This helps you test the completeness and correctness of applications that are deployed on the disaster recovery site on a regular basis.
      *
-     * @return StartPairDrillResponse StartPairDrillResponse
+     * @remarks
+     * After the disaster recovery drill is complete on the secondary disk, a pay-as-you-go drill disk that has the same capacity and category as the secondary disk is created in the zone where the secondary disk resides. The drill disk contains last-recovery-point data that can be used to test the completeness and correctness of applications.
+     *
+     * @param request - StartPairDrillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartPairDrillResponse
+     *
+     * @param StartPairDrillRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return StartPairDrillResponse
      */
     public function startPairDrillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->pairId)) {
-            $query['PairId'] = $request->pairId;
+
+        if (null !== $request->pairId) {
+            @$query['PairId'] = $request->pairId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartPairDrill',
@@ -3342,18 +4309,25 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartPairDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartPairDrillResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts a disaster recovery drill to ensure the continued replication and clone the data from the last recovery point of the secondary disk to a new disk. This helps you test the completeness and correctness of applications that are deployed on the disaster recovery site on a regular basis.
-     *  *
-     * @description After the disaster recovery drill is complete on the secondary disk, a pay-as-you-go drill disk that has the same capacity and category as the secondary disk is created in the zone where the secondary disk resides. The drill disk contains last-recovery-point data that can be used to test the completeness and correctness of applications.
-     *  *
-     * @param StartPairDrillRequest $request StartPairDrillRequest
+     * Starts a disaster recovery drill to ensure the continued replication and clone the data from the last recovery point of the secondary disk to a new disk. This helps you test the completeness and correctness of applications that are deployed on the disaster recovery site on a regular basis.
      *
-     * @return StartPairDrillResponse StartPairDrillResponse
+     * @remarks
+     * After the disaster recovery drill is complete on the secondary disk, a pay-as-you-go drill disk that has the same capacity and category as the secondary disk is created in the zone where the secondary disk resides. The drill disk contains last-recovery-point data that can be used to test the completeness and correctness of applications.
+     *
+     * @param request - StartPairDrillRequest
+     * @returns StartPairDrillResponse
+     *
+     * @param StartPairDrillRequest $request
+     *
+     * @return StartPairDrillResponse
      */
     public function startPairDrill($request)
     {
@@ -3363,30 +4337,38 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Starts a disaster recovery drill in a replication pair-consistent group to ensure the continued replication and restores data from the latest recovery point of secondary disks to new disks. This helps test the completeness and correctness of applications that are deployed on the disaster recovery site on a regular basis.
-     *  *
-     * @description After the disaster recovery drill is complete on secondary disks, a pay-as-you-go drill disk is created in the zone where the secondary disk of each replication pair resides. The latest-recovery-point data is restored to the drill disks to test the completeness and correctness of applications.
-     *  *
-     * @param StartReplicaGroupDrillRequest $request StartReplicaGroupDrillRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Starts a disaster recovery drill in a replication pair-consistent group to ensure the continued replication and restores data from the latest recovery point of secondary disks to new disks. This helps test the completeness and correctness of applications that are deployed on the disaster recovery site on a regular basis.
      *
-     * @return StartReplicaGroupDrillResponse StartReplicaGroupDrillResponse
+     * @remarks
+     * After the disaster recovery drill is complete on secondary disks, a pay-as-you-go drill disk is created in the zone where the secondary disk of each replication pair resides. The latest-recovery-point data is restored to the drill disks to test the completeness and correctness of applications.
+     *
+     * @param request - StartReplicaGroupDrillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StartReplicaGroupDrillResponse
+     *
+     * @param StartReplicaGroupDrillRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StartReplicaGroupDrillResponse
      */
     public function startReplicaGroupDrillWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StartReplicaGroupDrill',
@@ -3399,18 +4381,25 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StartReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartReplicaGroupDrillResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartReplicaGroupDrillResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts a disaster recovery drill in a replication pair-consistent group to ensure the continued replication and restores data from the latest recovery point of secondary disks to new disks. This helps test the completeness and correctness of applications that are deployed on the disaster recovery site on a regular basis.
-     *  *
-     * @description After the disaster recovery drill is complete on secondary disks, a pay-as-you-go drill disk is created in the zone where the secondary disk of each replication pair resides. The latest-recovery-point data is restored to the drill disks to test the completeness and correctness of applications.
-     *  *
-     * @param StartReplicaGroupDrillRequest $request StartReplicaGroupDrillRequest
+     * Starts a disaster recovery drill in a replication pair-consistent group to ensure the continued replication and restores data from the latest recovery point of secondary disks to new disks. This helps test the completeness and correctness of applications that are deployed on the disaster recovery site on a regular basis.
      *
-     * @return StartReplicaGroupDrillResponse StartReplicaGroupDrillResponse
+     * @remarks
+     * After the disaster recovery drill is complete on secondary disks, a pay-as-you-go drill disk is created in the zone where the secondary disk of each replication pair resides. The latest-recovery-point data is restored to the drill disks to test the completeness and correctness of applications.
+     *
+     * @param request - StartReplicaGroupDrillRequest
+     * @returns StartReplicaGroupDrillResponse
+     *
+     * @param StartReplicaGroupDrillRequest $request
+     *
+     * @return StartReplicaGroupDrillResponse
      */
     public function startReplicaGroupDrill($request)
     {
@@ -3420,33 +4409,41 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Stops a replication pair-consistent group. This operation stops all replication pairs in the replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Stops a replication pair-consistent group. This operation stops all replication pairs in the replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group that you want to stop must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), or **Stopped** (`stopped`) state.
      * *   When a replication pair-consistent group is stopped, it enters the **Stopped** (`stopped`) state. If a replication pair-consistent group cannot be stopped, the state of the group remains unchanged or changes to **Stop Failed** (`stop_failed`). In this case, try again later.
-     *  *
-     * @param StopDiskReplicaGroupRequest $request StopDiskReplicaGroupRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopDiskReplicaGroupResponse StopDiskReplicaGroupResponse
+     * @param request - StopDiskReplicaGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopDiskReplicaGroupResponse
+     *
+     * @param StopDiskReplicaGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StopDiskReplicaGroupResponse
      */
     public function stopDiskReplicaGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaGroupId)) {
-            $query['ReplicaGroupId'] = $request->replicaGroupId;
+
+        if (null !== $request->replicaGroupId) {
+            @$query['ReplicaGroupId'] = $request->replicaGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopDiskReplicaGroup',
@@ -3459,21 +4456,28 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopDiskReplicaGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopDiskReplicaGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops a replication pair-consistent group. This operation stops all replication pairs in the replication pair-consistent group.
-     *  *
-     * @description ## [](#)Usage notes
+     * Stops a replication pair-consistent group. This operation stops all replication pairs in the replication pair-consistent group.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which the replication pair-consistent group feature is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   The replication pair-consistent group that you want to stop must be in the **One-time Syncing** (`manual_syncing`), **Syncing** (`syncing`), **Normal** (`normal`), **Stopping** (`stopping`), **Stop Failed** (`stop_failed`), or **Stopped** (`stopped`) state.
      * *   When a replication pair-consistent group is stopped, it enters the **Stopped** (`stopped`) state. If a replication pair-consistent group cannot be stopped, the state of the group remains unchanged or changes to **Stop Failed** (`stop_failed`). In this case, try again later.
-     *  *
-     * @param StopDiskReplicaGroupRequest $request StopDiskReplicaGroupRequest
      *
-     * @return StopDiskReplicaGroupResponse StopDiskReplicaGroupResponse
+     * @param request - StopDiskReplicaGroupRequest
+     * @returns StopDiskReplicaGroupResponse
+     *
+     * @param StopDiskReplicaGroupRequest $request
+     *
+     * @return StopDiskReplicaGroupResponse
      */
     public function stopDiskReplicaGroup($request)
     {
@@ -3483,32 +4487,40 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Stops a replication pair.
-     *  *
-     * @description ## [](#)Usage notes
+     * Stops a replication pair.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last async replication was complete and drops all the data that is being replicated from the primary disk.
-     *  *
-     * @param StopDiskReplicaPairRequest $request StopDiskReplicaPairRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopDiskReplicaPairResponse StopDiskReplicaPairResponse
+     * @param request - StopDiskReplicaPairRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopDiskReplicaPairResponse
+     *
+     * @param StopDiskReplicaPairRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return StopDiskReplicaPairResponse
      */
     public function stopDiskReplicaPairWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replicaPairId)) {
-            $query['ReplicaPairId'] = $request->replicaPairId;
+
+        if (null !== $request->replicaPairId) {
+            @$query['ReplicaPairId'] = $request->replicaPairId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopDiskReplicaPair',
@@ -3521,20 +4533,27 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopDiskReplicaPairResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopDiskReplicaPairResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Stops a replication pair.
-     *  *
-     * @description ## [](#)Usage notes
+     * Stops a replication pair.
+     *
+     * @remarks
+     * ## [](#)Usage notes
      * *   For information about the regions in which async replication is available, see [Overview](https://help.aliyun.com/document_detail/314563.html).
      * *   Only replication pairs that are in the **Initial Syncing** (`initial_syncing`), **Syncing** (`syncing`), **One-time Syncing** (`manual_syncing`), or **Normal** (`normal`) state can be stopped. When a replication pair is stopped, it enters the Stopped (`stopped`) state. The secondary disk rolls back to the point in time when the last async replication was complete and drops all the data that is being replicated from the primary disk.
-     *  *
-     * @param StopDiskReplicaPairRequest $request StopDiskReplicaPairRequest
      *
-     * @return StopDiskReplicaPairResponse StopDiskReplicaPairResponse
+     * @param request - StopDiskReplicaPairRequest
+     * @returns StopDiskReplicaPairResponse
+     *
+     * @param StopDiskReplicaPairRequest $request
+     *
+     * @return StopDiskReplicaPairResponse
      */
     public function stopDiskReplicaPair($request)
     {
@@ -3544,36 +4563,46 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Creates tags and adds the tags to Elastic Block Storage (EBS) resources.
-     *  *
-     * @description Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number of tags is reached, an error message is returned. For more information, see the "Tag limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Creates tags and adds the tags to Elastic Block Storage (EBS) resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number of tags is reached, an error message is returned. For more information, see the "Tag limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -3586,18 +4615,25 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates tags and adds the tags to Elastic Block Storage (EBS) resources.
-     *  *
-     * @description Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number of tags is reached, an error message is returned. For more information, see the "Tag limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Creates tags and adds the tags to Elastic Block Storage (EBS) resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * Before you add tags to a resource, Alibaba Cloud checks the number of existing tags of the resource. If the maximum number of tags is reached, an error message is returned. For more information, see the "Tag limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
+     *
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -3607,31 +4643,39 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Unbind disks from a enterprise-level snapshot policy.
-     *  *
-     * @param UnbindEnterpriseSnapshotPolicyRequest $request UnbindEnterpriseSnapshotPolicyRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Unbind disks from a enterprise-level snapshot policy.
      *
-     * @return UnbindEnterpriseSnapshotPolicyResponse UnbindEnterpriseSnapshotPolicyResponse
+     * @param request - UnbindEnterpriseSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnbindEnterpriseSnapshotPolicyResponse
+     *
+     * @param UnbindEnterpriseSnapshotPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UnbindEnterpriseSnapshotPolicyResponse
      */
     public function unbindEnterpriseSnapshotPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->diskTargets)) {
-            $query['DiskTargets'] = $request->diskTargets;
+
+        if (null !== $request->diskTargets) {
+            @$query['DiskTargets'] = $request->diskTargets;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnbindEnterpriseSnapshotPolicy',
@@ -3644,16 +4688,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnbindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnbindEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unbind disks from a enterprise-level snapshot policy.
-     *  *
-     * @param UnbindEnterpriseSnapshotPolicyRequest $request UnbindEnterpriseSnapshotPolicyRequest
+     * Unbind disks from a enterprise-level snapshot policy.
      *
-     * @return UnbindEnterpriseSnapshotPolicyResponse UnbindEnterpriseSnapshotPolicyResponse
+     * @param request - UnbindEnterpriseSnapshotPolicyRequest
+     * @returns UnbindEnterpriseSnapshotPolicyResponse
+     *
+     * @param UnbindEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return UnbindEnterpriseSnapshotPolicyResponse
      */
     public function unbindEnterpriseSnapshotPolicy($request)
     {
@@ -3663,40 +4713,51 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from specified Elastic Block Storage (EBS) resources.
-     *  *
-     * @description *   You can remove up to 20 tags at a time.
-     * *   After a tag is removed from an EBS resource, the tag is automatically deleted if the tag is not added to any instance.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from specified Elastic Block Storage (EBS) resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @remarks
+     *   You can remove up to 20 tags at a time.
+     * *   After a tag is removed from an EBS resource, the tag is automatically deleted if the tag is not added to any instance.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -3709,19 +4770,26 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from specified Elastic Block Storage (EBS) resources.
-     *  *
-     * @description *   You can remove up to 20 tags at a time.
-     * *   After a tag is removed from an EBS resource, the tag is automatically deleted if the tag is not added to any instance.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from specified Elastic Block Storage (EBS) resources.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @remarks
+     *   You can remove up to 20 tags at a time.
+     * *   After a tag is removed from an EBS resource, the tag is automatically deleted if the tag is not added to any instance.
+     *
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -3731,69 +4799,89 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary Search for a enterprise-level snapshot policy.
-     *  *
-     * @param UpdateEnterpriseSnapshotPolicyRequest $tmpReq  UpdateEnterpriseSnapshotPolicyRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Search for a enterprise-level snapshot policy.
      *
-     * @return UpdateEnterpriseSnapshotPolicyResponse UpdateEnterpriseSnapshotPolicyResponse
+     * @param tmpReq - UpdateEnterpriseSnapshotPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateEnterpriseSnapshotPolicyResponse
+     *
+     * @param UpdateEnterpriseSnapshotPolicyRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateEnterpriseSnapshotPolicyResponse
      */
     public function updateEnterpriseSnapshotPolicyWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateEnterpriseSnapshotPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->crossRegionCopyInfo)) {
-            $request->crossRegionCopyInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->crossRegionCopyInfo, 'CrossRegionCopyInfo', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->crossRegionCopyInfo) {
+            $request->crossRegionCopyInfoShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->crossRegionCopyInfo, 'CrossRegionCopyInfo', 'json');
         }
-        if (!Utils::isUnset($tmpReq->retainRule)) {
-            $request->retainRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retainRule, 'RetainRule', 'json');
+
+        if (null !== $tmpReq->retainRule) {
+            $request->retainRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->retainRule, 'RetainRule', 'json');
         }
-        if (!Utils::isUnset($tmpReq->schedule)) {
-            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
+
+        if (null !== $tmpReq->schedule) {
+            $request->scheduleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'Schedule', 'json');
         }
-        if (!Utils::isUnset($tmpReq->specialRetainRules)) {
-            $request->specialRetainRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->specialRetainRules, 'SpecialRetainRules', 'json');
+
+        if (null !== $tmpReq->specialRetainRules) {
+            $request->specialRetainRulesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->specialRetainRules, 'SpecialRetainRules', 'json');
         }
-        if (!Utils::isUnset($tmpReq->storageRule)) {
-            $request->storageRuleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->storageRule, 'StorageRule', 'json');
+
+        if (null !== $tmpReq->storageRule) {
+            $request->storageRuleShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->storageRule, 'StorageRule', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->crossRegionCopyInfoShrink)) {
-            $query['CrossRegionCopyInfo'] = $request->crossRegionCopyInfoShrink;
+
+        if (null !== $request->crossRegionCopyInfoShrink) {
+            @$query['CrossRegionCopyInfo'] = $request->crossRegionCopyInfoShrink;
         }
-        if (!Utils::isUnset($request->desc)) {
-            $query['Desc'] = $request->desc;
+
+        if (null !== $request->desc) {
+            @$query['Desc'] = $request->desc;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $query['PolicyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$query['PolicyId'] = $request->policyId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->retainRuleShrink)) {
-            $query['RetainRule'] = $request->retainRuleShrink;
+
+        if (null !== $request->retainRuleShrink) {
+            @$query['RetainRule'] = $request->retainRuleShrink;
         }
-        if (!Utils::isUnset($request->scheduleShrink)) {
-            $query['Schedule'] = $request->scheduleShrink;
+
+        if (null !== $request->scheduleShrink) {
+            @$query['Schedule'] = $request->scheduleShrink;
         }
-        if (!Utils::isUnset($request->specialRetainRulesShrink)) {
-            $query['SpecialRetainRules'] = $request->specialRetainRulesShrink;
+
+        if (null !== $request->specialRetainRulesShrink) {
+            @$query['SpecialRetainRules'] = $request->specialRetainRulesShrink;
         }
-        if (!Utils::isUnset($request->state)) {
-            $query['State'] = $request->state;
+
+        if (null !== $request->state) {
+            @$query['State'] = $request->state;
         }
-        if (!Utils::isUnset($request->storageRuleShrink)) {
-            $query['StorageRule'] = $request->storageRuleShrink;
+
+        if (null !== $request->storageRuleShrink) {
+            @$query['StorageRule'] = $request->storageRuleShrink;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateEnterpriseSnapshotPolicy',
@@ -3806,16 +4894,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEnterpriseSnapshotPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEnterpriseSnapshotPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Search for a enterprise-level snapshot policy.
-     *  *
-     * @param UpdateEnterpriseSnapshotPolicyRequest $request UpdateEnterpriseSnapshotPolicyRequest
+     * Search for a enterprise-level snapshot policy.
      *
-     * @return UpdateEnterpriseSnapshotPolicyResponse UpdateEnterpriseSnapshotPolicyResponse
+     * @param request - UpdateEnterpriseSnapshotPolicyRequest
+     * @returns UpdateEnterpriseSnapshotPolicyResponse
+     *
+     * @param UpdateEnterpriseSnapshotPolicyRequest $request
+     *
+     * @return UpdateEnterpriseSnapshotPolicyResponse
      */
     public function updateEnterpriseSnapshotPolicy($request)
     {
@@ -3825,34 +4919,43 @@ class Ebs extends OpenApiClient
     }
 
     /**
-     * @summary 更新解决方案实例属性
-     *  *
-     * @param UpdateSolutionInstanceAttributeRequest $request UpdateSolutionInstanceAttributeRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * 更新解决方案实例属性.
      *
-     * @return UpdateSolutionInstanceAttributeResponse UpdateSolutionInstanceAttributeResponse
+     * @param request - UpdateSolutionInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSolutionInstanceAttributeResponse
+     *
+     * @param UpdateSolutionInstanceAttributeRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return UpdateSolutionInstanceAttributeResponse
      */
     public function updateSolutionInstanceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->solutionInstanceId)) {
-            $query['SolutionInstanceId'] = $request->solutionInstanceId;
+
+        if (null !== $request->solutionInstanceId) {
+            @$query['SolutionInstanceId'] = $request->solutionInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSolutionInstanceAttribute',
@@ -3865,16 +4968,22 @@ class Ebs extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSolutionInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSolutionInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSolutionInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary 更新解决方案实例属性
-     *  *
-     * @param UpdateSolutionInstanceAttributeRequest $request UpdateSolutionInstanceAttributeRequest
+     * 更新解决方案实例属性.
      *
-     * @return UpdateSolutionInstanceAttributeResponse UpdateSolutionInstanceAttributeResponse
+     * @param request - UpdateSolutionInstanceAttributeRequest
+     * @returns UpdateSolutionInstanceAttributeResponse
+     *
+     * @param UpdateSolutionInstanceAttributeRequest $request
+     *
+     * @return UpdateSolutionInstanceAttributeResponse
      */
     public function updateSolutionInstanceAttribute($request)
     {

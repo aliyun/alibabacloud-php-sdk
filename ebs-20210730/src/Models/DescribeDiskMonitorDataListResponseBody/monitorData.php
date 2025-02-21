@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskMonitorDataListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class monitorData extends Model
 {
     /**
-     * @description The number of burst I/O operations.
-     *
-     * @example 2000
-     *
      * @var int
      */
     public $burstIOCount;
-
     /**
-     * @description The ID of the disk.
-     *
-     * @example d-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $diskId;
-
     /**
-     * @description The beginning of the time range during which the performance of the disk bursts. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
-     *
-     * @example 2022-06-01T08:00:00Z
-     *
      * @var string
      */
     public $timestamp;
@@ -42,17 +28,20 @@ class monitorData extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->burstIOCount) {
             $res['BurstIOCount'] = $this->burstIOCount;
         }
+
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -60,20 +49,22 @@ class monitorData extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return monitorData
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BurstIOCount'])) {
             $model->burstIOCount = $map['BurstIOCount'];
         }
+
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

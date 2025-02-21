@@ -4,103 +4,56 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDedicatedBlockStorageClustersRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDedicatedBlockStorageClustersRequest extends Model
 {
     /**
-     * @description The zone ID of the dedicated block storage cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
-     *
-     * @example cn-heyuan-b
-     *
      * @var string
      */
     public $azoneId;
-
     /**
-     * @description The category of disks that can be created in the dedicated block storage cluster.
-     *
-     * Set the value to cloud_essd. Only enhanced SSDs (ESSDs) can be created in dedicated block storage clusters.
-     * @example cloud_essd
-     *
      * @var string
      */
     public $category;
-
     /**
      * @var string
      */
     public $clientToken;
-
     /**
      * @var string[]
      */
     public $dedicatedBlockStorageClusterId;
-
     /**
      * @var int
      */
     public $maxResults;
-
     /**
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page. Valid values: 1 to 100.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The region ID of the dedicated block storage cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-heyuan
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the resource group to which the dedicated block storage cluster belongs.
-     *
-     * @example rg-acfmvs4****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The states of dedicated block storage clusters. Valid values:
-     *
-     *   Preparing
-     *   Running
-     *   Expired
-     *   Offline
-     *
-     * Multiple states can be specified. Valid values of N: 1, 2, 3, and 4.
      * @var string[]
      */
     public $status;
-
     /**
-     * @description The tags. Up to 20 tags are supported.
-     *
      * @var tag[]
      */
     public $tag;
@@ -121,50 +74,83 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->dedicatedBlockStorageClusterId)) {
+            Model::validateArray($this->dedicatedBlockStorageClusterId);
+        }
+        if (\is_array($this->status)) {
+            Model::validateArray($this->status);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->azoneId) {
             $res['AzoneId'] = $this->azoneId;
         }
+
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->dedicatedBlockStorageClusterId) {
-            $res['DedicatedBlockStorageClusterId'] = $this->dedicatedBlockStorageClusterId;
+            if (\is_array($this->dedicatedBlockStorageClusterId)) {
+                $res['DedicatedBlockStorageClusterId'] = [];
+                $n1                                    = 0;
+                foreach ($this->dedicatedBlockStorageClusterId as $item1) {
+                    $res['DedicatedBlockStorageClusterId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->status) {
-            $res['Status'] = $this->status;
+            if (\is_array($this->status)) {
+                $res['Status'] = [];
+                $n1            = 0;
+                foreach ($this->status as $item1) {
+                    $res['Status'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -172,57 +158,76 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDedicatedBlockStorageClustersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AzoneId'])) {
             $model->azoneId = $map['AzoneId'];
         }
+
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DedicatedBlockStorageClusterId'])) {
             if (!empty($map['DedicatedBlockStorageClusterId'])) {
-                $model->dedicatedBlockStorageClusterId = $map['DedicatedBlockStorageClusterId'];
+                $model->dedicatedBlockStorageClusterId = [];
+                $n1                                    = 0;
+                foreach ($map['DedicatedBlockStorageClusterId'] as $item1) {
+                    $model->dedicatedBlockStorageClusterId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
+                $model->status = [];
+                $n1            = 0;
+                foreach ($map['Status'] as $item1) {
+                    $model->status[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

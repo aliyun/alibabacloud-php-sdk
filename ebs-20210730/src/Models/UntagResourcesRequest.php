@@ -4,71 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags from the resource. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
-     *
-     *   true: removes all tags from the resource.
-     *   false: does not remove all tags from the resource.
-     *
-     * Default value: false.
-     * @example false
-     *
      * @var bool
      */
     public $all;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
-     *
-     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The region ID of the resource. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID list of the resource. You can specify up to 50 resource IDs in each call.
-     *
-     * This parameter is required.
-     * @example disk-123
-     *
      * @var string[]
      */
     public $resourceId;
-
     /**
-     * @description The type of the resource. Valid values:
-     *
-     *   dedicatedblockstoragecluster: dedicated block storage cluster
-     *   diskreplicapair: the replication pair.
-     *   diskreplicagroup: replication pair-consistent group
-     *
-     * This parameter is required.
-     * @example diskreplicapair
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description The list of tag keys. You can specify up to 20 tag keys in the list.
-     *
-     * @example disk-123
-     *
      * @var string[]
      */
     public $tagKey;
@@ -83,61 +43,98 @@ class UntagResourcesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceId)) {
+            Model::validateArray($this->resourceId);
+        }
+        if (\is_array($this->tagKey)) {
+            Model::validateArray($this->tagKey);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->all) {
             $res['All'] = $this->all;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
+            if (\is_array($this->resourceId)) {
+                $res['ResourceId'] = [];
+                $n1                = 0;
+                foreach ($this->resourceId as $item1) {
+                    $res['ResourceId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->tagKey) {
-            $res['TagKey'] = $this->tagKey;
+            if (\is_array($this->tagKey)) {
+                $res['TagKey'] = [];
+                $n1            = 0;
+                foreach ($this->tagKey as $item1) {
+                    $res['TagKey'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UntagResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['All'])) {
             $model->all = $map['All'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
+                $model->resourceId = [];
+                $n1                = 0;
+                foreach ($map['ResourceId'] as $item1) {
+                    $model->resourceId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['TagKey'])) {
             if (!empty($map['TagKey'])) {
-                $model->tagKey = $map['TagKey'];
+                $model->tagKey = [];
+                $n1            = 0;
+                foreach ($map['TagKey'] as $item1) {
+                    $model->tagKey[$n1++] = $item1;
+                }
             }
         }
 

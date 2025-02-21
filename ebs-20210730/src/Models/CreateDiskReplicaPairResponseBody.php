@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDiskReplicaPairResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
-     *
-     * @example 123456****
-     *
      * @var string
      */
     public $orderId;
-
     /**
-     * @description The ID of the replication pair.
-     *
-     * @example pair-cn-dsa****
-     *
      * @var string
      */
     public $replicaPairId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example C123F94F-4E38-19AE-942A-A8D6F44F****
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class CreateDiskReplicaPairResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->replicaPairId) {
             $res['ReplicaPairId'] = $this->replicaPairId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class CreateDiskReplicaPairResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDiskReplicaPairResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['ReplicaPairId'])) {
             $model->replicaPairId = $map['ReplicaPairId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

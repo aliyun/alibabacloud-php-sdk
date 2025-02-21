@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyDiskReplicaPairResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example C123F94F-4E38-19AE-942A-A8D6F44F****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyDiskReplicaPairResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyDiskReplicaPairResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDiskReplicaPairResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
