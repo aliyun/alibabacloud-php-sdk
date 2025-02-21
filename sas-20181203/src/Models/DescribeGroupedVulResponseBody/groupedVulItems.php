@@ -19,6 +19,10 @@ class groupedVulItems extends Model
     /**
      * @var int
      */
+    public $gmtFirst;
+    /**
+     * @var int
+     */
     public $gmtLast;
     /**
      * @var int
@@ -63,6 +67,7 @@ class groupedVulItems extends Model
     protected $_name = [
         'aliasName'     => 'AliasName',
         'asapCount'     => 'AsapCount',
+        'gmtFirst'      => 'GmtFirst',
         'gmtLast'       => 'GmtLast',
         'handledCount'  => 'HandledCount',
         'languageType'  => 'LanguageType',
@@ -90,6 +95,10 @@ class groupedVulItems extends Model
 
         if (null !== $this->asapCount) {
             $res['AsapCount'] = $this->asapCount;
+        }
+
+        if (null !== $this->gmtFirst) {
+            $res['GmtFirst'] = $this->gmtFirst;
         }
 
         if (null !== $this->gmtLast) {
@@ -153,6 +162,10 @@ class groupedVulItems extends Model
 
         if (isset($map['AsapCount'])) {
             $model->asapCount = $map['AsapCount'];
+        }
+
+        if (isset($map['GmtFirst'])) {
+            $model->gmtFirst = $map['GmtFirst'];
         }
 
         if (isset($map['GmtLast'])) {

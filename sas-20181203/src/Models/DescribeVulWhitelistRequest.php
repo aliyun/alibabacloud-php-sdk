@@ -13,11 +13,16 @@ class DescribeVulWhitelistRequest extends Model
      */
     public $currentPage;
     /**
+     * @var string
+     */
+    public $lang;
+    /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
     ];
 
@@ -31,6 +36,10 @@ class DescribeVulWhitelistRequest extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         if (null !== $this->pageSize) {
@@ -50,6 +59,10 @@ class DescribeVulWhitelistRequest extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         if (isset($map['PageSize'])) {

@@ -1032,6 +1032,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetImageEventOperationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetImageEventOperationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetImageScanNumInPeriodRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetImageScanNumInPeriodResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetInstallCodeForUuidRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetInstallCodeForUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInstanceAlarmStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInstanceAlarmStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionRuleDetailRequest;
@@ -32135,6 +32137,10 @@ class Sas extends OpenApiClient
             @$query['CurrentPage'] = $request->currentPage;
         }
 
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
         }
@@ -38956,6 +38962,64 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getImageScanNumInPeriodWithOptions($request, $runtime);
+    }
+
+    /**
+     * Query Asset Installation Code.
+     *
+     * @param request - GetInstallCodeForUuidRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetInstallCodeForUuidResponse
+     *
+     * @param GetInstallCodeForUuidRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetInstallCodeForUuidResponse
+     */
+    public function getInstallCodeForUuidWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->uuid) {
+            @$query['Uuid'] = $request->uuid;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstallCodeForUuid',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstallCodeForUuidResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetInstallCodeForUuidResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Query Asset Installation Code.
+     *
+     * @param request - GetInstallCodeForUuidRequest
+     * @returns GetInstallCodeForUuidResponse
+     *
+     * @param GetInstallCodeForUuidRequest $request
+     *
+     * @return GetInstallCodeForUuidResponse
+     */
+    public function getInstallCodeForUuid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstallCodeForUuidWithOptions($request, $runtime);
     }
 
     /**
@@ -49649,6 +49713,10 @@ class Sas extends OpenApiClient
 
         if (null !== $request->currentPage) {
             @$query['CurrentPage'] = $request->currentPage;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
 
         if (null !== $request->pageSize) {
