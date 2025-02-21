@@ -51,6 +51,18 @@ class StartStreamingOutShrinkRequest extends Model
      */
     public $regionColor;
     /**
+     * @var bool
+     */
+    public $reservePaneForNoCameraUser;
+    /**
+     * @var bool
+     */
+    public $startWithoutChannel;
+    /**
+     * @var int
+     */
+    public $startWithoutChannelWaitTime;
+    /**
      * @var string
      */
     public $taskId;
@@ -67,19 +79,22 @@ class StartStreamingOutShrinkRequest extends Model
      */
     public $url;
     protected $_name = [
-        'appId'                      => 'AppId',
-        'backgrounds'                => 'Backgrounds',
-        'channelId'                  => 'ChannelId',
-        'clockWidgets'               => 'ClockWidgets',
-        'cropMode'                   => 'CropMode',
-        'images'                     => 'Images',
-        'layoutSpecifiedUsersShrink' => 'LayoutSpecifiedUsers',
-        'panes'                      => 'Panes',
-        'regionColor'                => 'RegionColor',
-        'taskId'                     => 'TaskId',
-        'templateId'                 => 'TemplateId',
-        'texts'                      => 'Texts',
-        'url'                        => 'Url',
+        'appId'                       => 'AppId',
+        'backgrounds'                 => 'Backgrounds',
+        'channelId'                   => 'ChannelId',
+        'clockWidgets'                => 'ClockWidgets',
+        'cropMode'                    => 'CropMode',
+        'images'                      => 'Images',
+        'layoutSpecifiedUsersShrink'  => 'LayoutSpecifiedUsers',
+        'panes'                       => 'Panes',
+        'regionColor'                 => 'RegionColor',
+        'reservePaneForNoCameraUser'  => 'ReservePaneForNoCameraUser',
+        'startWithoutChannel'         => 'StartWithoutChannel',
+        'startWithoutChannelWaitTime' => 'StartWithoutChannelWaitTime',
+        'taskId'                      => 'TaskId',
+        'templateId'                  => 'TemplateId',
+        'texts'                       => 'Texts',
+        'url'                         => 'Url',
     ];
 
     public function validate()
@@ -166,6 +181,18 @@ class StartStreamingOutShrinkRequest extends Model
 
         if (null !== $this->regionColor) {
             $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toArray($noStream) : $this->regionColor;
+        }
+
+        if (null !== $this->reservePaneForNoCameraUser) {
+            $res['ReservePaneForNoCameraUser'] = $this->reservePaneForNoCameraUser;
+        }
+
+        if (null !== $this->startWithoutChannel) {
+            $res['StartWithoutChannel'] = $this->startWithoutChannel;
+        }
+
+        if (null !== $this->startWithoutChannelWaitTime) {
+            $res['StartWithoutChannelWaitTime'] = $this->startWithoutChannelWaitTime;
         }
 
         if (null !== $this->taskId) {
@@ -259,6 +286,18 @@ class StartStreamingOutShrinkRequest extends Model
 
         if (isset($map['RegionColor'])) {
             $model->regionColor = regionColor::fromMap($map['RegionColor']);
+        }
+
+        if (isset($map['ReservePaneForNoCameraUser'])) {
+            $model->reservePaneForNoCameraUser = $map['ReservePaneForNoCameraUser'];
+        }
+
+        if (isset($map['StartWithoutChannel'])) {
+            $model->startWithoutChannel = $map['StartWithoutChannel'];
+        }
+
+        if (isset($map['StartWithoutChannelWaitTime'])) {
+            $model->startWithoutChannelWaitTime = $map['StartWithoutChannelWaitTime'];
         }
 
         if (isset($map['TaskId'])) {

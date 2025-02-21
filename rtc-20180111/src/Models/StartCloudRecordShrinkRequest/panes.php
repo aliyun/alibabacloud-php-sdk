@@ -24,6 +24,10 @@ class panes extends Model
      */
     public $paneId;
     /**
+     * @var bool
+     */
+    public $reservePaneForOfflineUser;
+    /**
      * @var string
      */
     public $source;
@@ -36,17 +40,23 @@ class panes extends Model
      */
     public $texts;
     /**
+     * @var string
+     */
+    public $videoOrder;
+    /**
      * @var whiteboard
      */
     public $whiteboard;
     protected $_name = [
-        'images'       => 'Images',
-        'paneCropMode' => 'PaneCropMode',
-        'paneId'       => 'PaneId',
-        'source'       => 'Source',
-        'sourceType'   => 'SourceType',
-        'texts'        => 'Texts',
-        'whiteboard'   => 'Whiteboard',
+        'images'                    => 'Images',
+        'paneCropMode'              => 'PaneCropMode',
+        'paneId'                    => 'PaneId',
+        'reservePaneForOfflineUser' => 'ReservePaneForOfflineUser',
+        'source'                    => 'Source',
+        'sourceType'                => 'SourceType',
+        'texts'                     => 'Texts',
+        'videoOrder'                => 'VideoOrder',
+        'whiteboard'                => 'Whiteboard',
     ];
 
     public function validate()
@@ -84,6 +94,10 @@ class panes extends Model
             $res['PaneId'] = $this->paneId;
         }
 
+        if (null !== $this->reservePaneForOfflineUser) {
+            $res['ReservePaneForOfflineUser'] = $this->reservePaneForOfflineUser;
+        }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
@@ -100,6 +114,10 @@ class panes extends Model
                     $res['Texts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
+        }
+
+        if (null !== $this->videoOrder) {
+            $res['VideoOrder'] = $this->videoOrder;
         }
 
         if (null !== $this->whiteboard) {
@@ -135,6 +153,10 @@ class panes extends Model
             $model->paneId = $map['PaneId'];
         }
 
+        if (isset($map['ReservePaneForOfflineUser'])) {
+            $model->reservePaneForOfflineUser = $map['ReservePaneForOfflineUser'];
+        }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
@@ -151,6 +173,10 @@ class panes extends Model
                     $model->texts[$n1++] = texts::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['VideoOrder'])) {
+            $model->videoOrder = $map['VideoOrder'];
         }
 
         if (isset($map['Whiteboard'])) {

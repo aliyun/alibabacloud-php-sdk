@@ -53,6 +53,10 @@ class StartCloudRecordRequest extends Model
      */
     public $regionColor;
     /**
+     * @var bool
+     */
+    public $reservePaneForNoCameraUser;
+    /**
      * @var storageConfig
      */
     public $storageConfig;
@@ -69,19 +73,20 @@ class StartCloudRecordRequest extends Model
      */
     public $texts;
     protected $_name = [
-        'appId'                => 'AppId',
-        'backgrounds'          => 'Backgrounds',
-        'channelId'            => 'ChannelId',
-        'clockWidgets'         => 'ClockWidgets',
-        'cropMode'             => 'CropMode',
-        'images'               => 'Images',
-        'layoutSpecifiedUsers' => 'LayoutSpecifiedUsers',
-        'panes'                => 'Panes',
-        'regionColor'          => 'RegionColor',
-        'storageConfig'        => 'StorageConfig',
-        'taskId'               => 'TaskId',
-        'templateId'           => 'TemplateId',
-        'texts'                => 'Texts',
+        'appId'                      => 'AppId',
+        'backgrounds'                => 'Backgrounds',
+        'channelId'                  => 'ChannelId',
+        'clockWidgets'               => 'ClockWidgets',
+        'cropMode'                   => 'CropMode',
+        'images'                     => 'Images',
+        'layoutSpecifiedUsers'       => 'LayoutSpecifiedUsers',
+        'panes'                      => 'Panes',
+        'regionColor'                => 'RegionColor',
+        'reservePaneForNoCameraUser' => 'ReservePaneForNoCameraUser',
+        'storageConfig'              => 'StorageConfig',
+        'taskId'                     => 'TaskId',
+        'templateId'                 => 'TemplateId',
+        'texts'                      => 'Texts',
     ];
 
     public function validate()
@@ -176,6 +181,10 @@ class StartCloudRecordRequest extends Model
             $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toArray($noStream) : $this->regionColor;
         }
 
+        if (null !== $this->reservePaneForNoCameraUser) {
+            $res['ReservePaneForNoCameraUser'] = $this->reservePaneForNoCameraUser;
+        }
+
         if (null !== $this->storageConfig) {
             $res['StorageConfig'] = null !== $this->storageConfig ? $this->storageConfig->toArray($noStream) : $this->storageConfig;
         }
@@ -267,6 +276,10 @@ class StartCloudRecordRequest extends Model
 
         if (isset($map['RegionColor'])) {
             $model->regionColor = regionColor::fromMap($map['RegionColor']);
+        }
+
+        if (isset($map['ReservePaneForNoCameraUser'])) {
+            $model->reservePaneForNoCameraUser = $map['ReservePaneForNoCameraUser'];
         }
 
         if (isset($map['StorageConfig'])) {

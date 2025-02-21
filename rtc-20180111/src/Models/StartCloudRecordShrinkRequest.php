@@ -52,6 +52,10 @@ class StartCloudRecordShrinkRequest extends Model
      */
     public $regionColor;
     /**
+     * @var bool
+     */
+    public $reservePaneForNoCameraUser;
+    /**
      * @var storageConfig
      */
     public $storageConfig;
@@ -77,6 +81,7 @@ class StartCloudRecordShrinkRequest extends Model
         'layoutSpecifiedUsersShrink' => 'LayoutSpecifiedUsers',
         'panes'                      => 'Panes',
         'regionColor'                => 'RegionColor',
+        'reservePaneForNoCameraUser' => 'ReservePaneForNoCameraUser',
         'storageConfig'              => 'StorageConfig',
         'taskId'                     => 'TaskId',
         'templateId'                 => 'TemplateId',
@@ -172,6 +177,10 @@ class StartCloudRecordShrinkRequest extends Model
             $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toArray($noStream) : $this->regionColor;
         }
 
+        if (null !== $this->reservePaneForNoCameraUser) {
+            $res['ReservePaneForNoCameraUser'] = $this->reservePaneForNoCameraUser;
+        }
+
         if (null !== $this->storageConfig) {
             $res['StorageConfig'] = null !== $this->storageConfig ? $this->storageConfig->toArray($noStream) : $this->storageConfig;
         }
@@ -263,6 +272,10 @@ class StartCloudRecordShrinkRequest extends Model
 
         if (isset($map['RegionColor'])) {
             $model->regionColor = regionColor::fromMap($map['RegionColor']);
+        }
+
+        if (isset($map['ReservePaneForNoCameraUser'])) {
+            $model->reservePaneForNoCameraUser = $map['ReservePaneForNoCameraUser'];
         }
 
         if (isset($map['StorageConfig'])) {

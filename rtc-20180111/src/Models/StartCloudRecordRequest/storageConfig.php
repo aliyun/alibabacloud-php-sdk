@@ -17,6 +17,10 @@ class storageConfig extends Model
      */
     public $bucket;
     /**
+     * @var string
+     */
+    public $endpoint;
+    /**
      * @var int
      */
     public $region;
@@ -31,6 +35,7 @@ class storageConfig extends Model
     protected $_name = [
         'accessKey' => 'AccessKey',
         'bucket'    => 'Bucket',
+        'endpoint'  => 'Endpoint',
         'region'    => 'Region',
         'secretKey' => 'SecretKey',
         'vendor'    => 'Vendor',
@@ -50,6 +55,10 @@ class storageConfig extends Model
 
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
+        }
+
+        if (null !== $this->endpoint) {
+            $res['Endpoint'] = $this->endpoint;
         }
 
         if (null !== $this->region) {
@@ -81,6 +90,10 @@ class storageConfig extends Model
 
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
+        }
+
+        if (isset($map['Endpoint'])) {
+            $model->endpoint = $map['Endpoint'];
         }
 
         if (isset($map['Region'])) {

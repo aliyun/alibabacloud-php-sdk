@@ -6259,6 +6259,10 @@ class Rtc extends OpenApiClient
             @$query['RegionColor'] = $request->regionColor;
         }
 
+        if (null !== $request->reservePaneForNoCameraUser) {
+            @$query['ReservePaneForNoCameraUser'] = $request->reservePaneForNoCameraUser;
+        }
+
         if (null !== $request->storageConfig) {
             @$query['StorageConfig'] = $request->storageConfig;
         }
@@ -6674,6 +6678,18 @@ class Rtc extends OpenApiClient
 
         if (null !== $request->regionColor) {
             @$query['RegionColor'] = $request->regionColor;
+        }
+
+        if (null !== $request->reservePaneForNoCameraUser) {
+            @$query['ReservePaneForNoCameraUser'] = $request->reservePaneForNoCameraUser;
+        }
+
+        if (null !== $request->startWithoutChannel) {
+            @$query['StartWithoutChannel'] = $request->startWithoutChannel;
+        }
+
+        if (null !== $request->startWithoutChannelWaitTime) {
+            @$query['StartWithoutChannelWaitTime'] = $request->startWithoutChannelWaitTime;
         }
 
         if (null !== $request->taskId) {
