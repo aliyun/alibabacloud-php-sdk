@@ -16,9 +16,14 @@ class CreateRouteRequest extends Model
      * @var int
      */
     public $networkId;
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'destinationCidr' => 'DestinationCidr',
         'networkId'       => 'NetworkId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -35,6 +40,10 @@ class CreateRouteRequest extends Model
 
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -54,6 +63,10 @@ class CreateRouteRequest extends Model
 
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

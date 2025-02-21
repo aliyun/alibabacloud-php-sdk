@@ -1,3 +1,8 @@
+2025-02-21 Version: 5.0.4
+- Update API CreateRoute: add param ResourceGroupId.
+- Update API ListResourceGroups: update response param.
+
+
 2025-02-18 Version: 5.0.3
 - Update API GetNode: update response param.
 - Update API GetWorkflowDefinition: add param IncludeScriptContent.

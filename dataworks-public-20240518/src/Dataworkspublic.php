@@ -2360,6 +2360,10 @@ class Dataworkspublic extends OpenApiClient
             @$body['NetworkId'] = $request->networkId;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         $req = new OpenApiRequest([
             'body' => Utils::parseToMap($body),
         ]);

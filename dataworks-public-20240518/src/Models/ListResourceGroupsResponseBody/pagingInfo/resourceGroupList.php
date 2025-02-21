@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourceGroupsResponseBody\pagingInfo;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourceGroupsResponseBody\pagingInfo\resourceGroupList\aliyunResourceTags;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourceGroupsResponseBody\pagingInfo\resourceGroupList\spec;
 
 class resourceGroupList extends Model
@@ -13,6 +14,10 @@ class resourceGroupList extends Model
      * @var string
      */
     public $aliyunResourceGroupId;
+    /**
+     * @var aliyunResourceTags[]
+     */
+    public $aliyunResourceTags;
     /**
      * @var int
      */
@@ -63,6 +68,7 @@ class resourceGroupList extends Model
     public $status;
     protected $_name = [
         'aliyunResourceGroupId' => 'AliyunResourceGroupId',
+        'aliyunResourceTags'    => 'AliyunResourceTags',
         'createTime'            => 'CreateTime',
         'createUser'            => 'CreateUser',
         'defaultVpcId'          => 'DefaultVpcId',
@@ -79,6 +85,9 @@ class resourceGroupList extends Model
 
     public function validate()
     {
+        if (\is_array($this->aliyunResourceTags)) {
+            Model::validateArray($this->aliyunResourceTags);
+        }
         if (null !== $this->spec) {
             $this->spec->validate();
         }
@@ -90,6 +99,16 @@ class resourceGroupList extends Model
         $res = [];
         if (null !== $this->aliyunResourceGroupId) {
             $res['AliyunResourceGroupId'] = $this->aliyunResourceGroupId;
+        }
+
+        if (null !== $this->aliyunResourceTags) {
+            if (\is_array($this->aliyunResourceTags)) {
+                $res['AliyunResourceTags'] = [];
+                $n1                        = 0;
+                foreach ($this->aliyunResourceTags as $item1) {
+                    $res['AliyunResourceTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->createTime) {
@@ -153,6 +172,16 @@ class resourceGroupList extends Model
         $model = new self();
         if (isset($map['AliyunResourceGroupId'])) {
             $model->aliyunResourceGroupId = $map['AliyunResourceGroupId'];
+        }
+
+        if (isset($map['AliyunResourceTags'])) {
+            if (!empty($map['AliyunResourceTags'])) {
+                $model->aliyunResourceTags = [];
+                $n1                        = 0;
+                foreach ($map['AliyunResourceTags'] as $item1) {
+                    $model->aliyunResourceTags[$n1++] = aliyunResourceTags::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['CreateTime'])) {
