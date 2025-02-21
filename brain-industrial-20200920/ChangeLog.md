@@ -1,3 +1,11 @@
+2025-02-21 Version: 1.1.0
+- Support API CreateEssOptJob.
+- Support API CreateLoadForecastJob.
+- Support API CreatePowerForecastJob.
+- Support API GetAivppAlgoJob.
+- Support API ListAivppResources.
+
+
 2020-09-28 Version: 1.0.0
 - Supported APIs for PidOrganization.
 - Supported APIs for PidProject.
