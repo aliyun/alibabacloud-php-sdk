@@ -4,37 +4,27 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\DescribeNavigationConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class unrecognizingConfig extends Model
 {
     /**
-     * @example TransferToAgent
-     *
      * @var string
      */
     public $finalAction;
-
     /**
-     * @example { \\"skillGroupId\\": \\"fallbackSkillGroup\\" }
-     *
      * @var string
      */
     public $finalActionParams;
-
     /**
      * @var string
      */
     public $finalPrompt;
-
     /**
      * @var string
      */
     public $prompt;
-
     /**
-     * @example 3
-     *
      * @var int
      */
     public $threshold;
@@ -48,23 +38,28 @@ class unrecognizingConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->finalAction) {
             $res['FinalAction'] = $this->finalAction;
         }
+
         if (null !== $this->finalActionParams) {
             $res['FinalActionParams'] = $this->finalActionParams;
         }
+
         if (null !== $this->finalPrompt) {
             $res['FinalPrompt'] = $this->finalPrompt;
         }
+
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
+
         if (null !== $this->threshold) {
             $res['Threshold'] = $this->threshold;
         }
@@ -72,26 +67,30 @@ class unrecognizingConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return unrecognizingConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FinalAction'])) {
             $model->finalAction = $map['FinalAction'];
         }
+
         if (isset($map['FinalActionParams'])) {
             $model->finalActionParams = $map['FinalActionParams'];
         }
+
         if (isset($map['FinalPrompt'])) {
             $model->finalPrompt = $map['FinalPrompt'];
         }
+
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
+
         if (isset($map['Threshold'])) {
             $model->threshold = $map['Threshold'];
         }

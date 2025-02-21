@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\DescribeNavigationConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class greetingConfig extends Model
 {
@@ -12,15 +12,11 @@ class greetingConfig extends Model
      * @var string
      */
     public $greetingWords;
-
     /**
      * @var string
      */
     public $intentTrigger;
-
     /**
-     * @example chatbotIntent
-     *
      * @var string
      */
     public $sourceType;
@@ -32,17 +28,20 @@ class greetingConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->greetingWords) {
             $res['GreetingWords'] = $this->greetingWords;
         }
+
         if (null !== $this->intentTrigger) {
             $res['IntentTrigger'] = $this->intentTrigger;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -50,20 +49,22 @@ class greetingConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return greetingConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GreetingWords'])) {
             $model->greetingWords = $map['GreetingWords'];
         }
+
         if (isset($map['IntentTrigger'])) {
             $model->intentTrigger = $map['IntentTrigger'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

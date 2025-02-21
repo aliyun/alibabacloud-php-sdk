@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAsrConfigRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $configLevel;
-
     /**
-     * @example 3b1d3031-8b6e-460a-8640-d330f2ca50b8
-     *
      * @var string
      */
     public $entryId;
@@ -28,14 +23,16 @@ class GetAsrConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configLevel) {
             $res['ConfigLevel'] = $this->configLevel;
         }
+
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
         }
@@ -43,17 +40,18 @@ class GetAsrConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAsrConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigLevel'])) {
             $model->configLevel = $map['ConfigLevel'];
         }
+
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
         }

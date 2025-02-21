@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SilenceTimeoutRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
-     *
      * @var string
      */
     public $conversationId;
-
     /**
-     * @example {}
-     *
      * @var string
      */
     public $initialContext;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 0099b75d-60fd-4c63-8541-7fbba0ae6bb0
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example 1231639035307976
-     *
      * @var int
      */
     public $instanceOwnerId;
@@ -48,20 +33,24 @@ class SilenceTimeoutRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
+
         if (null !== $this->initialContext) {
             $res['InitialContext'] = $this->initialContext;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceOwnerId) {
             $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
@@ -69,23 +58,26 @@ class SilenceTimeoutRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SilenceTimeoutRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }
+
         if (isset($map['InitialContext'])) {
             $model->initialContext = $map['InitialContext'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceOwnerId'])) {
             $model->instanceOwnerId = $map['InstanceOwnerId'];
         }

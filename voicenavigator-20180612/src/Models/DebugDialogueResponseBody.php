@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DebugDialogueResponseBody extends Model
 {
     /**
-     * @example Broadcast
-     *
      * @var string
      */
     public $action;
-
     /**
-     * @example {}
-     *
      * @var string
      */
     public $actionParams;
-
     /**
-     * @example true
-     *
      * @var bool
      */
     public $interruptible;
-
     /**
-     * @example d74d6290-7cbe-4436-b5d7-014ebb0f4060
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 80d11be3-faad-4101-b4b0-59dbea28aaf0
-     *
      * @var string
      */
     public $textResponse;
@@ -52,23 +38,28 @@ class DebugDialogueResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->actionParams) {
             $res['ActionParams'] = $this->actionParams;
         }
+
         if (null !== $this->interruptible) {
             $res['Interruptible'] = $this->interruptible;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->textResponse) {
             $res['TextResponse'] = $this->textResponse;
         }
@@ -76,26 +67,30 @@ class DebugDialogueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DebugDialogueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['ActionParams'])) {
             $model->actionParams = $map['ActionParams'];
         }
+
         if (isset($map['Interruptible'])) {
             $model->interruptible = $map['Interruptible'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TextResponse'])) {
             $model->textResponse = $map['TextResponse'];
         }

@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateInstanceResponseBody extends Model
 {
     /**
-     * @example c28fc549-d88f-4f6e-85ad-a0806e5e39c0
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example 9ab43460-c0b9-40e2-8447-48d82c97fc67
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +23,16 @@ class CreateInstanceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +40,18 @@ class CreateInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

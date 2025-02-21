@@ -4,36 +4,23 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyGreetingConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $greetingWords;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 12f407b22cbe4890ac595f09985848d5
-     *
      * @var string
      */
     public $instanceId;
-
     /**
      * @var string
      */
     public $intentTrigger;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example chatbotIntent
-     *
      * @var string
      */
     public $sourceType;
@@ -46,20 +33,24 @@ class ModifyGreetingConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->greetingWords) {
             $res['GreetingWords'] = $this->greetingWords;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->intentTrigger) {
             $res['IntentTrigger'] = $this->intentTrigger;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -67,23 +58,26 @@ class ModifyGreetingConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyGreetingConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GreetingWords'])) {
             $model->greetingWords = $map['GreetingWords'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['IntentTrigger'])) {
             $model->intentTrigger = $map['IntentTrigger'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

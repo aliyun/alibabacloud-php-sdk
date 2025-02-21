@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeStatisticalDataRequest extends Model
 {
     /**
-     * @example 1582283640000
-     *
      * @var int
      */
     public $beginTimeLeftRange;
-
     /**
-     * @example 1582298040000
-     *
      * @var int
      */
     public $beginTimeRightRange;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example c28fc549-d88f-4f6e-85ad-a0806e5e39c0
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example Day/Hour
-     *
      * @var string
      */
     public $timeUnit;
@@ -48,20 +33,24 @@ class DescribeStatisticalDataRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginTimeLeftRange) {
             $res['BeginTimeLeftRange'] = $this->beginTimeLeftRange;
         }
+
         if (null !== $this->beginTimeRightRange) {
             $res['BeginTimeRightRange'] = $this->beginTimeRightRange;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->timeUnit) {
             $res['TimeUnit'] = $this->timeUnit;
         }
@@ -69,23 +58,26 @@ class DescribeStatisticalDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeStatisticalDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginTimeLeftRange'])) {
             $model->beginTimeLeftRange = $map['BeginTimeLeftRange'];
         }
+
         if (isset($map['BeginTimeRightRange'])) {
             $model->beginTimeRightRange = $map['BeginTimeRightRange'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TimeUnit'])) {
             $model->timeUnit = $map['TimeUnit'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeExportProgressRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 0de8e5ccc2b645039ae6fbda443da73f
-     *
      * @var string
      */
     public $exportTaskId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 868eef14-7515-4856-8a50-5c9a22abdbcc
-     *
      * @var string
      */
     public $instanceId;
@@ -32,14 +23,16 @@ class DescribeExportProgressRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exportTaskId) {
             $res['ExportTaskId'] = $this->exportTaskId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,17 +40,18 @@ class DescribeExportProgressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeExportProgressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExportTaskId'])) {
             $model->exportTaskId = $map['ExportTaskId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

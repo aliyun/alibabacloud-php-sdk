@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeConversationContextRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 361c8a53-0e29-42f3-8aa7-c7752d010399
-     *
      * @var string
      */
     public $conversationId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 026ca0f4-483b-4252-ae1d-1f15f056f8b9
-     *
      * @var string
      */
     public $instanceId;
@@ -32,14 +23,16 @@ class DescribeConversationContextRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -47,17 +40,18 @@ class DescribeConversationContextRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeConversationContextRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

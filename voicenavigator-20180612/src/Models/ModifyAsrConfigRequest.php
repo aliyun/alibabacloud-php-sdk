@@ -4,53 +4,35 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAsrConfigRequest extends Model
 {
     /**
-     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
-     *
      * @var string
      */
     public $asrAcousticModelId;
-
     /**
-     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
-     *
      * @var string
      */
     public $asrClassVocabularyId;
-
     /**
-     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
-     *
      * @var string
      */
     public $asrCustomizationId;
-
     /**
-     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
-     *
      * @var string
      */
     public $asrVocabularyId;
-
     /**
-     * @example 0
-     *
      * @var int
      */
     public $configLevel;
-
     /**
      * @var string
      */
     public $engine;
-
     /**
-     * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
-     *
      * @var string
      */
     public $entryId;
@@ -66,29 +48,36 @@ class ModifyAsrConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asrAcousticModelId) {
             $res['AsrAcousticModelId'] = $this->asrAcousticModelId;
         }
+
         if (null !== $this->asrClassVocabularyId) {
             $res['AsrClassVocabularyId'] = $this->asrClassVocabularyId;
         }
+
         if (null !== $this->asrCustomizationId) {
             $res['AsrCustomizationId'] = $this->asrCustomizationId;
         }
+
         if (null !== $this->asrVocabularyId) {
             $res['AsrVocabularyId'] = $this->asrVocabularyId;
         }
+
         if (null !== $this->configLevel) {
             $res['ConfigLevel'] = $this->configLevel;
         }
+
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
+
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
         }
@@ -96,32 +85,38 @@ class ModifyAsrConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAsrConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AsrAcousticModelId'])) {
             $model->asrAcousticModelId = $map['AsrAcousticModelId'];
         }
+
         if (isset($map['AsrClassVocabularyId'])) {
             $model->asrClassVocabularyId = $map['AsrClassVocabularyId'];
         }
+
         if (isset($map['AsrCustomizationId'])) {
             $model->asrCustomizationId = $map['AsrCustomizationId'];
         }
+
         if (isset($map['AsrVocabularyId'])) {
             $model->asrVocabularyId = $map['AsrVocabularyId'];
         }
+
         if (isset($map['ConfigLevel'])) {
             $model->configLevel = $map['ConfigLevel'];
         }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
+
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
         }

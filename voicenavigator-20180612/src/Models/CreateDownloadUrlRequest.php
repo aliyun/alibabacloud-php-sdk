@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDownloadUrlRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 073f092da0a847b9bf76eb88b5931c7a
-     *
      * @var string
      */
     public $downloadTaskId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 22626c39603744f5a08d4d715315561a
-     *
      * @var string
      */
     public $fileId;
@@ -32,14 +23,16 @@ class CreateDownloadUrlRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downloadTaskId) {
             $res['DownloadTaskId'] = $this->downloadTaskId;
         }
+
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
@@ -47,17 +40,18 @@ class CreateDownloadUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDownloadUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadTaskId'])) {
             $model->downloadTaskId = $map['DownloadTaskId'];
         }
+
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }

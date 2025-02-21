@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\AssociateChatbotInstanceRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\AssociateChatbotInstanceResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\AuditTTSVoiceRequest;
@@ -88,11 +87,10 @@ use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\SaveRecordingRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\SaveRecordingResponse;
 use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\SilenceTimeoutRequest;
 use AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\SilenceTimeoutResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class VoiceNavigator extends OpenApiClient
 {
@@ -117,46 +115,57 @@ class VoiceNavigator extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @param AssociateChatbotInstanceRequest $request AssociateChatbotInstanceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - AssociateChatbotInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssociateChatbotInstanceResponse
      *
-     * @return AssociateChatbotInstanceResponse AssociateChatbotInstanceResponse
+     * @param AssociateChatbotInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AssociateChatbotInstanceResponse
      */
     public function associateChatbotInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chatbotInstanceId)) {
-            $query['ChatbotInstanceId'] = $request->chatbotInstanceId;
+        if (null !== $request->chatbotInstanceId) {
+            @$query['ChatbotInstanceId'] = $request->chatbotInstanceId;
         }
-        if (!Utils::isUnset($request->chatbotName)) {
-            $query['ChatbotName'] = $request->chatbotName;
+
+        if (null !== $request->chatbotName) {
+            @$query['ChatbotName'] = $request->chatbotName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nluServiceParamsJson)) {
-            $query['NluServiceParamsJson'] = $request->nluServiceParamsJson;
+
+        if (null !== $request->nluServiceParamsJson) {
+            @$query['NluServiceParamsJson'] = $request->nluServiceParamsJson;
         }
-        if (!Utils::isUnset($request->nluServiceType)) {
-            $query['NluServiceType'] = $request->nluServiceType;
+
+        if (null !== $request->nluServiceType) {
+            @$query['NluServiceType'] = $request->nluServiceType;
         }
-        if (!Utils::isUnset($request->unionSource)) {
-            $query['UnionSource'] = $request->unionSource;
+
+        if (null !== $request->unionSource) {
+            @$query['UnionSource'] = $request->unionSource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AssociateChatbotInstance',
@@ -169,14 +178,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssociateChatbotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssociateChatbotInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssociateChatbotInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AssociateChatbotInstanceRequest $request AssociateChatbotInstanceRequest
+     * @param request - AssociateChatbotInstanceRequest
+     * @returns AssociateChatbotInstanceResponse
      *
-     * @return AssociateChatbotInstanceResponse AssociateChatbotInstanceResponse
+     * @param AssociateChatbotInstanceRequest $request
+     *
+     * @return AssociateChatbotInstanceResponse
      */
     public function associateChatbotInstance($request)
     {
@@ -186,47 +201,63 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param AuditTTSVoiceRequest $request AuditTTSVoiceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * AuditTTSVoice.
      *
-     * @return AuditTTSVoiceResponse AuditTTSVoiceResponse
+     * @param request - AuditTTSVoiceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AuditTTSVoiceResponse
+     *
+     * @param AuditTTSVoiceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AuditTTSVoiceResponse
      */
     public function auditTTSVoiceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessKey)) {
-            $query['AccessKey'] = $request->accessKey;
+        if (null !== $request->accessKey) {
+            @$query['AccessKey'] = $request->accessKey;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pitchRate)) {
-            $query['PitchRate'] = $request->pitchRate;
+
+        if (null !== $request->pitchRate) {
+            @$query['PitchRate'] = $request->pitchRate;
         }
-        if (!Utils::isUnset($request->secretKey)) {
-            $query['SecretKey'] = $request->secretKey;
+
+        if (null !== $request->secretKey) {
+            @$query['SecretKey'] = $request->secretKey;
         }
-        if (!Utils::isUnset($request->speechRate)) {
-            $query['SpeechRate'] = $request->speechRate;
+
+        if (null !== $request->speechRate) {
+            @$query['SpeechRate'] = $request->speechRate;
         }
-        if (!Utils::isUnset($request->text)) {
-            $query['Text'] = $request->text;
+
+        if (null !== $request->text) {
+            @$query['Text'] = $request->text;
         }
-        if (!Utils::isUnset($request->voice)) {
-            $query['Voice'] = $request->voice;
+
+        if (null !== $request->voice) {
+            @$query['Voice'] = $request->voice;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AuditTTSVoice',
@@ -239,14 +270,22 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AuditTTSVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AuditTTSVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AuditTTSVoiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param AuditTTSVoiceRequest $request AuditTTSVoiceRequest
+     * AuditTTSVoice.
      *
-     * @return AuditTTSVoiceResponse AuditTTSVoiceResponse
+     * @param request - AuditTTSVoiceRequest
+     * @returns AuditTTSVoiceResponse
+     *
+     * @param AuditTTSVoiceRequest $request
+     *
+     * @return AuditTTSVoiceResponse
      */
     public function auditTTSVoice($request)
     {
@@ -256,35 +295,45 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param BeginDialogueRequest $request BeginDialogueRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - BeginDialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BeginDialogueResponse
      *
-     * @return BeginDialogueResponse BeginDialogueResponse
+     * @param BeginDialogueRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return BeginDialogueResponse
      */
     public function beginDialogueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->conversationId)) {
-            $query['ConversationId'] = $request->conversationId;
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->initialContext)) {
-            $query['InitialContext'] = $request->initialContext;
+
+        if (null !== $request->initialContext) {
+            @$query['InitialContext'] = $request->initialContext;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $query['InstanceOwnerId'] = $request->instanceOwnerId;
+
+        if (null !== $request->instanceOwnerId) {
+            @$query['InstanceOwnerId'] = $request->instanceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BeginDialogue',
@@ -297,14 +346,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return BeginDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BeginDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BeginDialogueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param BeginDialogueRequest $request BeginDialogueRequest
+     * @param request - BeginDialogueRequest
+     * @returns BeginDialogueResponse
      *
-     * @return BeginDialogueResponse BeginDialogueResponse
+     * @param BeginDialogueRequest $request
+     *
+     * @return BeginDialogueResponse
      */
     public function beginDialogue($request)
     {
@@ -314,32 +369,41 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param CollectedNumberRequest $request CollectedNumberRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - CollectedNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CollectedNumberResponse
      *
-     * @return CollectedNumberResponse CollectedNumberResponse
+     * @param CollectedNumberRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CollectedNumberResponse
      */
     public function collectedNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->additionalContext)) {
-            $query['AdditionalContext'] = $request->additionalContext;
+        if (null !== $request->additionalContext) {
+            @$query['AdditionalContext'] = $request->additionalContext;
         }
-        if (!Utils::isUnset($request->conversationId)) {
-            $query['ConversationId'] = $request->conversationId;
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $query['InstanceOwnerId'] = $request->instanceOwnerId;
+
+        if (null !== $request->instanceOwnerId) {
+            @$query['InstanceOwnerId'] = $request->instanceOwnerId;
         }
-        if (!Utils::isUnset($request->number)) {
-            $query['Number'] = $request->number;
+
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CollectedNumber',
@@ -352,14 +416,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CollectedNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CollectedNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CollectedNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CollectedNumberRequest $request CollectedNumberRequest
+     * @param request - CollectedNumberRequest
+     * @returns CollectedNumberResponse
      *
-     * @return CollectedNumberResponse CollectedNumberResponse
+     * @param CollectedNumberRequest $request
+     *
+     * @return CollectedNumberResponse
      */
     public function collectedNumber($request)
     {
@@ -369,17 +439,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param CreateDownloadUrlRequest $request CreateDownloadUrlRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateDownloadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDownloadUrlResponse
      *
-     * @return CreateDownloadUrlResponse CreateDownloadUrlResponse
+     * @param CreateDownloadUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDownloadUrlResponse
      */
     public function createDownloadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDownloadUrl',
@@ -392,14 +466,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateDownloadUrlRequest $request CreateDownloadUrlRequest
+     * @param request - CreateDownloadUrlRequest
+     * @returns CreateDownloadUrlResponse
      *
-     * @return CreateDownloadUrlResponse CreateDownloadUrlResponse
+     * @param CreateDownloadUrlRequest $request
+     *
+     * @return CreateDownloadUrlResponse
      */
     public function createDownloadUrl($request)
     {
@@ -409,35 +489,45 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request CreateInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateInstanceResponse
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param CreateInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->concurrency)) {
-            $query['Concurrency'] = $request->concurrency;
+        if (null !== $request->concurrency) {
+            @$query['Concurrency'] = $request->concurrency;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nluServiceParamsJson)) {
-            $query['NluServiceParamsJson'] = $request->nluServiceParamsJson;
+
+        if (null !== $request->nluServiceParamsJson) {
+            @$query['NluServiceParamsJson'] = $request->nluServiceParamsJson;
         }
-        if (!Utils::isUnset($request->unionInstanceId)) {
-            $query['UnionInstanceId'] = $request->unionInstanceId;
+
+        if (null !== $request->unionInstanceId) {
+            @$query['UnionInstanceId'] = $request->unionInstanceId;
         }
-        if (!Utils::isUnset($request->unionSource)) {
-            $query['UnionSource'] = $request->unionSource;
+
+        if (null !== $request->unionSource) {
+            @$query['UnionSource'] = $request->unionSource;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateInstance',
@@ -450,14 +540,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param request - CreateInstanceRequest
+     * @returns CreateInstanceResponse
      *
-     * @return CreateInstanceResponse CreateInstanceResponse
+     * @param CreateInstanceRequest $request
+     *
+     * @return CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -467,32 +563,41 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DebugBeginDialogueRequest $request DebugBeginDialogueRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - DebugBeginDialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DebugBeginDialogueResponse
      *
-     * @return DebugBeginDialogueResponse DebugBeginDialogueResponse
+     * @param DebugBeginDialogueRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DebugBeginDialogueResponse
      */
     public function debugBeginDialogueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->conversationId)) {
-            $query['ConversationId'] = $request->conversationId;
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->initialContext)) {
-            $query['InitialContext'] = $request->initialContext;
+
+        if (null !== $request->initialContext) {
+            @$query['InitialContext'] = $request->initialContext;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DebugBeginDialogue',
@@ -505,14 +610,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DebugBeginDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DebugBeginDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DebugBeginDialogueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DebugBeginDialogueRequest $request DebugBeginDialogueRequest
+     * @param request - DebugBeginDialogueRequest
+     * @returns DebugBeginDialogueResponse
      *
-     * @return DebugBeginDialogueResponse DebugBeginDialogueResponse
+     * @param DebugBeginDialogueRequest $request
+     *
+     * @return DebugBeginDialogueResponse
      */
     public function debugBeginDialogue($request)
     {
@@ -522,26 +633,33 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DebugCollectedNumberRequest $request DebugCollectedNumberRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DebugCollectedNumberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DebugCollectedNumberResponse
      *
-     * @return DebugCollectedNumberResponse DebugCollectedNumberResponse
+     * @param DebugCollectedNumberRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DebugCollectedNumberResponse
      */
     public function debugCollectedNumberWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->conversationId)) {
-            $query['ConversationId'] = $request->conversationId;
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->number)) {
-            $query['Number'] = $request->number;
+
+        if (null !== $request->number) {
+            @$query['Number'] = $request->number;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DebugCollectedNumber',
@@ -554,14 +672,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DebugCollectedNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DebugCollectedNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DebugCollectedNumberResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DebugCollectedNumberRequest $request DebugCollectedNumberRequest
+     * @param request - DebugCollectedNumberRequest
+     * @returns DebugCollectedNumberResponse
      *
-     * @return DebugCollectedNumberResponse DebugCollectedNumberResponse
+     * @param DebugCollectedNumberRequest $request
+     *
+     * @return DebugCollectedNumberResponse
      */
     public function debugCollectedNumber($request)
     {
@@ -571,29 +695,37 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DebugDialogueRequest $request DebugDialogueRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - DebugDialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DebugDialogueResponse
      *
-     * @return DebugDialogueResponse DebugDialogueResponse
+     * @param DebugDialogueRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DebugDialogueResponse
      */
     public function debugDialogueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->additionalContext)) {
-            $query['AdditionalContext'] = $request->additionalContext;
+        if (null !== $request->additionalContext) {
+            @$query['AdditionalContext'] = $request->additionalContext;
         }
-        if (!Utils::isUnset($request->conversationId)) {
-            $query['ConversationId'] = $request->conversationId;
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->utterance)) {
-            $query['Utterance'] = $request->utterance;
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DebugDialogue',
@@ -606,14 +738,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DebugDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DebugDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DebugDialogueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DebugDialogueRequest $request DebugDialogueRequest
+     * @param request - DebugDialogueRequest
+     * @returns DebugDialogueResponse
      *
-     * @return DebugDialogueResponse DebugDialogueResponse
+     * @param DebugDialogueRequest $request
+     *
+     * @return DebugDialogueResponse
      */
     public function debugDialogue($request)
     {
@@ -623,20 +761,25 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - DeleteInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteInstanceResponse
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param DeleteInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteInstance',
@@ -649,14 +792,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param request - DeleteInstanceRequest
+     * @returns DeleteInstanceResponse
      *
-     * @return DeleteInstanceResponse DeleteInstanceResponse
+     * @param DeleteInstanceRequest $request
+     *
+     * @return DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -666,17 +815,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeConversationRequest $request DescribeConversationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeConversationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeConversationResponse
      *
-     * @return DescribeConversationResponse DescribeConversationResponse
+     * @param DescribeConversationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeConversationResponse
      */
     public function describeConversationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeConversation',
@@ -689,14 +842,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeConversationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeConversationRequest $request DescribeConversationRequest
+     * @param request - DescribeConversationRequest
+     * @returns DescribeConversationResponse
      *
-     * @return DescribeConversationResponse DescribeConversationResponse
+     * @param DescribeConversationRequest $request
+     *
+     * @return DescribeConversationResponse
      */
     public function describeConversation($request)
     {
@@ -706,17 +865,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeConversationContextRequest $request DescribeConversationContextRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeConversationContextRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeConversationContextResponse
      *
-     * @return DescribeConversationContextResponse DescribeConversationContextResponse
+     * @param DescribeConversationContextRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeConversationContextResponse
      */
     public function describeConversationContextWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeConversationContext',
@@ -729,14 +892,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeConversationContextResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeConversationContextResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeConversationContextResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeConversationContextRequest $request DescribeConversationContextRequest
+     * @param request - DescribeConversationContextRequest
+     * @returns DescribeConversationContextResponse
      *
-     * @return DescribeConversationContextResponse DescribeConversationContextResponse
+     * @param DescribeConversationContextRequest $request
+     *
+     * @return DescribeConversationContextResponse
      */
     public function describeConversationContext($request)
     {
@@ -746,17 +915,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeExportProgressRequest $request DescribeExportProgressRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeExportProgressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeExportProgressResponse
      *
-     * @return DescribeExportProgressResponse DescribeExportProgressResponse
+     * @param DescribeExportProgressRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeExportProgressResponse
      */
     public function describeExportProgressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeExportProgress',
@@ -769,14 +942,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeExportProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeExportProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeExportProgressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeExportProgressRequest $request DescribeExportProgressRequest
+     * @param request - DescribeExportProgressRequest
+     * @returns DescribeExportProgressResponse
      *
-     * @return DescribeExportProgressResponse DescribeExportProgressResponse
+     * @param DescribeExportProgressRequest $request
+     *
+     * @return DescribeExportProgressResponse
      */
     public function describeExportProgress($request)
     {
@@ -786,17 +965,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceResponse
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param DescribeInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstance',
@@ -809,14 +992,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * @param request - DescribeInstanceRequest
+     * @returns DescribeInstanceResponse
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param DescribeInstanceRequest $request
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -826,17 +1015,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeNavigationConfigRequest $request DescribeNavigationConfigRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeNavigationConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeNavigationConfigResponse
      *
-     * @return DescribeNavigationConfigResponse DescribeNavigationConfigResponse
+     * @param DescribeNavigationConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeNavigationConfigResponse
      */
     public function describeNavigationConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeNavigationConfig',
@@ -849,14 +1042,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNavigationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNavigationConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNavigationConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeNavigationConfigRequest $request DescribeNavigationConfigRequest
+     * @param request - DescribeNavigationConfigRequest
+     * @returns DescribeNavigationConfigResponse
      *
-     * @return DescribeNavigationConfigResponse DescribeNavigationConfigResponse
+     * @param DescribeNavigationConfigRequest $request
+     *
+     * @return DescribeNavigationConfigResponse
      */
     public function describeNavigationConfig($request)
     {
@@ -866,17 +1065,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeRecordingRequest $request DescribeRecordingRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRecordingResponse
      *
-     * @return DescribeRecordingResponse DescribeRecordingResponse
+     * @param DescribeRecordingRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeRecordingResponse
      */
     public function describeRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRecording',
@@ -889,14 +1092,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRecordingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRecordingRequest $request DescribeRecordingRequest
+     * @param request - DescribeRecordingRequest
+     * @returns DescribeRecordingResponse
      *
-     * @return DescribeRecordingResponse DescribeRecordingResponse
+     * @param DescribeRecordingRequest $request
+     *
+     * @return DescribeRecordingResponse
      */
     public function describeRecording($request)
     {
@@ -906,17 +1115,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeStatisticalDataRequest $request DescribeStatisticalDataRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - DescribeStatisticalDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeStatisticalDataResponse
      *
-     * @return DescribeStatisticalDataResponse DescribeStatisticalDataResponse
+     * @param DescribeStatisticalDataRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeStatisticalDataResponse
      */
     public function describeStatisticalDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeStatisticalData',
@@ -929,14 +1142,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeStatisticalDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeStatisticalDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeStatisticalDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeStatisticalDataRequest $request DescribeStatisticalDataRequest
+     * @param request - DescribeStatisticalDataRequest
+     * @returns DescribeStatisticalDataResponse
      *
-     * @return DescribeStatisticalDataResponse DescribeStatisticalDataResponse
+     * @param DescribeStatisticalDataRequest $request
+     *
+     * @return DescribeStatisticalDataResponse
      */
     public function describeStatisticalData($request)
     {
@@ -946,17 +1165,23 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DescribeTTSConfigRequest $request DescribeTTSConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取TTS配置.
      *
-     * @return DescribeTTSConfigResponse DescribeTTSConfigResponse
+     * @param request - DescribeTTSConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTTSConfigResponse
+     *
+     * @param DescribeTTSConfigRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeTTSConfigResponse
      */
     public function describeTTSConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTTSConfig',
@@ -969,14 +1194,22 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTTSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTTSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTTSConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeTTSConfigRequest $request DescribeTTSConfigRequest
+     * 获取TTS配置.
      *
-     * @return DescribeTTSConfigResponse DescribeTTSConfigResponse
+     * @param request - DescribeTTSConfigRequest
+     * @returns DescribeTTSConfigResponse
+     *
+     * @param DescribeTTSConfigRequest $request
+     *
+     * @return DescribeTTSConfigResponse
      */
     public function describeTTSConfig($request)
     {
@@ -986,41 +1219,53 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DialogueRequest $request DialogueRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param request - DialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DialogueResponse
      *
-     * @return DialogueResponse DialogueResponse
+     * @param DialogueRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DialogueResponse
      */
     public function dialogueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->additionalContext)) {
-            $query['AdditionalContext'] = $request->additionalContext;
+        if (null !== $request->additionalContext) {
+            @$query['AdditionalContext'] = $request->additionalContext;
         }
-        if (!Utils::isUnset($request->calledNumber)) {
-            $query['CalledNumber'] = $request->calledNumber;
+
+        if (null !== $request->calledNumber) {
+            @$query['CalledNumber'] = $request->calledNumber;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->conversationId)) {
-            $query['ConversationId'] = $request->conversationId;
+
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->emotion)) {
-            $query['Emotion'] = $request->emotion;
+
+        if (null !== $request->emotion) {
+            @$query['Emotion'] = $request->emotion;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $query['InstanceOwnerId'] = $request->instanceOwnerId;
+
+        if (null !== $request->instanceOwnerId) {
+            @$query['InstanceOwnerId'] = $request->instanceOwnerId;
         }
-        if (!Utils::isUnset($request->utterance)) {
-            $query['Utterance'] = $request->utterance;
+
+        if (null !== $request->utterance) {
+            @$query['Utterance'] = $request->utterance;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'Dialogue',
@@ -1033,14 +1278,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DialogueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DialogueRequest $request DialogueRequest
+     * @param request - DialogueRequest
+     * @returns DialogueResponse
      *
-     * @return DialogueResponse DialogueResponse
+     * @param DialogueRequest $request
+     *
+     * @return DialogueResponse
      */
     public function dialogue($request)
     {
@@ -1050,20 +1301,25 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param DisableInstanceRequest $request DisableInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - DisableInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableInstanceResponse
      *
-     * @return DisableInstanceResponse DisableInstanceResponse
+     * @param DisableInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DisableInstanceResponse
      */
     public function disableInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DisableInstance',
@@ -1076,14 +1332,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DisableInstanceRequest $request DisableInstanceRequest
+     * @param request - DisableInstanceRequest
+     * @returns DisableInstanceResponse
      *
-     * @return DisableInstanceResponse DisableInstanceResponse
+     * @param DisableInstanceRequest $request
+     *
+     * @return DisableInstanceResponse
      */
     public function disableInstance($request)
     {
@@ -1093,20 +1355,25 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param EnableInstanceRequest $request EnableInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - EnableInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableInstanceResponse
      *
-     * @return EnableInstanceResponse EnableInstanceResponse
+     * @param EnableInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return EnableInstanceResponse
      */
     public function enableInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EnableInstance',
@@ -1119,14 +1386,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EnableInstanceRequest $request EnableInstanceRequest
+     * @param request - EnableInstanceRequest
+     * @returns EnableInstanceResponse
      *
-     * @return EnableInstanceResponse EnableInstanceResponse
+     * @param EnableInstanceRequest $request
+     *
+     * @return EnableInstanceResponse
      */
     public function enableInstance($request)
     {
@@ -1136,29 +1409,37 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param EndDialogueRequest $request EndDialogueRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param request - EndDialogueRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EndDialogueResponse
      *
-     * @return EndDialogueResponse EndDialogueResponse
+     * @param EndDialogueRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return EndDialogueResponse
      */
     public function endDialogueWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->conversationId)) {
-            $query['ConversationId'] = $request->conversationId;
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->hangUpParams)) {
-            $query['HangUpParams'] = $request->hangUpParams;
+
+        if (null !== $request->hangUpParams) {
+            @$query['HangUpParams'] = $request->hangUpParams;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $query['InstanceOwnerId'] = $request->instanceOwnerId;
+
+        if (null !== $request->instanceOwnerId) {
+            @$query['InstanceOwnerId'] = $request->instanceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'EndDialogue',
@@ -1171,14 +1452,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EndDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EndDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EndDialogueResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param EndDialogueRequest $request EndDialogueRequest
+     * @param request - EndDialogueRequest
+     * @returns EndDialogueResponse
      *
-     * @return EndDialogueResponse EndDialogueResponse
+     * @param EndDialogueRequest $request
+     *
+     * @return EndDialogueResponse
      */
     public function endDialogue($request)
     {
@@ -1188,41 +1475,53 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ExportConversationDetailsRequest $request ExportConversationDetailsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - ExportConversationDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportConversationDetailsResponse
      *
-     * @return ExportConversationDetailsResponse ExportConversationDetailsResponse
+     * @param ExportConversationDetailsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ExportConversationDetailsResponse
      */
     public function exportConversationDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTimeLeftRange)) {
-            $query['BeginTimeLeftRange'] = $request->beginTimeLeftRange;
+        if (null !== $request->beginTimeLeftRange) {
+            @$query['BeginTimeLeftRange'] = $request->beginTimeLeftRange;
         }
-        if (!Utils::isUnset($request->beginTimeRightRange)) {
-            $query['BeginTimeRightRange'] = $request->beginTimeRightRange;
+
+        if (null !== $request->beginTimeRightRange) {
+            @$query['BeginTimeRightRange'] = $request->beginTimeRightRange;
         }
-        if (!Utils::isUnset($request->callingNumber)) {
-            $query['CallingNumber'] = $request->callingNumber;
+
+        if (null !== $request->callingNumber) {
+            @$query['CallingNumber'] = $request->callingNumber;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->options)) {
-            $query['Options'] = $request->options;
+
+        if (null !== $request->options) {
+            @$query['Options'] = $request->options;
         }
-        if (!Utils::isUnset($request->result)) {
-            $query['Result'] = $request->result;
+
+        if (null !== $request->result) {
+            @$query['Result'] = $request->result;
         }
-        if (!Utils::isUnset($request->roundsLeftRange)) {
-            $query['RoundsLeftRange'] = $request->roundsLeftRange;
+
+        if (null !== $request->roundsLeftRange) {
+            @$query['RoundsLeftRange'] = $request->roundsLeftRange;
         }
-        if (!Utils::isUnset($request->roundsRightRange)) {
-            $query['RoundsRightRange'] = $request->roundsRightRange;
+
+        if (null !== $request->roundsRightRange) {
+            @$query['RoundsRightRange'] = $request->roundsRightRange;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExportConversationDetails',
@@ -1235,14 +1534,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportConversationDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportConversationDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportConversationDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ExportConversationDetailsRequest $request ExportConversationDetailsRequest
+     * @param request - ExportConversationDetailsRequest
+     * @returns ExportConversationDetailsResponse
      *
-     * @return ExportConversationDetailsResponse ExportConversationDetailsResponse
+     * @param ExportConversationDetailsRequest $request
+     *
+     * @return ExportConversationDetailsResponse
      */
     public function exportConversationDetails($request)
     {
@@ -1252,32 +1557,41 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ExportStatisticalDataRequest $request ExportStatisticalDataRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - ExportStatisticalDataRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExportStatisticalDataResponse
      *
-     * @return ExportStatisticalDataResponse ExportStatisticalDataResponse
+     * @param ExportStatisticalDataRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ExportStatisticalDataResponse
      */
     public function exportStatisticalDataWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTimeLeftRange)) {
-            $query['BeginTimeLeftRange'] = $request->beginTimeLeftRange;
+        if (null !== $request->beginTimeLeftRange) {
+            @$query['BeginTimeLeftRange'] = $request->beginTimeLeftRange;
         }
-        if (!Utils::isUnset($request->beginTimeRightRange)) {
-            $query['BeginTimeRightRange'] = $request->beginTimeRightRange;
+
+        if (null !== $request->beginTimeRightRange) {
+            @$query['BeginTimeRightRange'] = $request->beginTimeRightRange;
         }
-        if (!Utils::isUnset($request->exportType)) {
-            $query['ExportType'] = $request->exportType;
+
+        if (null !== $request->exportType) {
+            @$query['ExportType'] = $request->exportType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->timeUnit)) {
-            $query['TimeUnit'] = $request->timeUnit;
+
+        if (null !== $request->timeUnit) {
+            @$query['TimeUnit'] = $request->timeUnit;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExportStatisticalData',
@@ -1290,14 +1604,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExportStatisticalDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExportStatisticalDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExportStatisticalDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ExportStatisticalDataRequest $request ExportStatisticalDataRequest
+     * @param request - ExportStatisticalDataRequest
+     * @returns ExportStatisticalDataResponse
      *
-     * @return ExportStatisticalDataResponse ExportStatisticalDataResponse
+     * @param ExportStatisticalDataRequest $request
+     *
+     * @return ExportStatisticalDataResponse
      */
     public function exportStatisticalData($request)
     {
@@ -1307,89 +1627,117 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param GenerateUploadUrlRequest $request GenerateUploadUrlRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - GenerateUploadUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateUploadUrlResponse
      *
-     * @return GenerateUploadUrlResponse GenerateUploadUrlResponse
+     * @param GenerateUploadUrlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GenerateUploadUrlResponse
      */
     public function generateUploadUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->callerBid)) {
-            $body['CallerBid'] = $request->callerBid;
+        if (null !== $request->callerBid) {
+            @$body['CallerBid'] = $request->callerBid;
         }
-        if (!Utils::isUnset($request->callerIp)) {
-            $body['CallerIp'] = $request->callerIp;
+
+        if (null !== $request->callerIp) {
+            @$body['CallerIp'] = $request->callerIp;
         }
-        if (!Utils::isUnset($request->callerParentId)) {
-            $body['CallerParentId'] = $request->callerParentId;
+
+        if (null !== $request->callerParentId) {
+            @$body['CallerParentId'] = $request->callerParentId;
         }
-        if (!Utils::isUnset($request->callerType)) {
-            $body['CallerType'] = $request->callerType;
+
+        if (null !== $request->callerType) {
+            @$body['CallerType'] = $request->callerType;
         }
-        if (!Utils::isUnset($request->callerUid)) {
-            $body['CallerUid'] = $request->callerUid;
+
+        if (null !== $request->callerUid) {
+            @$body['CallerUid'] = $request->callerUid;
         }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
+
+        if (null !== $request->clientIp) {
+            @$body['ClientIp'] = $request->clientIp;
         }
-        if (!Utils::isUnset($request->environment)) {
-            $body['Environment'] = $request->environment;
+
+        if (null !== $request->environment) {
+            @$body['Environment'] = $request->environment;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $body['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$body['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $body['InstanceOwnerId'] = $request->instanceOwnerId;
+
+        if (null !== $request->instanceOwnerId) {
+            @$body['InstanceOwnerId'] = $request->instanceOwnerId;
         }
-        if (!Utils::isUnset($request->key)) {
-            $body['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$body['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->mfaPresent)) {
-            $body['MfaPresent'] = $request->mfaPresent;
+
+        if (null !== $request->mfaPresent) {
+            @$body['MfaPresent'] = $request->mfaPresent;
         }
-        if (!Utils::isUnset($request->proxyOriginalSecurityTransport)) {
-            $body['ProxyOriginalSecurityTransport'] = $request->proxyOriginalSecurityTransport;
+
+        if (null !== $request->proxyOriginalSecurityTransport) {
+            @$body['ProxyOriginalSecurityTransport'] = $request->proxyOriginalSecurityTransport;
         }
-        if (!Utils::isUnset($request->proxyOriginalSourceIp)) {
-            $body['ProxyOriginalSourceIp'] = $request->proxyOriginalSourceIp;
+
+        if (null !== $request->proxyOriginalSourceIp) {
+            @$body['ProxyOriginalSourceIp'] = $request->proxyOriginalSourceIp;
         }
-        if (!Utils::isUnset($request->proxyTrustTransportInfo)) {
-            $body['ProxyTrustTransportInfo'] = $request->proxyTrustTransportInfo;
+
+        if (null !== $request->proxyTrustTransportInfo) {
+            @$body['ProxyTrustTransportInfo'] = $request->proxyTrustTransportInfo;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $body['RequestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$body['RequestId'] = $request->requestId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $body['SecurityToken'] = $request->securityToken;
+
+        if (null !== $request->securityToken) {
+            @$body['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->securityTransport)) {
-            $body['SecurityTransport'] = $request->securityTransport;
+
+        if (null !== $request->securityTransport) {
+            @$body['SecurityTransport'] = $request->securityTransport;
         }
-        if (!Utils::isUnset($request->tenantId)) {
-            $body['TenantId'] = $request->tenantId;
+
+        if (null !== $request->tenantId) {
+            @$body['TenantId'] = $request->tenantId;
         }
-        if (!Utils::isUnset($request->tenantName)) {
-            $body['TenantName'] = $request->tenantName;
+
+        if (null !== $request->tenantName) {
+            @$body['TenantName'] = $request->tenantName;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['UserId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['UserId'] = $request->userId;
         }
-        if (!Utils::isUnset($request->userName)) {
-            $body['UserName'] = $request->userName;
+
+        if (null !== $request->userName) {
+            @$body['UserName'] = $request->userName;
         }
-        if (!Utils::isUnset($request->xspaceServicerId)) {
-            $body['XspaceServicerId'] = $request->xspaceServicerId;
+
+        if (null !== $request->xspaceServicerId) {
+            @$body['XspaceServicerId'] = $request->xspaceServicerId;
         }
-        if (!Utils::isUnset($request->xspaceTenantBuId)) {
-            $body['XspaceTenantBuId'] = $request->xspaceTenantBuId;
+
+        if (null !== $request->xspaceTenantBuId) {
+            @$body['XspaceTenantBuId'] = $request->xspaceTenantBuId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GenerateUploadUrl',
@@ -1402,14 +1750,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateUploadUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GenerateUploadUrlRequest $request GenerateUploadUrlRequest
+     * @param request - GenerateUploadUrlRequest
+     * @returns GenerateUploadUrlResponse
      *
-     * @return GenerateUploadUrlResponse GenerateUploadUrlResponse
+     * @param GenerateUploadUrlRequest $request
+     *
+     * @return GenerateUploadUrlResponse
      */
     public function generateUploadUrl($request)
     {
@@ -1419,23 +1773,29 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param GetAsrConfigRequest $request GetAsrConfigRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param request - GetAsrConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAsrConfigResponse
      *
-     * @return GetAsrConfigResponse GetAsrConfigResponse
+     * @param GetAsrConfigRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAsrConfigResponse
      */
     public function getAsrConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->configLevel)) {
-            $query['ConfigLevel'] = $request->configLevel;
+        if (null !== $request->configLevel) {
+            @$query['ConfigLevel'] = $request->configLevel;
         }
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAsrConfig',
@@ -1448,14 +1808,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAsrConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAsrConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAsrConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetAsrConfigRequest $request GetAsrConfigRequest
+     * @param request - GetAsrConfigRequest
+     * @returns GetAsrConfigResponse
      *
-     * @return GetAsrConfigResponse GetAsrConfigResponse
+     * @param GetAsrConfigRequest $request
+     *
+     * @return GetAsrConfigResponse
      */
     public function getAsrConfig($request)
     {
@@ -1465,17 +1831,23 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param GetRealTimeConcurrencyRequest $request GetRealTimeConcurrencyRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * GetRealTimeConcurrency.
      *
-     * @return GetRealTimeConcurrencyResponse GetRealTimeConcurrencyResponse
+     * @param request - GetRealTimeConcurrencyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRealTimeConcurrencyResponse
+     *
+     * @param GetRealTimeConcurrencyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetRealTimeConcurrencyResponse
      */
     public function getRealTimeConcurrencyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRealTimeConcurrency',
@@ -1488,14 +1860,22 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRealTimeConcurrencyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRealTimeConcurrencyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRealTimeConcurrencyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param GetRealTimeConcurrencyRequest $request GetRealTimeConcurrencyRequest
+     * GetRealTimeConcurrency.
      *
-     * @return GetRealTimeConcurrencyResponse GetRealTimeConcurrencyResponse
+     * @param request - GetRealTimeConcurrencyRequest
+     * @returns GetRealTimeConcurrencyResponse
+     *
+     * @param GetRealTimeConcurrencyRequest $request
+     *
+     * @return GetRealTimeConcurrencyResponse
      */
     public function getRealTimeConcurrency($request)
     {
@@ -1505,17 +1885,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListChatbotInstancesRequest $request ListChatbotInstancesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - ListChatbotInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListChatbotInstancesResponse
      *
-     * @return ListChatbotInstancesResponse ListChatbotInstancesResponse
+     * @param ListChatbotInstancesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListChatbotInstancesResponse
      */
     public function listChatbotInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListChatbotInstances',
@@ -1528,14 +1912,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChatbotInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChatbotInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChatbotInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListChatbotInstancesRequest $request ListChatbotInstancesRequest
+     * @param request - ListChatbotInstancesRequest
+     * @returns ListChatbotInstancesResponse
      *
-     * @return ListChatbotInstancesResponse ListChatbotInstancesResponse
+     * @param ListChatbotInstancesRequest $request
+     *
+     * @return ListChatbotInstancesResponse
      */
     public function listChatbotInstances($request)
     {
@@ -1545,17 +1935,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListConversationDetailsRequest $request ListConversationDetailsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param request - ListConversationDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListConversationDetailsResponse
      *
-     * @return ListConversationDetailsResponse ListConversationDetailsResponse
+     * @param ListConversationDetailsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListConversationDetailsResponse
      */
     public function listConversationDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListConversationDetails',
@@ -1568,14 +1962,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListConversationDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListConversationDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListConversationDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListConversationDetailsRequest $request ListConversationDetailsRequest
+     * @param request - ListConversationDetailsRequest
+     * @returns ListConversationDetailsResponse
      *
-     * @return ListConversationDetailsResponse ListConversationDetailsResponse
+     * @param ListConversationDetailsRequest $request
+     *
+     * @return ListConversationDetailsResponse
      */
     public function listConversationDetails($request)
     {
@@ -1585,17 +1985,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListConversationsRequest $request ListConversationsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - ListConversationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListConversationsResponse
      *
-     * @return ListConversationsResponse ListConversationsResponse
+     * @param ListConversationsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListConversationsResponse
      */
     public function listConversationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListConversations',
@@ -1608,14 +2012,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListConversationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListConversationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListConversationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListConversationsRequest $request ListConversationsRequest
+     * @param request - ListConversationsRequest
+     * @returns ListConversationsResponse
      *
-     * @return ListConversationsResponse ListConversationsResponse
+     * @param ListConversationsRequest $request
+     *
+     * @return ListConversationsResponse
      */
     public function listConversations($request)
     {
@@ -1625,37 +2035,59 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListDownloadTasksRequest $request ListDownloadTasksRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 下载列表.
      *
-     * @return ListDownloadTasksResponse ListDownloadTasksResponse
+     * @param request - ListDownloadTasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDownloadTasksResponse
+     *
+     * @param ListDownloadTasksRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDownloadTasksResponse
      */
     public function listDownloadTasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = [];
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDownloadTasks',
             'version'     => '2018-06-12',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDownloadTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDownloadTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDownloadTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListDownloadTasksRequest $request ListDownloadTasksRequest
+     * 下载列表.
      *
-     * @return ListDownloadTasksResponse ListDownloadTasksResponse
+     * @param request - ListDownloadTasksRequest
+     * @returns ListDownloadTasksResponse
+     *
+     * @param ListDownloadTasksRequest $request
+     *
+     * @return ListDownloadTasksResponse
      */
     public function listDownloadTasks($request)
     {
@@ -1665,17 +2097,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request ListInstancesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - ListInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesResponse
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param ListInstancesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListInstancesResponse
      */
     public function listInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListInstances',
@@ -1688,14 +2124,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ListInstancesRequest $request ListInstancesRequest
+     * @param request - ListInstancesRequest
+     * @returns ListInstancesResponse
      *
-     * @return ListInstancesResponse ListInstancesResponse
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -1705,38 +2147,49 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyAsrConfigRequest $request ModifyAsrConfigRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyAsrConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyAsrConfigResponse
      *
-     * @return ModifyAsrConfigResponse ModifyAsrConfigResponse
+     * @param ModifyAsrConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyAsrConfigResponse
      */
     public function modifyAsrConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->asrAcousticModelId)) {
-            $query['AsrAcousticModelId'] = $request->asrAcousticModelId;
+        if (null !== $request->asrAcousticModelId) {
+            @$query['AsrAcousticModelId'] = $request->asrAcousticModelId;
         }
-        if (!Utils::isUnset($request->asrClassVocabularyId)) {
-            $query['AsrClassVocabularyId'] = $request->asrClassVocabularyId;
+
+        if (null !== $request->asrClassVocabularyId) {
+            @$query['AsrClassVocabularyId'] = $request->asrClassVocabularyId;
         }
-        if (!Utils::isUnset($request->asrCustomizationId)) {
-            $query['AsrCustomizationId'] = $request->asrCustomizationId;
+
+        if (null !== $request->asrCustomizationId) {
+            @$query['AsrCustomizationId'] = $request->asrCustomizationId;
         }
-        if (!Utils::isUnset($request->asrVocabularyId)) {
-            $query['AsrVocabularyId'] = $request->asrVocabularyId;
+
+        if (null !== $request->asrVocabularyId) {
+            @$query['AsrVocabularyId'] = $request->asrVocabularyId;
         }
-        if (!Utils::isUnset($request->configLevel)) {
-            $query['ConfigLevel'] = $request->configLevel;
+
+        if (null !== $request->configLevel) {
+            @$query['ConfigLevel'] = $request->configLevel;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->entryId)) {
-            $query['EntryId'] = $request->entryId;
+
+        if (null !== $request->entryId) {
+            @$query['EntryId'] = $request->entryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyAsrConfig',
@@ -1749,14 +2202,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyAsrConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAsrConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAsrConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyAsrConfigRequest $request ModifyAsrConfigRequest
+     * @param request - ModifyAsrConfigRequest
+     * @returns ModifyAsrConfigResponse
      *
-     * @return ModifyAsrConfigResponse ModifyAsrConfigResponse
+     * @param ModifyAsrConfigRequest $request
+     *
+     * @return ModifyAsrConfigResponse
      */
     public function modifyAsrConfig($request)
     {
@@ -1766,29 +2225,37 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyGreetingConfigRequest $request ModifyGreetingConfigRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyGreetingConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyGreetingConfigResponse
      *
-     * @return ModifyGreetingConfigResponse ModifyGreetingConfigResponse
+     * @param ModifyGreetingConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyGreetingConfigResponse
      */
     public function modifyGreetingConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->greetingWords)) {
-            $query['GreetingWords'] = $request->greetingWords;
+        if (null !== $request->greetingWords) {
+            @$query['GreetingWords'] = $request->greetingWords;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentTrigger)) {
-            $query['IntentTrigger'] = $request->intentTrigger;
+
+        if (null !== $request->intentTrigger) {
+            @$query['IntentTrigger'] = $request->intentTrigger;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyGreetingConfig',
@@ -1801,14 +2268,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyGreetingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyGreetingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyGreetingConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyGreetingConfigRequest $request ModifyGreetingConfigRequest
+     * @param request - ModifyGreetingConfigRequest
+     * @returns ModifyGreetingConfigResponse
      *
-     * @return ModifyGreetingConfigResponse ModifyGreetingConfigResponse
+     * @param ModifyGreetingConfigRequest $request
+     *
+     * @return ModifyGreetingConfigResponse
      */
     public function modifyGreetingConfig($request)
     {
@@ -1818,29 +2291,37 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceRequest $request ModifyInstanceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyInstanceResponse
      *
-     * @return ModifyInstanceResponse ModifyInstanceResponse
+     * @param ModifyInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ModifyInstanceResponse
      */
     public function modifyInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->concurrency)) {
-            $query['Concurrency'] = $request->concurrency;
+        if (null !== $request->concurrency) {
+            @$query['Concurrency'] = $request->concurrency;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyInstance',
@@ -1853,14 +2334,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyInstanceRequest $request ModifyInstanceRequest
+     * @param request - ModifyInstanceRequest
+     * @returns ModifyInstanceResponse
      *
-     * @return ModifyInstanceResponse ModifyInstanceResponse
+     * @param ModifyInstanceRequest $request
+     *
+     * @return ModifyInstanceResponse
      */
     public function modifyInstance($request)
     {
@@ -1870,44 +2357,57 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifySilenceTimeoutConfigRequest $request ModifySilenceTimeoutConfigRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifySilenceTimeoutConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifySilenceTimeoutConfigResponse
      *
-     * @return ModifySilenceTimeoutConfigResponse ModifySilenceTimeoutConfigResponse
+     * @param ModifySilenceTimeoutConfigRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifySilenceTimeoutConfigResponse
      */
     public function modifySilenceTimeoutConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->finalAction)) {
-            $query['FinalAction'] = $request->finalAction;
+        if (null !== $request->finalAction) {
+            @$query['FinalAction'] = $request->finalAction;
         }
-        if (!Utils::isUnset($request->finalActionParams)) {
-            $query['FinalActionParams'] = $request->finalActionParams;
+
+        if (null !== $request->finalActionParams) {
+            @$query['FinalActionParams'] = $request->finalActionParams;
         }
-        if (!Utils::isUnset($request->finalPrompt)) {
-            $query['FinalPrompt'] = $request->finalPrompt;
+
+        if (null !== $request->finalPrompt) {
+            @$query['FinalPrompt'] = $request->finalPrompt;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->intentTrigger)) {
-            $query['IntentTrigger'] = $request->intentTrigger;
+
+        if (null !== $request->intentTrigger) {
+            @$query['IntentTrigger'] = $request->intentTrigger;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $query['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['SourceType'] = $request->sourceType;
         }
-        if (!Utils::isUnset($request->threshold)) {
-            $query['Threshold'] = $request->threshold;
+
+        if (null !== $request->threshold) {
+            @$query['Threshold'] = $request->threshold;
         }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
+
+        if (null !== $request->timeout) {
+            @$query['Timeout'] = $request->timeout;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifySilenceTimeoutConfig',
@@ -1920,14 +2420,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifySilenceTimeoutConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifySilenceTimeoutConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifySilenceTimeoutConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifySilenceTimeoutConfigRequest $request ModifySilenceTimeoutConfigRequest
+     * @param request - ModifySilenceTimeoutConfigRequest
+     * @returns ModifySilenceTimeoutConfigResponse
      *
-     * @return ModifySilenceTimeoutConfigResponse ModifySilenceTimeoutConfigResponse
+     * @param ModifySilenceTimeoutConfigRequest $request
+     *
+     * @return ModifySilenceTimeoutConfigResponse
      */
     public function modifySilenceTimeoutConfig($request)
     {
@@ -1937,44 +2443,59 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyTTSConfigRequest $request ModifyTTSConfigRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 修改TTS配置.
      *
-     * @return ModifyTTSConfigResponse ModifyTTSConfigResponse
+     * @param request - ModifyTTSConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyTTSConfigResponse
+     *
+     * @param ModifyTTSConfigRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyTTSConfigResponse
      */
     public function modifyTTSConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliCustomizedVoice)) {
-            $query['AliCustomizedVoice'] = $request->aliCustomizedVoice;
+        if (null !== $request->aliCustomizedVoice) {
+            @$query['AliCustomizedVoice'] = $request->aliCustomizedVoice;
         }
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
+
+        if (null !== $request->appKey) {
+            @$query['AppKey'] = $request->appKey;
         }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
+
+        if (null !== $request->engine) {
+            @$query['Engine'] = $request->engine;
         }
-        if (!Utils::isUnset($request->engineXunfei)) {
-            $query['EngineXunfei'] = $request->engineXunfei;
+
+        if (null !== $request->engineXunfei) {
+            @$query['EngineXunfei'] = $request->engineXunfei;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nlsServiceType)) {
-            $query['NlsServiceType'] = $request->nlsServiceType;
+
+        if (null !== $request->nlsServiceType) {
+            @$query['NlsServiceType'] = $request->nlsServiceType;
         }
-        if (!Utils::isUnset($request->speechRate)) {
-            $query['SpeechRate'] = $request->speechRate;
+
+        if (null !== $request->speechRate) {
+            @$query['SpeechRate'] = $request->speechRate;
         }
-        if (!Utils::isUnset($request->voice)) {
-            $query['Voice'] = $request->voice;
+
+        if (null !== $request->voice) {
+            @$query['Voice'] = $request->voice;
         }
-        if (!Utils::isUnset($request->volume)) {
-            $query['Volume'] = $request->volume;
+
+        if (null !== $request->volume) {
+            @$query['Volume'] = $request->volume;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyTTSConfig',
@@ -1987,14 +2508,22 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyTTSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyTTSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyTTSConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyTTSConfigRequest $request ModifyTTSConfigRequest
+     * 修改TTS配置.
      *
-     * @return ModifyTTSConfigResponse ModifyTTSConfigResponse
+     * @param request - ModifyTTSConfigRequest
+     * @returns ModifyTTSConfigResponse
+     *
+     * @param ModifyTTSConfigRequest $request
+     *
+     * @return ModifyTTSConfigResponse
      */
     public function modifyTTSConfig($request)
     {
@@ -2004,35 +2533,45 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param ModifyUnrecognizingConfigRequest $request ModifyUnrecognizingConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param request - ModifyUnrecognizingConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyUnrecognizingConfigResponse
      *
-     * @return ModifyUnrecognizingConfigResponse ModifyUnrecognizingConfigResponse
+     * @param ModifyUnrecognizingConfigRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ModifyUnrecognizingConfigResponse
      */
     public function modifyUnrecognizingConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->finalAction)) {
-            $query['FinalAction'] = $request->finalAction;
+        if (null !== $request->finalAction) {
+            @$query['FinalAction'] = $request->finalAction;
         }
-        if (!Utils::isUnset($request->finalActionParams)) {
-            $query['FinalActionParams'] = $request->finalActionParams;
+
+        if (null !== $request->finalActionParams) {
+            @$query['FinalActionParams'] = $request->finalActionParams;
         }
-        if (!Utils::isUnset($request->finalPrompt)) {
-            $query['FinalPrompt'] = $request->finalPrompt;
+
+        if (null !== $request->finalPrompt) {
+            @$query['FinalPrompt'] = $request->finalPrompt;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->prompt)) {
-            $query['Prompt'] = $request->prompt;
+
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->threshold)) {
-            $query['Threshold'] = $request->threshold;
+
+        if (null !== $request->threshold) {
+            @$query['Threshold'] = $request->threshold;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyUnrecognizingConfig',
@@ -2045,14 +2584,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyUnrecognizingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyUnrecognizingConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyUnrecognizingConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyUnrecognizingConfigRequest $request ModifyUnrecognizingConfigRequest
+     * @param request - ModifyUnrecognizingConfigRequest
+     * @returns ModifyUnrecognizingConfigResponse
      *
-     * @return ModifyUnrecognizingConfigResponse ModifyUnrecognizingConfigResponse
+     * @param ModifyUnrecognizingConfigRequest $request
+     *
+     * @return ModifyUnrecognizingConfigResponse
      */
     public function modifyUnrecognizingConfig($request)
     {
@@ -2062,17 +2607,21 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param QueryConversationsRequest $request QueryConversationsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param request - QueryConversationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryConversationsResponse
      *
-     * @return QueryConversationsResponse QueryConversationsResponse
+     * @param QueryConversationsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryConversationsResponse
      */
     public function queryConversationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryConversations',
@@ -2085,14 +2634,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryConversationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryConversationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryConversationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param QueryConversationsRequest $request QueryConversationsRequest
+     * @param request - QueryConversationsRequest
+     * @returns QueryConversationsResponse
      *
-     * @return QueryConversationsResponse QueryConversationsResponse
+     * @param QueryConversationsRequest $request
+     *
+     * @return QueryConversationsResponse
      */
     public function queryConversations($request)
     {
@@ -2102,44 +2657,57 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param SaveRecordingRequest $request SaveRecordingRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param request - SaveRecordingRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SaveRecordingResponse
      *
-     * @return SaveRecordingResponse SaveRecordingResponse
+     * @param SaveRecordingRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SaveRecordingResponse
      */
     public function saveRecordingWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->conversationId)) {
-            $query['ConversationId'] = $request->conversationId;
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->duration)) {
-            $query['Duration'] = $request->duration;
+
+        if (null !== $request->duration) {
+            @$query['Duration'] = $request->duration;
         }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
+
+        if (null !== $request->fileName) {
+            @$query['FileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->filePath)) {
-            $query['FilePath'] = $request->filePath;
+
+        if (null !== $request->filePath) {
+            @$query['FilePath'] = $request->filePath;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $query['InstanceOwnerId'] = $request->instanceOwnerId;
+
+        if (null !== $request->instanceOwnerId) {
+            @$query['InstanceOwnerId'] = $request->instanceOwnerId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->voiceSliceRecordingList)) {
-            $query['VoiceSliceRecordingList'] = $request->voiceSliceRecordingList;
+
+        if (null !== $request->voiceSliceRecordingList) {
+            @$query['VoiceSliceRecordingList'] = $request->voiceSliceRecordingList;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SaveRecording',
@@ -2152,14 +2720,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SaveRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SaveRecordingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SaveRecordingResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SaveRecordingRequest $request SaveRecordingRequest
+     * @param request - SaveRecordingRequest
+     * @returns SaveRecordingResponse
      *
-     * @return SaveRecordingResponse SaveRecordingResponse
+     * @param SaveRecordingRequest $request
+     *
+     * @return SaveRecordingResponse
      */
     public function saveRecording($request)
     {
@@ -2169,29 +2743,37 @@ class VoiceNavigator extends OpenApiClient
     }
 
     /**
-     * @param SilenceTimeoutRequest $request SilenceTimeoutRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param request - SilenceTimeoutRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SilenceTimeoutResponse
      *
-     * @return SilenceTimeoutResponse SilenceTimeoutResponse
+     * @param SilenceTimeoutRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SilenceTimeoutResponse
      */
     public function silenceTimeoutWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->conversationId)) {
-            $query['ConversationId'] = $request->conversationId;
+        if (null !== $request->conversationId) {
+            @$query['ConversationId'] = $request->conversationId;
         }
-        if (!Utils::isUnset($request->initialContext)) {
-            $query['InitialContext'] = $request->initialContext;
+
+        if (null !== $request->initialContext) {
+            @$query['InitialContext'] = $request->initialContext;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceOwnerId)) {
-            $query['InstanceOwnerId'] = $request->instanceOwnerId;
+
+        if (null !== $request->instanceOwnerId) {
+            @$query['InstanceOwnerId'] = $request->instanceOwnerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SilenceTimeout',
@@ -2204,14 +2786,20 @@ class VoiceNavigator extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SilenceTimeoutResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SilenceTimeoutResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SilenceTimeoutResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param SilenceTimeoutRequest $request SilenceTimeoutRequest
+     * @param request - SilenceTimeoutRequest
+     * @returns SilenceTimeoutResponse
      *
-     * @return SilenceTimeoutResponse SilenceTimeoutResponse
+     * @param SilenceTimeoutRequest $request
+     *
+     * @return SilenceTimeoutResponse
      */
     public function silenceTimeout($request)
     {

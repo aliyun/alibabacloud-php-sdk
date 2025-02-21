@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstancesRequest extends Model
 {
@@ -12,52 +12,34 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $instanceIdListJsonString;
-
     /**
      * @var string
      */
     public $name;
-
     /**
-     * @example [Managed]
-     *
      * @var string
      */
     public $nluServiceTypeListJsonString;
-
     /**
      * @var string
      */
     public $number;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
      * @var string
      */
     public $status;
-
     /**
      * @var string
      */
     public $unionInstanceId;
-
     /**
      * @var string
      */
@@ -76,35 +58,44 @@ class ListInstancesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIdListJsonString) {
             $res['InstanceIdListJsonString'] = $this->instanceIdListJsonString;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->nluServiceTypeListJsonString) {
             $res['NluServiceTypeListJsonString'] = $this->nluServiceTypeListJsonString;
         }
+
         if (null !== $this->number) {
             $res['Number'] = $this->number;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->unionInstanceId) {
             $res['UnionInstanceId'] = $this->unionInstanceId;
         }
+
         if (null !== $this->unionSource) {
             $res['UnionSource'] = $this->unionSource;
         }
@@ -112,38 +103,46 @@ class ListInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIdListJsonString'])) {
             $model->instanceIdListJsonString = $map['InstanceIdListJsonString'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NluServiceTypeListJsonString'])) {
             $model->nluServiceTypeListJsonString = $map['NluServiceTypeListJsonString'];
         }
+
         if (isset($map['Number'])) {
             $model->number = $map['Number'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['UnionInstanceId'])) {
             $model->unionInstanceId = $map['UnionInstanceId'];
         }
+
         if (isset($map['UnionSource'])) {
             $model->unionSource = $map['UnionSource'];
         }

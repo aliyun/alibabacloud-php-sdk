@@ -4,38 +4,23 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DebugDialogueRequest extends Model
 {
     /**
-     * @example {}
-     *
      * @var string
      */
     public $additionalContext;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 7cefbff0-8d50-4d6f-b93c-73cee23c1555
-     *
      * @var string
      */
     public $conversationId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example abb4aa26-3a8e-43dd-82f8-0c3898c9c67f
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $utterance;
@@ -48,20 +33,24 @@ class DebugDialogueRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalContext) {
             $res['AdditionalContext'] = $this->additionalContext;
         }
+
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->utterance) {
             $res['Utterance'] = $this->utterance;
         }
@@ -69,23 +58,26 @@ class DebugDialogueRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DebugDialogueRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdditionalContext'])) {
             $model->additionalContext = $map['AdditionalContext'];
         }
+
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Utterance'])) {
             $model->utterance = $map['Utterance'];
         }

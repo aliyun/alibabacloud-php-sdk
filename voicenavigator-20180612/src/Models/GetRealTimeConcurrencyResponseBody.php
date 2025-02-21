@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRealTimeConcurrencyResponseBody extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $maxConcurrency;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $realTimeConcurrency;
-
     /**
-     * @example E6E61E1A-D2DC-5ACF-AED4-A115B6691F98
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @example 1661584255029
-     *
      * @var int
      */
     public $timestamp;
@@ -44,20 +33,24 @@ class GetRealTimeConcurrencyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxConcurrency) {
             $res['MaxConcurrency'] = $this->maxConcurrency;
         }
+
         if (null !== $this->realTimeConcurrency) {
             $res['RealTimeConcurrency'] = $this->realTimeConcurrency;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->timestamp) {
             $res['Timestamp'] = $this->timestamp;
         }
@@ -65,23 +58,26 @@ class GetRealTimeConcurrencyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRealTimeConcurrencyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxConcurrency'])) {
             $model->maxConcurrency = $map['MaxConcurrency'];
         }
+
         if (isset($map['RealTimeConcurrency'])) {
             $model->realTimeConcurrency = $map['RealTimeConcurrency'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Timestamp'])) {
             $model->timestamp = $map['Timestamp'];
         }

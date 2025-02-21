@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTTSConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example dc437bba-5a25-4bbc-b4c2-f268864bebb5
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @example 1971226538081821
-     *
      * @var int
      */
     public $instanceOwnerId;
@@ -30,14 +23,16 @@ class DescribeTTSConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceOwnerId) {
             $res['InstanceOwnerId'] = $this->instanceOwnerId;
         }
@@ -45,17 +40,18 @@ class DescribeTTSConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTTSConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceOwnerId'])) {
             $model->instanceOwnerId = $map['InstanceOwnerId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models\GenerateUploadUrlResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -12,37 +12,30 @@ class data extends Model
      * @var string
      */
     public $accessId;
-
     /**
      * @var int
      */
     public $expire;
-
     /**
      * @var string
      */
     public $folder;
-
     /**
      * @var string
      */
     public $host;
-
     /**
      * @var string
      */
     public $message;
-
     /**
      * @var string
      */
     public $policy;
-
     /**
      * @var string
      */
     public $signature;
-
     /**
      * @var bool
      */
@@ -60,32 +53,40 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessId) {
             $res['AccessId'] = $this->accessId;
         }
+
         if (null !== $this->expire) {
             $res['Expire'] = $this->expire;
         }
+
         if (null !== $this->folder) {
             $res['Folder'] = $this->folder;
         }
+
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->policy) {
             $res['Policy'] = $this->policy;
         }
+
         if (null !== $this->signature) {
             $res['Signature'] = $this->signature;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -93,35 +94,42 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessId'])) {
             $model->accessId = $map['AccessId'];
         }
+
         if (isset($map['Expire'])) {
             $model->expire = $map['Expire'];
         }
+
         if (isset($map['Folder'])) {
             $model->folder = $map['Folder'];
         }
+
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Policy'])) {
             $model->policy = $map['Policy'];
         }
+
         if (isset($map['Signature'])) {
             $model->signature = $map['Signature'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

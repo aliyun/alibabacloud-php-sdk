@@ -4,41 +4,30 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssociateChatbotInstanceRequest extends Model
 {
     /**
-     * @example chatbot-720edd02b66a
-     *
      * @var string
      */
     public $chatbotInstanceId;
-
     /**
      * @var string
      */
     public $chatbotName;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example af81a389-91f0-4157-8d82-720edd02b66a
-     *
      * @var string
      */
     public $instanceId;
-
     /**
      * @var string
      */
     public $nluServiceParamsJson;
-
     /**
      * @var string
      */
     public $nluServiceType;
-
     /**
      * @var string
      */
@@ -54,26 +43,32 @@ class AssociateChatbotInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chatbotInstanceId) {
             $res['ChatbotInstanceId'] = $this->chatbotInstanceId;
         }
+
         if (null !== $this->chatbotName) {
             $res['ChatbotName'] = $this->chatbotName;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->nluServiceParamsJson) {
             $res['NluServiceParamsJson'] = $this->nluServiceParamsJson;
         }
+
         if (null !== $this->nluServiceType) {
             $res['NluServiceType'] = $this->nluServiceType;
         }
+
         if (null !== $this->unionSource) {
             $res['UnionSource'] = $this->unionSource;
         }
@@ -81,29 +76,34 @@ class AssociateChatbotInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssociateChatbotInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChatbotInstanceId'])) {
             $model->chatbotInstanceId = $map['ChatbotInstanceId'];
         }
+
         if (isset($map['ChatbotName'])) {
             $model->chatbotName = $map['ChatbotName'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NluServiceParamsJson'])) {
             $model->nluServiceParamsJson = $map['NluServiceParamsJson'];
         }
+
         if (isset($map['NluServiceType'])) {
             $model->nluServiceType = $map['NluServiceType'];
         }
+
         if (isset($map['UnionSource'])) {
             $model->unionSource = $map['UnionSource'];
         }

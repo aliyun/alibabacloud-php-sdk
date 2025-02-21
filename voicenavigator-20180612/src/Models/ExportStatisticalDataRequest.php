@@ -4,47 +4,27 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportStatisticalDataRequest extends Model
 {
     /**
-     * @example 1582266750353
-     *
      * @var int
      */
     public $beginTimeLeftRange;
-
     /**
-     * @example 1582266750353
-     *
      * @var int
      */
     public $beginTimeRightRange;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example statistical
-     *
      * @var string
      */
     public $exportType;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 29b52d70-d9fe-4fe0-8476-8aaacbcfdc84
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example Hour
-     *
      * @var string
      */
     public $timeUnit;
@@ -58,23 +38,28 @@ class ExportStatisticalDataRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->beginTimeLeftRange) {
             $res['BeginTimeLeftRange'] = $this->beginTimeLeftRange;
         }
+
         if (null !== $this->beginTimeRightRange) {
             $res['BeginTimeRightRange'] = $this->beginTimeRightRange;
         }
+
         if (null !== $this->exportType) {
             $res['ExportType'] = $this->exportType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->timeUnit) {
             $res['TimeUnit'] = $this->timeUnit;
         }
@@ -82,26 +67,30 @@ class ExportStatisticalDataRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportStatisticalDataRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BeginTimeLeftRange'])) {
             $model->beginTimeLeftRange = $map['BeginTimeLeftRange'];
         }
+
         if (isset($map['BeginTimeRightRange'])) {
             $model->beginTimeRightRange = $map['BeginTimeRightRange'];
         }
+
         if (isset($map['ExportType'])) {
             $model->exportType = $map['ExportType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TimeUnit'])) {
             $model->timeUnit = $map['TimeUnit'];
         }

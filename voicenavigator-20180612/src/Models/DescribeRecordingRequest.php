@@ -4,28 +4,18 @@
 
 namespace AlibabaCloud\SDK\VoiceNavigator\V20180612\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRecordingRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example abb4aa26-3a8e-43dd-82f8-0c3898c9c67f
-     *
      * @var string
      */
     public $conversationId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 7cefbff0-8d50-4d6f-b93c-73cee23c1555
-     *
      * @var string
      */
     public $instanceId;
-
     /**
      * @var bool
      */
@@ -38,17 +28,20 @@ class DescribeRecordingRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conversationId) {
             $res['ConversationId'] = $this->conversationId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->needVoiceSliceRecording) {
             $res['NeedVoiceSliceRecording'] = $this->needVoiceSliceRecording;
         }
@@ -56,20 +49,22 @@ class DescribeRecordingRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRecordingRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConversationId'])) {
             $model->conversationId = $map['ConversationId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['NeedVoiceSliceRecording'])) {
             $model->needVoiceSliceRecording = $map['NeedVoiceSliceRecording'];
         }
