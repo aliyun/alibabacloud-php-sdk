@@ -4,70 +4,35 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopDtsJobResponseBody extends Model
 {
     /**
-     * @description The dynamic error code. This parameter will be removed in the future.
-     *
-     * @example 403
-     *
      * @var string
      */
     public $dynamicCode;
-
     /**
-     * @description The dynamic error message, which is used to replace **%s** in the **ErrMessage** parameter.
-     *
-     * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
-     * @example DtsJobId
-     *
      * @var string
      */
     public $dynamicMessage;
-
     /**
-     * @description The error code returned if the call failed.
-     *
-     * @example InternalError
-     *
      * @var string
      */
     public $errCode;
-
     /**
-     * @description The error message returned if the call failed.
-     *
-     * @example The Value of Input Parameter %s is not valid.
-     *
      * @var string
      */
     public $errMessage;
-
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 01B6F25-21E7-4484-99D5-3EF2625C****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the call was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -83,29 +48,36 @@ class StopDtsJobResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dynamicCode) {
             $res['DynamicCode'] = $this->dynamicCode;
         }
+
         if (null !== $this->dynamicMessage) {
             $res['DynamicMessage'] = $this->dynamicMessage;
         }
+
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -113,32 +85,38 @@ class StopDtsJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopDtsJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DynamicCode'])) {
             $model->dynamicCode = $map['DynamicCode'];
         }
+
         if (isset($map['DynamicMessage'])) {
             $model->dynamicMessage = $map['DynamicMessage'];
         }
+
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

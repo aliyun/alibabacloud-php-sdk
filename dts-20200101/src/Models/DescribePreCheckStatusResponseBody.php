@@ -4,176 +4,84 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckStatusResponseBody\analysisJobProgress;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckStatusResponseBody\fullNetCheckJobStatus;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckStatusResponseBody\jobProgress;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckStatusResponseBody\networkDiagnosisResult;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckStatusResponseBody\subDistributedJobStatus;
-use AlibabaCloud\Tea\Model;
 
 class DescribePreCheckStatusResponseBody extends Model
 {
     /**
-     * @description Display list of evaluation tasks
-     *
      * @var analysisJobProgress[]
      */
     public $analysisJobProgress;
-
     /**
-     * @description The task code that indicates the type of the subtask. Valid values:
-     *
-     *   **01**: precheck.
-     *   **02**: schema migration or initial schema synchronization.
-     *   **03**: full data migration or initial full data synchronization.
-     *   **04**: incremental data migration or synchronization.
-     *
-     * @example 01
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description Number of failed evaluation items
-     *
-     * @example 0
-     *
      * @var int
      */
     public $errorAnalysisItem;
-
     /**
-     * @description The total number of subtask failures.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $errorItem;
-
     /**
-     * @description Network-wide inspection results.
-     *
      * @var fullNetCheckJobStatus[]
      */
     public $fullNetCheckJobStatus;
-
     /**
-     * @description The status code that is returned.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @description The ID of the data migration or synchronization task.
-     *
-     * @example b4my3zg929a****
-     *
      * @var string
      */
     public $jobId;
-
     /**
-     * @description The name of the subtask.
-     *
-     * @example dtstest
-     *
      * @var string
      */
     public $jobName;
-
     /**
-     * @description The subtasks and the progress of each subtask.
-     *
      * @var jobProgress[]
      */
     public $jobProgress;
-
     /**
-     * @description Network diagnosis result
-     *
      * @var networkDiagnosisResult
      */
     public $networkDiagnosisResult;
-
     /**
-     * @description The page number. Pages start from page 1. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageRecordCount;
-
     /**
-     * @description The request ID.
-     *
-     * @example C096FA97-B6BA-4575-899D-61E12B59****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The status of the subtask. Valid values:
-     *
-     *   **NotStarted**: The subtask is not started.
-     *   **Suspending**: The subtask is paused.
-     *   **Checking**: The subtask is being checked.
-     *   **Migrating**: The subtask is in progress. Data is being migrated.
-     *   **Failed**: The subtask failed.
-     *   **Catched**: The subtask is in progress. Incremental data is being migrated or synchronized.
-     *   **Finished**: The subtask is complete.
-     *
-     * @example Finished
-     *
      * @var string
      */
     public $state;
-
     /**
-     * @description The information about the distributed subtasks.
-     *
      * @var subDistributedJobStatus[]
      */
     public $subDistributedJobStatus;
-
     /**
-     * @description Indicates whether the request is successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
-
     /**
-     * @description The total number of subtasks.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $total;
-
     /**
-     * @description The total number of entries that are returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalRecordCount;
@@ -200,86 +108,119 @@ class DescribePreCheckStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->analysisJobProgress)) {
+            Model::validateArray($this->analysisJobProgress);
+        }
+        if (\is_array($this->fullNetCheckJobStatus)) {
+            Model::validateArray($this->fullNetCheckJobStatus);
+        }
+        if (\is_array($this->jobProgress)) {
+            Model::validateArray($this->jobProgress);
+        }
+        if (null !== $this->networkDiagnosisResult) {
+            $this->networkDiagnosisResult->validate();
+        }
+        if (\is_array($this->subDistributedJobStatus)) {
+            Model::validateArray($this->subDistributedJobStatus);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analysisJobProgress) {
-            $res['AnalysisJobProgress'] = [];
-            if (null !== $this->analysisJobProgress && \is_array($this->analysisJobProgress)) {
-                $n = 0;
-                foreach ($this->analysisJobProgress as $item) {
-                    $res['AnalysisJobProgress'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->analysisJobProgress)) {
+                $res['AnalysisJobProgress'] = [];
+                $n1                         = 0;
+                foreach ($this->analysisJobProgress as $item1) {
+                    $res['AnalysisJobProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->errorAnalysisItem) {
             $res['ErrorAnalysisItem'] = $this->errorAnalysisItem;
         }
+
         if (null !== $this->errorItem) {
             $res['ErrorItem'] = $this->errorItem;
         }
+
         if (null !== $this->fullNetCheckJobStatus) {
-            $res['FullNetCheckJobStatus'] = [];
-            if (null !== $this->fullNetCheckJobStatus && \is_array($this->fullNetCheckJobStatus)) {
-                $n = 0;
-                foreach ($this->fullNetCheckJobStatus as $item) {
-                    $res['FullNetCheckJobStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fullNetCheckJobStatus)) {
+                $res['FullNetCheckJobStatus'] = [];
+                $n1                           = 0;
+                foreach ($this->fullNetCheckJobStatus as $item1) {
+                    $res['FullNetCheckJobStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
         }
+
         if (null !== $this->jobProgress) {
-            $res['JobProgress'] = [];
-            if (null !== $this->jobProgress && \is_array($this->jobProgress)) {
-                $n = 0;
-                foreach ($this->jobProgress as $item) {
-                    $res['JobProgress'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->jobProgress)) {
+                $res['JobProgress'] = [];
+                $n1                 = 0;
+                foreach ($this->jobProgress as $item1) {
+                    $res['JobProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->networkDiagnosisResult) {
-            $res['NetworkDiagnosisResult'] = null !== $this->networkDiagnosisResult ? $this->networkDiagnosisResult->toMap() : null;
+            $res['NetworkDiagnosisResult'] = null !== $this->networkDiagnosisResult ? $this->networkDiagnosisResult->toArray($noStream) : $this->networkDiagnosisResult;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageRecordCount) {
             $res['PageRecordCount'] = $this->pageRecordCount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->subDistributedJobStatus) {
-            $res['SubDistributedJobStatus'] = [];
-            if (null !== $this->subDistributedJobStatus && \is_array($this->subDistributedJobStatus)) {
-                $n = 0;
-                foreach ($this->subDistributedJobStatus as $item) {
-                    $res['SubDistributedJobStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subDistributedJobStatus)) {
+                $res['SubDistributedJobStatus'] = [];
+                $n1                             = 0;
+                foreach ($this->subDistributedJobStatus as $item1) {
+                    $res['SubDistributedJobStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
+
         if (null !== $this->totalRecordCount) {
             $res['TotalRecordCount'] = $this->totalRecordCount;
         }
@@ -287,89 +228,106 @@ class DescribePreCheckStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePreCheckStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AnalysisJobProgress'])) {
             if (!empty($map['AnalysisJobProgress'])) {
                 $model->analysisJobProgress = [];
-                $n                          = 0;
-                foreach ($map['AnalysisJobProgress'] as $item) {
-                    $model->analysisJobProgress[$n++] = null !== $item ? analysisJobProgress::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['AnalysisJobProgress'] as $item1) {
+                    $model->analysisJobProgress[$n1++] = analysisJobProgress::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ErrorAnalysisItem'])) {
             $model->errorAnalysisItem = $map['ErrorAnalysisItem'];
         }
+
         if (isset($map['ErrorItem'])) {
             $model->errorItem = $map['ErrorItem'];
         }
+
         if (isset($map['FullNetCheckJobStatus'])) {
             if (!empty($map['FullNetCheckJobStatus'])) {
                 $model->fullNetCheckJobStatus = [];
-                $n                            = 0;
-                foreach ($map['FullNetCheckJobStatus'] as $item) {
-                    $model->fullNetCheckJobStatus[$n++] = null !== $item ? fullNetCheckJobStatus::fromMap($item) : $item;
+                $n1                           = 0;
+                foreach ($map['FullNetCheckJobStatus'] as $item1) {
+                    $model->fullNetCheckJobStatus[$n1++] = fullNetCheckJobStatus::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];
         }
+
         if (isset($map['JobProgress'])) {
             if (!empty($map['JobProgress'])) {
                 $model->jobProgress = [];
-                $n                  = 0;
-                foreach ($map['JobProgress'] as $item) {
-                    $model->jobProgress[$n++] = null !== $item ? jobProgress::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['JobProgress'] as $item1) {
+                    $model->jobProgress[$n1++] = jobProgress::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NetworkDiagnosisResult'])) {
             $model->networkDiagnosisResult = networkDiagnosisResult::fromMap($map['NetworkDiagnosisResult']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageRecordCount'])) {
             $model->pageRecordCount = $map['PageRecordCount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['SubDistributedJobStatus'])) {
             if (!empty($map['SubDistributedJobStatus'])) {
                 $model->subDistributedJobStatus = [];
-                $n                              = 0;
-                foreach ($map['SubDistributedJobStatus'] as $item) {
-                    $model->subDistributedJobStatus[$n++] = null !== $item ? subDistributedJobStatus::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['SubDistributedJobStatus'] as $item1) {
+                    $model->subDistributedJobStatus[$n1++] = subDistributedJobStatus::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }
+
         if (isset($map['TotalRecordCount'])) {
             $model->totalRecordCount = $map['TotalRecordCount'];
         }

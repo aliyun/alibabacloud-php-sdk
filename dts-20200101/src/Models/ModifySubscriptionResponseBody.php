@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySubscriptionResponseBody extends Model
 {
     /**
-     * @description The error code returned if the call failed.
-     *
-     * @example InternalError
-     *
      * @var string
      */
     public $errCode;
-
     /**
-     * @description The error message returned if the call failed.
-     *
-     * @example The request processing has failed due to some unknown error.
-     *
      * @var string
      */
     public $errMessage;
-
     /**
-     * @description The HTTP status code.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $httpStatusCode;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 068FA72F-4800-4A54-90BB-94806068****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the call was successful.
-     *
-     * @example true
-     *
      * @var string
      */
     public $success;
@@ -62,23 +38,28 @@ class ModifySubscriptionResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -86,26 +67,30 @@ class ModifySubscriptionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySubscriptionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

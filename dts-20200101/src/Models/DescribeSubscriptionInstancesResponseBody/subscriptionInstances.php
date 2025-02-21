@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSubscriptionInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSubscriptionInstancesResponseBody\subscriptionInstances\subscriptionInstance;
-use AlibabaCloud\Tea\Model;
 
 class subscriptionInstances extends Model
 {
@@ -19,17 +19,21 @@ class subscriptionInstances extends Model
 
     public function validate()
     {
+        if (\is_array($this->subscriptionInstance)) {
+            Model::validateArray($this->subscriptionInstance);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subscriptionInstance) {
-            $res['SubscriptionInstance'] = [];
-            if (null !== $this->subscriptionInstance && \is_array($this->subscriptionInstance)) {
-                $n = 0;
-                foreach ($this->subscriptionInstance as $item) {
-                    $res['SubscriptionInstance'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subscriptionInstance)) {
+                $res['SubscriptionInstance'] = [];
+                $n1                          = 0;
+                foreach ($this->subscriptionInstance as $item1) {
+                    $res['SubscriptionInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class subscriptionInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return subscriptionInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubscriptionInstance'])) {
             if (!empty($map['SubscriptionInstance'])) {
                 $model->subscriptionInstance = [];
-                $n                           = 0;
-                foreach ($map['SubscriptionInstance'] as $item) {
-                    $model->subscriptionInstance[$n++] = null !== $item ? subscriptionInstance::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['SubscriptionInstance'] as $item1) {
+                    $model->subscriptionInstance[$n1++] = subscriptionInstance::fromMap($item1);
                 }
             }
         }

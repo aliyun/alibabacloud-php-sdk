@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartSynchronizationJobResponseBody extends Model
 {
     /**
-     * @description The error code returned if the request failed.
-     *
-     * @example InternalError
-     *
      * @var string
      */
     public $errCode;
-
     /**
-     * @description The error message returned if the request failed.
-     *
-     * @example The request processing has failed due to some unknown error.
-     *
      * @var string
      */
     public $errMessage;
-
     /**
-     * @description The request ID.
-     *
-     * @example FDC111B1-ACBF-457D-9656-247FDEE9****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var string
      */
     public $success;
@@ -55,20 +33,24 @@ class StartSynchronizationJobResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -76,23 +58,26 @@ class StartSynchronizationJobResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartSynchronizationJobResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationJobsResponseBody\synchronizationInstances\synchronizationObjects;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableExcludes extends Model
 {
     /**
-     * @description The name of the excluded table.
-     *
-     * @example order
-     *
      * @var string
      */
     public $tableName;
@@ -22,9 +18,10 @@ class tableExcludes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tableName) {
@@ -34,11 +31,11 @@ class tableExcludes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableExcludes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

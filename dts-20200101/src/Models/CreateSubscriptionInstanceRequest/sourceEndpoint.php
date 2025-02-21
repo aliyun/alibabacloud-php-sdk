@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\CreateSubscriptionInstanceRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceEndpoint extends Model
 {
     /**
-     * @description The type of the source instance. Valid values: **MySQL**, **PolarDB**, **DRDS**, and **Oracle**.
-     *
-     * >  Default value: **MySQL**.
-     * @example MySQL
-     *
      * @var string
      */
     public $instanceType;
@@ -23,9 +18,10 @@ class sourceEndpoint extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
@@ -35,11 +31,11 @@ class sourceEndpoint extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceEndpoint
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

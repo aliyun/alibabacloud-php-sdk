@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationJobStatusListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSynchronizationJobStatusListResponseBody\synchronizationJobListStatusList\synchronizationDirectionInfoList;
-use AlibabaCloud\Tea\Model;
 
 class synchronizationJobListStatusList extends Model
 {
     /**
-     * @description The details of data synchronization tasks in each direction.
-     *
      * @var synchronizationDirectionInfoList[]
      */
     public $synchronizationDirectionInfoList;
-
     /**
-     * @description The ID of the data synchronization instance.
-     *
-     * @example dtsexjk1alb116****
-     *
      * @var string
      */
     public $synchronizationJobId;
@@ -31,20 +24,25 @@ class synchronizationJobListStatusList extends Model
 
     public function validate()
     {
+        if (\is_array($this->synchronizationDirectionInfoList)) {
+            Model::validateArray($this->synchronizationDirectionInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->synchronizationDirectionInfoList) {
-            $res['SynchronizationDirectionInfoList'] = [];
-            if (null !== $this->synchronizationDirectionInfoList && \is_array($this->synchronizationDirectionInfoList)) {
-                $n = 0;
-                foreach ($this->synchronizationDirectionInfoList as $item) {
-                    $res['SynchronizationDirectionInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->synchronizationDirectionInfoList)) {
+                $res['SynchronizationDirectionInfoList'] = [];
+                $n1                                      = 0;
+                foreach ($this->synchronizationDirectionInfoList as $item1) {
+                    $res['SynchronizationDirectionInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->synchronizationJobId) {
             $res['SynchronizationJobId'] = $this->synchronizationJobId;
         }
@@ -52,23 +50,24 @@ class synchronizationJobListStatusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return synchronizationJobListStatusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SynchronizationDirectionInfoList'])) {
             if (!empty($map['SynchronizationDirectionInfoList'])) {
                 $model->synchronizationDirectionInfoList = [];
-                $n                                       = 0;
-                foreach ($map['SynchronizationDirectionInfoList'] as $item) {
-                    $model->synchronizationDirectionInfoList[$n++] = null !== $item ? synchronizationDirectionInfoList::fromMap($item) : $item;
+                $n1                                      = 0;
+                foreach ($map['SynchronizationDirectionInfoList'] as $item1) {
+                    $model->synchronizationDirectionInfoList[$n1++] = synchronizationDirectionInfoList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SynchronizationJobId'])) {
             $model->synchronizationJobId = $map['SynchronizationJobId'];
         }

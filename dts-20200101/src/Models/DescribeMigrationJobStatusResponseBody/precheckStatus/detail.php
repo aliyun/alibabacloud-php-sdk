@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobStatusResponseBody\precheckStatus;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobStatusResponseBody\precheckStatus\detail\checkItem;
-use AlibabaCloud\Tea\Model;
 
 class detail extends Model
 {
@@ -19,17 +19,21 @@ class detail extends Model
 
     public function validate()
     {
+        if (\is_array($this->checkItem)) {
+            Model::validateArray($this->checkItem);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkItem) {
-            $res['CheckItem'] = [];
-            if (null !== $this->checkItem && \is_array($this->checkItem)) {
-                $n = 0;
-                foreach ($this->checkItem as $item) {
-                    $res['CheckItem'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->checkItem)) {
+                $res['CheckItem'] = [];
+                $n1               = 0;
+                foreach ($this->checkItem as $item1) {
+                    $res['CheckItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class detail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return detail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckItem'])) {
             if (!empty($map['CheckItem'])) {
                 $model->checkItem = [];
-                $n                = 0;
-                foreach ($map['CheckItem'] as $item) {
-                    $model->checkItem[$n++] = null !== $item ? checkItem::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['CheckItem'] as $item1) {
+                    $model->checkItem[$n1++] = checkItem::fromMap($item1);
                 }
             }
         }

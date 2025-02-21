@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsJobsResponseBody\etlDemoList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class migrationMode extends Model
 {
     /**
-     * @description Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-     *
-     * - **true**
-     * - **false**
-     * @example true
-     *
      * @var bool
      */
     public $dataInitialization;
-
     /**
-     * @description Indicates whether incremental data migration or synchronization is performed. Valid values:
-     *
-     * - **true**
-     * - **false**
-     * @example true
-     *
      * @var bool
      */
     public $dataSynchronization;
-
     /**
-     * @description Indicates whether schema migration or initial schema synchronization is performed. Valid values:
-     *
-     * - **true**
-     * - **false**
-     * @example true
-     *
      * @var bool
      */
     public $structureInitialization;
@@ -48,17 +28,20 @@ class migrationMode extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataInitialization) {
             $res['DataInitialization'] = $this->dataInitialization;
         }
+
         if (null !== $this->dataSynchronization) {
             $res['DataSynchronization'] = $this->dataSynchronization;
         }
+
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
         }
@@ -66,20 +49,22 @@ class migrationMode extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return migrationMode
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataInitialization'])) {
             $model->dataInitialization = $map['DataInitialization'];
         }
+
         if (isset($map['DataSynchronization'])) {
             $model->dataSynchronization = $map['DataSynchronization'];
         }
+
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];
         }

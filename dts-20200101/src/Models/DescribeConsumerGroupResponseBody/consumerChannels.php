@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeConsumerGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeConsumerGroupResponseBody\consumerChannels\describeConsumerChannel;
-use AlibabaCloud\Tea\Model;
 
 class consumerChannels extends Model
 {
@@ -19,17 +19,21 @@ class consumerChannels extends Model
 
     public function validate()
     {
+        if (\is_array($this->describeConsumerChannel)) {
+            Model::validateArray($this->describeConsumerChannel);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->describeConsumerChannel) {
-            $res['DescribeConsumerChannel'] = [];
-            if (null !== $this->describeConsumerChannel && \is_array($this->describeConsumerChannel)) {
-                $n = 0;
-                foreach ($this->describeConsumerChannel as $item) {
-                    $res['DescribeConsumerChannel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->describeConsumerChannel)) {
+                $res['DescribeConsumerChannel'] = [];
+                $n1                             = 0;
+                foreach ($this->describeConsumerChannel as $item1) {
+                    $res['DescribeConsumerChannel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class consumerChannels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return consumerChannels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DescribeConsumerChannel'])) {
             if (!empty($map['DescribeConsumerChannel'])) {
                 $model->describeConsumerChannel = [];
-                $n                              = 0;
-                foreach ($map['DescribeConsumerChannel'] as $item) {
-                    $model->describeConsumerChannel[$n++] = null !== $item ? describeConsumerChannel::fromMap($item) : $item;
+                $n1                             = 0;
+                foreach ($map['DescribeConsumerChannel'] as $item1) {
+                    $model->describeConsumerChannel[$n1++] = describeConsumerChannel::fromMap($item1);
                 }
             }
         }

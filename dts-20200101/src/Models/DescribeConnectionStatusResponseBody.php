@@ -4,60 +4,31 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeConnectionStatusResponseBody extends Model
 {
     /**
-     * @description The connectivity of DTS servers to the destination database.
-     *
-     * @example {     "connectDetail": [       {         "testName": "PolarDB_o JDBC Connect",         "testSuccess": true       },       {         "testName": "Ping ",         "testSuccess": true       },       {         "testName": "Telnet ",         "testSuccess": true       }     ],     "connectRes": true,     "connectAdvice": ""   }
-     *
      * @var mixed[]
      */
     public $destinationConnectionStatus;
-
     /**
-     * @description The error code returned if the call failed.
-     *
-     * @example InternalError
-     *
      * @var string
      */
     public $errCode;
-
     /**
-     * @description The error message returned if the call failed.
-     *
-     * @example The request processing has failed due to some unknown error.
-     *
      * @var string
      */
     public $errMessage;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 0A47C784-70EF-4111-8677-369CAA00****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The connectivity of DTS servers to the source database.
-     *
-     * @example {     "connectDetail": [       {         "testName": "Oracle JDBC Connect",         "testSuccess": true       },       {         "testName": "Ping ",         "testSuccess": false       },       {         "testName": "Telnet ",         "testSuccess": true       }     ],     "connectRes": true,     "connectAdvice": ""   }
-     *
      * @var mixed[]
      */
     public $sourceConnectionStatus;
-
     /**
-     * @description Indicates whether the call was successful.
-     *
-     * @example true
-     *
      * @var string
      */
     public $success;
@@ -72,26 +43,48 @@ class DescribeConnectionStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->destinationConnectionStatus)) {
+            Model::validateArray($this->destinationConnectionStatus);
+        }
+        if (\is_array($this->sourceConnectionStatus)) {
+            Model::validateArray($this->sourceConnectionStatus);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationConnectionStatus) {
-            $res['DestinationConnectionStatus'] = $this->destinationConnectionStatus;
+            if (\is_array($this->destinationConnectionStatus)) {
+                $res['DestinationConnectionStatus'] = [];
+                foreach ($this->destinationConnectionStatus as $key1 => $value1) {
+                    $res['DestinationConnectionStatus'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->errCode) {
             $res['ErrCode'] = $this->errCode;
         }
+
         if (null !== $this->errMessage) {
             $res['ErrMessage'] = $this->errMessage;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sourceConnectionStatus) {
-            $res['SourceConnectionStatus'] = $this->sourceConnectionStatus;
+            if (\is_array($this->sourceConnectionStatus)) {
+                $res['SourceConnectionStatus'] = [];
+                foreach ($this->sourceConnectionStatus as $key1 => $value1) {
+                    $res['SourceConnectionStatus'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -99,29 +92,44 @@ class DescribeConnectionStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeConnectionStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationConnectionStatus'])) {
-            $model->destinationConnectionStatus = $map['DestinationConnectionStatus'];
+            if (!empty($map['DestinationConnectionStatus'])) {
+                $model->destinationConnectionStatus = [];
+                foreach ($map['DestinationConnectionStatus'] as $key1 => $value1) {
+                    $model->destinationConnectionStatus[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ErrCode'])) {
             $model->errCode = $map['ErrCode'];
         }
+
         if (isset($map['ErrMessage'])) {
             $model->errMessage = $map['ErrMessage'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SourceConnectionStatus'])) {
-            $model->sourceConnectionStatus = $map['SourceConnectionStatus'];
+            if (!empty($map['SourceConnectionStatus'])) {
+                $model->sourceConnectionStatus = [];
+                foreach ($map['SourceConnectionStatus'] as $key1 => $value1) {
+                    $model->sourceConnectionStatus[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

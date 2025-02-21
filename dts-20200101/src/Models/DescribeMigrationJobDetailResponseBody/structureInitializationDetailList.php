@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobDetailResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobDetailResponseBody\structureInitializationDetailList\structureInitializationDetail;
-use AlibabaCloud\Tea\Model;
 
 class structureInitializationDetailList extends Model
 {
@@ -19,17 +19,21 @@ class structureInitializationDetailList extends Model
 
     public function validate()
     {
+        if (\is_array($this->structureInitializationDetail)) {
+            Model::validateArray($this->structureInitializationDetail);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->structureInitializationDetail) {
-            $res['StructureInitializationDetail'] = [];
-            if (null !== $this->structureInitializationDetail && \is_array($this->structureInitializationDetail)) {
-                $n = 0;
-                foreach ($this->structureInitializationDetail as $item) {
-                    $res['StructureInitializationDetail'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->structureInitializationDetail)) {
+                $res['StructureInitializationDetail'] = [];
+                $n1                                   = 0;
+                foreach ($this->structureInitializationDetail as $item1) {
+                    $res['StructureInitializationDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class structureInitializationDetailList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return structureInitializationDetailList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StructureInitializationDetail'])) {
             if (!empty($map['StructureInitializationDetail'])) {
                 $model->structureInitializationDetail = [];
-                $n                                    = 0;
-                foreach ($map['StructureInitializationDetail'] as $item) {
-                    $model->structureInitializationDetail[$n++] = null !== $item ? structureInitializationDetail::fromMap($item) : $item;
+                $n1                                   = 0;
+                foreach ($map['StructureInitializationDetail'] as $item1) {
+                    $model->structureInitializationDetail[$n1++] = structureInitializationDetail::fromMap($item1);
                 }
             }
         }
