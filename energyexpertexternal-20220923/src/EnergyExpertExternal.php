@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\EnergyExpertExternal\V20220923;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeAdvanceRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeRequest;
+use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\AnalyzeVlRealtimeResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchSaveInstructionStatusRequest;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchSaveInstructionStatusResponse;
 use AlibabaCloud\SDK\EnergyExpertExternal\V20220923\Models\BatchUpdateSystemRunningPlanRequest;
@@ -122,6 +125,164 @@ class EnergyExpertExternal extends OpenApiClient
         }
 
         return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * Get Document Results.
+     *
+     * @remarks
+     * Users obtain real-time VL results by uploading a document URL.
+     *
+     * @param request - AnalyzeVlRealtimeRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AnalyzeVlRealtimeResponse
+     *
+     * @param AnalyzeVlRealtimeRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AnalyzeVlRealtimeResponse
+     */
+    public function analyzeVlRealtimeWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->fileUrl) {
+            @$query['fileUrl'] = $request->fileUrl;
+        }
+
+        if (null !== $request->language) {
+            @$query['language'] = $request->language;
+        }
+
+        if (null !== $request->templateId) {
+            @$query['templateId'] = $request->templateId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AnalyzeVlRealtime',
+            'version'     => '2022-09-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aidoc/document/analyzeVlRealtime',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AnalyzeVlRealtimeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return AnalyzeVlRealtimeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Get Document Results.
+     *
+     * @remarks
+     * Users obtain real-time VL results by uploading a document URL.
+     *
+     * @param request - AnalyzeVlRealtimeRequest
+     * @returns AnalyzeVlRealtimeResponse
+     *
+     * @param AnalyzeVlRealtimeRequest $request
+     *
+     * @return AnalyzeVlRealtimeResponse
+     */
+    public function analyzeVlRealtime($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->analyzeVlRealtimeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AnalyzeVlRealtimeAdvanceRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AnalyzeVlRealtimeResponse
+     */
+    public function analyzeVlRealtimeAdvance($request, $headers, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (null === $openPlatformEndpoint) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+
+        if (null === $credentialType) {
+            $credentialType = 'access_key';
+        }
+
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'energyExpertExternal',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = new OSS($ossConfig);
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        Utils::convert($runtime, $ossRuntime);
+        $analyzeVlRealtimeReq = new AnalyzeVlRealtimeRequest([]);
+        Utils::convert($request, $analyzeVlRealtimeReq);
+        if (null !== $request->fileUrlObject) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $analyzeVlRealtimeReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->analyzeVlRealtimeWithOptions($analyzeVlRealtimeReq, $headers, $runtime);
     }
 
     /**
