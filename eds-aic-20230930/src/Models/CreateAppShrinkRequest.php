@@ -5,9 +5,8 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAppRequest\customAppInfo;
 
-class CreateAppRequest extends Model
+class CreateAppShrinkRequest extends Model
 {
     /**
      * @var string
@@ -18,9 +17,9 @@ class CreateAppRequest extends Model
      */
     public $bizRegionId;
     /**
-     * @var customAppInfo
+     * @var string
      */
-    public $customAppInfo;
+    public $customAppInfoShrink;
     /**
      * @var string
      */
@@ -46,22 +45,19 @@ class CreateAppRequest extends Model
      */
     public $ossAppUrl;
     protected $_name = [
-        'appName'       => 'AppName',
-        'bizRegionId'   => 'BizRegionId',
-        'customAppInfo' => 'CustomAppInfo',
-        'description'   => 'Description',
-        'fileName'      => 'FileName',
-        'filePath'      => 'FilePath',
-        'iconUrl'       => 'IconUrl',
-        'installParam'  => 'InstallParam',
-        'ossAppUrl'     => 'OssAppUrl',
+        'appName'             => 'AppName',
+        'bizRegionId'         => 'BizRegionId',
+        'customAppInfoShrink' => 'CustomAppInfo',
+        'description'         => 'Description',
+        'fileName'            => 'FileName',
+        'filePath'            => 'FilePath',
+        'iconUrl'             => 'IconUrl',
+        'installParam'        => 'InstallParam',
+        'ossAppUrl'           => 'OssAppUrl',
     ];
 
     public function validate()
     {
-        if (null !== $this->customAppInfo) {
-            $this->customAppInfo->validate();
-        }
         parent::validate();
     }
 
@@ -76,8 +72,8 @@ class CreateAppRequest extends Model
             $res['BizRegionId'] = $this->bizRegionId;
         }
 
-        if (null !== $this->customAppInfo) {
-            $res['CustomAppInfo'] = null !== $this->customAppInfo ? $this->customAppInfo->toArray($noStream) : $this->customAppInfo;
+        if (null !== $this->customAppInfoShrink) {
+            $res['CustomAppInfo'] = $this->customAppInfoShrink;
         }
 
         if (null !== $this->description) {
@@ -124,7 +120,7 @@ class CreateAppRequest extends Model
         }
 
         if (isset($map['CustomAppInfo'])) {
-            $model->customAppInfo = customAppInfo::fromMap($map['CustomAppInfo']);
+            $model->customAppInfoShrink = $map['CustomAppInfo'];
         }
 
         if (isset($map['Description'])) {

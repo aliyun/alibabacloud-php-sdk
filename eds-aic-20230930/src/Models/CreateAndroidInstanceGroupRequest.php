@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest\tag;
 
 class CreateAndroidInstanceGroupRequest extends Model
 {
@@ -81,6 +82,10 @@ class CreateAndroidInstanceGroupRequest extends Model
      */
     public $policyGroupId;
     /**
+     * @var tag[]
+     */
+    public $tag;
+    /**
      * @var string
      */
     public $vSwitchId;
@@ -103,11 +108,15 @@ class CreateAndroidInstanceGroupRequest extends Model
         'period'            => 'Period',
         'periodUnit'        => 'PeriodUnit',
         'policyGroupId'     => 'PolicyGroupId',
+        'tag'               => 'Tag',
         'vSwitchId'         => 'VSwitchId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
         parent::validate();
     }
 
@@ -184,6 +193,16 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->vSwitchId) {
@@ -271,6 +290,16 @@ class CreateAndroidInstanceGroupRequest extends Model
 
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['VSwitchId'])) {

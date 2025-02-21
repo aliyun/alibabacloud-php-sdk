@@ -1,3 +1,9 @@
+2025-02-21 Version: 4.0.1
+- Update API CreateAndroidInstanceGroup: add param Tag.
+- Update API CreateApp: add param CustomAppInfo.
+- Update API SendFile: update param UploadEndpoint.
+
+
 2025-02-17 Version: 4.1.0
 - Support API SetAdbSecure.
 - Update API CreateAndroidInstanceGroup: add param EnableIpv6.
