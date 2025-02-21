@@ -4,123 +4,56 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorJobsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorJobsResponseBody\data\metrics;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The ID of the job that was submitted to YARN.
-     *
-     * @example application_1607584549220_*****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The name of the job.
-     *
-     * @example tpcds
-     *
      * @var string
      */
     public $appName;
-
     /**
-     * @description The total running time of the job. Unit: milliseconds.
-     *
-     * @example 242
-     *
      * @var int
      */
     public $elapsedTime;
-
     /**
-     * @description The final state of the job. Valid values:
-     *
-     *   SUCCEEDED
-     *   FAILED
-     *   KILLED
-     *   ENDED
-     *   UNDEFINED
-     *
-     * @example KILLED
-     *
      * @var string
      */
     public $finalStatus;
-
     /**
-     * @description The end time of the job. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
-     *
-     * @example 1683690929000
-     *
      * @var int
      */
     public $finishTime;
-
     /**
-     * @description The time when the job was started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
-     *
-     * @example 1672148400000
-     *
      * @var int
      */
     public $launchTime;
-
     /**
-     * @description The data about the metrics.
-     *
      * @var metrics
      */
     public $metrics;
-
     /**
-     * @description The YARN queue to which the job was submitted.
-     *
-     * @example DW
-     *
      * @var string
      */
     public $queue;
-
     /**
-     * @description The time when the job was submitted. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
-     *
-     * @example 1675180800000
-     *
      * @var int
      */
     public $startTime;
-
     /**
-     * @description The running state of the job. Valid values:
-     *
-     *   FINISHED
-     *   FAILED
-     *   KILLED
-     *
-     * @example FINISHED
-     *
      * @var string
      */
     public $state;
-
     /**
-     * @description The type of the compute engine.
-     *
-     * @example SPARK
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The username that was used to submit the job.
-     *
-     * @example DW
-     *
      * @var string
      */
     public $user;
@@ -141,44 +74,59 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->metrics) {
+            $this->metrics->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->elapsedTime) {
             $res['ElapsedTime'] = $this->elapsedTime;
         }
+
         if (null !== $this->finalStatus) {
             $res['FinalStatus'] = $this->finalStatus;
         }
+
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
+
         if (null !== $this->launchTime) {
             $res['LaunchTime'] = $this->launchTime;
         }
+
         if (null !== $this->metrics) {
-            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toMap() : null;
+            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toArray($noStream) : $this->metrics;
         }
+
         if (null !== $this->queue) {
             $res['Queue'] = $this->queue;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->state) {
             $res['State'] = $this->state;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->user) {
             $res['User'] = $this->user;
         }
@@ -186,47 +134,58 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ElapsedTime'])) {
             $model->elapsedTime = $map['ElapsedTime'];
         }
+
         if (isset($map['FinalStatus'])) {
             $model->finalStatus = $map['FinalStatus'];
         }
+
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
+
         if (isset($map['LaunchTime'])) {
             $model->launchTime = $map['LaunchTime'];
         }
+
         if (isset($map['Metrics'])) {
             $model->metrics = metrics::fromMap($map['Metrics']);
         }
+
         if (isset($map['Queue'])) {
             $model->queue = $map['Queue'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['State'])) {
             $model->state = $map['State'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['User'])) {
             $model->user = $map['User'];
         }

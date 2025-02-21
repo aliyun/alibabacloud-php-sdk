@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ComponentLayout\nodeSelector;
-use AlibabaCloud\Tea\Model;
 
 class ComponentLayout extends Model
 {
     /**
-     * @description 应用名称。
-     *
-     * @example HDFS
-     *
      * @var string
      */
     public $applicationName;
-
     /**
-     * @description 组件名称。
-     *
-     * @example DataNode
-     *
      * @var string
      */
     public $componentName;
-
     /**
-     * @description 节点选择器。
-     *
      * @var nodeSelector
      */
     public $nodeSelector;
@@ -41,38 +29,46 @@ class ComponentLayout extends Model
 
     public function validate()
     {
+        if (null !== $this->nodeSelector) {
+            $this->nodeSelector->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
+
         if (null !== $this->componentName) {
             $res['ComponentName'] = $this->componentName;
         }
+
         if (null !== $this->nodeSelector) {
-            $res['NodeSelector'] = null !== $this->nodeSelector ? $this->nodeSelector->toMap() : null;
+            $res['NodeSelector'] = null !== $this->nodeSelector ? $this->nodeSelector->toArray($noStream) : $this->nodeSelector;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ComponentLayout
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
+
         if (isset($map['ComponentName'])) {
             $model->componentName = $map['ComponentName'];
         }
+
         if (isset($map['NodeSelector'])) {
             $model->nodeSelector = nodeSelector::fromMap($map['NodeSelector']);
         }

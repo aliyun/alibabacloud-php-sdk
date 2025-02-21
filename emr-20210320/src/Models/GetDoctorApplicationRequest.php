@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDoctorApplicationRequest extends Model
 {
     /**
-     * @description The ID of the job that is submitted to YARN.
-     *
-     * This parameter is required.
-     * @example application_1542620905989_****
-     *
      * @var string
      */
     public $appId;
-
     /**
-     * @description The cluster ID.
-     *
-     * This parameter is required.
-     * @example c-b933c5aac8fe****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description Specify the date in the ISO 8601 standard. For example, 2023-01-01 represents January 1, 2023.
-     *
-     * This parameter is required.
-     * @example 2023-01-01
-     *
      * @var string
      */
     public $dateTime;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -56,20 +33,24 @@ class GetDoctorApplicationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->dateTime) {
             $res['DateTime'] = $this->dateTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -77,23 +58,26 @@ class GetDoctorApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDoctorApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DateTime'])) {
             $model->dateTime = $map['DateTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

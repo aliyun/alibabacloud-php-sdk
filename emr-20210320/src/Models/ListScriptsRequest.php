@@ -4,68 +4,38 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListScriptsRequest extends Model
 {
     /**
-     * @description Cluster ID.
-     *
-     * This parameter is required.
-     * @example c-b933c5aac8fe****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The maximum number of records to retrieve at once.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description Marks the current position to start reading from.
-     *
-     * @example dd6b1b2a-5837-5237-abe4-ff0c89568980
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description Region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string
      */
     public $scriptId;
-
     /**
      * @var string
      */
     public $scriptName;
-
     /**
-     * @description Type of cluster script. Possible values:
-     *
-     * This parameter is required.
-     * @example BOOTSTRAP
-     *
      * @var string
      */
     public $scriptType;
-
     /**
      * @var string[]
      */
@@ -83,71 +53,99 @@ class ListScriptsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->statuses)) {
+            Model::validateArray($this->statuses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->scriptId) {
             $res['ScriptId'] = $this->scriptId;
         }
+
         if (null !== $this->scriptName) {
             $res['ScriptName'] = $this->scriptName;
         }
+
         if (null !== $this->scriptType) {
             $res['ScriptType'] = $this->scriptType;
         }
+
         if (null !== $this->statuses) {
-            $res['Statuses'] = $this->statuses;
+            if (\is_array($this->statuses)) {
+                $res['Statuses'] = [];
+                $n1              = 0;
+                foreach ($this->statuses as $item1) {
+                    $res['Statuses'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListScriptsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ScriptId'])) {
             $model->scriptId = $map['ScriptId'];
         }
+
         if (isset($map['ScriptName'])) {
             $model->scriptName = $map['ScriptName'];
         }
+
         if (isset($map['ScriptType'])) {
             $model->scriptType = $map['ScriptType'];
         }
+
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {
-                $model->statuses = $map['Statuses'];
+                $model->statuses = [];
+                $n1              = 0;
+                foreach ($map['Statuses'] as $item1) {
+                    $model->statuses[$n1++] = $item1;
+                }
             }
         }
 

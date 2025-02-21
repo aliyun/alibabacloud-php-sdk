@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstanceTypesResponseBody extends Model
 {
     /**
-     * @description The instance types.
-     *
      * @var InstanceType[]
      */
     public $instanceTypes;
-
     /**
-     * @description The maximum number of records returned in this request.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description Returns the position of the read data.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description Request ID.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total amount of data under the conditions of this request.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $totalCount;
@@ -60,29 +38,37 @@ class ListInstanceTypesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceTypes)) {
+            Model::validateArray($this->instanceTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = [];
-            if (null !== $this->instanceTypes && \is_array($this->instanceTypes)) {
-                $n = 0;
-                foreach ($this->instanceTypes as $item) {
-                    $res['InstanceTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceTypes)) {
+                $res['InstanceTypes'] = [];
+                $n1                   = 0;
+                foreach ($this->instanceTypes as $item1) {
+                    $res['InstanceTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -90,32 +76,36 @@ class ListInstanceTypesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceTypesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = [];
-                $n                    = 0;
-                foreach ($map['InstanceTypes'] as $item) {
-                    $model->instanceTypes[$n++] = null !== $item ? InstanceType::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['InstanceTypes'] as $item1) {
+                    $model->instanceTypes[$n1++] = InstanceType::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

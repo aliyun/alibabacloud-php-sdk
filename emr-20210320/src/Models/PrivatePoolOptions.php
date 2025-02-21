@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PrivatePoolOptions extends Model
 {
     /**
-     * @example Open
-     *
      * @var string
      */
     public $matchCriteria;
-
     /**
-     * @example eap-bp67acfmxazb4****
-     *
      * @var string[]
      */
     public $privatePoolIds;
@@ -28,35 +23,51 @@ class PrivatePoolOptions extends Model
 
     public function validate()
     {
+        if (\is_array($this->privatePoolIds)) {
+            Model::validateArray($this->privatePoolIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->matchCriteria) {
             $res['MatchCriteria'] = $this->matchCriteria;
         }
+
         if (null !== $this->privatePoolIds) {
-            $res['PrivatePoolIds'] = $this->privatePoolIds;
+            if (\is_array($this->privatePoolIds)) {
+                $res['PrivatePoolIds'] = [];
+                $n1                    = 0;
+                foreach ($this->privatePoolIds as $item1) {
+                    $res['PrivatePoolIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PrivatePoolOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MatchCriteria'])) {
             $model->matchCriteria = $map['MatchCriteria'];
         }
+
         if (isset($map['PrivatePoolIds'])) {
             if (!empty($map['PrivatePoolIds'])) {
-                $model->privatePoolIds = $map['PrivatePoolIds'];
+                $model->privatePoolIds = [];
+                $n1                    = 0;
+                foreach ($map['PrivatePoolIds'] as $item1) {
+                    $model->privatePoolIds[$n1++] = $item1;
+                }
             }
         }
 

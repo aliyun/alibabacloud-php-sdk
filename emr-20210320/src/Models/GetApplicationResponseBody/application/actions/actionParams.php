@@ -4,30 +4,20 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetApplicationResponseBody\application\actions;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetApplicationResponseBody\application\actions\actionParams\valueAttribute;
-use AlibabaCloud\Tea\Model;
 
 class actionParams extends Model
 {
     /**
-     * @description 动作参数描述。
-     *
-     * @example start
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description 动作参数KEY。
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description 动作参数属性。
-     *
      * @var valueAttribute
      */
     public $valueAttribute;
@@ -39,38 +29,46 @@ class actionParams extends Model
 
     public function validate()
     {
+        if (null !== $this->valueAttribute) {
+            $this->valueAttribute->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->valueAttribute) {
-            $res['ValueAttribute'] = null !== $this->valueAttribute ? $this->valueAttribute->toMap() : null;
+            $res['ValueAttribute'] = null !== $this->valueAttribute ? $this->valueAttribute->toArray($noStream) : $this->valueAttribute;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return actionParams
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['ValueAttribute'])) {
             $model->valueAttribute = valueAttribute::fromMap($map['ValueAttribute']);
         }

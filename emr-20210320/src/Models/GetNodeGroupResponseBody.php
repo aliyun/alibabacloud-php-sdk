@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetNodeGroupResponseBody extends Model
 {
     /**
-     * @description The node group.
-     *
      * @var NodeGroup
      */
     public $nodeGroup;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,19 @@ class GetNodeGroupResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->nodeGroup) {
+            $this->nodeGroup->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeGroup) {
-            $res['NodeGroup'] = null !== $this->nodeGroup ? $this->nodeGroup->toMap() : null;
+            $res['NodeGroup'] = null !== $this->nodeGroup ? $this->nodeGroup->toArray($noStream) : $this->nodeGroup;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +43,18 @@ class GetNodeGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetNodeGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeGroup'])) {
             $model->nodeGroup = NodeGroup::fromMap($map['NodeGroup']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

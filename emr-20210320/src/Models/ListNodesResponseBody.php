@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListNodesResponseBody extends Model
 {
     /**
-     * @description The maximum number of entries returned.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The position at which the next read starts. If null is returned, the data has been read.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description Details about nodes.
-     *
      * @var Node[]
      */
     public $nodes;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of records in this request.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $totalCount;
@@ -60,29 +38,37 @@ class ListNodesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->nodes) {
-            $res['Nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodes)) {
+                $res['Nodes'] = [];
+                $n1           = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -90,32 +76,36 @@ class ListNodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
-                foreach ($map['Nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? Node::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Nodes'] as $item1) {
+                    $model->nodes[$n1++] = Node::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

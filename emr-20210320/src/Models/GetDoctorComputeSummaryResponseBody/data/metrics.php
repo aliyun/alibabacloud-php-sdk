@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorComputeSummaryResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorComputeSummaryResponseBody\data\metrics\memSeconds;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorComputeSummaryResponseBody\data\metrics\memSecondsDayGrowthRatio;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorComputeSummaryResponseBody\data\metrics\memUtilization;
@@ -12,62 +13,38 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorComputeSummaryResponseBody\da
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorComputeSummaryResponseBody\data\metrics\vcoreSecondsDayGrowthRatio;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorComputeSummaryResponseBody\data\metrics\vcoreUtilization;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorComputeSummaryResponseBody\data\metrics\writeSize;
-use AlibabaCloud\Tea\Model;
 
 class metrics extends Model
 {
     /**
-     * @description The total memory consumption over time in seconds.
-     *
      * @var memSeconds
      */
     public $memSeconds;
-
     /**
-     * @description The day-to-day growth rate of the total memory consumption over time in seconds.
-     *
      * @var memSecondsDayGrowthRatio
      */
     public $memSecondsDayGrowthRatio;
-
     /**
-     * @description The average memory usage.
-     *
      * @var memUtilization
      */
     public $memUtilization;
-
     /**
-     * @description The total amount of data read from the file system.
-     *
      * @var readSize
      */
     public $readSize;
-
     /**
-     * @description The total CPU consumption over time in seconds.
-     *
      * @var vcoreSeconds
      */
     public $vcoreSeconds;
-
     /**
-     * @description The day-to-day growth rate of the total CPU consumption over time in seconds.
-     *
      * @var vcoreSecondsDayGrowthRatio
      */
     public $vcoreSecondsDayGrowthRatio;
-
     /**
-     * @description The average CPU utilization. The meaning is the same as the %CPU parameter in the output of the top command in Linux.
-     *
      * @var vcoreUtilization
      */
     public $vcoreUtilization;
-
     /**
-     * @description The total amount of data written to the file system.
-     *
      * @var writeSize
      */
     public $writeSize;
@@ -84,68 +61,107 @@ class metrics extends Model
 
     public function validate()
     {
+        if (null !== $this->memSeconds) {
+            $this->memSeconds->validate();
+        }
+        if (null !== $this->memSecondsDayGrowthRatio) {
+            $this->memSecondsDayGrowthRatio->validate();
+        }
+        if (null !== $this->memUtilization) {
+            $this->memUtilization->validate();
+        }
+        if (null !== $this->readSize) {
+            $this->readSize->validate();
+        }
+        if (null !== $this->vcoreSeconds) {
+            $this->vcoreSeconds->validate();
+        }
+        if (null !== $this->vcoreSecondsDayGrowthRatio) {
+            $this->vcoreSecondsDayGrowthRatio->validate();
+        }
+        if (null !== $this->vcoreUtilization) {
+            $this->vcoreUtilization->validate();
+        }
+        if (null !== $this->writeSize) {
+            $this->writeSize->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->memSeconds) {
-            $res['MemSeconds'] = null !== $this->memSeconds ? $this->memSeconds->toMap() : null;
+            $res['MemSeconds'] = null !== $this->memSeconds ? $this->memSeconds->toArray($noStream) : $this->memSeconds;
         }
+
         if (null !== $this->memSecondsDayGrowthRatio) {
-            $res['MemSecondsDayGrowthRatio'] = null !== $this->memSecondsDayGrowthRatio ? $this->memSecondsDayGrowthRatio->toMap() : null;
+            $res['MemSecondsDayGrowthRatio'] = null !== $this->memSecondsDayGrowthRatio ? $this->memSecondsDayGrowthRatio->toArray($noStream) : $this->memSecondsDayGrowthRatio;
         }
+
         if (null !== $this->memUtilization) {
-            $res['MemUtilization'] = null !== $this->memUtilization ? $this->memUtilization->toMap() : null;
+            $res['MemUtilization'] = null !== $this->memUtilization ? $this->memUtilization->toArray($noStream) : $this->memUtilization;
         }
+
         if (null !== $this->readSize) {
-            $res['ReadSize'] = null !== $this->readSize ? $this->readSize->toMap() : null;
+            $res['ReadSize'] = null !== $this->readSize ? $this->readSize->toArray($noStream) : $this->readSize;
         }
+
         if (null !== $this->vcoreSeconds) {
-            $res['VcoreSeconds'] = null !== $this->vcoreSeconds ? $this->vcoreSeconds->toMap() : null;
+            $res['VcoreSeconds'] = null !== $this->vcoreSeconds ? $this->vcoreSeconds->toArray($noStream) : $this->vcoreSeconds;
         }
+
         if (null !== $this->vcoreSecondsDayGrowthRatio) {
-            $res['VcoreSecondsDayGrowthRatio'] = null !== $this->vcoreSecondsDayGrowthRatio ? $this->vcoreSecondsDayGrowthRatio->toMap() : null;
+            $res['VcoreSecondsDayGrowthRatio'] = null !== $this->vcoreSecondsDayGrowthRatio ? $this->vcoreSecondsDayGrowthRatio->toArray($noStream) : $this->vcoreSecondsDayGrowthRatio;
         }
+
         if (null !== $this->vcoreUtilization) {
-            $res['VcoreUtilization'] = null !== $this->vcoreUtilization ? $this->vcoreUtilization->toMap() : null;
+            $res['VcoreUtilization'] = null !== $this->vcoreUtilization ? $this->vcoreUtilization->toArray($noStream) : $this->vcoreUtilization;
         }
+
         if (null !== $this->writeSize) {
-            $res['WriteSize'] = null !== $this->writeSize ? $this->writeSize->toMap() : null;
+            $res['WriteSize'] = null !== $this->writeSize ? $this->writeSize->toArray($noStream) : $this->writeSize;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return metrics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MemSeconds'])) {
             $model->memSeconds = memSeconds::fromMap($map['MemSeconds']);
         }
+
         if (isset($map['MemSecondsDayGrowthRatio'])) {
             $model->memSecondsDayGrowthRatio = memSecondsDayGrowthRatio::fromMap($map['MemSecondsDayGrowthRatio']);
         }
+
         if (isset($map['MemUtilization'])) {
             $model->memUtilization = memUtilization::fromMap($map['MemUtilization']);
         }
+
         if (isset($map['ReadSize'])) {
             $model->readSize = readSize::fromMap($map['ReadSize']);
         }
+
         if (isset($map['VcoreSeconds'])) {
             $model->vcoreSeconds = vcoreSeconds::fromMap($map['VcoreSeconds']);
         }
+
         if (isset($map['VcoreSecondsDayGrowthRatio'])) {
             $model->vcoreSecondsDayGrowthRatio = vcoreSecondsDayGrowthRatio::fromMap($map['VcoreSecondsDayGrowthRatio']);
         }
+
         if (isset($map['VcoreUtilization'])) {
             $model->vcoreUtilization = vcoreUtilization::fromMap($map['VcoreUtilization']);
         }
+
         if (isset($map['WriteSize'])) {
             $model->writeSize = writeSize::fromMap($map['WriteSize']);
         }

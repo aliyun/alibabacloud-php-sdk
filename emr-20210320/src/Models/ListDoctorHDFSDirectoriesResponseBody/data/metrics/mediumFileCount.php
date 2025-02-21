@@ -4,34 +4,23 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHDFSDirectoriesResponseBody\data\metrics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mediumFileCount extends Model
 {
     /**
-     * @example Number of medium files
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @example mediumFileCount
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @example ”“
-     *
      * @var string
      */
     public $unit;
-
     /**
-     * @example 323
-     *
      * @var int
      */
     public $value;
@@ -44,20 +33,24 @@ class mediumFileCount extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -65,23 +58,26 @@ class mediumFileCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mediumFileCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

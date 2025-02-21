@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\RunApplicationActionResponseBody\abnInstances;
-use AlibabaCloud\Tea\Model;
 
 class RunApplicationActionResponseBody extends Model
 {
     /**
-     * @description The abnormal nodes.
-     *
      * @var abnInstances[]
      */
     public $abnInstances;
-
     /**
-     * @description The operation ID.
-     *
-     * @example op-13c37a77c505****
-     *
      * @var string
      */
     public $operationId;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9E3A7161-EB7B-172B-8D18-FFB06BA3****
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class RunApplicationActionResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->abnInstances)) {
+            Model::validateArray($this->abnInstances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->abnInstances) {
-            $res['AbnInstances'] = [];
-            if (null !== $this->abnInstances && \is_array($this->abnInstances)) {
-                $n = 0;
-                foreach ($this->abnInstances as $item) {
-                    $res['AbnInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->abnInstances)) {
+                $res['AbnInstances'] = [];
+                $n1                  = 0;
+                foreach ($this->abnInstances as $item1) {
+                    $res['AbnInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class RunApplicationActionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunApplicationActionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AbnInstances'])) {
             if (!empty($map['AbnInstances'])) {
                 $model->abnInstances = [];
-                $n                   = 0;
-                foreach ($map['AbnInstances'] as $item) {
-                    $model->abnInstances[$n++] = null !== $item ? abnInstances::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['AbnInstances'] as $item1) {
+                    $model->abnInstances[$n1++] = abnInstances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

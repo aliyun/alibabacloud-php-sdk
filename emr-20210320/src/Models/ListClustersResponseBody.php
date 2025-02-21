@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClustersResponseBody extends Model
 {
     /**
-     * @description The clusters.
-     *
      * @var ClusterSummary[]
      */
     public $clusters;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The page number of the next page returned.
-     *
-     * @example eyJlY21OZXh0VG9rZW4iOiIxIiwidGFpaGFvTmV4dFRva2VuIjoiNTYiLCJ0YWloYW9OZXh0VG9rZW5JbnQiOjU2LCJlY21OZXh0VG9rZW5JbnQiOjF9
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 9E3A7161-EB7B-172B-8D18-FFB06BA3896A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of pages.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $totalCount;
@@ -60,29 +38,37 @@ class ListClustersResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->clusters)) {
+            Model::validateArray($this->clusters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusters) {
-            $res['Clusters'] = [];
-            if (null !== $this->clusters && \is_array($this->clusters)) {
-                $n = 0;
-                foreach ($this->clusters as $item) {
-                    $res['Clusters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusters)) {
+                $res['Clusters'] = [];
+                $n1              = 0;
+                foreach ($this->clusters as $item1) {
+                    $res['Clusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -90,32 +76,36 @@ class ListClustersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClustersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
-                $n               = 0;
-                foreach ($map['Clusters'] as $item) {
-                    $model->clusters[$n++] = null !== $item ? ClusterSummary::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Clusters'] as $item1) {
+                    $model->clusters[$n1++] = ClusterSummary::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

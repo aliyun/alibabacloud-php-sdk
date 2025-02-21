@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDoctorHBaseTableRequest extends Model
 {
     /**
-     * @description Cluster ID.
-     *
-     * This parameter is required.
-     * @example c-b933c5aac8fe****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description Date.
-     *
-     * This parameter is required.
-     * @example 2023-01-01
-     *
      * @var string
      */
     public $dateTime;
-
     /**
-     * @description Region ID.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description Table name.
-     *
-     * This parameter is required.
-     * @example namespace1:tb_item
-     *
      * @var string
      */
     public $tableName;
@@ -56,20 +33,24 @@ class GetDoctorHBaseTableRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->dateTime) {
             $res['DateTime'] = $this->dateTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->tableName) {
             $res['TableName'] = $this->tableName;
         }
@@ -77,23 +58,26 @@ class GetDoctorHBaseTableRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDoctorHBaseTableRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['DateTime'])) {
             $model->dateTime = $map['DateTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['TableName'])) {
             $model->tableName = $map['TableName'];
         }

@@ -4,173 +4,91 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class NodeGroupConfig extends Model
 {
     /**
-     * @description 附加安全组。除集群设置的安全组外，为节点组单独设置的附加安全组。数组元数个数N的取值范围：0~2。
-     *
-     * @example ["sg-hp3abbae8lb6lmb1****"]
-     *
      * @var string[]
      */
     public $additionalSecurityGroupIds;
-
     /**
      * @var AutoScalingPolicy
      */
     public $autoScalingPolicy;
-
     /**
      * @var string[]
      */
     public $componentTags;
-
     /**
-     * @description 成本优化模式配置。
-     *
      * @var CostOptimizedConfig
      */
     public $costOptimizedConfig;
-
     /**
-     * @description 数据盘。当前数据盘只支持一种磁盘类型，即数组元数个数N的取值范围：1~1。
-     *
      * @var DataDisk[]
      */
     public $dataDisks;
-
     /**
-     * @description 部署集策略。取值范围：
-     * 默认值：NONE。
-     * @example NONE
-     *
      * @var string
      */
     public $deploymentSetStrategy;
-
     /**
-     * @description 节点组上部署的组件是否开启优雅下线。取值范围：
-     * 默认值：false。
-     * @example false
-     *
      * @var bool
      */
     public $gracefulShutdown;
-
     /**
-     * @description 节点实例类型列表。数组元数个数N的取值范围：1~100。
-     *
-     * @example ["ecs.g6.xlarge"]
-     *
      * @var string[]
      */
     public $instanceTypes;
-
     /**
-     * @description 节点数量。取值范围：1~1000。
-     *
-     * @example 3
-     *
      * @var int
      */
     public $nodeCount;
-
     /**
-     * @description 节点组名称。最大长度128个字符。集群内要求节点组名称唯一。
-     *
-     * @example core-1
-     *
      * @var string
      */
     public $nodeGroupName;
-
     /**
-     * @description 节点组类型。取值范围：
-     * This parameter is required.
-     * @example CORE
-     *
      * @var string
      */
     public $nodeGroupType;
-
     /**
-     * @description 节点扩容策略。取值范围：
-     * 默认值：PRIORITY。
-     * @example PRIORITY
-     *
      * @var string
      */
     public $nodeResizeStrategy;
-
     /**
-     * @description 节点组付费类型。不传入时默认和集群付费类型一致。取值范围：
-     * 默认值：PayAsYouGo。
-     * @example PayAsYouGo
-     *
      * @var string
      */
     public $paymentType;
-
     /**
      * @var PrivatePoolOptions
      */
     public $privatePoolOptions;
-
     /**
-     * @description 抢占式Spot实例出价价格。参数SpotStrategy取值为SpotWithPriceLimit时生效。数组元数个数N的取值范围：0~100。
-     *
      * @var SpotBidPrice[]
      */
     public $spotBidPrices;
-
     /**
-     * @description 开启后，当收到抢占式实例将被回收的系统消息时，伸缩组将尝试创建新的实例，替换掉将被回收的抢占式实例。取值范围：
-     * 默认值：false。
-     * @example true
-     *
      * @var bool
      */
     public $spotInstanceRemedy;
-
     /**
-     * @description 抢占式Spot实例策略。取值范围：
-     * 默认值：NoSpot。
-     * @example NoSpot
-     *
      * @var string
      */
     public $spotStrategy;
-
     /**
-     * @description 节点组预付费配置。不传入时默认和集群预付费配置一致。
-     *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
-
     /**
-     * @description 系统盘。
-     *
      * @var SystemDisk
      */
     public $systemDisk;
-
     /**
-     * @description 虚拟机交换机ID列表。数组元数个数N的取值范围：1~20。
-     *
-     * @example ["vsw-hp35g7ya5ymw68mmg****"]
-     *
      * @var string[]
      */
     public $vSwitchIds;
-
     /**
-     * @description 是否开公网IP。取值范围：
-     * 默认值：false。
-     * @example false
-     *
      * @var bool
      */
     public $withPublicIp;
@@ -200,83 +118,161 @@ class NodeGroupConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->additionalSecurityGroupIds)) {
+            Model::validateArray($this->additionalSecurityGroupIds);
+        }
+        if (null !== $this->autoScalingPolicy) {
+            $this->autoScalingPolicy->validate();
+        }
+        if (\is_array($this->componentTags)) {
+            Model::validateArray($this->componentTags);
+        }
+        if (null !== $this->costOptimizedConfig) {
+            $this->costOptimizedConfig->validate();
+        }
+        if (\is_array($this->dataDisks)) {
+            Model::validateArray($this->dataDisks);
+        }
+        if (\is_array($this->instanceTypes)) {
+            Model::validateArray($this->instanceTypes);
+        }
+        if (null !== $this->privatePoolOptions) {
+            $this->privatePoolOptions->validate();
+        }
+        if (\is_array($this->spotBidPrices)) {
+            Model::validateArray($this->spotBidPrices);
+        }
+        if (null !== $this->subscriptionConfig) {
+            $this->subscriptionConfig->validate();
+        }
+        if (null !== $this->systemDisk) {
+            $this->systemDisk->validate();
+        }
+        if (\is_array($this->vSwitchIds)) {
+            Model::validateArray($this->vSwitchIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->additionalSecurityGroupIds) {
-            $res['AdditionalSecurityGroupIds'] = $this->additionalSecurityGroupIds;
-        }
-        if (null !== $this->autoScalingPolicy) {
-            $res['AutoScalingPolicy'] = null !== $this->autoScalingPolicy ? $this->autoScalingPolicy->toMap() : null;
-        }
-        if (null !== $this->componentTags) {
-            $res['ComponentTags'] = $this->componentTags;
-        }
-        if (null !== $this->costOptimizedConfig) {
-            $res['CostOptimizedConfig'] = null !== $this->costOptimizedConfig ? $this->costOptimizedConfig->toMap() : null;
-        }
-        if (null !== $this->dataDisks) {
-            $res['DataDisks'] = [];
-            if (null !== $this->dataDisks && \is_array($this->dataDisks)) {
-                $n = 0;
-                foreach ($this->dataDisks as $item) {
-                    $res['DataDisks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->additionalSecurityGroupIds)) {
+                $res['AdditionalSecurityGroupIds'] = [];
+                $n1                                = 0;
+                foreach ($this->additionalSecurityGroupIds as $item1) {
+                    $res['AdditionalSecurityGroupIds'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->autoScalingPolicy) {
+            $res['AutoScalingPolicy'] = null !== $this->autoScalingPolicy ? $this->autoScalingPolicy->toArray($noStream) : $this->autoScalingPolicy;
+        }
+
+        if (null !== $this->componentTags) {
+            if (\is_array($this->componentTags)) {
+                $res['ComponentTags'] = [];
+                $n1                   = 0;
+                foreach ($this->componentTags as $item1) {
+                    $res['ComponentTags'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->costOptimizedConfig) {
+            $res['CostOptimizedConfig'] = null !== $this->costOptimizedConfig ? $this->costOptimizedConfig->toArray($noStream) : $this->costOptimizedConfig;
+        }
+
+        if (null !== $this->dataDisks) {
+            if (\is_array($this->dataDisks)) {
+                $res['DataDisks'] = [];
+                $n1               = 0;
+                foreach ($this->dataDisks as $item1) {
+                    $res['DataDisks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->deploymentSetStrategy) {
             $res['DeploymentSetStrategy'] = $this->deploymentSetStrategy;
         }
+
         if (null !== $this->gracefulShutdown) {
             $res['GracefulShutdown'] = $this->gracefulShutdown;
         }
+
         if (null !== $this->instanceTypes) {
-            $res['InstanceTypes'] = $this->instanceTypes;
-        }
-        if (null !== $this->nodeCount) {
-            $res['NodeCount'] = $this->nodeCount;
-        }
-        if (null !== $this->nodeGroupName) {
-            $res['NodeGroupName'] = $this->nodeGroupName;
-        }
-        if (null !== $this->nodeGroupType) {
-            $res['NodeGroupType'] = $this->nodeGroupType;
-        }
-        if (null !== $this->nodeResizeStrategy) {
-            $res['NodeResizeStrategy'] = $this->nodeResizeStrategy;
-        }
-        if (null !== $this->paymentType) {
-            $res['PaymentType'] = $this->paymentType;
-        }
-        if (null !== $this->privatePoolOptions) {
-            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
-        }
-        if (null !== $this->spotBidPrices) {
-            $res['SpotBidPrices'] = [];
-            if (null !== $this->spotBidPrices && \is_array($this->spotBidPrices)) {
-                $n = 0;
-                foreach ($this->spotBidPrices as $item) {
-                    $res['SpotBidPrices'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceTypes)) {
+                $res['InstanceTypes'] = [];
+                $n1                   = 0;
+                foreach ($this->instanceTypes as $item1) {
+                    $res['InstanceTypes'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->nodeCount) {
+            $res['NodeCount'] = $this->nodeCount;
+        }
+
+        if (null !== $this->nodeGroupName) {
+            $res['NodeGroupName'] = $this->nodeGroupName;
+        }
+
+        if (null !== $this->nodeGroupType) {
+            $res['NodeGroupType'] = $this->nodeGroupType;
+        }
+
+        if (null !== $this->nodeResizeStrategy) {
+            $res['NodeResizeStrategy'] = $this->nodeResizeStrategy;
+        }
+
+        if (null !== $this->paymentType) {
+            $res['PaymentType'] = $this->paymentType;
+        }
+
+        if (null !== $this->privatePoolOptions) {
+            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toArray($noStream) : $this->privatePoolOptions;
+        }
+
+        if (null !== $this->spotBidPrices) {
+            if (\is_array($this->spotBidPrices)) {
+                $res['SpotBidPrices'] = [];
+                $n1                   = 0;
+                foreach ($this->spotBidPrices as $item1) {
+                    $res['SpotBidPrices'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->spotInstanceRemedy) {
             $res['SpotInstanceRemedy'] = $this->spotInstanceRemedy;
         }
+
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
         }
+
         if (null !== $this->subscriptionConfig) {
-            $res['SubscriptionConfig'] = null !== $this->subscriptionConfig ? $this->subscriptionConfig->toMap() : null;
+            $res['SubscriptionConfig'] = null !== $this->subscriptionConfig ? $this->subscriptionConfig->toArray($noStream) : $this->subscriptionConfig;
         }
+
         if (null !== $this->systemDisk) {
-            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toArray($noStream) : $this->systemDisk;
         }
+
         if (null !== $this->vSwitchIds) {
-            $res['VSwitchIds'] = $this->vSwitchIds;
+            if (\is_array($this->vSwitchIds)) {
+                $res['VSwitchIds'] = [];
+                $n1                = 0;
+                foreach ($this->vSwitchIds as $item1) {
+                    $res['VSwitchIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->withPublicIp) {
             $res['WithPublicIp'] = $this->withPublicIp;
         }
@@ -284,94 +280,130 @@ class NodeGroupConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return NodeGroupConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdditionalSecurityGroupIds'])) {
             if (!empty($map['AdditionalSecurityGroupIds'])) {
-                $model->additionalSecurityGroupIds = $map['AdditionalSecurityGroupIds'];
+                $model->additionalSecurityGroupIds = [];
+                $n1                                = 0;
+                foreach ($map['AdditionalSecurityGroupIds'] as $item1) {
+                    $model->additionalSecurityGroupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AutoScalingPolicy'])) {
             $model->autoScalingPolicy = AutoScalingPolicy::fromMap($map['AutoScalingPolicy']);
         }
+
         if (isset($map['ComponentTags'])) {
             if (!empty($map['ComponentTags'])) {
-                $model->componentTags = $map['ComponentTags'];
+                $model->componentTags = [];
+                $n1                   = 0;
+                foreach ($map['ComponentTags'] as $item1) {
+                    $model->componentTags[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['CostOptimizedConfig'])) {
             $model->costOptimizedConfig = CostOptimizedConfig::fromMap($map['CostOptimizedConfig']);
         }
+
         if (isset($map['DataDisks'])) {
             if (!empty($map['DataDisks'])) {
                 $model->dataDisks = [];
-                $n                = 0;
-                foreach ($map['DataDisks'] as $item) {
-                    $model->dataDisks[$n++] = null !== $item ? DataDisk::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['DataDisks'] as $item1) {
+                    $model->dataDisks[$n1++] = DataDisk::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DeploymentSetStrategy'])) {
             $model->deploymentSetStrategy = $map['DeploymentSetStrategy'];
         }
+
         if (isset($map['GracefulShutdown'])) {
             $model->gracefulShutdown = $map['GracefulShutdown'];
         }
+
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
-                $model->instanceTypes = $map['InstanceTypes'];
-            }
-        }
-        if (isset($map['NodeCount'])) {
-            $model->nodeCount = $map['NodeCount'];
-        }
-        if (isset($map['NodeGroupName'])) {
-            $model->nodeGroupName = $map['NodeGroupName'];
-        }
-        if (isset($map['NodeGroupType'])) {
-            $model->nodeGroupType = $map['NodeGroupType'];
-        }
-        if (isset($map['NodeResizeStrategy'])) {
-            $model->nodeResizeStrategy = $map['NodeResizeStrategy'];
-        }
-        if (isset($map['PaymentType'])) {
-            $model->paymentType = $map['PaymentType'];
-        }
-        if (isset($map['PrivatePoolOptions'])) {
-            $model->privatePoolOptions = PrivatePoolOptions::fromMap($map['PrivatePoolOptions']);
-        }
-        if (isset($map['SpotBidPrices'])) {
-            if (!empty($map['SpotBidPrices'])) {
-                $model->spotBidPrices = [];
-                $n                    = 0;
-                foreach ($map['SpotBidPrices'] as $item) {
-                    $model->spotBidPrices[$n++] = null !== $item ? SpotBidPrice::fromMap($item) : $item;
+                $model->instanceTypes = [];
+                $n1                   = 0;
+                foreach ($map['InstanceTypes'] as $item1) {
+                    $model->instanceTypes[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['NodeCount'])) {
+            $model->nodeCount = $map['NodeCount'];
+        }
+
+        if (isset($map['NodeGroupName'])) {
+            $model->nodeGroupName = $map['NodeGroupName'];
+        }
+
+        if (isset($map['NodeGroupType'])) {
+            $model->nodeGroupType = $map['NodeGroupType'];
+        }
+
+        if (isset($map['NodeResizeStrategy'])) {
+            $model->nodeResizeStrategy = $map['NodeResizeStrategy'];
+        }
+
+        if (isset($map['PaymentType'])) {
+            $model->paymentType = $map['PaymentType'];
+        }
+
+        if (isset($map['PrivatePoolOptions'])) {
+            $model->privatePoolOptions = PrivatePoolOptions::fromMap($map['PrivatePoolOptions']);
+        }
+
+        if (isset($map['SpotBidPrices'])) {
+            if (!empty($map['SpotBidPrices'])) {
+                $model->spotBidPrices = [];
+                $n1                   = 0;
+                foreach ($map['SpotBidPrices'] as $item1) {
+                    $model->spotBidPrices[$n1++] = SpotBidPrice::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['SpotInstanceRemedy'])) {
             $model->spotInstanceRemedy = $map['SpotInstanceRemedy'];
         }
+
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
         }
+
         if (isset($map['SubscriptionConfig'])) {
             $model->subscriptionConfig = SubscriptionConfig::fromMap($map['SubscriptionConfig']);
         }
+
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = SystemDisk::fromMap($map['SystemDisk']);
         }
+
         if (isset($map['VSwitchIds'])) {
             if (!empty($map['VSwitchIds'])) {
-                $model->vSwitchIds = $map['VSwitchIds'];
+                $model->vSwitchIds = [];
+                $n1                = 0;
+                foreach ($map['VSwitchIds'] as $item1) {
+                    $model->vSwitchIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['WithPublicIp'])) {
             $model->withPublicIp = $map['WithPublicIp'];
         }

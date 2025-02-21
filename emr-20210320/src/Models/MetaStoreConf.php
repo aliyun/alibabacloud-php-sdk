@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MetaStoreConf extends Model
 {
@@ -12,12 +12,10 @@ class MetaStoreConf extends Model
      * @var string
      */
     public $dbPassword;
-
     /**
      * @var string
      */
     public $dbUrl;
-
     /**
      * @var string
      */
@@ -30,17 +28,20 @@ class MetaStoreConf extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbPassword) {
             $res['DbPassword'] = $this->dbPassword;
         }
+
         if (null !== $this->dbUrl) {
             $res['DbUrl'] = $this->dbUrl;
         }
+
         if (null !== $this->dbUserName) {
             $res['DbUserName'] = $this->dbUserName;
         }
@@ -48,20 +49,22 @@ class MetaStoreConf extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MetaStoreConf
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbPassword'])) {
             $model->dbPassword = $map['DbPassword'];
         }
+
         if (isset($map['DbUrl'])) {
             $model->dbUrl = $map['DbUrl'];
         }
+
         if (isset($map['DbUserName'])) {
             $model->dbUserName = $map['DbUserName'];
         }

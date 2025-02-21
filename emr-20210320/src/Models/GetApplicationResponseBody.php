@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetApplicationResponseBody\application;
-use AlibabaCloud\Tea\Model;
 
 class GetApplicationResponseBody extends Model
 {
@@ -13,12 +13,7 @@ class GetApplicationResponseBody extends Model
      * @var application
      */
     public $application;
-
     /**
-     * @description 请求ID。
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +24,19 @@ class GetApplicationResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->application) {
+            $this->application->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->application) {
-            $res['Application'] = null !== $this->application ? $this->application->toMap() : null;
+            $res['Application'] = null !== $this->application ? $this->application->toArray($noStream) : $this->application;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +44,18 @@ class GetApplicationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetApplicationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Application'])) {
             $model->application = application::fromMap($map['Application']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

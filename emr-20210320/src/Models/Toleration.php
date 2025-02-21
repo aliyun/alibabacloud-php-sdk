@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Toleration extends Model
 {
@@ -12,17 +12,14 @@ class Toleration extends Model
      * @var string
      */
     public $effect;
-
     /**
      * @var string
      */
     public $key;
-
     /**
      * @var string
      */
     public $operator;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class Toleration extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effect) {
             $res['Effect'] = $this->effect;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -57,23 +58,26 @@ class Toleration extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Toleration
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Effect'])) {
             $model->effect = $map['Effect'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

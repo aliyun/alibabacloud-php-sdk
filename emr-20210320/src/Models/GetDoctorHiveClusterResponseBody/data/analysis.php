@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHiveClusterResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class analysis extends Model
 {
     /**
-     * @description The score for the distribution of files of different sizes stored in the Hive cluster.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $hiveDistributionScore;
-
     /**
-     * @description The score for the distribution of files stored in different formats in the Hive cluster.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $hiveFormatScore;
-
     /**
-     * @description The score for the access frequency of the Hive cluster.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $hiveFrequencyScore;
-
     /**
-     * @description The overall score of the Hive cluster.
-     *
-     * @example 80
-     *
      * @var int
      */
     public $hiveScore;
@@ -52,20 +33,24 @@ class analysis extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hiveDistributionScore) {
             $res['HiveDistributionScore'] = $this->hiveDistributionScore;
         }
+
         if (null !== $this->hiveFormatScore) {
             $res['HiveFormatScore'] = $this->hiveFormatScore;
         }
+
         if (null !== $this->hiveFrequencyScore) {
             $res['HiveFrequencyScore'] = $this->hiveFrequencyScore;
         }
+
         if (null !== $this->hiveScore) {
             $res['HiveScore'] = $this->hiveScore;
         }
@@ -73,23 +58,26 @@ class analysis extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return analysis
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HiveDistributionScore'])) {
             $model->hiveDistributionScore = $map['HiveDistributionScore'];
         }
+
         if (isset($map['HiveFormatScore'])) {
             $model->hiveFormatScore = $map['HiveFormatScore'];
         }
+
         if (isset($map['HiveFrequencyScore'])) {
             $model->hiveFrequencyScore = $map['HiveFrequencyScore'];
         }
+
         if (isset($map['HiveScore'])) {
             $model->hiveScore = $map['HiveScore'];
         }

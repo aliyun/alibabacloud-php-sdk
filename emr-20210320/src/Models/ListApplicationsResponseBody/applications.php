@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListApplicationsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class applications extends Model
 {
     /**
-     * @description The application name.
-     *
-     * @example HDFS
-     *
      * @var string
      */
     public $applicationName;
-
     /**
-     * @description The status of the applications. Valid values:
-     *
-     *   STOPPED: At least one application is in the Stopped state.
-     *   RUNNING: All applications are in the Running state.
-     *
-     * This parameter is returned only for DataLake, OLAP, Dataflow, DataServing, and custom clusters. For other types of clusters, no value is returned for this parameter.
-     * @example RUNNING
-     *
      * @var string
      */
     public $applicationState;
-
     /**
-     * @description The version of the application.
-     *
-     * @example 2.8.1
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $applicationVersion;
-
     /**
-     * @description The community edition.
-     *
-     * @example 2.8.5
-     *
      * @var string
      */
     public $communityVersion;
@@ -58,20 +33,24 @@ class applications extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
         }
+
         if (null !== $this->applicationState) {
             $res['ApplicationState'] = $this->applicationState;
         }
+
         if (null !== $this->applicationVersion) {
             $res['ApplicationVersion'] = $this->applicationVersion;
         }
+
         if (null !== $this->communityVersion) {
             $res['CommunityVersion'] = $this->communityVersion;
         }
@@ -79,23 +58,26 @@ class applications extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return applications
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
         }
+
         if (isset($map['ApplicationState'])) {
             $model->applicationState = $map['ApplicationState'];
         }
+
         if (isset($map['ApplicationVersion'])) {
             $model->applicationVersion = $map['ApplicationVersion'];
         }
+
         if (isset($map['CommunityVersion'])) {
             $model->communityVersion = $map['CommunityVersion'];
         }

@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\AckNodeSelector;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class taints extends Model
 {
     /**
-     * @description 污点效果。
-     *
      * @var string
      */
     public $effect;
-
     /**
-     * @description 污点键。
-     *
-     * @example emr
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description 污点值。
-     *
-     * @example true
-     *
      * @var string
      */
     public $value;
@@ -40,17 +28,20 @@ class taints extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effect) {
             $res['Effect'] = $this->effect;
         }
+
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -58,20 +49,22 @@ class taints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Effect'])) {
             $model->effect = $map['Effect'];
         }
+
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

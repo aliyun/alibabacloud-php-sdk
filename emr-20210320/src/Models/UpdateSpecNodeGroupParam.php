@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSpecNodeGroupParam extends Model
 {
@@ -12,7 +12,6 @@ class UpdateSpecNodeGroupParam extends Model
      * @var string
      */
     public $newInstanceType;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class UpdateSpecNodeGroupParam extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->newInstanceType) {
             $res['NewInstanceType'] = $this->newInstanceType;
         }
+
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
         }
@@ -39,17 +40,18 @@ class UpdateSpecNodeGroupParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSpecNodeGroupParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NewInstanceType'])) {
             $model->newInstanceType = $map['NewInstanceType'];
         }
+
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
         }

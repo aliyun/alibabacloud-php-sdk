@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RequestTag extends Model
 {
@@ -12,7 +12,6 @@ class RequestTag extends Model
      * @var string
      */
     public $key;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class RequestTag extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -39,17 +40,18 @@ class RequestTag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RequestTag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

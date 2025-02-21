@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHBaseRegionServersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\ListDoctorHBaseRegionServersResponseBody\data\metrics;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The metric information.
-     *
      * @var metrics
      */
     public $metrics;
-
     /**
-     * @description The RegionServer host.
-     *
-     * @example emr-worker-4.cluster-20****
-     *
      * @var string
      */
     public $regionServerHost;
@@ -31,14 +24,19 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->metrics) {
+            $this->metrics->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metrics) {
-            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toMap() : null;
+            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toArray($noStream) : $this->metrics;
         }
+
         if (null !== $this->regionServerHost) {
             $res['RegionServerHost'] = $this->regionServerHost;
         }
@@ -46,17 +44,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Metrics'])) {
             $model->metrics = metrics::fromMap($map['Metrics']);
         }
+
         if (isset($map['RegionServerHost'])) {
             $model->regionServerHost = $map['RegionServerHost'];
         }

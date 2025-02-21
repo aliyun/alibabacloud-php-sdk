@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetClusterResponseBody extends Model
 {
     /**
-     * @description The details of the cluster.
-     *
      * @var Cluster
      */
     public $cluster;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,19 @@ class GetClusterResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->cluster) {
+            $this->cluster->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cluster) {
-            $res['Cluster'] = null !== $this->cluster ? $this->cluster->toMap() : null;
+            $res['Cluster'] = null !== $this->cluster ? $this->cluster->toArray($noStream) : $this->cluster;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +43,18 @@ class GetClusterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetClusterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cluster'])) {
             $model->cluster = Cluster::fromMap($map['Cluster']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

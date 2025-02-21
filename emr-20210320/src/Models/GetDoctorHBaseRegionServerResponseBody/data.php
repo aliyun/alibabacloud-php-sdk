@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseRegionServerResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Emr\V20210320\Models\GetDoctorHBaseRegionServerResponseBody\data\metrics;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The metric information.
-     *
      * @var metrics
      */
     public $metrics;
@@ -21,23 +19,27 @@ class data extends Model
 
     public function validate()
     {
+        if (null !== $this->metrics) {
+            $this->metrics->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->metrics) {
-            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toMap() : null;
+            $res['Metrics'] = null !== $this->metrics ? $this->metrics->toArray($noStream) : $this->metrics;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AutoRenewInstanceParam extends Model
 {
@@ -12,17 +12,14 @@ class AutoRenewInstanceParam extends Model
      * @var string
      */
     public $autoRenew;
-
     /**
      * @var string
      */
     public $autoRenewDuration;
-
     /**
      * @var string
      */
     public $autoRenewDurationUnit;
-
     /**
      * @var string
      */
@@ -36,20 +33,24 @@ class AutoRenewInstanceParam extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
+
         if (null !== $this->autoRenewDuration) {
             $res['AutoRenewDuration'] = $this->autoRenewDuration;
         }
+
         if (null !== $this->autoRenewDurationUnit) {
             $res['AutoRenewDurationUnit'] = $this->autoRenewDurationUnit;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -57,23 +58,26 @@ class AutoRenewInstanceParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AutoRenewInstanceParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
+
         if (isset($map['AutoRenewDuration'])) {
             $model->autoRenewDuration = $map['AutoRenewDuration'];
         }
+
         if (isset($map['AutoRenewDurationUnit'])) {
             $model->autoRenewDurationUnit = $map['AutoRenewDurationUnit'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

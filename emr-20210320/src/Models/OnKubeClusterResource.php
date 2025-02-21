@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OnKubeClusterResource extends Model
 {
@@ -12,7 +12,6 @@ class OnKubeClusterResource extends Model
      * @var string
      */
     public $cpu;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class OnKubeClusterResource extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
@@ -39,17 +40,18 @@ class OnKubeClusterResource extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OnKubeClusterResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }

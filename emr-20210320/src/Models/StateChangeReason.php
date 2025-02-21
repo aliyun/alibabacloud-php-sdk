@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StateChangeReason extends Model
 {
     /**
-     * @description 状态码。
-     *
-     * @example MissingParameter
-     *
      * @var string
      */
     public $code;
-
     /**
-     * @description 描述信息。
-     *
-     * @example The instance type is required.
-     *
      * @var string
      */
     public $message;
@@ -32,14 +23,16 @@ class StateChangeReason extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -47,17 +40,18 @@ class StateChangeReason extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StateChangeReason
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
