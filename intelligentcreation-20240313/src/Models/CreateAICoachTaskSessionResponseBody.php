@@ -26,6 +26,10 @@ class CreateAICoachTaskSessionResponseBody extends Model
      */
     public $sessionId;
     /**
+     * @var int
+     */
+    public $sessionStatus;
+    /**
      * @var string
      */
     public $token;
@@ -34,12 +38,13 @@ class CreateAICoachTaskSessionResponseBody extends Model
      */
     public $webSocketUrl;
     protected $_name = [
-        'channelToken' => 'channelToken',
-        'requestId'    => 'requestId',
-        'scriptInfo'   => 'scriptInfo',
-        'sessionId'    => 'sessionId',
-        'token'        => 'token',
-        'webSocketUrl' => 'webSocketUrl',
+        'channelToken'  => 'channelToken',
+        'requestId'     => 'requestId',
+        'scriptInfo'    => 'scriptInfo',
+        'sessionId'     => 'sessionId',
+        'sessionStatus' => 'sessionStatus',
+        'token'         => 'token',
+        'webSocketUrl'  => 'webSocketUrl',
     ];
 
     public function validate()
@@ -67,6 +72,10 @@ class CreateAICoachTaskSessionResponseBody extends Model
 
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
+        }
+
+        if (null !== $this->sessionStatus) {
+            $res['sessionStatus'] = $this->sessionStatus;
         }
 
         if (null !== $this->token) {
@@ -102,6 +111,10 @@ class CreateAICoachTaskSessionResponseBody extends Model
 
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
+        }
+
+        if (isset($map['sessionStatus'])) {
+            $model->sessionStatus = $map['sessionStatus'];
         }
 
         if (isset($map['token'])) {

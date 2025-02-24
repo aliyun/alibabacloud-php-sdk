@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\URL;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchCreateAICoachTaskRequest;
@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationTex
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationTextResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachScriptResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionHistoryRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionHistoryResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionReportRequest;
@@ -867,7 +869,7 @@ class IntelligentCreation extends OpenApiClient
             'action'      => 'CreateIllustrationTask',
             'version'     => '2024-03-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts/' . URL::percentEncode($textId) . '/illustrationTasks',
+            'pathname'    => '/yic/yic-console/openService/v1/texts/' . Url::percentEncode($textId) . '/illustrationTasks',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1406,6 +1408,68 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * 查询剧本详情.
+     *
+     * @param request - GetAICoachScriptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAICoachScriptResponse
+     *
+     * @param GetAICoachScriptRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAICoachScriptResponse
+     */
+    public function getAICoachScriptWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->scriptRecordId) {
+            @$query['scriptRecordId'] = $request->scriptRecordId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAICoachScript',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/aicoach/getScript',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAICoachScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetAICoachScriptResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询剧本详情.
+     *
+     * @param request - GetAICoachScriptRequest
+     * @returns GetAICoachScriptResponse
+     *
+     * @param GetAICoachScriptRequest $request
+     *
+     * @return GetAICoachScriptResponse
+     */
+    public function getAICoachScript($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAICoachScriptWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 学员查询会话历史.
      *
      * @param request - GetAICoachTaskSessionHistoryRequest
@@ -1568,7 +1632,7 @@ class IntelligentCreation extends OpenApiClient
             'action'      => 'GetIllustration',
             'version'     => '2024-03-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts/' . URL::percentEncode($textId) . '/illustrations/' . URL::percentEncode($illustrationId) . '',
+            'pathname'    => '/yic/yic-console/openService/v1/texts/' . Url::percentEncode($textId) . '/illustrations/' . Url::percentEncode($illustrationId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1623,7 +1687,7 @@ class IntelligentCreation extends OpenApiClient
             'action'      => 'GetIllustrationTask',
             'version'     => '2024-03-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts/' . URL::percentEncode($textId) . '/illustrationTasks/' . URL::percentEncode($illustrationTaskId) . '',
+            'pathname'    => '/yic/yic-console/openService/v1/texts/' . Url::percentEncode($textId) . '/illustrationTasks/' . Url::percentEncode($illustrationTaskId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1809,7 +1873,7 @@ class IntelligentCreation extends OpenApiClient
             'action'      => 'GetText',
             'version'     => '2024-03-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts/' . URL::percentEncode($textId) . '',
+            'pathname'    => '/yic/yic-console/openService/v1/texts/' . Url::percentEncode($textId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1862,7 +1926,7 @@ class IntelligentCreation extends OpenApiClient
             'action'      => 'GetTextTask',
             'version'     => '2024-03-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/textTasks/' . URL::percentEncode($textTaskId) . '',
+            'pathname'    => '/yic/yic-console/openService/v1/textTasks/' . Url::percentEncode($textTaskId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2931,7 +2995,7 @@ class IntelligentCreation extends OpenApiClient
             'action'      => 'QueryTextStream',
             'version'     => '2024-03-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/stream/queryTextStream/' . URL::percentEncode($textId) . '',
+            'pathname'    => '/yic/yic-console/openService/v1/stream/queryTextStream/' . Url::percentEncode($textId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3074,7 +3138,7 @@ class IntelligentCreation extends OpenApiClient
             'action'      => 'SelectImageTask',
             'version'     => '2024-03-13',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/images/portrait/select/' . URL::percentEncode($taskId) . '',
+            'pathname'    => '/yic/yic-console/openService/v1/images/portrait/select/' . Url::percentEncode($taskId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3187,6 +3251,10 @@ class IntelligentCreation extends OpenApiClient
         $body = [];
         if (null !== $request->data) {
             @$body['data'] = $request->data;
+        }
+
+        if (null !== $request->header) {
+            @$body['header'] = $request->header;
         }
 
         if (null !== $request->moduleName) {

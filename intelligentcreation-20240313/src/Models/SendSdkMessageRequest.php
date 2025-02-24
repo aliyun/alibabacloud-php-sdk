@@ -15,6 +15,10 @@ class SendSdkMessageRequest extends Model
     /**
      * @var string
      */
+    public $header;
+    /**
+     * @var string
+     */
     public $moduleName;
     /**
      * @var string
@@ -26,6 +30,7 @@ class SendSdkMessageRequest extends Model
     public $userId;
     protected $_name = [
         'data'          => 'data',
+        'header'        => 'header',
         'moduleName'    => 'moduleName',
         'operationName' => 'operationName',
         'userId'        => 'userId',
@@ -41,6 +46,10 @@ class SendSdkMessageRequest extends Model
         $res = [];
         if (null !== $this->data) {
             $res['data'] = $this->data;
+        }
+
+        if (null !== $this->header) {
+            $res['header'] = $this->header;
         }
 
         if (null !== $this->moduleName) {
@@ -68,6 +77,10 @@ class SendSdkMessageRequest extends Model
         $model = new self();
         if (isset($map['data'])) {
             $model->data = $map['data'];
+        }
+
+        if (isset($map['header'])) {
+            $model->header = $map['header'];
         }
 
         if (isset($map['moduleName'])) {

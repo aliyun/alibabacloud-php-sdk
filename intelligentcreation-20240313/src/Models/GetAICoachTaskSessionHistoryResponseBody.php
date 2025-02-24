@@ -22,6 +22,10 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
      */
     public $endTime;
     /**
+     * @var int
+     */
+    public $pauseDuration;
+    /**
      * @var string
      */
     public $requestId;
@@ -49,6 +53,7 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
         'conversationList' => 'conversationList',
         'duration'         => 'duration',
         'endTime'          => 'endTime',
+        'pauseDuration'    => 'pauseDuration',
         'requestId'        => 'requestId',
         'scriptName'       => 'scriptName',
         'startTime'        => 'startTime',
@@ -84,6 +89,10 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
 
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
+        }
+
+        if (null !== $this->pauseDuration) {
+            $res['pauseDuration'] = $this->pauseDuration;
         }
 
         if (null !== $this->requestId) {
@@ -137,6 +146,10 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
 
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
+        }
+
+        if (isset($map['pauseDuration'])) {
+            $model->pauseDuration = $map['pauseDuration'];
         }
 
         if (isset($map['requestId'])) {
