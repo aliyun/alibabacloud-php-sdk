@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResp
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem\allocatedResources;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem\recurrenceRules;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesResponseBody\elasticityAssuranceSet\elasticityAssuranceItem\tags;
 
 class elasticityAssuranceItem extends Model
@@ -37,6 +38,10 @@ class elasticityAssuranceItem extends Model
     /**
      * @var string
      */
+    public $packageType;
+    /**
+     * @var string
+     */
     public $privatePoolOptionsId;
     /**
      * @var string
@@ -46,6 +51,10 @@ class elasticityAssuranceItem extends Model
      * @var string
      */
     public $privatePoolOptionsName;
+    /**
+     * @var recurrenceRules
+     */
+    public $recurrenceRules;
     /**
      * @var string
      */
@@ -85,9 +94,11 @@ class elasticityAssuranceItem extends Model
         'endTime'                         => 'EndTime',
         'instanceChargeType'              => 'InstanceChargeType',
         'latestStartTime'                 => 'LatestStartTime',
+        'packageType'                     => 'PackageType',
         'privatePoolOptionsId'            => 'PrivatePoolOptionsId',
         'privatePoolOptionsMatchCriteria' => 'PrivatePoolOptionsMatchCriteria',
         'privatePoolOptionsName'          => 'PrivatePoolOptionsName',
+        'recurrenceRules'                 => 'RecurrenceRules',
         'regionId'                        => 'RegionId',
         'resourceGroupId'                 => 'ResourceGroupId',
         'startTime'                       => 'StartTime',
@@ -102,6 +113,9 @@ class elasticityAssuranceItem extends Model
     {
         if (null !== $this->allocatedResources) {
             $this->allocatedResources->validate();
+        }
+        if (null !== $this->recurrenceRules) {
+            $this->recurrenceRules->validate();
         }
         if (null !== $this->tags) {
             $this->tags->validate();
@@ -136,6 +150,10 @@ class elasticityAssuranceItem extends Model
             $res['LatestStartTime'] = $this->latestStartTime;
         }
 
+        if (null !== $this->packageType) {
+            $res['PackageType'] = $this->packageType;
+        }
+
         if (null !== $this->privatePoolOptionsId) {
             $res['PrivatePoolOptionsId'] = $this->privatePoolOptionsId;
         }
@@ -146,6 +164,10 @@ class elasticityAssuranceItem extends Model
 
         if (null !== $this->privatePoolOptionsName) {
             $res['PrivatePoolOptionsName'] = $this->privatePoolOptionsName;
+        }
+
+        if (null !== $this->recurrenceRules) {
+            $res['RecurrenceRules'] = null !== $this->recurrenceRules ? $this->recurrenceRules->toArray($noStream) : $this->recurrenceRules;
         }
 
         if (null !== $this->regionId) {
@@ -215,6 +237,10 @@ class elasticityAssuranceItem extends Model
             $model->latestStartTime = $map['LatestStartTime'];
         }
 
+        if (isset($map['PackageType'])) {
+            $model->packageType = $map['PackageType'];
+        }
+
         if (isset($map['PrivatePoolOptionsId'])) {
             $model->privatePoolOptionsId = $map['PrivatePoolOptionsId'];
         }
@@ -225,6 +251,10 @@ class elasticityAssuranceItem extends Model
 
         if (isset($map['PrivatePoolOptionsName'])) {
             $model->privatePoolOptionsName = $map['PrivatePoolOptionsName'];
+        }
+
+        if (isset($map['RecurrenceRules'])) {
+            $model->recurrenceRules = recurrenceRules::fromMap($map['RecurrenceRules']);
         }
 
         if (isset($map['RegionId'])) {

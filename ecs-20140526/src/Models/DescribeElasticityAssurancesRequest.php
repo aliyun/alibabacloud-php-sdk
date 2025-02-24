@@ -41,6 +41,10 @@ class DescribeElasticityAssurancesRequest extends Model
     /**
      * @var string
      */
+    public $packageType;
+    /**
+     * @var string
+     */
     public $platform;
     /**
      * @var string
@@ -78,6 +82,7 @@ class DescribeElasticityAssurancesRequest extends Model
         'nextToken'            => 'NextToken',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'packageType'          => 'PackageType',
         'platform'             => 'Platform',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
@@ -128,6 +133,10 @@ class DescribeElasticityAssurancesRequest extends Model
 
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+
+        if (null !== $this->packageType) {
+            $res['PackageType'] = $this->packageType;
         }
 
         if (null !== $this->platform) {
@@ -205,6 +214,10 @@ class DescribeElasticityAssurancesRequest extends Model
 
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+
+        if (isset($map['PackageType'])) {
+            $model->packageType = $map['PackageType'];
         }
 
         if (isset($map['Platform'])) {

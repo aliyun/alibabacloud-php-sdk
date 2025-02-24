@@ -12,12 +12,17 @@ class PurchaseReservedInstancesOfferingResponseBody extends Model
     /**
      * @var string
      */
+    public $orderId;
+    /**
+     * @var string
+     */
     public $requestId;
     /**
      * @var reservedInstanceIdSets
      */
     public $reservedInstanceIdSets;
     protected $_name = [
+        'orderId'                => 'OrderId',
         'requestId'              => 'RequestId',
         'reservedInstanceIdSets' => 'ReservedInstanceIdSets',
     ];
@@ -33,6 +38,10 @@ class PurchaseReservedInstancesOfferingResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
+        }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,6 +61,10 @@ class PurchaseReservedInstancesOfferingResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
+        }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

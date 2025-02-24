@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceRequest\dataDisk;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceRequest\recurrenceRules;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceRequest\schedulerOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribePriceRequest\systemDisk;
 
@@ -104,6 +105,10 @@ class DescribePriceRequest extends Model
      */
     public $priceUnit;
     /**
+     * @var recurrenceRules[]
+     */
+    public $recurrenceRules;
+    /**
      * @var string
      */
     public $regionId;
@@ -134,6 +139,10 @@ class DescribePriceRequest extends Model
     /**
      * @var string
      */
+    public $startTime;
+    /**
+     * @var string
+     */
     public $zoneId;
     protected $_name = [
         'dataDisk'                => 'DataDisk',
@@ -159,6 +168,7 @@ class DescribePriceRequest extends Model
         'period'                  => 'Period',
         'platform'                => 'Platform',
         'priceUnit'               => 'PriceUnit',
+        'recurrenceRules'         => 'RecurrenceRules',
         'regionId'                => 'RegionId',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
@@ -166,6 +176,7 @@ class DescribePriceRequest extends Model
         'scope'                   => 'Scope',
         'spotDuration'            => 'SpotDuration',
         'spotStrategy'            => 'SpotStrategy',
+        'startTime'               => 'StartTime',
         'zoneId'                  => 'ZoneId',
     ];
 
@@ -182,6 +193,9 @@ class DescribePriceRequest extends Model
         }
         if (\is_array($this->instanceTypeList)) {
             Model::validateArray($this->instanceTypeList);
+        }
+        if (\is_array($this->recurrenceRules)) {
+            Model::validateArray($this->recurrenceRules);
         }
         parent::validate();
     }
@@ -293,6 +307,16 @@ class DescribePriceRequest extends Model
             $res['PriceUnit'] = $this->priceUnit;
         }
 
+        if (null !== $this->recurrenceRules) {
+            if (\is_array($this->recurrenceRules)) {
+                $res['RecurrenceRules'] = [];
+                $n1                     = 0;
+                foreach ($this->recurrenceRules as $item1) {
+                    $res['RecurrenceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -319,6 +343,10 @@ class DescribePriceRequest extends Model
 
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
+        }
+
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         if (null !== $this->zoneId) {
@@ -440,6 +468,16 @@ class DescribePriceRequest extends Model
             $model->priceUnit = $map['PriceUnit'];
         }
 
+        if (isset($map['RecurrenceRules'])) {
+            if (!empty($map['RecurrenceRules'])) {
+                $model->recurrenceRules = [];
+                $n1                     = 0;
+                foreach ($map['RecurrenceRules'] as $item1) {
+                    $model->recurrenceRules[$n1++] = recurrenceRules::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -466,6 +504,10 @@ class DescribePriceRequest extends Model
 
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
+        }
+
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         if (isset($map['ZoneId'])) {

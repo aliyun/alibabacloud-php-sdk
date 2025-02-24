@@ -16,9 +16,14 @@ class AllocateDedicatedHostsResponseBody extends Model
     /**
      * @var string
      */
+    public $orderId;
+    /**
+     * @var string
+     */
     public $requestId;
     protected $_name = [
         'dedicatedHostIdSets' => 'DedicatedHostIdSets',
+        'orderId'             => 'OrderId',
         'requestId'           => 'RequestId',
     ];
 
@@ -35,6 +40,10 @@ class AllocateDedicatedHostsResponseBody extends Model
         $res = [];
         if (null !== $this->dedicatedHostIdSets) {
             $res['DedicatedHostIdSets'] = null !== $this->dedicatedHostIdSets ? $this->dedicatedHostIdSets->toArray($noStream) : $this->dedicatedHostIdSets;
+        }
+
+        if (null !== $this->orderId) {
+            $res['OrderId'] = $this->orderId;
         }
 
         if (null !== $this->requestId) {
@@ -54,6 +63,10 @@ class AllocateDedicatedHostsResponseBody extends Model
         $model = new self();
         if (isset($map['DedicatedHostIdSets'])) {
             $model->dedicatedHostIdSets = dedicatedHostIdSets::fromMap($map['DedicatedHostIdSets']);
+        }
+
+        if (isset($map['OrderId'])) {
+            $model->orderId = $map['OrderId'];
         }
 
         if (isset($map['RequestId'])) {

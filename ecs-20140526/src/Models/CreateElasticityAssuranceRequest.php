@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateElasticityAssuranceRequest\privatePoolOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateElasticityAssuranceRequest\recurrenceRules;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateElasticityAssuranceRequest\tag;
 
 class CreateElasticityAssuranceRequest extends Model
@@ -63,6 +64,10 @@ class CreateElasticityAssuranceRequest extends Model
      */
     public $periodUnit;
     /**
+     * @var recurrenceRules[]
+     */
+    public $recurrenceRules;
+    /**
      * @var string
      */
     public $regionId;
@@ -104,6 +109,7 @@ class CreateElasticityAssuranceRequest extends Model
         'ownerId'              => 'OwnerId',
         'period'               => 'Period',
         'periodUnit'           => 'PeriodUnit',
+        'recurrenceRules'      => 'RecurrenceRules',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -120,6 +126,9 @@ class CreateElasticityAssuranceRequest extends Model
         }
         if (\is_array($this->instanceType)) {
             Model::validateArray($this->instanceType);
+        }
+        if (\is_array($this->recurrenceRules)) {
+            Model::validateArray($this->recurrenceRules);
         }
         if (\is_array($this->tag)) {
             Model::validateArray($this->tag);
@@ -189,6 +198,16 @@ class CreateElasticityAssuranceRequest extends Model
 
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
+        }
+
+        if (null !== $this->recurrenceRules) {
+            if (\is_array($this->recurrenceRules)) {
+                $res['RecurrenceRules'] = [];
+                $n1                     = 0;
+                foreach ($this->recurrenceRules as $item1) {
+                    $res['RecurrenceRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->regionId) {
@@ -298,6 +317,16 @@ class CreateElasticityAssuranceRequest extends Model
 
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
+        }
+
+        if (isset($map['RecurrenceRules'])) {
+            if (!empty($map['RecurrenceRules'])) {
+                $model->recurrenceRules = [];
+                $n1                     = 0;
+                foreach ($map['RecurrenceRules'] as $item1) {
+                    $model->recurrenceRules[$n1++] = recurrenceRules::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['RegionId'])) {

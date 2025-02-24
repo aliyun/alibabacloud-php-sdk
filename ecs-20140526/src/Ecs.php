@@ -286,6 +286,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipAddressesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipAddressesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipMonitorDataRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeEipMonitorDataResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceAutoRenewAttributeRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceInstancesRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssuranceInstancesResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeElasticityAssurancesRequest;
@@ -540,6 +542,8 @@ use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskSpecRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyDiskSpecResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyEipAddressAttributeRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyEipAddressAttributeResponse;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyElasticityAssuranceAutoRenewAttributeRequest;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyElasticityAssuranceAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyElasticityAssuranceRequest;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyElasticityAssuranceResponse;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\ModifyForwardEntryRequest;
@@ -5516,6 +5520,10 @@ class Ecs extends OpenApiClient
 
         if (null !== $request->periodUnit) {
             @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->recurrenceRules) {
+            @$query['RecurrenceRules'] = $request->recurrenceRules;
         }
 
         if (null !== $request->regionId) {
@@ -12339,7 +12347,7 @@ class Ecs extends OpenApiClient
     // Deprecated
 
     /**
-     * @deprecated OpenAPI DeleteVSwitch is deprecated
+     * @deprecated openAPI DeleteVSwitch is deprecated, please use Vpc::2016-04-28::DeleteVSwitch instead
      *
      * @param request - DeleteVSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12402,7 +12410,7 @@ class Ecs extends OpenApiClient
     // Deprecated
 
     /**
-     * @deprecated OpenAPI DeleteVSwitch is deprecated
+     * @deprecated openAPI DeleteVSwitch is deprecated, please use Vpc::2016-04-28::DeleteVSwitch instead
      *
      * @param request - DeleteVSwitchRequest
      * @returns DeleteVSwitchResponse
@@ -15690,15 +15698,11 @@ class Ecs extends OpenApiClient
      * Queries block storage devices that you created, including cloud disks, local disks, and elastic ephemeral disks.
      *
      * @remarks
-     * ### [](#)Usage notes
-     * *   You can specify multiple request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` as filters. The specified parameters are evaluated by using the "AND" operator. If you specify more than one filter, the records that match all filters are returned.
-     * *   The value of `DiskIds` is a JSON array. If you do not specify DiskIds, the parameter is not used as a filter condition. If you set `DiskIds` to an empty JSON array, the parameter is regarded as a valid filter, and an empty result is returned.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: Use `NextToken` to specify the pagination token. Set the value to the `NextToken` value that is obtained from the previous query. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page, and then use `PageNumber` to specify the number of the page to return.
-     *     You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use Method 1. If `NextToken` is specified, `PageSize` and `PageNumber` do not take effect and `TotalCount` in the response is invalid.
+     *   You can specify multiple request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` as filters. The specified parameters are evaluated by using the "AND" operator. If you specify more than one filter, the records that match all filters are returned.
+     * *   The value of `DiskIds` is a JSON array. If you do not specify DiskIds, the parameter is not used as a filter. If you set `DiskIds` to an empty JSON array, the parameter is regarded as a valid filter, and an empty result is returned.
+     * *   Token-based paged query: Use `NextToken` to configure the query token. Set the value to the `NextToken` value returned in the previous call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
      * *   You can attach a disk for which the multi-attach feature is enabled to multiple instances. You can query the attachment information of the disk based on the `Attachment` values in the response.
-     * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
+     * When you call the API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter formats](https://help.aliyun.com/document_detail/110340.html).
      *
      * @param request - DescribeDisksRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15874,15 +15878,11 @@ class Ecs extends OpenApiClient
      * Queries block storage devices that you created, including cloud disks, local disks, and elastic ephemeral disks.
      *
      * @remarks
-     * ### [](#)Usage notes
-     * *   You can specify multiple request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` as filters. The specified parameters are evaluated by using the "AND" operator. If you specify more than one filter, the records that match all filters are returned.
-     * *   The value of `DiskIds` is a JSON array. If you do not specify DiskIds, the parameter is not used as a filter condition. If you set `DiskIds` to an empty JSON array, the parameter is regarded as a valid filter, and an empty result is returned.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: Use `NextToken` to specify the pagination token. Set the value to the `NextToken` value that is obtained from the previous query. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page, and then use `PageNumber` to specify the number of the page to return.
-     *     You can use only one of the preceding methods. If a large number of entries are to be returned, we recommend that you use Method 1. If `NextToken` is specified, `PageSize` and `PageNumber` do not take effect and `TotalCount` in the response is invalid.
+     *   You can specify multiple request parameters such as `RegionId`, `ZoneId`, `DiskIds`, and `InstanceId` as filters. The specified parameters are evaluated by using the "AND" operator. If you specify more than one filter, the records that match all filters are returned.
+     * *   The value of `DiskIds` is a JSON array. If you do not specify DiskIds, the parameter is not used as a filter. If you set `DiskIds` to an empty JSON array, the parameter is regarded as a valid filter, and an empty result is returned.
+     * *   Token-based paged query: Use `NextToken` to configure the query token. Set the value to the `NextToken` value returned in the previous call to the DescribeDisks operation. Then, use `MaxResults` to specify the maximum number of entries to return on each page.
      * *   You can attach a disk for which the multi-attach feature is enabled to multiple instances. You can query the attachment information of the disk based on the `Attachment` values in the response.
-     * When you call an API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
+     * When you call the API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter formats](https://help.aliyun.com/document_detail/110340.html).
      *
      * @param request - DescribeDisksRequest
      * @returns DescribeDisksResponse
@@ -16241,6 +16241,84 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * 查询弹性保障自动续费属性.
+     *
+     * @param request - DescribeElasticityAssuranceAutoRenewAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeElasticityAssuranceAutoRenewAttributeResponse
+     *
+     * @param DescribeElasticityAssuranceAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return DescribeElasticityAssuranceAutoRenewAttributeResponse
+     */
+    public function describeElasticityAssuranceAutoRenewAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->privatePoolOptions) {
+            @$query['PrivatePoolOptions'] = $request->privatePoolOptions;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeElasticityAssuranceAutoRenewAttribute',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeElasticityAssuranceAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeElasticityAssuranceAutoRenewAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询弹性保障自动续费属性.
+     *
+     * @param request - DescribeElasticityAssuranceAutoRenewAttributeRequest
+     * @returns DescribeElasticityAssuranceAutoRenewAttributeResponse
+     *
+     * @param DescribeElasticityAssuranceAutoRenewAttributeRequest $request
+     *
+     * @return DescribeElasticityAssuranceAutoRenewAttributeResponse
+     */
+    public function describeElasticityAssuranceAutoRenewAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeElasticityAssuranceAutoRenewAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the running Elastic Compute Service (ECS) instances that match and use the elasticity assurance service.
      *
      * @remarks
@@ -16370,6 +16448,10 @@ class Ecs extends OpenApiClient
 
         if (null !== $request->ownerId) {
             @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->packageType) {
+            @$query['PackageType'] = $request->packageType;
         }
 
         if (null !== $request->platform) {
@@ -21304,6 +21386,10 @@ class Ecs extends OpenApiClient
             @$query['PriceUnit'] = $request->priceUnit;
         }
 
+        if (null !== $request->recurrenceRules) {
+            @$query['RecurrenceRules'] = $request->recurrenceRules;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -21330,6 +21416,10 @@ class Ecs extends OpenApiClient
 
         if (null !== $request->spotStrategy) {
             @$query['SpotStrategy'] = $request->spotStrategy;
+        }
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
 
         if (null !== $request->zoneId) {
@@ -30110,6 +30200,10 @@ class Ecs extends OpenApiClient
             @$query['OwnerId'] = $request->ownerId;
         }
 
+        if (null !== $request->recurrenceRules) {
+            @$query['RecurrenceRules'] = $request->recurrenceRules;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -30162,6 +30256,96 @@ class Ecs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyElasticityAssuranceWithOptions($request, $runtime);
+    }
+
+    /**
+     * 修改弹性保障自动续费属性.
+     *
+     * @param request - ModifyElasticityAssuranceAutoRenewAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyElasticityAssuranceAutoRenewAttributeResponse
+     *
+     * @param ModifyElasticityAssuranceAutoRenewAttributeRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return ModifyElasticityAssuranceAutoRenewAttributeResponse
+     */
+    public function modifyElasticityAssuranceAutoRenewAttributeWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->period) {
+            @$query['Period'] = $request->period;
+        }
+
+        if (null !== $request->periodUnit) {
+            @$query['PeriodUnit'] = $request->periodUnit;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->renewalStatus) {
+            @$query['RenewalStatus'] = $request->renewalStatus;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->privatePoolOptions) {
+            @$query['PrivatePoolOptions'] = $request->privatePoolOptions;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyElasticityAssuranceAutoRenewAttribute',
+            'version'     => '2014-05-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyElasticityAssuranceAutoRenewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ModifyElasticityAssuranceAutoRenewAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改弹性保障自动续费属性.
+     *
+     * @param request - ModifyElasticityAssuranceAutoRenewAttributeRequest
+     * @returns ModifyElasticityAssuranceAutoRenewAttributeResponse
+     *
+     * @param ModifyElasticityAssuranceAutoRenewAttributeRequest $request
+     *
+     * @return ModifyElasticityAssuranceAutoRenewAttributeResponse
+     */
+    public function modifyElasticityAssuranceAutoRenewAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyElasticityAssuranceAutoRenewAttributeWithOptions($request, $runtime);
     }
 
     // Deprecated
@@ -30780,14 +30964,14 @@ class Ecs extends OpenApiClient
      * Changes the type of the private pool for an Elastic Compute Service (ECS) instance.
      *
      * @remarks
-     * A private pool is generated after an elasticity assurance or a capacity reservation is created. The private pool is associated with information about the instances that are created by using the resources in the private pool. When you create ECS instances, you can configure the instances to use private pool resources, matching them to active elasticity assurances or capacity reservations.
-     * *   This operation does not require you to restart the instances for the changes to take effect.
-     * *   When you call the following operations on an instance, the system attempts to match the instance with active private pools. If the instance is configured to a specific private pool. the call may fail because the private pool is no longer active or does not have sufficient resources. If the call fails, call the ModifyInstanceAttachmentAttributes operation to change the match mode of the private pool to `Open`.
-     *     *   StartInstance: starts an instance that is stopped in economical mode.
-     *     *   ReActivateInstances
-     *     *   ModifyInstanceChargeType
-     *     *   ModifyPrepayInstanceSpec
-     *     *   ReplaceSystemDisk
+     * A private pool is generated after an elasticity assurance or a capacity reservation is created. The private pool is associated with information about the instances that use the private pool. You can specify whether to use a private pool when you create an ECS instance to match the instance with the associated elasticity assurance or capacity reservation.
+     * *   After you call this operation to modify the private pool attributes of an ECS instance, you do not need to restart the instance for the changes to take effect.
+     * *   When you call the following operations on an ECS instance, the system attempts to match the instance with active private pools. If the instance is already matched to a specified private pool, the call to an operation may fail when the private pool capacity is used up or the private pool expires. If the call fails, call the ModifyInstanceAttachmentAttributes operation to change the type of the private pool to `Open`.
+     *     *   [StartInstance](https://help.aliyun.com/document_detail/2679679.html): start an ECS instance that is stopped in economical mode.
+     *     *   [ReActivateInstances](https://help.aliyun.com/document_detail/2679707.html): reactivates an ECS instance that has expired or is reclaimed due to an overdue payment.
+     *     *   [ModifyInstanceChargeType](https://help.aliyun.com/document_detail/2679704.html): changes the billing method of an ECS instance.
+     *     *   [ModifyPrepayInstanceSpec](https://help.aliyun.com/document_detail/2679706.html): changes the instance type of an ECS instance.
+     *     *   [ReplaceSystemDisk](https://help.aliyun.com/document_detail/2679771.html): replaces the operating system of an ECS instance.
      *
      * @param request - ModifyInstanceAttachmentAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30855,14 +31039,14 @@ class Ecs extends OpenApiClient
      * Changes the type of the private pool for an Elastic Compute Service (ECS) instance.
      *
      * @remarks
-     * A private pool is generated after an elasticity assurance or a capacity reservation is created. The private pool is associated with information about the instances that are created by using the resources in the private pool. When you create ECS instances, you can configure the instances to use private pool resources, matching them to active elasticity assurances or capacity reservations.
-     * *   This operation does not require you to restart the instances for the changes to take effect.
-     * *   When you call the following operations on an instance, the system attempts to match the instance with active private pools. If the instance is configured to a specific private pool. the call may fail because the private pool is no longer active or does not have sufficient resources. If the call fails, call the ModifyInstanceAttachmentAttributes operation to change the match mode of the private pool to `Open`.
-     *     *   StartInstance: starts an instance that is stopped in economical mode.
-     *     *   ReActivateInstances
-     *     *   ModifyInstanceChargeType
-     *     *   ModifyPrepayInstanceSpec
-     *     *   ReplaceSystemDisk
+     * A private pool is generated after an elasticity assurance or a capacity reservation is created. The private pool is associated with information about the instances that use the private pool. You can specify whether to use a private pool when you create an ECS instance to match the instance with the associated elasticity assurance or capacity reservation.
+     * *   After you call this operation to modify the private pool attributes of an ECS instance, you do not need to restart the instance for the changes to take effect.
+     * *   When you call the following operations on an ECS instance, the system attempts to match the instance with active private pools. If the instance is already matched to a specified private pool, the call to an operation may fail when the private pool capacity is used up or the private pool expires. If the call fails, call the ModifyInstanceAttachmentAttributes operation to change the type of the private pool to `Open`.
+     *     *   [StartInstance](https://help.aliyun.com/document_detail/2679679.html): start an ECS instance that is stopped in economical mode.
+     *     *   [ReActivateInstances](https://help.aliyun.com/document_detail/2679707.html): reactivates an ECS instance that has expired or is reclaimed due to an overdue payment.
+     *     *   [ModifyInstanceChargeType](https://help.aliyun.com/document_detail/2679704.html): changes the billing method of an ECS instance.
+     *     *   [ModifyPrepayInstanceSpec](https://help.aliyun.com/document_detail/2679706.html): changes the instance type of an ECS instance.
+     *     *   [ReplaceSystemDisk](https://help.aliyun.com/document_detail/2679771.html): replaces the operating system of an ECS instance.
      *
      * @param request - ModifyInstanceAttachmentAttributesRequest
      * @returns ModifyInstanceAttachmentAttributesResponse

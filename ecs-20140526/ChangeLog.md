@@ -1,3 +1,11 @@
+2025-02-24 Version: 6.1.0
+- Support API DescribeElasticityAssuranceAutoRenewAttribute.
+- Support API ModifyElasticityAssuranceAutoRenewAttribute.
+- Update API AllocateDedicatedHosts: update response param.
+- Update API PurchaseReservedInstancesOffering: update response param.
+- Update API RenewDedicatedHosts: update response param.
+
+
 2025-02-17 Version: 6.0.1
 - Update API CreateLaunchTemplate: update param NetworkInterface.
 - Update API CreateLaunchTemplateVersion: update param NetworkInterface.
