@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models\UpdateLeniPrivateIpAddressResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @description Lingjun Elastic Network Interface ID.
-     *
-     * @example leni-1234****
-     *
      * @var string
      */
     public $elasticNetworkInterfaceId;
-
     /**
-     * @description Lingjun Elastic Network Interface secondary private IP unique identifier.
-     *
-     * @example sip-8ylg****
-     *
      * @var string
      */
     public $ipName;
@@ -32,14 +23,16 @@ class content extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticNetworkInterfaceId) {
             $res['ElasticNetworkInterfaceId'] = $this->elasticNetworkInterfaceId;
         }
+
         if (null !== $this->ipName) {
             $res['IpName'] = $this->ipName;
         }
@@ -47,17 +40,18 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticNetworkInterfaceId'])) {
             $model->elasticNetworkInterfaceId = $map['ElasticNetworkInterfaceId'];
         }
+
         if (isset($map['IpName'])) {
             $model->ipName = $map['IpName'];
         }

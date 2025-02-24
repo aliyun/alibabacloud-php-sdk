@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models\CreateSubnetResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @description Lingjun subnet instance ID
-     *
-     * @example subnet-yuvn29bn
-     *
      * @var string
      */
     public $subnetId;
@@ -22,9 +18,10 @@ class content extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subnetId) {
@@ -34,11 +31,11 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

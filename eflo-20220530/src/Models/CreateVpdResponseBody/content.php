@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models\CreateVpdResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @description Lingjun subnet ID list
-     *
      * @var string[]
      */
     public $subnetIds;
-
     /**
-     * @description Lingjun CIDR block instance ID
-     *
-     * @example vpd-eoiy88ju
-     *
      * @var string
      */
     public $vpdId;
@@ -30,14 +23,25 @@ class content extends Model
 
     public function validate()
     {
+        if (\is_array($this->subnetIds)) {
+            Model::validateArray($this->subnetIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subnetIds) {
-            $res['SubnetIds'] = $this->subnetIds;
+            if (\is_array($this->subnetIds)) {
+                $res['SubnetIds'] = [];
+                $n1               = 0;
+                foreach ($this->subnetIds as $item1) {
+                    $res['SubnetIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
         }
@@ -45,19 +49,24 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubnetIds'])) {
             if (!empty($map['SubnetIds'])) {
-                $model->subnetIds = $map['SubnetIds'];
+                $model->subnetIds = [];
+                $n1               = 0;
+                foreach ($map['SubnetIds'] as $item1) {
+                    $model->subnetIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];
         }

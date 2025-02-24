@@ -4,67 +4,66 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\CreateSubnetResponseBody\content;
-use AlibabaCloud\Tea\Model;
 
 class CreateSubnetResponseBody extends Model
 {
     /**
-     * @description The response status code.
-     *
-     * @example 0
-     *
+     * @var string
+     */
+    public $accessDeniedDetail;
+    /**
      * @var int
      */
     public $code;
-
     /**
-     * @description The response parameters.
-     *
      * @var content
      */
     public $content;
-
     /**
-     * @description The error message. (If the instance is in the Exception state, the exception cause is prompted.)
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The request ID, which is used to locate and troubleshoot issues.
-     *
-     * @example A88DFED5-24B7-5A3E-87DE-380BF06F3C90
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'content'   => 'Content',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'content'            => 'Content',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->content) {
+            $this->content->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->content) {
-            $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
+            $res['Content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,23 +71,30 @@ class CreateSubnetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSubnetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Content'])) {
             $model->content = content::fromMap($map['Content']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

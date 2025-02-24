@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models\CreateErAttachmentResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @description The ID of the network connection instance.
-     *
-     * @example er-attachment-ggjbfhqv
-     *
      * @var string
      */
     public $erAttachmentId;
@@ -22,9 +18,10 @@ class content extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->erAttachmentId) {
@@ -34,11 +31,11 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

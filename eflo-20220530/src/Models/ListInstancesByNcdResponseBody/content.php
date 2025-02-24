@@ -4,46 +4,24 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models\ListInstancesByNcdResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\ListInstancesByNcdResponseBody\content\instanceInfos;
-use AlibabaCloud\Tea\Model;
 
 class content extends Model
 {
     /**
-     * @description A collection of instances whose network communication distance from the source instance ID does not exceed maxNcd
-     *
      * @var instanceInfos[]
      */
     public $instanceInfos;
-
     /**
-     * @description Instance Type
-     *
-     * Valid value:
-     *
-     *   node: Lingjun node.
-     *   lni: lingjun network interface controller.
-     *
-     * @example lni
-     *
      * @var string
      */
     public $instanceType;
-
     /**
-     * @description Maximum communication distance between nodes
-     *
-     * @example 3
-     *
      * @var int
      */
     public $maxNcd;
-
     /**
-     * @description The ID of the source instance.
-     *
-     * @example lni-1234****
-     *
      * @var string
      */
     public $sourceInstanceId;
@@ -56,26 +34,33 @@ class content extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceInfos)) {
+            Model::validateArray($this->instanceInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceInfos) {
-            $res['InstanceInfos'] = [];
-            if (null !== $this->instanceInfos && \is_array($this->instanceInfos)) {
-                $n = 0;
-                foreach ($this->instanceInfos as $item) {
-                    $res['InstanceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instanceInfos)) {
+                $res['InstanceInfos'] = [];
+                $n1                   = 0;
+                foreach ($this->instanceInfos as $item1) {
+                    $res['InstanceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->maxNcd) {
             $res['MaxNcd'] = $this->maxNcd;
         }
+
         if (null !== $this->sourceInstanceId) {
             $res['SourceInstanceId'] = $this->sourceInstanceId;
         }
@@ -83,29 +68,32 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceInfos'])) {
             if (!empty($map['InstanceInfos'])) {
                 $model->instanceInfos = [];
-                $n                    = 0;
-                foreach ($map['InstanceInfos'] as $item) {
-                    $model->instanceInfos[$n++] = null !== $item ? instanceInfos::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['InstanceInfos'] as $item1) {
+                    $model->instanceInfos[$n1++] = instanceInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['MaxNcd'])) {
             $model->maxNcd = $map['MaxNcd'];
         }
+
         if (isset($map['SourceInstanceId'])) {
             $model->sourceInstanceId = $map['SourceInstanceId'];
         }

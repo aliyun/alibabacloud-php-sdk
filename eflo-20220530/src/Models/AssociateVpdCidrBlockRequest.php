@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssociateVpdCidrBlockRequest extends Model
 {
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-wulanchabu
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The additional CIDR block.
-     *
-     * This parameter is required.
-     * @example 172.16.0.0/12
-     *
      * @var string
      */
     public $secondaryCidrBlock;
-
     /**
-     * @description The ID of the Lingjun CIDR block.
-     *
-     * This parameter is required.
-     * @example vpd-omqutbff
-     *
      * @var string
      */
     public $vpdId;
@@ -45,17 +28,20 @@ class AssociateVpdCidrBlockRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->secondaryCidrBlock) {
             $res['SecondaryCidrBlock'] = $this->secondaryCidrBlock;
         }
+
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
         }
@@ -63,20 +49,22 @@ class AssociateVpdCidrBlockRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssociateVpdCidrBlockRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SecondaryCidrBlock'])) {
             $model->secondaryCidrBlock = $map['SecondaryCidrBlock'];
         }
+
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];
         }

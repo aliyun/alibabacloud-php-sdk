@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models\ListVccsResponseBody\content\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tags extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * You can specify at most 20 tag keys in each call.
-     * @example tag-vcc
-     *
      * @var string
      */
     public $tagKey;
-
     /**
-     * @description The value of the tag that is added to the resource.
-     *
-     * Each key-value pair must be unique. You can specify values for at most 20 tag keys in each call.
-     * @example vcc-group-1
-     *
      * @var string
      */
     public $tagValue;
@@ -34,14 +23,16 @@ class tags extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
+
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -49,17 +40,18 @@ class tags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }
+
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models\GetVccResponseBody\content;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\GetVccResponseBody\content\cisRouterInfo\ccInfos;
-use AlibabaCloud\Tea\Model;
 
 class cisRouterInfo extends Model
 {
     /**
-     * @description Leased Line Information List
-     *
      * @var ccInfos[]
      */
     public $ccInfos;
-
     /**
-     * @description The ID of the on-cloud router instance.
-     *
-     * @example ccr-1ms84am0
-     *
      * @var string
      */
     public $ccrId;
@@ -31,20 +24,25 @@ class cisRouterInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->ccInfos)) {
+            Model::validateArray($this->ccInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ccInfos) {
-            $res['CcInfos'] = [];
-            if (null !== $this->ccInfos && \is_array($this->ccInfos)) {
-                $n = 0;
-                foreach ($this->ccInfos as $item) {
-                    $res['CcInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ccInfos)) {
+                $res['CcInfos'] = [];
+                $n1             = 0;
+                foreach ($this->ccInfos as $item1) {
+                    $res['CcInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->ccrId) {
             $res['CcrId'] = $this->ccrId;
         }
@@ -52,23 +50,24 @@ class cisRouterInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cisRouterInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CcInfos'])) {
             if (!empty($map['CcInfos'])) {
                 $model->ccInfos = [];
-                $n              = 0;
-                foreach ($map['CcInfos'] as $item) {
-                    $model->ccInfos[$n++] = null !== $item ? ccInfos::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['CcInfos'] as $item1) {
+                    $model->ccInfos[$n1++] = ccInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CcrId'])) {
             $model->ccrId = $map['CcrId'];
         }

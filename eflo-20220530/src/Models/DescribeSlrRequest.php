@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSlrRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the RAM instance belongs.
-     *
-     * @example rg-aeky5f3qx6ceapq
-     *
      * @var string
      */
     public $resourceGroupId;
@@ -22,9 +18,10 @@ class DescribeSlrRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
@@ -34,11 +31,11 @@ class DescribeSlrRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSlrRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

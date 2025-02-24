@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models\UnAssignPrivateIpAddressResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @description IP unique identifier
-     *
-     * @example sip-xxxxx
-     *
      * @var string
      */
     public $ipName;
-
     /**
-     * @description Lingjun network interface controller ID
-     *
-     * @example lni-bp164jwjpdq4lnsy83s5
-     *
      * @var string
      */
     public $networkInterfaceId;
@@ -32,14 +23,16 @@ class content extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipName) {
             $res['IpName'] = $this->ipName;
         }
+
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
@@ -47,17 +40,18 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpName'])) {
             $model->ipName = $map['IpName'];
         }
+
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }

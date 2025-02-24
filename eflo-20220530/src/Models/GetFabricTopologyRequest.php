@@ -4,57 +4,31 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFabricTopologyRequest extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example i-169263721924****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description Lingjun network interface controller ID List
-     *
      * @var string[]
      */
     public $lniIds;
-
     /**
-     * @description Node ID list
-     *
      * @var string[]
      */
     public $nodeIds;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-wulanchabu
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the virtual private cloud (VPC).
-     *
-     * @example vpc-k8i0g9fk68t7u0u2w****
-     *
      * @var string
      */
     public $vpcId;
-
     /**
-     * @description Lingjun CIDR block ID
-     *
-     * @example vpd-aof7****
-     *
      * @var string
      */
     public $vpdId;
@@ -69,26 +43,50 @@ class GetFabricTopologyRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->lniIds)) {
+            Model::validateArray($this->lniIds);
+        }
+        if (\is_array($this->nodeIds)) {
+            Model::validateArray($this->nodeIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->lniIds) {
-            $res['LniIds'] = $this->lniIds;
+            if (\is_array($this->lniIds)) {
+                $res['LniIds'] = [];
+                $n1            = 0;
+                foreach ($this->lniIds as $item1) {
+                    $res['LniIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
+            if (\is_array($this->nodeIds)) {
+                $res['NodeIds'] = [];
+                $n1             = 0;
+                foreach ($this->nodeIds as $item1) {
+                    $res['NodeIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
         }
@@ -96,33 +94,46 @@ class GetFabricTopologyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFabricTopologyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['LniIds'])) {
             if (!empty($map['LniIds'])) {
-                $model->lniIds = $map['LniIds'];
+                $model->lniIds = [];
+                $n1            = 0;
+                foreach ($map['LniIds'] as $item1) {
+                    $model->lniIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
-                $model->nodeIds = $map['NodeIds'];
+                $model->nodeIds = [];
+                $n1             = 0;
+                foreach ($map['NodeIds'] as $item1) {
+                    $model->nodeIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];
         }

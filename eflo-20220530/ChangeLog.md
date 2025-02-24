@@ -1,3 +1,8 @@
+2025-02-24 Version: 1.1.2
+- Update API GetLniPrivateIpAddress: update response param.
+- Update API GetVcc: update response param.
+
+
 2025-01-16 Version: 1.1.1
 - Generated php 2022-05-30 for eflo.
 

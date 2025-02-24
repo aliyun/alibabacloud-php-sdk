@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetElasticNetworkInterfaceRequest extends Model
 {
     /**
-     * @description Lingjun Elastic Network Interface ID
-     *
-     * This parameter is required.
-     * @example leni-1234****
-     *
      * @var string
      */
     public $elasticNetworkInterfaceId;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-wulanchabu
-     *
      * @var string
      */
     public $regionId;
@@ -34,14 +23,16 @@ class GetElasticNetworkInterfaceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->elasticNetworkInterfaceId) {
             $res['ElasticNetworkInterfaceId'] = $this->elasticNetworkInterfaceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,17 +40,18 @@ class GetElasticNetworkInterfaceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetElasticNetworkInterfaceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ElasticNetworkInterfaceId'])) {
             $model->elasticNetworkInterfaceId = $map['ElasticNetworkInterfaceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

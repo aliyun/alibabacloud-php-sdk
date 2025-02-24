@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVpdRequest extends Model
 {
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-wulanchabu
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the VPD instance.
-     *
-     * This parameter is required.
-     * @example vpd-ze3na0wf
-     *
      * @var string
      */
     public $vpdId;
@@ -34,14 +23,16 @@ class GetVpdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
         }
@@ -49,17 +40,18 @@ class GetVpdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVpdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];
         }

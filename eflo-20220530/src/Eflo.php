@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\AssignLeniPrivateIpAddressRequest;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\AssignLeniPrivateIpAddressResponse;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\AssignPrivateIpAddressRequest;
@@ -158,11 +157,10 @@ use AlibabaCloud\SDK\Eflo\V20220530\Models\UpdateVccRequest;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\UpdateVccResponse;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\UpdateVpdRequest;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\UpdateVpdResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Eflo extends OpenApiClient
 {
@@ -187,49 +185,60 @@ class Eflo extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Apply for a secondary private IP address for the current Lingjun Elastic Network Interface. You can automatically assign a secondary private IP address.
-     *  *
-     * @description Apply for a secondary private IP address for the specified Lingjun Elastic Network Interface.
+     * Apply for a secondary private IP address for the current Lingjun Elastic Network Interface. You can automatically assign a secondary private IP address.
+     *
+     * @remarks
+     * Apply for a secondary private IP address for the specified Lingjun Elastic Network Interface.
      * *   If the PrivateIp field is empty, a secondary private IP address is automatically assigned and the unique identifier of the IP address is returned.
      * *   You can use the GetLeniPrivateIpAddress or ListLeniPrivateIpAddresses interface to check whether the secondary private IP address is assigned.
-     *  *
-     * @param AssignLeniPrivateIpAddressRequest $request AssignLeniPrivateIpAddressRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssignLeniPrivateIpAddressResponse AssignLeniPrivateIpAddressResponse
+     * @param request - AssignLeniPrivateIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssignLeniPrivateIpAddressResponse
+     *
+     * @param AssignLeniPrivateIpAddressRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return AssignLeniPrivateIpAddressResponse
      */
     public function assignLeniPrivateIpAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $body['PrivateIpAddress'] = $request->privateIpAddress;
+
+        if (null !== $request->privateIpAddress) {
+            @$body['PrivateIpAddress'] = $request->privateIpAddress;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AssignLeniPrivateIpAddress',
@@ -242,20 +251,27 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssignLeniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Apply for a secondary private IP address for the current Lingjun Elastic Network Interface. You can automatically assign a secondary private IP address.
-     *  *
-     * @description Apply for a secondary private IP address for the specified Lingjun Elastic Network Interface.
+     * Apply for a secondary private IP address for the current Lingjun Elastic Network Interface. You can automatically assign a secondary private IP address.
+     *
+     * @remarks
+     * Apply for a secondary private IP address for the specified Lingjun Elastic Network Interface.
      * *   If the PrivateIp field is empty, a secondary private IP address is automatically assigned and the unique identifier of the IP address is returned.
      * *   You can use the GetLeniPrivateIpAddress or ListLeniPrivateIpAddresses interface to check whether the secondary private IP address is assigned.
-     *  *
-     * @param AssignLeniPrivateIpAddressRequest $request AssignLeniPrivateIpAddressRequest
      *
-     * @return AssignLeniPrivateIpAddressResponse AssignLeniPrivateIpAddressResponse
+     * @param request - AssignLeniPrivateIpAddressRequest
+     * @returns AssignLeniPrivateIpAddressResponse
+     *
+     * @param AssignLeniPrivateIpAddressRequest $request
+     *
+     * @return AssignLeniPrivateIpAddressResponse
      */
     public function assignLeniPrivateIpAddress($request)
     {
@@ -265,47 +281,60 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Applies for a private secondary IP address for the current LNI. You can also call this operation to assign a secondary MAC address to the current LNI.
-     *  *
-     * @description >  Apply for secondary private IP addresses
+     * Applies for a private secondary IP address for the current LNI. You can also call this operation to assign a secondary MAC address to the current LNI.
+     *
+     * @remarks
+     * >  Apply for secondary private IP addresses
      * *   By default, each network interface controller can apply for three secondary private IP addresses. If the quota is exceeded, contact the administrator.
      * *   The secondary private IP address is allocated from the Lingjun subnet to which the current network interface controller belongs. The first address and the last two addresses belong to reserved addresses and do not participate in the allocation.
-     *  *
-     * @param AssignPrivateIpAddressRequest $request AssignPrivateIpAddressRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssignPrivateIpAddressResponse AssignPrivateIpAddressResponse
+     * @param request - AssignPrivateIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssignPrivateIpAddressResponse
+     *
+     * @param AssignPrivateIpAddressRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AssignPrivateIpAddressResponse
      */
     public function assignPrivateIpAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->assignMac)) {
-            $body['AssignMac'] = $request->assignMac;
+        if (null !== $request->assignMac) {
+            @$body['AssignMac'] = $request->assignMac;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->networkInterfaceId)) {
-            $body['NetworkInterfaceId'] = $request->networkInterfaceId;
+
+        if (null !== $request->networkInterfaceId) {
+            @$body['NetworkInterfaceId'] = $request->networkInterfaceId;
         }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $body['PrivateIpAddress'] = $request->privateIpAddress;
+
+        if (null !== $request->privateIpAddress) {
+            @$body['PrivateIpAddress'] = $request->privateIpAddress;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->skipConfig)) {
-            $body['SkipConfig'] = $request->skipConfig;
+
+        if (null !== $request->skipConfig) {
+            @$body['SkipConfig'] = $request->skipConfig;
         }
-        if (!Utils::isUnset($request->subnetId)) {
-            $body['SubnetId'] = $request->subnetId;
+
+        if (null !== $request->subnetId) {
+            @$body['SubnetId'] = $request->subnetId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AssignPrivateIpAddress',
@@ -318,20 +347,27 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssignPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Applies for a private secondary IP address for the current LNI. You can also call this operation to assign a secondary MAC address to the current LNI.
-     *  *
-     * @description >  Apply for secondary private IP addresses
+     * Applies for a private secondary IP address for the current LNI. You can also call this operation to assign a secondary MAC address to the current LNI.
+     *
+     * @remarks
+     * >  Apply for secondary private IP addresses
      * *   By default, each network interface controller can apply for three secondary private IP addresses. If the quota is exceeded, contact the administrator.
      * *   The secondary private IP address is allocated from the Lingjun subnet to which the current network interface controller belongs. The first address and the last two addresses belong to reserved addresses and do not participate in the allocation.
-     *  *
-     * @param AssignPrivateIpAddressRequest $request AssignPrivateIpAddressRequest
      *
-     * @return AssignPrivateIpAddressResponse AssignPrivateIpAddressResponse
+     * @param request - AssignPrivateIpAddressRequest
+     * @returns AssignPrivateIpAddressResponse
+     *
+     * @param AssignPrivateIpAddressRequest $request
+     *
+     * @return AssignPrivateIpAddressResponse
      */
     public function assignPrivateIpAddress($request)
     {
@@ -341,34 +377,42 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary When the VPD primary network segment address is not enough to allocate, you can choose to create an additional network segment as the additional network segment of the VPD primary network segment.
-     *  *
-     * @description >  **Add a CIDR block**
+     * When the VPD primary network segment address is not enough to allocate, you can choose to create an additional network segment as the additional network segment of the VPD primary network segment.
+     *
+     * @remarks
+     * >  **Add a CIDR block**
      * *   The CIDR block cannot start with 0. The subnet mask must be 8 to 28 bits in length.
      * *   The secondary IPv4 CIDR block must not overlap with the primary IPv4 CIDR block of the Lingjun CIDR block and the added secondary IPv4 CIDR block.
      * *   You cannot use 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 as the CIDR block of Lingjun. Example: In the Lingjun CIDR block whose primary IPv4 CIDR block is 192.168.0.0/16, you cannot add the following CIDR blocks as additional IPv4 CIDR blocks. The CIDR block that is in the same range as 192.168.0.0/16. A CIDR block that is larger than 192.168.0.0/16. Example: 192.168.0.0/8. A CIDR block that is smaller than 192.168.0.0/16. Example: 192.168.0.0/24.
      * *   By default, each tenant can create three additional CIDR blocks in each region.
-     *  *
-     * @param AssociateVpdCidrBlockRequest $request AssociateVpdCidrBlockRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateVpdCidrBlockResponse AssociateVpdCidrBlockResponse
+     * @param request - AssociateVpdCidrBlockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssociateVpdCidrBlockResponse
+     *
+     * @param AssociateVpdCidrBlockRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AssociateVpdCidrBlockResponse
      */
     public function associateVpdCidrBlockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->secondaryCidrBlock)) {
-            $body['SecondaryCidrBlock'] = $request->secondaryCidrBlock;
+
+        if (null !== $request->secondaryCidrBlock) {
+            @$body['SecondaryCidrBlock'] = $request->secondaryCidrBlock;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AssociateVpdCidrBlock',
@@ -381,22 +425,29 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssociateVpdCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary When the VPD primary network segment address is not enough to allocate, you can choose to create an additional network segment as the additional network segment of the VPD primary network segment.
-     *  *
-     * @description >  **Add a CIDR block**
+     * When the VPD primary network segment address is not enough to allocate, you can choose to create an additional network segment as the additional network segment of the VPD primary network segment.
+     *
+     * @remarks
+     * >  **Add a CIDR block**
      * *   The CIDR block cannot start with 0. The subnet mask must be 8 to 28 bits in length.
      * *   The secondary IPv4 CIDR block must not overlap with the primary IPv4 CIDR block of the Lingjun CIDR block and the added secondary IPv4 CIDR block.
      * *   You cannot use 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 as the CIDR block of Lingjun. Example: In the Lingjun CIDR block whose primary IPv4 CIDR block is 192.168.0.0/16, you cannot add the following CIDR blocks as additional IPv4 CIDR blocks. The CIDR block that is in the same range as 192.168.0.0/16. A CIDR block that is larger than 192.168.0.0/16. Example: 192.168.0.0/8. A CIDR block that is smaller than 192.168.0.0/16. Example: 192.168.0.0/24.
      * *   By default, each tenant can create three additional CIDR blocks in each region.
-     *  *
-     * @param AssociateVpdCidrBlockRequest $request AssociateVpdCidrBlockRequest
      *
-     * @return AssociateVpdCidrBlockResponse AssociateVpdCidrBlockResponse
+     * @param request - AssociateVpdCidrBlockRequest
+     * @returns AssociateVpdCidrBlockResponse
+     *
+     * @param AssociateVpdCidrBlockRequest $request
+     *
+     * @return AssociateVpdCidrBlockResponse
      */
     public function associateVpdCidrBlock($request)
     {
@@ -406,30 +457,38 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Lingjun ENI is bound to NC.
-     *  *
-     * @description This interface is an asynchronous interface. You need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the available state.
-     *  *
-     * @param AttachElasticNetworkInterfaceRequest $request AttachElasticNetworkInterfaceRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Lingjun ENI is bound to NC.
      *
-     * @return AttachElasticNetworkInterfaceResponse AttachElasticNetworkInterfaceResponse
+     * @remarks
+     * This interface is an asynchronous interface. You need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the available state.
+     *
+     * @param request - AttachElasticNetworkInterfaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AttachElasticNetworkInterfaceResponse
+     *
+     * @param AttachElasticNetworkInterfaceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return AttachElasticNetworkInterfaceResponse
      */
     public function attachElasticNetworkInterfaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AttachElasticNetworkInterface',
@@ -442,18 +501,25 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AttachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Lingjun ENI is bound to NC.
-     *  *
-     * @description This interface is an asynchronous interface. You need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the available state.
-     *  *
-     * @param AttachElasticNetworkInterfaceRequest $request AttachElasticNetworkInterfaceRequest
+     * Lingjun ENI is bound to NC.
      *
-     * @return AttachElasticNetworkInterfaceResponse AttachElasticNetworkInterfaceResponse
+     * @remarks
+     * This interface is an asynchronous interface. You need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the available state.
+     *
+     * @param request - AttachElasticNetworkInterfaceRequest
+     * @returns AttachElasticNetworkInterfaceResponse
+     *
+     * @param AttachElasticNetworkInterfaceRequest $request
+     *
+     * @return AttachElasticNetworkInterfaceResponse
      */
     public function attachElasticNetworkInterface($request)
     {
@@ -463,46 +529,59 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Creates an LENI.
-     *  *
-     * @param CreateElasticNetworkInterfaceRequest $request CreateElasticNetworkInterfaceRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Creates an LENI.
      *
-     * @return CreateElasticNetworkInterfaceResponse CreateElasticNetworkInterfaceResponse
+     * @param request - CreateElasticNetworkInterfaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateElasticNetworkInterfaceResponse
+     *
+     * @param CreateElasticNetworkInterfaceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateElasticNetworkInterfaceResponse
      */
     public function createElasticNetworkInterfaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enableJumboFrame)) {
-            $body['EnableJumboFrame'] = $request->enableJumboFrame;
+
+        if (null !== $request->enableJumboFrame) {
+            @$body['EnableJumboFrame'] = $request->enableJumboFrame;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $body['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$body['SecurityGroupId'] = $request->securityGroupId;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $body['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$body['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateElasticNetworkInterface',
@@ -515,16 +594,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an LENI.
-     *  *
-     * @param CreateElasticNetworkInterfaceRequest $request CreateElasticNetworkInterfaceRequest
+     * Creates an LENI.
      *
-     * @return CreateElasticNetworkInterfaceResponse CreateElasticNetworkInterfaceResponse
+     * @param request - CreateElasticNetworkInterfaceRequest
+     * @returns CreateElasticNetworkInterfaceResponse
+     *
+     * @param CreateElasticNetworkInterfaceRequest $request
+     *
+     * @return CreateElasticNetworkInterfaceResponse
      */
     public function createElasticNetworkInterface($request)
     {
@@ -534,40 +619,50 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Create a Lingjun HUB.
-     *  *
-     * @description When you call this operation to create a Lingjun HUB, note that:
+     * Create a Lingjun HUB.
+     *
+     * @remarks
+     * When you call this operation to create a Lingjun HUB, note that:
      * *   Make sure that you have sufficient Lingjun HUB quota.
      * *   This interface is an asynchronous interface. After this interface is called, the system will return the ID of a Lingjun HUB. At this time, the Lingjun HUB instance may not be created yet, and the system background creation task is still in progress. You can call the ListErs or GetEr operation to query the status of the Lingjun HUB.
      *     *   If the status of the Lingjun HUB is Executing, it indicates that it is being created.
      *     *   If the status of the Lingjun HUB is Available, the creation is successful.
-     *  *
-     * @param CreateErRequest $request CreateErRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateErResponse CreateErResponse
+     * @param request - CreateErRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateErResponse
+     *
+     * @param CreateErRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return CreateErResponse
      */
     public function createErWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->erName)) {
-            $body['ErName'] = $request->erName;
+
+        if (null !== $request->erName) {
+            @$body['ErName'] = $request->erName;
         }
-        if (!Utils::isUnset($request->masterZoneId)) {
-            $body['MasterZoneId'] = $request->masterZoneId;
+
+        if (null !== $request->masterZoneId) {
+            @$body['MasterZoneId'] = $request->masterZoneId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateEr',
@@ -580,22 +675,29 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateErResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateErResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateErResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Create a Lingjun HUB.
-     *  *
-     * @description When you call this operation to create a Lingjun HUB, note that:
+     * Create a Lingjun HUB.
+     *
+     * @remarks
+     * When you call this operation to create a Lingjun HUB, note that:
      * *   Make sure that you have sufficient Lingjun HUB quota.
      * *   This interface is an asynchronous interface. After this interface is called, the system will return the ID of a Lingjun HUB. At this time, the Lingjun HUB instance may not be created yet, and the system background creation task is still in progress. You can call the ListErs or GetEr operation to query the status of the Lingjun HUB.
      *     *   If the status of the Lingjun HUB is Executing, it indicates that it is being created.
      *     *   If the status of the Lingjun HUB is Available, the creation is successful.
-     *  *
-     * @param CreateErRequest $request CreateErRequest
      *
-     * @return CreateErResponse CreateErResponse
+     * @param request - CreateErRequest
+     * @returns CreateErResponse
+     *
+     * @param CreateErRequest $request
+     *
+     * @return CreateErResponse
      */
     public function createEr($request)
     {
@@ -605,47 +707,59 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Create a network instance connection.
-     *  *
-     * @description When you call this operation to create a network instance connection, note that:
+     * Create a network instance connection.
+     *
+     * @remarks
+     * When you call this operation to create a network instance connection, note that:
      * *   Make sure that you have created a Lingjun HUB instance.
      * *   Make sure that you have sufficient quota for network instance connections.
      * *   This operation is an asynchronous operation. After you call this operation, the system returns the ID of the network instance connection. In this case, the network instance connection may not be created yet, and the system is still creating the network instance in the background. You can query the connection status of a network instance by ListErAttachments or GetErAttachment:
      *     *   If the connection status of the network instance is Executing, the network instance is being created.
      *     *   If the connection status of the network instance is Available, the network instance is created.
-     *  *
-     * @param CreateErAttachmentRequest $request CreateErAttachmentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateErAttachmentResponse CreateErAttachmentResponse
+     * @param request - CreateErAttachmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateErAttachmentResponse
+     *
+     * @param CreateErAttachmentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateErAttachmentResponse
      */
     public function createErAttachmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoReceiveAllRoute)) {
-            $body['AutoReceiveAllRoute'] = $request->autoReceiveAllRoute;
+        if (null !== $request->autoReceiveAllRoute) {
+            @$body['AutoReceiveAllRoute'] = $request->autoReceiveAllRoute;
         }
-        if (!Utils::isUnset($request->erAttachmentName)) {
-            $body['ErAttachmentName'] = $request->erAttachmentName;
+
+        if (null !== $request->erAttachmentName) {
+            @$body['ErAttachmentName'] = $request->erAttachmentName;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $body['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceTenantId)) {
-            $body['ResourceTenantId'] = $request->resourceTenantId;
+
+        if (null !== $request->resourceTenantId) {
+            @$body['ResourceTenantId'] = $request->resourceTenantId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateErAttachment',
@@ -658,23 +772,30 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateErAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Create a network instance connection.
-     *  *
-     * @description When you call this operation to create a network instance connection, note that:
+     * Create a network instance connection.
+     *
+     * @remarks
+     * When you call this operation to create a network instance connection, note that:
      * *   Make sure that you have created a Lingjun HUB instance.
      * *   Make sure that you have sufficient quota for network instance connections.
      * *   This operation is an asynchronous operation. After you call this operation, the system returns the ID of the network instance connection. In this case, the network instance connection may not be created yet, and the system is still creating the network instance in the background. You can query the connection status of a network instance by ListErAttachments or GetErAttachment:
      *     *   If the connection status of the network instance is Executing, the network instance is being created.
      *     *   If the connection status of the network instance is Available, the network instance is created.
-     *  *
-     * @param CreateErAttachmentRequest $request CreateErAttachmentRequest
      *
-     * @return CreateErAttachmentResponse CreateErAttachmentResponse
+     * @param request - CreateErAttachmentRequest
+     * @returns CreateErAttachmentResponse
+     *
+     * @param CreateErAttachmentRequest $request
+     *
+     * @return CreateErAttachmentResponse
      */
     public function createErAttachment($request)
     {
@@ -684,62 +805,79 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Users can use this API to create routing policy by specifying the network instance connection under Lingjun HUB.
-     *  *
-     * @description When you call this operation to create a routing policy, note that:
+     * Users can use this API to create routing policy by specifying the network instance connection under Lingjun HUB.
+     *
+     * @remarks
+     * When you call this operation to create a routing policy, note that:
      * *   Make sure that you have created a Lingjun HUB instance.
      * *   Make sure that you have created a network instance connection.
      * *   This operation is an asynchronous operation. After you call this operation, the system returns the ID of the routing policy. In this case, the routing policy instance may not be created yet, and the system background creation task is still in progress. You can use ListErRouteMaps or GetErRouteMap to query the status of a routing policy.
      *     *   If the status of the routing policy is Execute, the system is creating the instance.
      *     *   If the status of the routing policy is Available, the creation is successful.
-     *  *
-     * @param CreateErRouteMapRequest $request CreateErRouteMapRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateErRouteMapResponse CreateErRouteMapResponse
+     * @param request - CreateErRouteMapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateErRouteMapResponse
+     *
+     * @param CreateErRouteMapRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateErRouteMapResponse
      */
     public function createErRouteMapWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->destinationCidrBlock)) {
-            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+
+        if (null !== $request->destinationCidrBlock) {
+            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->receptionInstanceId)) {
-            $body['ReceptionInstanceId'] = $request->receptionInstanceId;
+
+        if (null !== $request->receptionInstanceId) {
+            @$body['ReceptionInstanceId'] = $request->receptionInstanceId;
         }
-        if (!Utils::isUnset($request->receptionInstanceOwner)) {
-            $body['ReceptionInstanceOwner'] = $request->receptionInstanceOwner;
+
+        if (null !== $request->receptionInstanceOwner) {
+            @$body['ReceptionInstanceOwner'] = $request->receptionInstanceOwner;
         }
-        if (!Utils::isUnset($request->receptionInstanceType)) {
-            $body['ReceptionInstanceType'] = $request->receptionInstanceType;
+
+        if (null !== $request->receptionInstanceType) {
+            @$body['ReceptionInstanceType'] = $request->receptionInstanceType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->routeMapAction)) {
-            $body['RouteMapAction'] = $request->routeMapAction;
+
+        if (null !== $request->routeMapAction) {
+            @$body['RouteMapAction'] = $request->routeMapAction;
         }
-        if (!Utils::isUnset($request->routeMapNum)) {
-            $body['RouteMapNum'] = $request->routeMapNum;
+
+        if (null !== $request->routeMapNum) {
+            @$body['RouteMapNum'] = $request->routeMapNum;
         }
-        if (!Utils::isUnset($request->transmissionInstanceId)) {
-            $body['TransmissionInstanceId'] = $request->transmissionInstanceId;
+
+        if (null !== $request->transmissionInstanceId) {
+            @$body['TransmissionInstanceId'] = $request->transmissionInstanceId;
         }
-        if (!Utils::isUnset($request->transmissionInstanceOwner)) {
-            $body['TransmissionInstanceOwner'] = $request->transmissionInstanceOwner;
+
+        if (null !== $request->transmissionInstanceOwner) {
+            @$body['TransmissionInstanceOwner'] = $request->transmissionInstanceOwner;
         }
-        if (!Utils::isUnset($request->transmissionInstanceType)) {
-            $body['TransmissionInstanceType'] = $request->transmissionInstanceType;
+
+        if (null !== $request->transmissionInstanceType) {
+            @$body['TransmissionInstanceType'] = $request->transmissionInstanceType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateErRouteMap',
@@ -752,23 +890,30 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateErRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Users can use this API to create routing policy by specifying the network instance connection under Lingjun HUB.
-     *  *
-     * @description When you call this operation to create a routing policy, note that:
+     * Users can use this API to create routing policy by specifying the network instance connection under Lingjun HUB.
+     *
+     * @remarks
+     * When you call this operation to create a routing policy, note that:
      * *   Make sure that you have created a Lingjun HUB instance.
      * *   Make sure that you have created a network instance connection.
      * *   This operation is an asynchronous operation. After you call this operation, the system returns the ID of the routing policy. In this case, the routing policy instance may not be created yet, and the system background creation task is still in progress. You can use ListErRouteMaps or GetErRouteMap to query the status of a routing policy.
      *     *   If the status of the routing policy is Execute, the system is creating the instance.
      *     *   If the status of the routing policy is Available, the creation is successful.
-     *  *
-     * @param CreateErRouteMapRequest $request CreateErRouteMapRequest
      *
-     * @return CreateErRouteMapResponse CreateErRouteMapResponse
+     * @param request - CreateErRouteMapRequest
+     * @returns CreateErRouteMapResponse
+     *
+     * @param CreateErRouteMapRequest $request
+     *
+     * @return CreateErRouteMapResponse
      */
     public function createErRouteMap($request)
     {
@@ -778,9 +923,10 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Users can use this API to create a Lingjun subnet under the Lingjun network segment.
-     *  *
-     * @description When you call this operation to create a Lingjun subnet, note that:
+     * Users can use this API to create a Lingjun subnet under the Lingjun network segment.
+     *
+     * @remarks
+     * When you call this operation to create a Lingjun subnet, note that:
      * *   You have created a Lingjun CIDR block.
      * *   Only one network segment can be specified for a Lingjun subnet.
      * *   The network segment cannot be modified after the Lingjun subnet is created.
@@ -788,39 +934,50 @@ class Eflo extends OpenApiClient
      * *   This interface is an asynchronous interface. After calling this interface, the system will return the ID of a Lingjun subnet. At this time, the Lingjun network segment may not be created yet, and the system background creation task is still in progress. You can call the ListSubnets or GetSubnet operation to query the status of the CIDR block of Lingjun.
      *     *   If the status of the Lingjun subnet is Executed, it indicates that it is being created.
      *     *   If the status of the Lingjun subnet is Available, the creation is successful.
-     *  *
-     * @param CreateSubnetRequest $request CreateSubnetRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSubnetResponse CreateSubnetResponse
+     * @param request - CreateSubnetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSubnetResponse
+     *
+     * @param CreateSubnetRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateSubnetResponse
      */
     public function createSubnetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cidr)) {
-            $body['Cidr'] = $request->cidr;
+        if (null !== $request->cidr) {
+            @$body['Cidr'] = $request->cidr;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->subnetName)) {
-            $body['SubnetName'] = $request->subnetName;
+
+        if (null !== $request->subnetName) {
+            @$body['SubnetName'] = $request->subnetName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateSubnet',
@@ -833,14 +990,18 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSubnetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Users can use this API to create a Lingjun subnet under the Lingjun network segment.
-     *  *
-     * @description When you call this operation to create a Lingjun subnet, note that:
+     * Users can use this API to create a Lingjun subnet under the Lingjun network segment.
+     *
+     * @remarks
+     * When you call this operation to create a Lingjun subnet, note that:
      * *   You have created a Lingjun CIDR block.
      * *   Only one network segment can be specified for a Lingjun subnet.
      * *   The network segment cannot be modified after the Lingjun subnet is created.
@@ -848,10 +1009,13 @@ class Eflo extends OpenApiClient
      * *   This interface is an asynchronous interface. After calling this interface, the system will return the ID of a Lingjun subnet. At this time, the Lingjun network segment may not be created yet, and the system background creation task is still in progress. You can call the ListSubnets or GetSubnet operation to query the status of the CIDR block of Lingjun.
      *     *   If the status of the Lingjun subnet is Executed, it indicates that it is being created.
      *     *   If the status of the Lingjun subnet is Available, the creation is successful.
-     *  *
-     * @param CreateSubnetRequest $request CreateSubnetRequest
      *
-     * @return CreateSubnetResponse CreateSubnetResponse
+     * @param request - CreateSubnetRequest
+     * @returns CreateSubnetResponse
+     *
+     * @param CreateSubnetRequest $request
+     *
+     * @return CreateSubnetResponse
      */
     public function createSubnet($request)
     {
@@ -861,77 +1025,99 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary You can create a Lingjun connection to connect Lingjun network environment and Alibaba Cloud network environment.
-     *  *
-     * @description When you call this operation to create a Lingjun connection, note that:
+     * You can create a Lingjun connection to connect Lingjun network environment and Alibaba Cloud network environment.
+     *
+     * @remarks
+     * When you call this operation to create a Lingjun connection, note that:
      * *   When you specify the vccId parameter, the system will configure the purchased Lingjun connection for you. When the default vccId parameter is set, the system will automatically place an order and configure the Lingjun connection for you.
      * *   Make sure that you have called the InitializeVcc operation to grant permissions.
      * *   This interface is an asynchronous interface. After this interface is called, the system will return the Lingjun connection ID, but the Lingjun connection instance may not be created yet, and the system background creation task is still in progress. You can call the ListVccs or GetVcc operation to query the status of the Lingjun connection.
      *     *   If the status of the Lingjun connection is Executed, the Lingjun connection is being created.
      *     *   If the status of the Lingjun connection is Available, the Lingjun connection is created.
-     *  *
-     * @param CreateVccRequest $request CreateVccRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVccResponse CreateVccResponse
+     * @param request - CreateVccRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVccResponse
+     *
+     * @param CreateVccRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateVccResponse
      */
     public function createVccWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->accessCouldService)) {
-            $body['AccessCouldService'] = $request->accessCouldService;
+        if (null !== $request->accessCouldService) {
+            @$body['AccessCouldService'] = $request->accessCouldService;
         }
-        if (!Utils::isUnset($request->bandwidth)) {
-            $body['Bandwidth'] = $request->bandwidth;
+
+        if (null !== $request->bandwidth) {
+            @$body['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->bgpAsn)) {
-            $body['BgpAsn'] = $request->bgpAsn;
+
+        if (null !== $request->bgpAsn) {
+            @$body['BgpAsn'] = $request->bgpAsn;
         }
-        if (!Utils::isUnset($request->bgpCidr)) {
-            $body['BgpCidr'] = $request->bgpCidr;
+
+        if (null !== $request->bgpCidr) {
+            @$body['BgpCidr'] = $request->bgpCidr;
         }
-        if (!Utils::isUnset($request->cenId)) {
-            $body['CenId'] = $request->cenId;
+
+        if (null !== $request->cenId) {
+            @$body['CenId'] = $request->cenId;
         }
-        if (!Utils::isUnset($request->cenOwnerId)) {
-            $body['CenOwnerId'] = $request->cenOwnerId;
+
+        if (null !== $request->cenOwnerId) {
+            @$body['CenOwnerId'] = $request->cenOwnerId;
         }
-        if (!Utils::isUnset($request->connectionType)) {
-            $body['ConnectionType'] = $request->connectionType;
+
+        if (null !== $request->connectionType) {
+            @$body['ConnectionType'] = $request->connectionType;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $body['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$body['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
-        if (!Utils::isUnset($request->vccName)) {
-            $body['VccName'] = $request->vccName;
+
+        if (null !== $request->vccName) {
+            @$body['VccName'] = $request->vccName;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateVcc',
@@ -944,23 +1130,30 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVccResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can create a Lingjun connection to connect Lingjun network environment and Alibaba Cloud network environment.
-     *  *
-     * @description When you call this operation to create a Lingjun connection, note that:
+     * You can create a Lingjun connection to connect Lingjun network environment and Alibaba Cloud network environment.
+     *
+     * @remarks
+     * When you call this operation to create a Lingjun connection, note that:
      * *   When you specify the vccId parameter, the system will configure the purchased Lingjun connection for you. When the default vccId parameter is set, the system will automatically place an order and configure the Lingjun connection for you.
      * *   Make sure that you have called the InitializeVcc operation to grant permissions.
      * *   This interface is an asynchronous interface. After this interface is called, the system will return the Lingjun connection ID, but the Lingjun connection instance may not be created yet, and the system background creation task is still in progress. You can call the ListVccs or GetVcc operation to query the status of the Lingjun connection.
      *     *   If the status of the Lingjun connection is Executed, the Lingjun connection is being created.
      *     *   If the status of the Lingjun connection is Available, the Lingjun connection is created.
-     *  *
-     * @param CreateVccRequest $request CreateVccRequest
      *
-     * @return CreateVccResponse CreateVccResponse
+     * @param request - CreateVccRequest
+     * @returns CreateVccResponse
+     *
+     * @param CreateVccRequest $request
+     *
+     * @return CreateVccResponse
      */
     public function createVcc($request)
     {
@@ -970,35 +1163,44 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Users can use this API to connect Lingjun instance to the Lingjun HUB instance of the target account. After authorization, the target account can be associated with your Lingjun connection by using the authorized Lingjun HUB instance.
-     *  *
-     * @description When you call this operation to create cross-account authorization for Lingjun HUB, note that:
+     * Users can use this API to connect Lingjun instance to the Lingjun HUB instance of the target account. After authorization, the target account can be associated with your Lingjun connection by using the authorized Lingjun HUB instance.
+     *
+     * @remarks
+     * When you call this operation to create cross-account authorization for Lingjun HUB, note that:
      * *   Make sure that the Alibaba Cloud ID and Lingjun HUB instance that you want to authorize are correct.
      * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
-     *  *
-     * @param CreateVccGrantRuleRequest $request CreateVccGrantRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVccGrantRuleResponse CreateVccGrantRuleResponse
+     * @param request - CreateVccGrantRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVccGrantRuleResponse
+     *
+     * @param CreateVccGrantRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateVccGrantRuleResponse
      */
     public function createVccGrantRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->grantTenantId)) {
-            $body['GrantTenantId'] = $request->grantTenantId;
+
+        if (null !== $request->grantTenantId) {
+            @$body['GrantTenantId'] = $request->grantTenantId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateVccGrantRule',
@@ -1011,20 +1213,27 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVccGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Users can use this API to connect Lingjun instance to the Lingjun HUB instance of the target account. After authorization, the target account can be associated with your Lingjun connection by using the authorized Lingjun HUB instance.
-     *  *
-     * @description When you call this operation to create cross-account authorization for Lingjun HUB, note that:
+     * Users can use this API to connect Lingjun instance to the Lingjun HUB instance of the target account. After authorization, the target account can be associated with your Lingjun connection by using the authorized Lingjun HUB instance.
+     *
+     * @remarks
+     * When you call this operation to create cross-account authorization for Lingjun HUB, note that:
      * *   Make sure that the Alibaba Cloud ID and Lingjun HUB instance that you want to authorize are correct.
      * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
-     *  *
-     * @param CreateVccGrantRuleRequest $request CreateVccGrantRuleRequest
      *
-     * @return CreateVccGrantRuleResponse CreateVccGrantRuleResponse
+     * @param request - CreateVccGrantRuleRequest
+     * @returns CreateVccGrantRuleResponse
+     *
+     * @param CreateVccGrantRuleRequest $request
+     *
+     * @return CreateVccGrantRuleResponse
      */
     public function createVccGrantRule($request)
     {
@@ -1034,34 +1243,42 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Create a Lingjun connection route entry.
-     *  *
-     * @description When you call this operation to create a VBR route entry, take note of the following items:
+     * Create a Lingjun connection route entry.
+     *
+     * @remarks
+     * When you call this operation to create a VBR route entry, take note of the following items:
      * *   After you call this operation, static route entries and BGP network announcements are created on the VBR to which the Lingjun connection belongs.
      * *   This operation is an asynchronous operation. After you call this operation, the VBR static route entry may not be created yet, and the system still creates the static route entry in the background. You can query the status of VBR static route entries by ListVccRouteEntries or GetVccRouteEntry:
      *     *   If the VBR static route entry is in the Executing state, it indicates that it is being created.
      *     *   If the status of the VBR static route entry is Available, the VBR is created.
-     *  *
-     * @param CreateVccRouteEntryRequest $request CreateVccRouteEntryRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVccRouteEntryResponse CreateVccRouteEntryResponse
+     * @param request - CreateVccRouteEntryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVccRouteEntryResponse
+     *
+     * @param CreateVccRouteEntryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVccRouteEntryResponse
      */
     public function createVccRouteEntryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->destinationCidrBlock)) {
-            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        if (null !== $request->destinationCidrBlock) {
+            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateVccRouteEntry',
@@ -1074,22 +1291,29 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVccRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Create a Lingjun connection route entry.
-     *  *
-     * @description When you call this operation to create a VBR route entry, take note of the following items:
+     * Create a Lingjun connection route entry.
+     *
+     * @remarks
+     * When you call this operation to create a VBR route entry, take note of the following items:
      * *   After you call this operation, static route entries and BGP network announcements are created on the VBR to which the Lingjun connection belongs.
      * *   This operation is an asynchronous operation. After you call this operation, the VBR static route entry may not be created yet, and the system still creates the static route entry in the background. You can query the status of VBR static route entries by ListVccRouteEntries or GetVccRouteEntry:
      *     *   If the VBR static route entry is in the Executing state, it indicates that it is being created.
      *     *   If the status of the VBR static route entry is Available, the VBR is created.
-     *  *
-     * @param CreateVccRouteEntryRequest $request CreateVccRouteEntryRequest
      *
-     * @return CreateVccRouteEntryResponse CreateVccRouteEntryResponse
+     * @param request - CreateVccRouteEntryRequest
+     * @returns CreateVccRouteEntryResponse
+     *
+     * @param CreateVccRouteEntryRequest $request
+     *
+     * @return CreateVccRouteEntryResponse
      */
     public function createVccRouteEntry($request)
     {
@@ -1099,45 +1323,56 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Create a private Lingjun CIDR block. This CIDR block has an independent network environment.
-     *  *
-     * @description When you call this operation to create a CIDR block for Lingjun, take note of the following:
+     * Create a private Lingjun CIDR block. This CIDR block has an independent network environment.
+     *
+     * @remarks
+     * When you call this operation to create a CIDR block for Lingjun, take note of the following:
      * *   A Lingjun network segment can specify an additional network segment in addition to a main network segment.
      * *   After the Lingjun network segment is created, the network segment cannot be modified.
      * *   Make sure that you have a sufficient quota of Lingjun CIDR blocks.
      * *   This interface is an asynchronous interface. After calling this interface, the system will return the ID of a Lingjun network segment. At this time, the Lingjun network segment may not be created yet, and the system background creation task is still in progress. You can call the ListVpds or GetVpd operation to query the status of the CIDR block of Lingjun.
      *     *   If the status of the Lingjun CIDR block is Executed, the CIDR block is being created.
      *     *   If the status of the Lingjun CIDR block is Available, the creation is successful.
-     *  *
-     * @param CreateVpdRequest $request CreateVpdRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVpdResponse CreateVpdResponse
+     * @param request - CreateVpdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVpdResponse
+     *
+     * @param CreateVpdRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CreateVpdResponse
      */
     public function createVpdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->cidr)) {
-            $body['Cidr'] = $request->cidr;
+        if (null !== $request->cidr) {
+            @$body['Cidr'] = $request->cidr;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->subnets)) {
-            $body['Subnets'] = $request->subnets;
+
+        if (null !== $request->subnets) {
+            @$body['Subnets'] = $request->subnets;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpdName)) {
-            $body['VpdName'] = $request->vpdName;
+
+        if (null !== $request->vpdName) {
+            @$body['VpdName'] = $request->vpdName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateVpd',
@@ -1150,24 +1385,31 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVpdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Create a private Lingjun CIDR block. This CIDR block has an independent network environment.
-     *  *
-     * @description When you call this operation to create a CIDR block for Lingjun, take note of the following:
+     * Create a private Lingjun CIDR block. This CIDR block has an independent network environment.
+     *
+     * @remarks
+     * When you call this operation to create a CIDR block for Lingjun, take note of the following:
      * *   A Lingjun network segment can specify an additional network segment in addition to a main network segment.
      * *   After the Lingjun network segment is created, the network segment cannot be modified.
      * *   Make sure that you have a sufficient quota of Lingjun CIDR blocks.
      * *   This interface is an asynchronous interface. After calling this interface, the system will return the ID of a Lingjun network segment. At this time, the Lingjun network segment may not be created yet, and the system background creation task is still in progress. You can call the ListVpds or GetVpd operation to query the status of the CIDR block of Lingjun.
      *     *   If the status of the Lingjun CIDR block is Executed, the CIDR block is being created.
      *     *   If the status of the Lingjun CIDR block is Available, the creation is successful.
-     *  *
-     * @param CreateVpdRequest $request CreateVpdRequest
      *
-     * @return CreateVpdResponse CreateVpdResponse
+     * @param request - CreateVpdRequest
+     * @returns CreateVpdResponse
+     *
+     * @param CreateVpdRequest $request
+     *
+     * @return CreateVpdResponse
      */
     public function createVpd($request)
     {
@@ -1177,35 +1419,44 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Users can use this API to authorize Lingjun HUB instances of the target account. After authorization, the target account can be associated with your Lingjun CIDR block by using the authorized Lingjun HUB instance.
-     *  *
-     * @description When you call this operation to create cross-account authorization for Lingjun HUB, note that:
+     * Users can use this API to authorize Lingjun HUB instances of the target account. After authorization, the target account can be associated with your Lingjun CIDR block by using the authorized Lingjun HUB instance.
+     *
+     * @remarks
+     * When you call this operation to create cross-account authorization for Lingjun HUB, note that:
      * *   Make sure that the Alibaba Cloud ID and Lingjun HUB instance that you want to authorize are correct.
      * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
-     *  *
-     * @param CreateVpdGrantRuleRequest $request CreateVpdGrantRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateVpdGrantRuleResponse CreateVpdGrantRuleResponse
+     * @param request - CreateVpdGrantRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateVpdGrantRuleResponse
+     *
+     * @param CreateVpdGrantRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateVpdGrantRuleResponse
      */
     public function createVpdGrantRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->grantTenantId)) {
-            $body['GrantTenantId'] = $request->grantTenantId;
+
+        if (null !== $request->grantTenantId) {
+            @$body['GrantTenantId'] = $request->grantTenantId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateVpdGrantRule',
@@ -1218,20 +1469,27 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateVpdGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Users can use this API to authorize Lingjun HUB instances of the target account. After authorization, the target account can be associated with your Lingjun CIDR block by using the authorized Lingjun HUB instance.
-     *  *
-     * @description When you call this operation to create cross-account authorization for Lingjun HUB, note that:
+     * Users can use this API to authorize Lingjun HUB instances of the target account. After authorization, the target account can be associated with your Lingjun CIDR block by using the authorized Lingjun HUB instance.
+     *
+     * @remarks
+     * When you call this operation to create cross-account authorization for Lingjun HUB, note that:
      * *   Make sure that the Alibaba Cloud ID and Lingjun HUB instance that you want to authorize are correct.
      * *   If you authorize the account of the other party, the account of the other party can load your local network instance to its Lingjun HUB, and the other party\\"s network will be connected to your network. Please proceed with caution.
-     *  *
-     * @param CreateVpdGrantRuleRequest $request CreateVpdGrantRuleRequest
      *
-     * @return CreateVpdGrantRuleResponse CreateVpdGrantRuleResponse
+     * @param request - CreateVpdGrantRuleRequest
+     * @returns CreateVpdGrantRuleResponse
+     *
+     * @param CreateVpdGrantRuleRequest $request
+     *
+     * @return CreateVpdGrantRuleResponse
      */
     public function createVpdGrantRule($request)
     {
@@ -1241,28 +1499,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Delete Lingjun Elastic Network Interface. After deletion, all relevant data will be lost and cannot be recovered. Please operate with caution.
-     *  *
-     * @param DeleteElasticNetworkInterfaceRequest $request DeleteElasticNetworkInterfaceRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Delete Lingjun Elastic Network Interface. After deletion, all relevant data will be lost and cannot be recovered. Please operate with caution.
      *
-     * @return DeleteElasticNetworkInterfaceResponse DeleteElasticNetworkInterfaceResponse
+     * @param request - DeleteElasticNetworkInterfaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteElasticNetworkInterfaceResponse
+     *
+     * @param DeleteElasticNetworkInterfaceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteElasticNetworkInterfaceResponse
      */
     public function deleteElasticNetworkInterfaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteElasticNetworkInterface',
@@ -1275,16 +1540,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Delete Lingjun Elastic Network Interface. After deletion, all relevant data will be lost and cannot be recovered. Please operate with caution.
-     *  *
-     * @param DeleteElasticNetworkInterfaceRequest $request DeleteElasticNetworkInterfaceRequest
+     * Delete Lingjun Elastic Network Interface. After deletion, all relevant data will be lost and cannot be recovered. Please operate with caution.
      *
-     * @return DeleteElasticNetworkInterfaceResponse DeleteElasticNetworkInterfaceResponse
+     * @param request - DeleteElasticNetworkInterfaceRequest
+     * @returns DeleteElasticNetworkInterfaceResponse
+     *
+     * @param DeleteElasticNetworkInterfaceRequest $request
+     *
+     * @return DeleteElasticNetworkInterfaceResponse
      */
     public function deleteElasticNetworkInterface($request)
     {
@@ -1294,32 +1565,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary After you delete a Lingjun HUB instance, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete the Lingjun HUB, note that:
+     * After you delete a Lingjun HUB instance, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete the Lingjun HUB, note that:
      * *   Before you delete the instance, make sure that no network instance is connected to the Lingjun HUB instance.
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This interface is an asynchronous interface. After this interface is called, the Lingjun HUB instance may not be deleted, and the system background deletion task is still in progress. You can call the ListErs or GetEr operation to query the deletion status of the Lingjun HUB.
      *     *   If the status of the Lingjun HUB is Deleting, the Lingjun HUB instance is being deleted.
      *     *   If no Lingjun HUB instance is recorded, the Lingjun HUB instance has been deleted.
-     *  *
-     * @param DeleteErRequest $request DeleteErRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteErResponse DeleteErResponse
+     * @param request - DeleteErRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteErResponse
+     *
+     * @param DeleteErRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return DeleteErResponse
      */
     public function deleteErWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteEr',
@@ -1332,23 +1610,30 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteErResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteErResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteErResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary After you delete a Lingjun HUB instance, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete the Lingjun HUB, note that:
+     * After you delete a Lingjun HUB instance, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete the Lingjun HUB, note that:
      * *   Before you delete the instance, make sure that no network instance is connected to the Lingjun HUB instance.
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This interface is an asynchronous interface. After this interface is called, the Lingjun HUB instance may not be deleted, and the system background deletion task is still in progress. You can call the ListErs or GetEr operation to query the deletion status of the Lingjun HUB.
      *     *   If the status of the Lingjun HUB is Deleting, the Lingjun HUB instance is being deleted.
      *     *   If no Lingjun HUB instance is recorded, the Lingjun HUB instance has been deleted.
-     *  *
-     * @param DeleteErRequest $request DeleteErRequest
      *
-     * @return DeleteErResponse DeleteErResponse
+     * @param request - DeleteErRequest
+     * @returns DeleteErResponse
+     *
+     * @param DeleteErRequest $request
+     *
+     * @return DeleteErResponse
      */
     public function deleteEr($request)
     {
@@ -1358,35 +1643,43 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary If you delete a network instance that is connected to an instance, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete a network instance connection, take note of the following:
+     * If you delete a network instance that is connected to an instance, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete a network instance connection, take note of the following:
      * *   Before you delete the instance, make sure that no routing policy exists under the network instance connection instance.
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This operation is an asynchronous operation. After you call this operation, the network instance that is connected to the instance may not be deleted. The system still deletes the instance in the background. You can call the ListErAttachments or GetErAttachment to query the deletion status of network instance connections:
      *     *   If the status of the network instance connection is Deleting, the network instance connection is being deleted.
      *     *   If there is no connection record for the network instance, the connection to the network instance has been deleted.
-     *  *
-     * @param DeleteErAttachmentRequest $request DeleteErAttachmentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteErAttachmentResponse DeleteErAttachmentResponse
+     * @param request - DeleteErAttachmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteErAttachmentResponse
+     *
+     * @param DeleteErAttachmentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteErAttachmentResponse
      */
     public function deleteErAttachmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erAttachmentId)) {
-            $body['ErAttachmentId'] = $request->erAttachmentId;
+        if (null !== $request->erAttachmentId) {
+            @$body['ErAttachmentId'] = $request->erAttachmentId;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteErAttachment',
@@ -1399,23 +1692,30 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteErAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary If you delete a network instance that is connected to an instance, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete a network instance connection, take note of the following:
+     * If you delete a network instance that is connected to an instance, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete a network instance connection, take note of the following:
      * *   Before you delete the instance, make sure that no routing policy exists under the network instance connection instance.
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This operation is an asynchronous operation. After you call this operation, the network instance that is connected to the instance may not be deleted. The system still deletes the instance in the background. You can call the ListErAttachments or GetErAttachment to query the deletion status of network instance connections:
      *     *   If the status of the network instance connection is Deleting, the network instance connection is being deleted.
      *     *   If there is no connection record for the network instance, the connection to the network instance has been deleted.
-     *  *
-     * @param DeleteErAttachmentRequest $request DeleteErAttachmentRequest
      *
-     * @return DeleteErAttachmentResponse DeleteErAttachmentResponse
+     * @param request - DeleteErAttachmentRequest
+     * @returns DeleteErAttachmentResponse
+     *
+     * @param DeleteErAttachmentRequest $request
+     *
+     * @return DeleteErAttachmentResponse
      */
     public function deleteErAttachment($request)
     {
@@ -1425,34 +1725,42 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary If you delete a routing policy instance, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete a routing policy, note that:
+     * If you delete a routing policy instance, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete a routing policy, note that:
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This interface is an asynchronous interface. After this interface is called, the routing policy instance may not be deleted yet, and the system background deletion task is still in progress. You can call the ListErRouteMaps or GetErRouteMap operation to query the deletion status of a routing policy.
      *     *   If the routing policy is in the Deleting state, the routing policy instance is being deleted.
      *     *   If no routing policy instance is recorded, the routing policy instance has been deleted.
-     *  *
-     * @param DeleteErRouteMapRequest $request DeleteErRouteMapRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteErRouteMapResponse DeleteErRouteMapResponse
+     * @param request - DeleteErRouteMapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteErRouteMapResponse
+     *
+     * @param DeleteErRouteMapRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteErRouteMapResponse
      */
     public function deleteErRouteMapWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->erRouteMapIds)) {
-            $body['ErRouteMapIds'] = $request->erRouteMapIds;
+
+        if (null !== $request->erRouteMapIds) {
+            @$body['ErRouteMapIds'] = $request->erRouteMapIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteErRouteMap',
@@ -1465,22 +1773,29 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteErRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary If you delete a routing policy instance, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete a routing policy, note that:
+     * If you delete a routing policy instance, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete a routing policy, note that:
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This interface is an asynchronous interface. After this interface is called, the routing policy instance may not be deleted yet, and the system background deletion task is still in progress. You can call the ListErRouteMaps or GetErRouteMap operation to query the deletion status of a routing policy.
      *     *   If the routing policy is in the Deleting state, the routing policy instance is being deleted.
      *     *   If no routing policy instance is recorded, the routing policy instance has been deleted.
-     *  *
-     * @param DeleteErRouteMapRequest $request DeleteErRouteMapRequest
      *
-     * @return DeleteErRouteMapResponse DeleteErRouteMapResponse
+     * @param request - DeleteErRouteMapRequest
+     * @returns DeleteErRouteMapResponse
+     *
+     * @param DeleteErRouteMapRequest $request
+     *
+     * @return DeleteErRouteMapResponse
      */
     public function deleteErRouteMap($request)
     {
@@ -1490,37 +1805,46 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary If you delete a Lingjun subnet instance, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete a Lingjun subnet, note that:
+     * If you delete a Lingjun subnet instance, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete a Lingjun subnet, note that:
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This interface is an asynchronous interface. After this interface is called, the Lingjun subnet instance may not be deleted, and the system background deletion task is still in progress. You can call the ListSubnets or GetSubnet operation to query the deletion status of the subnet.
      *     *   If the status of the Lingjun subnet is Deleting, the Lingjun subnet instance is being deleted.
      *     *   If there is no record of the Lingjun subnet instance, the Lingjun subnet instance has been deleted.
-     *  *
-     * @param DeleteSubnetRequest $request DeleteSubnetRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSubnetResponse DeleteSubnetResponse
+     * @param request - DeleteSubnetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSubnetResponse
+     *
+     * @param DeleteSubnetRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteSubnetResponse
      */
     public function deleteSubnetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->subnetId)) {
-            $body['SubnetId'] = $request->subnetId;
+
+        if (null !== $request->subnetId) {
+            @$body['SubnetId'] = $request->subnetId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteSubnet',
@@ -1533,22 +1857,29 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSubnetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary If you delete a Lingjun subnet instance, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete a Lingjun subnet, note that:
+     * If you delete a Lingjun subnet instance, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete a Lingjun subnet, note that:
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This interface is an asynchronous interface. After this interface is called, the Lingjun subnet instance may not be deleted, and the system background deletion task is still in progress. You can call the ListSubnets or GetSubnet operation to query the deletion status of the subnet.
      *     *   If the status of the Lingjun subnet is Deleting, the Lingjun subnet instance is being deleted.
      *     *   If there is no record of the Lingjun subnet instance, the Lingjun subnet instance has been deleted.
-     *  *
-     * @param DeleteSubnetRequest $request DeleteSubnetRequest
      *
-     * @return DeleteSubnetResponse DeleteSubnetResponse
+     * @param request - DeleteSubnetRequest
+     * @returns DeleteSubnetResponse
+     *
+     * @param DeleteSubnetRequest $request
+     *
+     * @return DeleteSubnetResponse
      */
     public function deleteSubnet($request)
     {
@@ -1558,31 +1889,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary If you delete a Lingjun HUB cross-account authorization that is connected to Lingjun, the related data is lost and cannot be recovered.
-     *  *
-     * @param DeleteVccGrantRuleRequest $request DeleteVccGrantRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * If you delete a Lingjun HUB cross-account authorization that is connected to Lingjun, the related data is lost and cannot be recovered.
      *
-     * @return DeleteVccGrantRuleResponse DeleteVccGrantRuleResponse
+     * @param request - DeleteVccGrantRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVccGrantRuleResponse
+     *
+     * @param DeleteVccGrantRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteVccGrantRuleResponse
      */
     public function deleteVccGrantRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->grantRuleId)) {
-            $body['GrantRuleId'] = $request->grantRuleId;
+
+        if (null !== $request->grantRuleId) {
+            @$body['GrantRuleId'] = $request->grantRuleId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteVccGrantRule',
@@ -1595,16 +1934,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVccGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary If you delete a Lingjun HUB cross-account authorization that is connected to Lingjun, the related data is lost and cannot be recovered.
-     *  *
-     * @param DeleteVccGrantRuleRequest $request DeleteVccGrantRuleRequest
+     * If you delete a Lingjun HUB cross-account authorization that is connected to Lingjun, the related data is lost and cannot be recovered.
      *
-     * @return DeleteVccGrantRuleResponse DeleteVccGrantRuleResponse
+     * @param request - DeleteVccGrantRuleRequest
+     * @returns DeleteVccGrantRuleResponse
+     *
+     * @param DeleteVccGrantRuleRequest $request
+     *
+     * @return DeleteVccGrantRuleResponse
      */
     public function deleteVccGrantRule($request)
     {
@@ -1614,37 +1959,46 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Delete a Lingjun connection route entry.
-     *  *
-     * @description When you call this operation to delete a VBR static route entry, note that:
+     * Delete a Lingjun connection route entry.
+     *
+     * @remarks
+     * When you call this operation to delete a VBR static route entry, note that:
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This operation is an asynchronous operation. After you call this operation, the VBR static route entries may not be deleted. The system still deletes the VBR static route entries in the background. You can call the ListVccRouteEntries or GetVccRouteEntry to query the deletion status of VBR static route entries:
      *     *   If the VBR static route entry is in the Deleting state, the VBR static route entry is being deleted.
      *     *   If no VBR static route entry instance is recorded, the VBR static route entry instance has been deleted.
-     *  *
-     * @param DeleteVccRouteEntryRequest $request DeleteVccRouteEntryRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVccRouteEntryResponse DeleteVccRouteEntryResponse
+     * @param request - DeleteVccRouteEntryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVccRouteEntryResponse
+     *
+     * @param DeleteVccRouteEntryRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteVccRouteEntryResponse
      */
     public function deleteVccRouteEntryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->destinationCidrBlock)) {
-            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        if (null !== $request->destinationCidrBlock) {
+            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
-        if (!Utils::isUnset($request->vccRouteEntryId)) {
-            $body['VccRouteEntryId'] = $request->vccRouteEntryId;
+
+        if (null !== $request->vccRouteEntryId) {
+            @$body['VccRouteEntryId'] = $request->vccRouteEntryId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteVccRouteEntry',
@@ -1657,22 +2011,29 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVccRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Delete a Lingjun connection route entry.
-     *  *
-     * @description When you call this operation to delete a VBR static route entry, note that:
+     * Delete a Lingjun connection route entry.
+     *
+     * @remarks
+     * When you call this operation to delete a VBR static route entry, note that:
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   This operation is an asynchronous operation. After you call this operation, the VBR static route entries may not be deleted. The system still deletes the VBR static route entries in the background. You can call the ListVccRouteEntries or GetVccRouteEntry to query the deletion status of VBR static route entries:
      *     *   If the VBR static route entry is in the Deleting state, the VBR static route entry is being deleted.
      *     *   If no VBR static route entry instance is recorded, the VBR static route entry instance has been deleted.
-     *  *
-     * @param DeleteVccRouteEntryRequest $request DeleteVccRouteEntryRequest
      *
-     * @return DeleteVccRouteEntryResponse DeleteVccRouteEntryResponse
+     * @param request - DeleteVccRouteEntryRequest
+     * @returns DeleteVccRouteEntryResponse
+     *
+     * @param DeleteVccRouteEntryRequest $request
+     *
+     * @return DeleteVccRouteEntryResponse
      */
     public function deleteVccRouteEntry($request)
     {
@@ -1682,32 +2043,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary After you delete a Lingjun CIDR block, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete a Lingjun CIDR block, take note of the following items:
+     * After you delete a Lingjun CIDR block, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete a Lingjun CIDR block, take note of the following items:
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   Before deleting, make sure that all Lingjun subnet instances under the Lingjun CIDR block have been deleted.
      * *   This interface is an asynchronous interface. After this interface is called, the Lingjun network segment instance may not be deleted, and the system background deletion task is still in progress. You can call the ListVpds or GetVpd operation to query the deletion status of the CIDR block.
      *     *   If the status of the Lingjun CIDR block is Deleting, the Lingjun CIDR block is being deleted.
      *     *   If there is no record of the Lingjun CIDR block instance, the Lingjun CIDR block instance has been deleted.
-     *  *
-     * @param DeleteVpdRequest $request DeleteVpdRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteVpdResponse DeleteVpdResponse
+     * @param request - DeleteVpdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVpdResponse
+     *
+     * @param DeleteVpdRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return DeleteVpdResponse
      */
     public function deleteVpdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteVpd',
@@ -1720,23 +2088,30 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVpdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVpdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVpdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary After you delete a Lingjun CIDR block, the related data is lost and cannot be recovered.
-     *  *
-     * @description When you call this operation to delete a Lingjun CIDR block, take note of the following items:
+     * After you delete a Lingjun CIDR block, the related data is lost and cannot be recovered.
+     *
+     * @remarks
+     * When you call this operation to delete a Lingjun CIDR block, take note of the following items:
      * *   After deletion, all related data is lost and cannot be recovered. Exercise caution when performing this operation.
      * *   Before deleting, make sure that all Lingjun subnet instances under the Lingjun CIDR block have been deleted.
      * *   This interface is an asynchronous interface. After this interface is called, the Lingjun network segment instance may not be deleted, and the system background deletion task is still in progress. You can call the ListVpds or GetVpd operation to query the deletion status of the CIDR block.
      *     *   If the status of the Lingjun CIDR block is Deleting, the Lingjun CIDR block is being deleted.
      *     *   If there is no record of the Lingjun CIDR block instance, the Lingjun CIDR block instance has been deleted.
-     *  *
-     * @param DeleteVpdRequest $request DeleteVpdRequest
      *
-     * @return DeleteVpdResponse DeleteVpdResponse
+     * @param request - DeleteVpdRequest
+     * @returns DeleteVpdResponse
+     *
+     * @param DeleteVpdRequest $request
+     *
+     * @return DeleteVpdResponse
      */
     public function deleteVpd($request)
     {
@@ -1746,34 +2121,43 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Delete the Lingjun HUB cross-account authorization for a Lingjun CIDR block. After the deletion, the related data is lost and cannot be recovered.
-     *  *
-     * @param DeleteVpdGrantRuleRequest $request DeleteVpdGrantRuleRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Delete the Lingjun HUB cross-account authorization for a Lingjun CIDR block. After the deletion, the related data is lost and cannot be recovered.
      *
-     * @return DeleteVpdGrantRuleResponse DeleteVpdGrantRuleResponse
+     * @param request - DeleteVpdGrantRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteVpdGrantRuleResponse
+     *
+     * @param DeleteVpdGrantRuleRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteVpdGrantRuleResponse
      */
     public function deleteVpdGrantRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->grantRuleId)) {
-            $body['GrantRuleId'] = $request->grantRuleId;
+
+        if (null !== $request->grantRuleId) {
+            @$body['GrantRuleId'] = $request->grantRuleId;
         }
-        if (!Utils::isUnset($request->grantTenantId)) {
-            $body['GrantTenantId'] = $request->grantTenantId;
+
+        if (null !== $request->grantTenantId) {
+            @$body['GrantTenantId'] = $request->grantTenantId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteVpdGrantRule',
@@ -1786,16 +2170,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVpdGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Delete the Lingjun HUB cross-account authorization for a Lingjun CIDR block. After the deletion, the related data is lost and cannot be recovered.
-     *  *
-     * @param DeleteVpdGrantRuleRequest $request DeleteVpdGrantRuleRequest
+     * Delete the Lingjun HUB cross-account authorization for a Lingjun CIDR block. After the deletion, the related data is lost and cannot be recovered.
      *
-     * @return DeleteVpdGrantRuleResponse DeleteVpdGrantRuleResponse
+     * @param request - DeleteVpdGrantRuleRequest
+     * @returns DeleteVpdGrantRuleResponse
+     *
+     * @param DeleteVpdGrantRuleRequest $request
+     *
+     * @return DeleteVpdGrantRuleResponse
      */
     public function deleteVpdGrantRule($request)
     {
@@ -1805,25 +2195,31 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Query whether the user has the SLR role-AliyunServiceRoleForEfloVcc required for Lingjun connection.
-     *  *
-     * @description You can call this operation to query whether a user account has a **AliyunServiceRoleForEfloVcc** role.
-     * >  If you do not have a **AliyunServiceRoleForEfloVcc** role, you need to use the initializeVcc interface to complete authorization, otherwise users will not be able to use Lingjun to connect to the product.
-     *  *
-     * @param DescribeSlrRequest $request DescribeSlrRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Query whether the user has the SLR role-AliyunServiceRoleForEfloVcc required for Lingjun connection.
      *
-     * @return DescribeSlrResponse DescribeSlrResponse
+     * @remarks
+     * You can call this operation to query whether a user account has a **AliyunServiceRoleForEfloVcc** role.
+     * >  If you do not have a **AliyunServiceRoleForEfloVcc** role, you need to use the initializeVcc interface to complete authorization, otherwise users will not be able to use Lingjun to connect to the product.
+     *
+     * @param request - DescribeSlrRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlrResponse
+     *
+     * @param DescribeSlrRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DescribeSlrResponse
      */
     public function describeSlrWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlr',
@@ -1836,19 +2232,26 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlrResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlrResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlrResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query whether the user has the SLR role-AliyunServiceRoleForEfloVcc required for Lingjun connection.
-     *  *
-     * @description You can call this operation to query whether a user account has a **AliyunServiceRoleForEfloVcc** role.
-     * >  If you do not have a **AliyunServiceRoleForEfloVcc** role, you need to use the initializeVcc interface to complete authorization, otherwise users will not be able to use Lingjun to connect to the product.
-     *  *
-     * @param DescribeSlrRequest $request DescribeSlrRequest
+     * Query whether the user has the SLR role-AliyunServiceRoleForEfloVcc required for Lingjun connection.
      *
-     * @return DescribeSlrResponse DescribeSlrResponse
+     * @remarks
+     * You can call this operation to query whether a user account has a **AliyunServiceRoleForEfloVcc** role.
+     * >  If you do not have a **AliyunServiceRoleForEfloVcc** role, you need to use the initializeVcc interface to complete authorization, otherwise users will not be able to use Lingjun to connect to the product.
+     *
+     * @param request - DescribeSlrRequest
+     * @returns DescribeSlrResponse
+     *
+     * @param DescribeSlrRequest $request
+     *
+     * @return DescribeSlrResponse
      */
     public function describeSlr($request)
     {
@@ -1858,30 +2261,38 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Unbind Lingjun ENI from NC.
-     *  *
-     * @description This interface is an asynchronous interface, and you need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the unbound state.
-     *  *
-     * @param DetachElasticNetworkInterfaceRequest $request DetachElasticNetworkInterfaceRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Unbind Lingjun ENI from NC.
      *
-     * @return DetachElasticNetworkInterfaceResponse DetachElasticNetworkInterfaceResponse
+     * @remarks
+     * This interface is an asynchronous interface, and you need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the unbound state.
+     *
+     * @param request - DetachElasticNetworkInterfaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetachElasticNetworkInterfaceResponse
+     *
+     * @param DetachElasticNetworkInterfaceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DetachElasticNetworkInterfaceResponse
      */
     public function detachElasticNetworkInterfaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DetachElasticNetworkInterface',
@@ -1894,18 +2305,25 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unbind Lingjun ENI from NC.
-     *  *
-     * @description This interface is an asynchronous interface, and you need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the unbound state.
-     *  *
-     * @param DetachElasticNetworkInterfaceRequest $request DetachElasticNetworkInterfaceRequest
+     * Unbind Lingjun ENI from NC.
      *
-     * @return DetachElasticNetworkInterfaceResponse DetachElasticNetworkInterfaceResponse
+     * @remarks
+     * This interface is an asynchronous interface, and you need to use the query interface to wait for the Lingjun Elastic Network Interface to reach the unbound state.
+     *
+     * @param request - DetachElasticNetworkInterfaceRequest
+     * @returns DetachElasticNetworkInterfaceResponse
+     *
+     * @param DetachElasticNetworkInterfaceRequest $request
+     *
+     * @return DetachElasticNetworkInterfaceResponse
      */
     public function detachElasticNetworkInterface($request)
     {
@@ -1915,25 +2333,31 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Users can use this API to query the destination CIDR block of the source policy instance when creating a routing strategy.
-     *  *
-     * @param GetDestinationCidrBlockRequest $request GetDestinationCidrBlockRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Users can use this API to query the destination CIDR block of the source policy instance when creating a routing strategy.
      *
-     * @return GetDestinationCidrBlockResponse GetDestinationCidrBlockResponse
+     * @param request - GetDestinationCidrBlockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDestinationCidrBlockResponse
+     *
+     * @param GetDestinationCidrBlockRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetDestinationCidrBlockResponse
      */
     public function getDestinationCidrBlockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetDestinationCidrBlock',
@@ -1946,16 +2370,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDestinationCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDestinationCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDestinationCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Users can use this API to query the destination CIDR block of the source policy instance when creating a routing strategy.
-     *  *
-     * @param GetDestinationCidrBlockRequest $request GetDestinationCidrBlockRequest
+     * Users can use this API to query the destination CIDR block of the source policy instance when creating a routing strategy.
      *
-     * @return GetDestinationCidrBlockResponse GetDestinationCidrBlockResponse
+     * @param request - GetDestinationCidrBlockRequest
+     * @returns GetDestinationCidrBlockResponse
+     *
+     * @param GetDestinationCidrBlockRequest $request
+     *
+     * @return GetDestinationCidrBlockResponse
      */
     public function getDestinationCidrBlock($request)
     {
@@ -1965,25 +2395,31 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of an LENI.
-     *  *
-     * @param GetElasticNetworkInterfaceRequest $request GetElasticNetworkInterfaceRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the details of an LENI.
      *
-     * @return GetElasticNetworkInterfaceResponse GetElasticNetworkInterfaceResponse
+     * @param request - GetElasticNetworkInterfaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetElasticNetworkInterfaceResponse
+     *
+     * @param GetElasticNetworkInterfaceRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetElasticNetworkInterfaceResponse
      */
     public function getElasticNetworkInterfaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetElasticNetworkInterface',
@@ -1996,16 +2432,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of an LENI.
-     *  *
-     * @param GetElasticNetworkInterfaceRequest $request GetElasticNetworkInterfaceRequest
+     * Queries the details of an LENI.
      *
-     * @return GetElasticNetworkInterfaceResponse GetElasticNetworkInterfaceResponse
+     * @param request - GetElasticNetworkInterfaceRequest
+     * @returns GetElasticNetworkInterfaceResponse
+     *
+     * @param GetElasticNetworkInterfaceRequest $request
+     *
+     * @return GetElasticNetworkInterfaceResponse
      */
     public function getElasticNetworkInterface($request)
     {
@@ -2015,25 +2457,31 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Lingjun HUB.
-     *  *
-     * @param GetErRequest   $request GetErRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the Lingjun HUB.
      *
-     * @return GetErResponse GetErResponse
+     * @param request - GetErRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetErResponse
+     *
+     * @param GetErRequest   $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetErResponse
      */
     public function getErWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetEr',
@@ -2046,16 +2494,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetErResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetErResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetErResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Lingjun HUB.
-     *  *
-     * @param GetErRequest $request GetErRequest
+     * Queries the Lingjun HUB.
      *
-     * @return GetErResponse GetErResponse
+     * @param request - GetErRequest
+     * @returns GetErResponse
+     *
+     * @param GetErRequest $request
+     *
+     * @return GetErResponse
      */
     public function getEr($request)
     {
@@ -2065,28 +2519,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries network instance connections.
-     *  *
-     * @param GetErAttachmentRequest $request GetErAttachmentRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries network instance connections.
      *
-     * @return GetErAttachmentResponse GetErAttachmentResponse
+     * @param request - GetErAttachmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetErAttachmentResponse
+     *
+     * @param GetErAttachmentRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetErAttachmentResponse
      */
     public function getErAttachmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erAttachmentId)) {
-            $body['ErAttachmentId'] = $request->erAttachmentId;
+        if (null !== $request->erAttachmentId) {
+            @$body['ErAttachmentId'] = $request->erAttachmentId;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetErAttachment',
@@ -2099,16 +2560,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetErAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries network instance connections.
-     *  *
-     * @param GetErAttachmentRequest $request GetErAttachmentRequest
+     * Queries network instance connections.
      *
-     * @return GetErAttachmentResponse GetErAttachmentResponse
+     * @param request - GetErAttachmentRequest
+     * @returns GetErAttachmentResponse
+     *
+     * @param GetErAttachmentRequest $request
+     *
+     * @return GetErAttachmentResponse
      */
     public function getErAttachment($request)
     {
@@ -2118,28 +2585,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of Lingjun HUB route entries.
-     *  *
-     * @param GetErRouteEntryRequest $request GetErRouteEntryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the details of Lingjun HUB route entries.
      *
-     * @return GetErRouteEntryResponse GetErRouteEntryResponse
+     * @param request - GetErRouteEntryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetErRouteEntryResponse
+     *
+     * @param GetErRouteEntryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetErRouteEntryResponse
      */
     public function getErRouteEntryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->erRouteEntryId)) {
-            $body['ErRouteEntryId'] = $request->erRouteEntryId;
+
+        if (null !== $request->erRouteEntryId) {
+            @$body['ErRouteEntryId'] = $request->erRouteEntryId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetErRouteEntry',
@@ -2152,16 +2626,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetErRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetErRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetErRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of Lingjun HUB route entries.
-     *  *
-     * @param GetErRouteEntryRequest $request GetErRouteEntryRequest
+     * Queries the details of Lingjun HUB route entries.
      *
-     * @return GetErRouteEntryResponse GetErRouteEntryResponse
+     * @param request - GetErRouteEntryRequest
+     * @returns GetErRouteEntryResponse
+     *
+     * @param GetErRouteEntryRequest $request
+     *
+     * @return GetErRouteEntryResponse
      */
     public function getErRouteEntry($request)
     {
@@ -2171,28 +2651,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary query lingjun hub routing policy details.
-     *  *
-     * @param GetErRouteMapRequest $request GetErRouteMapRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * query lingjun hub routing policy details.
      *
-     * @return GetErRouteMapResponse GetErRouteMapResponse
+     * @param request - GetErRouteMapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetErRouteMapResponse
+     *
+     * @param GetErRouteMapRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetErRouteMapResponse
      */
     public function getErRouteMapWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->erRouteMapId)) {
-            $body['ErRouteMapId'] = $request->erRouteMapId;
+
+        if (null !== $request->erRouteMapId) {
+            @$body['ErRouteMapId'] = $request->erRouteMapId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetErRouteMap',
@@ -2205,16 +2692,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetErRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary query lingjun hub routing policy details.
-     *  *
-     * @param GetErRouteMapRequest $request GetErRouteMapRequest
+     * query lingjun hub routing policy details.
      *
-     * @return GetErRouteMapResponse GetErRouteMapResponse
+     * @param request - GetErRouteMapRequest
+     * @returns GetErRouteMapResponse
+     *
+     * @param GetErRouteMapRequest $request
+     *
+     * @return GetErRouteMapResponse
      */
     public function getErRouteMap($request)
     {
@@ -2224,37 +2717,47 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Query the physical topology information of Lingjun network interface controller and Lingjun nodes under VPD.
-     *  *
-     * @param GetFabricTopologyRequest $request GetFabricTopologyRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Query the physical topology information of Lingjun network interface controller and Lingjun nodes under VPD.
      *
-     * @return GetFabricTopologyResponse GetFabricTopologyResponse
+     * @param request - GetFabricTopologyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFabricTopologyResponse
+     *
+     * @param GetFabricTopologyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetFabricTopologyResponse
      */
     public function getFabricTopologyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->lniIds)) {
-            $body['LniIds'] = $request->lniIds;
+
+        if (null !== $request->lniIds) {
+            @$body['LniIds'] = $request->lniIds;
         }
-        if (!Utils::isUnset($request->nodeIds)) {
-            $body['NodeIds'] = $request->nodeIds;
+
+        if (null !== $request->nodeIds) {
+            @$body['NodeIds'] = $request->nodeIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetFabricTopology',
@@ -2267,16 +2770,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFabricTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFabricTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFabricTopologyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query the physical topology information of Lingjun network interface controller and Lingjun nodes under VPD.
-     *  *
-     * @param GetFabricTopologyRequest $request GetFabricTopologyRequest
+     * Query the physical topology information of Lingjun network interface controller and Lingjun nodes under VPD.
      *
-     * @return GetFabricTopologyResponse GetFabricTopologyResponse
+     * @param request - GetFabricTopologyRequest
+     * @returns GetFabricTopologyResponse
+     *
+     * @param GetFabricTopologyRequest $request
+     *
+     * @return GetFabricTopologyResponse
      */
     public function getFabricTopology($request)
     {
@@ -2286,28 +2795,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the details of the secondary private IP address of a specified Lingjun Elastic Network Interface.
-     *  *
-     * @param GetLeniPrivateIpAddressRequest $request GetLeniPrivateIpAddressRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Obtains the details of the secondary private IP address of a specified Lingjun Elastic Network Interface.
      *
-     * @return GetLeniPrivateIpAddressResponse GetLeniPrivateIpAddressResponse
+     * @param request - GetLeniPrivateIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLeniPrivateIpAddressResponse
+     *
+     * @param GetLeniPrivateIpAddressRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetLeniPrivateIpAddressResponse
      */
     public function getLeniPrivateIpAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->ipName)) {
-            $body['IpName'] = $request->ipName;
+
+        if (null !== $request->ipName) {
+            @$body['IpName'] = $request->ipName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetLeniPrivateIpAddress',
@@ -2320,16 +2836,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLeniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details of the secondary private IP address of a specified Lingjun Elastic Network Interface.
-     *  *
-     * @param GetLeniPrivateIpAddressRequest $request GetLeniPrivateIpAddressRequest
+     * Obtains the details of the secondary private IP address of a specified Lingjun Elastic Network Interface.
      *
-     * @return GetLeniPrivateIpAddressResponse GetLeniPrivateIpAddressResponse
+     * @param request - GetLeniPrivateIpAddressRequest
+     * @returns GetLeniPrivateIpAddressResponse
+     *
+     * @param GetLeniPrivateIpAddressRequest $request
+     *
+     * @return GetLeniPrivateIpAddressResponse
      */
     public function getLeniPrivateIpAddress($request)
     {
@@ -2339,28 +2861,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the details about the secondary private IP address.
-     *  *
-     * @param GetLniPrivateIpAddressRequest $request GetLniPrivateIpAddressRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Obtains the details about the secondary private IP address.
      *
-     * @return GetLniPrivateIpAddressResponse GetLniPrivateIpAddressResponse
+     * @param request - GetLniPrivateIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetLniPrivateIpAddressResponse
+     *
+     * @param GetLniPrivateIpAddressRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetLniPrivateIpAddressResponse
      */
     public function getLniPrivateIpAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ipName)) {
-            $body['IpName'] = $request->ipName;
+        if (null !== $request->ipName) {
+            @$body['IpName'] = $request->ipName;
         }
-        if (!Utils::isUnset($request->networkInterfaceId)) {
-            $body['NetworkInterfaceId'] = $request->networkInterfaceId;
+
+        if (null !== $request->networkInterfaceId) {
+            @$body['NetworkInterfaceId'] = $request->networkInterfaceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetLniPrivateIpAddress',
@@ -2373,16 +2902,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the details about the secondary private IP address.
-     *  *
-     * @param GetLniPrivateIpAddressRequest $request GetLniPrivateIpAddressRequest
+     * Obtains the details about the secondary private IP address.
      *
-     * @return GetLniPrivateIpAddressResponse GetLniPrivateIpAddressResponse
+     * @param request - GetLniPrivateIpAddressRequest
+     * @returns GetLniPrivateIpAddressResponse
+     *
+     * @param GetLniPrivateIpAddressRequest $request
+     *
+     * @return GetLniPrivateIpAddressResponse
      */
     public function getLniPrivateIpAddress($request)
     {
@@ -2392,28 +2927,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about an LNI.
-     *  *
-     * @param GetNetworkInterfaceRequest $request GetNetworkInterfaceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries information about an LNI.
      *
-     * @return GetNetworkInterfaceResponse GetNetworkInterfaceResponse
+     * @param request - GetNetworkInterfaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetNetworkInterfaceResponse
+     *
+     * @param GetNetworkInterfaceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetNetworkInterfaceResponse
      */
     public function getNetworkInterfaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->networkInterfaceId)) {
-            $body['NetworkInterfaceId'] = $request->networkInterfaceId;
+        if (null !== $request->networkInterfaceId) {
+            @$body['NetworkInterfaceId'] = $request->networkInterfaceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->subnetId)) {
-            $body['SubnetId'] = $request->subnetId;
+
+        if (null !== $request->subnetId) {
+            @$body['SubnetId'] = $request->subnetId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetNetworkInterface',
@@ -2426,16 +2968,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about an LNI.
-     *  *
-     * @param GetNetworkInterfaceRequest $request GetNetworkInterfaceRequest
+     * Queries information about an LNI.
      *
-     * @return GetNetworkInterfaceResponse GetNetworkInterfaceResponse
+     * @param request - GetNetworkInterfaceRequest
+     * @returns GetNetworkInterfaceResponse
+     *
+     * @param GetNetworkInterfaceRequest $request
+     *
+     * @return GetNetworkInterfaceResponse
      */
     public function getNetworkInterface($request)
     {
@@ -2445,25 +2993,31 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the network information of a node.
-     *  *
-     * @param GetNodeInfoForPodRequest $request GetNodeInfoForPodRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the network information of a node.
      *
-     * @return GetNodeInfoForPodResponse GetNodeInfoForPodResponse
+     * @param request - GetNodeInfoForPodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetNodeInfoForPodResponse
+     *
+     * @param GetNodeInfoForPodRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetNodeInfoForPodResponse
      */
     public function getNodeInfoForPodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetNodeInfoForPod',
@@ -2476,16 +3030,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetNodeInfoForPodResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNodeInfoForPodResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNodeInfoForPodResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the network information of a node.
-     *  *
-     * @param GetNodeInfoForPodRequest $request GetNodeInfoForPodRequest
+     * Queries the network information of a node.
      *
-     * @return GetNodeInfoForPodResponse GetNodeInfoForPodResponse
+     * @param request - GetNodeInfoForPodRequest
+     * @returns GetNodeInfoForPodResponse
+     *
+     * @param GetNodeInfoForPodRequest $request
+     *
+     * @return GetNodeInfoForPodResponse
      */
     public function getNodeInfoForPod($request)
     {
@@ -2495,28 +3055,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Lingjun subnet, including the type, CIDR block, instance ID, instance status, and number of NCs.
-     *  *
-     * @param GetSubnetRequest $request GetSubnetRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a Lingjun subnet, including the type, CIDR block, instance ID, instance status, and number of NCs.
      *
-     * @return GetSubnetResponse GetSubnetResponse
+     * @param request - GetSubnetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSubnetResponse
+     *
+     * @param GetSubnetRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetSubnetResponse
      */
     public function getSubnetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->subnetId)) {
-            $body['SubnetId'] = $request->subnetId;
+
+        if (null !== $request->subnetId) {
+            @$body['SubnetId'] = $request->subnetId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetSubnet',
@@ -2529,16 +3096,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSubnetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a Lingjun subnet, including the type, CIDR block, instance ID, instance status, and number of NCs.
-     *  *
-     * @param GetSubnetRequest $request GetSubnetRequest
+     * Queries the details of a Lingjun subnet, including the type, CIDR block, instance ID, instance status, and number of NCs.
      *
-     * @return GetSubnetResponse GetSubnetResponse
+     * @param request - GetSubnetRequest
+     * @returns GetSubnetResponse
+     *
+     * @param GetSubnetRequest $request
+     *
+     * @return GetSubnetResponse
      */
     public function getSubnet($request)
     {
@@ -2548,37 +3121,47 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Lingjun connection, including the specification, Express Connect circuit access port type, instance status, bandwidth, and BGP CIDR block.
-     *  *
-     * @param GetVccRequest  $request GetVccRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a Lingjun connection, including the specification, Express Connect circuit access port type, instance status, bandwidth, and BGP CIDR block.
      *
-     * @return GetVccResponse GetVccResponse
+     * @param request - GetVccRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVccResponse
+     *
+     * @param GetVccRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetVccResponse
      */
     public function getVccWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVcc',
@@ -2591,16 +3174,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVccResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a Lingjun connection, including the specification, Express Connect circuit access port type, instance status, bandwidth, and BGP CIDR block.
-     *  *
-     * @param GetVccRequest $request GetVccRequest
+     * Queries the details of a Lingjun connection, including the specification, Express Connect circuit access port type, instance status, bandwidth, and BGP CIDR block.
      *
-     * @return GetVccResponse GetVccResponse
+     * @param request - GetVccRequest
+     * @returns GetVccResponse
+     *
+     * @param GetVccRequest $request
+     *
+     * @return GetVccResponse
      */
     public function getVcc($request)
     {
@@ -2610,34 +3199,43 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of cross-account resource authorization for a Lingjun connection, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
-     *  *
-     * @param GetVccGrantRuleRequest $request GetVccGrantRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the details of cross-account resource authorization for a Lingjun connection, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
      *
-     * @return GetVccGrantRuleResponse GetVccGrantRuleResponse
+     * @param request - GetVccGrantRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVccGrantRuleResponse
+     *
+     * @param GetVccGrantRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetVccGrantRuleResponse
      */
     public function getVccGrantRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->grantRuleId)) {
-            $body['GrantRuleId'] = $request->grantRuleId;
+
+        if (null !== $request->grantRuleId) {
+            @$body['GrantRuleId'] = $request->grantRuleId;
         }
-        if (!Utils::isUnset($request->grantTenantId)) {
-            $body['GrantTenantId'] = $request->grantTenantId;
+
+        if (null !== $request->grantTenantId) {
+            @$body['GrantTenantId'] = $request->grantTenantId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVccGrantRule',
@@ -2650,16 +3248,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVccGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVccGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of cross-account resource authorization for a Lingjun connection, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
-     *  *
-     * @param GetVccGrantRuleRequest $request GetVccGrantRuleRequest
+     * Queries the details of cross-account resource authorization for a Lingjun connection, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
      *
-     * @return GetVccGrantRuleResponse GetVccGrantRuleResponse
+     * @param request - GetVccGrantRuleRequest
+     * @returns GetVccGrantRuleResponse
+     *
+     * @param GetVccGrantRuleRequest $request
+     *
+     * @return GetVccGrantRuleResponse
      */
     public function getVccGrantRule($request)
     {
@@ -2669,28 +3273,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries route entries.
-     *  *
-     * @param GetVccRouteEntryRequest $request GetVccRouteEntryRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries route entries.
      *
-     * @return GetVccRouteEntryResponse GetVccRouteEntryResponse
+     * @param request - GetVccRouteEntryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVccRouteEntryResponse
+     *
+     * @param GetVccRouteEntryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetVccRouteEntryResponse
      */
     public function getVccRouteEntryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
-        if (!Utils::isUnset($request->vccRouteEntryId)) {
-            $body['VccRouteEntryId'] = $request->vccRouteEntryId;
+
+        if (null !== $request->vccRouteEntryId) {
+            @$body['VccRouteEntryId'] = $request->vccRouteEntryId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVccRouteEntry',
@@ -2703,16 +3314,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVccRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVccRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries route entries.
-     *  *
-     * @param GetVccRouteEntryRequest $request GetVccRouteEntryRequest
+     * Queries route entries.
      *
-     * @return GetVccRouteEntryResponse GetVccRouteEntryResponse
+     * @param request - GetVccRouteEntryRequest
+     * @returns GetVccRouteEntryResponse
+     *
+     * @param GetVccRouteEntryRequest $request
+     *
+     * @return GetVccRouteEntryResponse
      */
     public function getVccRouteEntry($request)
     {
@@ -2722,25 +3339,31 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Lingjun CIDR block, including the status of the Lingjun CIDR block, the CIDR block, the number of subnets and NCs.
-     *  *
-     * @param GetVpdRequest  $request GetVpdRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a Lingjun CIDR block, including the status of the Lingjun CIDR block, the CIDR block, the number of subnets and NCs.
      *
-     * @return GetVpdResponse GetVpdResponse
+     * @param request - GetVpdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVpdResponse
+     *
+     * @param GetVpdRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetVpdResponse
      */
     public function getVpdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVpd',
@@ -2753,16 +3376,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVpdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVpdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVpdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a Lingjun CIDR block, including the status of the Lingjun CIDR block, the CIDR block, the number of subnets and NCs.
-     *  *
-     * @param GetVpdRequest $request GetVpdRequest
+     * Queries the details of a Lingjun CIDR block, including the status of the Lingjun CIDR block, the CIDR block, the number of subnets and NCs.
      *
-     * @return GetVpdResponse GetVpdResponse
+     * @param request - GetVpdRequest
+     * @returns GetVpdResponse
+     *
+     * @param GetVpdRequest $request
+     *
+     * @return GetVpdResponse
      */
     public function getVpd($request)
     {
@@ -2772,34 +3401,43 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of cross-account resource authorization for a Lingjun CIDR block, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
-     *  *
-     * @param GetVpdGrantRuleRequest $request GetVpdGrantRuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the details of cross-account resource authorization for a Lingjun CIDR block, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
      *
-     * @return GetVpdGrantRuleResponse GetVpdGrantRuleResponse
+     * @param request - GetVpdGrantRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVpdGrantRuleResponse
+     *
+     * @param GetVpdGrantRuleRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetVpdGrantRuleResponse
      */
     public function getVpdGrantRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->grantRuleId)) {
-            $body['GrantRuleId'] = $request->grantRuleId;
+
+        if (null !== $request->grantRuleId) {
+            @$body['GrantRuleId'] = $request->grantRuleId;
         }
-        if (!Utils::isUnset($request->grantTenantId)) {
-            $body['GrantTenantId'] = $request->grantTenantId;
+
+        if (null !== $request->grantTenantId) {
+            @$body['GrantTenantId'] = $request->grantTenantId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVpdGrantRule',
@@ -2812,16 +3450,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVpdGrantRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVpdGrantRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of cross-account resource authorization for a Lingjun CIDR block, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
-     *  *
-     * @param GetVpdGrantRuleRequest $request GetVpdGrantRuleRequest
+     * Queries the details of cross-account resource authorization for a Lingjun CIDR block, including the authorized tenant ID, Lingjun HUB instance ID, and network instance ID.
      *
-     * @return GetVpdGrantRuleResponse GetVpdGrantRuleResponse
+     * @param request - GetVpdGrantRuleRequest
+     * @returns GetVpdGrantRuleResponse
+     *
+     * @param GetVpdGrantRuleRequest $request
+     *
+     * @return GetVpdGrantRuleResponse
      */
     public function getVpdGrantRule($request)
     {
@@ -2831,28 +3475,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries route entries.
-     *  *
-     * @param GetVpdRouteEntryRequest $request GetVpdRouteEntryRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries route entries.
      *
-     * @return GetVpdRouteEntryResponse GetVpdRouteEntryResponse
+     * @param request - GetVpdRouteEntryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetVpdRouteEntryResponse
+     *
+     * @param GetVpdRouteEntryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetVpdRouteEntryResponse
      */
     public function getVpdRouteEntryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
-        if (!Utils::isUnset($request->vpdRouteEntryId)) {
-            $body['VpdRouteEntryId'] = $request->vpdRouteEntryId;
+
+        if (null !== $request->vpdRouteEntryId) {
+            @$body['VpdRouteEntryId'] = $request->vpdRouteEntryId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetVpdRouteEntry',
@@ -2865,16 +3516,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetVpdRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVpdRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVpdRouteEntryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries route entries.
-     *  *
-     * @param GetVpdRouteEntryRequest $request GetVpdRouteEntryRequest
+     * Queries route entries.
      *
-     * @return GetVpdRouteEntryResponse GetVpdRouteEntryResponse
+     * @param request - GetVpdRouteEntryRequest
+     * @returns GetVpdRouteEntryResponse
+     *
+     * @param GetVpdRouteEntryRequest $request
+     *
+     * @return GetVpdRouteEntryResponse
      */
     public function getVpdRouteEntry($request)
     {
@@ -2884,22 +3541,27 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Initialize the Lingjun connection and authorize Intelligent Computing Lingjun to create an SLR in your account.
-     *  *
-     * @param InitializeVccRequest $request InitializeVccRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Initialize the Lingjun connection and authorize Intelligent Computing Lingjun to create an SLR in your account.
      *
-     * @return InitializeVccResponse InitializeVccResponse
+     * @param request - InitializeVccRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InitializeVccResponse
+     *
+     * @param InitializeVccRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InitializeVccResponse
      */
     public function initializeVccWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'InitializeVcc',
@@ -2912,16 +3574,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return InitializeVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return InitializeVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InitializeVccResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Initialize the Lingjun connection and authorize Intelligent Computing Lingjun to create an SLR in your account.
-     *  *
-     * @param InitializeVccRequest $request InitializeVccRequest
+     * Initialize the Lingjun connection and authorize Intelligent Computing Lingjun to create an SLR in your account.
      *
-     * @return InitializeVccResponse InitializeVccResponse
+     * @param request - InitializeVccRequest
+     * @returns InitializeVccResponse
+     *
+     * @param InitializeVccRequest $request
+     *
+     * @return InitializeVccResponse
      */
     public function initializeVcc($request)
     {
@@ -2931,55 +3599,71 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the LENIs that are associated with a Lingjun node.
-     *  *
-     * @param ListElasticNetworkInterfacesRequest $request ListElasticNetworkInterfacesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the LENIs that are associated with a Lingjun node.
      *
-     * @return ListElasticNetworkInterfacesResponse ListElasticNetworkInterfacesResponse
+     * @param request - ListElasticNetworkInterfacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListElasticNetworkInterfacesResponse
+     *
+     * @param ListElasticNetworkInterfacesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListElasticNetworkInterfacesResponse
      */
     public function listElasticNetworkInterfacesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $body['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$body['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $body['NetworkType'] = $request->networkType;
+
+        if (null !== $request->networkType) {
+            @$body['NetworkType'] = $request->networkType;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $body['VSwitchId'] = $request->vSwitchId;
+
+        if (null !== $request->vSwitchId) {
+            @$body['VSwitchId'] = $request->vSwitchId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListElasticNetworkInterfaces',
@@ -2992,16 +3676,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListElasticNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListElasticNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListElasticNetworkInterfacesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the LENIs that are associated with a Lingjun node.
-     *  *
-     * @param ListElasticNetworkInterfacesRequest $request ListElasticNetworkInterfacesRequest
+     * Queries the LENIs that are associated with a Lingjun node.
      *
-     * @return ListElasticNetworkInterfacesResponse ListElasticNetworkInterfacesResponse
+     * @param request - ListElasticNetworkInterfacesRequest
+     * @returns ListElasticNetworkInterfacesResponse
+     *
+     * @param ListElasticNetworkInterfacesRequest $request
+     *
+     * @return ListElasticNetworkInterfacesResponse
      */
     public function listElasticNetworkInterfaces($request)
     {
@@ -3011,58 +3701,75 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries network instance connections.
-     *  *
-     * @param ListErAttachmentsRequest $request ListErAttachmentsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries network instance connections.
      *
-     * @return ListErAttachmentsResponse ListErAttachmentsResponse
+     * @param request - ListErAttachmentsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListErAttachmentsResponse
+     *
+     * @param ListErAttachmentsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListErAttachmentsResponse
      */
     public function listErAttachmentsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->autoReceiveAllRoute)) {
-            $body['AutoReceiveAllRoute'] = $request->autoReceiveAllRoute;
+        if (null !== $request->autoReceiveAllRoute) {
+            @$body['AutoReceiveAllRoute'] = $request->autoReceiveAllRoute;
         }
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->erAttachmentId)) {
-            $body['ErAttachmentId'] = $request->erAttachmentId;
+
+        if (null !== $request->erAttachmentId) {
+            @$body['ErAttachmentId'] = $request->erAttachmentId;
         }
-        if (!Utils::isUnset($request->erAttachmentName)) {
-            $body['ErAttachmentName'] = $request->erAttachmentName;
+
+        if (null !== $request->erAttachmentName) {
+            @$body['ErAttachmentName'] = $request->erAttachmentName;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $body['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceTenantId)) {
-            $body['ResourceTenantId'] = $request->resourceTenantId;
+
+        if (null !== $request->resourceTenantId) {
+            @$body['ResourceTenantId'] = $request->resourceTenantId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListErAttachments',
@@ -3075,16 +3782,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListErAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListErAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListErAttachmentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries network instance connections.
-     *  *
-     * @param ListErAttachmentsRequest $request ListErAttachmentsRequest
+     * Queries network instance connections.
      *
-     * @return ListErAttachmentsResponse ListErAttachmentsResponse
+     * @param request - ListErAttachmentsRequest
+     * @returns ListErAttachmentsResponse
+     *
+     * @param ListErAttachmentsRequest $request
+     *
+     * @return ListErAttachmentsResponse
      */
     public function listErAttachments($request)
     {
@@ -3094,58 +3807,75 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the route entries of the Lingjun HUB.
-     *  *
-     * @param ListErRouteEntriesRequest $request ListErRouteEntriesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the route entries of the Lingjun HUB.
      *
-     * @return ListErRouteEntriesResponse ListErRouteEntriesResponse
+     * @param request - ListErRouteEntriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListErRouteEntriesResponse
+     *
+     * @param ListErRouteEntriesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListErRouteEntriesResponse
      */
     public function listErRouteEntriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->destinationCidrBlock)) {
-            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        if (null !== $request->destinationCidrBlock) {
+            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->ignoreDetailedRouteEntry)) {
-            $body['IgnoreDetailedRouteEntry'] = $request->ignoreDetailedRouteEntry;
+
+        if (null !== $request->ignoreDetailedRouteEntry) {
+            @$body['IgnoreDetailedRouteEntry'] = $request->ignoreDetailedRouteEntry;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nextHopId)) {
-            $body['NextHopId'] = $request->nextHopId;
+
+        if (null !== $request->nextHopId) {
+            @$body['NextHopId'] = $request->nextHopId;
         }
-        if (!Utils::isUnset($request->nextHopType)) {
-            $body['NextHopType'] = $request->nextHopType;
+
+        if (null !== $request->nextHopType) {
+            @$body['NextHopType'] = $request->nextHopType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->routeType)) {
-            $body['RouteType'] = $request->routeType;
+
+        if (null !== $request->routeType) {
+            @$body['RouteType'] = $request->routeType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListErRouteEntries',
@@ -3158,16 +3888,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListErRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListErRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListErRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the route entries of the Lingjun HUB.
-     *  *
-     * @param ListErRouteEntriesRequest $request ListErRouteEntriesRequest
+     * Queries the route entries of the Lingjun HUB.
      *
-     * @return ListErRouteEntriesResponse ListErRouteEntriesResponse
+     * @param request - ListErRouteEntriesRequest
+     * @returns ListErRouteEntriesResponse
+     *
+     * @param ListErRouteEntriesRequest $request
+     *
+     * @return ListErRouteEntriesResponse
      */
     public function listErRouteEntries($request)
     {
@@ -3177,67 +3913,87 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Routing policies are queried.
-     *  *
-     * @param ListErRouteMapsRequest $request ListErRouteMapsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Routing policies are queried.
      *
-     * @return ListErRouteMapsResponse ListErRouteMapsResponse
+     * @param request - ListErRouteMapsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListErRouteMapsResponse
+     *
+     * @param ListErRouteMapsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListErRouteMapsResponse
      */
     public function listErRouteMapsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->destinationCidrBlock)) {
-            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        if (null !== $request->destinationCidrBlock) {
+            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->erRouteMapId)) {
-            $body['ErRouteMapId'] = $request->erRouteMapId;
+
+        if (null !== $request->erRouteMapId) {
+            @$body['ErRouteMapId'] = $request->erRouteMapId;
         }
-        if (!Utils::isUnset($request->erRouteMapNum)) {
-            $body['ErRouteMapNum'] = $request->erRouteMapNum;
+
+        if (null !== $request->erRouteMapNum) {
+            @$body['ErRouteMapNum'] = $request->erRouteMapNum;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->receptionInstanceId)) {
-            $body['ReceptionInstanceId'] = $request->receptionInstanceId;
+
+        if (null !== $request->receptionInstanceId) {
+            @$body['ReceptionInstanceId'] = $request->receptionInstanceId;
         }
-        if (!Utils::isUnset($request->receptionInstanceName)) {
-            $body['ReceptionInstanceName'] = $request->receptionInstanceName;
+
+        if (null !== $request->receptionInstanceName) {
+            @$body['ReceptionInstanceName'] = $request->receptionInstanceName;
         }
-        if (!Utils::isUnset($request->receptionInstanceType)) {
-            $body['ReceptionInstanceType'] = $request->receptionInstanceType;
+
+        if (null !== $request->receptionInstanceType) {
+            @$body['ReceptionInstanceType'] = $request->receptionInstanceType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->routeMapAction)) {
-            $body['RouteMapAction'] = $request->routeMapAction;
+
+        if (null !== $request->routeMapAction) {
+            @$body['RouteMapAction'] = $request->routeMapAction;
         }
-        if (!Utils::isUnset($request->transmissionInstanceId)) {
-            $body['TransmissionInstanceId'] = $request->transmissionInstanceId;
+
+        if (null !== $request->transmissionInstanceId) {
+            @$body['TransmissionInstanceId'] = $request->transmissionInstanceId;
         }
-        if (!Utils::isUnset($request->transmissionInstanceName)) {
-            $body['TransmissionInstanceName'] = $request->transmissionInstanceName;
+
+        if (null !== $request->transmissionInstanceName) {
+            @$body['TransmissionInstanceName'] = $request->transmissionInstanceName;
         }
-        if (!Utils::isUnset($request->transmissionInstanceType)) {
-            $body['TransmissionInstanceType'] = $request->transmissionInstanceType;
+
+        if (null !== $request->transmissionInstanceType) {
+            @$body['TransmissionInstanceType'] = $request->transmissionInstanceType;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListErRouteMaps',
@@ -3250,16 +4006,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListErRouteMapsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListErRouteMapsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListErRouteMapsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Routing policies are queried.
-     *  *
-     * @param ListErRouteMapsRequest $request ListErRouteMapsRequest
+     * Routing policies are queried.
      *
-     * @return ListErRouteMapsResponse ListErRouteMapsResponse
+     * @param request - ListErRouteMapsRequest
+     * @returns ListErRouteMapsResponse
+     *
+     * @param ListErRouteMapsRequest $request
+     *
+     * @return ListErRouteMapsResponse
      */
     public function listErRouteMaps($request)
     {
@@ -3269,49 +4031,63 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Lingjun HUB.
-     *  *
-     * @param ListErsRequest $request ListErsRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the Lingjun HUB.
      *
-     * @return ListErsResponse ListErsResponse
+     * @param request - ListErsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListErsResponse
+     *
+     * @param ListErsRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListErsResponse
      */
     public function listErsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->erName)) {
-            $body['ErName'] = $request->erName;
+
+        if (null !== $request->erName) {
+            @$body['ErName'] = $request->erName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $body['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->masterZoneId)) {
-            $body['MasterZoneId'] = $request->masterZoneId;
+
+        if (null !== $request->masterZoneId) {
+            @$body['MasterZoneId'] = $request->masterZoneId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListErs',
@@ -3324,16 +4100,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListErsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListErsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListErsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Lingjun HUB.
-     *  *
-     * @param ListErsRequest $request ListErsRequest
+     * Queries the Lingjun HUB.
      *
-     * @return ListErsResponse ListErsResponse
+     * @param request - ListErsRequest
+     * @returns ListErsResponse
+     *
+     * @param ListErsRequest $request
+     *
+     * @return ListErsResponse
      */
     public function listErs($request)
     {
@@ -3343,31 +4125,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the GPU node list of a specified GPU node whose communication distance does not exceed the specified NCD.
-     *  *
-     * @param ListInstancesByNcdRequest $request ListInstancesByNcdRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the GPU node list of a specified GPU node whose communication distance does not exceed the specified NCD.
      *
-     * @return ListInstancesByNcdResponse ListInstancesByNcdResponse
+     * @param request - ListInstancesByNcdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesByNcdResponse
+     *
+     * @param ListInstancesByNcdRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListInstancesByNcdResponse
      */
     public function listInstancesByNcdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $body['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->maxNcd)) {
-            $body['MaxNcd'] = $request->maxNcd;
+
+        if (null !== $request->maxNcd) {
+            @$body['MaxNcd'] = $request->maxNcd;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListInstancesByNcd',
@@ -3380,16 +4170,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesByNcdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstancesByNcdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstancesByNcdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the GPU node list of a specified GPU node whose communication distance does not exceed the specified NCD.
-     *  *
-     * @param ListInstancesByNcdRequest $request ListInstancesByNcdRequest
+     * Queries the GPU node list of a specified GPU node whose communication distance does not exceed the specified NCD.
      *
-     * @return ListInstancesByNcdResponse ListInstancesByNcdResponse
+     * @param request - ListInstancesByNcdRequest
+     * @returns ListInstancesByNcdResponse
+     *
+     * @param ListInstancesByNcdRequest $request
+     *
+     * @return ListInstancesByNcdResponse
      */
     public function listInstancesByNcd($request)
     {
@@ -3399,40 +4195,51 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of secondary private IP addresses of Lingjun Elastic Network Interface.
-     *  *
-     * @param ListLeniPrivateIpAddressesRequest $request ListLeniPrivateIpAddressesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the list of secondary private IP addresses of Lingjun Elastic Network Interface.
      *
-     * @return ListLeniPrivateIpAddressesResponse ListLeniPrivateIpAddressesResponse
+     * @param request - ListLeniPrivateIpAddressesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLeniPrivateIpAddressesResponse
+     *
+     * @param ListLeniPrivateIpAddressesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListLeniPrivateIpAddressesResponse
      */
     public function listLeniPrivateIpAddressesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->ipName)) {
-            $body['IpName'] = $request->ipName;
+
+        if (null !== $request->ipName) {
+            @$body['IpName'] = $request->ipName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $body['PrivateIpAddress'] = $request->privateIpAddress;
+
+        if (null !== $request->privateIpAddress) {
+            @$body['PrivateIpAddress'] = $request->privateIpAddress;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListLeniPrivateIpAddresses',
@@ -3445,16 +4252,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLeniPrivateIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLeniPrivateIpAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLeniPrivateIpAddressesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of secondary private IP addresses of Lingjun Elastic Network Interface.
-     *  *
-     * @param ListLeniPrivateIpAddressesRequest $request ListLeniPrivateIpAddressesRequest
+     * Queries the list of secondary private IP addresses of Lingjun Elastic Network Interface.
      *
-     * @return ListLeniPrivateIpAddressesResponse ListLeniPrivateIpAddressesResponse
+     * @param request - ListLeniPrivateIpAddressesRequest
+     * @returns ListLeniPrivateIpAddressesResponse
+     *
+     * @param ListLeniPrivateIpAddressesRequest $request
+     *
+     * @return ListLeniPrivateIpAddressesResponse
      */
     public function listLeniPrivateIpAddresses($request)
     {
@@ -3464,43 +4277,55 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of secondary private IP addresses of Lingjun network interface controller.
-     *  *
-     * @param ListLniPrivateIpAddressRequest $request ListLniPrivateIpAddressRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the list of secondary private IP addresses of Lingjun network interface controller.
      *
-     * @return ListLniPrivateIpAddressResponse ListLniPrivateIpAddressResponse
+     * @param request - ListLniPrivateIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListLniPrivateIpAddressResponse
+     *
+     * @param ListLniPrivateIpAddressRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListLniPrivateIpAddressResponse
      */
     public function listLniPrivateIpAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $body['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$body['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->ipName)) {
-            $body['IpName'] = $request->ipName;
+
+        if (null !== $request->ipName) {
+            @$body['IpName'] = $request->ipName;
         }
-        if (!Utils::isUnset($request->networkInterfaceId)) {
-            $body['NetworkInterfaceId'] = $request->networkInterfaceId;
+
+        if (null !== $request->networkInterfaceId) {
+            @$body['NetworkInterfaceId'] = $request->networkInterfaceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListLniPrivateIpAddress',
@@ -3513,16 +4338,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of secondary private IP addresses of Lingjun network interface controller.
-     *  *
-     * @param ListLniPrivateIpAddressRequest $request ListLniPrivateIpAddressRequest
+     * Queries the list of secondary private IP addresses of Lingjun network interface controller.
      *
-     * @return ListLniPrivateIpAddressResponse ListLniPrivateIpAddressResponse
+     * @param request - ListLniPrivateIpAddressRequest
+     * @returns ListLniPrivateIpAddressResponse
+     *
+     * @param ListLniPrivateIpAddressRequest $request
+     *
+     * @return ListLniPrivateIpAddressResponse
      */
     public function listLniPrivateIpAddress($request)
     {
@@ -3532,46 +4363,59 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries Lingjun network interfaces (LNIs).
-     *  *
-     * @param ListNetworkInterfacesRequest $request ListNetworkInterfacesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries Lingjun network interfaces (LNIs).
      *
-     * @return ListNetworkInterfacesResponse ListNetworkInterfacesResponse
+     * @param request - ListNetworkInterfacesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNetworkInterfacesResponse
+     *
+     * @param ListNetworkInterfacesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListNetworkInterfacesResponse
      */
     public function listNetworkInterfacesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $body['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$body['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->networkInterfaceId)) {
-            $body['NetworkInterfaceId'] = $request->networkInterfaceId;
+
+        if (null !== $request->networkInterfaceId) {
+            @$body['NetworkInterfaceId'] = $request->networkInterfaceId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->subnetId)) {
-            $body['SubnetId'] = $request->subnetId;
+
+        if (null !== $request->subnetId) {
+            @$body['SubnetId'] = $request->subnetId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListNetworkInterfaces',
@@ -3584,16 +4428,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNetworkInterfacesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Lingjun network interfaces (LNIs).
-     *  *
-     * @param ListNetworkInterfacesRequest $request ListNetworkInterfacesRequest
+     * Queries Lingjun network interfaces (LNIs).
      *
-     * @return ListNetworkInterfacesResponse ListNetworkInterfacesResponse
+     * @param request - ListNetworkInterfacesRequest
+     * @returns ListNetworkInterfacesResponse
+     *
+     * @param ListNetworkInterfacesRequest $request
+     *
+     * @return ListNetworkInterfacesResponse
      */
     public function listNetworkInterfaces($request)
     {
@@ -3603,31 +4453,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries node network information.
-     *  *
-     * @param ListNodeInfosForPodRequest $request ListNodeInfosForPodRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries node network information.
      *
-     * @return ListNodeInfosForPodResponse ListNodeInfosForPodResponse
+     * @param request - ListNodeInfosForPodRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListNodeInfosForPodResponse
+     *
+     * @param ListNodeInfosForPodRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListNodeInfosForPodResponse
      */
     public function listNodeInfosForPodWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $body['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->nodeId)) {
-            $body['NodeId'] = $request->nodeId;
+
+        if (null !== $request->nodeId) {
+            @$body['NodeId'] = $request->nodeId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListNodeInfosForPod',
@@ -3640,16 +4498,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNodeInfosForPodResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNodeInfosForPodResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNodeInfosForPodResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries node network information.
-     *  *
-     * @param ListNodeInfosForPodRequest $request ListNodeInfosForPodRequest
+     * Queries node network information.
      *
-     * @return ListNodeInfosForPodResponse ListNodeInfosForPodResponse
+     * @param request - ListNodeInfosForPodRequest
+     * @returns ListNodeInfosForPodResponse
+     *
+     * @param ListNodeInfosForPodRequest $request
+     *
+     * @return ListNodeInfosForPodResponse
      */
     public function listNodeInfosForPod($request)
     {
@@ -3659,55 +4523,71 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to query the details of one or more Lingjun subnets, including the Lingjun subnet type, network address segment, and instance ID of the Lingjun CIDR block.
-     *  *
-     * @param ListSubnetsRequest $request ListSubnetsRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to query the details of one or more Lingjun subnets, including the Lingjun subnet type, network address segment, and instance ID of the Lingjun CIDR block.
      *
-     * @return ListSubnetsResponse ListSubnetsResponse
+     * @param request - ListSubnetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSubnetsResponse
+     *
+     * @param ListSubnetsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListSubnetsResponse
      */
     public function listSubnetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->subnetId)) {
-            $body['SubnetId'] = $request->subnetId;
+
+        if (null !== $request->subnetId) {
+            @$body['SubnetId'] = $request->subnetId;
         }
-        if (!Utils::isUnset($request->subnetName)) {
-            $body['SubnetName'] = $request->subnetName;
+
+        if (null !== $request->subnetName) {
+            @$body['SubnetName'] = $request->subnetName;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListSubnets',
@@ -3720,16 +4600,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSubnetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSubnetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSubnetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary You can call this operation to query the details of one or more Lingjun subnets, including the Lingjun subnet type, network address segment, and instance ID of the Lingjun CIDR block.
-     *  *
-     * @param ListSubnetsRequest $request ListSubnetsRequest
+     * You can call this operation to query the details of one or more Lingjun subnets, including the Lingjun subnet type, network address segment, and instance ID of the Lingjun CIDR block.
      *
-     * @return ListSubnetsResponse ListSubnetsResponse
+     * @param request - ListSubnetsRequest
+     * @returns ListSubnetsResponse
+     *
+     * @param ListSubnetsRequest $request
+     *
+     * @return ListSubnetsResponse
      */
     public function listSubnets($request)
     {
@@ -3739,37 +4625,47 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic rate of a Lingjun connection.
-     *  *
-     * @param ListVccFlowInfosRequest $request ListVccFlowInfosRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the traffic rate of a Lingjun connection.
      *
-     * @return ListVccFlowInfosResponse ListVccFlowInfosResponse
+     * @param request - ListVccFlowInfosRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVccFlowInfosResponse
+     *
+     * @param ListVccFlowInfosRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListVccFlowInfosResponse
      */
     public function listVccFlowInfosWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->direction)) {
-            $body['Direction'] = $request->direction;
+        if (null !== $request->direction) {
+            @$body['Direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->from)) {
-            $body['From'] = $request->from;
+
+        if (null !== $request->from) {
+            @$body['From'] = $request->from;
         }
-        if (!Utils::isUnset($request->metricName)) {
-            $body['MetricName'] = $request->metricName;
+
+        if (null !== $request->metricName) {
+            @$body['MetricName'] = $request->metricName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->to)) {
-            $body['To'] = $request->to;
+
+        if (null !== $request->to) {
+            @$body['To'] = $request->to;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListVccFlowInfos',
@@ -3782,16 +4678,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVccFlowInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVccFlowInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVccFlowInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic rate of a Lingjun connection.
-     *  *
-     * @param ListVccFlowInfosRequest $request ListVccFlowInfosRequest
+     * Queries the traffic rate of a Lingjun connection.
      *
-     * @return ListVccFlowInfosResponse ListVccFlowInfosResponse
+     * @param request - ListVccFlowInfosRequest
+     * @returns ListVccFlowInfosResponse
+     *
+     * @param ListVccFlowInfosRequest $request
+     *
+     * @return ListVccFlowInfosResponse
      */
     public function listVccFlowInfos($request)
     {
@@ -3801,52 +4703,67 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Lingjun connection authorization, including the authorized tenant ID, region, and Lingjun HUB instance information.
-     *  *
-     * @param ListVccGrantRulesRequest $request ListVccGrantRulesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a Lingjun connection authorization, including the authorized tenant ID, region, and Lingjun HUB instance information.
      *
-     * @return ListVccGrantRulesResponse ListVccGrantRulesResponse
+     * @param request - ListVccGrantRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVccGrantRulesResponse
+     *
+     * @param ListVccGrantRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListVccGrantRulesResponse
      */
     public function listVccGrantRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->forSelect)) {
-            $body['ForSelect'] = $request->forSelect;
+
+        if (null !== $request->forSelect) {
+            @$body['ForSelect'] = $request->forSelect;
         }
-        if (!Utils::isUnset($request->grantRuleId)) {
-            $body['GrantRuleId'] = $request->grantRuleId;
+
+        if (null !== $request->grantRuleId) {
+            @$body['GrantRuleId'] = $request->grantRuleId;
         }
-        if (!Utils::isUnset($request->grantTenantId)) {
-            $body['GrantTenantId'] = $request->grantTenantId;
+
+        if (null !== $request->grantTenantId) {
+            @$body['GrantTenantId'] = $request->grantTenantId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListVccGrantRules',
@@ -3859,16 +4776,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVccGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVccGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVccGrantRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a Lingjun connection authorization, including the authorized tenant ID, region, and Lingjun HUB instance information.
-     *  *
-     * @param ListVccGrantRulesRequest $request ListVccGrantRulesRequest
+     * Queries the details of a Lingjun connection authorization, including the authorized tenant ID, region, and Lingjun HUB instance information.
      *
-     * @return ListVccGrantRulesResponse ListVccGrantRulesResponse
+     * @param request - ListVccGrantRulesRequest
+     * @returns ListVccGrantRulesResponse
+     *
+     * @param ListVccGrantRulesRequest $request
+     *
+     * @return ListVccGrantRulesResponse
      */
     public function listVccGrantRules($request)
     {
@@ -3878,58 +4801,75 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries Lingjun connection route entries.
-     *  *
-     * @param ListVccRouteEntriesRequest $request ListVccRouteEntriesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries Lingjun connection route entries.
      *
-     * @return ListVccRouteEntriesResponse ListVccRouteEntriesResponse
+     * @param request - ListVccRouteEntriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVccRouteEntriesResponse
+     *
+     * @param ListVccRouteEntriesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListVccRouteEntriesResponse
      */
     public function listVccRouteEntriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->destinationCidrBlock)) {
-            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        if (null !== $request->destinationCidrBlock) {
+            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->ignoreDetailedRouteEntry)) {
-            $body['IgnoreDetailedRouteEntry'] = $request->ignoreDetailedRouteEntry;
+
+        if (null !== $request->ignoreDetailedRouteEntry) {
+            @$body['IgnoreDetailedRouteEntry'] = $request->ignoreDetailedRouteEntry;
         }
-        if (!Utils::isUnset($request->nextHopId)) {
-            $body['NextHopId'] = $request->nextHopId;
+
+        if (null !== $request->nextHopId) {
+            @$body['NextHopId'] = $request->nextHopId;
         }
-        if (!Utils::isUnset($request->nextHopType)) {
-            $body['NextHopType'] = $request->nextHopType;
+
+        if (null !== $request->nextHopType) {
+            @$body['NextHopType'] = $request->nextHopType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->routeType)) {
-            $body['RouteType'] = $request->routeType;
+
+        if (null !== $request->routeType) {
+            @$body['RouteType'] = $request->routeType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
-        if (!Utils::isUnset($request->vpdRouteEntryId)) {
-            $body['VpdRouteEntryId'] = $request->vpdRouteEntryId;
+
+        if (null !== $request->vpdRouteEntryId) {
+            @$body['VpdRouteEntryId'] = $request->vpdRouteEntryId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListVccRouteEntries',
@@ -3942,16 +4882,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVccRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVccRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVccRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries Lingjun connection route entries.
-     *  *
-     * @param ListVccRouteEntriesRequest $request ListVccRouteEntriesRequest
+     * Queries Lingjun connection route entries.
      *
-     * @return ListVccRouteEntriesResponse ListVccRouteEntriesResponse
+     * @param request - ListVccRouteEntriesRequest
+     * @returns ListVccRouteEntriesResponse
+     *
+     * @param ListVccRouteEntriesRequest $request
+     *
+     * @return ListVccRouteEntriesResponse
      */
     public function listVccRouteEntries($request)
     {
@@ -3961,61 +4907,79 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary query the details of one or more lingjun connections, including the specification, Express Connect circuit access port type, instance status, bandwidth, and bgp network segment.
-     *  *
-     * @param ListVccsRequest $request ListVccsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * query the details of one or more lingjun connections, including the specification, Express Connect circuit access port type, instance status, bandwidth, and bgp network segment.
      *
-     * @return ListVccsResponse ListVccsResponse
+     * @param request - ListVccsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVccsResponse
+     *
+     * @param ListVccsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListVccsResponse
      */
     public function listVccsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $body['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$body['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->cenId)) {
-            $body['CenId'] = $request->cenId;
+
+        if (null !== $request->cenId) {
+            @$body['CenId'] = $request->cenId;
         }
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->exStatus)) {
-            $body['ExStatus'] = $request->exStatus;
+
+        if (null !== $request->exStatus) {
+            @$body['ExStatus'] = $request->exStatus;
         }
-        if (!Utils::isUnset($request->filterErId)) {
-            $body['FilterErId'] = $request->filterErId;
+
+        if (null !== $request->filterErId) {
+            @$body['FilterErId'] = $request->filterErId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $body['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$body['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListVccs',
@@ -4028,16 +4992,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVccsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVccsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVccsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary query the details of one or more lingjun connections, including the specification, Express Connect circuit access port type, instance status, bandwidth, and bgp network segment.
-     *  *
-     * @param ListVccsRequest $request ListVccsRequest
+     * query the details of one or more lingjun connections, including the specification, Express Connect circuit access port type, instance status, bandwidth, and bgp network segment.
      *
-     * @return ListVccsResponse ListVccsResponse
+     * @param request - ListVccsRequest
+     * @returns ListVccsResponse
+     *
+     * @param ListVccsRequest $request
+     *
+     * @return ListVccsResponse
      */
     public function listVccs($request)
     {
@@ -4047,52 +5017,67 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more route entries in the CIDR block of Lingjun, including the route type, route entry status, destination CIDR block, and instance information of the next route entry.
-     *  *
-     * @param ListVpdGrantRulesRequest $request ListVpdGrantRulesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the details of one or more route entries in the CIDR block of Lingjun, including the route type, route entry status, destination CIDR block, and instance information of the next route entry.
      *
-     * @return ListVpdGrantRulesResponse ListVpdGrantRulesResponse
+     * @param request - ListVpdGrantRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpdGrantRulesResponse
+     *
+     * @param ListVpdGrantRulesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListVpdGrantRulesResponse
      */
     public function listVpdGrantRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->forSelect)) {
-            $body['ForSelect'] = $request->forSelect;
+
+        if (null !== $request->forSelect) {
+            @$body['ForSelect'] = $request->forSelect;
         }
-        if (!Utils::isUnset($request->grantRuleId)) {
-            $body['GrantRuleId'] = $request->grantRuleId;
+
+        if (null !== $request->grantRuleId) {
+            @$body['GrantRuleId'] = $request->grantRuleId;
         }
-        if (!Utils::isUnset($request->grantTenantId)) {
-            $body['GrantTenantId'] = $request->grantTenantId;
+
+        if (null !== $request->grantTenantId) {
+            @$body['GrantTenantId'] = $request->grantTenantId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['InstanceName'] = $request->instanceName;
+
+        if (null !== $request->instanceName) {
+            @$body['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListVpdGrantRules',
@@ -4105,16 +5090,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpdGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpdGrantRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpdGrantRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of one or more route entries in the CIDR block of Lingjun, including the route type, route entry status, destination CIDR block, and instance information of the next route entry.
-     *  *
-     * @param ListVpdGrantRulesRequest $request ListVpdGrantRulesRequest
+     * Queries the details of one or more route entries in the CIDR block of Lingjun, including the route type, route entry status, destination CIDR block, and instance information of the next route entry.
      *
-     * @return ListVpdGrantRulesResponse ListVpdGrantRulesResponse
+     * @param request - ListVpdGrantRulesRequest
+     * @returns ListVpdGrantRulesResponse
+     *
+     * @param ListVpdGrantRulesRequest $request
+     *
+     * @return ListVpdGrantRulesResponse
      */
     public function listVpdGrantRules($request)
     {
@@ -4124,58 +5115,75 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the route entries of the Lingjun CIDR block.
-     *  *
-     * @param ListVpdRouteEntriesRequest $request ListVpdRouteEntriesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the route entries of the Lingjun CIDR block.
      *
-     * @return ListVpdRouteEntriesResponse ListVpdRouteEntriesResponse
+     * @param request - ListVpdRouteEntriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpdRouteEntriesResponse
+     *
+     * @param ListVpdRouteEntriesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListVpdRouteEntriesResponse
      */
     public function listVpdRouteEntriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->destinationCidrBlock)) {
-            $body['DestinationCidrBlock'] = $request->destinationCidrBlock;
+        if (null !== $request->destinationCidrBlock) {
+            @$body['DestinationCidrBlock'] = $request->destinationCidrBlock;
         }
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->ignoreDetailedRouteEntry)) {
-            $body['IgnoreDetailedRouteEntry'] = $request->ignoreDetailedRouteEntry;
+
+        if (null !== $request->ignoreDetailedRouteEntry) {
+            @$body['IgnoreDetailedRouteEntry'] = $request->ignoreDetailedRouteEntry;
         }
-        if (!Utils::isUnset($request->nextHopId)) {
-            $body['NextHopId'] = $request->nextHopId;
+
+        if (null !== $request->nextHopId) {
+            @$body['NextHopId'] = $request->nextHopId;
         }
-        if (!Utils::isUnset($request->nextHopType)) {
-            $body['NextHopType'] = $request->nextHopType;
+
+        if (null !== $request->nextHopType) {
+            @$body['NextHopType'] = $request->nextHopType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->routeType)) {
-            $body['RouteType'] = $request->routeType;
+
+        if (null !== $request->routeType) {
+            @$body['RouteType'] = $request->routeType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
-        if (!Utils::isUnset($request->vpdRouteEntryId)) {
-            $body['VpdRouteEntryId'] = $request->vpdRouteEntryId;
+
+        if (null !== $request->vpdRouteEntryId) {
+            @$body['VpdRouteEntryId'] = $request->vpdRouteEntryId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListVpdRouteEntries',
@@ -4188,16 +5196,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpdRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpdRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpdRouteEntriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the route entries of the Lingjun CIDR block.
-     *  *
-     * @param ListVpdRouteEntriesRequest $request ListVpdRouteEntriesRequest
+     * Queries the route entries of the Lingjun CIDR block.
      *
-     * @return ListVpdRouteEntriesResponse ListVpdRouteEntriesResponse
+     * @param request - ListVpdRouteEntriesRequest
+     * @returns ListVpdRouteEntriesResponse
+     *
+     * @param ListVpdRouteEntriesRequest $request
+     *
+     * @return ListVpdRouteEntriesResponse
      */
     public function listVpdRouteEntries($request)
     {
@@ -4207,58 +5221,75 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more Lingjun CIDR blocks, including the status of Lingjun CIDR blocks, Cidr addresses, service CIDR blocks, and Subnet.
-     *  *
-     * @param ListVpdsRequest $request ListVpdsRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the details of one or more Lingjun CIDR blocks, including the status of Lingjun CIDR blocks, Cidr addresses, service CIDR blocks, and Subnet.
      *
-     * @return ListVpdsResponse ListVpdsResponse
+     * @param request - ListVpdsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListVpdsResponse
+     *
+     * @param ListVpdsRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return ListVpdsResponse
      */
     public function listVpdsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->enablePage)) {
-            $body['EnablePage'] = $request->enablePage;
+        if (null !== $request->enablePage) {
+            @$body['EnablePage'] = $request->enablePage;
         }
-        if (!Utils::isUnset($request->filterErId)) {
-            $body['FilterErId'] = $request->filterErId;
+
+        if (null !== $request->filterErId) {
+            @$body['FilterErId'] = $request->filterErId;
         }
-        if (!Utils::isUnset($request->forSelect)) {
-            $body['ForSelect'] = $request->forSelect;
+
+        if (null !== $request->forSelect) {
+            @$body['ForSelect'] = $request->forSelect;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $body['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$body['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$body['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $body['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$body['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
-        if (!Utils::isUnset($request->vpdName)) {
-            $body['VpdName'] = $request->vpdName;
+
+        if (null !== $request->vpdName) {
+            @$body['VpdName'] = $request->vpdName;
         }
-        if (!Utils::isUnset($request->withDependence)) {
-            $body['WithDependence'] = $request->withDependence;
+
+        if (null !== $request->withDependence) {
+            @$body['WithDependence'] = $request->withDependence;
         }
-        if (!Utils::isUnset($request->withoutVcc)) {
-            $body['WithoutVcc'] = $request->withoutVcc;
+
+        if (null !== $request->withoutVcc) {
+            @$body['WithoutVcc'] = $request->withoutVcc;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListVpds',
@@ -4271,16 +5302,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListVpdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVpdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVpdsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of one or more Lingjun CIDR blocks, including the status of Lingjun CIDR blocks, Cidr addresses, service CIDR blocks, and Subnet.
-     *  *
-     * @param ListVpdsRequest $request ListVpdsRequest
+     * Queries the details of one or more Lingjun CIDR blocks, including the status of Lingjun CIDR blocks, Cidr addresses, service CIDR blocks, and Subnet.
      *
-     * @return ListVpdsResponse ListVpdsResponse
+     * @param request - ListVpdsRequest
+     * @returns ListVpdsResponse
+     *
+     * @param ListVpdsRequest $request
+     *
+     * @return ListVpdsResponse
      */
     public function listVpds($request)
     {
@@ -4290,31 +5327,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Query the network communication distance (Network Communication Distance,NCD) between instances (Lingjun node, Lingjun network interface controller).
-     *  *
-     * @param QueryInstanceNcdRequest $request QueryInstanceNcdRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Query the network communication distance (Network Communication Distance,NCD) between instances (Lingjun node, Lingjun network interface controller).
      *
-     * @return QueryInstanceNcdResponse QueryInstanceNcdResponse
+     * @param request - QueryInstanceNcdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryInstanceNcdResponse
+     *
+     * @param QueryInstanceNcdRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryInstanceNcdResponse
      */
     public function queryInstanceNcdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->instanceId1)) {
-            $body['InstanceId1'] = $request->instanceId1;
+        if (null !== $request->instanceId1) {
+            @$body['InstanceId1'] = $request->instanceId1;
         }
-        if (!Utils::isUnset($request->instanceId2)) {
-            $body['InstanceId2'] = $request->instanceId2;
+
+        if (null !== $request->instanceId2) {
+            @$body['InstanceId2'] = $request->instanceId2;
         }
-        if (!Utils::isUnset($request->instanceType)) {
-            $body['InstanceType'] = $request->instanceType;
+
+        if (null !== $request->instanceType) {
+            @$body['InstanceType'] = $request->instanceType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'QueryInstanceNcd',
@@ -4327,16 +5372,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return QueryInstanceNcdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return QueryInstanceNcdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryInstanceNcdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Query the network communication distance (Network Communication Distance,NCD) between instances (Lingjun node, Lingjun network interface controller).
-     *  *
-     * @param QueryInstanceNcdRequest $request QueryInstanceNcdRequest
+     * Query the network communication distance (Network Communication Distance,NCD) between instances (Lingjun node, Lingjun network interface controller).
      *
-     * @return QueryInstanceNcdResponse QueryInstanceNcdResponse
+     * @param request - QueryInstanceNcdRequest
+     * @returns QueryInstanceNcdResponse
+     *
+     * @param QueryInstanceNcdRequest $request
+     *
+     * @return QueryInstanceNcdResponse
      */
     public function queryInstanceNcd($request)
     {
@@ -4346,27 +5397,34 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Unsubscribe inactive Lingjun connection
-     *  *
-     * @description Only unsubscribable for Lingjun connections in the prepayment status.
-     *  *
-     * @param RefundVccRequest $request RefundVccRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Unsubscribe inactive Lingjun connection.
      *
-     * @return RefundVccResponse RefundVccResponse
+     * @remarks
+     * Only unsubscribable for Lingjun connections in the prepayment status.
+     *
+     * @param request - RefundVccRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RefundVccResponse
+     *
+     * @param RefundVccRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return RefundVccResponse
      */
     public function refundVccWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RefundVcc',
@@ -4379,18 +5437,25 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RefundVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefundVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefundVccResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Unsubscribe inactive Lingjun connection
-     *  *
-     * @description Only unsubscribable for Lingjun connections in the prepayment status.
-     *  *
-     * @param RefundVccRequest $request RefundVccRequest
+     * Unsubscribe inactive Lingjun connection.
      *
-     * @return RefundVccResponse RefundVccResponse
+     * @remarks
+     * Only unsubscribable for Lingjun connections in the prepayment status.
+     *
+     * @param request - RefundVccRequest
+     * @returns RefundVccResponse
+     *
+     * @param RefundVccRequest $request
+     *
+     * @return RefundVccResponse
      */
     public function refundVcc($request)
     {
@@ -4400,27 +5465,34 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Retry trying to create /delete a Lingjun connection.
-     *  *
-     * @description This operation allows the user to retry the operation if the Lingjun connection creation and deletion processes fail. Only the Lingjun connection in the creation failure and deletion failure state can be retried
-     *  *
-     * @param RetryVccRequest $request RetryVccRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Retry trying to create /delete a Lingjun connection.
      *
-     * @return RetryVccResponse RetryVccResponse
+     * @remarks
+     * This operation allows the user to retry the operation if the Lingjun connection creation and deletion processes fail. Only the Lingjun connection in the creation failure and deletion failure state can be retried
+     *
+     * @param request - RetryVccRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RetryVccResponse
+     *
+     * @param RetryVccRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return RetryVccResponse
      */
     public function retryVccWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RetryVcc',
@@ -4433,18 +5505,25 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RetryVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RetryVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RetryVccResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Retry trying to create /delete a Lingjun connection.
-     *  *
-     * @description This operation allows the user to retry the operation if the Lingjun connection creation and deletion processes fail. Only the Lingjun connection in the creation failure and deletion failure state can be retried
-     *  *
-     * @param RetryVccRequest $request RetryVccRequest
+     * Retry trying to create /delete a Lingjun connection.
      *
-     * @return RetryVccResponse RetryVccResponse
+     * @remarks
+     * This operation allows the user to retry the operation if the Lingjun connection creation and deletion processes fail. Only the Lingjun connection in the creation failure and deletion failure state can be retried
+     *
+     * @param request - RetryVccRequest
+     * @returns RetryVccResponse
+     *
+     * @param RetryVccRequest $request
+     *
+     * @return RetryVccResponse
      */
     public function retryVcc($request)
     {
@@ -4454,37 +5533,47 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an assigned secondary private IP address.
-     *  *
-     * @param UnAssignPrivateIpAddressRequest $request UnAssignPrivateIpAddressRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes an assigned secondary private IP address.
      *
-     * @return UnAssignPrivateIpAddressResponse UnAssignPrivateIpAddressResponse
+     * @param request - UnAssignPrivateIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnAssignPrivateIpAddressResponse
+     *
+     * @param UnAssignPrivateIpAddressRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UnAssignPrivateIpAddressResponse
      */
     public function unAssignPrivateIpAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->ipName)) {
-            $body['IpName'] = $request->ipName;
+
+        if (null !== $request->ipName) {
+            @$body['IpName'] = $request->ipName;
         }
-        if (!Utils::isUnset($request->networkInterfaceId)) {
-            $body['NetworkInterfaceId'] = $request->networkInterfaceId;
+
+        if (null !== $request->networkInterfaceId) {
+            @$body['NetworkInterfaceId'] = $request->networkInterfaceId;
         }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $body['PrivateIpAddress'] = $request->privateIpAddress;
+
+        if (null !== $request->privateIpAddress) {
+            @$body['PrivateIpAddress'] = $request->privateIpAddress;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->subnetId)) {
-            $body['SubnetId'] = $request->subnetId;
+
+        if (null !== $request->subnetId) {
+            @$body['SubnetId'] = $request->subnetId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UnAssignPrivateIpAddress',
@@ -4497,16 +5586,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnAssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnAssignPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnAssignPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an assigned secondary private IP address.
-     *  *
-     * @param UnAssignPrivateIpAddressRequest $request UnAssignPrivateIpAddressRequest
+     * Deletes an assigned secondary private IP address.
      *
-     * @return UnAssignPrivateIpAddressResponse UnAssignPrivateIpAddressResponse
+     * @param request - UnAssignPrivateIpAddressRequest
+     * @returns UnAssignPrivateIpAddressResponse
+     *
+     * @param UnAssignPrivateIpAddressRequest $request
+     *
+     * @return UnAssignPrivateIpAddressResponse
      */
     public function unAssignPrivateIpAddress($request)
     {
@@ -4516,31 +5611,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary This function can be used to delete the additional network segment of VPD.
-     *  *
-     * @description **
-     * **Warning** If the attached CIDR block has Lingjun subnet resources, you must delete the dependent resources before you can delete the attached CIDR block.
-     *  *
-     * @param UnAssociateVpdCidrBlockRequest $request UnAssociateVpdCidrBlockRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * This function can be used to delete the additional network segment of VPD.
      *
-     * @return UnAssociateVpdCidrBlockResponse UnAssociateVpdCidrBlockResponse
+     * @remarks
+     * *
+     * **Warning** If the attached CIDR block has Lingjun subnet resources, you must delete the dependent resources before you can delete the attached CIDR block.
+     *
+     * @param request - UnAssociateVpdCidrBlockRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnAssociateVpdCidrBlockResponse
+     *
+     * @param UnAssociateVpdCidrBlockRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UnAssociateVpdCidrBlockResponse
      */
     public function unAssociateVpdCidrBlockWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->secondaryCidrBlock)) {
-            $body['SecondaryCidrBlock'] = $request->secondaryCidrBlock;
+
+        if (null !== $request->secondaryCidrBlock) {
+            @$body['SecondaryCidrBlock'] = $request->secondaryCidrBlock;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UnAssociateVpdCidrBlock',
@@ -4553,19 +5656,26 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnAssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnAssociateVpdCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnAssociateVpdCidrBlockResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary This function can be used to delete the additional network segment of VPD.
-     *  *
-     * @description **
-     * **Warning** If the attached CIDR block has Lingjun subnet resources, you must delete the dependent resources before you can delete the attached CIDR block.
-     *  *
-     * @param UnAssociateVpdCidrBlockRequest $request UnAssociateVpdCidrBlockRequest
+     * This function can be used to delete the additional network segment of VPD.
      *
-     * @return UnAssociateVpdCidrBlockResponse UnAssociateVpdCidrBlockResponse
+     * @remarks
+     * *
+     * **Warning** If the attached CIDR block has Lingjun subnet resources, you must delete the dependent resources before you can delete the attached CIDR block.
+     *
+     * @param request - UnAssociateVpdCidrBlockRequest
+     * @returns UnAssociateVpdCidrBlockResponse
+     *
+     * @param UnAssociateVpdCidrBlockRequest $request
+     *
+     * @return UnAssociateVpdCidrBlockResponse
      */
     public function unAssociateVpdCidrBlock($request)
     {
@@ -4575,31 +5685,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Delete the assigned secondary private IP address of Lingjun Elastic Network Interface.
-     *  *
-     * @param UnassignLeniPrivateIpAddressRequest $request UnassignLeniPrivateIpAddressRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Delete the assigned secondary private IP address of Lingjun Elastic Network Interface.
      *
-     * @return UnassignLeniPrivateIpAddressResponse UnassignLeniPrivateIpAddressResponse
+     * @param request - UnassignLeniPrivateIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnassignLeniPrivateIpAddressResponse
+     *
+     * @param UnassignLeniPrivateIpAddressRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UnassignLeniPrivateIpAddressResponse
      */
     public function unassignLeniPrivateIpAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->ipName)) {
-            $body['IpName'] = $request->ipName;
+
+        if (null !== $request->ipName) {
+            @$body['IpName'] = $request->ipName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UnassignLeniPrivateIpAddress',
@@ -4612,16 +5730,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UnassignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UnassignLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnassignLeniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Delete the assigned secondary private IP address of Lingjun Elastic Network Interface.
-     *  *
-     * @param UnassignLeniPrivateIpAddressRequest $request UnassignLeniPrivateIpAddressRequest
+     * Delete the assigned secondary private IP address of Lingjun Elastic Network Interface.
      *
-     * @return UnassignLeniPrivateIpAddressResponse UnassignLeniPrivateIpAddressResponse
+     * @param request - UnassignLeniPrivateIpAddressRequest
+     * @returns UnassignLeniPrivateIpAddressResponse
+     *
+     * @param UnassignLeniPrivateIpAddressRequest $request
+     *
+     * @return UnassignLeniPrivateIpAddressResponse
      */
     public function unassignLeniPrivateIpAddress($request)
     {
@@ -4631,34 +5755,43 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Update Lingjun Elastic Network Interface information.
-     *  *
-     * @param UpdateElasticNetworkInterfaceRequest $request UpdateElasticNetworkInterfaceRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Update Lingjun Elastic Network Interface information.
      *
-     * @return UpdateElasticNetworkInterfaceResponse UpdateElasticNetworkInterfaceResponse
+     * @param request - UpdateElasticNetworkInterfaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateElasticNetworkInterfaceResponse
+     *
+     * @param UpdateElasticNetworkInterfaceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UpdateElasticNetworkInterfaceResponse
      */
     public function updateElasticNetworkInterfaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $body['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$body['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $body['SecurityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$body['SecurityGroupId'] = $request->securityGroupId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateElasticNetworkInterface',
@@ -4671,16 +5804,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateElasticNetworkInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateElasticNetworkInterfaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Update Lingjun Elastic Network Interface information.
-     *  *
-     * @param UpdateElasticNetworkInterfaceRequest $request UpdateElasticNetworkInterfaceRequest
+     * Update Lingjun Elastic Network Interface information.
      *
-     * @return UpdateElasticNetworkInterfaceResponse UpdateElasticNetworkInterfaceResponse
+     * @param request - UpdateElasticNetworkInterfaceRequest
+     * @returns UpdateElasticNetworkInterfaceResponse
+     *
+     * @param UpdateElasticNetworkInterfaceRequest $request
+     *
+     * @return UpdateElasticNetworkInterfaceResponse
      */
     public function updateElasticNetworkInterface($request)
     {
@@ -4690,31 +5829,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Updated Lingjun HUB.
-     *  *
-     * @param UpdateErRequest $request UpdateErRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Updated Lingjun HUB.
      *
-     * @return UpdateErResponse UpdateErResponse
+     * @param request - UpdateErRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateErResponse
+     *
+     * @param UpdateErRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return UpdateErResponse
      */
     public function updateErWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->erName)) {
-            $body['ErName'] = $request->erName;
+
+        if (null !== $request->erName) {
+            @$body['ErName'] = $request->erName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateEr',
@@ -4727,16 +5874,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateErResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateErResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateErResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updated Lingjun HUB.
-     *  *
-     * @param UpdateErRequest $request UpdateErRequest
+     * Updated Lingjun HUB.
      *
-     * @return UpdateErResponse UpdateErResponse
+     * @param request - UpdateErRequest
+     * @returns UpdateErResponse
+     *
+     * @param UpdateErRequest $request
+     *
+     * @return UpdateErResponse
      */
     public function updateEr($request)
     {
@@ -4746,31 +5899,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Updates a network instance connection.
-     *  *
-     * @param UpdateErAttachmentRequest $request UpdateErAttachmentRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Updates a network instance connection.
      *
-     * @return UpdateErAttachmentResponse UpdateErAttachmentResponse
+     * @param request - UpdateErAttachmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateErAttachmentResponse
+     *
+     * @param UpdateErAttachmentRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateErAttachmentResponse
      */
     public function updateErAttachmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->erAttachmentId)) {
-            $body['ErAttachmentId'] = $request->erAttachmentId;
+        if (null !== $request->erAttachmentId) {
+            @$body['ErAttachmentId'] = $request->erAttachmentId;
         }
-        if (!Utils::isUnset($request->erAttachmentName)) {
-            $body['ErAttachmentName'] = $request->erAttachmentName;
+
+        if (null !== $request->erAttachmentName) {
+            @$body['ErAttachmentName'] = $request->erAttachmentName;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateErAttachment',
@@ -4783,16 +5944,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateErAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateErAttachmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a network instance connection.
-     *  *
-     * @param UpdateErAttachmentRequest $request UpdateErAttachmentRequest
+     * Updates a network instance connection.
      *
-     * @return UpdateErAttachmentResponse UpdateErAttachmentResponse
+     * @param request - UpdateErAttachmentRequest
+     * @returns UpdateErAttachmentResponse
+     *
+     * @param UpdateErAttachmentRequest $request
+     *
+     * @return UpdateErAttachmentResponse
      */
     public function updateErAttachment($request)
     {
@@ -4802,31 +5969,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Update some information about the routing policy, including the description and name of the routing policy.
-     *  *
-     * @param UpdateErRouteMapRequest $request UpdateErRouteMapRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Update some information about the routing policy, including the description and name of the routing policy.
      *
-     * @return UpdateErRouteMapResponse UpdateErRouteMapResponse
+     * @param request - UpdateErRouteMapRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateErRouteMapResponse
+     *
+     * @param UpdateErRouteMapRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateErRouteMapResponse
      */
     public function updateErRouteMapWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->erId)) {
-            $body['ErId'] = $request->erId;
+
+        if (null !== $request->erId) {
+            @$body['ErId'] = $request->erId;
         }
-        if (!Utils::isUnset($request->erRouteMapId)) {
-            $body['ErRouteMapId'] = $request->erRouteMapId;
+
+        if (null !== $request->erRouteMapId) {
+            @$body['ErRouteMapId'] = $request->erRouteMapId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateErRouteMap',
@@ -4839,16 +6014,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateErRouteMapResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateErRouteMapResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Update some information about the routing policy, including the description and name of the routing policy.
-     *  *
-     * @param UpdateErRouteMapRequest $request UpdateErRouteMapRequest
+     * Update some information about the routing policy, including the description and name of the routing policy.
      *
-     * @return UpdateErRouteMapResponse UpdateErRouteMapResponse
+     * @param request - UpdateErRouteMapRequest
+     * @returns UpdateErRouteMapResponse
+     *
+     * @param UpdateErRouteMapRequest $request
+     *
+     * @return UpdateErRouteMapResponse
      */
     public function updateErRouteMap($request)
     {
@@ -4858,31 +6039,39 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Updated the description of the secondary private network assigned by the Lingjun Elastic Network Interface.
-     *  *
-     * @param UpdateLeniPrivateIpAddressRequest $request UpdateLeniPrivateIpAddressRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Updated the description of the secondary private network assigned by the Lingjun Elastic Network Interface.
      *
-     * @return UpdateLeniPrivateIpAddressResponse UpdateLeniPrivateIpAddressResponse
+     * @param request - UpdateLeniPrivateIpAddressRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateLeniPrivateIpAddressResponse
+     *
+     * @param UpdateLeniPrivateIpAddressRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateLeniPrivateIpAddressResponse
      */
     public function updateLeniPrivateIpAddressWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->elasticNetworkInterfaceId)) {
-            $body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
+
+        if (null !== $request->elasticNetworkInterfaceId) {
+            @$body['ElasticNetworkInterfaceId'] = $request->elasticNetworkInterfaceId;
         }
-        if (!Utils::isUnset($request->ipName)) {
-            $body['IpName'] = $request->ipName;
+
+        if (null !== $request->ipName) {
+            @$body['IpName'] = $request->ipName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateLeniPrivateIpAddress',
@@ -4895,16 +6084,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateLeniPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateLeniPrivateIpAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updated the description of the secondary private network assigned by the Lingjun Elastic Network Interface.
-     *  *
-     * @param UpdateLeniPrivateIpAddressRequest $request UpdateLeniPrivateIpAddressRequest
+     * Updated the description of the secondary private network assigned by the Lingjun Elastic Network Interface.
      *
-     * @return UpdateLeniPrivateIpAddressResponse UpdateLeniPrivateIpAddressResponse
+     * @param request - UpdateLeniPrivateIpAddressRequest
+     * @returns UpdateLeniPrivateIpAddressResponse
+     *
+     * @param UpdateLeniPrivateIpAddressRequest $request
+     *
+     * @return UpdateLeniPrivateIpAddressResponse
      */
     public function updateLeniPrivateIpAddress($request)
     {
@@ -4914,34 +6109,43 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Updates some information about a specified subnet instance, including the name of the subnet instance.
-     *  *
-     * @param UpdateSubnetRequest $request UpdateSubnetRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Updates some information about a specified subnet instance, including the name of the subnet instance.
      *
-     * @return UpdateSubnetResponse UpdateSubnetResponse
+     * @param request - UpdateSubnetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSubnetResponse
+     *
+     * @param UpdateSubnetRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateSubnetResponse
      */
     public function updateSubnetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->subnetId)) {
-            $body['SubnetId'] = $request->subnetId;
+
+        if (null !== $request->subnetId) {
+            @$body['SubnetId'] = $request->subnetId;
         }
-        if (!Utils::isUnset($request->subnetName)) {
-            $body['SubnetName'] = $request->subnetName;
+
+        if (null !== $request->subnetName) {
+            @$body['SubnetName'] = $request->subnetName;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $body['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$body['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateSubnet',
@@ -4954,16 +6158,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSubnetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSubnetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates some information about a specified subnet instance, including the name of the subnet instance.
-     *  *
-     * @param UpdateSubnetRequest $request UpdateSubnetRequest
+     * Updates some information about a specified subnet instance, including the name of the subnet instance.
      *
-     * @return UpdateSubnetResponse UpdateSubnetResponse
+     * @param request - UpdateSubnetRequest
+     * @returns UpdateSubnetResponse
+     *
+     * @param UpdateSubnetRequest $request
+     *
+     * @return UpdateSubnetResponse
      */
     public function updateSubnet($request)
     {
@@ -4973,34 +6183,43 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about a Lingjun connection instance, including the peak bandwidth and name of the Lingjun connection instance.
-     *  *
-     * @param UpdateVccRequest $request UpdateVccRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Updates the information about a Lingjun connection instance, including the peak bandwidth and name of the Lingjun connection instance.
      *
-     * @return UpdateVccResponse UpdateVccResponse
+     * @param request - UpdateVccRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVccResponse
+     *
+     * @param UpdateVccRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateVccResponse
      */
     public function updateVccWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->bandwidth)) {
-            $body['Bandwidth'] = $request->bandwidth;
+        if (null !== $request->bandwidth) {
+            @$body['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->orderId)) {
-            $body['OrderId'] = $request->orderId;
+
+        if (null !== $request->orderId) {
+            @$body['OrderId'] = $request->orderId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vccId)) {
-            $body['VccId'] = $request->vccId;
+
+        if (null !== $request->vccId) {
+            @$body['VccId'] = $request->vccId;
         }
-        if (!Utils::isUnset($request->vccName)) {
-            $body['VccName'] = $request->vccName;
+
+        if (null !== $request->vccName) {
+            @$body['VccName'] = $request->vccName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateVcc',
@@ -5013,16 +6232,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVccResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVccResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about a Lingjun connection instance, including the peak bandwidth and name of the Lingjun connection instance.
-     *  *
-     * @param UpdateVccRequest $request UpdateVccRequest
+     * Updates the information about a Lingjun connection instance, including the peak bandwidth and name of the Lingjun connection instance.
      *
-     * @return UpdateVccResponse UpdateVccResponse
+     * @param request - UpdateVccRequest
+     * @returns UpdateVccResponse
+     *
+     * @param UpdateVccRequest $request
+     *
+     * @return UpdateVccResponse
      */
     public function updateVcc($request)
     {
@@ -5032,28 +6257,35 @@ class Eflo extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about the Lingjun CIDR block, including the name of the Lingjun CIDR block.
-     *  *
-     * @param UpdateVpdRequest $request UpdateVpdRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * Updates the information about the Lingjun CIDR block, including the name of the Lingjun CIDR block.
      *
-     * @return UpdateVpdResponse UpdateVpdResponse
+     * @param request - UpdateVpdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateVpdResponse
+     *
+     * @param UpdateVpdRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return UpdateVpdResponse
      */
     public function updateVpdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $body['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$body['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->vpdId)) {
-            $body['VpdId'] = $request->vpdId;
+
+        if (null !== $request->vpdId) {
+            @$body['VpdId'] = $request->vpdId;
         }
-        if (!Utils::isUnset($request->vpdName)) {
-            $body['VpdName'] = $request->vpdName;
+
+        if (null !== $request->vpdName) {
+            @$body['VpdName'] = $request->vpdName;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateVpd',
@@ -5066,16 +6298,22 @@ class Eflo extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVpdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVpdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the information about the Lingjun CIDR block, including the name of the Lingjun CIDR block.
-     *  *
-     * @param UpdateVpdRequest $request UpdateVpdRequest
+     * Updates the information about the Lingjun CIDR block, including the name of the Lingjun CIDR block.
      *
-     * @return UpdateVpdResponse UpdateVpdResponse
+     * @param request - UpdateVpdRequest
+     * @returns UpdateVpdResponse
+     *
+     * @param UpdateVpdRequest $request
+     *
+     * @return UpdateVpdResponse
      */
     public function updateVpd($request)
     {

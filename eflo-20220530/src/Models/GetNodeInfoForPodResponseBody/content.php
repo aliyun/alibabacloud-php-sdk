@@ -4,94 +4,47 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models\GetNodeInfoForPodResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class content extends Model
 {
     /**
-     * @description The cluster ID.
-     *
-     * @example cluster-****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description Lingjun Gaomi network interface controller quota
-     *
-     * @example 10
-     *
      * @var int
      */
     public $hdeniQuota;
-
     /**
-     * @description Lingjun Elastic Network Interface quota, including system type
-     *
-     * @example 10
-     *
      * @var int
      */
     public $leniQuota;
-
     /**
-     * @description Lingjun Elastic Network Interface Secondary Private IP Quota
-     *
-     * @example 10
-     *
      * @var int
      */
     public $leniSipQuota;
-
     /**
-     * @description Lingjun network interface controller Secondary Private IP Quota
-     *
-     * @example 10
-     *
      * @var int
      */
     public $lniSipQuota;
-
     /**
-     * @description The ID of the node for this operation.
-     *
-     * @example node-be70****
-     *
      * @var string
      */
     public $nodeId;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-wulanchabu
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description List of VSwitches that can apply for IP addresses on this node
-     *
      * @var string[]
      */
     public $vSwitches;
-
     /**
-     * @description The ID of the Virtual Private Cloud to which the current node belongs.
-     *
-     * @example vpc-j6ctp4n75306****
-     *
      * @var string
      */
     public $vpcId;
-
     /**
-     * @description The zone ID.
-     *
-     * @example cn-wulanchabu-b
-     *
      * @var string
      */
     public $zoneId;
@@ -110,38 +63,57 @@ class content extends Model
 
     public function validate()
     {
+        if (\is_array($this->vSwitches)) {
+            Model::validateArray($this->vSwitches);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->hdeniQuota) {
             $res['HdeniQuota'] = $this->hdeniQuota;
         }
+
         if (null !== $this->leniQuota) {
             $res['LeniQuota'] = $this->leniQuota;
         }
+
         if (null !== $this->leniSipQuota) {
             $res['LeniSipQuota'] = $this->leniSipQuota;
         }
+
         if (null !== $this->lniSipQuota) {
             $res['LniSipQuota'] = $this->lniSipQuota;
         }
+
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->vSwitches) {
-            $res['VSwitches'] = $this->vSwitches;
+            if (\is_array($this->vSwitches)) {
+                $res['VSwitches'] = [];
+                $n1               = 0;
+                foreach ($this->vSwitches as $item1) {
+                    $res['VSwitches'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -149,43 +121,56 @@ class content extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return content
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['HdeniQuota'])) {
             $model->hdeniQuota = $map['HdeniQuota'];
         }
+
         if (isset($map['LeniQuota'])) {
             $model->leniQuota = $map['LeniQuota'];
         }
+
         if (isset($map['LeniSipQuota'])) {
             $model->leniSipQuota = $map['LeniSipQuota'];
         }
+
         if (isset($map['LniSipQuota'])) {
             $model->lniSipQuota = $map['LniSipQuota'];
         }
+
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VSwitches'])) {
             if (!empty($map['VSwitches'])) {
-                $model->vSwitches = $map['VSwitches'];
+                $model->vSwitches = [];
+                $n1               = 0;
+                foreach ($map['VSwitches'] as $item1) {
+                    $model->vSwitches[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

@@ -4,67 +4,66 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\GetErResponseBody\content;
-use AlibabaCloud\Tea\Model;
 
 class GetErResponseBody extends Model
 {
     /**
-     * @description The response status code.
-     *
-     * @example 0
-     *
+     * @var string
+     */
+    public $accessDeniedDetail;
+    /**
      * @var int
      */
     public $code;
-
     /**
-     * @description The response parameters.
-     *
      * @var content
      */
     public $content;
-
     /**
-     * @description Information returned when the call fails
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description Request ID of the current request
-     *
-     * @example 308DE9D2-03A6-5B44-A369-67B75D1EE091
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'content'   => 'Content',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'content'            => 'Content',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->content) {
+            $this->content->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->content) {
-            $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
+            $res['Content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -72,23 +71,30 @@ class GetErResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetErResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Content'])) {
             $model->content = content::fromMap($map['Content']);
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

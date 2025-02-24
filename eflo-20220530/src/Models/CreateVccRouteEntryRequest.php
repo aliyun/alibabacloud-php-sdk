@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVccRouteEntryRequest extends Model
 {
     /**
-     * @description Destination CIDR block
-     *
-     * @example 192.168.98.112/28
-     *
      * @var string
      */
     public $destinationCidrBlock;
-
     /**
-     * @description The region ID.
-     *
-     * @example cn-wulanchabu
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the Lingjun connection instance.
-     *
-     * @example vcc-cn-zvp2w222001
-     *
      * @var string
      */
     public $vccId;
@@ -42,17 +28,20 @@ class CreateVccRouteEntryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->vccId) {
             $res['VccId'] = $this->vccId;
         }
@@ -60,20 +49,22 @@ class CreateVccRouteEntryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVccRouteEntryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['VccId'])) {
             $model->vccId = $map['VccId'];
         }

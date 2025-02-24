@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteErRouteMapRequest extends Model
 {
     /**
-     * @description Lingjun HUB ID
-     *
-     * This parameter is required.
-     * @example er-kkopgtne
-     *
      * @var string
      */
     public $erId;
-
     /**
-     * @description routing policy Instance ID List
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $erRouteMapIds;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-wulanchabu
-     *
      * @var string
      */
     public $regionId;
@@ -43,17 +28,29 @@ class DeleteErRouteMapRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->erRouteMapIds)) {
+            Model::validateArray($this->erRouteMapIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->erId) {
             $res['ErId'] = $this->erId;
         }
+
         if (null !== $this->erRouteMapIds) {
-            $res['ErRouteMapIds'] = $this->erRouteMapIds;
+            if (\is_array($this->erRouteMapIds)) {
+                $res['ErRouteMapIds'] = [];
+                $n1                   = 0;
+                foreach ($this->erRouteMapIds as $item1) {
+                    $res['ErRouteMapIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -61,22 +58,28 @@ class DeleteErRouteMapRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteErRouteMapRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErId'])) {
             $model->erId = $map['ErId'];
         }
+
         if (isset($map['ErRouteMapIds'])) {
             if (!empty($map['ErRouteMapIds'])) {
-                $model->erRouteMapIds = $map['ErRouteMapIds'];
+                $model->erRouteMapIds = [];
+                $n1                   = 0;
+                foreach ($map['ErRouteMapIds'] as $item1) {
+                    $model->erRouteMapIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

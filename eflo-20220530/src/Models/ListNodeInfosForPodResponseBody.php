@@ -4,73 +4,72 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Eflo\V20220530\Models\ListNodeInfosForPodResponseBody\content;
-use AlibabaCloud\Tea\Model;
 
 class ListNodeInfosForPodResponseBody extends Model
 {
     /**
-     * @description The response status code.
-     *
-     * @example 0
-     *
+     * @var string
+     */
+    public $accessDeniedDetail;
+    /**
      * @var int
      */
     public $code;
-
     /**
-     * @description Response body
-     *
      * @var content[]
      */
     public $content;
-
     /**
-     * @description The returned message.
-     *
-     * @example You don\\"t have the permission of this operation.
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description Request ID of the current request
-     *
-     * @example 0901F411-28FA-5B9C-BAEE-7776463FF0DC
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'content'   => 'Content',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'content'            => 'Content',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->content)) {
+            Model::validateArray($this->content);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->content) {
-            $res['Content'] = [];
-            if (null !== $this->content && \is_array($this->content)) {
-                $n = 0;
-                foreach ($this->content as $item) {
-                    $res['Content'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->content)) {
+                $res['Content'] = [];
+                $n1             = 0;
+                foreach ($this->content as $item1) {
+                    $res['Content'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -78,29 +77,36 @@ class ListNodeInfosForPodResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodeInfosForPodResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Content'])) {
             if (!empty($map['Content'])) {
                 $model->content = [];
-                $n              = 0;
-                foreach ($map['Content'] as $item) {
-                    $model->content[$n++] = null !== $item ? content::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Content'] as $item1) {
+                    $model->content[$n1++] = content::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

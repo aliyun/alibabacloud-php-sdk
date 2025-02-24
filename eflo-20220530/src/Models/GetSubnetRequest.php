@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSubnetRequest extends Model
 {
     /**
-     * @description The region ID of the data center.
-     *
-     * @example cn-wulanchabu
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the Lingjun subnet instance.
-     *
-     * This parameter is required.
-     * @example subnet-2avf0itf
-     *
      * @var string
      */
     public $subnetId;
-
     /**
-     * @description The ID of the CIDR block to which Lingjun belongs.
-     *
-     * @example vpd-cxcmdk1m
-     *
      * @var string
      */
     public $vpdId;
@@ -43,17 +28,20 @@ class GetSubnetRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->subnetId) {
             $res['SubnetId'] = $this->subnetId;
         }
+
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
         }
@@ -61,20 +49,22 @@ class GetSubnetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSubnetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['SubnetId'])) {
             $model->subnetId = $map['SubnetId'];
         }
+
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];
         }

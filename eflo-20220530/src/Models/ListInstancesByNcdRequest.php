@@ -4,51 +4,23 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstancesByNcdRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     * @example lni-1234****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The parameter that specifies the instance type.
-     *
-     * Valid value:
-     *
-     *   node: Lingjun node.
-     *   lni: lingjun network interface controller.
-     *
-     * This parameter is required.
-     * @example lni
-     *
      * @var string
      */
     public $instanceType;
-
     /**
-     * @description Maximum network communication distance
-     *
-     * This parameter is required.
-     * @example 2
-     *
      * @var int
      */
     public $maxNcd;
-
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     * @example cn-wulanchabu
-     *
      * @var string
      */
     public $regionId;
@@ -61,20 +33,24 @@ class ListInstancesByNcdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->maxNcd) {
             $res['MaxNcd'] = $this->maxNcd;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -82,23 +58,26 @@ class ListInstancesByNcdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstancesByNcdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['MaxNcd'])) {
             $model->maxNcd = $map['MaxNcd'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
