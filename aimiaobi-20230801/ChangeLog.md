@@ -1,3 +1,8 @@
+2025-02-24 Version: 1.22.0
+- Support API RunGenerateQuestions.
+- Support API RunHotword.
+
+
 2025-02-17 Version: 1.21.0
 - Support API ListStyleLearningResult.
 - Support API RunCommentGeneration.

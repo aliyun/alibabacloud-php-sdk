@@ -223,6 +223,10 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocTranslationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocTranslationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunExpandContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunExpandContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunGenerateQuestionsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunGenerateQuestionsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunHotwordRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunHotwordResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationShrinkRequest;
@@ -7461,6 +7465,150 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runExpandContentWithOptions($request, $runtime);
+    }
+
+    /**
+     * 妙读猜你想问接口.
+     *
+     * @param request - RunGenerateQuestionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RunGenerateQuestionsResponse
+     *
+     * @param RunGenerateQuestionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RunGenerateQuestionsResponse
+     */
+    public function runGenerateQuestionsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
+        }
+
+        if (null !== $request->referenceContent) {
+            @$body['ReferenceContent'] = $request->referenceContent;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunGenerateQuestions',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunGenerateQuestionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RunGenerateQuestionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 妙读猜你想问接口.
+     *
+     * @param request - RunGenerateQuestionsRequest
+     * @returns RunGenerateQuestionsResponse
+     *
+     * @param RunGenerateQuestionsRequest $request
+     *
+     * @return RunGenerateQuestionsResponse
+     */
+    public function runGenerateQuestions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runGenerateQuestionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * 妙读文档关键词抽取接口.
+     *
+     * @param request - RunHotwordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RunHotwordResponse
+     *
+     * @param RunHotwordRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return RunHotwordResponse
+     */
+    public function runHotwordWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->docId) {
+            @$body['DocId'] = $request->docId;
+        }
+
+        if (null !== $request->prompt) {
+            @$body['Prompt'] = $request->prompt;
+        }
+
+        if (null !== $request->referenceContent) {
+            @$body['ReferenceContent'] = $request->referenceContent;
+        }
+
+        if (null !== $request->sessionId) {
+            @$body['SessionId'] = $request->sessionId;
+        }
+
+        if (null !== $request->workspaceId) {
+            @$body['WorkspaceId'] = $request->workspaceId;
+        }
+
+        $req = new OpenApiRequest([
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunHotword',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RunHotwordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RunHotwordResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 妙读文档关键词抽取接口.
+     *
+     * @param request - RunHotwordRequest
+     * @returns RunHotwordResponse
+     *
+     * @param RunHotwordRequest $request
+     *
+     * @return RunHotwordResponse
+     */
+    public function runHotword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runHotwordWithOptions($request, $runtime);
     }
 
     /**
