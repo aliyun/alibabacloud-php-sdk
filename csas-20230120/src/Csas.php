@@ -21,6 +21,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateIdpDepartmentResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagRequest;
@@ -196,6 +197,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacUserCertStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateNacUserCertStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyRequest;
@@ -707,18 +709,24 @@ class Csas extends OpenApiClient
     /**
      * 创建内网访问应用.
      *
-     * @param request - CreatePrivateAccessApplicationRequest
+     * @param tmpReq - CreatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns CreatePrivateAccessApplicationResponse
      *
-     * @param CreatePrivateAccessApplicationRequest $request
+     * @param CreatePrivateAccessApplicationRequest $tmpReq
      * @param RuntimeOptions                        $runtime
      *
      * @return CreatePrivateAccessApplicationResponse
      */
-    public function createPrivateAccessApplicationWithOptions($request, $runtime)
+    public function createPrivateAccessApplicationWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new CreatePrivateAccessApplicationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->l7Config) {
+            $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
+        }
+
         $body     = [];
         $bodyFlat = [];
         if (null !== $request->addresses) {
@@ -731,6 +739,10 @@ class Csas extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->l7ConfigShrink) {
+            @$body['L7Config'] = $request->l7ConfigShrink;
         }
 
         if (null !== $request->l7ProxyDomainAutomaticPrefix) {
@@ -6030,18 +6042,24 @@ class Csas extends OpenApiClient
     /**
      * 修改内网访问应用.
      *
-     * @param request - UpdatePrivateAccessApplicationRequest
+     * @param tmpReq - UpdatePrivateAccessApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns UpdatePrivateAccessApplicationResponse
      *
-     * @param UpdatePrivateAccessApplicationRequest $request
+     * @param UpdatePrivateAccessApplicationRequest $tmpReq
      * @param RuntimeOptions                        $runtime
      *
      * @return UpdatePrivateAccessApplicationResponse
      */
-    public function updatePrivateAccessApplicationWithOptions($request, $runtime)
+    public function updatePrivateAccessApplicationWithOptions($tmpReq, $runtime)
     {
-        $request->validate();
+        $tmpReq->validate();
+        $request = new UpdatePrivateAccessApplicationShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->l7Config) {
+            $request->l7ConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->l7Config, 'L7Config', 'json');
+        }
+
         $body     = [];
         $bodyFlat = [];
         if (null !== $request->addresses) {
@@ -6054,6 +6072,10 @@ class Csas extends OpenApiClient
 
         if (null !== $request->description) {
             @$body['Description'] = $request->description;
+        }
+
+        if (null !== $request->l7ConfigShrink) {
+            @$body['L7Config'] = $request->l7ConfigShrink;
         }
 
         if (null !== $request->l7ProxyDomainAutomaticPrefix) {

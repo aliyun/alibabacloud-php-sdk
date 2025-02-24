@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest\portRanges;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationShrinkRequest\portRanges;
 
-class UpdatePrivateAccessApplicationRequest extends Model
+class UpdatePrivateAccessApplicationShrinkRequest extends Model
 {
     /**
      * @var string[]
@@ -22,9 +22,9 @@ class UpdatePrivateAccessApplicationRequest extends Model
      */
     public $description;
     /**
-     * @var PAL7Config
+     * @var string
      */
-    public $l7Config;
+    public $l7ConfigShrink;
     /**
      * @var string
      */
@@ -61,7 +61,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
         'addresses'                    => 'Addresses',
         'applicationId'                => 'ApplicationId',
         'description'                  => 'Description',
-        'l7Config'                     => 'L7Config',
+        'l7ConfigShrink'               => 'L7Config',
         'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
         'l7ProxyDomainCustom'          => 'L7ProxyDomainCustom',
         'l7ProxyDomainPrivate'         => 'L7ProxyDomainPrivate',
@@ -76,9 +76,6 @@ class UpdatePrivateAccessApplicationRequest extends Model
     {
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
-        }
-        if (null !== $this->l7Config) {
-            $this->l7Config->validate();
         }
         if (\is_array($this->portRanges)) {
             Model::validateArray($this->portRanges);
@@ -110,8 +107,8 @@ class UpdatePrivateAccessApplicationRequest extends Model
             $res['Description'] = $this->description;
         }
 
-        if (null !== $this->l7Config) {
-            $res['L7Config'] = null !== $this->l7Config ? $this->l7Config->toArray($noStream) : $this->l7Config;
+        if (null !== $this->l7ConfigShrink) {
+            $res['L7Config'] = $this->l7ConfigShrink;
         }
 
         if (null !== $this->l7ProxyDomainAutomaticPrefix) {
@@ -188,7 +185,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
         }
 
         if (isset($map['L7Config'])) {
-            $model->l7Config = PAL7Config::fromMap($map['L7Config']);
+            $model->l7ConfigShrink = $map['L7Config'];
         }
 
         if (isset($map['L7ProxyDomainAutomaticPrefix'])) {

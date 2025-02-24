@@ -1,3 +1,7 @@
+2025-02-24 Version: 1.11.3
+- Update API CreatePrivateAccessApplication: add param L7Config.
+
+
 2025-01-22 Version: 1.11.2
 - Update API CreatePrivateAccessPolicy: add param TriggerTemplateId.
 - Update API GetPrivateAccessPolicy: update response param.

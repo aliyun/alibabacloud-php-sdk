@@ -22,6 +22,10 @@ class CreatePrivateAccessApplicationRequest extends Model
      */
     public $description;
     /**
+     * @var PAL7Config
+     */
+    public $l7Config;
+    /**
      * @var string
      */
     public $l7ProxyDomainAutomaticPrefix;
@@ -53,6 +57,7 @@ class CreatePrivateAccessApplicationRequest extends Model
         'addresses'                    => 'Addresses',
         'browserAccessStatus'          => 'BrowserAccessStatus',
         'description'                  => 'Description',
+        'l7Config'                     => 'L7Config',
         'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
         'l7ProxyDomainCustom'          => 'L7ProxyDomainCustom',
         'name'                         => 'Name',
@@ -66,6 +71,9 @@ class CreatePrivateAccessApplicationRequest extends Model
     {
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
+        }
+        if (null !== $this->l7Config) {
+            $this->l7Config->validate();
         }
         if (\is_array($this->portRanges)) {
             Model::validateArray($this->portRanges);
@@ -95,6 +103,10 @@ class CreatePrivateAccessApplicationRequest extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->l7Config) {
+            $res['L7Config'] = null !== $this->l7Config ? $this->l7Config->toArray($noStream) : $this->l7Config;
         }
 
         if (null !== $this->l7ProxyDomainAutomaticPrefix) {
@@ -164,6 +176,10 @@ class CreatePrivateAccessApplicationRequest extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['L7Config'])) {
+            $model->l7Config = PAL7Config::fromMap($map['L7Config']);
         }
 
         if (isset($map['L7ProxyDomainAutomaticPrefix'])) {

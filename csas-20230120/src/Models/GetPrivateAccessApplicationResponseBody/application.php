@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResp
 
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResponseBody\application\portRanges;
+use AlibabaCloud\SDK\Csas\V20230120\Models\PAL7Config;
 
 class application extends Model
 {
@@ -33,6 +34,10 @@ class application extends Model
      * @var string
      */
     public $description;
+    /**
+     * @var PAL7Config
+     */
+    public $l7Config;
     /**
      * @var string
      */
@@ -72,6 +77,7 @@ class application extends Model
         'connectorIds'           => 'ConnectorIds',
         'createTime'             => 'CreateTime',
         'description'            => 'Description',
+        'l7Config'               => 'L7Config',
         'l7ProxyDomainAutomatic' => 'L7ProxyDomainAutomatic',
         'l7ProxyDomainCustom'    => 'L7ProxyDomainCustom',
         'name'                   => 'Name',
@@ -89,6 +95,9 @@ class application extends Model
         }
         if (\is_array($this->connectorIds)) {
             Model::validateArray($this->connectorIds);
+        }
+        if (null !== $this->l7Config) {
+            $this->l7Config->validate();
         }
         if (\is_array($this->policyIds)) {
             Model::validateArray($this->policyIds);
@@ -139,6 +148,10 @@ class application extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->l7Config) {
+            $res['L7Config'] = null !== $this->l7Config ? $this->l7Config->toArray($noStream) : $this->l7Config;
         }
 
         if (null !== $this->l7ProxyDomainAutomatic) {
@@ -236,6 +249,10 @@ class application extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['L7Config'])) {
+            $model->l7Config = PAL7Config::fromMap($map['L7Config']);
         }
 
         if (isset($map['L7ProxyDomainAutomatic'])) {

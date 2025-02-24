@@ -5,9 +5,9 @@
 namespace AlibabaCloud\SDK\Csas\V20230120\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest\portRanges;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationShrinkRequest\portRanges;
 
-class UpdatePrivateAccessApplicationRequest extends Model
+class CreatePrivateAccessApplicationShrinkRequest extends Model
 {
     /**
      * @var string[]
@@ -16,15 +16,15 @@ class UpdatePrivateAccessApplicationRequest extends Model
     /**
      * @var string
      */
-    public $applicationId;
+    public $browserAccessStatus;
     /**
      * @var string
      */
     public $description;
     /**
-     * @var PAL7Config
+     * @var string
      */
-    public $l7Config;
+    public $l7ConfigShrink;
     /**
      * @var string
      */
@@ -36,11 +36,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
     /**
      * @var string
      */
-    public $l7ProxyDomainPrivate;
-    /**
-     * @var string
-     */
-    public $modifyType;
+    public $name;
     /**
      * @var portRanges[]
      */
@@ -59,13 +55,12 @@ class UpdatePrivateAccessApplicationRequest extends Model
     public $tagIds;
     protected $_name = [
         'addresses'                    => 'Addresses',
-        'applicationId'                => 'ApplicationId',
+        'browserAccessStatus'          => 'BrowserAccessStatus',
         'description'                  => 'Description',
-        'l7Config'                     => 'L7Config',
+        'l7ConfigShrink'               => 'L7Config',
         'l7ProxyDomainAutomaticPrefix' => 'L7ProxyDomainAutomaticPrefix',
         'l7ProxyDomainCustom'          => 'L7ProxyDomainCustom',
-        'l7ProxyDomainPrivate'         => 'L7ProxyDomainPrivate',
-        'modifyType'                   => 'ModifyType',
+        'name'                         => 'Name',
         'portRanges'                   => 'PortRanges',
         'protocol'                     => 'Protocol',
         'status'                       => 'Status',
@@ -76,9 +71,6 @@ class UpdatePrivateAccessApplicationRequest extends Model
     {
         if (\is_array($this->addresses)) {
             Model::validateArray($this->addresses);
-        }
-        if (null !== $this->l7Config) {
-            $this->l7Config->validate();
         }
         if (\is_array($this->portRanges)) {
             Model::validateArray($this->portRanges);
@@ -102,16 +94,16 @@ class UpdatePrivateAccessApplicationRequest extends Model
             }
         }
 
-        if (null !== $this->applicationId) {
-            $res['ApplicationId'] = $this->applicationId;
+        if (null !== $this->browserAccessStatus) {
+            $res['BrowserAccessStatus'] = $this->browserAccessStatus;
         }
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
 
-        if (null !== $this->l7Config) {
-            $res['L7Config'] = null !== $this->l7Config ? $this->l7Config->toArray($noStream) : $this->l7Config;
+        if (null !== $this->l7ConfigShrink) {
+            $res['L7Config'] = $this->l7ConfigShrink;
         }
 
         if (null !== $this->l7ProxyDomainAutomaticPrefix) {
@@ -122,12 +114,8 @@ class UpdatePrivateAccessApplicationRequest extends Model
             $res['L7ProxyDomainCustom'] = $this->l7ProxyDomainCustom;
         }
 
-        if (null !== $this->l7ProxyDomainPrivate) {
-            $res['L7ProxyDomainPrivate'] = $this->l7ProxyDomainPrivate;
-        }
-
-        if (null !== $this->modifyType) {
-            $res['ModifyType'] = $this->modifyType;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->portRanges) {
@@ -179,8 +167,8 @@ class UpdatePrivateAccessApplicationRequest extends Model
             }
         }
 
-        if (isset($map['ApplicationId'])) {
-            $model->applicationId = $map['ApplicationId'];
+        if (isset($map['BrowserAccessStatus'])) {
+            $model->browserAccessStatus = $map['BrowserAccessStatus'];
         }
 
         if (isset($map['Description'])) {
@@ -188,7 +176,7 @@ class UpdatePrivateAccessApplicationRequest extends Model
         }
 
         if (isset($map['L7Config'])) {
-            $model->l7Config = PAL7Config::fromMap($map['L7Config']);
+            $model->l7ConfigShrink = $map['L7Config'];
         }
 
         if (isset($map['L7ProxyDomainAutomaticPrefix'])) {
@@ -199,12 +187,8 @@ class UpdatePrivateAccessApplicationRequest extends Model
             $model->l7ProxyDomainCustom = $map['L7ProxyDomainCustom'];
         }
 
-        if (isset($map['L7ProxyDomainPrivate'])) {
-            $model->l7ProxyDomainPrivate = $map['L7ProxyDomainPrivate'];
-        }
-
-        if (isset($map['ModifyType'])) {
-            $model->modifyType = $map['ModifyType'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['PortRanges'])) {
