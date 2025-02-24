@@ -677,6 +677,10 @@ class Appstreamcenter extends OpenApiClient
             @$body['AppInstanceGroupName'] = $request->appInstanceGroupName;
         }
 
+        if (null !== $request->appPackageType) {
+            @$body['AppPackageType'] = $request->appPackageType;
+        }
+
         if (null !== $request->appPolicyId) {
             @$body['AppPolicyId'] = $request->appPolicyId;
         }
@@ -699,6 +703,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->chargeType) {
             @$body['ChargeType'] = $request->chargeType;
+        }
+
+        if (null !== $request->clusterId) {
+            @$body['ClusterId'] = $request->clusterId;
         }
 
         if (null !== $request->networkShrink) {
@@ -743,6 +751,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->storagePolicyShrink) {
             @$body['StoragePolicy'] = $request->storagePolicyShrink;
+        }
+
+        if (null !== $request->subPayType) {
+            @$body['SubPayType'] = $request->subPayType;
         }
 
         if (null !== $request->userInfoShrink) {
@@ -1647,7 +1659,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 列表展示云应用交付组.
+     * Queries the details of multiple delivery groups that meet the query conditions.
      *
      * @param request - ListAppInstanceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1730,7 +1742,7 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 列表展示云应用交付组.
+     * Queries the details of multiple delivery groups that meet the query conditions.
      *
      * @param request - ListAppInstanceGroupRequest
      * @returns ListAppInstanceGroupResponse
@@ -1780,6 +1792,10 @@ class Appstreamcenter extends OpenApiClient
 
         if (null !== $request->pageSize) {
             @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->userIdList) {
+            @$query['UserIdList'] = $request->userIdList;
         }
 
         $body = [];
@@ -2093,7 +2109,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 云应用支持的地域列表.
+     * Queries the regions that are supported by App Streaming.
+     *
+     * @remarks
+     * >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
      *
      * @param request - ListRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2138,7 +2157,10 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
-     * 云应用支持的地域列表.
+     * Queries the regions that are supported by App Streaming.
+     *
+     * @remarks
+     * >  All supported regions instead of available regions are returned by this operation. For more information, see [Supported regions](https://help.aliyun.com/document_detail/426036.html).
      *
      * @param request - ListRegionsRequest
      * @returns ListRegionsResponse

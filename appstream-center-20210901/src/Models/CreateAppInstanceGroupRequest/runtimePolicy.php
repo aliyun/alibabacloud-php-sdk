@@ -13,12 +13,27 @@ class runtimePolicy extends Model
      */
     public $debugMode;
     /**
+     * @var bool
+     */
+    public $perSessionPerApp;
+    /**
+     * @var string
+     */
+    public $sessionPreOpen;
+    /**
      * @var string
      */
     public $sessionType;
+    /**
+     * @var string
+     */
+    public $sessionUserGenerationMode;
     protected $_name = [
-        'debugMode'   => 'DebugMode',
-        'sessionType' => 'SessionType',
+        'debugMode'                 => 'DebugMode',
+        'perSessionPerApp'          => 'PerSessionPerApp',
+        'sessionPreOpen'            => 'SessionPreOpen',
+        'sessionType'               => 'SessionType',
+        'sessionUserGenerationMode' => 'SessionUserGenerationMode',
     ];
 
     public function validate()
@@ -33,8 +48,20 @@ class runtimePolicy extends Model
             $res['DebugMode'] = $this->debugMode;
         }
 
+        if (null !== $this->perSessionPerApp) {
+            $res['PerSessionPerApp'] = $this->perSessionPerApp;
+        }
+
+        if (null !== $this->sessionPreOpen) {
+            $res['SessionPreOpen'] = $this->sessionPreOpen;
+        }
+
         if (null !== $this->sessionType) {
             $res['SessionType'] = $this->sessionType;
+        }
+
+        if (null !== $this->sessionUserGenerationMode) {
+            $res['SessionUserGenerationMode'] = $this->sessionUserGenerationMode;
         }
 
         return $res;
@@ -52,8 +79,20 @@ class runtimePolicy extends Model
             $model->debugMode = $map['DebugMode'];
         }
 
+        if (isset($map['PerSessionPerApp'])) {
+            $model->perSessionPerApp = $map['PerSessionPerApp'];
+        }
+
+        if (isset($map['SessionPreOpen'])) {
+            $model->sessionPreOpen = $map['SessionPreOpen'];
+        }
+
         if (isset($map['SessionType'])) {
             $model->sessionType = $map['SessionType'];
+        }
+
+        if (isset($map['SessionUserGenerationMode'])) {
+            $model->sessionUserGenerationMode = $map['SessionUserGenerationMode'];
         }
 
         return $model;

@@ -1,3 +1,8 @@
+2025-02-24 Version: 3.0.2
+- Update API CreateAppInstanceGroup: update param RuntimePolicy.
+- Update API CreateAppInstanceGroup: update param StoragePolicy.
+
+
 2025-02-18 Version: 3.0.1
 - Update API ListAppInstances: update response param.
 

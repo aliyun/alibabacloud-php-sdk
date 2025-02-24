@@ -27,6 +27,10 @@ class CreateAppInstanceGroupRequest extends Model
     /**
      * @var string
      */
+    public $appPackageType;
+    /**
+     * @var string
+     */
     public $appPolicyId;
     /**
      * @var bool
@@ -48,6 +52,10 @@ class CreateAppInstanceGroupRequest extends Model
      * @var string
      */
     public $chargeType;
+    /**
+     * @var string
+     */
+    public $clusterId;
     /**
      * @var network
      */
@@ -93,6 +101,10 @@ class CreateAppInstanceGroupRequest extends Model
      */
     public $storagePolicy;
     /**
+     * @var string
+     */
+    public $subPayType;
+    /**
      * @var userDefinePolicy
      */
     public $userDefinePolicy;
@@ -111,12 +123,14 @@ class CreateAppInstanceGroupRequest extends Model
     protected $_name = [
         'appCenterImageId'     => 'AppCenterImageId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
+        'appPackageType'       => 'AppPackageType',
         'appPolicyId'          => 'AppPolicyId',
         'autoPay'              => 'AutoPay',
         'autoRenew'            => 'AutoRenew',
         'bizRegionId'          => 'BizRegionId',
         'chargeResourceMode'   => 'ChargeResourceMode',
         'chargeType'           => 'ChargeType',
+        'clusterId'            => 'ClusterId',
         'network'              => 'Network',
         'nodePool'             => 'NodePool',
         'period'               => 'Period',
@@ -128,6 +142,7 @@ class CreateAppInstanceGroupRequest extends Model
         'securityPolicy'       => 'SecurityPolicy',
         'sessionTimeout'       => 'SessionTimeout',
         'storagePolicy'        => 'StoragePolicy',
+        'subPayType'           => 'SubPayType',
         'userDefinePolicy'     => 'UserDefinePolicy',
         'userInfo'             => 'UserInfo',
         'users'                => 'Users',
@@ -177,6 +192,10 @@ class CreateAppInstanceGroupRequest extends Model
             $res['AppInstanceGroupName'] = $this->appInstanceGroupName;
         }
 
+        if (null !== $this->appPackageType) {
+            $res['AppPackageType'] = $this->appPackageType;
+        }
+
         if (null !== $this->appPolicyId) {
             $res['AppPolicyId'] = $this->appPolicyId;
         }
@@ -199,6 +218,10 @@ class CreateAppInstanceGroupRequest extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         if (null !== $this->network) {
@@ -245,6 +268,10 @@ class CreateAppInstanceGroupRequest extends Model
             $res['StoragePolicy'] = null !== $this->storagePolicy ? $this->storagePolicy->toArray($noStream) : $this->storagePolicy;
         }
 
+        if (null !== $this->subPayType) {
+            $res['SubPayType'] = $this->subPayType;
+        }
+
         if (null !== $this->userDefinePolicy) {
             $res['UserDefinePolicy'] = null !== $this->userDefinePolicy ? $this->userDefinePolicy->toArray($noStream) : $this->userDefinePolicy;
         }
@@ -286,6 +313,10 @@ class CreateAppInstanceGroupRequest extends Model
             $model->appInstanceGroupName = $map['AppInstanceGroupName'];
         }
 
+        if (isset($map['AppPackageType'])) {
+            $model->appPackageType = $map['AppPackageType'];
+        }
+
         if (isset($map['AppPolicyId'])) {
             $model->appPolicyId = $map['AppPolicyId'];
         }
@@ -308,6 +339,10 @@ class CreateAppInstanceGroupRequest extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         if (isset($map['Network'])) {
@@ -352,6 +387,10 @@ class CreateAppInstanceGroupRequest extends Model
 
         if (isset($map['StoragePolicy'])) {
             $model->storagePolicy = storagePolicy::fromMap($map['StoragePolicy']);
+        }
+
+        if (isset($map['SubPayType'])) {
+            $model->subPayType = $map['SubPayType'];
         }
 
         if (isset($map['UserDefinePolicy'])) {

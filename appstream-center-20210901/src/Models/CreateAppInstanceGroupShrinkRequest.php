@@ -19,6 +19,10 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $appPackageType;
+    /**
+     * @var string
+     */
     public $appPolicyId;
     /**
      * @var bool
@@ -40,6 +44,10 @@ class CreateAppInstanceGroupShrinkRequest extends Model
      * @var string
      */
     public $chargeType;
+    /**
+     * @var string
+     */
+    public $clusterId;
     /**
      * @var string
      */
@@ -87,6 +95,10 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     /**
      * @var string
      */
+    public $subPayType;
+    /**
+     * @var string
+     */
     public $userDefinePolicyShrink;
     /**
      * @var string
@@ -103,12 +115,14 @@ class CreateAppInstanceGroupShrinkRequest extends Model
     protected $_name = [
         'appCenterImageId'       => 'AppCenterImageId',
         'appInstanceGroupName'   => 'AppInstanceGroupName',
+        'appPackageType'         => 'AppPackageType',
         'appPolicyId'            => 'AppPolicyId',
         'autoPay'                => 'AutoPay',
         'autoRenew'              => 'AutoRenew',
         'bizRegionId'            => 'BizRegionId',
         'chargeResourceMode'     => 'ChargeResourceMode',
         'chargeType'             => 'ChargeType',
+        'clusterId'              => 'ClusterId',
         'networkShrink'          => 'Network',
         'nodePoolShrink'         => 'NodePool',
         'period'                 => 'Period',
@@ -120,6 +134,7 @@ class CreateAppInstanceGroupShrinkRequest extends Model
         'securityPolicyShrink'   => 'SecurityPolicy',
         'sessionTimeout'         => 'SessionTimeout',
         'storagePolicyShrink'    => 'StoragePolicy',
+        'subPayType'             => 'SubPayType',
         'userDefinePolicyShrink' => 'UserDefinePolicy',
         'userInfoShrink'         => 'UserInfo',
         'users'                  => 'Users',
@@ -145,6 +160,10 @@ class CreateAppInstanceGroupShrinkRequest extends Model
             $res['AppInstanceGroupName'] = $this->appInstanceGroupName;
         }
 
+        if (null !== $this->appPackageType) {
+            $res['AppPackageType'] = $this->appPackageType;
+        }
+
         if (null !== $this->appPolicyId) {
             $res['AppPolicyId'] = $this->appPolicyId;
         }
@@ -167,6 +186,10 @@ class CreateAppInstanceGroupShrinkRequest extends Model
 
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         if (null !== $this->networkShrink) {
@@ -213,6 +236,10 @@ class CreateAppInstanceGroupShrinkRequest extends Model
             $res['StoragePolicy'] = $this->storagePolicyShrink;
         }
 
+        if (null !== $this->subPayType) {
+            $res['SubPayType'] = $this->subPayType;
+        }
+
         if (null !== $this->userDefinePolicyShrink) {
             $res['UserDefinePolicy'] = $this->userDefinePolicyShrink;
         }
@@ -254,6 +281,10 @@ class CreateAppInstanceGroupShrinkRequest extends Model
             $model->appInstanceGroupName = $map['AppInstanceGroupName'];
         }
 
+        if (isset($map['AppPackageType'])) {
+            $model->appPackageType = $map['AppPackageType'];
+        }
+
         if (isset($map['AppPolicyId'])) {
             $model->appPolicyId = $map['AppPolicyId'];
         }
@@ -276,6 +307,10 @@ class CreateAppInstanceGroupShrinkRequest extends Model
 
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         if (isset($map['Network'])) {
@@ -320,6 +355,10 @@ class CreateAppInstanceGroupShrinkRequest extends Model
 
         if (isset($map['StoragePolicy'])) {
             $model->storagePolicyShrink = $map['StoragePolicy'];
+        }
+
+        if (isset($map['SubPayType'])) {
+            $model->subPayType = $map['SubPayType'];
         }
 
         if (isset($map['UserDefinePolicy'])) {

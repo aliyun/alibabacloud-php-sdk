@@ -36,6 +36,10 @@ class ListAppInstancesRequest extends Model
      * @var string[]
      */
     public $status;
+    /**
+     * @var string[]
+     */
+    public $userIdList;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
         'appInstanceId'      => 'AppInstanceId',
@@ -44,6 +48,7 @@ class ListAppInstancesRequest extends Model
         'pageNumber'         => 'PageNumber',
         'pageSize'           => 'PageSize',
         'status'             => 'Status',
+        'userIdList'         => 'UserIdList',
     ];
 
     public function validate()
@@ -53,6 +58,9 @@ class ListAppInstancesRequest extends Model
         }
         if (\is_array($this->status)) {
             Model::validateArray($this->status);
+        }
+        if (\is_array($this->userIdList)) {
+            Model::validateArray($this->userIdList);
         }
         parent::validate();
     }
@@ -96,6 +104,16 @@ class ListAppInstancesRequest extends Model
                 $n1            = 0;
                 foreach ($this->status as $item1) {
                     $res['Status'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->userIdList) {
+            if (\is_array($this->userIdList)) {
+                $res['UserIdList'] = [];
+                $n1                = 0;
+                foreach ($this->userIdList as $item1) {
+                    $res['UserIdList'][$n1++] = $item1;
                 }
             }
         }
@@ -147,6 +165,16 @@ class ListAppInstancesRequest extends Model
                 $n1            = 0;
                 foreach ($map['Status'] as $item1) {
                     $model->status[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['UserIdList'])) {
+            if (!empty($map['UserIdList'])) {
+                $model->userIdList = [];
+                $n1                = 0;
+                foreach ($map['UserIdList'] as $item1) {
+                    $model->userIdList[$n1++] = $item1;
                 }
             }
         }

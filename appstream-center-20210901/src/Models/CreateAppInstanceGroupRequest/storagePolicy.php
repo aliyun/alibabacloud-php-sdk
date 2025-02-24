@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\storagePolicy\userProfile;
 
 class storagePolicy extends Model
 {
@@ -12,14 +13,22 @@ class storagePolicy extends Model
      * @var string[]
      */
     public $storageTypeList;
+    /**
+     * @var userProfile
+     */
+    public $userProfile;
     protected $_name = [
         'storageTypeList' => 'StorageTypeList',
+        'userProfile'     => 'UserProfile',
     ];
 
     public function validate()
     {
         if (\is_array($this->storageTypeList)) {
             Model::validateArray($this->storageTypeList);
+        }
+        if (null !== $this->userProfile) {
+            $this->userProfile->validate();
         }
         parent::validate();
     }
@@ -35,6 +44,10 @@ class storagePolicy extends Model
                     $res['StorageTypeList'][$n1++] = $item1;
                 }
             }
+        }
+
+        if (null !== $this->userProfile) {
+            $res['UserProfile'] = null !== $this->userProfile ? $this->userProfile->toArray($noStream) : $this->userProfile;
         }
 
         return $res;
@@ -56,6 +69,10 @@ class storagePolicy extends Model
                     $model->storageTypeList[$n1++] = $item1;
                 }
             }
+        }
+
+        if (isset($map['UserProfile'])) {
+            $model->userProfile = userProfile::fromMap($map['UserProfile']);
         }
 
         return $model;
