@@ -36,20 +36,30 @@ class RealTimeDialogRequest extends Model
     /**
      * @var string
      */
+    public $scriptContentPlayed;
+    /**
+     * @var string
+     */
     public $sessionId;
     /**
      * @var bool
      */
     public $stream;
+    /**
+     * @var bool
+     */
+    public $userVad;
     protected $_name = [
-        'analysis'          => 'analysis',
-        'bizType'           => 'bizType',
-        'conversationModel' => 'conversationModel',
-        'dialogMemoryTurns' => 'dialogMemoryTurns',
-        'metaData'          => 'metaData',
-        'recommend'         => 'recommend',
-        'sessionId'         => 'sessionId',
-        'stream'            => 'stream',
+        'analysis'            => 'analysis',
+        'bizType'             => 'bizType',
+        'conversationModel'   => 'conversationModel',
+        'dialogMemoryTurns'   => 'dialogMemoryTurns',
+        'metaData'            => 'metaData',
+        'recommend'           => 'recommend',
+        'scriptContentPlayed' => 'scriptContentPlayed',
+        'sessionId'           => 'sessionId',
+        'stream'              => 'stream',
+        'userVad'             => 'userVad',
     ];
 
     public function validate()
@@ -101,12 +111,20 @@ class RealTimeDialogRequest extends Model
             $res['recommend'] = $this->recommend;
         }
 
+        if (null !== $this->scriptContentPlayed) {
+            $res['scriptContentPlayed'] = $this->scriptContentPlayed;
+        }
+
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
 
         if (null !== $this->stream) {
             $res['stream'] = $this->stream;
+        }
+
+        if (null !== $this->userVad) {
+            $res['userVad'] = $this->userVad;
         }
 
         return $res;
@@ -155,12 +173,20 @@ class RealTimeDialogRequest extends Model
             $model->recommend = $map['recommend'];
         }
 
+        if (isset($map['scriptContentPlayed'])) {
+            $model->scriptContentPlayed = $map['scriptContentPlayed'];
+        }
+
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
 
         if (isset($map['stream'])) {
             $model->stream = $map['stream'];
+        }
+
+        if (isset($map['userVad'])) {
+            $model->userVad = $map['userVad'];
         }
 
         return $model;

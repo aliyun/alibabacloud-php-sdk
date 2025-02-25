@@ -33,6 +33,10 @@ class delta extends Model
      */
     public $intentionScript;
     /**
+     * @var bool
+     */
+    public $interrupt;
+    /**
      * @var string
      */
     public $recommendIntention;
@@ -55,6 +59,7 @@ class delta extends Model
         'intentionCode'                 => 'intentionCode',
         'intentionName'                 => 'intentionName',
         'intentionScript'               => 'intentionScript',
+        'interrupt'                     => 'interrupt',
         'recommendIntention'            => 'recommendIntention',
         'recommendScript'               => 'recommendScript',
         'selfDirectedScript'            => 'selfDirectedScript',
@@ -91,6 +96,10 @@ class delta extends Model
 
         if (null !== $this->intentionScript) {
             $res['intentionScript'] = $this->intentionScript;
+        }
+
+        if (null !== $this->interrupt) {
+            $res['interrupt'] = $this->interrupt;
         }
 
         if (null !== $this->recommendIntention) {
@@ -142,6 +151,10 @@ class delta extends Model
 
         if (isset($map['intentionScript'])) {
             $model->intentionScript = $map['intentionScript'];
+        }
+
+        if (isset($map['interrupt'])) {
+            $model->interrupt = $map['interrupt'];
         }
 
         if (isset($map['recommendIntention'])) {
