@@ -360,6 +360,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAttributeRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteAttributeResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteCrossDesktopAccessRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteCrossDesktopAccessResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteDnsInfoRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteDnsInfoResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteMfaEnabledRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyOfficeSiteMfaEnabledResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyPolicyGroupRequest;
@@ -1791,7 +1793,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Clones an existing policy.
+     * Clones an existing policy to quickly create a policy.
      *
      * @param request - ClonePolicyGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1840,7 +1842,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Clones an existing policy.
+     * Clones an existing policy to quickly create a policy.
      *
      * @param request - ClonePolicyGroupRequest
      * @returns ClonePolicyGroupResponse
@@ -4217,10 +4219,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a policy.
+     * Creates a cloud computer policy.
      *
      * @remarks
-     * A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+     * A cloud computer policy is a collection of rules to manage cloud computers in performance and security. For example, you can create a basic policy that involves the disk mapping, USB redirection, watermarking features and rules such as DNS rules. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
      *
      * @param request - CreatePolicyGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4485,10 +4487,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Creates a policy.
+     * Creates a cloud computer policy.
      *
      * @remarks
-     * A policy is a set of security rules that are used to control security configurations when end users use cloud desktops. A policy contains basic features, such as USB redirection and watermarking, and other features, such as security group control. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
+     * A cloud computer policy is a collection of rules to manage cloud computers in performance and security. For example, you can create a basic policy that involves the disk mapping, USB redirection, watermarking features and rules such as DNS rules. For more information, see [Policy overview](https://help.aliyun.com/document_detail/189345.html).
      *
      * @param request - CreatePolicyGroupRequest
      * @returns CreatePolicyGroupResponse
@@ -5791,7 +5793,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes one or more custom policies.
+     * Deletes one or more custom cloud computer policies.
+     *
+     * @remarks
+     *   You cannot delete the cloud computer policy created by the Elastic Desktop Service (EDS) system.
+     * *   You cannot delete the cloud computer policies that are associated with cloud computers.
      *
      * @param request - DeletePolicyGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5836,7 +5842,11 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Deletes one or more custom policies.
+     * Deletes one or more custom cloud computer policies.
+     *
+     * @remarks
+     *   You cannot delete the cloud computer policy created by the Elastic Desktop Service (EDS) system.
+     * *   You cannot delete the cloud computer policies that are associated with cloud computers.
      *
      * @param request - DeletePolicyGroupsRequest
      * @returns DeletePolicyGroupsResponse
@@ -7595,6 +7605,10 @@ class Ecd extends OpenApiClient
 
         if (null !== $request->gpuDriverType) {
             @$query['GpuDriverType'] = $request->gpuDriverType;
+        }
+
+        if (null !== $request->gpuMemory) {
+            @$query['GpuMemory'] = $request->gpuMemory;
         }
 
         if (null !== $request->instanceTypeFamily) {
@@ -14667,10 +14681,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the policies that are configured for a cloud desktop.
+     * Changes an existing cloud computer policy for cloud computers.
      *
      * @remarks
-     * The cloud desktops that you want to restart by calling this operation must be in the Running state.
+     * The cloud computers for which you want to change their policies must be in the Running state.
      *
      * @param request - ModifyDesktopsPolicyGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14723,10 +14737,10 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies the policies that are configured for a cloud desktop.
+     * Changes an existing cloud computer policy for cloud computers.
      *
      * @remarks
-     * The cloud desktops that you want to restart by calling this operation must be in the Running state.
+     * The cloud computers for which you want to change their policies must be in the Running state.
      *
      * @param request - ModifyDesktopsPolicyGroupRequest
      * @returns ModifyDesktopsPolicyGroupResponse
@@ -15463,6 +15477,72 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * 修改工作区DNS信息.
+     *
+     * @param request - ModifyOfficeSiteDnsInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyOfficeSiteDnsInfoResponse
+     *
+     * @param ModifyOfficeSiteDnsInfoRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyOfficeSiteDnsInfoResponse
+     */
+    public function modifyOfficeSiteDnsInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dnsAddress) {
+            @$query['DnsAddress'] = $request->dnsAddress;
+        }
+
+        if (null !== $request->officeSiteId) {
+            @$query['OfficeSiteId'] = $request->officeSiteId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyOfficeSiteDnsInfo',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyOfficeSiteDnsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ModifyOfficeSiteDnsInfoResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改工作区DNS信息.
+     *
+     * @param request - ModifyOfficeSiteDnsInfoRequest
+     * @returns ModifyOfficeSiteDnsInfoResponse
+     *
+     * @param ModifyOfficeSiteDnsInfoRequest $request
+     *
+     * @return ModifyOfficeSiteDnsInfoResponse
+     */
+    public function modifyOfficeSiteDnsInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOfficeSiteDnsInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * Enables or disables multi-factor authentication (MFA) for an enterprise Active Directory (AD) office network (formerly workspace).
      *
      * @param request - ModifyOfficeSiteMfaEnabledRequest
@@ -15529,7 +15609,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies a policy.
+     * Modifies the cloud computer policy.
      *
      * @param request - ModifyPolicyGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15806,7 +15886,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Modifies a policy.
+     * Modifies the cloud computer policy.
      *
      * @param request - ModifyPolicyGroupRequest
      * @returns ModifyPolicyGroupResponse
@@ -16647,7 +16727,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Renew subscription cloud computers.
+     * Renews monthly subscription cloud computers.
      *
      * @param request - RenewDesktopsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16716,7 +16796,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * Renew subscription cloud computers.
+     * Renews monthly subscription cloud computers.
      *
      * @param request - RenewDesktopsRequest
      * @returns RenewDesktopsResponse

@@ -1,3 +1,9 @@
+2025-02-25 Version: 4.3.0
+- Support API ModifyOfficeSiteDnsInfo.
+- Update API DescribeDesktopTypes: add param GpuMemory.
+- Update API DescribeDesktopTypes: update param DesktopTypeIdList.
+
+
 2025-02-11 Version: 4.2.5
 - Update API CreateDesktops: add param SavingPlanId.
 

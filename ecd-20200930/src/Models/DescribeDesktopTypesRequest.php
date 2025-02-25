@@ -41,6 +41,10 @@ class DescribeDesktopTypesRequest extends Model
      */
     public $gpuDriverType;
     /**
+     * @var int
+     */
+    public $gpuMemory;
+    /**
      * @var string
      */
     public $instanceTypeFamily;
@@ -85,6 +89,7 @@ class DescribeDesktopTypesRequest extends Model
         'desktopTypeIdList'       => 'DesktopTypeIdList',
         'gpuCount'                => 'GpuCount',
         'gpuDriverType'           => 'GpuDriverType',
+        'gpuMemory'               => 'GpuMemory',
         'instanceTypeFamily'      => 'InstanceTypeFamily',
         'memorySize'              => 'MemorySize',
         'orderBy'                 => 'OrderBy',
@@ -143,6 +148,10 @@ class DescribeDesktopTypesRequest extends Model
 
         if (null !== $this->gpuDriverType) {
             $res['GpuDriverType'] = $this->gpuDriverType;
+        }
+
+        if (null !== $this->gpuMemory) {
+            $res['GpuMemory'] = $this->gpuMemory;
         }
 
         if (null !== $this->instanceTypeFamily) {
@@ -228,6 +237,10 @@ class DescribeDesktopTypesRequest extends Model
 
         if (isset($map['GpuDriverType'])) {
             $model->gpuDriverType = $map['GpuDriverType'];
+        }
+
+        if (isset($map['GpuMemory'])) {
+            $model->gpuMemory = $map['GpuMemory'];
         }
 
         if (isset($map['InstanceTypeFamily'])) {

@@ -224,6 +224,10 @@ class desktops extends Model
     /**
      * @var string
      */
+    public $standardStartTime;
+    /**
+     * @var string
+     */
     public $startTime;
     /**
      * @var bool
@@ -306,6 +310,7 @@ class desktops extends Model
         'sessions'                     => 'Sessions',
         'snapshotPolicyId'             => 'SnapshotPolicyId',
         'snapshotPolicyName'           => 'SnapshotPolicyName',
+        'standardStartTime'            => 'StandardStartTime',
         'startTime'                    => 'StartTime',
         'supportHibernation'           => 'SupportHibernation',
         'systemDiskCategory'           => 'SystemDiskCategory',
@@ -599,6 +604,10 @@ class desktops extends Model
 
         if (null !== $this->snapshotPolicyName) {
             $res['SnapshotPolicyName'] = $this->snapshotPolicyName;
+        }
+
+        if (null !== $this->standardStartTime) {
+            $res['StandardStartTime'] = $this->standardStartTime;
         }
 
         if (null !== $this->startTime) {
@@ -898,6 +907,10 @@ class desktops extends Model
 
         if (isset($map['SnapshotPolicyName'])) {
             $model->snapshotPolicyName = $map['SnapshotPolicyName'];
+        }
+
+        if (isset($map['StandardStartTime'])) {
+            $model->standardStartTime = $map['StandardStartTime'];
         }
 
         if (isset($map['StartTime'])) {
