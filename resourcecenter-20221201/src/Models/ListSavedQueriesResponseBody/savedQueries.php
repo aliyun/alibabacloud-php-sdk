@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListSavedQueriesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class savedQueries extends Model
 {
     /**
-     * @description The time when the template was created. The time is displayed in UTC.
-     *
-     * @example 2022-01-13T05:50:35Z
-     *
      * @var string
      */
     public $createTime;
-
     /**
-     * @description The description of the template.
-     *
-     * @example Queries all resources on which you have permissions and sorts the resources by resource type and resource ID.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The template name.
-     *
-     * @example Query of All Alibaba Cloud Resources
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The template ID.
-     *
-     * @example sq-GeAck****
-     *
      * @var string
      */
     public $queryId;
-
     /**
-     * @description The time when the template was updated. The time is displayed in UTC.
-     *
-     * @example 2023-03-14 10:27:07
-     *
      * @var string
      */
     public $updateTime;
@@ -62,23 +38,28 @@ class savedQueries extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->queryId) {
             $res['QueryId'] = $this->queryId;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -86,26 +67,30 @@ class savedQueries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return savedQueries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['QueryId'])) {
             $model->queryId = $map['QueryId'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\AssociateDefaultFilterRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\AssociateDefaultFilterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\CreateFilterRequest;
@@ -62,11 +61,10 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateFilterRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateFilterResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateSavedQueryRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\UpdateSavedQueryResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class ResourceCenter extends OpenApiClient
 {
@@ -91,33 +89,39 @@ class ResourceCenter extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Sets a default filter.
-     *  *
-     * @param AssociateDefaultFilterRequest $request AssociateDefaultFilterRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Sets a default filter.
      *
-     * @return AssociateDefaultFilterResponse AssociateDefaultFilterResponse
+     * @param request - AssociateDefaultFilterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AssociateDefaultFilterResponse
+     *
+     * @param AssociateDefaultFilterRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return AssociateDefaultFilterResponse
      */
     public function associateDefaultFilterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filterName)) {
-            $query['FilterName'] = $request->filterName;
+        if (null !== $request->filterName) {
+            @$query['FilterName'] = $request->filterName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'AssociateDefaultFilter',
@@ -130,16 +134,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return AssociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AssociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AssociateDefaultFilterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Sets a default filter.
-     *  *
-     * @param AssociateDefaultFilterRequest $request AssociateDefaultFilterRequest
+     * Sets a default filter.
      *
-     * @return AssociateDefaultFilterResponse AssociateDefaultFilterResponse
+     * @param request - AssociateDefaultFilterRequest
+     * @returns AssociateDefaultFilterResponse
+     *
+     * @param AssociateDefaultFilterRequest $request
+     *
+     * @return AssociateDefaultFilterResponse
      */
     public function associateDefaultFilter($request)
     {
@@ -149,25 +159,31 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Creates a filter.
-     *  *
-     * @param CreateFilterRequest $request CreateFilterRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Creates a filter.
      *
-     * @return CreateFilterResponse CreateFilterResponse
+     * @param request - CreateFilterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateFilterResponse
+     *
+     * @param CreateFilterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateFilterResponse
      */
     public function createFilterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filterConfiguration)) {
-            $query['FilterConfiguration'] = $request->filterConfiguration;
+        if (null !== $request->filterConfiguration) {
+            @$query['FilterConfiguration'] = $request->filterConfiguration;
         }
-        if (!Utils::isUnset($request->filterName)) {
-            $query['FilterName'] = $request->filterName;
+
+        if (null !== $request->filterName) {
+            @$query['FilterName'] = $request->filterName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateFilter',
@@ -180,16 +196,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateFilterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a filter.
-     *  *
-     * @param CreateFilterRequest $request CreateFilterRequest
+     * Creates a filter.
      *
-     * @return CreateFilterResponse CreateFilterResponse
+     * @param request - CreateFilterRequest
+     * @returns CreateFilterResponse
+     *
+     * @param CreateFilterRequest $request
+     *
+     * @return CreateFilterResponse
      */
     public function createFilter($request)
     {
@@ -199,28 +221,35 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom query template.
-     *  *
-     * @param CreateSavedQueryRequest $request CreateSavedQueryRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a custom query template.
      *
-     * @return CreateSavedQueryResponse CreateSavedQueryResponse
+     * @param request - CreateSavedQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSavedQueryResponse
+     *
+     * @param CreateSavedQueryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateSavedQueryResponse
      */
     public function createSavedQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['Expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['Expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSavedQuery',
@@ -233,16 +262,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSavedQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a custom query template.
-     *  *
-     * @param CreateSavedQueryRequest $request CreateSavedQueryRequest
+     * Creates a custom query template.
      *
-     * @return CreateSavedQueryResponse CreateSavedQueryResponse
+     * @param request - CreateSavedQueryRequest
+     * @returns CreateSavedQueryResponse
+     *
+     * @param CreateSavedQueryRequest $request
+     *
+     * @return CreateSavedQueryResponse
      */
     public function createSavedQuery($request)
     {
@@ -252,22 +287,27 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a filter.
-     *  *
-     * @param DeleteFilterRequest $request DeleteFilterRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes a filter.
      *
-     * @return DeleteFilterResponse DeleteFilterResponse
+     * @param request - DeleteFilterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteFilterResponse
+     *
+     * @param DeleteFilterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteFilterResponse
      */
     public function deleteFilterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filterName)) {
-            $query['FilterName'] = $request->filterName;
+        if (null !== $request->filterName) {
+            @$query['FilterName'] = $request->filterName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteFilter',
@@ -280,16 +320,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteFilterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a filter.
-     *  *
-     * @param DeleteFilterRequest $request DeleteFilterRequest
+     * Deletes a filter.
      *
-     * @return DeleteFilterResponse DeleteFilterResponse
+     * @param request - DeleteFilterRequest
+     * @returns DeleteFilterResponse
+     *
+     * @param DeleteFilterRequest $request
+     *
+     * @return DeleteFilterResponse
      */
     public function deleteFilter($request)
     {
@@ -299,22 +345,27 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a custom query template.
-     *  *
-     * @param DeleteSavedQueryRequest $request DeleteSavedQueryRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a custom query template.
      *
-     * @return DeleteSavedQueryResponse DeleteSavedQueryResponse
+     * @param request - DeleteSavedQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteSavedQueryResponse
+     *
+     * @param DeleteSavedQueryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteSavedQueryResponse
      */
     public function deleteSavedQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->queryId)) {
-            $query['QueryId'] = $request->queryId;
+        if (null !== $request->queryId) {
+            @$query['QueryId'] = $request->queryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteSavedQuery',
@@ -327,16 +378,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSavedQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a custom query template.
-     *  *
-     * @param DeleteSavedQueryRequest $request DeleteSavedQueryRequest
+     * Deletes a custom query template.
      *
-     * @return DeleteSavedQueryResponse DeleteSavedQueryResponse
+     * @param request - DeleteSavedQueryRequest
+     * @returns DeleteSavedQueryResponse
+     *
+     * @param DeleteSavedQueryRequest $request
+     *
+     * @return DeleteSavedQueryResponse
      */
     public function deleteSavedQuery($request)
     {
@@ -346,11 +403,15 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
      *
-     * @return DisableMultiAccountResourceCenterResponse DisableMultiAccountResourceCenterResponse
+     * @param request - DisableMultiAccountResourceCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableMultiAccountResourceCenterResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableMultiAccountResourceCenterResponse
      */
     public function disableMultiAccountResourceCenterWithOptions($runtime)
     {
@@ -366,14 +427,19 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableMultiAccountResourceCenterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @return DisableMultiAccountResourceCenterResponse DisableMultiAccountResourceCenterResponse
+     * Disables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+     *
+     * @returns DisableMultiAccountResourceCenterResponse
+     *
+     * @return DisableMultiAccountResourceCenterResponse
      */
     public function disableMultiAccountResourceCenter()
     {
@@ -383,11 +449,15 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Deactivates the Resource Center service.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Deactivates the Resource Center service.
      *
-     * @return DisableResourceCenterResponse DisableResourceCenterResponse
+     * @param request - DisableResourceCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisableResourceCenterResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisableResourceCenterResponse
      */
     public function disableResourceCenterWithOptions($runtime)
     {
@@ -403,14 +473,19 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableResourceCenterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deactivates the Resource Center service.
-     *  *
-     * @return DisableResourceCenterResponse DisableResourceCenterResponse
+     * Deactivates the Resource Center service.
+     *
+     * @returns DisableResourceCenterResponse
+     *
+     * @return DisableResourceCenterResponse
      */
     public function disableResourceCenter()
     {
@@ -420,11 +495,15 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Cancels the default filter.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Cancels the default filter.
      *
-     * @return DisassociateDefaultFilterResponse DisassociateDefaultFilterResponse
+     * @param request - DisassociateDefaultFilterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DisassociateDefaultFilterResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return DisassociateDefaultFilterResponse
      */
     public function disassociateDefaultFilterWithOptions($runtime)
     {
@@ -440,14 +519,19 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DisassociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisassociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisassociateDefaultFilterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels the default filter.
-     *  *
-     * @return DisassociateDefaultFilterResponse DisassociateDefaultFilterResponse
+     * Cancels the default filter.
+     *
+     * @returns DisassociateDefaultFilterResponse
+     *
+     * @return DisassociateDefaultFilterResponse
      */
     public function disassociateDefaultFilter()
     {
@@ -457,13 +541,18 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @description If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
      *
-     * @return EnableMultiAccountResourceCenterResponse EnableMultiAccountResourceCenterResponse
+     * @remarks
+     * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
+     *
+     * @param request - EnableMultiAccountResourceCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableMultiAccountResourceCenterResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableMultiAccountResourceCenterResponse
      */
     public function enableMultiAccountResourceCenterWithOptions($runtime)
     {
@@ -479,16 +568,21 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableMultiAccountResourceCenterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @description If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
-     *  *
-     * @return EnableMultiAccountResourceCenterResponse EnableMultiAccountResourceCenterResponse
+     * Enables the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+     *
+     * @remarks
+     * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
+     * @returns EnableMultiAccountResourceCenterResponse
+     *
+     * @return EnableMultiAccountResourceCenterResponse
      */
     public function enableMultiAccountResourceCenter()
     {
@@ -498,11 +592,15 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Activates the Resource Center service.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Activates the Resource Center service.
      *
-     * @return EnableResourceCenterResponse EnableResourceCenterResponse
+     * @param request - EnableResourceCenterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns EnableResourceCenterResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return EnableResourceCenterResponse
      */
     public function enableResourceCenterWithOptions($runtime)
     {
@@ -518,14 +616,19 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return EnableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableResourceCenterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Activates the Resource Center service.
-     *  *
-     * @return EnableResourceCenterResponse EnableResourceCenterResponse
+     * Activates the Resource Center service.
+     *
+     * @returns EnableResourceCenterResponse
+     *
+     * @return EnableResourceCenterResponse
      */
     public function enableResourceCenter()
     {
@@ -535,31 +638,39 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Executes an SQL statement to query resources across accounts.
-     *  *
-     * @param ExecuteMultiAccountSQLQueryRequest $request ExecuteMultiAccountSQLQueryRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Executes an SQL statement to query resources across accounts.
      *
-     * @return ExecuteMultiAccountSQLQueryResponse ExecuteMultiAccountSQLQueryResponse
+     * @param request - ExecuteMultiAccountSQLQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteMultiAccountSQLQueryResponse
+     *
+     * @param ExecuteMultiAccountSQLQueryRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ExecuteMultiAccountSQLQueryResponse
      */
     public function executeMultiAccountSQLQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->expression)) {
-            $query['Expression'] = $request->expression;
+        if (null !== $request->expression) {
+            @$query['Expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExecuteMultiAccountSQLQuery',
@@ -572,16 +683,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteMultiAccountSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteMultiAccountSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteMultiAccountSQLQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Executes an SQL statement to query resources across accounts.
-     *  *
-     * @param ExecuteMultiAccountSQLQueryRequest $request ExecuteMultiAccountSQLQueryRequest
+     * Executes an SQL statement to query resources across accounts.
      *
-     * @return ExecuteMultiAccountSQLQueryResponse ExecuteMultiAccountSQLQueryResponse
+     * @param request - ExecuteMultiAccountSQLQueryRequest
+     * @returns ExecuteMultiAccountSQLQueryResponse
+     *
+     * @param ExecuteMultiAccountSQLQueryRequest $request
+     *
+     * @return ExecuteMultiAccountSQLQueryResponse
      */
     public function executeMultiAccountSQLQuery($request)
     {
@@ -591,31 +708,39 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Executes an SQL statement to query the resources that can be accessed within the current account.
-     *  *
-     * @param ExecuteSQLQueryRequest $request ExecuteSQLQueryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Executes an SQL statement to query the resources that can be accessed within the current account.
      *
-     * @return ExecuteSQLQueryResponse ExecuteSQLQueryResponse
+     * @param request - ExecuteSQLQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteSQLQueryResponse
+     *
+     * @param ExecuteSQLQueryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ExecuteSQLQueryResponse
      */
     public function executeSQLQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->expression)) {
-            $query['Expression'] = $request->expression;
+        if (null !== $request->expression) {
+            @$query['Expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExecuteSQLQuery',
@@ -628,16 +753,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteSQLQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Executes an SQL statement to query the resources that can be accessed within the current account.
-     *  *
-     * @param ExecuteSQLQueryRequest $request ExecuteSQLQueryRequest
+     * Executes an SQL statement to query the resources that can be accessed within the current account.
      *
-     * @return ExecuteSQLQueryResponse ExecuteSQLQueryResponse
+     * @param request - ExecuteSQLQueryRequest
+     * @returns ExecuteSQLQueryResponse
+     *
+     * @param ExecuteSQLQueryRequest $request
+     *
+     * @return ExecuteSQLQueryResponse
      */
     public function executeSQLQuery($request)
     {
@@ -647,22 +778,27 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a sample query template.
-     *  *
-     * @param GetExampleQueryRequest $request GetExampleQueryRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a sample query template.
      *
-     * @return GetExampleQueryResponse GetExampleQueryResponse
+     * @param request - GetExampleQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetExampleQueryResponse
+     *
+     * @param GetExampleQueryRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetExampleQueryResponse
      */
     public function getExampleQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->queryId)) {
-            $query['QueryId'] = $request->queryId;
+        if (null !== $request->queryId) {
+            @$query['QueryId'] = $request->queryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetExampleQuery',
@@ -675,16 +811,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetExampleQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetExampleQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetExampleQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a sample query template.
-     *  *
-     * @param GetExampleQueryRequest $request GetExampleQueryRequest
+     * Queries the information about a sample query template.
      *
-     * @return GetExampleQueryResponse GetExampleQueryResponse
+     * @param request - GetExampleQueryRequest
+     * @returns GetExampleQueryResponse
+     *
+     * @param GetExampleQueryRequest $request
+     *
+     * @return GetExampleQueryResponse
      */
     public function getExampleQuery($request)
     {
@@ -694,11 +836,15 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
      *
-     * @return GetMultiAccountResourceCenterServiceStatusResponse GetMultiAccountResourceCenterServiceStatusResponse
+     * @param request - GetMultiAccountResourceCenterServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMultiAccountResourceCenterServiceStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetMultiAccountResourceCenterServiceStatusResponse
      */
     public function getMultiAccountResourceCenterServiceStatusWithOptions($runtime)
     {
@@ -714,14 +860,19 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMultiAccountResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMultiAccountResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMultiAccountResourceCenterServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @return GetMultiAccountResourceCenterServiceStatusResponse GetMultiAccountResourceCenterServiceStatusResponse
+     * Queries the status of the cross-account resource search feature by using the management account of a resource directory or a delegated administrator account of Resource Center.
+     *
+     * @returns GetMultiAccountResourceCenterServiceStatusResponse
+     *
+     * @return GetMultiAccountResourceCenterServiceStatusResponse
      */
     public function getMultiAccountResourceCenterServiceStatus()
     {
@@ -731,31 +882,39 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a resource within the management account or a member of a resource directory.
-     *  *
-     * @param GetMultiAccountResourceConfigurationRequest $request GetMultiAccountResourceConfigurationRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of a resource within the management account or a member of a resource directory.
      *
-     * @return GetMultiAccountResourceConfigurationResponse GetMultiAccountResourceConfigurationResponse
+     * @param request - GetMultiAccountResourceConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetMultiAccountResourceConfigurationResponse
+     *
+     * @param GetMultiAccountResourceConfigurationRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return GetMultiAccountResourceConfigurationResponse
      */
     public function getMultiAccountResourceConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetMultiAccountResourceConfiguration',
@@ -768,16 +927,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetMultiAccountResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMultiAccountResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMultiAccountResourceConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of a resource within the management account or a member of a resource directory.
-     *  *
-     * @param GetMultiAccountResourceConfigurationRequest $request GetMultiAccountResourceConfigurationRequest
+     * Queries the configurations of a resource within the management account or a member of a resource directory.
      *
-     * @return GetMultiAccountResourceConfigurationResponse GetMultiAccountResourceConfigurationResponse
+     * @param request - GetMultiAccountResourceConfigurationRequest
+     * @returns GetMultiAccountResourceConfigurationResponse
+     *
+     * @param GetMultiAccountResourceConfigurationRequest $request
+     *
+     * @return GetMultiAccountResourceConfigurationResponse
      */
     public function getMultiAccountResourceConfiguration($request)
     {
@@ -787,11 +952,15 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of the Resource Center service.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries the status of the Resource Center service.
      *
-     * @return GetResourceCenterServiceStatusResponse GetResourceCenterServiceStatusResponse
+     * @param request - GetResourceCenterServiceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceCenterServiceStatusResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceCenterServiceStatusResponse
      */
     public function getResourceCenterServiceStatusWithOptions($runtime)
     {
@@ -807,14 +976,19 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceCenterServiceStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of the Resource Center service.
-     *  *
-     * @return GetResourceCenterServiceStatusResponse GetResourceCenterServiceStatusResponse
+     * Queries the status of the Resource Center service.
+     *
+     * @returns GetResourceCenterServiceStatusResponse
+     *
+     * @return GetResourceCenterServiceStatusResponse
      */
     public function getResourceCenterServiceStatus()
     {
@@ -824,28 +998,35 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a resource within the current account.
-     *  *
-     * @param GetResourceConfigurationRequest $request GetResourceConfigurationRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of a resource within the current account.
      *
-     * @return GetResourceConfigurationResponse GetResourceConfigurationResponse
+     * @param request - GetResourceConfigurationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceConfigurationResponse
+     *
+     * @param GetResourceConfigurationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetResourceConfigurationResponse
      */
     public function getResourceConfigurationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceConfiguration',
@@ -858,16 +1039,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of a resource within the current account.
-     *  *
-     * @param GetResourceConfigurationRequest $request GetResourceConfigurationRequest
+     * Queries the configurations of a resource within the current account.
      *
-     * @return GetResourceConfigurationResponse GetResourceConfigurationResponse
+     * @param request - GetResourceConfigurationRequest
+     * @returns GetResourceConfigurationResponse
+     *
+     * @param GetResourceConfigurationRequest $request
+     *
+     * @return GetResourceConfigurationResponse
      */
     public function getResourceConfiguration($request)
     {
@@ -877,25 +1064,31 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the numbers of resources on which the current account has access permissions.
-     *  *
-     * @param GetResourceCountsRequest $request GetResourceCountsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the numbers of resources on which the current account has access permissions.
      *
-     * @return GetResourceCountsResponse GetResourceCountsResponse
+     * @param request - GetResourceCountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceCountsResponse
+     *
+     * @param GetResourceCountsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetResourceCountsResponse
      */
     public function getResourceCountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->groupByKey)) {
-            $query['GroupByKey'] = $request->groupByKey;
+
+        if (null !== $request->groupByKey) {
+            @$query['GroupByKey'] = $request->groupByKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceCounts',
@@ -908,16 +1101,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceCountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceCountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceCountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the numbers of resources on which the current account has access permissions.
-     *  *
-     * @param GetResourceCountsRequest $request GetResourceCountsRequest
+     * Queries the numbers of resources on which the current account has access permissions.
      *
-     * @return GetResourceCountsResponse GetResourceCountsResponse
+     * @param request - GetResourceCountsRequest
+     * @returns GetResourceCountsResponse
+     *
+     * @param GetResourceCountsRequest $request
+     *
+     * @return GetResourceCountsResponse
      */
     public function getResourceCounts($request)
     {
@@ -927,22 +1126,27 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a custom query template.
-     *  *
-     * @param GetSavedQueryRequest $request GetSavedQueryRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a custom query template.
      *
-     * @return GetSavedQueryResponse GetSavedQueryResponse
+     * @param request - GetSavedQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetSavedQueryResponse
+     *
+     * @param GetSavedQueryRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetSavedQueryResponse
      */
     public function getSavedQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->queryId)) {
-            $query['QueryId'] = $request->queryId;
+        if (null !== $request->queryId) {
+            @$query['QueryId'] = $request->queryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetSavedQuery',
@@ -955,16 +1159,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSavedQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a custom query template.
-     *  *
-     * @param GetSavedQueryRequest $request GetSavedQueryRequest
+     * Queries the information about a custom query template.
      *
-     * @return GetSavedQueryResponse GetSavedQueryResponse
+     * @param request - GetSavedQueryRequest
+     * @returns GetSavedQueryResponse
+     *
+     * @param GetSavedQueryRequest $request
+     *
+     * @return GetSavedQueryResponse
      */
     public function getSavedQuery($request)
     {
@@ -974,25 +1184,31 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries all sample query templates.
-     *  *
-     * @param ListExampleQueriesRequest $request ListExampleQueriesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries all sample query templates.
      *
-     * @return ListExampleQueriesResponse ListExampleQueriesResponse
+     * @param request - ListExampleQueriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListExampleQueriesResponse
+     *
+     * @param ListExampleQueriesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListExampleQueriesResponse
      */
     public function listExampleQueriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListExampleQueries',
@@ -1005,16 +1221,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListExampleQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListExampleQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListExampleQueriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all sample query templates.
-     *  *
-     * @param ListExampleQueriesRequest $request ListExampleQueriesRequest
+     * Queries all sample query templates.
      *
-     * @return ListExampleQueriesResponse ListExampleQueriesResponse
+     * @param request - ListExampleQueriesRequest
+     * @returns ListExampleQueriesResponse
+     *
+     * @param ListExampleQueriesRequest $request
+     *
+     * @return ListExampleQueriesResponse
      */
     public function listExampleQueries($request)
     {
@@ -1024,11 +1246,15 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of filters.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Queries a list of filters.
      *
-     * @return ListFiltersResponse ListFiltersResponse
+     * @param request - ListFiltersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListFiltersResponse
+     *
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListFiltersResponse
      */
     public function listFiltersWithOptions($runtime)
     {
@@ -1044,14 +1270,19 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListFiltersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of filters.
-     *  *
-     * @return ListFiltersResponse ListFiltersResponse
+     * Queries a list of filters.
+     *
+     * @returns ListFiltersResponse
+     *
+     * @return ListFiltersResponse
      */
     public function listFilters()
     {
@@ -1061,31 +1292,39 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @param ListMultiAccountResourceGroupsRequest $request ListMultiAccountResourceGroupsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
-     * @return ListMultiAccountResourceGroupsResponse ListMultiAccountResourceGroupsResponse
+     * @param request - ListMultiAccountResourceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMultiAccountResourceGroupsResponse
+     *
+     * @param ListMultiAccountResourceGroupsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListMultiAccountResourceGroupsResponse
      */
     public function listMultiAccountResourceGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountId)) {
-            $query['AccountId'] = $request->accountId;
+        if (null !== $request->accountId) {
+            @$query['AccountId'] = $request->accountId;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupIds)) {
-            $query['ResourceGroupIds'] = $request->resourceGroupIds;
+
+        if (null !== $request->resourceGroupIds) {
+            @$query['ResourceGroupIds'] = $request->resourceGroupIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMultiAccountResourceGroups',
@@ -1098,16 +1337,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMultiAccountResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMultiAccountResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMultiAccountResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @param ListMultiAccountResourceGroupsRequest $request ListMultiAccountResourceGroupsRequest
+     * Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
-     * @return ListMultiAccountResourceGroupsResponse ListMultiAccountResourceGroupsResponse
+     * @param request - ListMultiAccountResourceGroupsRequest
+     * @returns ListMultiAccountResourceGroupsResponse
+     *
+     * @param ListMultiAccountResourceGroupsRequest $request
+     *
+     * @return ListMultiAccountResourceGroupsResponse
      */
     public function listMultiAccountResourceGroups($request)
     {
@@ -1117,34 +1362,43 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @param ListMultiAccountTagKeysRequest $request ListMultiAccountTagKeysRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
-     * @return ListMultiAccountTagKeysResponse ListMultiAccountTagKeysResponse
+     * @param request - ListMultiAccountTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMultiAccountTagKeysResponse
+     *
+     * @param ListMultiAccountTagKeysRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListMultiAccountTagKeysResponse
      */
     public function listMultiAccountTagKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->matchType)) {
-            $query['MatchType'] = $request->matchType;
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMultiAccountTagKeys',
@@ -1157,16 +1411,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMultiAccountTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMultiAccountTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMultiAccountTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @param ListMultiAccountTagKeysRequest $request ListMultiAccountTagKeysRequest
+     * Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
-     * @return ListMultiAccountTagKeysResponse ListMultiAccountTagKeysResponse
+     * @param request - ListMultiAccountTagKeysRequest
+     * @returns ListMultiAccountTagKeysResponse
+     *
+     * @param ListMultiAccountTagKeysRequest $request
+     *
+     * @return ListMultiAccountTagKeysResponse
      */
     public function listMultiAccountTagKeys($request)
     {
@@ -1176,37 +1436,47 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @param ListMultiAccountTagValuesRequest $request ListMultiAccountTagValuesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
-     * @return ListMultiAccountTagValuesResponse ListMultiAccountTagValuesResponse
+     * @param request - ListMultiAccountTagValuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListMultiAccountTagValuesResponse
+     *
+     * @param ListMultiAccountTagValuesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListMultiAccountTagValuesResponse
      */
     public function listMultiAccountTagValuesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->matchType)) {
-            $query['MatchType'] = $request->matchType;
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
-        if (!Utils::isUnset($request->tagValue)) {
-            $query['TagValue'] = $request->tagValue;
+
+        if (null !== $request->tagValue) {
+            @$query['TagValue'] = $request->tagValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListMultiAccountTagValues',
@@ -1219,16 +1489,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMultiAccountTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListMultiAccountTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListMultiAccountTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
-     *  *
-     * @param ListMultiAccountTagValuesRequest $request ListMultiAccountTagValuesRequest
+     * Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
-     * @return ListMultiAccountTagValuesResponse ListMultiAccountTagValuesResponse
+     * @param request - ListMultiAccountTagValuesRequest
+     * @returns ListMultiAccountTagValuesResponse
+     *
+     * @param ListMultiAccountTagValuesRequest $request
+     *
+     * @return ListMultiAccountTagValuesResponse
      */
     public function listMultiAccountTagValues($request)
     {
@@ -1238,28 +1514,35 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resource types supported by Resource Center.
-     *  *
-     * @param ListResourceTypesRequest $request ListResourceTypesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the resource types supported by Resource Center.
      *
-     * @return ListResourceTypesResponse ListResourceTypesResponse
+     * @param request - ListResourceTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourceTypesResponse
+     *
+     * @param ListResourceTypesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListResourceTypesResponse
      */
     public function listResourceTypesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResourceTypes',
@@ -1272,16 +1555,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourceTypesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resource types supported by Resource Center.
-     *  *
-     * @param ListResourceTypesRequest $request ListResourceTypesRequest
+     * Queries the resource types supported by Resource Center.
      *
-     * @return ListResourceTypesResponse ListResourceTypesResponse
+     * @param request - ListResourceTypesRequest
+     * @returns ListResourceTypesResponse
+     *
+     * @param ListResourceTypesRequest $request
+     *
+     * @return ListResourceTypesResponse
      */
     public function listResourceTypes($request)
     {
@@ -1291,25 +1580,31 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries all custom query templates.
-     *  *
-     * @param ListSavedQueriesRequest $request ListSavedQueriesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries all custom query templates.
      *
-     * @return ListSavedQueriesResponse ListSavedQueriesResponse
+     * @param request - ListSavedQueriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListSavedQueriesResponse
+     *
+     * @param ListSavedQueriesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListSavedQueriesResponse
      */
     public function listSavedQueriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListSavedQueries',
@@ -1322,16 +1617,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListSavedQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSavedQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSavedQueriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries all custom query templates.
-     *  *
-     * @param ListSavedQueriesRequest $request ListSavedQueriesRequest
+     * Queries all custom query templates.
      *
-     * @return ListSavedQueriesResponse ListSavedQueriesResponse
+     * @param request - ListSavedQueriesRequest
+     * @returns ListSavedQueriesResponse
+     *
+     * @param ListSavedQueriesRequest $request
+     *
+     * @return ListSavedQueriesResponse
      */
     public function listSavedQueries($request)
     {
@@ -1341,31 +1642,39 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag keys of resources within the current account.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the tag keys of resources within the current account.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @param request - ListTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->matchType)) {
-            $query['MatchType'] = $request->matchType;
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagKeys',
@@ -1378,16 +1687,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tag keys of resources within the current account.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * Queries the tag keys of resources within the current account.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @param request - ListTagKeysRequest
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -1397,34 +1712,43 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag values of resources within the current account.
-     *  *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the tag values of resources within the current account.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @param request - ListTagValuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->matchType)) {
-            $query['MatchType'] = $request->matchType;
+        if (null !== $request->matchType) {
+            @$query['MatchType'] = $request->matchType;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
-        if (!Utils::isUnset($request->tagValue)) {
-            $query['TagValue'] = $request->tagValue;
+
+        if (null !== $request->tagValue) {
+            @$query['TagValue'] = $request->tagValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagValues',
@@ -1437,16 +1761,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tag values of resources within the current account.
-     *  *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * Queries the tag values of resources within the current account.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @param request - ListTagValuesRequest
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -1456,41 +1786,51 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Searches for resources within the management account or members of a resource directory.
-     *  *
-     * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+     * Searches for resources within the management account or members of a resource directory.
+     *
+     * @remarks
+     *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
      * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
      * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
      * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
      * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
      * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
-     *  *
-     * @param SearchMultiAccountResourcesRequest $request SearchMultiAccountResourcesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchMultiAccountResourcesResponse SearchMultiAccountResourcesResponse
+     * @param request - SearchMultiAccountResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchMultiAccountResourcesResponse
+     *
+     * @param SearchMultiAccountResourcesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SearchMultiAccountResourcesResponse
      */
     public function searchMultiAccountResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->sortCriterion)) {
-            $query['SortCriterion'] = $request->sortCriterion;
+
+        if (null !== $request->sortCriterion) {
+            @$query['SortCriterion'] = $request->sortCriterion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchMultiAccountResources',
@@ -1503,23 +1843,30 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchMultiAccountResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchMultiAccountResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchMultiAccountResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Searches for resources within the management account or members of a resource directory.
-     *  *
-     * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+     * Searches for resources within the management account or members of a resource directory.
+     *
+     * @remarks
+     *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
      * *   Before you use a RAM user or a RAM role to call the operation, you must make sure that the RAM user or RAM role is granted the required permissions. For more information, see [Grant a RAM user the permissions to use Resource Center](https://help.aliyun.com/document_detail/600556.html).
      * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
      * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
      * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
      * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
-     *  *
-     * @param SearchMultiAccountResourcesRequest $request SearchMultiAccountResourcesRequest
      *
-     * @return SearchMultiAccountResourcesResponse SearchMultiAccountResourcesResponse
+     * @param request - SearchMultiAccountResourcesRequest
+     * @returns SearchMultiAccountResourcesResponse
+     *
+     * @param SearchMultiAccountResourcesRequest $request
+     *
+     * @return SearchMultiAccountResourcesResponse
      */
     public function searchMultiAccountResources($request)
     {
@@ -1529,40 +1876,50 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Search for resources that you can access within the current account.
-     *  *
-     * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+     * Search for resources that you can access within the current account.
+     *
+     * @remarks
+     *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
      * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
      * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
      * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
      * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
-     *  *
-     * @param SearchResourcesRequest $request SearchResourcesRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchResourcesResponse SearchResourcesResponse
+     * @param request - SearchResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SearchResourcesResponse
+     *
+     * @param SearchResourcesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SearchResourcesResponse
      */
     public function searchResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filter)) {
-            $query['Filter'] = $request->filter;
+        if (null !== $request->filter) {
+            @$query['Filter'] = $request->filter;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sortCriterion)) {
-            $query['SortCriterion'] = $request->sortCriterion;
+
+        if (null !== $request->sortCriterion) {
+            @$query['SortCriterion'] = $request->sortCriterion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SearchResources',
@@ -1575,22 +1932,29 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SearchResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Search for resources that you can access within the current account.
-     *  *
-     * @description *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
+     * Search for resources that you can access within the current account.
+     *
+     * @remarks
+     *   You can use this operation to search for only resources whose types are supported by Resource Center in services that work with Resource Center. For more information about the services and the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
      * *   By default, the operation returns a maximum of 20 entries. You can configure the `MaxResults` parameter to specify the maximum number of entries to return.
      * *   If the response does not contain the `NextToken` parameter, all entries are returned. Otherwise, more entries exist. If you want to obtain the entries, you can call the operation again to initiate another query request. In the request, set the `NextToken` parameter to the value of `NextToken` in the last response of the operation. If you do not configure the `NextToken` parameter, entries on the first page are returned by default.
      * *   You can specify one or more filter conditions to narrow the search scope. For more information about supported filter parameters and matching methods, see the Supported filter parameters section. Multiple filter conditions have logical `AND` relations. Only resources that meet all filter conditions are returned. The values of a filter condition have logical `OR` relations. Resources that meet any value of the filter condition are returned.
      * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
-     *  *
-     * @param SearchResourcesRequest $request SearchResourcesRequest
      *
-     * @return SearchResourcesResponse SearchResourcesResponse
+     * @param request - SearchResourcesRequest
+     * @returns SearchResourcesResponse
+     *
+     * @param SearchResourcesRequest $request
+     *
+     * @return SearchResourcesResponse
      */
     public function searchResources($request)
     {
@@ -1600,25 +1964,31 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Updates a filter.
-     *  *
-     * @param UpdateFilterRequest $request UpdateFilterRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Updates a filter.
      *
-     * @return UpdateFilterResponse UpdateFilterResponse
+     * @param request - UpdateFilterRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateFilterResponse
+     *
+     * @param UpdateFilterRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateFilterResponse
      */
     public function updateFilterWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->filterConfiguration)) {
-            $query['FilterConfiguration'] = $request->filterConfiguration;
+        if (null !== $request->filterConfiguration) {
+            @$query['FilterConfiguration'] = $request->filterConfiguration;
         }
-        if (!Utils::isUnset($request->filterName)) {
-            $query['FilterName'] = $request->filterName;
+
+        if (null !== $request->filterName) {
+            @$query['FilterName'] = $request->filterName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateFilter',
@@ -1631,16 +2001,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateFilterResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a filter.
-     *  *
-     * @param UpdateFilterRequest $request UpdateFilterRequest
+     * Updates a filter.
      *
-     * @return UpdateFilterResponse UpdateFilterResponse
+     * @param request - UpdateFilterRequest
+     * @returns UpdateFilterResponse
+     *
+     * @param UpdateFilterRequest $request
+     *
+     * @return UpdateFilterResponse
      */
     public function updateFilter($request)
     {
@@ -1650,31 +2026,39 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @summary Updates a custom query template.
-     *  *
-     * @param UpdateSavedQueryRequest $request UpdateSavedQueryRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Updates a custom query template.
      *
-     * @return UpdateSavedQueryResponse UpdateSavedQueryResponse
+     * @param request - UpdateSavedQueryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateSavedQueryResponse
+     *
+     * @param UpdateSavedQueryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateSavedQueryResponse
      */
     public function updateSavedQueryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->expression)) {
-            $query['Expression'] = $request->expression;
+
+        if (null !== $request->expression) {
+            @$query['Expression'] = $request->expression;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->queryId)) {
-            $query['QueryId'] = $request->queryId;
+
+        if (null !== $request->queryId) {
+            @$query['QueryId'] = $request->queryId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateSavedQuery',
@@ -1687,16 +2071,22 @@ class ResourceCenter extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSavedQueryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates a custom query template.
-     *  *
-     * @param UpdateSavedQueryRequest $request UpdateSavedQueryRequest
+     * Updates a custom query template.
      *
-     * @return UpdateSavedQueryResponse UpdateSavedQueryResponse
+     * @param request - UpdateSavedQueryRequest
+     * @returns UpdateSavedQueryResponse
+     *
+     * @param UpdateSavedQueryRequest $request
+     *
+     * @return UpdateSavedQueryResponse
      */
     public function updateSavedQuery($request)
     {

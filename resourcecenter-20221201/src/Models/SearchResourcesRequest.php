@@ -4,51 +4,29 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchResourcesRequest\filter;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchResourcesRequest\sortCriterion;
-use AlibabaCloud\Tea\Model;
 
 class SearchResourcesRequest extends Model
 {
     /**
-     * @description The filter conditions.
-     *
      * @var filter[]
      */
     public $filter;
-
     /**
-     * @description The maximum number of entries per page.
-     *
-     * Default value: 20.
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the `token` to initiate another request and obtain the remaining entries.
-     * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfmzawhxxc****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The method that is used to sort the entries returned.
-     *
      * @var sortCriterion
      */
     public $sortCriterion;
@@ -62,62 +40,77 @@ class SearchResourcesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->filter)) {
+            Model::validateArray($this->filter);
+        }
+        if (null !== $this->sortCriterion) {
+            $this->sortCriterion->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filter) {
-            $res['Filter'] = [];
-            if (null !== $this->filter && \is_array($this->filter)) {
-                $n = 0;
-                foreach ($this->filter as $item) {
-                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filter)) {
+                $res['Filter'] = [];
+                $n1            = 0;
+                foreach ($this->filter as $item1) {
+                    $res['Filter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->sortCriterion) {
-            $res['SortCriterion'] = null !== $this->sortCriterion ? $this->sortCriterion->toMap() : null;
+            $res['SortCriterion'] = null !== $this->sortCriterion ? $this->sortCriterion->toArray($noStream) : $this->sortCriterion;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n             = 0;
-                foreach ($map['Filter'] as $item) {
-                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Filter'] as $item1) {
+                    $model->filter[$n1++] = filter::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SortCriterion'])) {
             $model->sortCriterion = sortCriterion::fromMap($map['SortCriterion']);
         }

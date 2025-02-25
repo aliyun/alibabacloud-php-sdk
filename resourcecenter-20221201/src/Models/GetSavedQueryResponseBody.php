@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetSavedQueryResponseBody\savedQuery;
-use AlibabaCloud\Tea\Model;
 
 class GetSavedQueryResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 6D98D9B0-318D-56A4-910C-93B5F945AF2B
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the template.
-     *
      * @var savedQuery
      */
     public $savedQuery;
@@ -31,32 +24,38 @@ class GetSavedQueryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->savedQuery) {
+            $this->savedQuery->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->savedQuery) {
-            $res['SavedQuery'] = null !== $this->savedQuery ? $this->savedQuery->toMap() : null;
+            $res['SavedQuery'] = null !== $this->savedQuery ? $this->savedQuery->toArray($noStream) : $this->savedQuery;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSavedQueryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SavedQuery'])) {
             $model->savedQuery = savedQuery::fromMap($map['SavedQuery']);
         }

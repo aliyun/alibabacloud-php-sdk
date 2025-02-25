@@ -4,57 +4,29 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesRequest\filter;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesRequest\sortCriterion;
-use AlibabaCloud\Tea\Model;
 
 class SearchMultiAccountResourcesRequest extends Model
 {
     /**
-     * @description The filter conditions.
-     *
      * @var filter[]
      */
     public $filter;
-
     /**
-     * @description The maximum number of entries to return on each page.
-     *
-     * Default value: 20.
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the token to initiate another request and obtain the remaining entries.``
-     * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The search scope. You can set the value to one of the following items:
-     *
-     *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched. You can call the [GetResourceDirectory](https://help.aliyun.com/document_detail/159995.html) operation to obtain the ID.
-     *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched. You can call the [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html) operation to obtain the ID.
-     *   ID of a folder: Resources within all members in the folder are searched. You can call the [ListFoldersForParent](https://help.aliyun.com/document_detail/159997.html) operation to obtain the ID.
-     *   ID of a member: Resources within the member are searched. You can call the [ListAccounts](https://help.aliyun.com/document_detail/160016.html) operation to obtain the ID.
-     *
-     * This parameter is required.
-     * @example rd-r4****
-     *
      * @var string
      */
     public $scope;
-
     /**
-     * @description The method that is used to sort the entries returned.
-     *
      * @var sortCriterion
      */
     public $sortCriterion;
@@ -68,62 +40,77 @@ class SearchMultiAccountResourcesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->filter)) {
+            Model::validateArray($this->filter);
+        }
+        if (null !== $this->sortCriterion) {
+            $this->sortCriterion->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filter) {
-            $res['Filter'] = [];
-            if (null !== $this->filter && \is_array($this->filter)) {
-                $n = 0;
-                foreach ($this->filter as $item) {
-                    $res['Filter'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filter)) {
+                $res['Filter'] = [];
+                $n1            = 0;
+                foreach ($this->filter as $item1) {
+                    $res['Filter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
+
         if (null !== $this->sortCriterion) {
-            $res['SortCriterion'] = null !== $this->sortCriterion ? $this->sortCriterion->toMap() : null;
+            $res['SortCriterion'] = null !== $this->sortCriterion ? $this->sortCriterion->toArray($noStream) : $this->sortCriterion;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SearchMultiAccountResourcesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n             = 0;
-                foreach ($map['Filter'] as $item) {
-                    $model->filter[$n++] = null !== $item ? filter::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Filter'] as $item1) {
+                    $model->filter[$n1++] = filter::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
+
         if (isset($map['SortCriterion'])) {
             $model->sortCriterion = sortCriterion::fromMap($map['SortCriterion']);
         }

@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListExampleQueriesResponseBody\exampleQueries;
-use AlibabaCloud\Tea\Model;
 
 class ListExampleQueriesResponseBody extends Model
 {
     /**
-     * @description The information about the sample query templates.
-     *
      * @var exampleQueries[]
      */
     public $exampleQueries;
-
     /**
-     * @description The maximum number of entries per page.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example D696E6EF-3A6D-5770-801E-4982081FE4D0
-     *
      * @var string
      */
     public $requestId;
@@ -51,26 +34,33 @@ class ListExampleQueriesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->exampleQueries)) {
+            Model::validateArray($this->exampleQueries);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exampleQueries) {
-            $res['ExampleQueries'] = [];
-            if (null !== $this->exampleQueries && \is_array($this->exampleQueries)) {
-                $n = 0;
-                foreach ($this->exampleQueries as $item) {
-                    $res['ExampleQueries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->exampleQueries)) {
+                $res['ExampleQueries'] = [];
+                $n1                    = 0;
+                foreach ($this->exampleQueries as $item1) {
+                    $res['ExampleQueries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -78,29 +68,32 @@ class ListExampleQueriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListExampleQueriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExampleQueries'])) {
             if (!empty($map['ExampleQueries'])) {
                 $model->exampleQueries = [];
-                $n                     = 0;
-                foreach ($map['ExampleQueries'] as $item) {
-                    $model->exampleQueries[$n++] = null !== $item ? exampleQueries::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ExampleQueries'] as $item1) {
+                    $model->exampleQueries[$n1++] = exampleQueries::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSavedQueryRequest extends Model
 {
     /**
-     * @description The description of the template.
-     *
-     * The description must be 1 to 256 characters in length.
-     * @example Queries all resources on which you have permissions and sorts the resources by resource type and resource ID.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The query statement in the template.
-     *
-     * @example SELECT * FROM resources;
-     *
      * @var string
      */
     public $expression;
-
     /**
-     * @description The name of the template.
-     *
-     *   The name must be 1 to 64 characters in length.
-     *   The name can contain letters, digits, underscores (_), and hyphens (-).
-     *   The name must be unique.
-     *
-     * @example Query of All Alibaba Cloud Resources
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The template ID.
-     *
-     * This parameter is required.
-     * @example sq-GeAck****
-     *
      * @var string
      */
     public $queryId;
@@ -58,20 +33,24 @@ class UpdateSavedQueryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->queryId) {
             $res['QueryId'] = $this->queryId;
         }
@@ -79,23 +58,26 @@ class UpdateSavedQueryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSavedQueryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['QueryId'])) {
             $model->queryId = $map['QueryId'];
         }

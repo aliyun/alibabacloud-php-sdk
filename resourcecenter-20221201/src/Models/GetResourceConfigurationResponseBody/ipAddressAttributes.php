@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipAddressAttributes extends Model
 {
     /**
-     * @description The IP address.
-     *
-     * @example 192.168.1.2
-     *
      * @var string
      */
     public $ipAddress;
-
     /**
-     * @description The network type. Valid values:
-     *
-     *   **Public**: the Internet
-     *   **Private**: internal network
-     *
-     * @example Public
-     *
      * @var string
      */
     public $networkType;
-
     /**
-     * @description The version.
-     *
-     * @example Ipv4
-     *
      * @var string
      */
     public $version;
@@ -45,17 +28,20 @@ class ipAddressAttributes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
+
         if (null !== $this->networkType) {
             $res['NetworkType'] = $this->networkType;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -63,20 +49,22 @@ class ipAddressAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipAddressAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
+
         if (isset($map['NetworkType'])) {
             $model->networkType = $map['NetworkType'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

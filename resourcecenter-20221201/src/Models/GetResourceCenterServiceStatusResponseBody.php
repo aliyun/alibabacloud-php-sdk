@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourceCenterServiceStatusResponseBody extends Model
 {
     /**
-     * @description The initialization status of the service. Valid values:
-     *
-     *   Pending: The service is being initialized.
-     *   Finished: The service is initialized.
-     *
-     * @example Pending
-     *
      * @var string
      */
     public $initialStatus;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example AD5F848D-CCDC-5464-93E1-4BA50A4826DD
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The status of the service. Valid values:
-     *
-     *   Enabled: The service is activated.
-     *   Disabled: The service is deactivated.
-     *
-     * @example Enabled
-     *
      * @var string
      */
     public $serviceStatus;
@@ -48,17 +28,20 @@ class GetResourceCenterServiceStatusResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->initialStatus) {
             $res['InitialStatus'] = $this->initialStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->serviceStatus) {
             $res['ServiceStatus'] = $this->serviceStatus;
         }
@@ -66,20 +49,22 @@ class GetResourceCenterServiceStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceCenterServiceStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InitialStatus'])) {
             $model->initialStatus = $map['InitialStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ServiceStatus'])) {
             $model->serviceStatus = $map['ServiceStatus'];
         }

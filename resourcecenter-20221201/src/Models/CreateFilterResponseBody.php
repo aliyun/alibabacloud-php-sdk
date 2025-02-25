@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFilterResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EEF1EE1F-50F6-5494-B3DA-8F597DEB31BF
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateFilterResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateFilterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFilterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

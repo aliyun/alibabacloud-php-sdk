@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateSavedQueryResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example D696E6EF-3A6D-5770-801E-4982081FE4D0
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateSavedQueryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateSavedQueryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateSavedQueryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListMultiAccountResourceGroupsRequest extends Model
 {
     /**
-     * @description The ID of the management account or member of the resource directory.
-     *
-     * This parameter is required.
-     * @example 1394339739****
-     *
      * @var string
      */
     public $accountId;
-
     /**
-     * @description The maximum number of entries to return on each page.
-     *
-     * Maximum value: 100. Default value: 10.
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * @example AAAAAS2Nboi3t4xGrdlG5/Ks/Q1xPG9jzviYEuZydevXIkgF
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The IDs of resource groups.
-     *
      * @var string[]
      */
     public $resourceGroupIds;
@@ -52,47 +33,67 @@ class ListMultiAccountResourceGroupsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceGroupIds)) {
+            Model::validateArray($this->resourceGroupIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->resourceGroupIds) {
-            $res['ResourceGroupIds'] = $this->resourceGroupIds;
+            if (\is_array($this->resourceGroupIds)) {
+                $res['ResourceGroupIds'] = [];
+                $n1                      = 0;
+                foreach ($this->resourceGroupIds as $item1) {
+                    $res['ResourceGroupIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListMultiAccountResourceGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['ResourceGroupIds'])) {
             if (!empty($map['ResourceGroupIds'])) {
-                $model->resourceGroupIds = $map['ResourceGroupIds'];
+                $model->resourceGroupIds = [];
+                $n1                      = 0;
+                foreach ($map['ResourceGroupIds'] as $item1) {
+                    $model->resourceGroupIds[$n1++] = $item1;
+                }
             }
         }
 

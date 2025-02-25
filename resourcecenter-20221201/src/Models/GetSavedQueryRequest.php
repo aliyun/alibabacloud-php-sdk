@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSavedQueryRequest extends Model
 {
     /**
-     * @description The template ID.
-     *
-     * This parameter is required.
-     * @example sq-GeAck****
-     *
      * @var string
      */
     public $queryId;
@@ -23,9 +18,10 @@ class GetSavedQueryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queryId) {
@@ -35,11 +31,11 @@ class GetSavedQueryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSavedQueryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

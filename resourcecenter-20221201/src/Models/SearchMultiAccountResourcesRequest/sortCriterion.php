@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sortCriterion extends Model
 {
     /**
-     * @description The attribute based on which the entries are sorted.
-     *
-     * The value CreateTime indicates the creation time of resources.
-     * @example CreateTime
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The order in which the entries are sorted. Valid values:
-     *
-     *   ASC: The entries are sorted in ascending order. This value is the default value.
-     *   DESC: The entries are sorted in descending order.
-     *
-     * @example ASC
-     *
      * @var string
      */
     public $order;
@@ -36,14 +23,16 @@ class sortCriterion extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
@@ -51,17 +40,18 @@ class sortCriterion extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sortCriterion
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }

@@ -4,35 +4,19 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListResourceTypesRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh-CN: Chinese
-     *   en-US: English
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
-
     /**
-     * @description The query conditions.
-     *
      * @var string[]
      */
     public $query;
-
     /**
-     * @description The resource type.
-     *
-     * For more information about the resource types that are supported by Resource Center, see [Services that work with Resource Center](https://help.aliyun.com/document_detail/477798.html).
-     * @example ACS::ACK::Cluster
-     *
      * @var string
      */
     public $resourceType;
@@ -44,17 +28,29 @@ class ListResourceTypesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->query)) {
+            Model::validateArray($this->query);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->query) {
-            $res['Query'] = $this->query;
+            if (\is_array($this->query)) {
+                $res['Query'] = [];
+                $n1           = 0;
+                foreach ($this->query as $item1) {
+                    $res['Query'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -62,22 +58,28 @@ class ListResourceTypesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceTypesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['Query'])) {
             if (!empty($map['Query'])) {
-                $model->query = $map['Query'];
+                $model->query = [];
+                $n1           = 0;
+                foreach ($map['Query'] as $item1) {
+                    $model->query[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

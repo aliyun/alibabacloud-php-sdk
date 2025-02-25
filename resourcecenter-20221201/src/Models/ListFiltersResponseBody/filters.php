@@ -4,23 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListFiltersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filters extends Model
 {
     /**
-     * @description The configurations of the filter.
-     *
-     * This parameter is required.
-     * @example {
-     * }
      * @var string
      */
     public $filterConfiguration;
-
     /**
-     * @description The name of the filter.
-     *
      * @var string
      */
     public $filterName;
@@ -31,14 +23,16 @@ class filters extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filterConfiguration) {
             $res['FilterConfiguration'] = $this->filterConfiguration;
         }
+
         if (null !== $this->filterName) {
             $res['FilterName'] = $this->filterName;
         }
@@ -46,17 +40,18 @@ class filters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilterConfiguration'])) {
             $model->filterConfiguration = $map['FilterConfiguration'];
         }
+
         if (isset($map['FilterName'])) {
             $model->filterName = $map['FilterName'];
         }

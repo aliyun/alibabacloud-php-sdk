@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceCounts extends Model
 {
     /**
-     * @description The number of resources.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The group name.
-     *
-     * @example ACS::ECS::NetworkInterface
-     *
      * @var string
      */
     public $groupName;
@@ -32,14 +23,16 @@ class resourceCounts extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -47,17 +40,18 @@ class resourceCounts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceCounts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

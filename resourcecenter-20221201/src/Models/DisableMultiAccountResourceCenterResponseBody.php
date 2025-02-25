@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableMultiAccountResourceCenterResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 4951F920-48DB-5731-96AA-3A7C8AE617D9
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DisableMultiAccountResourceCenterResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DisableMultiAccountResourceCenterResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableMultiAccountResourceCenterResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,40 +4,28 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ExecuteMultiAccountSQLQueryResponseBody\columns;
-use AlibabaCloud\Tea\Model;
 
 class ExecuteMultiAccountSQLQueryResponseBody extends Model
 {
     /**
-     * @description The columns.
-     *
      * @var columns[]
      */
     public $columns;
-
     /**
      * @var int
      */
     public $maxResults;
-
     /**
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example 44C8A952-D6B0-5BC8-82D5-93BA02E26F2E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array of search results.
-     *
      * @var mixed[]
      */
     public $rows;
@@ -51,65 +39,90 @@ class ExecuteMultiAccountSQLQueryResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
+        }
+        if (\is_array($this->rows)) {
+            Model::validateArray($this->rows);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columns) {
-            $res['Columns'] = [];
-            if (null !== $this->columns && \is_array($this->columns)) {
-                $n = 0;
-                foreach ($this->columns as $item) {
-                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columns)) {
+                $res['Columns'] = [];
+                $n1             = 0;
+                foreach ($this->columns as $item1) {
+                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->rows) {
-            $res['Rows'] = $this->rows;
+            if (\is_array($this->rows)) {
+                $res['Rows'] = [];
+                $n1          = 0;
+                foreach ($this->rows as $item1) {
+                    $res['Rows'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExecuteMultiAccountSQLQueryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n              = 0;
-                foreach ($map['Columns'] as $item) {
-                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Columns'] as $item1) {
+                    $model->columns[$n1++] = columns::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Rows'])) {
             if (!empty($map['Rows'])) {
-                $model->rows = $map['Rows'];
+                $model->rows = [];
+                $n1          = 0;
+                foreach ($map['Rows'] as $item1) {
+                    $model->rows[$n1++] = $item1;
+                }
             }
         }
 

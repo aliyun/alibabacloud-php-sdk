@@ -4,40 +4,25 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsResponseBody\filters;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsResponseBody\resourceCounts;
-use AlibabaCloud\Tea\Model;
 
 class GetResourceCountsResponseBody extends Model
 {
     /**
-     * @description The filter conditions.
-     *
      * @var filters[]
      */
     public $filters;
-
     /**
-     * @description The dimension by which resources are queried.
-     *
-     * @example ResourceType
-     *
      * @var string
      */
     public $groupByKey;
-
     /**
-     * @description The request ID.
-     *
-     * @example 6D98D9B0-318D-56A4-910C-93B5F945AF2B
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The numbers of resources.
-     *
      * @var resourceCounts[]
      */
     public $resourceCounts;
@@ -50,32 +35,42 @@ class GetResourceCountsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
+        if (\is_array($this->resourceCounts)) {
+            Model::validateArray($this->resourceCounts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filters) {
-            $res['Filters'] = [];
-            if (null !== $this->filters && \is_array($this->filters)) {
-                $n = 0;
-                foreach ($this->filters as $item) {
-                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filters)) {
+                $res['Filters'] = [];
+                $n1             = 0;
+                foreach ($this->filters as $item1) {
+                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->groupByKey) {
             $res['GroupByKey'] = $this->groupByKey;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceCounts) {
-            $res['ResourceCounts'] = [];
-            if (null !== $this->resourceCounts && \is_array($this->resourceCounts)) {
-                $n = 0;
-                foreach ($this->resourceCounts as $item) {
-                    $res['ResourceCounts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceCounts)) {
+                $res['ResourceCounts'] = [];
+                $n1                    = 0;
+                foreach ($this->resourceCounts as $item1) {
+                    $res['ResourceCounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -83,35 +78,38 @@ class GetResourceCountsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceCountsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
-                foreach ($map['Filters'] as $item) {
-                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Filters'] as $item1) {
+                    $model->filters[$n1++] = filters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['GroupByKey'])) {
             $model->groupByKey = $map['GroupByKey'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceCounts'])) {
             if (!empty($map['ResourceCounts'])) {
                 $model->resourceCounts = [];
-                $n                     = 0;
-                foreach ($map['ResourceCounts'] as $item) {
-                    $model->resourceCounts[$n++] = null !== $item ? resourceCounts::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ResourceCounts'] as $item1) {
+                    $model->resourceCounts[$n1++] = resourceCounts::fromMap($item1);
                 }
             }
         }

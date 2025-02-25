@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSavedQueryResponseBody extends Model
 {
     /**
-     * @description The template ID.
-     *
-     * @example sq-GeAck****
-     *
      * @var string
      */
     public $queryId;
-
     /**
-     * @description The request ID.
-     *
-     * @example EFA806B9-7F36-55AB-8B7A-D680C2C5EE57
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateSavedQueryResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->queryId) {
             $res['QueryId'] = $this->queryId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateSavedQueryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSavedQueryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QueryId'])) {
             $model->queryId = $map['QueryId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

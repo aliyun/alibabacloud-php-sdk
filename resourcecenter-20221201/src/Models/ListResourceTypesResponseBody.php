@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListResourceTypesResponseBody\resourceTypes;
-use AlibabaCloud\Tea\Model;
 
 class ListResourceTypesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example E5556E4C-479A-5BBB-B325-F07563E7E917
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the resource types.
-     *
      * @var resourceTypes[]
      */
     public $resourceTypes;
@@ -31,20 +24,25 @@ class ListResourceTypesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceTypes)) {
+            Model::validateArray($this->resourceTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceTypes) {
-            $res['ResourceTypes'] = [];
-            if (null !== $this->resourceTypes && \is_array($this->resourceTypes)) {
-                $n = 0;
-                foreach ($this->resourceTypes as $item) {
-                    $res['ResourceTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceTypes)) {
+                $res['ResourceTypes'] = [];
+                $n1                   = 0;
+                foreach ($this->resourceTypes as $item1) {
+                    $res['ResourceTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class ListResourceTypesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceTypesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
                 $model->resourceTypes = [];
-                $n                    = 0;
-                foreach ($map['ResourceTypes'] as $item) {
-                    $model->resourceTypes[$n++] = null !== $item ? resourceTypes::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['ResourceTypes'] as $item1) {
+                    $model->resourceTypes[$n1++] = resourceTypes::fromMap($item1);
                 }
             }
         }

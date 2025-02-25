@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExecuteMultiAccountSQLQueryRequest extends Model
 {
     /**
-     * @description The SQL statement to be executed.
-     *
-     * This parameter is required.
-     * @example SELECT * FROM resources LIMIT 100;
-     *
      * @var string
      */
     public $expression;
-
     /**
      * @var int
      */
     public $maxResults;
-
     /**
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The search scope. The value of this parameter can be one of the following items:
-     *
-     *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched.
-     *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched.
-     *   ID of a folder: Resources within all members in the folder are searched.
-     *   ID of a member: Resources within the member are searched.
-     *   ID of a member/ID of a Resource group: Resources within the member in the resource group are searched.
-     *
-     * This parameter is required.
-     * @example rd-r4****
-     *
      * @var string
      */
     public $scope;
@@ -52,20 +33,24 @@ class ExecuteMultiAccountSQLQueryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
@@ -73,23 +58,26 @@ class ExecuteMultiAccountSQLQueryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExecuteMultiAccountSQLQueryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }

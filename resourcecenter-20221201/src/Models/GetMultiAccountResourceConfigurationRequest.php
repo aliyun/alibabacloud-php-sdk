@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMultiAccountResourceConfigurationRequest extends Model
 {
     /**
-     * @description The ID of the management account or member of the resource directory.
-     *
-     * This parameter is required.
-     * @example 1619302****
-     *
      * @var string
      */
     public $accountId;
-
     /**
-     * @description The ID of the resource.
-     *
-     * This parameter is required.
-     * @example m-eb3hji****
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The region ID of the resource.
-     *
-     * This parameter is required.
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $resourceRegionId;
-
     /**
-     * @description The type of the resource.
-     *
-     * This parameter is required.
-     * @example ACS::VPC::RouteTable
-     *
      * @var string
      */
     public $resourceType;
@@ -56,20 +33,24 @@ class GetMultiAccountResourceConfigurationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceRegionId) {
             $res['ResourceRegionId'] = $this->resourceRegionId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -77,23 +58,26 @@ class GetMultiAccountResourceConfigurationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMultiAccountResourceConfigurationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceRegionId'])) {
             $model->resourceRegionId = $map['ResourceRegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

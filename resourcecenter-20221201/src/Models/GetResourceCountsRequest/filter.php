@@ -4,32 +4,19 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
     /**
-     * @description The key of the filter condition. For more information, see `Supported filter parameters`.
-     *
-     * @example RegionId
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The matching mode.
-     *
-     * The value Equals indicates an equal match.
-     * @example Equals
-     *
      * @var string
      */
     public $matchType;
-
     /**
-     * @description The values of the filter condition.
-     *
      * @var string[]
      */
     public $value;
@@ -41,41 +28,59 @@ class filter extends Model
 
     public function validate()
     {
+        if (\is_array($this->value)) {
+            Model::validateArray($this->value);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->matchType) {
             $res['MatchType'] = $this->matchType;
         }
+
         if (null !== $this->value) {
-            $res['Value'] = $this->value;
+            if (\is_array($this->value)) {
+                $res['Value'] = [];
+                $n1           = 0;
+                foreach ($this->value as $item1) {
+                    $res['Value'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['MatchType'])) {
             $model->matchType = $map['MatchType'];
         }
+
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
-                $model->value = $map['Value'];
+                $model->value = [];
+                $n1           = 0;
+                foreach ($map['Value'] as $item1) {
+                    $model->value[$n1++] = $item1;
+                }
             }
         }
 

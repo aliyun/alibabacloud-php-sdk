@@ -4,30 +4,20 @@
 
 namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListFiltersResponseBody\filters;
-use AlibabaCloud\Tea\Model;
 
 class ListFiltersResponseBody extends Model
 {
     /**
-     * @description The name of the default filter.
-     *
      * @var string
      */
     public $defaultFilterName;
-
     /**
-     * @description The configurations of the filter.
-     *
      * @var filters[]
      */
     public $filters;
-
     /**
-     * @description The request ID.
-     *
-     * @example AA39FB9C-CB74-5E73-8DFE-3A2B096F0759
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,29 @@ class ListFiltersResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultFilterName) {
             $res['DefaultFilterName'] = $this->defaultFilterName;
         }
+
         if (null !== $this->filters) {
-            $res['Filters'] = [];
-            if (null !== $this->filters && \is_array($this->filters)) {
-                $n = 0;
-                foreach ($this->filters as $item) {
-                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filters)) {
+                $res['Filters'] = [];
+                $n1             = 0;
+                foreach ($this->filters as $item1) {
+                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,26 +59,28 @@ class ListFiltersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFiltersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultFilterName'])) {
             $model->defaultFilterName = $map['DefaultFilterName'];
         }
+
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n              = 0;
-                foreach ($map['Filters'] as $item) {
-                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Filters'] as $item1) {
+                    $model->filters[$n1++] = filters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
