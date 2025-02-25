@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\Eas\V20210701;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\URL;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\AttachGatewayDomainShrinkRequest;
@@ -78,6 +78,9 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGroupEndpointsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGroupResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeMachineSpecRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeMachineSpecResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeMachineSpecShrinkRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceResponse;
@@ -270,7 +273,7 @@ class Eas extends OpenApiClient
             'action'      => 'AttachGatewayDomain',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/domain/attach',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domain/attach',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -343,7 +346,7 @@ class Eas extends OpenApiClient
             'action'      => 'CloneService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/clone',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/clone',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -400,7 +403,7 @@ class Eas extends OpenApiClient
             'action'      => 'CommitService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/commit',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/commit',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -474,7 +477,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateAclPolicy',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/acl_policy',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -785,7 +788,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateGatewayIntranetLinkedVpc',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -861,7 +864,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateGatewayIntranetLinkedVpcPeer',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1055,7 +1058,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateResourceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/instances',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1125,7 +1128,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateResourceLog',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/log',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1286,7 +1289,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateServiceAutoScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/autoscaler',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1356,7 +1359,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateServiceCronScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/cronscaler',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1426,7 +1429,7 @@ class Eas extends OpenApiClient
             'action'      => 'CreateServiceMirror',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/mirror',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1572,7 +1575,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteAclPolicy',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/acl_policy',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1629,7 +1632,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($TaskName) . '',
+            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1684,7 +1687,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteGateway',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1752,7 +1755,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteGatewayIntranetLinkedVpc',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1828,7 +1831,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteGatewayIntranetLinkedVpcPeer',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1885,7 +1888,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteResource',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1940,7 +1943,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteResourceDLink',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/dlink',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1973,7 +1976,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * 删除资源组实例标签.
+     * Deletes the tags of an instance in a resource group.
      *
      * @param tmpReq - DeleteResourceInstanceLabelRequest
      * @param headers - map
@@ -2022,7 +2025,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteResourceInstanceLabel',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/label',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/label',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2037,7 +2040,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * 删除资源组实例标签.
+     * Deletes the tags of an instance in a resource group.
      *
      * @param request - DeleteResourceInstanceLabelRequest
      * @returns DeleteResourceInstanceLabelResponse
@@ -2092,7 +2095,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteResourceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/instances',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2149,7 +2152,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteResourceLog',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/log',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2204,7 +2207,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2259,7 +2262,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteServiceAutoScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/autoscaler',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2314,7 +2317,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteServiceCronScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/cronscaler',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2386,7 +2389,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteServiceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/instances',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2458,7 +2461,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteServiceLabel',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/label',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/label',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2515,7 +2518,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteServiceMirror',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/mirror',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2570,7 +2573,7 @@ class Eas extends OpenApiClient
             'action'      => 'DeleteVirtualResource',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/virtualresources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($VirtualResourceId) . '',
+            'pathname'    => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2625,7 +2628,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($TaskName) . '',
+            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2689,7 +2692,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeBenchmarkTaskReport',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($TaskName) . '/report',
+            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/report',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2746,7 +2749,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeGateway',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2801,7 +2804,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeGroup',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GroupName) . '',
+            'pathname'    => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2856,7 +2859,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeGroupEndpoints',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GroupName) . '/endpoints',
+            'pathname'    => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '/endpoints',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2889,6 +2892,74 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * 查询可用机器规格
+     *
+     * @param tmpReq - DescribeMachineSpecRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMachineSpecResponse
+     *
+     * @param DescribeMachineSpecRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeMachineSpecResponse
+     */
+    public function describeMachineSpecWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeMachineSpecShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceTypes) {
+            $request->instanceTypesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceTypes, 'InstanceTypes', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->instanceTypesShrink) {
+            @$query['InstanceTypes'] = $request->instanceTypesShrink;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMachineSpec',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/public/instance_types',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMachineSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeMachineSpecResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询可用机器规格
+     *
+     * @param request - DescribeMachineSpecRequest
+     * @returns DescribeMachineSpecResponse
+     *
+     * @param DescribeMachineSpecRequest $request
+     *
+     * @return DescribeMachineSpecResponse
+     */
+    public function describeMachineSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeMachineSpecWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * Queries the information about a resource group.
      *
      * @param headers - map
@@ -2911,7 +2982,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeResource',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -2966,7 +3037,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeResourceDLink',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/dlink',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3021,7 +3092,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeResourceLog',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/log',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3076,7 +3147,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3131,7 +3202,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceAutoScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/autoscaler',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3186,7 +3257,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceCronScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/cronscaler',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3241,7 +3312,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceDiagnosis',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/diagnosis',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/diagnosis',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3296,7 +3367,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceEndpoints',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/endpoints',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/endpoints',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3380,7 +3451,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceEvent',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/events',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/events',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3438,7 +3509,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceInstanceDiagnosis',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/instances/' . URL::percentEncode($InstanceName) . '/diagnosis',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/diagnosis',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3535,7 +3606,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceLog',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/logs',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/logs',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3592,7 +3663,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceMirror',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/mirror',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3664,7 +3735,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeServiceSignedUrl',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/signed_url',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/signed_url',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3787,7 +3858,7 @@ class Eas extends OpenApiClient
             'action'      => 'DescribeVirtualResource',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/virtualresources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($VirtualResourceId) . '',
+            'pathname'    => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3857,7 +3928,7 @@ class Eas extends OpenApiClient
             'action'      => 'DetachGatewayDomain',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/domain/detach',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domain/detach',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3923,7 +3994,7 @@ class Eas extends OpenApiClient
             'action'      => 'DevelopService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/develop',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/develop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3989,7 +4060,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListAclPolicy',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/acl_policy',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4198,7 +4269,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListGatewayDomains',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/domains',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domains',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4253,7 +4324,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListGatewayIntranetLinkedVpc',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4317,7 +4388,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListGatewayIntranetLinkedVpcPeer',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4374,7 +4445,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListGatewayIntranetSupportedZone',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '/intranet_supported_zone',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_supported_zone',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4521,7 +4592,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListResourceInstanceWorker',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/instance/' . URL::percentEncode($InstanceName) . '/workers',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instance/' . Url::percentEncode($InstanceName) . '/workers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4634,7 +4705,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListResourceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/instances',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4708,7 +4779,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListResourceServices',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/services',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/services',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4860,7 +4931,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListServiceContainers',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/instances/' . URL::percentEncode($InstanceName) . '/containers',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/containers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -4973,7 +5044,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListServiceInstances',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/instances',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5043,7 +5114,7 @@ class Eas extends OpenApiClient
             'action'      => 'ListServiceVersions',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/versions',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/versions',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5356,7 +5427,7 @@ class Eas extends OpenApiClient
             'action'      => 'ReinstallTenantAddon',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/tenantaddons/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($TenantAddonName) . '/reinstall',
+            'pathname'    => '/api/v2/tenantaddons/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TenantAddonName) . '/reinstall',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5424,7 +5495,7 @@ class Eas extends OpenApiClient
             'action'      => 'ReleaseService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/release',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/release',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5481,7 +5552,7 @@ class Eas extends OpenApiClient
             'action'      => 'RestartService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/restart',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/restart',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5536,7 +5607,7 @@ class Eas extends OpenApiClient
             'action'      => 'StartBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($TaskName) . '/start',
+            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/start',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5591,7 +5662,7 @@ class Eas extends OpenApiClient
             'action'      => 'StartService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/start',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/start',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5646,7 +5717,7 @@ class Eas extends OpenApiClient
             'action'      => 'StopBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($TaskName) . '/stop',
+            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5701,7 +5772,7 @@ class Eas extends OpenApiClient
             'action'      => 'StopService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/stop',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5791,7 +5862,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateAppService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/app_services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '',
+            'pathname'    => '/api/v2/app_services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5852,7 +5923,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateBenchmarkTask',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($TaskName) . '',
+            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -5942,7 +6013,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateGateway',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($GatewayId) . '',
+            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6012,7 +6083,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateResource',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6090,7 +6161,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateResourceDLink',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/dlink',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6157,7 +6228,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateResourceInstance',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/instances/' . URL::percentEncode($InstanceId) . '',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances/' . Url::percentEncode($InstanceId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6193,7 +6264,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * 更新资源组实例标签.
+     * Updates the tag of an instance in a resource group.
      *
      * @param tmpReq - UpdateResourceInstanceLabelRequest
      * @param headers - map
@@ -6240,7 +6311,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateResourceInstanceLabel',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ResourceId) . '/label',
+            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/label',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6255,7 +6326,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * 更新资源组实例标签.
+     * Updates the tag of an instance in a resource group.
      *
      * @param request - UpdateResourceInstanceLabelRequest
      * @returns UpdateResourceInstanceLabelResponse
@@ -6307,7 +6378,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateService',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6385,7 +6456,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceAutoScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/autoscaler',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6455,7 +6526,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceCronScaler',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/cronscaler',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6522,7 +6593,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceInstance',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/instances/' . URL::percentEncode($InstanceName) . '',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6589,7 +6660,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceLabel',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/label',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/label',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6659,7 +6730,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceMirror',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/mirror',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6725,7 +6796,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceSafetyLock',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/lock',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/lock',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6791,7 +6862,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateServiceVersion',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($ServiceName) . '/version',
+            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/version',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -6865,7 +6936,7 @@ class Eas extends OpenApiClient
             'action'      => 'UpdateVirtualResource',
             'version'     => '2021-07-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/virtualresources/' . URL::percentEncode($ClusterId) . '/' . URL::percentEncode($VirtualResourceId) . '',
+            'pathname'    => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
