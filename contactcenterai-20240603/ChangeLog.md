@@ -1,3 +1,7 @@
+2025-02-25 Version: 3.4.1
+- Update API CreateTask: update param body.
+
+
 2025-02-20 Version: 3.4.0
 - Support API CreateVocab.
 - Support API DeleteVocab.

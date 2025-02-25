@@ -14,6 +14,10 @@ use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\transcri
 class CreateTaskRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $customPrompt;
+    /**
      * @var dialogue
      */
     public $dialogue;
@@ -50,6 +54,7 @@ class CreateTaskRequest extends Model
      */
     public $transcription;
     protected $_name = [
+        'customPrompt'      => 'customPrompt',
         'dialogue'          => 'dialogue',
         'examples'          => 'examples',
         'fields'            => 'fields',
@@ -90,6 +95,10 @@ class CreateTaskRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->customPrompt) {
+            $res['customPrompt'] = $this->customPrompt;
+        }
+
         if (null !== $this->dialogue) {
             $res['dialogue'] = null !== $this->dialogue ? $this->dialogue->toArray($noStream) : $this->dialogue;
         }
@@ -155,6 +164,10 @@ class CreateTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['customPrompt'])) {
+            $model->customPrompt = $map['customPrompt'];
+        }
+
         if (isset($map['dialogue'])) {
             $model->dialogue = dialogue::fromMap($map['dialogue']);
         }

@@ -5,7 +5,7 @@
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603;
 
 use AlibabaCloud\Dara\Models\RuntimeOptions;
-use AlibabaCloud\Dara\URL;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeImageRequest;
@@ -148,7 +148,7 @@ class ContactCenterAI extends OpenApiClient
             'action'      => 'AnalyzeConversation',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/analyze_conversation',
+            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyze_conversation',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -222,7 +222,7 @@ class ContactCenterAI extends OpenApiClient
             'action'      => 'AnalyzeImage',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/analyzeImage',
+            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyzeImage',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -276,6 +276,10 @@ class ContactCenterAI extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->customPrompt) {
+            @$body['customPrompt'] = $request->customPrompt;
+        }
+
         if (null !== $request->dialogue) {
             @$body['dialogue'] = $request->dialogue;
         }
@@ -320,7 +324,7 @@ class ContactCenterAI extends OpenApiClient
             'action'      => 'CreateTask',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/createTask',
+            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/createTask',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -750,7 +754,7 @@ class ContactCenterAI extends OpenApiClient
             'action'      => 'RunCompletion',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/completion',
+            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/completion',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -824,7 +828,7 @@ class ContactCenterAI extends OpenApiClient
             'action'      => 'RunCompletionMessage',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . URL::percentEncode($workspaceId) . '/ccai/app/' . URL::percentEncode($appId) . '/completion_message',
+            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/completion_message',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
