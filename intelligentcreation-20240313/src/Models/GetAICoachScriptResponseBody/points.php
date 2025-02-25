@@ -24,6 +24,10 @@ class points extends Model
     /**
      * @var string
      */
+    public $pointId;
+    /**
+     * @var string
+     */
     public $questionDescription;
     /**
      * @var int
@@ -37,6 +41,7 @@ class points extends Model
         'answerList'          => 'answerList',
         'knowledgeList'       => 'knowledgeList',
         'name'                => 'name',
+        'pointId'             => 'pointId',
         'questionDescription' => 'questionDescription',
         'sortNo'              => 'sortNo',
         'weight'              => 'weight',
@@ -78,6 +83,10 @@ class points extends Model
 
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+
+        if (null !== $this->pointId) {
+            $res['pointId'] = $this->pointId;
         }
 
         if (null !== $this->questionDescription) {
@@ -125,6 +134,10 @@ class points extends Model
 
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+
+        if (isset($map['pointId'])) {
+            $model->pointId = $map['pointId'];
         }
 
         if (isset($map['questionDescription'])) {
