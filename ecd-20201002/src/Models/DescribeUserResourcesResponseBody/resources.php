@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\reso
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\desktopDurationList;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\desktopTimers;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\fotaUpdate;
+use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\osUpdate;
 use AlibabaCloud\SDK\Ecd\V20201002\Models\DescribeUserResourcesResponseBody\resources\sessions;
 
 class resources extends Model
@@ -92,6 +93,10 @@ class resources extends Model
     /**
      * @var bool
      */
+    public $hasUpgrade;
+    /**
+     * @var bool
+     */
     public $hibernationBeta;
     /**
      * @var string
@@ -129,6 +134,10 @@ class resources extends Model
      * @var string
      */
     public $osType;
+    /**
+     * @var osUpdate
+     */
+    public $osUpdate;
     /**
      * @var string
      */
@@ -229,6 +238,7 @@ class resources extends Model
         'externalUserId'        => 'ExternalUserId',
         'fotaUpdate'            => 'FotaUpdate',
         'globalStatus'          => 'GlobalStatus',
+        'hasUpgrade'            => 'HasUpgrade',
         'hibernationBeta'       => 'HibernationBeta',
         'icon'                  => 'Icon',
         'lastStartTime'         => 'LastStartTime',
@@ -239,6 +249,7 @@ class resources extends Model
         'os'                    => 'Os',
         'osDescription'         => 'OsDescription',
         'osType'                => 'OsType',
+        'osUpdate'              => 'OsUpdate',
         'productType'           => 'ProductType',
         'protocolType'          => 'ProtocolType',
         'realDesktopId'         => 'RealDesktopId',
@@ -277,6 +288,9 @@ class resources extends Model
         }
         if (\is_array($this->managementStatuses)) {
             Model::validateArray($this->managementStatuses);
+        }
+        if (null !== $this->osUpdate) {
+            $this->osUpdate->validate();
         }
         if (\is_array($this->sessions)) {
             Model::validateArray($this->sessions);
@@ -384,6 +398,10 @@ class resources extends Model
             $res['GlobalStatus'] = $this->globalStatus;
         }
 
+        if (null !== $this->hasUpgrade) {
+            $res['HasUpgrade'] = $this->hasUpgrade;
+        }
+
         if (null !== $this->hibernationBeta) {
             $res['HibernationBeta'] = $this->hibernationBeta;
         }
@@ -428,6 +446,10 @@ class resources extends Model
 
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
+        }
+
+        if (null !== $this->osUpdate) {
+            $res['OsUpdate'] = null !== $this->osUpdate ? $this->osUpdate->toArray($noStream) : $this->osUpdate;
         }
 
         if (null !== $this->productType) {
@@ -627,6 +649,10 @@ class resources extends Model
             $model->globalStatus = $map['GlobalStatus'];
         }
 
+        if (isset($map['HasUpgrade'])) {
+            $model->hasUpgrade = $map['HasUpgrade'];
+        }
+
         if (isset($map['HibernationBeta'])) {
             $model->hibernationBeta = $map['HibernationBeta'];
         }
@@ -671,6 +697,10 @@ class resources extends Model
 
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
+        }
+
+        if (isset($map['OsUpdate'])) {
+            $model->osUpdate = osUpdate::fromMap($map['OsUpdate']);
         }
 
         if (isset($map['ProductType'])) {
