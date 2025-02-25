@@ -696,7 +696,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 开启版本管理.
+     * Enable Version Management.
      *
      * @param request - ActivateVersionManagementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -737,7 +737,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 开启版本管理.
+     * Enable Version Management.
      *
      * @param request - ActivateVersionManagementRequest
      * @returns ActivateVersionManagementResponse
@@ -754,7 +754,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 申请免费证书.
+     * Apply for Free Certificate.
      *
      * @param request - ApplyCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -791,7 +791,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 申请免费证书.
+     * Apply for Free Certificate.
      *
      * @param request - ApplyCertificateRequest
      * @returns ApplyCertificateResponse
@@ -1902,7 +1902,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点缓存配置.
+     * Create a new site cache configuration.
      *
      * @param request - CreateCacheRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2039,7 +2039,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点缓存配置.
+     * Create a new site cache configuration.
      *
      * @param request - CreateCacheRuleRequest
      * @returns CreateCacheRuleResponse
@@ -2056,7 +2056,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 创建客户端证书.
+     * Uses the ESA-managed certificate authority (CA) to issue client certificates.
      *
      * @param request - CreateClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2111,7 +2111,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 创建客户端证书.
+     * Uses the ESA-managed certificate authority (CA) to issue client certificates.
      *
      * @param request - CreateClientCertificateRequest
      * @returns CreateClientCertificateResponse
@@ -2128,7 +2128,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增压缩规则.
+     * Add a compression rule.
      *
      * @param request - CreateCompressionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2197,7 +2197,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增压缩规则.
+     * Add a compression rule.
      *
      * @param request - CreateCompressionRuleRequest
      * @returns CreateCompressionRuleResponse
@@ -2540,7 +2540,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增HTTP请求头规则.
+     * Add HTTP Request Header Rule.
      *
      * @param tmpReq - CreateHttpRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2607,7 +2607,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增HTTP请求头规则.
+     * Add HTTP Request Header Rule.
      *
      * @param request - CreateHttpRequestHeaderModificationRuleRequest
      * @returns CreateHttpRequestHeaderModificationRuleResponse
@@ -2624,7 +2624,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增HTTP响应头规则.
+     * Add HTTP Response Header Rule.
      *
      * @param tmpReq - CreateHttpResponseHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2691,7 +2691,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增HTTP响应头规则.
+     * Add HTTP Response Header Rule.
      *
      * @param request - CreateHttpResponseHeaderModificationRuleRequest
      * @returns CreateHttpResponseHeaderModificationRuleResponse
@@ -2708,7 +2708,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点HTTPS应用配置.
+     * Create a new site HTTPS application configuration.
      *
      * @param request - CreateHttpsApplicationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2805,7 +2805,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点HTTPS应用配置.
+     * Create a new site HTTPS application configuration.
      *
      * @param request - CreateHttpsApplicationConfigurationRequest
      * @returns CreateHttpsApplicationConfigurationResponse
@@ -2822,7 +2822,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点HTTPS基础配置.
+     * Create a new site HTTPS basic configuration.
      *
      * @param request - CreateHttpsBasicConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2915,7 +2915,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点HTTPS基础配置.
+     * Create a new site HTTPS basic configuration.
      *
      * @param request - CreateHttpsBasicConfigurationRequest
      * @returns CreateHttpsBasicConfigurationResponse
@@ -2932,7 +2932,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点图片转换配置.
+     * Add Site Image Transformation Configuration.
      *
      * @param request - CreateImageTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2993,7 +2993,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点图片转换配置.
+     * Add Site Image Transformation Configuration.
      *
      * @param request - CreateImageTransformRequest
      * @returns CreateImageTransformResponse
@@ -3148,7 +3148,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增负载均衡器.
+     * Add a new load balancer.
+     *
+     * @remarks
+     * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and other settings, to achieve effective traffic management and optimization.
      *
      * @param tmpReq - CreateLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3267,7 +3270,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增负载均衡器.
+     * Add a new load balancer.
+     *
+     * @remarks
+     * Through this API, users can configure load balancing services according to their business needs, including but not limited to adaptive routing, weighted round-robin, rule matching, health checks, and other settings, to achieve effective traffic management and optimization.
      *
      * @param request - CreateLoadBalancerRequest
      * @returns CreateLoadBalancerResponse
@@ -3284,7 +3290,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点网络优化配置.
+     * Create a new site network optimization configuration.
      *
      * @param request - CreateNetworkOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3361,7 +3367,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点网络优化配置.
+     * Create a new site network optimization configuration.
      *
      * @param request - CreateNetworkOptimizationRequest
      * @returns CreateNetworkOptimizationResponse
@@ -3378,7 +3384,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增源地址池.
+     * Add a new origin address pool.
+     *
+     * @remarks
+     * Multiple origins can be added under the origin address, supporting domain names, IPs, OSS, S3, and other types of origins. It supports authentication for OSS and S3 type origins.
      *
      * @param tmpReq - CreateOriginPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3437,7 +3446,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增源地址池.
+     * Add a new origin address pool.
+     *
+     * @remarks
+     * Multiple origins can be added under the origin address, supporting domain names, IPs, OSS, S3, and other types of origins. It supports authentication for OSS and S3 type origins.
      *
      * @param request - CreateOriginPoolRequest
      * @returns CreateOriginPoolResponse
@@ -3512,7 +3524,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点回源规则配置.
+     * Create a new origin rule configuration for the site.
      *
      * @param request - CreateOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3597,7 +3609,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增站点回源规则配置.
+     * Create a new origin rule configuration for the site.
      *
      * @param request - CreateOriginRuleRequest
      * @returns CreateOriginRuleResponse
@@ -3792,7 +3804,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增重定向规则.
+     * Add a Redirect Rule.
      *
      * @param request - CreateRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3865,7 +3877,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增重定向规则.
+     * Add a Redirect Rule.
      *
      * @param request - CreateRedirectRuleRequest
      * @returns CreateRedirectRuleResponse
@@ -3882,7 +3894,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增重写Url规则.
+     * Add Rewrite URL Rule.
      *
      * @param request - CreateRewriteUrlRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3955,7 +3967,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新增重写Url规则.
+     * Add Rewrite URL Rule.
      *
      * @param request - CreateRewriteUrlRuleRequest
      * @returns CreateRewriteUrlRuleResponse
@@ -5146,7 +5158,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 关闭版本管理.
+     * Disable version management.
+     *
+     * @remarks
+     * Can only be disabled when there is only version 0 and the default environment.
      *
      * @param request - DeactivateVersionManagementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5187,7 +5202,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 关闭版本管理.
+     * Disable version management.
+     *
+     * @remarks
+     * Can only be disabled when there is only version 0 and the default environment.
      *
      * @param request - DeactivateVersionManagementRequest
      * @returns DeactivateVersionManagementResponse
@@ -5204,7 +5222,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除缓存配置.
+     * Delete Cache Configuration.
      *
      * @param request - DeleteCacheRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5249,7 +5267,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除缓存配置.
+     * Delete Cache Configuration.
      *
      * @param request - DeleteCacheRuleRequest
      * @returns DeleteCacheRuleResponse
@@ -5374,7 +5392,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除客户端证书.
+     * Deletes a revoked client certificate.
      *
      * @param request - DeleteClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5411,7 +5429,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除客户端证书.
+     * Deletes a revoked client certificate.
      *
      * @param request - DeleteClientCertificateRequest
      * @returns DeleteClientCertificateResponse
@@ -5858,7 +5876,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除HTTPS应用配置.
+     * Delete HTTPS Application Configuration.
      *
      * @param request - DeleteHttpsApplicationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5903,7 +5921,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除HTTPS应用配置.
+     * Delete HTTPS Application Configuration.
      *
      * @param request - DeleteHttpsApplicationConfigurationRequest
      * @returns DeleteHttpsApplicationConfigurationResponse
@@ -5920,7 +5938,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除HTTPS基础配置.
+     * Delete HTTPS Basic Configuration.
      *
      * @param request - DeleteHttpsBasicConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5965,7 +5983,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除HTTPS基础配置.
+     * Delete HTTPS Basic Configuration.
      *
      * @param request - DeleteHttpsBasicConfigurationRequest
      * @returns DeleteHttpsBasicConfigurationResponse
@@ -6214,7 +6232,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除负载均衡器.
+     * Delete Load Balancer.
+     *
+     * @remarks
+     * Delete a load balancer by its ID, only one can be deleted at a time.
      *
      * @param request - DeleteLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6259,7 +6280,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除负载均衡器.
+     * Delete Load Balancer.
+     *
+     * @remarks
+     * Delete a load balancer by its ID, only one can be deleted at a time.
      *
      * @param request - DeleteLoadBalancerRequest
      * @returns DeleteLoadBalancerResponse
@@ -6276,7 +6300,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除网络优化配置.
+     * Delete Network Optimization Configuration.
      *
      * @param request - DeleteNetworkOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6321,7 +6345,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除网络优化配置.
+     * Delete Network Optimization Configuration.
      *
      * @param request - DeleteNetworkOptimizationRequest
      * @returns DeleteNetworkOptimizationResponse
@@ -6338,7 +6362,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除源地址池.
+     * Delete Origin Address Pool.
      *
      * @param request - DeleteOriginPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6383,7 +6407,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除源地址池.
+     * Delete Origin Address Pool.
      *
      * @param request - DeleteOriginPoolRequest
      * @returns DeleteOriginPoolResponse
@@ -6458,7 +6482,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除回源规则配置.
+     * Delete Origin Rule Configuration.
      *
      * @param request - DeleteOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6503,7 +6527,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 删除回源规则配置.
+     * Delete Origin Rule Configuration.
      *
      * @param request - DeleteOriginRuleRequest
      * @returns DeleteOriginRuleResponse
@@ -7666,7 +7690,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询DCDN DDoS用户bps、pps数据.
+     * Query DCDN DDoS user bps and pps data.
      *
      * @param request - DescribeDDoSBpsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7703,7 +7727,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询DCDN DDoS用户bps、pps数据.
+     * Query DCDN DDoS user bps and pps data.
      *
      * @param request - DescribeDDoSBpsListRequest
      * @returns DescribeDDoSBpsListResponse
@@ -7720,7 +7744,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * ddos分析七层qps走势图接口.
+     * DDoS Analysis Layer 7 QPS Trend Chart API.
      *
      * @param request - DescribeDDoSL7QpsListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7777,7 +7801,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * ddos分析七层qps走势图接口.
+     * DDoS Analysis Layer 7 QPS Trend Chart API.
      *
      * @param request - DescribeDDoSL7QpsListRequest
      * @returns DescribeDDoSL7QpsListResponse
@@ -8420,7 +8444,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the available specifications of cache reserve instances.
+     * Query Cache Retention Instance Specifications.
      *
      * @param request - GetCacheReserveSpecificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8452,7 +8476,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the available specifications of cache reserve instances.
+     * Query Cache Retention Instance Specifications.
      *
      * @returns GetCacheReserveSpecificationResponse
      *
@@ -8466,7 +8490,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条缓存配置.
+     * Query a single cache configuration.
      *
      * @param request - GetCacheRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8503,7 +8527,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条缓存配置.
+     * Query a single cache configuration.
      *
      * @param request - GetCacheRuleRequest
      * @returns GetCacheRuleResponse
@@ -8520,7 +8544,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
+     * Query Site Cache Tag Configuration.
      *
      * @param request - GetCacheTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8557,7 +8581,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the cache tag configuration of your website. You can call this operation when you need to specify tags in the Cache-Tag response header to use the purge by cache tag feature.
+     * Query Site Cache Tag Configuration.
      *
      * @param request - GetCacheTagRequest
      * @returns GetCacheTagResponse
@@ -8574,7 +8598,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries certificate information about a website.
+     * Retrieve the certificate, private key, and certificate information.
      *
      * @param request - GetCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8611,7 +8635,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries certificate information about a website.
+     * Retrieve the certificate, private key, and certificate information.
      *
      * @param request - GetCertificateRequest
      * @returns GetCertificateResponse
@@ -8628,7 +8652,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询证书quota及用量.
+     * Query certificate quota and usage.
      *
      * @param request - GetCertificateQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8665,7 +8689,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询证书quota及用量.
+     * Query certificate quota and usage.
      *
      * @param request - GetCertificateQuotaRequest
      * @returns GetCertificateQuotaResponse
@@ -8682,7 +8706,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取客户端CA证书信息.
+     * Queries a client CA certificate.
      *
      * @param request - GetClientCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8719,7 +8743,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 获取客户端CA证书信息.
+     * Queries a client CA certificate.
      *
      * @param request - GetClientCaCertificateRequest
      * @returns GetClientCaCertificateResponse
@@ -8898,7 +8922,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询压缩规则详情.
+     * Query Compression Rule Details.
      *
      * @param request - GetCompressionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8935,7 +8959,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询压缩规则详情.
+     * Query Compression Rule Details.
      *
      * @param request - GetCompressionRuleRequest
      * @returns GetCompressionRuleResponse
@@ -8952,7 +8976,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the development mode configuration of your website.
+     * Query Site Developer Mode Configuration.
      *
      * @param request - GetDevelopmentModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8989,7 +9013,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the development mode configuration of your website.
+     * Query Site Developer Mode Configuration.
      *
      * @param request - GetDevelopmentModeRequest
      * @returns GetDevelopmentModeResponse
@@ -9562,7 +9586,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条HTTPS应用配置.
+     * Query a Single HTTPS Application Configuration.
      *
      * @param request - GetHttpsApplicationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9599,7 +9623,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条HTTPS应用配置.
+     * Query a Single HTTPS Application Configuration.
      *
      * @param request - GetHttpsApplicationConfigurationRequest
      * @returns GetHttpsApplicationConfigurationResponse
@@ -9616,7 +9640,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条HTTPS基础配置.
+     * Query a Single HTTPS Basic Configuration.
      *
      * @param request - GetHttpsBasicConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9653,7 +9677,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条HTTPS基础配置.
+     * Query a Single HTTPS Basic Configuration.
      *
      * @param request - GetHttpsBasicConfigurationRequest
      * @returns GetHttpsBasicConfigurationResponse
@@ -9670,7 +9694,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点IPv6配置.
+     * Query Site IPv6 Configuration.
      *
      * @param request - GetIPv6Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9707,7 +9731,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点IPv6配置.
+     * Query Site IPv6 Configuration.
      *
      * @param request - GetIPv6Request
      * @returns GetIPv6Response
@@ -9990,7 +10014,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询特定负载均衡器.
+     * Query a Specific Load Balancer.
+     *
+     * @remarks
+     * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence policy, routing policy, etc.
      *
      * @param request - GetLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10027,7 +10054,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询特定负载均衡器.
+     * Query a Specific Load Balancer.
+     *
+     * @remarks
+     * This API allows users to query the configuration details of a specific load balancer by providing necessary authentication information and resource identifiers, including but not limited to name, session persistence policy, routing policy, etc.
      *
      * @param request - GetLoadBalancerRequest
      * @returns GetLoadBalancerResponse
@@ -10098,7 +10128,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条网络优化配置.
+     * Query a single network optimization configuration.
      *
      * @param request - GetNetworkOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10135,7 +10165,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条网络优化配置.
+     * Query a single network optimization configuration.
      *
      * @param request - GetNetworkOptimizationRequest
      * @returns GetNetworkOptimizationResponse
@@ -10152,7 +10182,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询特定源地址池.
+     * Query a specific origin pool.
      *
      * @param request - GetOriginPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10189,7 +10219,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询特定源地址池.
+     * Query a specific origin pool.
      *
      * @param request - GetOriginPoolRequest
      * @returns GetOriginPoolResponse
@@ -10260,7 +10290,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条回源规则配置.
+     * Query a single origin rule configuration.
      *
      * @param request - GetOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10297,7 +10327,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询单条回源规则配置.
+     * Query a single origin rule configuration.
      *
      * @param request - GetOriginRuleRequest
      * @returns GetOriginRuleResponse
@@ -11266,7 +11296,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点名称独占配置.
+     * Query Site Name Exclusive Configuration.
      *
      * @param request - GetSiteNameExclusiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11303,7 +11333,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点名称独占配置.
+     * Query Site Name Exclusive Configuration.
      *
      * @param request - GetSiteNameExclusiveRequest
      * @returns GetSiteNameExclusiveResponse
@@ -11320,7 +11350,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点暂停配置.
+     * Query Site Pause Configuration.
      *
      * @param request - GetSitePauseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11357,7 +11387,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点暂停配置.
+     * Query Site Pause Configuration.
      *
      * @param request - GetSitePauseRequest
      * @returns GetSitePauseResponse
@@ -11440,7 +11470,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the tiered cache configuration of your website.
+     * Query Multi-level Cache Configuration for Site.
      *
      * @param request - GetTieredCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11477,7 +11507,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the tiered cache configuration of your website.
+     * Query Multi-level Cache Configuration for Site.
      *
      * @param request - GetTieredCacheRequest
      * @returns GetTieredCacheResponse
@@ -11672,7 +11702,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
+     * This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
      *
      * @param request - GetWafBotAppKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11704,7 +11734,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
+     * This interface is used to obtain the application key (AppKey) for the BOT behavior detection feature in the site\\"s Web Application Firewall (WAF). The key is typically used for authentication and data exchange with the WAF service.
      *
      * @returns GetWafBotAppKeyResponse
      *
@@ -11788,7 +11818,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
+     * Get WAF Quota Details.
      *
      * @param request - GetWafQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11829,7 +11859,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
+     * Get WAF Quota Details.
      *
      * @param request - GetWafQuotaRequest
      * @returns GetWafQuotaResponse
@@ -11846,7 +11876,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the cache reserve instances in your Alibaba Cloud account.
+     * Query Cache Reserve Instance List.
      *
      * @param request - ListCacheReserveInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11883,7 +11913,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the cache reserve instances in your Alibaba Cloud account.
+     * Query Cache Reserve Instance List.
      *
      * @param request - ListCacheReserveInstancesRequest
      * @returns ListCacheReserveInstancesResponse
@@ -11900,7 +11930,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条缓存配置.
+     * Query multiple cache configurations.
      *
      * @param request - ListCacheRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11937,7 +11967,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条缓存配置.
+     * Query multiple cache configurations.
      *
      * @param request - ListCacheRulesRequest
      * @returns ListCacheRulesResponse
@@ -11954,7 +11984,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点下证书列表.
+     * List certificates under a site.
      *
      * @param request - ListCertificatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11991,7 +12021,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询站点下证书列表.
+     * List certificates under a site.
      *
      * @param request - ListCertificatesRequest
      * @returns ListCertificatesResponse
@@ -12008,7 +12038,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询TLS密码套件列表.
+     * Query TLS Cipher Suite List.
      *
      * @param request - ListCiphersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12045,7 +12075,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询TLS密码套件列表.
+     * Query TLS Cipher Suite List.
      *
      * @param request - ListCiphersRequest
      * @returns ListCiphersResponse
@@ -12570,7 +12600,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP请求头规则列表.
+     * List of HTTP Request Header Rules.
      *
      * @param request - ListHttpRequestHeaderModificationRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12607,7 +12637,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询HTTP请求头规则列表.
+     * List of HTTP Request Header Rules.
      *
      * @param request - ListHttpRequestHeaderModificationRulesRequest
      * @returns ListHttpRequestHeaderModificationRulesResponse
@@ -12678,7 +12708,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条HTTPS应用配置.
+     * Query multiple HTTPS application configurations.
      *
      * @param request - ListHttpsApplicationConfigurationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12715,7 +12745,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条HTTPS应用配置.
+     * Query multiple HTTPS application configurations.
      *
      * @param request - ListHttpsApplicationConfigurationsRequest
      * @returns ListHttpsApplicationConfigurationsResponse
@@ -12732,7 +12762,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条HTTPS基础配置.
+     * Query multiple HTTPS basic configurations.
      *
      * @param request - ListHttpsBasicConfigurationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -12769,7 +12799,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条HTTPS基础配置.
+     * Query multiple HTTPS basic configurations.
      *
      * @param request - ListHttpsBasicConfigurationsRequest
      * @returns ListHttpsBasicConfigurationsResponse
@@ -13074,7 +13104,14 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询负载均衡器里各源站状态
+     * Query the status of origins in load balancers.
+     *
+     * @remarks
+     * Query the status of origins under load balancers. You can pass multiple load balancer IDs at once, separated by commas. This is for load balancers that have monitors configured. It will probe the origins in the source address pools used by the load balancers and record the current status of each origin.
+     * - Healthy(healthy): The probe result is available.
+     * - Unhealthy(unhealthy): The probe result is unavailable.
+     * - Unknown(unknown): Unknown, the monitor has not yet probed.
+     * - Undetected(undetected): The load balancer to which the origin belongs is not bound to a monitor.
      *
      * @param request - ListLoadBalancerOriginStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13111,7 +13148,14 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询负载均衡器里各源站状态
+     * Query the status of origins in load balancers.
+     *
+     * @remarks
+     * Query the status of origins under load balancers. You can pass multiple load balancer IDs at once, separated by commas. This is for load balancers that have monitors configured. It will probe the origins in the source address pools used by the load balancers and record the current status of each origin.
+     * - Healthy(healthy): The probe result is available.
+     * - Unhealthy(unhealthy): The probe result is unavailable.
+     * - Unknown(unknown): Unknown, the monitor has not yet probed.
+     * - Undetected(undetected): The load balancer to which the origin belongs is not bound to a monitor.
      *
      * @param request - ListLoadBalancerOriginStatusRequest
      * @returns ListLoadBalancerOriginStatusResponse
@@ -13128,10 +13172,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
+     * Query Load Balancer Region List.
      *
      * @remarks
-     * When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
+     * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
      *
      * @param request - ListLoadBalancerRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13168,10 +13212,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
+     * Query Load Balancer Region List.
      *
      * @remarks
-     * When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
+     * When creating a load balancer \\"based on country/region scheduling\\" strategy through OpenAPI, use the code of primary or secondary regions to represent traffic from this geographical area.
      *
      * @param request - ListLoadBalancerRegionsRequest
      * @returns ListLoadBalancerRegionsResponse
@@ -13188,7 +13232,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询负载均衡器列表.
+     * List of Load Balancers.
      *
      * @param request - ListLoadBalancersRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13225,7 +13269,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询负载均衡器列表.
+     * List of Load Balancers.
      *
      * @param request - ListLoadBalancersRequest
      * @returns ListLoadBalancersResponse
@@ -13304,7 +13348,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条网络优化配置.
+     * Query multiple network optimization configurations.
      *
      * @param request - ListNetworkOptimizationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13341,7 +13385,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条网络优化配置.
+     * Query multiple network optimization configurations.
      *
      * @param request - ListNetworkOptimizationsRequest
      * @returns ListNetworkOptimizationsResponse
@@ -13358,7 +13402,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询源地址池列表.
+     * List Origin Pools.
      *
      * @param request - ListOriginPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13395,7 +13439,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询源地址池列表.
+     * List Origin Pools.
      *
      * @param request - ListOriginPoolsRequest
      * @returns ListOriginPoolsResponse
@@ -13412,7 +13456,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条回源规则配置.
+     * Query multiple origin rules configurations.
      *
      * @param request - ListOriginRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13449,7 +13493,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 查询多条回源规则配置.
+     * Query multiple origin rules configurations.
      *
      * @param request - ListOriginRulesRequest
      * @returns ListOriginRulesResponse
@@ -13965,7 +14009,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the information about websites in your account, such as the name, status, and configuration of each website.
+     * Query Site List.
      *
      * @param tmpReq - ListSitesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -14008,7 +14052,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Queries the information about websites in your account, such as the name, status, and configuration of each website.
+     * Query Site List.
      *
      * @param request - ListSitesRequest
      * @returns ListSitesResponse
@@ -14995,7 +15039,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新购套餐.
+     * Purchase New Package.
+     *
+     * @remarks
+     * 1. The package name and code can be obtained from the DescribeRatePlanPrice interface.
+     * 2. If the acceleration area is not overseas, the site must have successfully completed the filing process.
      *
      * @param request - PurchaseRatePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15010,6 +15058,10 @@ class ESA extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->amount) {
+            @$query['Amount'] = $request->amount;
+        }
+
         if (null !== $request->autoPay) {
             @$query['AutoPay'] = $request->autoPay;
         }
@@ -15068,7 +15120,11 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 新购套餐.
+     * Purchase New Package.
+     *
+     * @remarks
+     * 1. The package name and code can be obtained from the DescribeRatePlanPrice interface.
+     * 2. If the acceleration area is not overseas, the site must have successfully completed the filing process.
      *
      * @param request - PurchaseRatePlanRequest
      * @returns PurchaseRatePlanResponse
@@ -15085,7 +15141,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
+     * Cache Refresh.
      *
      * @param tmpReq - PurgeCachesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15148,7 +15204,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
+     * Cache Refresh.
      *
      * @param request - PurgeCachesRequest
      * @returns PurgeCachesResponse
@@ -16202,7 +16258,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改缓存配置.
+     * Modify cache configuration.
      *
      * @param request - UpdateCacheRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16339,7 +16395,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改缓存配置.
+     * Modify cache configuration.
      *
      * @param request - UpdateCacheRuleRequest
      * @returns UpdateCacheRuleResponse
@@ -16356,7 +16412,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点缓存Tag配置.
+     * Modify Site Cache Tag Configuration.
      *
      * @param request - UpdateCacheTagRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16409,7 +16465,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点缓存Tag配置.
+     * Modify Site Cache Tag Configuration.
      *
      * @param request - UpdateCacheTagRequest
      * @returns UpdateCacheTagResponse
@@ -16426,7 +16482,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点cname拉平配置.
+     * Modify site CNAME flattening configuration.
      *
      * @param request - UpdateCnameFlatteningRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16471,7 +16527,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点cname拉平配置.
+     * Modify site CNAME flattening configuration.
      *
      * @param request - UpdateCnameFlatteningRequest
      * @returns UpdateCnameFlatteningResponse
@@ -16488,7 +16544,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改压缩规则.
+     * Modify compression rule.
      *
      * @param request - UpdateCompressionRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16557,7 +16613,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改压缩规则.
+     * Modify compression rule.
      *
      * @param request - UpdateCompressionRuleRequest
      * @returns UpdateCompressionRuleResponse
@@ -16652,7 +16708,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点开发者模式配置.
+     * Modify Site Developer Mode Configuration.
      *
      * @param request - UpdateDevelopmentModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16697,7 +16753,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点开发者模式配置.
+     * Modify Site Developer Mode Configuration.
      *
      * @param request - UpdateDevelopmentModeRequest
      * @returns UpdateDevelopmentModeResponse
@@ -16780,7 +16836,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTP请求头规则.
+     * Modify HTTP Request Header Rules.
      *
      * @param tmpReq - UpdateHttpRequestHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16847,7 +16903,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTP请求头规则.
+     * Modify HTTP Request Header Rules.
      *
      * @param request - UpdateHttpRequestHeaderModificationRuleRequest
      * @returns UpdateHttpRequestHeaderModificationRuleResponse
@@ -16864,7 +16920,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTP响应头规则.
+     * Modify HTTP Response Header Rules.
      *
      * @param tmpReq - UpdateHttpResponseHeaderModificationRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16931,7 +16987,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTP响应头规则.
+     * Modify HTTP Response Header Rules.
      *
      * @param request - UpdateHttpResponseHeaderModificationRuleRequest
      * @returns UpdateHttpResponseHeaderModificationRuleResponse
@@ -16948,7 +17004,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTPS应用配置.
+     * Modify HTTPS Application Configuration.
      *
      * @param request - UpdateHttpsApplicationConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17045,7 +17101,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTPS应用配置.
+     * Modify HTTPS Application Configuration.
      *
      * @param request - UpdateHttpsApplicationConfigurationRequest
      * @returns UpdateHttpsApplicationConfigurationResponse
@@ -17062,7 +17118,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTPS基础配置.
+     * Modify HTTPS Basic Configuration.
      *
      * @param request - UpdateHttpsBasicConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17159,7 +17215,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改HTTPS基础配置.
+     * Modify HTTPS Basic Configuration.
      *
      * @param request - UpdateHttpsBasicConfigurationRequest
      * @returns UpdateHttpsBasicConfigurationResponse
@@ -17176,7 +17232,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点IPv6配置.
+     * Modify Site IPv6 Configuration.
      *
      * @param request - UpdateIPv6Request
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17221,7 +17277,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点IPv6配置.
+     * Modify Site IPv6 Configuration.
      *
      * @param request - UpdateIPv6Request
      * @returns UpdateIPv6Response
@@ -17238,7 +17294,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点图片转换配置.
+     * Modify Site Image Transformation Configuration.
      *
      * @param request - UpdateImageTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17299,7 +17355,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点图片转换配置.
+     * Modify Site Image Transformation Configuration.
      *
      * @param request - UpdateImageTransformRequest
      * @returns UpdateImageTransformResponse
@@ -17392,7 +17448,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改负载均衡器.
+     * Modify Load Balancer.
+     *
+     * @remarks
+     * Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence policies, and various advanced settings related to traffic routing. >Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
      *
      * @param tmpReq - UpdateLoadBalancerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17511,7 +17570,10 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改负载均衡器.
+     * Modify Load Balancer.
+     *
+     * @remarks
+     * Through this interface, you can modify multiple configurations of the load balancer, including but not limited to the name of the load balancer, whether to enable acceleration, session persistence policies, and various advanced settings related to traffic routing. >Notice: Changes to certain parameters may affect the stability of existing services, please operate with caution.
      *
      * @param request - UpdateLoadBalancerRequest
      * @returns UpdateLoadBalancerResponse
@@ -17528,7 +17590,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点托管转换配置.
+     * Modify Site Managed Transformation Configuration.
      *
      * @param request - UpdateManagedTransformRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17581,7 +17643,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点托管转换配置.
+     * Modify Site Managed Transformation Configuration.
      *
      * @param request - UpdateManagedTransformRequest
      * @returns UpdateManagedTransformResponse
@@ -17598,7 +17660,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改网络优化配置.
+     * Modify network optimization configuration.
      *
      * @param request - UpdateNetworkOptimizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17675,7 +17737,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改网络优化配置.
+     * Modify network optimization configuration.
      *
      * @param request - UpdateNetworkOptimizationRequest
      * @returns UpdateNetworkOptimizationResponse
@@ -17692,7 +17754,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改监视器.
+     * Modify the Monitor.
      *
      * @param tmpReq - UpdateOriginPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17751,7 +17813,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改监视器.
+     * Modify the Monitor.
      *
      * @param request - UpdateOriginPoolRequest
      * @returns UpdateOriginPoolResponse
@@ -17888,7 +17950,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点回源规则配置.
+     * Modify Origin Rule Configuration for Site.
      *
      * @param request - UpdateOriginRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17973,7 +18035,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点回源规则配置.
+     * Modify Origin Rule Configuration for Site.
      *
      * @param request - UpdateOriginRuleRequest
      * @returns UpdateOriginRuleResponse
@@ -18260,7 +18322,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 更新重定向规则.
+     * Update Redirect Rule.
      *
      * @param request - UpdateRedirectRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18333,7 +18395,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 更新重定向规则.
+     * Update Redirect Rule.
      *
      * @param request - UpdateRedirectRuleRequest
      * @returns UpdateRedirectRuleResponse
@@ -18350,7 +18412,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改重写Url规则.
+     * Modify Rewrite URL Rule.
      *
      * @param request - UpdateRewriteUrlRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18423,7 +18485,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改重写Url规则.
+     * Modify Rewrite URL Rule.
      *
      * @param request - UpdateRewriteUrlRuleRequest
      * @returns UpdateRewriteUrlRuleResponse
@@ -18924,7 +18986,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点名称独占配置.
+     * Modify Site Name Exclusive Configuration.
      *
      * @param request - UpdateSiteNameExclusiveRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18969,7 +19031,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点名称独占配置.
+     * Modify Site Name Exclusive Configuration.
      *
      * @param request - UpdateSiteNameExclusiveRequest
      * @returns UpdateSiteNameExclusiveResponse
@@ -18986,7 +19048,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点暂停配置.
+     * Modify Site Pause Configuration.
      *
      * @param request - UpdateSitePauseRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19031,7 +19093,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点暂停配置.
+     * Modify Site Pause Configuration.
      *
      * @param request - UpdateSitePauseRequest
      * @returns UpdateSitePauseResponse
@@ -19110,7 +19172,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点多级缓存配置.
+     * Modify Multi-level Cache Configuration for Site.
      *
      * @param request - UpdateTieredCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19155,7 +19217,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 修改站点多级缓存配置.
+     * Modify Multi-level Cache Configuration for Site.
      *
      * @param request - UpdateTieredCacheRequest
      * @returns UpdateTieredCacheResponse
@@ -19654,7 +19716,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 上传客户端CA证书.
+     * Uploads a client certificate authority (CA) certificate.
      *
      * @param request - UploadClientCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19705,7 +19767,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * 上传客户端CA证书.
+     * Uploads a client certificate authority (CA) certificate.
      *
      * @param request - UploadClientCaCertificateRequest
      * @returns UploadClientCaCertificateResponse

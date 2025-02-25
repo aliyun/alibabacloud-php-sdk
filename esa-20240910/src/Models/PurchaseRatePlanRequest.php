@@ -9,6 +9,10 @@ use AlibabaCloud\Dara\Model;
 class PurchaseRatePlanRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $amount;
+    /**
      * @var bool
      */
     public $autoPay;
@@ -45,6 +49,7 @@ class PurchaseRatePlanRequest extends Model
      */
     public $type;
     protected $_name = [
+        'amount'     => 'Amount',
         'autoPay'    => 'AutoPay',
         'autoRenew'  => 'AutoRenew',
         'chargeType' => 'ChargeType',
@@ -64,6 +69,10 @@ class PurchaseRatePlanRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->amount) {
+            $res['Amount'] = $this->amount;
+        }
+
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
@@ -111,6 +120,10 @@ class PurchaseRatePlanRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Amount'])) {
+            $model->amount = $map['Amount'];
+        }
+
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }

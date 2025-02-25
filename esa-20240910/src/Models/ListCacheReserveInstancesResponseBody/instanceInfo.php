@@ -9,13 +9,17 @@ use AlibabaCloud\Dara\Model;
 class instanceInfo extends Model
 {
     /**
-     * @var string
+     * @var int
      */
     public $cacheReserveCapacity;
     /**
      * @var string
      */
     public $cacheReserveRegion;
+    /**
+     * @var string
+     */
+    public $chargeType;
     /**
      * @var string
      */
@@ -39,6 +43,7 @@ class instanceInfo extends Model
     protected $_name = [
         'cacheReserveCapacity' => 'CacheReserveCapacity',
         'cacheReserveRegion'   => 'CacheReserveRegion',
+        'chargeType'           => 'ChargeType',
         'createTime'           => 'CreateTime',
         'duration'             => 'Duration',
         'expireTime'           => 'ExpireTime',
@@ -60,6 +65,10 @@ class instanceInfo extends Model
 
         if (null !== $this->cacheReserveRegion) {
             $res['CacheReserveRegion'] = $this->cacheReserveRegion;
+        }
+
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
 
         if (null !== $this->createTime) {
@@ -99,6 +108,10 @@ class instanceInfo extends Model
 
         if (isset($map['CacheReserveRegion'])) {
             $model->cacheReserveRegion = $map['CacheReserveRegion'];
+        }
+
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
 
         if (isset($map['CreateTime'])) {
