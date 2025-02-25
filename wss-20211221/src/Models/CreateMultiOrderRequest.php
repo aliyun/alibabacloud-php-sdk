@@ -21,10 +21,15 @@ class CreateMultiOrderRequest extends Model
      * @var string[]
      */
     public $properties;
+    /**
+     * @var int
+     */
+    public $resellerOwnerUid;
     protected $_name = [
-        'orderItems' => 'OrderItems',
-        'orderType'  => 'OrderType',
-        'properties' => 'Properties',
+        'orderItems'       => 'OrderItems',
+        'orderType'        => 'OrderType',
+        'properties'       => 'Properties',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
 
     public function validate()
@@ -64,6 +69,10 @@ class CreateMultiOrderRequest extends Model
             }
         }
 
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
+        }
+
         return $res;
     }
 
@@ -96,6 +105,10 @@ class CreateMultiOrderRequest extends Model
                     $model->properties[$key1] = $value1;
                 }
             }
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         return $model;

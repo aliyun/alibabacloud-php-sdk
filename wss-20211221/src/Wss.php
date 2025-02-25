@@ -84,6 +84,10 @@ class Wss extends OpenApiClient
             @$query['Properties'] = $request->propertiesShrink;
         }
 
+        if (null !== $request->resellerOwnerUid) {
+            @$query['ResellerOwnerUid'] = $request->resellerOwnerUid;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);

@@ -21,10 +21,15 @@ class CreateMultiOrderShrinkRequest extends Model
      * @var string
      */
     public $propertiesShrink;
+    /**
+     * @var int
+     */
+    public $resellerOwnerUid;
     protected $_name = [
         'orderItems'       => 'OrderItems',
         'orderType'        => 'OrderType',
         'propertiesShrink' => 'Properties',
+        'resellerOwnerUid' => 'ResellerOwnerUid',
     ];
 
     public function validate()
@@ -56,6 +61,10 @@ class CreateMultiOrderShrinkRequest extends Model
             $res['Properties'] = $this->propertiesShrink;
         }
 
+        if (null !== $this->resellerOwnerUid) {
+            $res['ResellerOwnerUid'] = $this->resellerOwnerUid;
+        }
+
         return $res;
     }
 
@@ -83,6 +92,10 @@ class CreateMultiOrderShrinkRequest extends Model
 
         if (isset($map['Properties'])) {
             $model->propertiesShrink = $map['Properties'];
+        }
+
+        if (isset($map['ResellerOwnerUid'])) {
+            $model->resellerOwnerUid = $map['ResellerOwnerUid'];
         }
 
         return $model;
