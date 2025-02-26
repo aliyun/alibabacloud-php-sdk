@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Milvus\V20231012\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class UpdateInstanceNameResponseBody extends Model
+class CreateDefaultRoleResponseBody extends Model
 {
     /**
      * @var string

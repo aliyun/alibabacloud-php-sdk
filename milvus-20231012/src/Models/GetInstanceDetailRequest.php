@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Milvus\V20231012\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceDetailRequest extends Model
 {
     /**
-     * @example c-123xxx
-     *
      * @var string
      */
     public $instanceId;
@@ -20,9 +18,10 @@ class GetInstanceDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -32,11 +31,11 @@ class GetInstanceDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

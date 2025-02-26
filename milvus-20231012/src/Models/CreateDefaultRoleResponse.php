@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Milvus\V20231012\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class ModifyInstanceConfigResponse extends Model
+class CreateDefaultRoleResponse extends Model
 {
     /**
      * @var string[]
@@ -17,7 +17,7 @@ class ModifyInstanceConfigResponse extends Model
      */
     public $statusCode;
     /**
-     * @var ModifyInstanceConfigResponseBody
+     * @var CreateDefaultRoleResponseBody
      */
     public $body;
     protected $_name = [
@@ -82,7 +82,7 @@ class ModifyInstanceConfigResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = ModifyInstanceConfigResponseBody::fromMap($map['body']);
+            $model->body = CreateDefaultRoleResponseBody::fromMap($map['body']);
         }
 
         return $model;
