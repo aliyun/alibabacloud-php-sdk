@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeTemplateResourceCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceCount extends Model
 {
     /**
-     * @description The number of protected object groups.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $groupCount;
-
     /**
-     * @description The number of protected objects.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $singleCount;
-
     /**
-     * @description The ID of the protection template.
-     *
-     * @example 12345
-     *
      * @var int
      */
     public $templateId;
@@ -42,17 +28,20 @@ class resourceCount extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupCount) {
             $res['GroupCount'] = $this->groupCount;
         }
+
         if (null !== $this->singleCount) {
             $res['SingleCount'] = $this->singleCount;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -60,20 +49,22 @@ class resourceCount extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceCount
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupCount'])) {
             $model->groupCount = $map['GroupCount'];
         }
+
         if (isset($map['SingleCount'])) {
             $model->singleCount = $map['SingleCount'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

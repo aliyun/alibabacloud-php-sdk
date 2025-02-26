@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backends extends Model
 {
     /**
-     * @description The IP address or domain name of the origin server.
-     *
-     * @example 1.1.XX.XX
-     *
      * @var string
      */
     public $backend;
@@ -22,9 +18,10 @@ class backends extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backend) {
@@ -34,11 +31,11 @@ class backends extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backends
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

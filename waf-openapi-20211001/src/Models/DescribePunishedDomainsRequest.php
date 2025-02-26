@@ -4,49 +4,27 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribePunishedDomainsRequest extends Model
 {
     /**
-     * @description The domain names.
-     *
      * @var string[]
      */
     public $domains;
-
     /**
-     * @description The ID of the WAF instance.
-     *
-     * This parameter is required.
-     * @example waf_v3prepaid_public_cn-uqm****qa07
-     *
      * @var string
      */
     public $instanceId;
-
     /**
      * @var string
      */
     public $punishType;
-
     /**
-     * @description The region in which the WAF instance is deployed. Valid values:
-     *
-     *   **cn-hangzhou**: Chinese mainland.
-     *   **ap-southeast-1**: outside the Chinese mainland.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the Alibaba Cloud resource group.
-     *
-     * @example rg-aekz7nc****aata
-     *
      * @var string
      */
     public $resourceManagerResourceGroupId;
@@ -60,23 +38,37 @@ class DescribePunishedDomainsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->domains)) {
+            Model::validateArray($this->domains);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domains) {
-            $res['Domains'] = $this->domains;
+            if (\is_array($this->domains)) {
+                $res['Domains'] = [];
+                $n1             = 0;
+                foreach ($this->domains as $item1) {
+                    $res['Domains'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->punishType) {
             $res['PunishType'] = $this->punishType;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
@@ -84,28 +76,36 @@ class DescribePunishedDomainsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePunishedDomainsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
-                $model->domains = $map['Domains'];
+                $model->domains = [];
+                $n1             = 0;
+                foreach ($map['Domains'] as $item1) {
+                    $model->domains[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PunishType'])) {
             $model->punishType = $map['PunishType'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }

@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDefenseResourceGroupsResponseBody\groups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDefenseResourceGroupsResponseBody extends Model
 {
     /**
-     * @description The list of protected object groups.
-     *
      * @var groups[]
      */
     public $groups;
-
     /**
-     * @description The request ID.
-     *
-     * @example BFEC5C77-049B-5E88-A5B6-CB0C****B66E
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -41,23 +29,29 @@ class DescribeDefenseResourceGroupsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->groups)) {
+            Model::validateArray($this->groups);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groups) {
-            $res['Groups'] = [];
-            if (null !== $this->groups && \is_array($this->groups)) {
-                $n = 0;
-                foreach ($this->groups as $item) {
-                    $res['Groups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groups)) {
+                $res['Groups'] = [];
+                $n1            = 0;
+                foreach ($this->groups as $item1) {
+                    $res['Groups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +59,28 @@ class DescribeDefenseResourceGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDefenseResourceGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
                 $model->groups = [];
-                $n             = 0;
-                foreach ($map['Groups'] as $item) {
-                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Groups'] as $item1) {
+                    $model->groups[$n1++] = groups::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

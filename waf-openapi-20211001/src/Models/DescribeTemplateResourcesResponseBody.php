@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTemplateResourcesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example C7BC9373-3960-53B0-8968-2B13454AE18F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array of protected objects or protected object groups that are associated to the protection rule template.
-     *
      * @var string[]
      */
     public $resources;
@@ -30,35 +23,51 @@ class DescribeTemplateResourcesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = $this->resources;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1               = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTemplateResourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
-                $model->resources = $map['Resources'];
+                $model->resources = [];
+                $n1               = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainsResponseBody\domains;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class listenPorts extends Model
 {
     /**
-     * @description The HTTP listener ports.
-     *
      * @var int[]
      */
     public $http;
-
     /**
-     * @description The HTTPS listener ports.
-     *
      * @var int[]
      */
     public $https;
@@ -28,37 +23,66 @@ class listenPorts extends Model
 
     public function validate()
     {
+        if (\is_array($this->http)) {
+            Model::validateArray($this->http);
+        }
+        if (\is_array($this->https)) {
+            Model::validateArray($this->https);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->http) {
-            $res['Http'] = $this->http;
+            if (\is_array($this->http)) {
+                $res['Http'] = [];
+                $n1          = 0;
+                foreach ($this->http as $item1) {
+                    $res['Http'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->https) {
-            $res['Https'] = $this->https;
+            if (\is_array($this->https)) {
+                $res['Https'] = [];
+                $n1           = 0;
+                foreach ($this->https as $item1) {
+                    $res['Https'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return listenPorts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Http'])) {
             if (!empty($map['Http'])) {
-                $model->http = $map['Http'];
+                $model->http = [];
+                $n1          = 0;
+                foreach ($map['Http'] as $item1) {
+                    $model->http[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Https'])) {
             if (!empty($map['Https'])) {
-                $model->https = $map['Https'];
+                $model->https = [];
+                $n1           = 0;
+                foreach ($map['Https'] as $item1) {
+                    $model->https[$n1++] = $item1;
+                }
             }
         }
 

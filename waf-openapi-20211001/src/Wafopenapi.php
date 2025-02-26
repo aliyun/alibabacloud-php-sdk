@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ClearMajorProtectionBlackIpRequest;
@@ -330,11 +329,10 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\UntagResourcesResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Wafopenapi extends OpenApiClient
 {
@@ -385,45 +383,55 @@ class Wafopenapi extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Changes the resource group to which a protected object belongs.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Changes the resource group to which a protected object belongs.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ChangeResourceGroup',
@@ -436,16 +444,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the resource group to which a protected object belongs.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Changes the resource group to which a protected object belongs.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -455,34 +469,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Clears an IP address blacklist for major event protection.
-     *  *
-     * @param ClearMajorProtectionBlackIpRequest $request ClearMajorProtectionBlackIpRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Clears an IP address blacklist for major event protection.
      *
-     * @return ClearMajorProtectionBlackIpResponse ClearMajorProtectionBlackIpResponse
+     * @param request - ClearMajorProtectionBlackIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ClearMajorProtectionBlackIpResponse
+     *
+     * @param ClearMajorProtectionBlackIpRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ClearMajorProtectionBlackIpResponse
      */
     public function clearMajorProtectionBlackIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ClearMajorProtectionBlackIp',
@@ -495,16 +518,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ClearMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ClearMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ClearMajorProtectionBlackIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Clears an IP address blacklist for major event protection.
-     *  *
-     * @param ClearMajorProtectionBlackIpRequest $request ClearMajorProtectionBlackIpRequest
+     * Clears an IP address blacklist for major event protection.
      *
-     * @return ClearMajorProtectionBlackIpResponse ClearMajorProtectionBlackIpResponse
+     * @param request - ClearMajorProtectionBlackIpRequest
+     * @returns ClearMajorProtectionBlackIpResponse
+     *
+     * @param ClearMajorProtectionBlackIpRequest $request
+     *
+     * @return ClearMajorProtectionBlackIpResponse
      */
     public function clearMajorProtectionBlackIp($request)
     {
@@ -514,31 +543,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a new protection template from the copy.
-     *  *
-     * @param CopyDefenseTemplateRequest $request CopyDefenseTemplateRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Creates a new protection template from the copy.
      *
-     * @return CopyDefenseTemplateResponse CopyDefenseTemplateResponse
+     * @param request - CopyDefenseTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CopyDefenseTemplateResponse
+     *
+     * @param CopyDefenseTemplateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CopyDefenseTemplateResponse
      */
     public function copyDefenseTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CopyDefenseTemplate',
@@ -551,16 +588,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CopyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CopyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CopyDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a new protection template from the copy.
-     *  *
-     * @param CopyDefenseTemplateRequest $request CopyDefenseTemplateRequest
+     * Creates a new protection template from the copy.
      *
-     * @return CopyDefenseTemplateResponse CopyDefenseTemplateResponse
+     * @param request - CopyDefenseTemplateRequest
+     * @returns CopyDefenseTemplateResponse
+     *
+     * @param CopyDefenseTemplateRequest $request
+     *
+     * @return CopyDefenseTemplateResponse
      */
     public function copyDefenseTemplate($request)
     {
@@ -570,43 +613,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a data export task in the API security module.
-     *  *
-     * @param CreateApiExportRequest $request CreateApiExportRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Creates a data export task in the API security module.
      *
-     * @return CreateApiExportResponse CreateApiExportResponse
+     * @param request - CreateApiExportRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateApiExportResponse
+     *
+     * @param CreateApiExportRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateApiExportResponse
      */
     public function createApiExportWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->param)) {
-            $query['Param'] = $request->param;
+
+        if (null !== $request->param) {
+            @$query['Param'] = $request->param;
         }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
+
+        if (null !== $request->region) {
+            @$query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
+
+        if (null !== $request->zoneId) {
+            @$query['ZoneId'] = $request->zoneId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateApiExport',
@@ -619,16 +674,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateApiExportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateApiExportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateApiExportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a data export task in the API security module.
-     *  *
-     * @param CreateApiExportRequest $request CreateApiExportRequest
+     * Creates a data export task in the API security module.
      *
-     * @return CreateApiExportResponse CreateApiExportResponse
+     * @param request - CreateApiExportRequest
+     * @returns CreateApiExportResponse
+     *
+     * @param CreateApiExportRequest $request
+     *
+     * @return CreateApiExportResponse
      */
     public function createApiExport($request)
     {
@@ -638,48 +699,61 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
-     *  *
-     * @param CreateCloudResourceRequest $tmpReq  CreateCloudResourceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *
-     * @return CreateCloudResourceResponse CreateCloudResourceResponse
+     * @param tmpReq - CreateCloudResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateCloudResourceResponse
+     *
+     * @param CreateCloudResourceRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateCloudResourceResponse
      */
     public function createCloudResourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateCloudResourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listen)) {
-            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listen) {
+            $request->listenShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
         }
-        if (!Utils::isUnset($tmpReq->redirect)) {
-            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
+
+        if (null !== $tmpReq->redirect) {
+            $request->redirectShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->listenShrink)) {
-            $query['Listen'] = $request->listenShrink;
+
+        if (null !== $request->listenShrink) {
+            @$query['Listen'] = $request->listenShrink;
         }
-        if (!Utils::isUnset($request->ownerUserId)) {
-            $query['OwnerUserId'] = $request->ownerUserId;
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
         }
-        if (!Utils::isUnset($request->redirectShrink)) {
-            $query['Redirect'] = $request->redirectShrink;
+
+        if (null !== $request->redirectShrink) {
+            @$query['Redirect'] = $request->redirectShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateCloudResource',
@@ -692,16 +766,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateCloudResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
-     *  *
-     * @param CreateCloudResourceRequest $request CreateCloudResourceRequest
+     * Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *
-     * @return CreateCloudResourceResponse CreateCloudResourceResponse
+     * @param request - CreateCloudResourceRequest
+     * @returns CreateCloudResourceResponse
+     *
+     * @param CreateCloudResourceRequest $request
+     *
+     * @return CreateCloudResourceResponse
      */
     public function createCloudResource($request)
     {
@@ -711,37 +791,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a protected object group.
-     *  *
-     * @param CreateDefenseResourceGroupRequest $request CreateDefenseResourceGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Creates a protected object group.
      *
-     * @return CreateDefenseResourceGroupResponse CreateDefenseResourceGroupResponse
+     * @param request - CreateDefenseResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDefenseResourceGroupResponse
+     *
+     * @param CreateDefenseResourceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateDefenseResourceGroupResponse
      */
     public function createDefenseResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addList)) {
-            $query['AddList'] = $request->addList;
+        if (null !== $request->addList) {
+            @$query['AddList'] = $request->addList;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDefenseResourceGroup',
@@ -754,16 +844,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDefenseResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a protected object group.
-     *  *
-     * @param CreateDefenseResourceGroupRequest $request CreateDefenseResourceGroupRequest
+     * Creates a protected object group.
      *
-     * @return CreateDefenseResourceGroupResponse CreateDefenseResourceGroupResponse
+     * @param request - CreateDefenseResourceGroupRequest
+     * @returns CreateDefenseResourceGroupResponse
+     *
+     * @param CreateDefenseResourceGroupRequest $request
+     *
+     * @return CreateDefenseResourceGroupResponse
      */
     public function createDefenseResourceGroup($request)
     {
@@ -773,39 +869,49 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a protection rule.
-     *  *
-     * @param CreateDefenseRuleRequest $request CreateDefenseRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Creates a protection rule.
      *
-     * @return CreateDefenseRuleResponse CreateDefenseRuleResponse
+     * @param request - CreateDefenseRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDefenseRuleResponse
+     *
+     * @param CreateDefenseRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateDefenseRuleResponse
      */
     public function createDefenseRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defenseScene)) {
-            $query['DefenseScene'] = $request->defenseScene;
+        if (null !== $request->defenseScene) {
+            @$query['DefenseScene'] = $request->defenseScene;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->rules)) {
-            $body['Rules'] = $request->rules;
+        if (null !== $request->rules) {
+            @$body['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateDefenseRule',
@@ -818,16 +924,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDefenseRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a protection rule.
-     *  *
-     * @param CreateDefenseRuleRequest $request CreateDefenseRuleRequest
+     * Creates a protection rule.
      *
-     * @return CreateDefenseRuleResponse CreateDefenseRuleResponse
+     * @param request - CreateDefenseRuleRequest
+     * @returns CreateDefenseRuleResponse
+     *
+     * @param CreateDefenseRuleRequest $request
+     *
+     * @return CreateDefenseRuleResponse
      */
     public function createDefenseRule($request)
     {
@@ -837,46 +949,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a protection rule template.
-     *  *
-     * @param CreateDefenseTemplateRequest $request CreateDefenseTemplateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Creates a protection rule template.
      *
-     * @return CreateDefenseTemplateResponse CreateDefenseTemplateResponse
+     * @param request - CreateDefenseTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDefenseTemplateResponse
+     *
+     * @param CreateDefenseTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateDefenseTemplateResponse
      */
     public function createDefenseTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defenseScene)) {
-            $query['DefenseScene'] = $request->defenseScene;
+        if (null !== $request->defenseScene) {
+            @$query['DefenseScene'] = $request->defenseScene;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateOrigin)) {
-            $query['TemplateOrigin'] = $request->templateOrigin;
+
+        if (null !== $request->templateOrigin) {
+            @$query['TemplateOrigin'] = $request->templateOrigin;
         }
-        if (!Utils::isUnset($request->templateStatus)) {
-            $query['TemplateStatus'] = $request->templateStatus;
+
+        if (null !== $request->templateStatus) {
+            @$query['TemplateStatus'] = $request->templateStatus;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDefenseTemplate',
@@ -889,16 +1014,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a protection rule template.
-     *  *
-     * @param CreateDefenseTemplateRequest $request CreateDefenseTemplateRequest
+     * Creates a protection rule template.
      *
-     * @return CreateDefenseTemplateResponse CreateDefenseTemplateResponse
+     * @param request - CreateDefenseTemplateRequest
+     * @returns CreateDefenseTemplateResponse
+     *
+     * @param CreateDefenseTemplateRequest $request
+     *
+     * @return CreateDefenseTemplateResponse
      */
     public function createDefenseTemplate($request)
     {
@@ -908,51 +1039,65 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds a domain name to Web Application Firewall (WAF).
-     *  *
-     * @param CreateDomainRequest $tmpReq  CreateDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds a domain name to Web Application Firewall (WAF).
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @param tmpReq - CreateDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
      */
     public function createDomainWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateDomainShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listen)) {
-            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listen) {
+            $request->listenShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
         }
-        if (!Utils::isUnset($tmpReq->redirect)) {
-            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
+
+        if (null !== $tmpReq->redirect) {
+            $request->redirectShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accessType)) {
-            $query['AccessType'] = $request->accessType;
+        if (null !== $request->accessType) {
+            @$query['AccessType'] = $request->accessType;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->listenShrink)) {
-            $query['Listen'] = $request->listenShrink;
+
+        if (null !== $request->listenShrink) {
+            @$query['Listen'] = $request->listenShrink;
         }
-        if (!Utils::isUnset($request->redirectShrink)) {
-            $query['Redirect'] = $request->redirectShrink;
+
+        if (null !== $request->redirectShrink) {
+            @$query['Redirect'] = $request->redirectShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDomain',
@@ -965,16 +1110,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a domain name to Web Application Firewall (WAF).
-     *  *
-     * @param CreateDomainRequest $request CreateDomainRequest
+     * Adds a domain name to Web Application Firewall (WAF).
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @param request - CreateDomainRequest
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
      */
     public function createDomain($request)
     {
@@ -984,49 +1135,63 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a node group for a hybrid cloud cluster.
-     *  *
-     * @param CreateHybridCloudGroupRequest $request CreateHybridCloudGroupRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a node group for a hybrid cloud cluster.
      *
-     * @return CreateHybridCloudGroupResponse CreateHybridCloudGroupResponse
+     * @param request - CreateHybridCloudGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateHybridCloudGroupResponse
+     *
+     * @param CreateHybridCloudGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateHybridCloudGroupResponse
      */
     public function createHybridCloudGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backSourceMark)) {
-            $query['BackSourceMark'] = $request->backSourceMark;
+        if (null !== $request->backSourceMark) {
+            @$query['BackSourceMark'] = $request->backSourceMark;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->groupType)) {
-            $query['GroupType'] = $request->groupType;
+
+        if (null !== $request->groupType) {
+            @$query['GroupType'] = $request->groupType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->loadBalanceIp)) {
-            $query['LoadBalanceIp'] = $request->loadBalanceIp;
+
+        if (null !== $request->loadBalanceIp) {
+            @$query['LoadBalanceIp'] = $request->loadBalanceIp;
         }
-        if (!Utils::isUnset($request->locationCode)) {
-            $query['LocationCode'] = $request->locationCode;
+
+        if (null !== $request->locationCode) {
+            @$query['LocationCode'] = $request->locationCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateHybridCloudGroup',
@@ -1039,16 +1204,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateHybridCloudGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a node group for a hybrid cloud cluster.
-     *  *
-     * @param CreateHybridCloudGroupRequest $request CreateHybridCloudGroupRequest
+     * Creates a node group for a hybrid cloud cluster.
      *
-     * @return CreateHybridCloudGroupResponse CreateHybridCloudGroupResponse
+     * @param request - CreateHybridCloudGroupRequest
+     * @returns CreateHybridCloudGroupResponse
+     *
+     * @param CreateHybridCloudGroupRequest $request
+     *
+     * @return CreateHybridCloudGroupResponse
      */
     public function createHybridCloudGroup($request)
     {
@@ -1058,45 +1229,58 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates an IP address blacklist for major event protection.
-     *  *
-     * @description This operation is available only on the China site (aliyun.com).
-     *  *
-     * @param CreateMajorProtectionBlackIpRequest $request CreateMajorProtectionBlackIpRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Creates an IP address blacklist for major event protection.
      *
-     * @return CreateMajorProtectionBlackIpResponse CreateMajorProtectionBlackIpResponse
+     * @remarks
+     * This operation is available only on the China site (aliyun.com).
+     *
+     * @param request - CreateMajorProtectionBlackIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateMajorProtectionBlackIpResponse
+     *
+     * @param CreateMajorProtectionBlackIpRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateMajorProtectionBlackIpResponse
      */
     public function createMajorProtectionBlackIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->expiredTime)) {
-            $query['ExpiredTime'] = $request->expiredTime;
+
+        if (null !== $request->expiredTime) {
+            @$query['ExpiredTime'] = $request->expiredTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ipList)) {
-            $query['IpList'] = $request->ipList;
+
+        if (null !== $request->ipList) {
+            @$query['IpList'] = $request->ipList;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateMajorProtectionBlackIp',
@@ -1109,18 +1293,25 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMajorProtectionBlackIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates an IP address blacklist for major event protection.
-     *  *
-     * @description This operation is available only on the China site (aliyun.com).
-     *  *
-     * @param CreateMajorProtectionBlackIpRequest $request CreateMajorProtectionBlackIpRequest
+     * Creates an IP address blacklist for major event protection.
      *
-     * @return CreateMajorProtectionBlackIpResponse CreateMajorProtectionBlackIpResponse
+     * @remarks
+     * This operation is available only on the China site (aliyun.com).
+     *
+     * @param request - CreateMajorProtectionBlackIpRequest
+     * @returns CreateMajorProtectionBlackIpResponse
+     *
+     * @param CreateMajorProtectionBlackIpRequest $request
+     *
+     * @return CreateMajorProtectionBlackIpResponse
      */
     public function createMajorProtectionBlackIp($request)
     {
@@ -1130,34 +1321,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
-     *  *
-     * @param CreateMemberAccountsRequest $request CreateMemberAccountsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Adds members to use the multi-account management feature of Web Application Firewall (WAF).
      *
-     * @return CreateMemberAccountsResponse CreateMemberAccountsResponse
+     * @param request - CreateMemberAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateMemberAccountsResponse
+     *
+     * @param CreateMemberAccountsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateMemberAccountsResponse
      */
     public function createMemberAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->memberAccountIds)) {
-            $query['MemberAccountIds'] = $request->memberAccountIds;
+
+        if (null !== $request->memberAccountIds) {
+            @$query['MemberAccountIds'] = $request->memberAccountIds;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateMemberAccounts',
@@ -1170,16 +1370,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateMemberAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds members to use the multi-account management feature of Web Application Firewall (WAF).
-     *  *
-     * @param CreateMemberAccountsRequest $request CreateMemberAccountsRequest
+     * Adds members to use the multi-account management feature of Web Application Firewall (WAF).
      *
-     * @return CreateMemberAccountsResponse CreateMemberAccountsResponse
+     * @param request - CreateMemberAccountsRequest
+     * @returns CreateMemberAccountsResponse
+     *
+     * @param CreateMemberAccountsRequest $request
+     *
+     * @return CreateMemberAccountsResponse
      */
     public function createMemberAccounts($request)
     {
@@ -1189,25 +1395,31 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
-     *  *
-     * @param CreatePostpaidInstanceRequest $request CreatePostpaidInstanceRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
      *
-     * @return CreatePostpaidInstanceResponse CreatePostpaidInstanceResponse
+     * @param request - CreatePostpaidInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePostpaidInstanceResponse
+     *
+     * @param CreatePostpaidInstanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePostpaidInstanceResponse
      */
     public function createPostpaidInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreatePostpaidInstance',
@@ -1220,16 +1432,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreatePostpaidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreatePostpaidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreatePostpaidInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
-     *  *
-     * @param CreatePostpaidInstanceRequest $request CreatePostpaidInstanceRequest
+     * Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
      *
-     * @return CreatePostpaidInstanceResponse CreatePostpaidInstanceResponse
+     * @param request - CreatePostpaidInstanceRequest
+     * @returns CreatePostpaidInstanceResponse
+     *
+     * @param CreatePostpaidInstanceRequest $request
+     *
+     * @return CreatePostpaidInstanceResponse
      */
     public function createPostpaidInstance($request)
     {
@@ -1239,43 +1457,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
-     *  *
-     * @param CreateSM2CertRequest $request CreateSM2CertRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
      *
-     * @return CreateSM2CertResponse CreateSM2CertResponse
+     * @param request - CreateSM2CertRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateSM2CertResponse
+     *
+     * @param CreateSM2CertRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateSM2CertResponse
      */
     public function createSM2CertWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certName)) {
-            $query['CertName'] = $request->certName;
+        if (null !== $request->certName) {
+            @$query['CertName'] = $request->certName;
         }
-        if (!Utils::isUnset($request->encryptCertificate)) {
-            $query['EncryptCertificate'] = $request->encryptCertificate;
+
+        if (null !== $request->encryptCertificate) {
+            @$query['EncryptCertificate'] = $request->encryptCertificate;
         }
-        if (!Utils::isUnset($request->encryptPrivateKey)) {
-            $query['EncryptPrivateKey'] = $request->encryptPrivateKey;
+
+        if (null !== $request->encryptPrivateKey) {
+            @$query['EncryptPrivateKey'] = $request->encryptPrivateKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->signCertificate)) {
-            $query['SignCertificate'] = $request->signCertificate;
+
+        if (null !== $request->signCertificate) {
+            @$query['SignCertificate'] = $request->signCertificate;
         }
-        if (!Utils::isUnset($request->signPrivateKey)) {
-            $query['SignPrivateKey'] = $request->signPrivateKey;
+
+        if (null !== $request->signPrivateKey) {
+            @$query['SignPrivateKey'] = $request->signPrivateKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateSM2Cert',
@@ -1288,16 +1518,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateSM2CertResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateSM2CertResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSM2CertResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
-     *  *
-     * @param CreateSM2CertRequest $request CreateSM2CertRequest
+     * Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
      *
-     * @return CreateSM2CertResponse CreateSM2CertResponse
+     * @param request - CreateSM2CertRequest
+     * @returns CreateSM2CertResponse
+     *
+     * @param CreateSM2CertRequest $request
+     *
+     * @return CreateSM2CertResponse
      */
     public function createSM2Cert($request)
     {
@@ -1307,34 +1543,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes multiple risks detected by the API security module at a time.
-     *  *
-     * @param DeleteApisecAbnormalsRequest $request DeleteApisecAbnormalsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes multiple risks detected by the API security module at a time.
      *
-     * @return DeleteApisecAbnormalsResponse DeleteApisecAbnormalsResponse
+     * @param request - DeleteApisecAbnormalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteApisecAbnormalsResponse
+     *
+     * @param DeleteApisecAbnormalsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteApisecAbnormalsResponse
      */
     public function deleteApisecAbnormalsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->abnormalIds)) {
-            $query['AbnormalIds'] = $request->abnormalIds;
+        if (null !== $request->abnormalIds) {
+            @$query['AbnormalIds'] = $request->abnormalIds;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApisecAbnormals',
@@ -1347,16 +1592,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteApisecAbnormalsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes multiple risks detected by the API security module at a time.
-     *  *
-     * @param DeleteApisecAbnormalsRequest $request DeleteApisecAbnormalsRequest
+     * Deletes multiple risks detected by the API security module at a time.
      *
-     * @return DeleteApisecAbnormalsResponse DeleteApisecAbnormalsResponse
+     * @param request - DeleteApisecAbnormalsRequest
+     * @returns DeleteApisecAbnormalsResponse
+     *
+     * @param DeleteApisecAbnormalsRequest $request
+     *
+     * @return DeleteApisecAbnormalsResponse
      */
     public function deleteApisecAbnormals($request)
     {
@@ -1366,34 +1617,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes multiple security events detected by the API security module at a time.
-     *  *
-     * @param DeleteApisecEventsRequest $request DeleteApisecEventsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Deletes multiple security events detected by the API security module at a time.
      *
-     * @return DeleteApisecEventsResponse DeleteApisecEventsResponse
+     * @param request - DeleteApisecEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteApisecEventsResponse
+     *
+     * @param DeleteApisecEventsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteApisecEventsResponse
      */
     public function deleteApisecEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->eventIds)) {
-            $query['EventIds'] = $request->eventIds;
+
+        if (null !== $request->eventIds) {
+            @$query['EventIds'] = $request->eventIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteApisecEvents',
@@ -1406,16 +1666,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteApisecEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes multiple security events detected by the API security module at a time.
-     *  *
-     * @param DeleteApisecEventsRequest $request DeleteApisecEventsRequest
+     * Deletes multiple security events detected by the API security module at a time.
      *
-     * @return DeleteApisecEventsResponse DeleteApisecEventsResponse
+     * @param request - DeleteApisecEventsRequest
+     * @returns DeleteApisecEventsResponse
+     *
+     * @param DeleteApisecEventsRequest $request
+     *
+     * @return DeleteApisecEventsResponse
      */
     public function deleteApisecEvents($request)
     {
@@ -1425,37 +1691,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
-     *  *
-     * @param DeleteCloudResourceRequest $request DeleteCloudResourceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *
-     * @return DeleteCloudResourceResponse DeleteCloudResourceResponse
+     * @param request - DeleteCloudResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCloudResourceResponse
+     *
+     * @param DeleteCloudResourceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteCloudResourceResponse
      */
     public function deleteCloudResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceInstanceId)) {
-            $query['ResourceInstanceId'] = $request->resourceInstanceId;
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceProduct)) {
-            $query['ResourceProduct'] = $request->resourceProduct;
+
+        if (null !== $request->resourceProduct) {
+            @$query['ResourceProduct'] = $request->resourceProduct;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCloudResource',
@@ -1468,16 +1744,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCloudResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
-     *  *
-     * @param DeleteCloudResourceRequest $request DeleteCloudResourceRequest
+     * Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *
-     * @return DeleteCloudResourceResponse DeleteCloudResourceResponse
+     * @param request - DeleteCloudResourceRequest
+     * @returns DeleteCloudResourceResponse
+     *
+     * @param DeleteCloudResourceRequest $request
+     *
+     * @return DeleteCloudResourceResponse
      */
     public function deleteCloudResource($request)
     {
@@ -1487,31 +1769,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a protected object group.
-     *  *
-     * @param DeleteDefenseResourceGroupRequest $request DeleteDefenseResourceGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes a protected object group.
      *
-     * @return DeleteDefenseResourceGroupResponse DeleteDefenseResourceGroupResponse
+     * @param request - DeleteDefenseResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDefenseResourceGroupResponse
+     *
+     * @param DeleteDefenseResourceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteDefenseResourceGroupResponse
      */
     public function deleteDefenseResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDefenseResourceGroup',
@@ -1524,16 +1814,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDefenseResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a protected object group.
-     *  *
-     * @param DeleteDefenseResourceGroupRequest $request DeleteDefenseResourceGroupRequest
+     * Deletes a protected object group.
      *
-     * @return DeleteDefenseResourceGroupResponse DeleteDefenseResourceGroupResponse
+     * @param request - DeleteDefenseResourceGroupRequest
+     * @returns DeleteDefenseResourceGroupResponse
+     *
+     * @param DeleteDefenseResourceGroupRequest $request
+     *
+     * @return DeleteDefenseResourceGroupResponse
      */
     public function deleteDefenseResourceGroup($request)
     {
@@ -1543,34 +1839,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a protection rule.
-     *  *
-     * @param DeleteDefenseRuleRequest $request DeleteDefenseRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Deletes a protection rule.
      *
-     * @return DeleteDefenseRuleResponse DeleteDefenseRuleResponse
+     * @param request - DeleteDefenseRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDefenseRuleResponse
+     *
+     * @param DeleteDefenseRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteDefenseRuleResponse
      */
     public function deleteDefenseRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleIds)) {
-            $query['RuleIds'] = $request->ruleIds;
+
+        if (null !== $request->ruleIds) {
+            @$query['RuleIds'] = $request->ruleIds;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDefenseRule',
@@ -1583,16 +1888,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDefenseRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a protection rule.
-     *  *
-     * @param DeleteDefenseRuleRequest $request DeleteDefenseRuleRequest
+     * Deletes a protection rule.
      *
-     * @return DeleteDefenseRuleResponse DeleteDefenseRuleResponse
+     * @param request - DeleteDefenseRuleRequest
+     * @returns DeleteDefenseRuleResponse
+     *
+     * @param DeleteDefenseRuleRequest $request
+     *
+     * @return DeleteDefenseRuleResponse
      */
     public function deleteDefenseRule($request)
     {
@@ -1602,31 +1913,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a protection rule template.
-     *  *
-     * @param DeleteDefenseTemplateRequest $request DeleteDefenseTemplateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a protection rule template.
      *
-     * @return DeleteDefenseTemplateResponse DeleteDefenseTemplateResponse
+     * @param request - DeleteDefenseTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDefenseTemplateResponse
+     *
+     * @param DeleteDefenseTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDefenseTemplateResponse
      */
     public function deleteDefenseTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDefenseTemplate',
@@ -1639,16 +1958,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a protection rule template.
-     *  *
-     * @param DeleteDefenseTemplateRequest $request DeleteDefenseTemplateRequest
+     * Deletes a protection rule template.
      *
-     * @return DeleteDefenseTemplateResponse DeleteDefenseTemplateResponse
+     * @param request - DeleteDefenseTemplateRequest
+     * @returns DeleteDefenseTemplateResponse
+     *
+     * @param DeleteDefenseTemplateRequest $request
+     *
+     * @return DeleteDefenseTemplateResponse
      */
     public function deleteDefenseTemplate($request)
     {
@@ -1658,34 +1983,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a domain name that is added to Web Application Firewall (WAF).
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Deletes a domain name that is added to Web Application Firewall (WAF).
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param request - DeleteDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accessType)) {
-            $query['AccessType'] = $request->accessType;
+        if (null !== $request->accessType) {
+            @$query['AccessType'] = $request->accessType;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->domainId)) {
-            $query['DomainId'] = $request->domainId;
+
+        if (null !== $request->domainId) {
+            @$query['DomainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDomain',
@@ -1698,16 +2032,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a domain name that is added to Web Application Firewall (WAF).
-     *  *
-     * @param DeleteDomainRequest $request DeleteDomainRequest
+     * Deletes a domain name that is added to Web Application Firewall (WAF).
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param request - DeleteDomainRequest
+     * @returns DeleteDomainResponse
+     *
+     * @param DeleteDomainRequest $request
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomain($request)
     {
@@ -1717,37 +2057,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an IP address blacklist for major event protection.
-     *  *
-     * @param DeleteMajorProtectionBlackIpRequest $request DeleteMajorProtectionBlackIpRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Deletes an IP address blacklist for major event protection.
      *
-     * @return DeleteMajorProtectionBlackIpResponse DeleteMajorProtectionBlackIpResponse
+     * @param request - DeleteMajorProtectionBlackIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMajorProtectionBlackIpResponse
+     *
+     * @param DeleteMajorProtectionBlackIpRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteMajorProtectionBlackIpResponse
      */
     public function deleteMajorProtectionBlackIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ipList)) {
-            $query['IpList'] = $request->ipList;
+
+        if (null !== $request->ipList) {
+            @$query['IpList'] = $request->ipList;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteMajorProtectionBlackIp',
@@ -1760,16 +2110,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMajorProtectionBlackIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes an IP address blacklist for major event protection.
-     *  *
-     * @param DeleteMajorProtectionBlackIpRequest $request DeleteMajorProtectionBlackIpRequest
+     * Deletes an IP address blacklist for major event protection.
      *
-     * @return DeleteMajorProtectionBlackIpResponse DeleteMajorProtectionBlackIpResponse
+     * @param request - DeleteMajorProtectionBlackIpRequest
+     * @returns DeleteMajorProtectionBlackIpResponse
+     *
+     * @param DeleteMajorProtectionBlackIpRequest $request
+     *
+     * @return DeleteMajorProtectionBlackIpResponse
      */
     public function deleteMajorProtectionBlackIp($request)
     {
@@ -1779,34 +2135,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Removes the members that are added for multi-account management in Web Application Firewall (WAF).
-     *  *
-     * @param DeleteMemberAccountRequest $request DeleteMemberAccountRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Removes the members that are added for multi-account management in Web Application Firewall (WAF).
      *
-     * @return DeleteMemberAccountResponse DeleteMemberAccountResponse
+     * @param request - DeleteMemberAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteMemberAccountResponse
+     *
+     * @param DeleteMemberAccountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteMemberAccountResponse
      */
     public function deleteMemberAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->memberAccountId)) {
-            $query['MemberAccountId'] = $request->memberAccountId;
+
+        if (null !== $request->memberAccountId) {
+            @$query['MemberAccountId'] = $request->memberAccountId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteMemberAccount',
@@ -1819,16 +2184,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMemberAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes the members that are added for multi-account management in Web Application Firewall (WAF).
-     *  *
-     * @param DeleteMemberAccountRequest $request DeleteMemberAccountRequest
+     * Removes the members that are added for multi-account management in Web Application Firewall (WAF).
      *
-     * @return DeleteMemberAccountResponse DeleteMemberAccountResponse
+     * @param request - DeleteMemberAccountRequest
+     * @returns DeleteMemberAccountResponse
+     *
+     * @param DeleteMemberAccountRequest $request
+     *
+     * @return DeleteMemberAccountResponse
      */
     public function deleteMemberAccount($request)
     {
@@ -1838,28 +2209,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
-     *  *
-     * @param DescribeAccountDelegatedStatusRequest $request DescribeAccountDelegatedStatusRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
      *
-     * @return DescribeAccountDelegatedStatusResponse DescribeAccountDelegatedStatusResponse
+     * @param request - DescribeAccountDelegatedStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAccountDelegatedStatusResponse
+     *
+     * @param DescribeAccountDelegatedStatusRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeAccountDelegatedStatusResponse
      */
     public function describeAccountDelegatedStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeAccountDelegatedStatus',
@@ -1872,16 +2250,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeAccountDelegatedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAccountDelegatedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAccountDelegatedStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
-     *  *
-     * @param DescribeAccountDelegatedStatusRequest $request DescribeAccountDelegatedStatusRequest
+     * Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
      *
-     * @return DescribeAccountDelegatedStatusResponse DescribeAccountDelegatedStatusResponse
+     * @param request - DescribeAccountDelegatedStatusRequest
+     * @returns DescribeAccountDelegatedStatusResponse
+     *
+     * @param DescribeAccountDelegatedStatusRequest $request
+     *
+     * @return DescribeAccountDelegatedStatusResponse
      */
     public function describeAccountDelegatedStatus($request)
     {
@@ -1891,37 +2275,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of data export tasks in the API security module.
-     *  *
-     * @param DescribeApiExportsRequest $request DescribeApiExportsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the list of data export tasks in the API security module.
      *
-     * @return DescribeApiExportsResponse DescribeApiExportsResponse
+     * @param request - DescribeApiExportsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApiExportsResponse
+     *
+     * @param DescribeApiExportsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeApiExportsResponse
      */
     public function describeApiExportsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApiExports',
@@ -1934,16 +2328,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApiExportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApiExportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApiExportsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of data export tasks in the API security module.
-     *  *
-     * @param DescribeApiExportsRequest $request DescribeApiExportsRequest
+     * Queries the list of data export tasks in the API security module.
      *
-     * @return DescribeApiExportsResponse DescribeApiExportsResponse
+     * @param request - DescribeApiExportsRequest
+     * @returns DescribeApiExportsResponse
+     *
+     * @param DescribeApiExportsRequest $request
+     *
+     * @return DescribeApiExportsResponse
      */
     public function describeApiExports($request)
     {
@@ -1953,46 +2353,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on domain names on which risks are detected by the API security module.
-     *  *
-     * @param DescribeApisecAbnormalDomainStatisticRequest $request DescribeApisecAbnormalDomainStatisticRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on domain names on which risks are detected by the API security module.
      *
-     * @return DescribeApisecAbnormalDomainStatisticResponse DescribeApisecAbnormalDomainStatisticResponse
+     * @param request - DescribeApisecAbnormalDomainStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecAbnormalDomainStatisticResponse
+     *
+     * @param DescribeApisecAbnormalDomainStatisticRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeApisecAbnormalDomainStatisticResponse
      */
     public function describeApisecAbnormalDomainStatisticWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderWay)) {
-            $query['OrderWay'] = $request->orderWay;
+
+        if (null !== $request->orderWay) {
+            @$query['OrderWay'] = $request->orderWay;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecAbnormalDomainStatistic',
@@ -2005,16 +2418,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecAbnormalDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecAbnormalDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecAbnormalDomainStatisticResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on domain names on which risks are detected by the API security module.
-     *  *
-     * @param DescribeApisecAbnormalDomainStatisticRequest $request DescribeApisecAbnormalDomainStatisticRequest
+     * Queries the statistics on domain names on which risks are detected by the API security module.
      *
-     * @return DescribeApisecAbnormalDomainStatisticResponse DescribeApisecAbnormalDomainStatisticResponse
+     * @param request - DescribeApisecAbnormalDomainStatisticRequest
+     * @returns DescribeApisecAbnormalDomainStatisticResponse
+     *
+     * @param DescribeApisecAbnormalDomainStatisticRequest $request
+     *
+     * @return DescribeApisecAbnormalDomainStatisticResponse
      */
     public function describeApisecAbnormalDomainStatistic($request)
     {
@@ -2024,76 +2443,99 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of API security risks.
-     *  *
-     * @param DescribeApisecAbnormalsRequest $request DescribeApisecAbnormalsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the list of API security risks.
      *
-     * @return DescribeApisecAbnormalsResponse DescribeApisecAbnormalsResponse
+     * @param request - DescribeApisecAbnormalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecAbnormalsResponse
+     *
+     * @param DescribeApisecAbnormalsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeApisecAbnormalsResponse
      */
     public function describeApisecAbnormalsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->abnormalId)) {
-            $query['AbnormalId'] = $request->abnormalId;
+        if (null !== $request->abnormalId) {
+            @$query['AbnormalId'] = $request->abnormalId;
         }
-        if (!Utils::isUnset($request->abnormalLevel)) {
-            $query['AbnormalLevel'] = $request->abnormalLevel;
+
+        if (null !== $request->abnormalLevel) {
+            @$query['AbnormalLevel'] = $request->abnormalLevel;
         }
-        if (!Utils::isUnset($request->abnormalTag)) {
-            $query['AbnormalTag'] = $request->abnormalTag;
+
+        if (null !== $request->abnormalTag) {
+            @$query['AbnormalTag'] = $request->abnormalTag;
         }
-        if (!Utils::isUnset($request->apiFormat)) {
-            $query['ApiFormat'] = $request->apiFormat;
+
+        if (null !== $request->apiFormat) {
+            @$query['ApiFormat'] = $request->apiFormat;
         }
-        if (!Utils::isUnset($request->apiId)) {
-            $query['ApiId'] = $request->apiId;
+
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->apiTag)) {
-            $query['ApiTag'] = $request->apiTag;
+
+        if (null !== $request->apiTag) {
+            @$query['ApiTag'] = $request->apiTag;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->matchedHost)) {
-            $query['MatchedHost'] = $request->matchedHost;
+
+        if (null !== $request->matchedHost) {
+            @$query['MatchedHost'] = $request->matchedHost;
         }
-        if (!Utils::isUnset($request->orderKey)) {
-            $query['OrderKey'] = $request->orderKey;
+
+        if (null !== $request->orderKey) {
+            @$query['OrderKey'] = $request->orderKey;
         }
-        if (!Utils::isUnset($request->orderWay)) {
-            $query['OrderWay'] = $request->orderWay;
+
+        if (null !== $request->orderWay) {
+            @$query['OrderWay'] = $request->orderWay;
         }
-        if (!Utils::isUnset($request->origin)) {
-            $query['Origin'] = $request->origin;
+
+        if (null !== $request->origin) {
+            @$query['Origin'] = $request->origin;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->userStatus)) {
-            $query['UserStatus'] = $request->userStatus;
+
+        if (null !== $request->userStatus) {
+            @$query['UserStatus'] = $request->userStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecAbnormals',
@@ -2106,16 +2548,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecAbnormalsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of API security risks.
-     *  *
-     * @param DescribeApisecAbnormalsRequest $request DescribeApisecAbnormalsRequest
+     * Queries the list of API security risks.
      *
-     * @return DescribeApisecAbnormalsResponse DescribeApisecAbnormalsResponse
+     * @param request - DescribeApisecAbnormalsRequest
+     * @returns DescribeApisecAbnormalsResponse
+     *
+     * @param DescribeApisecAbnormalsRequest $request
+     *
+     * @return DescribeApisecAbnormalsResponse
      */
     public function describeApisecAbnormals($request)
     {
@@ -2125,88 +2573,115 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries API assets in the API security module.
-     *  *
-     * @param DescribeApisecApiResourcesRequest $request DescribeApisecApiResourcesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries API assets in the API security module.
      *
-     * @return DescribeApisecApiResourcesResponse DescribeApisecApiResourcesResponse
+     * @param request - DescribeApisecApiResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecApiResourcesResponse
+     *
+     * @param DescribeApisecApiResourcesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeApisecApiResourcesResponse
      */
     public function describeApisecApiResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiFormat)) {
-            $query['ApiFormat'] = $request->apiFormat;
+        if (null !== $request->apiFormat) {
+            @$query['ApiFormat'] = $request->apiFormat;
         }
-        if (!Utils::isUnset($request->apiId)) {
-            $query['ApiId'] = $request->apiId;
+
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->apiMethod)) {
-            $query['ApiMethod'] = $request->apiMethod;
+
+        if (null !== $request->apiMethod) {
+            @$query['ApiMethod'] = $request->apiMethod;
         }
-        if (!Utils::isUnset($request->apiStatus)) {
-            $query['ApiStatus'] = $request->apiStatus;
+
+        if (null !== $request->apiStatus) {
+            @$query['ApiStatus'] = $request->apiStatus;
         }
-        if (!Utils::isUnset($request->apiTag)) {
-            $query['ApiTag'] = $request->apiTag;
+
+        if (null !== $request->apiTag) {
+            @$query['ApiTag'] = $request->apiTag;
         }
-        if (!Utils::isUnset($request->apiType)) {
-            $query['ApiType'] = $request->apiType;
+
+        if (null !== $request->apiType) {
+            @$query['ApiType'] = $request->apiType;
         }
-        if (!Utils::isUnset($request->authFlag)) {
-            $query['AuthFlag'] = $request->authFlag;
+
+        if (null !== $request->authFlag) {
+            @$query['AuthFlag'] = $request->authFlag;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->follow)) {
-            $query['Follow'] = $request->follow;
+
+        if (null !== $request->follow) {
+            @$query['Follow'] = $request->follow;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->matchedHost)) {
-            $query['MatchedHost'] = $request->matchedHost;
+
+        if (null !== $request->matchedHost) {
+            @$query['MatchedHost'] = $request->matchedHost;
         }
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
-        if (!Utils::isUnset($request->orderKey)) {
-            $query['OrderKey'] = $request->orderKey;
+
+        if (null !== $request->orderKey) {
+            @$query['OrderKey'] = $request->orderKey;
         }
-        if (!Utils::isUnset($request->orderWay)) {
-            $query['OrderWay'] = $request->orderWay;
+
+        if (null !== $request->orderWay) {
+            @$query['OrderWay'] = $request->orderWay;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->requestSensitiveType)) {
-            $query['RequestSensitiveType'] = $request->requestSensitiveType;
+
+        if (null !== $request->requestSensitiveType) {
+            @$query['RequestSensitiveType'] = $request->requestSensitiveType;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sensitiveLevel)) {
-            $query['SensitiveLevel'] = $request->sensitiveLevel;
+
+        if (null !== $request->sensitiveLevel) {
+            @$query['SensitiveLevel'] = $request->sensitiveLevel;
         }
-        if (!Utils::isUnset($request->sensitiveType)) {
-            $query['SensitiveType'] = $request->sensitiveType;
+
+        if (null !== $request->sensitiveType) {
+            @$query['SensitiveType'] = $request->sensitiveType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecApiResources',
@@ -2219,16 +2694,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecApiResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecApiResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecApiResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries API assets in the API security module.
-     *  *
-     * @param DescribeApisecApiResourcesRequest $request DescribeApisecApiResourcesRequest
+     * Queries API assets in the API security module.
      *
-     * @return DescribeApisecApiResourcesResponse DescribeApisecApiResourcesResponse
+     * @param request - DescribeApisecApiResourcesRequest
+     * @returns DescribeApisecApiResourcesResponse
+     *
+     * @param DescribeApisecApiResourcesRequest $request
+     *
+     * @return DescribeApisecApiResourcesResponse
      */
     public function describeApisecApiResources($request)
     {
@@ -2238,37 +2719,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the asset trends in the API security module.
-     *  *
-     * @param DescribeApisecAssetTrendRequest $request DescribeApisecAssetTrendRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the asset trends in the API security module.
      *
-     * @return DescribeApisecAssetTrendResponse DescribeApisecAssetTrendResponse
+     * @param request - DescribeApisecAssetTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecAssetTrendResponse
+     *
+     * @param DescribeApisecAssetTrendRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeApisecAssetTrendResponse
      */
     public function describeApisecAssetTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecAssetTrend',
@@ -2281,16 +2772,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecAssetTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecAssetTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecAssetTrendResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the asset trends in the API security module.
-     *  *
-     * @param DescribeApisecAssetTrendRequest $request DescribeApisecAssetTrendRequest
+     * Queries the asset trends in the API security module.
      *
-     * @return DescribeApisecAssetTrendResponse DescribeApisecAssetTrendResponse
+     * @param request - DescribeApisecAssetTrendRequest
+     * @returns DescribeApisecAssetTrendResponse
+     *
+     * @param DescribeApisecAssetTrendRequest $request
+     *
+     * @return DescribeApisecAssetTrendResponse
      */
     public function describeApisecAssetTrend($request)
     {
@@ -2300,46 +2797,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on domain names on which security events are detected by the API security module.
-     *  *
-     * @param DescribeApisecEventDomainStatisticRequest $request DescribeApisecEventDomainStatisticRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on domain names on which security events are detected by the API security module.
      *
-     * @return DescribeApisecEventDomainStatisticResponse DescribeApisecEventDomainStatisticResponse
+     * @param request - DescribeApisecEventDomainStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecEventDomainStatisticResponse
+     *
+     * @param DescribeApisecEventDomainStatisticRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeApisecEventDomainStatisticResponse
      */
     public function describeApisecEventDomainStatisticWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderWay)) {
-            $query['OrderWay'] = $request->orderWay;
+
+        if (null !== $request->orderWay) {
+            @$query['OrderWay'] = $request->orderWay;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecEventDomainStatistic',
@@ -2352,16 +2862,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecEventDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecEventDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecEventDomainStatisticResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on domain names on which security events are detected by the API security module.
-     *  *
-     * @param DescribeApisecEventDomainStatisticRequest $request DescribeApisecEventDomainStatisticRequest
+     * Queries the statistics on domain names on which security events are detected by the API security module.
      *
-     * @return DescribeApisecEventDomainStatisticResponse DescribeApisecEventDomainStatisticResponse
+     * @param request - DescribeApisecEventDomainStatisticRequest
+     * @returns DescribeApisecEventDomainStatisticResponse
+     *
+     * @param DescribeApisecEventDomainStatisticRequest $request
+     *
+     * @return DescribeApisecEventDomainStatisticResponse
      */
     public function describeApisecEventDomainStatistic($request)
     {
@@ -2371,79 +2887,103 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries API security events.
-     *  *
-     * @param DescribeApisecEventsRequest $request DescribeApisecEventsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries API security events.
      *
-     * @return DescribeApisecEventsResponse DescribeApisecEventsResponse
+     * @param request - DescribeApisecEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecEventsResponse
+     *
+     * @param DescribeApisecEventsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeApisecEventsResponse
      */
     public function describeApisecEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiFormat)) {
-            $query['ApiFormat'] = $request->apiFormat;
+        if (null !== $request->apiFormat) {
+            @$query['ApiFormat'] = $request->apiFormat;
         }
-        if (!Utils::isUnset($request->apiId)) {
-            $query['ApiId'] = $request->apiId;
+
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->apiTag)) {
-            $query['ApiTag'] = $request->apiTag;
+
+        if (null !== $request->apiTag) {
+            @$query['ApiTag'] = $request->apiTag;
         }
-        if (!Utils::isUnset($request->attackIp)) {
-            $query['AttackIp'] = $request->attackIp;
+
+        if (null !== $request->attackIp) {
+            @$query['AttackIp'] = $request->attackIp;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTs)) {
-            $query['EndTs'] = $request->endTs;
+
+        if (null !== $request->endTs) {
+            @$query['EndTs'] = $request->endTs;
         }
-        if (!Utils::isUnset($request->eventId)) {
-            $query['EventId'] = $request->eventId;
+
+        if (null !== $request->eventId) {
+            @$query['EventId'] = $request->eventId;
         }
-        if (!Utils::isUnset($request->eventLevel)) {
-            $query['EventLevel'] = $request->eventLevel;
+
+        if (null !== $request->eventLevel) {
+            @$query['EventLevel'] = $request->eventLevel;
         }
-        if (!Utils::isUnset($request->eventTag)) {
-            $query['EventTag'] = $request->eventTag;
+
+        if (null !== $request->eventTag) {
+            @$query['EventTag'] = $request->eventTag;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->matchedHost)) {
-            $query['MatchedHost'] = $request->matchedHost;
+
+        if (null !== $request->matchedHost) {
+            @$query['MatchedHost'] = $request->matchedHost;
         }
-        if (!Utils::isUnset($request->orderKey)) {
-            $query['OrderKey'] = $request->orderKey;
+
+        if (null !== $request->orderKey) {
+            @$query['OrderKey'] = $request->orderKey;
         }
-        if (!Utils::isUnset($request->orderWay)) {
-            $query['OrderWay'] = $request->orderWay;
+
+        if (null !== $request->orderWay) {
+            @$query['OrderWay'] = $request->orderWay;
         }
-        if (!Utils::isUnset($request->origin)) {
-            $query['Origin'] = $request->origin;
+
+        if (null !== $request->origin) {
+            @$query['Origin'] = $request->origin;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTs)) {
-            $query['StartTs'] = $request->startTs;
+
+        if (null !== $request->startTs) {
+            @$query['StartTs'] = $request->startTs;
         }
-        if (!Utils::isUnset($request->userStatus)) {
-            $query['UserStatus'] = $request->userStatus;
+
+        if (null !== $request->userStatus) {
+            @$query['UserStatus'] = $request->userStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecEvents',
@@ -2456,16 +2996,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries API security events.
-     *  *
-     * @param DescribeApisecEventsRequest $request DescribeApisecEventsRequest
+     * Queries API security events.
      *
-     * @return DescribeApisecEventsResponse DescribeApisecEventsResponse
+     * @param request - DescribeApisecEventsRequest
+     * @returns DescribeApisecEventsResponse
+     *
+     * @param DescribeApisecEventsRequest $request
+     *
+     * @return DescribeApisecEventsResponse
      */
     public function describeApisecEvents($request)
     {
@@ -2475,28 +3021,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of API security log subscription.
-     *  *
-     * @param DescribeApisecLogDeliveriesRequest $request DescribeApisecLogDeliveriesRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the configurations of API security log subscription.
      *
-     * @return DescribeApisecLogDeliveriesResponse DescribeApisecLogDeliveriesResponse
+     * @param request - DescribeApisecLogDeliveriesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecLogDeliveriesResponse
+     *
+     * @param DescribeApisecLogDeliveriesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeApisecLogDeliveriesResponse
      */
     public function describeApisecLogDeliveriesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecLogDeliveries',
@@ -2509,16 +3062,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecLogDeliveriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecLogDeliveriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecLogDeliveriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the configurations of API security log subscription.
-     *  *
-     * @param DescribeApisecLogDeliveriesRequest $request DescribeApisecLogDeliveriesRequest
+     * Queries the configurations of API security log subscription.
      *
-     * @return DescribeApisecLogDeliveriesResponse DescribeApisecLogDeliveriesResponse
+     * @param request - DescribeApisecLogDeliveriesRequest
+     * @returns DescribeApisecLogDeliveriesResponse
+     *
+     * @param DescribeApisecLogDeliveriesRequest $request
+     *
+     * @return DescribeApisecLogDeliveriesResponse
      */
     public function describeApisecLogDeliveries($request)
     {
@@ -2528,43 +3087,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of domain names detected in the API security module.
-     *  *
-     * @param DescribeApisecMatchedHostsRequest $request DescribeApisecMatchedHostsRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the list of domain names detected in the API security module.
      *
-     * @return DescribeApisecMatchedHostsResponse DescribeApisecMatchedHostsResponse
+     * @param request - DescribeApisecMatchedHostsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecMatchedHostsResponse
+     *
+     * @param DescribeApisecMatchedHostsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeApisecMatchedHostsResponse
      */
     public function describeApisecMatchedHostsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->matchedHost)) {
-            $query['MatchedHost'] = $request->matchedHost;
+
+        if (null !== $request->matchedHost) {
+            @$query['MatchedHost'] = $request->matchedHost;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecMatchedHosts',
@@ -2577,16 +3148,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecMatchedHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecMatchedHostsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecMatchedHostsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of domain names detected in the API security module.
-     *  *
-     * @param DescribeApisecMatchedHostsRequest $request DescribeApisecMatchedHostsRequest
+     * Queries the list of domain names detected in the API security module.
      *
-     * @return DescribeApisecMatchedHostsResponse DescribeApisecMatchedHostsResponse
+     * @param request - DescribeApisecMatchedHostsRequest
+     * @returns DescribeApisecMatchedHostsResponse
+     *
+     * @param DescribeApisecMatchedHostsRequest $request
+     *
+     * @return DescribeApisecMatchedHostsResponse
      */
     public function describeApisecMatchedHosts($request)
     {
@@ -2596,40 +3173,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of protected object groups to which API security policies are applied.
-     *  *
-     * @param DescribeApisecProtectionGroupsRequest $request DescribeApisecProtectionGroupsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the list of protected object groups to which API security policies are applied.
      *
-     * @return DescribeApisecProtectionGroupsResponse DescribeApisecProtectionGroupsResponse
+     * @param request - DescribeApisecProtectionGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecProtectionGroupsResponse
+     *
+     * @param DescribeApisecProtectionGroupsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeApisecProtectionGroupsResponse
      */
     public function describeApisecProtectionGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apisecStatus)) {
-            $query['ApisecStatus'] = $request->apisecStatus;
+        if (null !== $request->apisecStatus) {
+            @$query['ApisecStatus'] = $request->apisecStatus;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroup)) {
-            $query['ResourceGroup'] = $request->resourceGroup;
+
+        if (null !== $request->resourceGroup) {
+            @$query['ResourceGroup'] = $request->resourceGroup;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecProtectionGroups',
@@ -2642,16 +3230,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecProtectionGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecProtectionGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecProtectionGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of protected object groups to which API security policies are applied.
-     *  *
-     * @param DescribeApisecProtectionGroupsRequest $request DescribeApisecProtectionGroupsRequest
+     * Queries the list of protected object groups to which API security policies are applied.
      *
-     * @return DescribeApisecProtectionGroupsResponse DescribeApisecProtectionGroupsResponse
+     * @param request - DescribeApisecProtectionGroupsRequest
+     * @returns DescribeApisecProtectionGroupsResponse
+     *
+     * @param DescribeApisecProtectionGroupsRequest $request
+     *
+     * @return DescribeApisecProtectionGroupsResponse
      */
     public function describeApisecProtectionGroups($request)
     {
@@ -2661,40 +3255,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of protected objects to which API security policies are applied.
-     *  *
-     * @param DescribeApisecProtectionResourcesRequest $request DescribeApisecProtectionResourcesRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the list of protected objects to which API security policies are applied.
      *
-     * @return DescribeApisecProtectionResourcesResponse DescribeApisecProtectionResourcesResponse
+     * @param request - DescribeApisecProtectionResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecProtectionResourcesResponse
+     *
+     * @param DescribeApisecProtectionResourcesRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeApisecProtectionResourcesResponse
      */
     public function describeApisecProtectionResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apisecStatus)) {
-            $query['ApisecStatus'] = $request->apisecStatus;
+        if (null !== $request->apisecStatus) {
+            @$query['ApisecStatus'] = $request->apisecStatus;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecProtectionResources',
@@ -2707,16 +3312,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecProtectionResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecProtectionResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecProtectionResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of protected objects to which API security policies are applied.
-     *  *
-     * @param DescribeApisecProtectionResourcesRequest $request DescribeApisecProtectionResourcesRequest
+     * Queries the list of protected objects to which API security policies are applied.
      *
-     * @return DescribeApisecProtectionResourcesResponse DescribeApisecProtectionResourcesResponse
+     * @param request - DescribeApisecProtectionResourcesRequest
+     * @returns DescribeApisecProtectionResourcesResponse
+     *
+     * @param DescribeApisecProtectionResourcesRequest $request
+     *
+     * @return DescribeApisecProtectionResourcesResponse
      */
     public function describeApisecProtectionResources($request)
     {
@@ -2726,49 +3337,63 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the policies configured in the API security module.
-     *  *
-     * @param DescribeApisecRulesRequest $request DescribeApisecRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the policies configured in the API security module.
      *
-     * @return DescribeApisecRulesResponse DescribeApisecRulesResponse
+     * @param request - DescribeApisecRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecRulesResponse
+     *
+     * @param DescribeApisecRulesRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeApisecRulesResponse
      */
     public function describeApisecRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->level)) {
-            $query['Level'] = $request->level;
+
+        if (null !== $request->level) {
+            @$query['Level'] = $request->level;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->origin)) {
-            $query['Origin'] = $request->origin;
+
+        if (null !== $request->origin) {
+            @$query['Origin'] = $request->origin;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecRules',
@@ -2781,16 +3406,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the policies configured in the API security module.
-     *  *
-     * @param DescribeApisecRulesRequest $request DescribeApisecRulesRequest
+     * Queries the policies configured in the API security module.
      *
-     * @return DescribeApisecRulesResponse DescribeApisecRulesResponse
+     * @param request - DescribeApisecRulesRequest
+     * @returns DescribeApisecRulesResponse
+     *
+     * @param DescribeApisecRulesRequest $request
+     *
+     * @return DescribeApisecRulesResponse
      */
     public function describeApisecRules($request)
     {
@@ -2800,49 +3431,63 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on domain names on which sensitive data is detected by the API security module.
-     *  *
-     * @param DescribeApisecSensitiveDomainStatisticRequest $request DescribeApisecSensitiveDomainStatisticRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics on domain names on which sensitive data is detected by the API security module.
      *
-     * @return DescribeApisecSensitiveDomainStatisticResponse DescribeApisecSensitiveDomainStatisticResponse
+     * @param request - DescribeApisecSensitiveDomainStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecSensitiveDomainStatisticResponse
+     *
+     * @param DescribeApisecSensitiveDomainStatisticRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return DescribeApisecSensitiveDomainStatisticResponse
      */
     public function describeApisecSensitiveDomainStatisticWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderWay)) {
-            $query['OrderWay'] = $request->orderWay;
+
+        if (null !== $request->orderWay) {
+            @$query['OrderWay'] = $request->orderWay;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecSensitiveDomainStatistic',
@@ -2855,16 +3500,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecSensitiveDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecSensitiveDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecSensitiveDomainStatisticResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics on domain names on which sensitive data is detected by the API security module.
-     *  *
-     * @param DescribeApisecSensitiveDomainStatisticRequest $request DescribeApisecSensitiveDomainStatisticRequest
+     * Queries the statistics on domain names on which sensitive data is detected by the API security module.
      *
-     * @return DescribeApisecSensitiveDomainStatisticResponse DescribeApisecSensitiveDomainStatisticResponse
+     * @param request - DescribeApisecSensitiveDomainStatisticRequest
+     * @returns DescribeApisecSensitiveDomainStatisticResponse
+     *
+     * @param DescribeApisecSensitiveDomainStatisticRequest $request
+     *
+     * @return DescribeApisecSensitiveDomainStatisticResponse
      */
     public function describeApisecSensitiveDomainStatistic($request)
     {
@@ -2874,34 +3525,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the Logstores whose names start with apisec- in Simple Log Service.
-     *  *
-     * @param DescribeApisecSlsLogStoresRequest $request DescribeApisecSlsLogStoresRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the Logstores whose names start with apisec- in Simple Log Service.
      *
-     * @return DescribeApisecSlsLogStoresResponse DescribeApisecSlsLogStoresResponse
+     * @param request - DescribeApisecSlsLogStoresRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecSlsLogStoresResponse
+     *
+     * @param DescribeApisecSlsLogStoresRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeApisecSlsLogStoresResponse
      */
     public function describeApisecSlsLogStoresWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->logRegionId)) {
-            $query['LogRegionId'] = $request->logRegionId;
+
+        if (null !== $request->logRegionId) {
+            @$query['LogRegionId'] = $request->logRegionId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecSlsLogStores',
@@ -2914,16 +3574,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecSlsLogStoresResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecSlsLogStoresResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecSlsLogStoresResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the Logstores whose names start with apisec- in Simple Log Service.
-     *  *
-     * @param DescribeApisecSlsLogStoresRequest $request DescribeApisecSlsLogStoresRequest
+     * Queries the Logstores whose names start with apisec- in Simple Log Service.
      *
-     * @return DescribeApisecSlsLogStoresResponse DescribeApisecSlsLogStoresResponse
+     * @param request - DescribeApisecSlsLogStoresRequest
+     * @returns DescribeApisecSlsLogStoresResponse
+     *
+     * @param DescribeApisecSlsLogStoresRequest $request
+     *
+     * @return DescribeApisecSlsLogStoresResponse
      */
     public function describeApisecSlsLogStores($request)
     {
@@ -2933,31 +3599,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the projects whose names start with apisec- in Simple Log Service.
-     *  *
-     * @param DescribeApisecSlsProjectsRequest $request DescribeApisecSlsProjectsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the projects whose names start with apisec- in Simple Log Service.
      *
-     * @return DescribeApisecSlsProjectsResponse DescribeApisecSlsProjectsResponse
+     * @param request - DescribeApisecSlsProjectsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecSlsProjectsResponse
+     *
+     * @param DescribeApisecSlsProjectsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeApisecSlsProjectsResponse
      */
     public function describeApisecSlsProjectsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->logRegionId)) {
-            $query['LogRegionId'] = $request->logRegionId;
+
+        if (null !== $request->logRegionId) {
+            @$query['LogRegionId'] = $request->logRegionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecSlsProjects',
@@ -2970,16 +3644,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecSlsProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecSlsProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecSlsProjectsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the projects whose names start with apisec- in Simple Log Service.
-     *  *
-     * @param DescribeApisecSlsProjectsRequest $request DescribeApisecSlsProjectsRequest
+     * Queries the projects whose names start with apisec- in Simple Log Service.
      *
-     * @return DescribeApisecSlsProjectsResponse DescribeApisecSlsProjectsResponse
+     * @param request - DescribeApisecSlsProjectsRequest
+     * @returns DescribeApisecSlsProjectsResponse
+     *
+     * @param DescribeApisecSlsProjectsRequest $request
+     *
+     * @return DescribeApisecSlsProjectsResponse
      */
     public function describeApisecSlsProjects($request)
     {
@@ -2989,34 +3669,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics of API security-related risks and events.
-     *  *
-     * @param DescribeApisecStatisticsRequest $request DescribeApisecStatisticsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics of API security-related risks and events.
      *
-     * @return DescribeApisecStatisticsResponse DescribeApisecStatisticsResponse
+     * @param request - DescribeApisecStatisticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecStatisticsResponse
+     *
+     * @param DescribeApisecStatisticsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeApisecStatisticsResponse
      */
     public function describeApisecStatisticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecStatistics',
@@ -3029,16 +3718,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecStatisticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics of API security-related risks and events.
-     *  *
-     * @param DescribeApisecStatisticsRequest $request DescribeApisecStatisticsRequest
+     * Queries the statistics of API security-related risks and events.
      *
-     * @return DescribeApisecStatisticsResponse DescribeApisecStatisticsResponse
+     * @param request - DescribeApisecStatisticsRequest
+     * @returns DescribeApisecStatisticsResponse
+     *
+     * @param DescribeApisecStatisticsRequest $request
+     *
+     * @return DescribeApisecStatisticsResponse
      */
     public function describeApisecStatistics($request)
     {
@@ -3048,34 +3743,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the protection suggestions for APIs.
-     *  *
-     * @param DescribeApisecSuggestionsRequest $request DescribeApisecSuggestionsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the protection suggestions for APIs.
      *
-     * @return DescribeApisecSuggestionsResponse DescribeApisecSuggestionsResponse
+     * @param request - DescribeApisecSuggestionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecSuggestionsResponse
+     *
+     * @param DescribeApisecSuggestionsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeApisecSuggestionsResponse
      */
     public function describeApisecSuggestionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiId)) {
-            $query['ApiId'] = $request->apiId;
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecSuggestions',
@@ -3088,16 +3792,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecSuggestionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecSuggestionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecSuggestionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the protection suggestions for APIs.
-     *  *
-     * @param DescribeApisecSuggestionsRequest $request DescribeApisecSuggestionsRequest
+     * Queries the protection suggestions for APIs.
      *
-     * @return DescribeApisecSuggestionsResponse DescribeApisecSuggestionsResponse
+     * @param request - DescribeApisecSuggestionsRequest
+     * @returns DescribeApisecSuggestionsResponse
+     *
+     * @param DescribeApisecSuggestionsRequest $request
+     *
+     * @return DescribeApisecSuggestionsResponse
      */
     public function describeApisecSuggestions($request)
     {
@@ -3107,37 +3817,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries user operation records in the API security module.
-     *  *
-     * @param DescribeApisecUserOperationsRequest $request DescribeApisecUserOperationsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries user operation records in the API security module.
      *
-     * @return DescribeApisecUserOperationsResponse DescribeApisecUserOperationsResponse
+     * @param request - DescribeApisecUserOperationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApisecUserOperationsResponse
+     *
+     * @param DescribeApisecUserOperationsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeApisecUserOperationsResponse
      */
     public function describeApisecUserOperationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->objectId)) {
-            $query['ObjectId'] = $request->objectId;
+
+        if (null !== $request->objectId) {
+            @$query['ObjectId'] = $request->objectId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeApisecUserOperations',
@@ -3150,16 +3870,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeApisecUserOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeApisecUserOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeApisecUserOperationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries user operation records in the API security module.
-     *  *
-     * @param DescribeApisecUserOperationsRequest $request DescribeApisecUserOperationsRequest
+     * Queries user operation records in the API security module.
      *
-     * @return DescribeApisecUserOperationsResponse DescribeApisecUserOperationsResponse
+     * @param request - DescribeApisecUserOperationsRequest
+     * @returns DescribeApisecUserOperationsResponse
+     *
+     * @param DescribeApisecUserOperationsRequest $request
+     *
+     * @return DescribeApisecUserOperationsResponse
      */
     public function describeApisecUserOperations($request)
     {
@@ -3169,31 +3895,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
-     *  *
-     * @param DescribeCertDetailRequest $request DescribeCertDetailRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
      *
-     * @return DescribeCertDetailResponse DescribeCertDetailResponse
+     * @param request - DescribeCertDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCertDetailResponse
+     *
+     * @param DescribeCertDetailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeCertDetailResponse
      */
     public function describeCertDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $query['CertIdentifier'] = $request->certIdentifier;
+        if (null !== $request->certIdentifier) {
+            @$query['CertIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCertDetail',
@@ -3206,16 +3940,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCertDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCertDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCertDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
-     *  *
-     * @param DescribeCertDetailRequest $request DescribeCertDetailRequest
+     * Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
      *
-     * @return DescribeCertDetailResponse DescribeCertDetailResponse
+     * @param request - DescribeCertDetailRequest
+     * @returns DescribeCertDetailResponse
+     *
+     * @param DescribeCertDetailRequest $request
+     *
+     * @return DescribeCertDetailResponse
      */
     public function describeCertDetail($request)
     {
@@ -3225,40 +3965,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeCertsRequest $request DescribeCertsRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeCertsResponse DescribeCertsResponse
+     * @param request - DescribeCertsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCertsResponse
+     *
+     * @param DescribeCertsRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DescribeCertsResponse
      */
     public function describeCertsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->algorithm)) {
-            $query['Algorithm'] = $request->algorithm;
+        if (null !== $request->algorithm) {
+            @$query['Algorithm'] = $request->algorithm;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCerts',
@@ -3271,16 +4022,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCertsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeCertsRequest $request DescribeCertsRequest
+     * Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeCertsResponse DescribeCertsResponse
+     * @param request - DescribeCertsRequest
+     * @returns DescribeCertsResponse
+     *
+     * @param DescribeCertsRequest $request
+     *
+     * @return DescribeCertsResponse
      */
     public function describeCerts($request)
     {
@@ -3290,46 +4047,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
-     *  *
-     * @param DescribeCloudResourceAccessPortDetailsRequest $request DescribeCloudResourceAccessPortDetailsRequest
-     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     * Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *
-     * @return DescribeCloudResourceAccessPortDetailsResponse DescribeCloudResourceAccessPortDetailsResponse
+     * @param request - DescribeCloudResourceAccessPortDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCloudResourceAccessPortDetailsResponse
+     *
+     * @param DescribeCloudResourceAccessPortDetailsRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return DescribeCloudResourceAccessPortDetailsResponse
      */
     public function describeCloudResourceAccessPortDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->port)) {
-            $query['Port'] = $request->port;
+
+        if (null !== $request->port) {
+            @$query['Port'] = $request->port;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $query['Protocol'] = $request->protocol;
+
+        if (null !== $request->protocol) {
+            @$query['Protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceInstanceId)) {
-            $query['ResourceInstanceId'] = $request->resourceInstanceId;
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceProduct)) {
-            $query['ResourceProduct'] = $request->resourceProduct;
+
+        if (null !== $request->resourceProduct) {
+            @$query['ResourceProduct'] = $request->resourceProduct;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCloudResourceAccessPortDetails',
@@ -3342,16 +4112,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCloudResourceAccessPortDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCloudResourceAccessPortDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCloudResourceAccessPortDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
-     *  *
-     * @param DescribeCloudResourceAccessPortDetailsRequest $request DescribeCloudResourceAccessPortDetailsRequest
+     * Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *
-     * @return DescribeCloudResourceAccessPortDetailsResponse DescribeCloudResourceAccessPortDetailsResponse
+     * @param request - DescribeCloudResourceAccessPortDetailsRequest
+     * @returns DescribeCloudResourceAccessPortDetailsResponse
+     *
+     * @param DescribeCloudResourceAccessPortDetailsRequest $request
+     *
+     * @return DescribeCloudResourceAccessPortDetailsResponse
      */
     public function describeCloudResourceAccessPortDetails($request)
     {
@@ -3361,31 +4137,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
-     *  *
-     * @param DescribeCloudResourceAccessedPortsRequest $request DescribeCloudResourceAccessedPortsRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *
-     * @return DescribeCloudResourceAccessedPortsResponse DescribeCloudResourceAccessedPortsResponse
+     * @param request - DescribeCloudResourceAccessedPortsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCloudResourceAccessedPortsResponse
+     *
+     * @param DescribeCloudResourceAccessedPortsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeCloudResourceAccessedPortsResponse
      */
     public function describeCloudResourceAccessedPortsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceInstanceId)) {
-            $query['ResourceInstanceId'] = $request->resourceInstanceId;
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCloudResourceAccessedPorts',
@@ -3398,16 +4182,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCloudResourceAccessedPortsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCloudResourceAccessedPortsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCloudResourceAccessedPortsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
-     *  *
-     * @param DescribeCloudResourceAccessedPortsRequest $request DescribeCloudResourceAccessedPortsRequest
+     * Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *
-     * @return DescribeCloudResourceAccessedPortsResponse DescribeCloudResourceAccessedPortsResponse
+     * @param request - DescribeCloudResourceAccessedPortsRequest
+     * @returns DescribeCloudResourceAccessedPortsResponse
+     *
+     * @param DescribeCloudResourceAccessedPortsRequest $request
+     *
+     * @return DescribeCloudResourceAccessedPortsResponse
      */
     public function describeCloudResourceAccessedPorts($request)
     {
@@ -3417,61 +4207,79 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeCloudResourcesRequest $request DescribeCloudResourcesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries cloud service resources that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeCloudResourcesResponse DescribeCloudResourcesResponse
+     * @param request - DescribeCloudResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCloudResourcesResponse
+     *
+     * @param DescribeCloudResourcesRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeCloudResourcesResponse
      */
     public function describeCloudResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ownerUserId)) {
-            $query['OwnerUserId'] = $request->ownerUserId;
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceDomain)) {
-            $query['ResourceDomain'] = $request->resourceDomain;
+
+        if (null !== $request->resourceDomain) {
+            @$query['ResourceDomain'] = $request->resourceDomain;
         }
-        if (!Utils::isUnset($request->resourceFunction)) {
-            $query['ResourceFunction'] = $request->resourceFunction;
+
+        if (null !== $request->resourceFunction) {
+            @$query['ResourceFunction'] = $request->resourceFunction;
         }
-        if (!Utils::isUnset($request->resourceInstanceId)) {
-            $query['ResourceInstanceId'] = $request->resourceInstanceId;
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
-        if (!Utils::isUnset($request->resourceInstanceName)) {
-            $query['ResourceInstanceName'] = $request->resourceInstanceName;
+
+        if (null !== $request->resourceInstanceName) {
+            @$query['ResourceInstanceName'] = $request->resourceInstanceName;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $query['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceProduct)) {
-            $query['ResourceProduct'] = $request->resourceProduct;
+
+        if (null !== $request->resourceProduct) {
+            @$query['ResourceProduct'] = $request->resourceProduct;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
-        if (!Utils::isUnset($request->resourceRouteName)) {
-            $query['ResourceRouteName'] = $request->resourceRouteName;
+
+        if (null !== $request->resourceRouteName) {
+            @$query['ResourceRouteName'] = $request->resourceRouteName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCloudResources',
@@ -3484,16 +4292,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCloudResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries cloud service resources that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeCloudResourcesRequest $request DescribeCloudResourcesRequest
+     * Queries cloud service resources that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeCloudResourcesResponse DescribeCloudResourcesResponse
+     * @param request - DescribeCloudResourcesRequest
+     * @returns DescribeCloudResourcesResponse
+     *
+     * @param DescribeCloudResourcesRequest $request
+     *
+     * @return DescribeCloudResourcesResponse
      */
     public function describeCloudResources($request)
     {
@@ -3503,28 +4317,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
-     *  *
-     * @param DescribeCnameCountRequest $request DescribeCnameCountRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
      *
-     * @return DescribeCnameCountResponse DescribeCnameCountResponse
+     * @param request - DescribeCnameCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeCnameCountResponse
+     *
+     * @param DescribeCnameCountRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeCnameCountResponse
      */
     public function describeCnameCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeCnameCount',
@@ -3537,16 +4358,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCnameCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeCnameCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeCnameCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
-     *  *
-     * @param DescribeCnameCountRequest $request DescribeCnameCountRequest
+     * Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
      *
-     * @return DescribeCnameCountResponse DescribeCnameCountResponse
+     * @param request - DescribeCnameCountRequest
+     * @returns DescribeCnameCountResponse
+     *
+     * @param DescribeCnameCountRequest $request
+     *
+     * @return DescribeCnameCountResponse
      */
     public function describeCnameCount($request)
     {
@@ -3556,28 +4383,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
-     *  *
-     * @param DescribeDDoSStatusRequest $request DescribeDDoSStatusRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
      *
-     * @return DescribeDDoSStatusResponse DescribeDDoSStatusResponse
+     * @param request - DescribeDDoSStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDDoSStatusResponse
+     *
+     * @param DescribeDDoSStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeDDoSStatusResponse
      */
     public function describeDDoSStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDDoSStatus',
@@ -3590,16 +4424,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDDoSStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDDoSStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDDoSStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
-     *  *
-     * @param DescribeDDoSStatusRequest $request DescribeDDoSStatusRequest
+     * Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
      *
-     * @return DescribeDDoSStatusResponse DescribeDDoSStatusResponse
+     * @param request - DescribeDDoSStatusRequest
+     * @returns DescribeDDoSStatusResponse
+     *
+     * @param DescribeDDoSStatusRequest $request
+     *
+     * @return DescribeDDoSStatusResponse
      */
     public function describeDDoSStatus($request)
     {
@@ -3609,28 +4449,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the default SSL and Transport Layer Security (TLS) settings.
-     *  *
-     * @param DescribeDefaultHttpsRequest $request DescribeDefaultHttpsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the default SSL and Transport Layer Security (TLS) settings.
      *
-     * @return DescribeDefaultHttpsResponse DescribeDefaultHttpsResponse
+     * @param request - DescribeDefaultHttpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefaultHttpsResponse
+     *
+     * @param DescribeDefaultHttpsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDefaultHttpsResponse
      */
     public function describeDefaultHttpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefaultHttps',
@@ -3643,16 +4490,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefaultHttpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the default SSL and Transport Layer Security (TLS) settings.
-     *  *
-     * @param DescribeDefaultHttpsRequest $request DescribeDefaultHttpsRequest
+     * Queries the default SSL and Transport Layer Security (TLS) settings.
      *
-     * @return DescribeDefaultHttpsResponse DescribeDefaultHttpsResponse
+     * @param request - DescribeDefaultHttpsRequest
+     * @returns DescribeDefaultHttpsResponse
+     *
+     * @param DescribeDefaultHttpsRequest $request
+     *
+     * @return DescribeDefaultHttpsResponse
      */
     public function describeDefaultHttps($request)
     {
@@ -3662,31 +4515,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a protected object.
-     *  *
-     * @param DescribeDefenseResourceRequest $request DescribeDefenseResourceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a protected object.
      *
-     * @return DescribeDefenseResourceResponse DescribeDefenseResourceResponse
+     * @param request - DescribeDefenseResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseResourceResponse
+     *
+     * @param DescribeDefenseResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDefenseResourceResponse
      */
     public function describeDefenseResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseResource',
@@ -3699,16 +4560,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a protected object.
-     *  *
-     * @param DescribeDefenseResourceRequest $request DescribeDefenseResourceRequest
+     * Queries the information about a protected object.
      *
-     * @return DescribeDefenseResourceResponse DescribeDefenseResourceResponse
+     * @param request - DescribeDefenseResourceRequest
+     * @returns DescribeDefenseResourceResponse
+     *
+     * @param DescribeDefenseResourceRequest $request
+     *
+     * @return DescribeDefenseResourceResponse
      */
     public function describeDefenseResource($request)
     {
@@ -3718,31 +4585,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a protected object group.
-     *  *
-     * @param DescribeDefenseResourceGroupRequest $request DescribeDefenseResourceGroupRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a protected object group.
      *
-     * @return DescribeDefenseResourceGroupResponse DescribeDefenseResourceGroupResponse
+     * @param request - DescribeDefenseResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseResourceGroupResponse
+     *
+     * @param DescribeDefenseResourceGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDefenseResourceGroupResponse
      */
     public function describeDefenseResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseResourceGroup',
@@ -3755,16 +4630,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the information about a protected object group.
-     *  *
-     * @param DescribeDefenseResourceGroupRequest $request DescribeDefenseResourceGroupRequest
+     * Queries the information about a protected object group.
      *
-     * @return DescribeDefenseResourceGroupResponse DescribeDefenseResourceGroupResponse
+     * @param request - DescribeDefenseResourceGroupRequest
+     * @returns DescribeDefenseResourceGroupResponse
+     *
+     * @param DescribeDefenseResourceGroupRequest $request
+     *
+     * @return DescribeDefenseResourceGroupResponse
      */
     public function describeDefenseResourceGroup($request)
     {
@@ -3774,37 +4655,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the names of protected object groups.
-     *  *
-     * @param DescribeDefenseResourceGroupNamesRequest $request DescribeDefenseResourceGroupNamesRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * Queries the names of protected object groups.
      *
-     * @return DescribeDefenseResourceGroupNamesResponse DescribeDefenseResourceGroupNamesResponse
+     * @param request - DescribeDefenseResourceGroupNamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseResourceGroupNamesResponse
+     *
+     * @param DescribeDefenseResourceGroupNamesRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDefenseResourceGroupNamesResponse
      */
     public function describeDefenseResourceGroupNamesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupNameLike)) {
-            $query['GroupNameLike'] = $request->groupNameLike;
+        if (null !== $request->groupNameLike) {
+            @$query['GroupNameLike'] = $request->groupNameLike;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseResourceGroupNames',
@@ -3817,16 +4708,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseResourceGroupNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseResourceGroupNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseResourceGroupNamesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the names of protected object groups.
-     *  *
-     * @param DescribeDefenseResourceGroupNamesRequest $request DescribeDefenseResourceGroupNamesRequest
+     * Queries the names of protected object groups.
      *
-     * @return DescribeDefenseResourceGroupNamesResponse DescribeDefenseResourceGroupNamesResponse
+     * @param request - DescribeDefenseResourceGroupNamesRequest
+     * @returns DescribeDefenseResourceGroupNamesResponse
+     *
+     * @param DescribeDefenseResourceGroupNamesRequest $request
+     *
+     * @return DescribeDefenseResourceGroupNamesResponse
      */
     public function describeDefenseResourceGroupNames($request)
     {
@@ -3836,40 +4733,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Performs a pagination query to retrieve the information about protected object groups.
-     *  *
-     * @param DescribeDefenseResourceGroupsRequest $request DescribeDefenseResourceGroupsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Performs a pagination query to retrieve the information about protected object groups.
      *
-     * @return DescribeDefenseResourceGroupsResponse DescribeDefenseResourceGroupsResponse
+     * @param request - DescribeDefenseResourceGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseResourceGroupsResponse
+     *
+     * @param DescribeDefenseResourceGroupsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDefenseResourceGroupsResponse
      */
     public function describeDefenseResourceGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupNameLike)) {
-            $query['GroupNameLike'] = $request->groupNameLike;
+        if (null !== $request->groupNameLike) {
+            @$query['GroupNameLike'] = $request->groupNameLike;
         }
-        if (!Utils::isUnset($request->groupNames)) {
-            $query['GroupNames'] = $request->groupNames;
+
+        if (null !== $request->groupNames) {
+            @$query['GroupNames'] = $request->groupNames;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseResourceGroups',
@@ -3882,16 +4790,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseResourceGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Performs a pagination query to retrieve the information about protected object groups.
-     *  *
-     * @param DescribeDefenseResourceGroupsRequest $request DescribeDefenseResourceGroupsRequest
+     * Performs a pagination query to retrieve the information about protected object groups.
      *
-     * @return DescribeDefenseResourceGroupsResponse DescribeDefenseResourceGroupsResponse
+     * @param request - DescribeDefenseResourceGroupsRequest
+     * @returns DescribeDefenseResourceGroupsResponse
+     *
+     * @param DescribeDefenseResourceGroupsRequest $request
+     *
+     * @return DescribeDefenseResourceGroupsResponse
      */
     public function describeDefenseResourceGroups($request)
     {
@@ -3901,37 +4815,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Performs a pagination query to retrieve the names of protected objects.
-     *  *
-     * @param DescribeDefenseResourceNamesRequest $request DescribeDefenseResourceNamesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Performs a pagination query to retrieve the names of protected objects.
      *
-     * @return DescribeDefenseResourceNamesResponse DescribeDefenseResourceNamesResponse
+     * @param request - DescribeDefenseResourceNamesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseResourceNamesResponse
+     *
+     * @param DescribeDefenseResourceNamesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDefenseResourceNamesResponse
      */
     public function describeDefenseResourceNamesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseResourceNames',
@@ -3944,16 +4868,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseResourceNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseResourceNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseResourceNamesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Performs a pagination query to retrieve the names of protected objects.
-     *  *
-     * @param DescribeDefenseResourceNamesRequest $request DescribeDefenseResourceNamesRequest
+     * Performs a pagination query to retrieve the names of protected objects.
      *
-     * @return DescribeDefenseResourceNamesResponse DescribeDefenseResourceNamesResponse
+     * @param request - DescribeDefenseResourceNamesRequest
+     * @returns DescribeDefenseResourceNamesResponse
+     *
+     * @param DescribeDefenseResourceNamesRequest $request
+     *
+     * @return DescribeDefenseResourceNamesResponse
      */
     public function describeDefenseResourceNames($request)
     {
@@ -3963,46 +4893,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the protection templates that are associated with a protected object or protected object group.
-     *  *
-     * @param DescribeDefenseResourceTemplatesRequest $request DescribeDefenseResourceTemplatesRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the protection templates that are associated with a protected object or protected object group.
      *
-     * @return DescribeDefenseResourceTemplatesResponse DescribeDefenseResourceTemplatesResponse
+     * @param request - DescribeDefenseResourceTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseResourceTemplatesResponse
+     *
+     * @param DescribeDefenseResourceTemplatesRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDefenseResourceTemplatesResponse
      */
     public function describeDefenseResourceTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseResourceTemplates',
@@ -4015,16 +4958,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseResourceTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseResourceTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseResourceTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the protection templates that are associated with a protected object or protected object group.
-     *  *
-     * @param DescribeDefenseResourceTemplatesRequest $request DescribeDefenseResourceTemplatesRequest
+     * Queries the protection templates that are associated with a protected object or protected object group.
      *
-     * @return DescribeDefenseResourceTemplatesResponse DescribeDefenseResourceTemplatesResponse
+     * @param request - DescribeDefenseResourceTemplatesRequest
+     * @returns DescribeDefenseResourceTemplatesResponse
+     *
+     * @param DescribeDefenseResourceTemplatesRequest $request
+     *
+     * @return DescribeDefenseResourceTemplatesResponse
      */
     public function describeDefenseResourceTemplates($request)
     {
@@ -4034,40 +4983,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries protected objects by page.
-     *  *
-     * @param DescribeDefenseResourcesRequest $request DescribeDefenseResourcesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries protected objects by page.
      *
-     * @return DescribeDefenseResourcesResponse DescribeDefenseResourcesResponse
+     * @param request - DescribeDefenseResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseResourcesResponse
+     *
+     * @param DescribeDefenseResourcesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDefenseResourcesResponse
      */
     public function describeDefenseResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseResources',
@@ -4080,16 +5040,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries protected objects by page.
-     *  *
-     * @param DescribeDefenseResourcesRequest $request DescribeDefenseResourcesRequest
+     * Queries protected objects by page.
      *
-     * @return DescribeDefenseResourcesResponse DescribeDefenseResourcesResponse
+     * @param request - DescribeDefenseResourcesRequest
+     * @returns DescribeDefenseResourcesResponse
+     *
+     * @param DescribeDefenseResourcesRequest $request
+     *
+     * @return DescribeDefenseResourcesResponse
      */
     public function describeDefenseResources($request)
     {
@@ -4099,34 +5065,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a protection rule.
-     *  *
-     * @param DescribeDefenseRuleRequest $request DescribeDefenseRuleRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries a protection rule.
      *
-     * @return DescribeDefenseRuleResponse DescribeDefenseRuleResponse
+     * @param request - DescribeDefenseRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseRuleResponse
+     *
+     * @param DescribeDefenseRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeDefenseRuleResponse
      */
     public function describeDefenseRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseRule',
@@ -4139,16 +5114,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a protection rule.
-     *  *
-     * @param DescribeDefenseRuleRequest $request DescribeDefenseRuleRequest
+     * Queries a protection rule.
      *
-     * @return DescribeDefenseRuleResponse DescribeDefenseRuleResponse
+     * @param request - DescribeDefenseRuleRequest
+     * @returns DescribeDefenseRuleResponse
+     *
+     * @param DescribeDefenseRuleRequest $request
+     *
+     * @return DescribeDefenseRuleResponse
      */
     public function describeDefenseRule($request)
     {
@@ -4158,40 +5139,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries protection rules by page.
-     *  *
-     * @param DescribeDefenseRulesRequest $request DescribeDefenseRulesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries protection rules by page.
      *
-     * @return DescribeDefenseRulesResponse DescribeDefenseRulesResponse
+     * @param request - DescribeDefenseRulesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseRulesResponse
+     *
+     * @param DescribeDefenseRulesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDefenseRulesResponse
      */
     public function describeDefenseRulesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->query)) {
-            $query['Query'] = $request->query;
+
+        if (null !== $request->query) {
+            @$query['Query'] = $request->query;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseRules',
@@ -4204,16 +5196,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries protection rules by page.
-     *  *
-     * @param DescribeDefenseRulesRequest $request DescribeDefenseRulesRequest
+     * Queries protection rules by page.
      *
-     * @return DescribeDefenseRulesResponse DescribeDefenseRulesResponse
+     * @param request - DescribeDefenseRulesRequest
+     * @returns DescribeDefenseRulesResponse
+     *
+     * @param DescribeDefenseRulesRequest $request
+     *
+     * @return DescribeDefenseRulesResponse
      */
     public function describeDefenseRules($request)
     {
@@ -4223,31 +5221,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a protection rule template.
-     *  *
-     * @param DescribeDefenseTemplateRequest $request DescribeDefenseTemplateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries a protection rule template.
      *
-     * @return DescribeDefenseTemplateResponse DescribeDefenseTemplateResponse
+     * @param request - DescribeDefenseTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseTemplateResponse
+     *
+     * @param DescribeDefenseTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDefenseTemplateResponse
      */
     public function describeDefenseTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseTemplate',
@@ -4260,16 +5266,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a protection rule template.
-     *  *
-     * @param DescribeDefenseTemplateRequest $request DescribeDefenseTemplateRequest
+     * Queries a protection rule template.
      *
-     * @return DescribeDefenseTemplateResponse DescribeDefenseTemplateResponse
+     * @param request - DescribeDefenseTemplateRequest
+     * @returns DescribeDefenseTemplateResponse
+     *
+     * @param DescribeDefenseTemplateRequest $request
+     *
+     * @return DescribeDefenseTemplateResponse
      */
     public function describeDefenseTemplate($request)
     {
@@ -4279,43 +5291,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the names of protected object groups for which a protection template can take effect.
-     *  *
-     * @param DescribeDefenseTemplateValidGroupsRequest $request DescribeDefenseTemplateValidGroupsRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the names of protected object groups for which a protection template can take effect.
      *
-     * @return DescribeDefenseTemplateValidGroupsResponse DescribeDefenseTemplateValidGroupsResponse
+     * @param request - DescribeDefenseTemplateValidGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseTemplateValidGroupsResponse
+     *
+     * @param DescribeDefenseTemplateValidGroupsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeDefenseTemplateValidGroupsResponse
      */
     public function describeDefenseTemplateValidGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defenseScene)) {
-            $query['DefenseScene'] = $request->defenseScene;
+        if (null !== $request->defenseScene) {
+            @$query['DefenseScene'] = $request->defenseScene;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseTemplateValidGroups',
@@ -4328,16 +5352,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseTemplateValidGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseTemplateValidGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseTemplateValidGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the names of protected object groups for which a protection template can take effect.
-     *  *
-     * @param DescribeDefenseTemplateValidGroupsRequest $request DescribeDefenseTemplateValidGroupsRequest
+     * Queries the names of protected object groups for which a protection template can take effect.
      *
-     * @return DescribeDefenseTemplateValidGroupsResponse DescribeDefenseTemplateValidGroupsResponse
+     * @param request - DescribeDefenseTemplateValidGroupsRequest
+     * @returns DescribeDefenseTemplateValidGroupsResponse
+     *
+     * @param DescribeDefenseTemplateValidGroupsRequest $request
+     *
+     * @return DescribeDefenseTemplateValidGroupsResponse
      */
     public function describeDefenseTemplateValidGroups($request)
     {
@@ -4347,58 +5377,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Performs a paging query to retrieve protection templates.
-     *  *
-     * @param DescribeDefenseTemplatesRequest $request DescribeDefenseTemplatesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Performs a paging query to retrieve protection templates.
      *
-     * @return DescribeDefenseTemplatesResponse DescribeDefenseTemplatesResponse
+     * @param request - DescribeDefenseTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDefenseTemplatesResponse
+     *
+     * @param DescribeDefenseTemplatesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDefenseTemplatesResponse
      */
     public function describeDefenseTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defenseScene)) {
-            $query['DefenseScene'] = $request->defenseScene;
+        if (null !== $request->defenseScene) {
+            @$query['DefenseScene'] = $request->defenseScene;
         }
-        if (!Utils::isUnset($request->defenseSubScene)) {
-            $query['DefenseSubScene'] = $request->defenseSubScene;
+
+        if (null !== $request->defenseSubScene) {
+            @$query['DefenseSubScene'] = $request->defenseSubScene;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateIds)) {
-            $query['TemplateIds'] = $request->templateIds;
+
+        if (null !== $request->templateIds) {
+            @$query['TemplateIds'] = $request->templateIds;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDefenseTemplates',
@@ -4411,16 +5458,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDefenseTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDefenseTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDefenseTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Performs a paging query to retrieve protection templates.
-     *  *
-     * @param DescribeDefenseTemplatesRequest $request DescribeDefenseTemplatesRequest
+     * Performs a paging query to retrieve protection templates.
      *
-     * @return DescribeDefenseTemplatesResponse DescribeDefenseTemplatesResponse
+     * @param request - DescribeDefenseTemplatesRequest
+     * @returns DescribeDefenseTemplatesResponse
+     *
+     * @param DescribeDefenseTemplatesRequest $request
+     *
+     * @return DescribeDefenseTemplatesResponse
      */
     public function describeDefenseTemplates($request)
     {
@@ -4430,31 +5483,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
-     *  *
-     * @param DescribeDomainDNSRecordRequest $request DescribeDomainDNSRecordRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
      *
-     * @return DescribeDomainDNSRecordResponse DescribeDomainDNSRecordResponse
+     * @param request - DescribeDomainDNSRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainDNSRecordResponse
+     *
+     * @param DescribeDomainDNSRecordRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDomainDNSRecordResponse
      */
     public function describeDomainDNSRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainDNSRecord',
@@ -4467,16 +5528,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainDNSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainDNSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainDNSRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
-     *  *
-     * @param DescribeDomainDNSRecordRequest $request DescribeDomainDNSRecordRequest
+     * Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
      *
-     * @return DescribeDomainDNSRecordResponse DescribeDomainDNSRecordResponse
+     * @param request - DescribeDomainDNSRecordRequest
+     * @returns DescribeDomainDNSRecordResponse
+     *
+     * @param DescribeDomainDNSRecordRequest $request
+     *
+     * @return DescribeDomainDNSRecordResponse
      */
     public function describeDomainDNSRecord($request)
     {
@@ -4486,28 +5553,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a domain name that is added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeDomainDetailRequest $request DescribeDomainDetailRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a domain name that is added to Web Application Firewall (WAF).
      *
-     * @return DescribeDomainDetailResponse DescribeDomainDetailResponse
+     * @param request - DescribeDomainDetailRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainDetailResponse
+     *
+     * @param DescribeDomainDetailRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDomainDetailResponse
      */
     public function describeDomainDetailWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomainDetail',
@@ -4520,16 +5594,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a domain name that is added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeDomainDetailRequest $request DescribeDomainDetailRequest
+     * Queries the details of a domain name that is added to Web Application Firewall (WAF).
      *
-     * @return DescribeDomainDetailResponse DescribeDomainDetailResponse
+     * @param request - DescribeDomainDetailRequest
+     * @returns DescribeDomainDetailResponse
+     *
+     * @param DescribeDomainDetailRequest $request
+     *
+     * @return DescribeDomainDetailResponse
      */
     public function describeDomainDetail($request)
     {
@@ -4539,43 +5619,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the domain names that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeDomainsRequest $request DescribeDomainsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries the domain names that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeDomainsResponse DescribeDomainsResponse
+     * @param request - DescribeDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDomainsResponse
+     *
+     * @param DescribeDomainsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeDomainsResponse
      */
     public function describeDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backend)) {
-            $query['Backend'] = $request->backend;
+        if (null !== $request->backend) {
+            @$query['Backend'] = $request->backend;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeDomains',
@@ -4588,16 +5680,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the domain names that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeDomainsRequest $request DescribeDomainsRequest
+     * Queries the domain names that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeDomainsResponse DescribeDomainsResponse
+     * @param request - DescribeDomainsRequest
+     * @returns DescribeDomainsResponse
+     *
+     * @param DescribeDomainsRequest $request
+     *
+     * @return DescribeDomainsResponse
      */
     public function describeDomains($request)
     {
@@ -4607,40 +5705,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeFlowChartRequest $request DescribeFlowChartRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
      *
-     * @return DescribeFlowChartResponse DescribeFlowChartResponse
+     * @param request - DescribeFlowChartRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFlowChartResponse
+     *
+     * @param DescribeFlowChartRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeFlowChartResponse
      */
     public function describeFlowChartWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFlowChart',
@@ -4653,16 +5762,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFlowChartResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFlowChartResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFlowChartResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeFlowChartRequest $request DescribeFlowChartRequest
+     * Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
      *
-     * @return DescribeFlowChartResponse DescribeFlowChartResponse
+     * @param request - DescribeFlowChartRequest
+     * @returns DescribeFlowChartResponse
+     *
+     * @param DescribeFlowChartRequest $request
+     *
+     * @return DescribeFlowChartResponse
      */
     public function describeFlowChart($request)
     {
@@ -4672,34 +5787,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top 10 protected objects that receive requests.
-     *  *
-     * @param DescribeFlowTopResourceRequest $request DescribeFlowTopResourceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the top 10 protected objects that receive requests.
      *
-     * @return DescribeFlowTopResourceResponse DescribeFlowTopResourceResponse
+     * @param request - DescribeFlowTopResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFlowTopResourceResponse
+     *
+     * @param DescribeFlowTopResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeFlowTopResourceResponse
      */
     public function describeFlowTopResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFlowTopResource',
@@ -4712,16 +5836,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFlowTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFlowTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFlowTopResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top 10 protected objects that receive requests.
-     *  *
-     * @param DescribeFlowTopResourceRequest $request DescribeFlowTopResourceRequest
+     * Queries the top 10 protected objects that receive requests.
      *
-     * @return DescribeFlowTopResourceResponse DescribeFlowTopResourceResponse
+     * @param request - DescribeFlowTopResourceRequest
+     * @returns DescribeFlowTopResourceResponse
+     *
+     * @param DescribeFlowTopResourceRequest $request
+     *
+     * @return DescribeFlowTopResourceResponse
      */
     public function describeFlowTopResource($request)
     {
@@ -4731,37 +5861,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top 10 URLs that are used to initiate requests.
-     *  *
-     * @param DescribeFlowTopUrlRequest $request DescribeFlowTopUrlRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the top 10 URLs that are used to initiate requests.
      *
-     * @return DescribeFlowTopUrlResponse DescribeFlowTopUrlResponse
+     * @param request - DescribeFlowTopUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFlowTopUrlResponse
+     *
+     * @param DescribeFlowTopUrlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeFlowTopUrlResponse
      */
     public function describeFlowTopUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFlowTopUrl',
@@ -4774,16 +5914,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFlowTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFlowTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFlowTopUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top 10 URLs that are used to initiate requests.
-     *  *
-     * @param DescribeFlowTopUrlRequest $request DescribeFlowTopUrlRequest
+     * Queries the top 10 URLs that are used to initiate requests.
      *
-     * @return DescribeFlowTopUrlResponse DescribeFlowTopUrlResponse
+     * @param request - DescribeFlowTopUrlRequest
+     * @returns DescribeFlowTopUrlResponse
+     *
+     * @param DescribeFlowTopUrlRequest $request
+     *
+     * @return DescribeFlowTopUrlResponse
      */
     public function describeFlowTopUrl($request)
     {
@@ -4793,28 +5939,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the asset statistics provided by basic detection in the API security module.
-     *  *
-     * @param DescribeFreeUserAssetCountRequest $request DescribeFreeUserAssetCountRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the asset statistics provided by basic detection in the API security module.
      *
-     * @return DescribeFreeUserAssetCountResponse DescribeFreeUserAssetCountResponse
+     * @param request - DescribeFreeUserAssetCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFreeUserAssetCountResponse
+     *
+     * @param DescribeFreeUserAssetCountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeFreeUserAssetCountResponse
      */
     public function describeFreeUserAssetCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFreeUserAssetCount',
@@ -4827,16 +5980,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFreeUserAssetCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFreeUserAssetCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFreeUserAssetCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the asset statistics provided by basic detection in the API security module.
-     *  *
-     * @param DescribeFreeUserAssetCountRequest $request DescribeFreeUserAssetCountRequest
+     * Queries the asset statistics provided by basic detection in the API security module.
      *
-     * @return DescribeFreeUserAssetCountResponse DescribeFreeUserAssetCountResponse
+     * @param request - DescribeFreeUserAssetCountRequest
+     * @returns DescribeFreeUserAssetCountResponse
+     *
+     * @param DescribeFreeUserAssetCountRequest $request
+     *
+     * @return DescribeFreeUserAssetCountResponse
      */
     public function describeFreeUserAssetCount($request)
     {
@@ -4846,28 +6005,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
-     *  *
-     * @param DescribeFreeUserEventCountRequest $request DescribeFreeUserEventCountRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
      *
-     * @return DescribeFreeUserEventCountResponse DescribeFreeUserEventCountResponse
+     * @param request - DescribeFreeUserEventCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFreeUserEventCountResponse
+     *
+     * @param DescribeFreeUserEventCountRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeFreeUserEventCountResponse
      */
     public function describeFreeUserEventCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFreeUserEventCount',
@@ -4880,16 +6046,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFreeUserEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFreeUserEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFreeUserEventCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
-     *  *
-     * @param DescribeFreeUserEventCountRequest $request DescribeFreeUserEventCountRequest
+     * Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
      *
-     * @return DescribeFreeUserEventCountResponse DescribeFreeUserEventCountResponse
+     * @param request - DescribeFreeUserEventCountRequest
+     * @returns DescribeFreeUserEventCountResponse
+     *
+     * @param DescribeFreeUserEventCountRequest $request
+     *
+     * @return DescribeFreeUserEventCountResponse
      */
     public function describeFreeUserEventCount($request)
     {
@@ -4899,28 +6071,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the types of security events on which basic detection is performed in the API security module.
-     *  *
-     * @param DescribeFreeUserEventTypesRequest $request DescribeFreeUserEventTypesRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the types of security events on which basic detection is performed in the API security module.
      *
-     * @return DescribeFreeUserEventTypesResponse DescribeFreeUserEventTypesResponse
+     * @param request - DescribeFreeUserEventTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFreeUserEventTypesResponse
+     *
+     * @param DescribeFreeUserEventTypesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeFreeUserEventTypesResponse
      */
     public function describeFreeUserEventTypesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFreeUserEventTypes',
@@ -4933,16 +6112,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFreeUserEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFreeUserEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFreeUserEventTypesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the types of security events on which basic detection is performed in the API security module.
-     *  *
-     * @param DescribeFreeUserEventTypesRequest $request DescribeFreeUserEventTypesRequest
+     * Queries the types of security events on which basic detection is performed in the API security module.
      *
-     * @return DescribeFreeUserEventTypesResponse DescribeFreeUserEventTypesResponse
+     * @param request - DescribeFreeUserEventTypesRequest
+     * @returns DescribeFreeUserEventTypesResponse
+     *
+     * @param DescribeFreeUserEventTypesRequest $request
+     *
+     * @return DescribeFreeUserEventTypesResponse
      */
     public function describeFreeUserEventTypes($request)
     {
@@ -4952,28 +6137,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of security events on which basic detection is performed in the API security module.
-     *  *
-     * @param DescribeFreeUserEventsRequest $request DescribeFreeUserEventsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the list of security events on which basic detection is performed in the API security module.
      *
-     * @return DescribeFreeUserEventsResponse DescribeFreeUserEventsResponse
+     * @param request - DescribeFreeUserEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFreeUserEventsResponse
+     *
+     * @param DescribeFreeUserEventsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeFreeUserEventsResponse
      */
     public function describeFreeUserEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeFreeUserEvents',
@@ -4986,16 +6178,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFreeUserEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeFreeUserEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeFreeUserEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the list of security events on which basic detection is performed in the API security module.
-     *  *
-     * @param DescribeFreeUserEventsRequest $request DescribeFreeUserEventsRequest
+     * Queries the list of security events on which basic detection is performed in the API security module.
      *
-     * @return DescribeFreeUserEventsResponse DescribeFreeUserEventsResponse
+     * @param request - DescribeFreeUserEventsRequest
+     * @returns DescribeFreeUserEventsResponse
+     *
+     * @param DescribeFreeUserEventsRequest $request
+     *
+     * @return DescribeFreeUserEventsResponse
      */
     public function describeFreeUserEvents($request)
     {
@@ -5005,19 +6203,23 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the rule information about a hybrid cloud cluster.
-     *  *
-     * @param DescribeHybridCloudClusterRuleRequest $request DescribeHybridCloudClusterRuleRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Obtains the rule information about a hybrid cloud cluster.
      *
-     * @return DescribeHybridCloudClusterRuleResponse DescribeHybridCloudClusterRuleResponse
+     * @param request - DescribeHybridCloudClusterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHybridCloudClusterRuleResponse
+     *
+     * @param DescribeHybridCloudClusterRuleRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeHybridCloudClusterRuleResponse
      */
     public function describeHybridCloudClusterRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHybridCloudClusterRule',
@@ -5030,16 +6232,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHybridCloudClusterRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Obtains the rule information about a hybrid cloud cluster.
-     *  *
-     * @param DescribeHybridCloudClusterRuleRequest $request DescribeHybridCloudClusterRuleRequest
+     * Obtains the rule information about a hybrid cloud cluster.
      *
-     * @return DescribeHybridCloudClusterRuleResponse DescribeHybridCloudClusterRuleResponse
+     * @param request - DescribeHybridCloudClusterRuleRequest
+     * @returns DescribeHybridCloudClusterRuleResponse
+     *
+     * @param DescribeHybridCloudClusterRuleRequest $request
+     *
+     * @return DescribeHybridCloudClusterRuleResponse
      */
     public function describeHybridCloudClusterRule($request)
     {
@@ -5049,28 +6257,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of hybrid cloud clusters.
-     *  *
-     * @param DescribeHybridCloudClustersRequest $request DescribeHybridCloudClustersRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries a list of hybrid cloud clusters.
      *
-     * @return DescribeHybridCloudClustersResponse DescribeHybridCloudClustersResponse
+     * @param request - DescribeHybridCloudClustersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHybridCloudClustersResponse
+     *
+     * @param DescribeHybridCloudClustersRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeHybridCloudClustersResponse
      */
     public function describeHybridCloudClustersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHybridCloudClusters',
@@ -5083,16 +6298,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHybridCloudClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHybridCloudClustersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHybridCloudClustersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of hybrid cloud clusters.
-     *  *
-     * @param DescribeHybridCloudClustersRequest $request DescribeHybridCloudClustersRequest
+     * Queries a list of hybrid cloud clusters.
      *
-     * @return DescribeHybridCloudClustersResponse DescribeHybridCloudClustersResponse
+     * @param request - DescribeHybridCloudClustersRequest
+     * @returns DescribeHybridCloudClustersResponse
+     *
+     * @param DescribeHybridCloudClustersRequest $request
+     *
+     * @return DescribeHybridCloudClustersResponse
      */
     public function describeHybridCloudClusters($request)
     {
@@ -5102,46 +6323,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeHybridCloudGroupsRequest $request DescribeHybridCloudGroupsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeHybridCloudGroupsResponse DescribeHybridCloudGroupsResponse
+     * @param request - DescribeHybridCloudGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHybridCloudGroupsResponse
+     *
+     * @param DescribeHybridCloudGroupsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeHybridCloudGroupsResponse
      */
     public function describeHybridCloudGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->clusterProxyType)) {
-            $query['ClusterProxyType'] = $request->clusterProxyType;
+
+        if (null !== $request->clusterProxyType) {
+            @$query['ClusterProxyType'] = $request->clusterProxyType;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->groupType)) {
-            $query['GroupType'] = $request->groupType;
+
+        if (null !== $request->groupType) {
+            @$query['GroupType'] = $request->groupType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHybridCloudGroups',
@@ -5154,16 +6388,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHybridCloudGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHybridCloudGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHybridCloudGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeHybridCloudGroupsRequest $request DescribeHybridCloudGroupsRequest
+     * Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeHybridCloudGroupsResponse DescribeHybridCloudGroupsResponse
+     * @param request - DescribeHybridCloudGroupsRequest
+     * @returns DescribeHybridCloudGroupsResponse
+     *
+     * @param DescribeHybridCloudGroupsRequest $request
+     *
+     * @return DescribeHybridCloudGroupsResponse
      */
     public function describeHybridCloudGroups($request)
     {
@@ -5173,43 +6413,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
-     *  *
-     * @param DescribeHybridCloudResourcesRequest $request DescribeHybridCloudResourcesRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
      *
-     * @return DescribeHybridCloudResourcesResponse DescribeHybridCloudResourcesResponse
+     * @param request - DescribeHybridCloudResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHybridCloudResourcesResponse
+     *
+     * @param DescribeHybridCloudResourcesRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeHybridCloudResourcesResponse
      */
     public function describeHybridCloudResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->backend)) {
-            $query['Backend'] = $request->backend;
+        if (null !== $request->backend) {
+            @$query['Backend'] = $request->backend;
         }
-        if (!Utils::isUnset($request->cnameEnabled)) {
-            $query['CnameEnabled'] = $request->cnameEnabled;
+
+        if (null !== $request->cnameEnabled) {
+            @$query['CnameEnabled'] = $request->cnameEnabled;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHybridCloudResources',
@@ -5222,16 +6474,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHybridCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHybridCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHybridCloudResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
-     *  *
-     * @param DescribeHybridCloudResourcesRequest $request DescribeHybridCloudResourcesRequest
+     * Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
      *
-     * @return DescribeHybridCloudResourcesResponse DescribeHybridCloudResourcesResponse
+     * @param request - DescribeHybridCloudResourcesRequest
+     * @returns DescribeHybridCloudResourcesResponse
+     *
+     * @param DescribeHybridCloudResourcesRequest $request
+     *
+     * @return DescribeHybridCloudResourcesResponse
      */
     public function describeHybridCloudResources($request)
     {
@@ -5241,34 +6499,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
-     *  *
-     * @param DescribeHybridCloudServerRegionsRequest $request DescribeHybridCloudServerRegionsRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
      *
-     * @return DescribeHybridCloudServerRegionsResponse DescribeHybridCloudServerRegionsResponse
+     * @param request - DescribeHybridCloudServerRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHybridCloudServerRegionsResponse
+     *
+     * @param DescribeHybridCloudServerRegionsRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeHybridCloudServerRegionsResponse
      */
     public function describeHybridCloudServerRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionCode)) {
-            $query['RegionCode'] = $request->regionCode;
+
+        if (null !== $request->regionCode) {
+            @$query['RegionCode'] = $request->regionCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionType)) {
-            $query['RegionType'] = $request->regionType;
+
+        if (null !== $request->regionType) {
+            @$query['RegionType'] = $request->regionType;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHybridCloudServerRegions',
@@ -5281,16 +6548,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHybridCloudServerRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHybridCloudServerRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHybridCloudServerRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
-     *  *
-     * @param DescribeHybridCloudServerRegionsRequest $request DescribeHybridCloudServerRegionsRequest
+     * Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
      *
-     * @return DescribeHybridCloudServerRegionsResponse DescribeHybridCloudServerRegionsResponse
+     * @param request - DescribeHybridCloudServerRegionsRequest
+     * @returns DescribeHybridCloudServerRegionsResponse
+     *
+     * @param DescribeHybridCloudServerRegionsRequest $request
+     *
+     * @return DescribeHybridCloudServerRegionsResponse
      */
     public function describeHybridCloudServerRegions($request)
     {
@@ -5300,43 +6573,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries servers that are not assigned to a hybrid cloud cluster.
-     *  *
-     * @param DescribeHybridCloudUnassignedMachinesRequest $request DescribeHybridCloudUnassignedMachinesRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries servers that are not assigned to a hybrid cloud cluster.
      *
-     * @return DescribeHybridCloudUnassignedMachinesResponse DescribeHybridCloudUnassignedMachinesResponse
+     * @param request - DescribeHybridCloudUnassignedMachinesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHybridCloudUnassignedMachinesResponse
+     *
+     * @param DescribeHybridCloudUnassignedMachinesRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeHybridCloudUnassignedMachinesResponse
      */
     public function describeHybridCloudUnassignedMachinesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->hostName)) {
-            $query['HostName'] = $request->hostName;
+
+        if (null !== $request->hostName) {
+            @$query['HostName'] = $request->hostName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ip)) {
-            $query['Ip'] = $request->ip;
+
+        if (null !== $request->ip) {
+            @$query['Ip'] = $request->ip;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHybridCloudUnassignedMachines',
@@ -5349,16 +6634,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHybridCloudUnassignedMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHybridCloudUnassignedMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHybridCloudUnassignedMachinesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries servers that are not assigned to a hybrid cloud cluster.
-     *  *
-     * @param DescribeHybridCloudUnassignedMachinesRequest $request DescribeHybridCloudUnassignedMachinesRequest
+     * Queries servers that are not assigned to a hybrid cloud cluster.
      *
-     * @return DescribeHybridCloudUnassignedMachinesResponse DescribeHybridCloudUnassignedMachinesResponse
+     * @param request - DescribeHybridCloudUnassignedMachinesRequest
+     * @returns DescribeHybridCloudUnassignedMachinesResponse
+     *
+     * @param DescribeHybridCloudUnassignedMachinesRequest $request
+     *
+     * @return DescribeHybridCloudUnassignedMachinesResponse
      */
     public function describeHybridCloudUnassignedMachines($request)
     {
@@ -5368,28 +6659,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
-     *  *
-     * @param DescribeHybridCloudUserRequest $request DescribeHybridCloudUserRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
      *
-     * @return DescribeHybridCloudUserResponse DescribeHybridCloudUserResponse
+     * @param request - DescribeHybridCloudUserRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHybridCloudUserResponse
+     *
+     * @param DescribeHybridCloudUserRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeHybridCloudUserResponse
      */
     public function describeHybridCloudUserWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeHybridCloudUser',
@@ -5402,16 +6700,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeHybridCloudUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeHybridCloudUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeHybridCloudUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
-     *  *
-     * @param DescribeHybridCloudUserRequest $request DescribeHybridCloudUserRequest
+     * Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
      *
-     * @return DescribeHybridCloudUserResponse DescribeHybridCloudUserResponse
+     * @param request - DescribeHybridCloudUserRequest
+     * @returns DescribeHybridCloudUserResponse
+     *
+     * @param DescribeHybridCloudUserRequest $request
+     *
+     * @return DescribeHybridCloudUserResponse
      */
     public function describeHybridCloudUser($request)
     {
@@ -5421,25 +6725,31 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
-     *  *
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param request - DescribeInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceResponse
+     *
+     * @param DescribeInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeInstance',
@@ -5452,16 +6762,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
-     *  *
-     * @param DescribeInstanceRequest $request DescribeInstanceRequest
+     * Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
      *
-     * @return DescribeInstanceResponse DescribeInstanceResponse
+     * @param request - DescribeInstanceRequest
+     * @returns DescribeInstanceResponse
+     *
+     * @param DescribeInstanceRequest $request
+     *
+     * @return DescribeInstanceResponse
      */
     public function describeInstance($request)
     {
@@ -5471,46 +6787,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries IP addresses in an IP address blacklist for major event protection by page.
-     *  *
-     * @param DescribeMajorProtectionBlackIpsRequest $request DescribeMajorProtectionBlackIpsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries IP addresses in an IP address blacklist for major event protection by page.
      *
-     * @return DescribeMajorProtectionBlackIpsResponse DescribeMajorProtectionBlackIpsResponse
+     * @param request - DescribeMajorProtectionBlackIpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMajorProtectionBlackIpsResponse
+     *
+     * @param DescribeMajorProtectionBlackIpsRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeMajorProtectionBlackIpsResponse
      */
     public function describeMajorProtectionBlackIpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ipLike)) {
-            $query['IpLike'] = $request->ipLike;
+
+        if (null !== $request->ipLike) {
+            @$query['IpLike'] = $request->ipLike;
         }
-        if (!Utils::isUnset($request->orderBy)) {
-            $query['OrderBy'] = $request->orderBy;
+
+        if (null !== $request->orderBy) {
+            @$query['OrderBy'] = $request->orderBy;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMajorProtectionBlackIps',
@@ -5523,16 +6852,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMajorProtectionBlackIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMajorProtectionBlackIpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMajorProtectionBlackIpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries IP addresses in an IP address blacklist for major event protection by page.
-     *  *
-     * @param DescribeMajorProtectionBlackIpsRequest $request DescribeMajorProtectionBlackIpsRequest
+     * Queries IP addresses in an IP address blacklist for major event protection by page.
      *
-     * @return DescribeMajorProtectionBlackIpsResponse DescribeMajorProtectionBlackIpsResponse
+     * @param request - DescribeMajorProtectionBlackIpsRequest
+     * @returns DescribeMajorProtectionBlackIpsResponse
+     *
+     * @param DescribeMajorProtectionBlackIpsRequest $request
+     *
+     * @return DescribeMajorProtectionBlackIpsResponse
      */
     public function describeMajorProtectionBlackIps($request)
     {
@@ -5542,34 +6877,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about members.
-     *  *
-     * @param DescribeMemberAccountsRequest $request DescribeMemberAccountsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries information about members.
      *
-     * @return DescribeMemberAccountsResponse DescribeMemberAccountsResponse
+     * @param request - DescribeMemberAccountsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeMemberAccountsResponse
+     *
+     * @param DescribeMemberAccountsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeMemberAccountsResponse
      */
     public function describeMemberAccountsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountStatus)) {
-            $query['AccountStatus'] = $request->accountStatus;
+        if (null !== $request->accountStatus) {
+            @$query['AccountStatus'] = $request->accountStatus;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeMemberAccounts',
@@ -5582,16 +6926,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeMemberAccountsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about members.
-     *  *
-     * @param DescribeMemberAccountsRequest $request DescribeMemberAccountsRequest
+     * Queries information about members.
      *
-     * @return DescribeMemberAccountsResponse DescribeMemberAccountsResponse
+     * @param request - DescribeMemberAccountsRequest
+     * @returns DescribeMemberAccountsResponse
+     *
+     * @param DescribeMemberAccountsRequest $request
+     *
+     * @return DescribeMemberAccountsResponse
      */
     public function describeMemberAccounts($request)
     {
@@ -5601,28 +6951,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the protection status of Web Application Firewall (WAF).
-     *  *
-     * @param DescribePauseProtectionStatusRequest $request DescribePauseProtectionStatusRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the protection status of Web Application Firewall (WAF).
      *
-     * @return DescribePauseProtectionStatusResponse DescribePauseProtectionStatusResponse
+     * @param request - DescribePauseProtectionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePauseProtectionStatusResponse
+     *
+     * @param DescribePauseProtectionStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribePauseProtectionStatusResponse
      */
     public function describePauseProtectionStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePauseProtectionStatus',
@@ -5635,16 +6992,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePauseProtectionStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the protection status of Web Application Firewall (WAF).
-     *  *
-     * @param DescribePauseProtectionStatusRequest $request DescribePauseProtectionStatusRequest
+     * Queries the protection status of Web Application Firewall (WAF).
      *
-     * @return DescribePauseProtectionStatusResponse DescribePauseProtectionStatusResponse
+     * @param request - DescribePauseProtectionStatusRequest
+     * @returns DescribePauseProtectionStatusResponse
+     *
+     * @param DescribePauseProtectionStatusRequest $request
+     *
+     * @return DescribePauseProtectionStatusResponse
      */
     public function describePauseProtectionStatus($request)
     {
@@ -5654,40 +7017,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the queries per second (QPS) statistics of a WAF instance.
-     *  *
-     * @param DescribePeakTrendRequest $request DescribePeakTrendRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the queries per second (QPS) statistics of a WAF instance.
      *
-     * @return DescribePeakTrendResponse DescribePeakTrendResponse
+     * @param request - DescribePeakTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePeakTrendResponse
+     *
+     * @param DescribePeakTrendRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribePeakTrendResponse
      */
     public function describePeakTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePeakTrend',
@@ -5700,16 +7074,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePeakTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePeakTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePeakTrendResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the queries per second (QPS) statistics of a WAF instance.
-     *  *
-     * @param DescribePeakTrendRequest $request DescribePeakTrendRequest
+     * Queries the queries per second (QPS) statistics of a WAF instance.
      *
-     * @return DescribePeakTrendResponse DescribePeakTrendResponse
+     * @param request - DescribePeakTrendRequest
+     * @returns DescribePeakTrendResponse
+     *
+     * @param DescribePeakTrendRequest $request
+     *
+     * @return DescribePeakTrendResponse
      */
     public function describePeakTrend($request)
     {
@@ -5719,58 +7099,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
-     *  *
-     * @param DescribeProductInstancesRequest $request DescribeProductInstancesRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
      *
-     * @return DescribeProductInstancesResponse DescribeProductInstancesResponse
+     * @param request - DescribeProductInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeProductInstancesResponse
+     *
+     * @param DescribeProductInstancesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeProductInstancesResponse
      */
     public function describeProductInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ownerUserId)) {
-            $query['OwnerUserId'] = $request->ownerUserId;
+
+        if (null !== $request->ownerUserId) {
+            @$query['OwnerUserId'] = $request->ownerUserId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceInstanceId)) {
-            $query['ResourceInstanceId'] = $request->resourceInstanceId;
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
-        if (!Utils::isUnset($request->resourceInstanceIp)) {
-            $query['ResourceInstanceIp'] = $request->resourceInstanceIp;
+
+        if (null !== $request->resourceInstanceIp) {
+            @$query['ResourceInstanceIp'] = $request->resourceInstanceIp;
         }
-        if (!Utils::isUnset($request->resourceInstanceName)) {
-            $query['ResourceInstanceName'] = $request->resourceInstanceName;
+
+        if (null !== $request->resourceInstanceName) {
+            @$query['ResourceInstanceName'] = $request->resourceInstanceName;
         }
-        if (!Utils::isUnset($request->resourceIp)) {
-            $query['ResourceIp'] = $request->resourceIp;
+
+        if (null !== $request->resourceIp) {
+            @$query['ResourceIp'] = $request->resourceIp;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceName)) {
-            $query['ResourceName'] = $request->resourceName;
+
+        if (null !== $request->resourceName) {
+            @$query['ResourceName'] = $request->resourceName;
         }
-        if (!Utils::isUnset($request->resourceProduct)) {
-            $query['ResourceProduct'] = $request->resourceProduct;
+
+        if (null !== $request->resourceProduct) {
+            @$query['ResourceProduct'] = $request->resourceProduct;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeProductInstances',
@@ -5783,16 +7180,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeProductInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
-     *  *
-     * @param DescribeProductInstancesRequest $request DescribeProductInstancesRequest
+     * Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
      *
-     * @return DescribeProductInstancesResponse DescribeProductInstancesResponse
+     * @param request - DescribeProductInstancesRequest
+     * @returns DescribeProductInstancesResponse
+     *
+     * @param DescribeProductInstancesRequest $request
+     *
+     * @return DescribeProductInstancesResponse
      */
     public function describeProductInstances($request)
     {
@@ -5802,34 +7205,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
-     *  *
-     * @param DescribePunishedDomainsRequest $request DescribePunishedDomainsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
      *
-     * @return DescribePunishedDomainsResponse DescribePunishedDomainsResponse
+     * @param request - DescribePunishedDomainsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePunishedDomainsResponse
+     *
+     * @param DescribePunishedDomainsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribePunishedDomainsResponse
      */
     public function describePunishedDomainsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domains)) {
-            $query['Domains'] = $request->domains;
+        if (null !== $request->domains) {
+            @$query['Domains'] = $request->domains;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->punishType)) {
-            $query['PunishType'] = $request->punishType;
+
+        if (null !== $request->punishType) {
+            @$query['PunishType'] = $request->punishType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribePunishedDomains',
@@ -5842,16 +7254,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePunishedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePunishedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePunishedDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
-     *  *
-     * @param DescribePunishedDomainsRequest $request DescribePunishedDomainsRequest
+     * Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
      *
-     * @return DescribePunishedDomainsResponse DescribePunishedDomainsResponse
+     * @param request - DescribePunishedDomainsRequest
+     * @returns DescribePunishedDomainsResponse
+     *
+     * @param DescribePunishedDomainsRequest $request
+     *
+     * @return DescribePunishedDomainsResponse
      */
     public function describePunishedDomains($request)
     {
@@ -5861,37 +7279,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
-     *  *
-     * @param DescribeResourceInstanceCertsRequest $request DescribeResourceInstanceCertsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
      *
-     * @return DescribeResourceInstanceCertsResponse DescribeResourceInstanceCertsResponse
+     * @param request - DescribeResourceInstanceCertsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeResourceInstanceCertsResponse
+     *
+     * @param DescribeResourceInstanceCertsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeResourceInstanceCertsResponse
      */
     public function describeResourceInstanceCertsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceInstanceId)) {
-            $query['ResourceInstanceId'] = $request->resourceInstanceId;
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeResourceInstanceCerts',
@@ -5904,16 +7332,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeResourceInstanceCertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeResourceInstanceCertsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeResourceInstanceCertsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
-     *  *
-     * @param DescribeResourceInstanceCertsRequest $request DescribeResourceInstanceCertsRequest
+     * Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
      *
-     * @return DescribeResourceInstanceCertsResponse DescribeResourceInstanceCertsResponse
+     * @param request - DescribeResourceInstanceCertsRequest
+     * @returns DescribeResourceInstanceCertsResponse
+     *
+     * @param DescribeResourceInstanceCertsRequest $request
+     *
+     * @return DescribeResourceInstanceCertsResponse
      */
     public function describeResourceInstanceCerts($request)
     {
@@ -5923,31 +7357,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether the log collection feature is enabled for a protected object.
-     *  *
-     * @param DescribeResourceLogStatusRequest $request DescribeResourceLogStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries whether the log collection feature is enabled for a protected object.
      *
-     * @return DescribeResourceLogStatusResponse DescribeResourceLogStatusResponse
+     * @param request - DescribeResourceLogStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeResourceLogStatusResponse
+     *
+     * @param DescribeResourceLogStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeResourceLogStatusResponse
      */
     public function describeResourceLogStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeResourceLogStatus',
@@ -5960,16 +7402,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeResourceLogStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether the log collection feature is enabled for a protected object.
-     *  *
-     * @param DescribeResourceLogStatusRequest $request DescribeResourceLogStatusRequest
+     * Queries whether the log collection feature is enabled for a protected object.
      *
-     * @return DescribeResourceLogStatusResponse DescribeResourceLogStatusResponse
+     * @param request - DescribeResourceLogStatusRequest
+     * @returns DescribeResourceLogStatusResponse
+     *
+     * @param DescribeResourceLogStatusRequest $request
+     *
+     * @return DescribeResourceLogStatusResponse
      */
     public function describeResourceLogStatus($request)
     {
@@ -5979,31 +7427,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the ports of a cloud service instance that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeResourcePortRequest $request DescribeResourcePortRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the ports of a cloud service instance that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeResourcePortResponse DescribeResourcePortResponse
+     * @param request - DescribeResourcePortRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeResourcePortResponse
+     *
+     * @param DescribeResourcePortRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeResourcePortResponse
      */
     public function describeResourcePortWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceInstanceId)) {
-            $query['ResourceInstanceId'] = $request->resourceInstanceId;
+
+        if (null !== $request->resourceInstanceId) {
+            @$query['ResourceInstanceId'] = $request->resourceInstanceId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeResourcePort',
@@ -6016,16 +7472,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeResourcePortResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeResourcePortResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeResourcePortResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the ports of a cloud service instance that are added to Web Application Firewall (WAF).
-     *  *
-     * @param DescribeResourcePortRequest $request DescribeResourcePortRequest
+     * Queries the ports of a cloud service instance that are added to Web Application Firewall (WAF).
      *
-     * @return DescribeResourcePortResponse DescribeResourcePortResponse
+     * @param request - DescribeResourcePortRequest
+     * @returns DescribeResourcePortResponse
+     *
+     * @param DescribeResourcePortRequest $request
+     *
+     * @return DescribeResourcePortResponse
      */
     public function describeResourcePort($request)
     {
@@ -6035,28 +7497,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
-     *  *
-     * @param DescribeResourceRegionIdRequest $request DescribeResourceRegionIdRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
      *
-     * @return DescribeResourceRegionIdResponse DescribeResourceRegionIdResponse
+     * @param request - DescribeResourceRegionIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeResourceRegionIdResponse
+     *
+     * @param DescribeResourceRegionIdRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeResourceRegionIdResponse
      */
     public function describeResourceRegionIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeResourceRegionId',
@@ -6069,16 +7538,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeResourceRegionIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeResourceRegionIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeResourceRegionIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
-     *  *
-     * @param DescribeResourceRegionIdRequest $request DescribeResourceRegionIdRequest
+     * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
      *
-     * @return DescribeResourceRegionIdResponse DescribeResourceRegionIdResponse
+     * @param request - DescribeResourceRegionIdRequest
+     * @returns DescribeResourceRegionIdResponse
+     *
+     * @param DescribeResourceRegionIdRequest $request
+     *
+     * @return DescribeResourceRegionIdResponse
      */
     public function describeResourceRegionId($request)
     {
@@ -6088,31 +7563,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
-     *  *
-     * @param DescribeResourceSupportRegionsRequest $request DescribeResourceSupportRegionsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
      *
-     * @return DescribeResourceSupportRegionsResponse DescribeResourceSupportRegionsResponse
+     * @param request - DescribeResourceSupportRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeResourceSupportRegionsResponse
+     *
+     * @param DescribeResourceSupportRegionsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeResourceSupportRegionsResponse
      */
     public function describeResourceSupportRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceProduct)) {
-            $query['ResourceProduct'] = $request->resourceProduct;
+
+        if (null !== $request->resourceProduct) {
+            @$query['ResourceProduct'] = $request->resourceProduct;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeResourceSupportRegions',
@@ -6125,16 +7608,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeResourceSupportRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeResourceSupportRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeResourceSupportRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
-     *  *
-     * @param DescribeResourceSupportRegionsRequest $request DescribeResourceSupportRegionsRequest
+     * Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
      *
-     * @return DescribeResourceSupportRegionsResponse DescribeResourceSupportRegionsResponse
+     * @param request - DescribeResourceSupportRegionsRequest
+     * @returns DescribeResourceSupportRegionsResponse
+     *
+     * @param DescribeResourceSupportRegionsRequest $request
+     *
+     * @return DescribeResourceSupportRegionsResponse
      */
     public function describeResourceSupportRegions($request)
     {
@@ -6144,43 +7633,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
-     *  *
-     * @param DescribeResponseCodeTrendGraphRequest $request DescribeResponseCodeTrendGraphRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
      *
-     * @return DescribeResponseCodeTrendGraphResponse DescribeResponseCodeTrendGraphResponse
+     * @param request - DescribeResponseCodeTrendGraphRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeResponseCodeTrendGraphResponse
+     *
+     * @param DescribeResponseCodeTrendGraphRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeResponseCodeTrendGraphResponse
      */
     public function describeResponseCodeTrendGraphWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->interval)) {
-            $query['Interval'] = $request->interval;
+
+        if (null !== $request->interval) {
+            @$query['Interval'] = $request->interval;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeResponseCodeTrendGraph',
@@ -6193,16 +7694,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeResponseCodeTrendGraphResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeResponseCodeTrendGraphResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeResponseCodeTrendGraphResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
-     *  *
-     * @param DescribeResponseCodeTrendGraphRequest $request DescribeResponseCodeTrendGraphRequest
+     * Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
      *
-     * @return DescribeResponseCodeTrendGraphResponse DescribeResponseCodeTrendGraphResponse
+     * @param request - DescribeResponseCodeTrendGraphRequest
+     * @returns DescribeResponseCodeTrendGraphResponse
+     *
+     * @param DescribeResponseCodeTrendGraphRequest $request
+     *
+     * @return DescribeResponseCodeTrendGraphResponse
      */
     public function describeResponseCodeTrendGraph($request)
     {
@@ -6212,40 +7719,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries regular expression rule groups by page.
-     *  *
-     * @param DescribeRuleGroupsRequest $request DescribeRuleGroupsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries regular expression rule groups by page.
      *
-     * @return DescribeRuleGroupsResponse DescribeRuleGroupsResponse
+     * @param request - DescribeRuleGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRuleGroupsResponse
+     *
+     * @param DescribeRuleGroupsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeRuleGroupsResponse
      */
     public function describeRuleGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->searchType)) {
-            $query['SearchType'] = $request->searchType;
+
+        if (null !== $request->searchType) {
+            @$query['SearchType'] = $request->searchType;
         }
-        if (!Utils::isUnset($request->searchValue)) {
-            $query['SearchValue'] = $request->searchValue;
+
+        if (null !== $request->searchValue) {
+            @$query['SearchValue'] = $request->searchValue;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRuleGroups',
@@ -6258,16 +7776,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRuleGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRuleGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRuleGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries regular expression rule groups by page.
-     *  *
-     * @param DescribeRuleGroupsRequest $request DescribeRuleGroupsRequest
+     * Queries regular expression rule groups by page.
      *
-     * @return DescribeRuleGroupsResponse DescribeRuleGroupsResponse
+     * @param request - DescribeRuleGroupsRequest
+     * @returns DescribeRuleGroupsResponse
+     *
+     * @param DescribeRuleGroupsRequest $request
+     *
+     * @return DescribeRuleGroupsResponse
      */
     public function describeRuleGroups($request)
     {
@@ -6277,40 +7801,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top 10 IP addresses from which attacks are initiated.
-     *  *
-     * @param DescribeRuleHitsTopClientIpRequest $request DescribeRuleHitsTopClientIpRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the top 10 IP addresses from which attacks are initiated.
      *
-     * @return DescribeRuleHitsTopClientIpResponse DescribeRuleHitsTopClientIpResponse
+     * @param request - DescribeRuleHitsTopClientIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRuleHitsTopClientIpResponse
+     *
+     * @param DescribeRuleHitsTopClientIpRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRuleHitsTopClientIpResponse
      */
     public function describeRuleHitsTopClientIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRuleHitsTopClientIp',
@@ -6323,16 +7858,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRuleHitsTopClientIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRuleHitsTopClientIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRuleHitsTopClientIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top 10 IP addresses from which attacks are initiated.
-     *  *
-     * @param DescribeRuleHitsTopClientIpRequest $request DescribeRuleHitsTopClientIpRequest
+     * Queries the top 10 IP addresses from which attacks are initiated.
      *
-     * @return DescribeRuleHitsTopClientIpResponse DescribeRuleHitsTopClientIpResponse
+     * @param request - DescribeRuleHitsTopClientIpRequest
+     * @returns DescribeRuleHitsTopClientIpResponse
+     *
+     * @param DescribeRuleHitsTopClientIpRequest $request
+     *
+     * @return DescribeRuleHitsTopClientIpResponse
      */
     public function describeRuleHitsTopClientIp($request)
     {
@@ -6342,37 +7883,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top 10 protected objects that trigger protection rules.
-     *  *
-     * @param DescribeRuleHitsTopResourceRequest $request DescribeRuleHitsTopResourceRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the top 10 protected objects that trigger protection rules.
      *
-     * @return DescribeRuleHitsTopResourceResponse DescribeRuleHitsTopResourceResponse
+     * @param request - DescribeRuleHitsTopResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRuleHitsTopResourceResponse
+     *
+     * @param DescribeRuleHitsTopResourceRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRuleHitsTopResourceResponse
      */
     public function describeRuleHitsTopResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRuleHitsTopResource',
@@ -6385,16 +7936,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRuleHitsTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRuleHitsTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRuleHitsTopResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top 10 protected objects that trigger protection rules.
-     *  *
-     * @param DescribeRuleHitsTopResourceRequest $request DescribeRuleHitsTopResourceRequest
+     * Queries the top 10 protected objects that trigger protection rules.
      *
-     * @return DescribeRuleHitsTopResourceResponse DescribeRuleHitsTopResourceResponse
+     * @param request - DescribeRuleHitsTopResourceRequest
+     * @returns DescribeRuleHitsTopResourceResponse
+     *
+     * @param DescribeRuleHitsTopResourceRequest $request
+     *
+     * @return DescribeRuleHitsTopResourceResponse
      */
     public function describeRuleHitsTopResource($request)
     {
@@ -6404,43 +7961,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IDs of the top 10 protection rules that are matched by requests.
-     *  *
-     * @param DescribeRuleHitsTopRuleIdRequest $request DescribeRuleHitsTopRuleIdRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the IDs of the top 10 protection rules that are matched by requests.
      *
-     * @return DescribeRuleHitsTopRuleIdResponse DescribeRuleHitsTopRuleIdResponse
+     * @param request - DescribeRuleHitsTopRuleIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRuleHitsTopRuleIdResponse
+     *
+     * @param DescribeRuleHitsTopRuleIdRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeRuleHitsTopRuleIdResponse
      */
     public function describeRuleHitsTopRuleIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->isGroupResource)) {
-            $query['IsGroupResource'] = $request->isGroupResource;
+
+        if (null !== $request->isGroupResource) {
+            @$query['IsGroupResource'] = $request->isGroupResource;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRuleHitsTopRuleId',
@@ -6453,16 +8022,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRuleHitsTopRuleIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRuleHitsTopRuleIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRuleHitsTopRuleIdResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the IDs of the top 10 protection rules that are matched by requests.
-     *  *
-     * @param DescribeRuleHitsTopRuleIdRequest $request DescribeRuleHitsTopRuleIdRequest
+     * Queries the IDs of the top 10 protection rules that are matched by requests.
      *
-     * @return DescribeRuleHitsTopRuleIdResponse DescribeRuleHitsTopRuleIdResponse
+     * @param request - DescribeRuleHitsTopRuleIdRequest
+     * @returns DescribeRuleHitsTopRuleIdResponse
+     *
+     * @param DescribeRuleHitsTopRuleIdRequest $request
+     *
+     * @return DescribeRuleHitsTopRuleIdResponse
      */
     public function describeRuleHitsTopRuleId($request)
     {
@@ -6472,37 +8047,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top 10 protection modules that are matched.
-     *  *
-     * @param DescribeRuleHitsTopTuleTypeRequest $request DescribeRuleHitsTopTuleTypeRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the top 10 protection modules that are matched.
      *
-     * @return DescribeRuleHitsTopTuleTypeResponse DescribeRuleHitsTopTuleTypeResponse
+     * @param request - DescribeRuleHitsTopTuleTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRuleHitsTopTuleTypeResponse
+     *
+     * @param DescribeRuleHitsTopTuleTypeRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeRuleHitsTopTuleTypeResponse
      */
     public function describeRuleHitsTopTuleTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRuleHitsTopTuleType',
@@ -6515,16 +8100,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRuleHitsTopTuleTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRuleHitsTopTuleTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRuleHitsTopTuleTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top 10 protection modules that are matched.
-     *  *
-     * @param DescribeRuleHitsTopTuleTypeRequest $request DescribeRuleHitsTopTuleTypeRequest
+     * Queries the top 10 protection modules that are matched.
      *
-     * @return DescribeRuleHitsTopTuleTypeResponse DescribeRuleHitsTopTuleTypeResponse
+     * @param request - DescribeRuleHitsTopTuleTypeRequest
+     * @returns DescribeRuleHitsTopTuleTypeResponse
+     *
+     * @param DescribeRuleHitsTopTuleTypeRequest $request
+     *
+     * @return DescribeRuleHitsTopTuleTypeResponse
      */
     public function describeRuleHitsTopTuleType($request)
     {
@@ -6534,37 +8125,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top 10 user agents that are used to initiate attacks.
-     *  *
-     * @param DescribeRuleHitsTopUaRequest $request DescribeRuleHitsTopUaRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the top 10 user agents that are used to initiate attacks.
      *
-     * @return DescribeRuleHitsTopUaResponse DescribeRuleHitsTopUaResponse
+     * @param request - DescribeRuleHitsTopUaRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRuleHitsTopUaResponse
+     *
+     * @param DescribeRuleHitsTopUaRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeRuleHitsTopUaResponse
      */
     public function describeRuleHitsTopUaWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRuleHitsTopUa',
@@ -6577,16 +8178,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRuleHitsTopUaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRuleHitsTopUaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRuleHitsTopUaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top 10 user agents that are used to initiate attacks.
-     *  *
-     * @param DescribeRuleHitsTopUaRequest $request DescribeRuleHitsTopUaRequest
+     * Queries the top 10 user agents that are used to initiate attacks.
      *
-     * @return DescribeRuleHitsTopUaResponse DescribeRuleHitsTopUaResponse
+     * @param request - DescribeRuleHitsTopUaRequest
+     * @returns DescribeRuleHitsTopUaResponse
+     *
+     * @param DescribeRuleHitsTopUaRequest $request
+     *
+     * @return DescribeRuleHitsTopUaResponse
      */
     public function describeRuleHitsTopUa($request)
     {
@@ -6596,40 +8203,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top 10 URLs that trigger protection rules.
-     *  *
-     * @param DescribeRuleHitsTopUrlRequest $request DescribeRuleHitsTopUrlRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the top 10 URLs that trigger protection rules.
      *
-     * @return DescribeRuleHitsTopUrlResponse DescribeRuleHitsTopUrlResponse
+     * @param request - DescribeRuleHitsTopUrlRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRuleHitsTopUrlResponse
+     *
+     * @param DescribeRuleHitsTopUrlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeRuleHitsTopUrlResponse
      */
     public function describeRuleHitsTopUrlWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRuleHitsTopUrl',
@@ -6642,16 +8260,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRuleHitsTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRuleHitsTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRuleHitsTopUrlResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top 10 URLs that trigger protection rules.
-     *  *
-     * @param DescribeRuleHitsTopUrlRequest $request DescribeRuleHitsTopUrlRequest
+     * Queries the top 10 URLs that trigger protection rules.
      *
-     * @return DescribeRuleHitsTopUrlResponse DescribeRuleHitsTopUrlResponse
+     * @param request - DescribeRuleHitsTopUrlRequest
+     * @returns DescribeRuleHitsTopUrlResponse
+     *
+     * @param DescribeRuleHitsTopUrlRequest $request
+     *
+     * @return DescribeRuleHitsTopUrlResponse
      */
     public function describeRuleHitsTopUrl($request)
     {
@@ -6661,46 +8285,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the personal information-related APIs and domain names.
-     *  *
-     * @param DescribeSensitiveApiStatisticRequest $request DescribeSensitiveApiStatisticRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the personal information-related APIs and domain names.
      *
-     * @return DescribeSensitiveApiStatisticResponse DescribeSensitiveApiStatisticResponse
+     * @param request - DescribeSensitiveApiStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSensitiveApiStatisticResponse
+     *
+     * @param DescribeSensitiveApiStatisticRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeSensitiveApiStatisticResponse
      */
     public function describeSensitiveApiStatisticWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->matchedHost)) {
-            $query['MatchedHost'] = $request->matchedHost;
+
+        if (null !== $request->matchedHost) {
+            @$query['MatchedHost'] = $request->matchedHost;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSensitiveApiStatistic',
@@ -6713,16 +8350,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSensitiveApiStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSensitiveApiStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSensitiveApiStatisticResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the personal information-related APIs and domain names.
-     *  *
-     * @param DescribeSensitiveApiStatisticRequest $request DescribeSensitiveApiStatisticRequest
+     * Queries the personal information-related APIs and domain names.
      *
-     * @return DescribeSensitiveApiStatisticResponse DescribeSensitiveApiStatisticResponse
+     * @param request - DescribeSensitiveApiStatisticRequest
+     * @returns DescribeSensitiveApiStatisticResponse
+     *
+     * @param DescribeSensitiveApiStatisticRequest $request
+     *
+     * @return DescribeSensitiveApiStatisticResponse
      */
     public function describeSensitiveApiStatistic($request)
     {
@@ -6732,37 +8375,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the compliance check results of API security.
-     *  *
-     * @param DescribeSensitiveDetectionResultRequest $request DescribeSensitiveDetectionResultRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Queries the compliance check results of API security.
      *
-     * @return DescribeSensitiveDetectionResultResponse DescribeSensitiveDetectionResultResponse
+     * @param request - DescribeSensitiveDetectionResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSensitiveDetectionResultResponse
+     *
+     * @param DescribeSensitiveDetectionResultRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeSensitiveDetectionResultResponse
      */
     public function describeSensitiveDetectionResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSensitiveDetectionResult',
@@ -6775,16 +8428,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSensitiveDetectionResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSensitiveDetectionResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSensitiveDetectionResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the compliance check results of API security.
-     *  *
-     * @param DescribeSensitiveDetectionResultRequest $request DescribeSensitiveDetectionResultRequest
+     * Queries the compliance check results of API security.
      *
-     * @return DescribeSensitiveDetectionResultResponse DescribeSensitiveDetectionResultResponse
+     * @param request - DescribeSensitiveDetectionResultRequest
+     * @returns DescribeSensitiveDetectionResultResponse
+     *
+     * @param DescribeSensitiveDetectionResultRequest $request
+     *
+     * @return DescribeSensitiveDetectionResultResponse
      */
     public function describeSensitiveDetectionResult($request)
     {
@@ -6794,37 +8453,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic distribution of personal information records involved in cross-border data transfer.
-     *  *
-     * @param DescribeSensitiveOutboundDistributionRequest $request DescribeSensitiveOutboundDistributionRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Queries the traffic distribution of personal information records involved in cross-border data transfer.
      *
-     * @return DescribeSensitiveOutboundDistributionResponse DescribeSensitiveOutboundDistributionResponse
+     * @param request - DescribeSensitiveOutboundDistributionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSensitiveOutboundDistributionResponse
+     *
+     * @param DescribeSensitiveOutboundDistributionRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeSensitiveOutboundDistributionResponse
      */
     public function describeSensitiveOutboundDistributionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSensitiveOutboundDistribution',
@@ -6837,16 +8506,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSensitiveOutboundDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSensitiveOutboundDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSensitiveOutboundDistributionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic distribution of personal information records involved in cross-border data transfer.
-     *  *
-     * @param DescribeSensitiveOutboundDistributionRequest $request DescribeSensitiveOutboundDistributionRequest
+     * Queries the traffic distribution of personal information records involved in cross-border data transfer.
      *
-     * @return DescribeSensitiveOutboundDistributionResponse DescribeSensitiveOutboundDistributionResponse
+     * @param request - DescribeSensitiveOutboundDistributionRequest
+     * @returns DescribeSensitiveOutboundDistributionResponse
+     *
+     * @param DescribeSensitiveOutboundDistributionRequest $request
+     *
+     * @return DescribeSensitiveOutboundDistributionResponse
      */
     public function describeSensitiveOutboundDistribution($request)
     {
@@ -6856,61 +8531,79 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the data types of personal information involved in cross-border data transfer.
-     *  *
-     * @param DescribeSensitiveOutboundStatisticRequest $request DescribeSensitiveOutboundStatisticRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Queries the data types of personal information involved in cross-border data transfer.
      *
-     * @return DescribeSensitiveOutboundStatisticResponse DescribeSensitiveOutboundStatisticResponse
+     * @param request - DescribeSensitiveOutboundStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSensitiveOutboundStatisticResponse
+     *
+     * @param DescribeSensitiveOutboundStatisticRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeSensitiveOutboundStatisticResponse
      */
     public function describeSensitiveOutboundStatisticWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->detectionResult)) {
-            $query['DetectionResult'] = $request->detectionResult;
+
+        if (null !== $request->detectionResult) {
+            @$query['DetectionResult'] = $request->detectionResult;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->orderKey)) {
-            $query['OrderKey'] = $request->orderKey;
+
+        if (null !== $request->orderKey) {
+            @$query['OrderKey'] = $request->orderKey;
         }
-        if (!Utils::isUnset($request->orderWay)) {
-            $query['OrderWay'] = $request->orderWay;
+
+        if (null !== $request->orderWay) {
+            @$query['OrderWay'] = $request->orderWay;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sensitiveCode)) {
-            $query['SensitiveCode'] = $request->sensitiveCode;
+
+        if (null !== $request->sensitiveCode) {
+            @$query['SensitiveCode'] = $request->sensitiveCode;
         }
-        if (!Utils::isUnset($request->sensitiveLevel)) {
-            $query['SensitiveLevel'] = $request->sensitiveLevel;
+
+        if (null !== $request->sensitiveLevel) {
+            @$query['SensitiveLevel'] = $request->sensitiveLevel;
         }
-        if (!Utils::isUnset($request->sensitiveType)) {
-            $query['SensitiveType'] = $request->sensitiveType;
+
+        if (null !== $request->sensitiveType) {
+            @$query['SensitiveType'] = $request->sensitiveType;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSensitiveOutboundStatistic',
@@ -6923,16 +8616,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSensitiveOutboundStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSensitiveOutboundStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSensitiveOutboundStatisticResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the data types of personal information involved in cross-border data transfer.
-     *  *
-     * @param DescribeSensitiveOutboundStatisticRequest $request DescribeSensitiveOutboundStatisticRequest
+     * Queries the data types of personal information involved in cross-border data transfer.
      *
-     * @return DescribeSensitiveOutboundStatisticResponse DescribeSensitiveOutboundStatisticResponse
+     * @param request - DescribeSensitiveOutboundStatisticRequest
+     * @returns DescribeSensitiveOutboundStatisticResponse
+     *
+     * @param DescribeSensitiveOutboundStatisticRequest $request
+     *
+     * @return DescribeSensitiveOutboundStatisticResponse
      */
     public function describeSensitiveOutboundStatistic($request)
     {
@@ -6942,37 +8641,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the trends of cross-border data transfer of personal information.
-     *  *
-     * @param DescribeSensitiveOutboundTrendRequest $request DescribeSensitiveOutboundTrendRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the trends of cross-border data transfer of personal information.
      *
-     * @return DescribeSensitiveOutboundTrendResponse DescribeSensitiveOutboundTrendResponse
+     * @param request - DescribeSensitiveOutboundTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSensitiveOutboundTrendResponse
+     *
+     * @param DescribeSensitiveOutboundTrendRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeSensitiveOutboundTrendResponse
      */
     public function describeSensitiveOutboundTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSensitiveOutboundTrend',
@@ -6985,16 +8694,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSensitiveOutboundTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSensitiveOutboundTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSensitiveOutboundTrendResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the trends of cross-border data transfer of personal information.
-     *  *
-     * @param DescribeSensitiveOutboundTrendRequest $request DescribeSensitiveOutboundTrendRequest
+     * Queries the trends of cross-border data transfer of personal information.
      *
-     * @return DescribeSensitiveOutboundTrendResponse DescribeSensitiveOutboundTrendResponse
+     * @param request - DescribeSensitiveOutboundTrendRequest
+     * @returns DescribeSensitiveOutboundTrendResponse
+     *
+     * @param DescribeSensitiveOutboundTrendRequest $request
+     *
+     * @return DescribeSensitiveOutboundTrendResponse
      */
     public function describeSensitiveOutboundTrend($request)
     {
@@ -7004,58 +8719,75 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the access logs of sensitive data.
-     *  *
-     * @param DescribeSensitiveRequestLogRequest $request DescribeSensitiveRequestLogRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries the access logs of sensitive data.
      *
-     * @return DescribeSensitiveRequestLogResponse DescribeSensitiveRequestLogResponse
+     * @param request - DescribeSensitiveRequestLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSensitiveRequestLogResponse
+     *
+     * @param DescribeSensitiveRequestLogRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeSensitiveRequestLogResponse
      */
     public function describeSensitiveRequestLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiFormat)) {
-            $query['ApiFormat'] = $request->apiFormat;
+        if (null !== $request->apiFormat) {
+            @$query['ApiFormat'] = $request->apiFormat;
         }
-        if (!Utils::isUnset($request->clientIP)) {
-            $query['ClientIP'] = $request->clientIP;
+
+        if (null !== $request->clientIP) {
+            @$query['ClientIP'] = $request->clientIP;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->matchedHost)) {
-            $query['MatchedHost'] = $request->matchedHost;
+
+        if (null !== $request->matchedHost) {
+            @$query['MatchedHost'] = $request->matchedHost;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sensitiveCode)) {
-            $query['SensitiveCode'] = $request->sensitiveCode;
+
+        if (null !== $request->sensitiveCode) {
+            @$query['SensitiveCode'] = $request->sensitiveCode;
         }
-        if (!Utils::isUnset($request->sensitiveData)) {
-            $query['SensitiveData'] = $request->sensitiveData;
+
+        if (null !== $request->sensitiveData) {
+            @$query['SensitiveData'] = $request->sensitiveData;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSensitiveRequestLog',
@@ -7068,16 +8800,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSensitiveRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSensitiveRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSensitiveRequestLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the access logs of sensitive data.
-     *  *
-     * @param DescribeSensitiveRequestLogRequest $request DescribeSensitiveRequestLogRequest
+     * Queries the access logs of sensitive data.
      *
-     * @return DescribeSensitiveRequestLogResponse DescribeSensitiveRequestLogResponse
+     * @param request - DescribeSensitiveRequestLogRequest
+     * @returns DescribeSensitiveRequestLogResponse
+     *
+     * @param DescribeSensitiveRequestLogRequest $request
+     *
+     * @return DescribeSensitiveRequestLogResponse
      */
     public function describeSensitiveRequestLog($request)
     {
@@ -7087,49 +8825,63 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tracing results of sensitive data.
-     *  *
-     * @param DescribeSensitiveRequestsRequest $request DescribeSensitiveRequestsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the tracing results of sensitive data.
      *
-     * @return DescribeSensitiveRequestsResponse DescribeSensitiveRequestsResponse
+     * @param request - DescribeSensitiveRequestsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSensitiveRequestsResponse
+     *
+     * @param DescribeSensitiveRequestsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSensitiveRequestsResponse
      */
     public function describeSensitiveRequestsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sensitiveCode)) {
-            $query['SensitiveCode'] = $request->sensitiveCode;
+
+        if (null !== $request->sensitiveCode) {
+            @$query['SensitiveCode'] = $request->sensitiveCode;
         }
-        if (!Utils::isUnset($request->sensitiveData)) {
-            $query['SensitiveData'] = $request->sensitiveData;
+
+        if (null !== $request->sensitiveData) {
+            @$query['SensitiveData'] = $request->sensitiveData;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSensitiveRequests',
@@ -7142,16 +8894,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSensitiveRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSensitiveRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSensitiveRequestsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tracing results of sensitive data.
-     *  *
-     * @param DescribeSensitiveRequestsRequest $request DescribeSensitiveRequestsRequest
+     * Queries the tracing results of sensitive data.
      *
-     * @return DescribeSensitiveRequestsResponse DescribeSensitiveRequestsResponse
+     * @param request - DescribeSensitiveRequestsRequest
+     * @returns DescribeSensitiveRequestsResponse
+     *
+     * @param DescribeSensitiveRequestsRequest $request
+     *
+     * @return DescribeSensitiveRequestsResponse
      */
     public function describeSensitiveRequests($request)
     {
@@ -7161,46 +8919,59 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the sensitive data statistics of the tracing and auditing feature.
-     *  *
-     * @param DescribeSensitiveStatisticRequest $request DescribeSensitiveStatisticRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the sensitive data statistics of the tracing and auditing feature.
      *
-     * @return DescribeSensitiveStatisticResponse DescribeSensitiveStatisticResponse
+     * @param request - DescribeSensitiveStatisticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSensitiveStatisticResponse
+     *
+     * @param DescribeSensitiveStatisticRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeSensitiveStatisticResponse
      */
     public function describeSensitiveStatisticWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->statisticType)) {
-            $query['StatisticType'] = $request->statisticType;
+
+        if (null !== $request->statisticType) {
+            @$query['StatisticType'] = $request->statisticType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSensitiveStatistic',
@@ -7213,16 +8984,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSensitiveStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSensitiveStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSensitiveStatisticResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the sensitive data statistics of the tracing and auditing feature.
-     *  *
-     * @param DescribeSensitiveStatisticRequest $request DescribeSensitiveStatisticRequest
+     * Queries the sensitive data statistics of the tracing and auditing feature.
      *
-     * @return DescribeSensitiveStatisticResponse DescribeSensitiveStatisticResponse
+     * @param request - DescribeSensitiveStatisticRequest
+     * @returns DescribeSensitiveStatisticResponse
+     *
+     * @param DescribeSensitiveStatisticRequest $request
+     *
+     * @return DescribeSensitiveStatisticResponse
      */
     public function describeSensitiveStatistic($request)
     {
@@ -7232,28 +9009,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
-     *  *
-     * @param DescribeSlsAuthStatusRequest $request DescribeSlsAuthStatusRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
      *
-     * @return DescribeSlsAuthStatusResponse DescribeSlsAuthStatusResponse
+     * @param request - DescribeSlsAuthStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlsAuthStatusResponse
+     *
+     * @param DescribeSlsAuthStatusRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSlsAuthStatusResponse
      */
     public function describeSlsAuthStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlsAuthStatus',
@@ -7266,16 +9050,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlsAuthStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
-     *  *
-     * @param DescribeSlsAuthStatusRequest $request DescribeSlsAuthStatusRequest
+     * Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
      *
-     * @return DescribeSlsAuthStatusResponse DescribeSlsAuthStatusResponse
+     * @param request - DescribeSlsAuthStatusRequest
+     * @returns DescribeSlsAuthStatusResponse
+     *
+     * @param DescribeSlsAuthStatusRequest $request
+     *
+     * @return DescribeSlsAuthStatusResponse
      */
     public function describeSlsAuthStatus($request)
     {
@@ -7285,28 +9075,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
-     *  *
-     * @param DescribeSlsLogStoreRequest $request DescribeSlsLogStoreRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
      *
-     * @return DescribeSlsLogStoreResponse DescribeSlsLogStoreResponse
+     * @param request - DescribeSlsLogStoreRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlsLogStoreResponse
+     *
+     * @param DescribeSlsLogStoreRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeSlsLogStoreResponse
      */
     public function describeSlsLogStoreWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlsLogStore',
@@ -7319,16 +9116,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlsLogStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlsLogStoreResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlsLogStoreResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
-     *  *
-     * @param DescribeSlsLogStoreRequest $request DescribeSlsLogStoreRequest
+     * Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
      *
-     * @return DescribeSlsLogStoreResponse DescribeSlsLogStoreResponse
+     * @param request - DescribeSlsLogStoreRequest
+     * @returns DescribeSlsLogStoreResponse
+     *
+     * @param DescribeSlsLogStoreRequest $request
+     *
+     * @return DescribeSlsLogStoreResponse
      */
     public function describeSlsLogStore($request)
     {
@@ -7338,28 +9141,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of a Simple Log Service Logstore.
-     *  *
-     * @param DescribeSlsLogStoreStatusRequest $request DescribeSlsLogStoreStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the status of a Simple Log Service Logstore.
      *
-     * @return DescribeSlsLogStoreStatusResponse DescribeSlsLogStoreStatusResponse
+     * @param request - DescribeSlsLogStoreStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSlsLogStoreStatusResponse
+     *
+     * @param DescribeSlsLogStoreStatusRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSlsLogStoreStatusResponse
      */
     public function describeSlsLogStoreStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeSlsLogStoreStatus',
@@ -7372,16 +9182,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSlsLogStoreStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeSlsLogStoreStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeSlsLogStoreStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status of a Simple Log Service Logstore.
-     *  *
-     * @param DescribeSlsLogStoreStatusRequest $request DescribeSlsLogStoreStatusRequest
+     * Queries the status of a Simple Log Service Logstore.
      *
-     * @return DescribeSlsLogStoreStatusResponse DescribeSlsLogStoreStatusResponse
+     * @param request - DescribeSlsLogStoreStatusRequest
+     * @returns DescribeSlsLogStoreStatusResponse
+     *
+     * @param DescribeSlsLogStoreStatusRequest $request
+     *
+     * @return DescribeSlsLogStoreStatusResponse
      */
     public function describeSlsLogStoreStatus($request)
     {
@@ -7391,31 +9207,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the number of protected resources for which a protection template takes effect.
-     *  *
-     * @param DescribeTemplateResourceCountRequest $request DescribeTemplateResourceCountRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the number of protected resources for which a protection template takes effect.
      *
-     * @return DescribeTemplateResourceCountResponse DescribeTemplateResourceCountResponse
+     * @param request - DescribeTemplateResourceCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTemplateResourceCountResponse
+     *
+     * @param DescribeTemplateResourceCountRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeTemplateResourceCountResponse
      */
     public function describeTemplateResourceCountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateIds)) {
-            $query['TemplateIds'] = $request->templateIds;
+
+        if (null !== $request->templateIds) {
+            @$query['TemplateIds'] = $request->templateIds;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTemplateResourceCount',
@@ -7428,16 +9252,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTemplateResourceCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTemplateResourceCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTemplateResourceCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the number of protected resources for which a protection template takes effect.
-     *  *
-     * @param DescribeTemplateResourceCountRequest $request DescribeTemplateResourceCountRequest
+     * Queries the number of protected resources for which a protection template takes effect.
      *
-     * @return DescribeTemplateResourceCountResponse DescribeTemplateResourceCountResponse
+     * @param request - DescribeTemplateResourceCountRequest
+     * @returns DescribeTemplateResourceCountResponse
+     *
+     * @param DescribeTemplateResourceCountRequest $request
+     *
+     * @return DescribeTemplateResourceCountResponse
      */
     public function describeTemplateResourceCount($request)
     {
@@ -7447,34 +9277,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the resources that are associated to a protection rule template.
-     *  *
-     * @param DescribeTemplateResourcesRequest $request DescribeTemplateResourcesRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the resources that are associated to a protection rule template.
      *
-     * @return DescribeTemplateResourcesResponse DescribeTemplateResourcesResponse
+     * @param request - DescribeTemplateResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeTemplateResourcesResponse
+     *
+     * @param DescribeTemplateResourcesRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeTemplateResourcesResponse
      */
     public function describeTemplateResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeTemplateResources',
@@ -7487,16 +9326,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeTemplateResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the resources that are associated to a protection rule template.
-     *  *
-     * @param DescribeTemplateResourcesRequest $request DescribeTemplateResourcesRequest
+     * Queries the resources that are associated to a protection rule template.
      *
-     * @return DescribeTemplateResourcesResponse DescribeTemplateResourcesResponse
+     * @param request - DescribeTemplateResourcesRequest
+     * @returns DescribeTemplateResourcesResponse
+     *
+     * @param DescribeTemplateResourcesRequest $request
+     *
+     * @return DescribeTemplateResourcesResponse
      */
     public function describeTemplateResources($request)
     {
@@ -7506,31 +9351,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the trends of API security risks.
-     *  *
-     * @param DescribeUserAbnormalTrendRequest $request DescribeUserAbnormalTrendRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the trends of API security risks.
      *
-     * @return DescribeUserAbnormalTrendResponse DescribeUserAbnormalTrendResponse
+     * @param request - DescribeUserAbnormalTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserAbnormalTrendResponse
+     *
+     * @param DescribeUserAbnormalTrendRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeUserAbnormalTrendResponse
      */
     public function describeUserAbnormalTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserAbnormalTrend',
@@ -7543,16 +9396,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserAbnormalTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserAbnormalTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserAbnormalTrendResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the trends of API security risks.
-     *  *
-     * @param DescribeUserAbnormalTrendRequest $request DescribeUserAbnormalTrendRequest
+     * Queries the trends of API security risks.
      *
-     * @return DescribeUserAbnormalTrendResponse DescribeUserAbnormalTrendResponse
+     * @param request - DescribeUserAbnormalTrendRequest
+     * @returns DescribeUserAbnormalTrendResponse
+     *
+     * @param DescribeUserAbnormalTrendRequest $request
+     *
+     * @return DescribeUserAbnormalTrendResponse
      */
     public function describeUserAbnormalTrend($request)
     {
@@ -7562,37 +9421,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the types and statistics of risks in the API security module.
-     *  *
-     * @param DescribeUserAbnormalTypeRequest $request DescribeUserAbnormalTypeRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the types and statistics of risks in the API security module.
      *
-     * @return DescribeUserAbnormalTypeResponse DescribeUserAbnormalTypeResponse
+     * @param request - DescribeUserAbnormalTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserAbnormalTypeResponse
+     *
+     * @param DescribeUserAbnormalTypeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeUserAbnormalTypeResponse
      */
     public function describeUserAbnormalTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserAbnormalType',
@@ -7605,16 +9474,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserAbnormalTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserAbnormalTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserAbnormalTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the types and statistics of risks in the API security module.
-     *  *
-     * @param DescribeUserAbnormalTypeRequest $request DescribeUserAbnormalTypeRequest
+     * Queries the types and statistics of risks in the API security module.
      *
-     * @return DescribeUserAbnormalTypeResponse DescribeUserAbnormalTypeResponse
+     * @param request - DescribeUserAbnormalTypeRequest
+     * @returns DescribeUserAbnormalTypeResponse
+     *
+     * @param DescribeUserAbnormalTypeRequest $request
+     *
+     * @return DescribeUserAbnormalTypeResponse
      */
     public function describeUserAbnormalType($request)
     {
@@ -7624,43 +9499,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the traffic statistics of an API.
-     *  *
-     * @param DescribeUserApiRequestRequest $request DescribeUserApiRequestRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the traffic statistics of an API.
      *
-     * @return DescribeUserApiRequestResponse DescribeUserApiRequestResponse
+     * @param request - DescribeUserApiRequestRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserApiRequestResponse
+     *
+     * @param DescribeUserApiRequestRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeUserApiRequestResponse
      */
     public function describeUserApiRequestWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiFormat)) {
-            $query['ApiFormat'] = $request->apiFormat;
+        if (null !== $request->apiFormat) {
+            @$query['ApiFormat'] = $request->apiFormat;
         }
-        if (!Utils::isUnset($request->apiId)) {
-            $query['ApiId'] = $request->apiId;
+
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['Type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserApiRequest',
@@ -7673,16 +9560,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserApiRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserApiRequestResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserApiRequestResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the traffic statistics of an API.
-     *  *
-     * @param DescribeUserApiRequestRequest $request DescribeUserApiRequestRequest
+     * Queries the traffic statistics of an API.
      *
-     * @return DescribeUserApiRequestResponse DescribeUserApiRequestResponse
+     * @param request - DescribeUserApiRequestRequest
+     * @returns DescribeUserApiRequestResponse
+     *
+     * @param DescribeUserApiRequestRequest $request
+     *
+     * @return DescribeUserApiRequestResponse
      */
     public function describeUserApiRequest($request)
     {
@@ -7692,37 +9585,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the user asset statistics in the API security module.
-     *  *
-     * @param DescribeUserAssetRequest $request DescribeUserAssetRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries the user asset statistics in the API security module.
      *
-     * @return DescribeUserAssetResponse DescribeUserAssetResponse
+     * @param request - DescribeUserAssetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserAssetResponse
+     *
+     * @param DescribeUserAssetRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeUserAssetResponse
      */
     public function describeUserAssetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->dataType)) {
-            $query['DataType'] = $request->dataType;
+
+        if (null !== $request->dataType) {
+            @$query['DataType'] = $request->dataType;
         }
-        if (!Utils::isUnset($request->days)) {
-            $query['Days'] = $request->days;
+
+        if (null !== $request->days) {
+            @$query['Days'] = $request->days;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserAsset',
@@ -7735,16 +9638,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserAssetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserAssetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the user asset statistics in the API security module.
-     *  *
-     * @param DescribeUserAssetRequest $request DescribeUserAssetRequest
+     * Queries the user asset statistics in the API security module.
      *
-     * @return DescribeUserAssetResponse DescribeUserAssetResponse
+     * @param request - DescribeUserAssetRequest
+     * @returns DescribeUserAssetResponse
+     *
+     * @param DescribeUserAssetRequest $request
+     *
+     * @return DescribeUserAssetResponse
      */
     public function describeUserAsset($request)
     {
@@ -7754,31 +9663,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the trends of attacks detected by the API security module.
-     *  *
-     * @param DescribeUserEventTrendRequest $request DescribeUserEventTrendRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the trends of attacks detected by the API security module.
      *
-     * @return DescribeUserEventTrendResponse DescribeUserEventTrendResponse
+     * @param request - DescribeUserEventTrendRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserEventTrendResponse
+     *
+     * @param DescribeUserEventTrendRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeUserEventTrendResponse
      */
     public function describeUserEventTrendWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserEventTrend',
@@ -7791,16 +9708,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserEventTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserEventTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserEventTrendResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the trends of attacks detected by the API security module.
-     *  *
-     * @param DescribeUserEventTrendRequest $request DescribeUserEventTrendRequest
+     * Queries the trends of attacks detected by the API security module.
      *
-     * @return DescribeUserEventTrendResponse DescribeUserEventTrendResponse
+     * @param request - DescribeUserEventTrendRequest
+     * @returns DescribeUserEventTrendResponse
+     *
+     * @param DescribeUserEventTrendRequest $request
+     *
+     * @return DescribeUserEventTrendResponse
      */
     public function describeUserEventTrend($request)
     {
@@ -7810,37 +9733,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the types and statistics of security events in the API security module.
-     *  *
-     * @param DescribeUserEventTypeRequest $request DescribeUserEventTypeRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the types and statistics of security events in the API security module.
      *
-     * @return DescribeUserEventTypeResponse DescribeUserEventTypeResponse
+     * @param request - DescribeUserEventTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserEventTypeResponse
+     *
+     * @param DescribeUserEventTypeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeUserEventTypeResponse
      */
     public function describeUserEventTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserEventType',
@@ -7853,16 +9786,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserEventTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserEventTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserEventTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the types and statistics of security events in the API security module.
-     *  *
-     * @param DescribeUserEventTypeRequest $request DescribeUserEventTypeRequest
+     * Queries the types and statistics of security events in the API security module.
      *
-     * @return DescribeUserEventTypeResponse DescribeUserEventTypeResponse
+     * @param request - DescribeUserEventTypeRequest
+     * @returns DescribeUserEventTypeResponse
+     *
+     * @param DescribeUserEventTypeRequest $request
+     *
+     * @return DescribeUserEventTypeResponse
      */
     public function describeUserEventType($request)
     {
@@ -7872,28 +9811,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries available regions for log storage.
-     *  *
-     * @param DescribeUserSlsLogRegionsRequest $request DescribeUserSlsLogRegionsRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries available regions for log storage.
      *
-     * @return DescribeUserSlsLogRegionsResponse DescribeUserSlsLogRegionsResponse
+     * @param request - DescribeUserSlsLogRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserSlsLogRegionsResponse
+     *
+     * @param DescribeUserSlsLogRegionsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeUserSlsLogRegionsResponse
      */
     public function describeUserSlsLogRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserSlsLogRegions',
@@ -7906,16 +9852,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserSlsLogRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserSlsLogRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserSlsLogRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries available regions for log storage.
-     *  *
-     * @param DescribeUserSlsLogRegionsRequest $request DescribeUserSlsLogRegionsRequest
+     * Queries available regions for log storage.
      *
-     * @return DescribeUserSlsLogRegionsResponse DescribeUserSlsLogRegionsResponse
+     * @param request - DescribeUserSlsLogRegionsRequest
+     * @returns DescribeUserSlsLogRegionsResponse
+     *
+     * @param DescribeUserSlsLogRegionsRequest $request
+     *
+     * @return DescribeUserSlsLogRegionsResponse
      */
     public function describeUserSlsLogRegions($request)
     {
@@ -7925,28 +9877,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status, region ID, and status modification time of Web Application Firewall (WAF) logs.
-     *  *
-     * @param DescribeUserWafLogStatusRequest $request DescribeUserWafLogStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the status, region ID, and status modification time of Web Application Firewall (WAF) logs.
      *
-     * @return DescribeUserWafLogStatusResponse DescribeUserWafLogStatusResponse
+     * @param request - DescribeUserWafLogStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeUserWafLogStatusResponse
+     *
+     * @param DescribeUserWafLogStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeUserWafLogStatusResponse
      */
     public function describeUserWafLogStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeUserWafLogStatus',
@@ -7959,16 +9918,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeUserWafLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeUserWafLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeUserWafLogStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the status, region ID, and status modification time of Web Application Firewall (WAF) logs.
-     *  *
-     * @param DescribeUserWafLogStatusRequest $request DescribeUserWafLogStatusRequest
+     * Queries the status, region ID, and status modification time of Web Application Firewall (WAF) logs.
      *
-     * @return DescribeUserWafLogStatusResponse DescribeUserWafLogStatusResponse
+     * @param request - DescribeUserWafLogStatusRequest
+     * @returns DescribeUserWafLogStatusResponse
+     *
+     * @param DescribeUserWafLogStatusRequest $request
+     *
+     * @return DescribeUserWafLogStatusResponse
      */
     public function describeUserWafLogStatus($request)
     {
@@ -7978,37 +9943,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top 10 IP addresses from which requests are sent.
-     *  *
-     * @param DescribeVisitTopIpRequest $request DescribeVisitTopIpRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the top 10 IP addresses from which requests are sent.
      *
-     * @return DescribeVisitTopIpResponse DescribeVisitTopIpResponse
+     * @param request - DescribeVisitTopIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeVisitTopIpResponse
+     *
+     * @param DescribeVisitTopIpRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeVisitTopIpResponse
      */
     public function describeVisitTopIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeVisitTopIp',
@@ -8021,16 +9996,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeVisitTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVisitTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVisitTopIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top 10 IP addresses from which requests are sent.
-     *  *
-     * @param DescribeVisitTopIpRequest $request DescribeVisitTopIpRequest
+     * Queries the top 10 IP addresses from which requests are sent.
      *
-     * @return DescribeVisitTopIpResponse DescribeVisitTopIpResponse
+     * @param request - DescribeVisitTopIpRequest
+     * @returns DescribeVisitTopIpResponse
+     *
+     * @param DescribeVisitTopIpRequest $request
+     *
+     * @return DescribeVisitTopIpResponse
      */
     public function describeVisitTopIp($request)
     {
@@ -8040,37 +10021,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the top 10 user agents that are used to initiate requests.
-     *  *
-     * @param DescribeVisitUasRequest $request DescribeVisitUasRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the top 10 user agents that are used to initiate requests.
      *
-     * @return DescribeVisitUasResponse DescribeVisitUasResponse
+     * @param request - DescribeVisitUasRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeVisitUasResponse
+     *
+     * @param DescribeVisitUasRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeVisitUasResponse
      */
     public function describeVisitUasWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTimestamp)) {
-            $query['EndTimestamp'] = $request->endTimestamp;
+        if (null !== $request->endTimestamp) {
+            @$query['EndTimestamp'] = $request->endTimestamp;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->startTimestamp)) {
-            $query['StartTimestamp'] = $request->startTimestamp;
+
+        if (null !== $request->startTimestamp) {
+            @$query['StartTimestamp'] = $request->startTimestamp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeVisitUas',
@@ -8083,16 +10074,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeVisitUasResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVisitUasResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVisitUasResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the top 10 user agents that are used to initiate requests.
-     *  *
-     * @param DescribeVisitUasRequest $request DescribeVisitUasRequest
+     * Queries the top 10 user agents that are used to initiate requests.
      *
-     * @return DescribeVisitUasResponse DescribeVisitUasResponse
+     * @param request - DescribeVisitUasRequest
+     * @returns DescribeVisitUasResponse
+     *
+     * @param DescribeVisitUasRequest $request
+     *
+     * @return DescribeVisitUasResponse
      */
     public function describeVisitUas($request)
     {
@@ -8102,28 +10099,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
-     *  *
-     * @param DescribeWafSourceIpSegmentRequest $request DescribeWafSourceIpSegmentRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
      *
-     * @return DescribeWafSourceIpSegmentResponse DescribeWafSourceIpSegmentResponse
+     * @param request - DescribeWafSourceIpSegmentRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeWafSourceIpSegmentResponse
+     *
+     * @param DescribeWafSourceIpSegmentRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeWafSourceIpSegmentResponse
      */
     public function describeWafSourceIpSegmentWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeWafSourceIpSegment',
@@ -8136,16 +10140,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeWafSourceIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeWafSourceIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeWafSourceIpSegmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
-     *  *
-     * @param DescribeWafSourceIpSegmentRequest $request DescribeWafSourceIpSegmentRequest
+     * Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
      *
-     * @return DescribeWafSourceIpSegmentResponse DescribeWafSourceIpSegmentResponse
+     * @param request - DescribeWafSourceIpSegmentRequest
+     * @returns DescribeWafSourceIpSegmentResponse
+     *
+     * @param DescribeWafSourceIpSegmentRequest $request
+     *
+     * @return DescribeWafSourceIpSegmentResponse
      */
     public function describeWafSourceIpSegment($request)
     {
@@ -8155,31 +10165,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries tag keys.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries tag keys.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @param request - ListTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagKeys',
@@ -8192,16 +10210,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tag keys.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * Queries tag keys.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @param request - ListTagKeysRequest
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -8211,34 +10235,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are added to a resource.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the tags that are added to a resource.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -8251,16 +10284,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tags that are added to a resource.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * Queries the tags that are added to a resource.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -8270,37 +10309,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag values of a tag key.
-     *  *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the tag values of a tag key.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @param request - ListTagValuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagValues',
@@ -8313,16 +10362,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the tag values of a tag key.
-     *  *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * Queries the tag values of a tag key.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @param request - ListTagValuesRequest
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -8332,40 +10387,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the status of multiple risks detected by the API security module at a time.
-     *  *
-     * @param ModifyApisecAbnormalsRequest $request ModifyApisecAbnormalsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Modifies the status of multiple risks detected by the API security module at a time.
      *
-     * @return ModifyApisecAbnormalsResponse ModifyApisecAbnormalsResponse
+     * @param request - ModifyApisecAbnormalsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyApisecAbnormalsResponse
+     *
+     * @param ModifyApisecAbnormalsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyApisecAbnormalsResponse
      */
     public function modifyApisecAbnormalsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->abnormalIds)) {
-            $query['AbnormalIds'] = $request->abnormalIds;
+        if (null !== $request->abnormalIds) {
+            @$query['AbnormalIds'] = $request->abnormalIds;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->userStatus)) {
-            $query['UserStatus'] = $request->userStatus;
+
+        if (null !== $request->userStatus) {
+            @$query['UserStatus'] = $request->userStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApisecAbnormals',
@@ -8378,16 +10444,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyApisecAbnormalsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the status of multiple risks detected by the API security module at a time.
-     *  *
-     * @param ModifyApisecAbnormalsRequest $request ModifyApisecAbnormalsRequest
+     * Modifies the status of multiple risks detected by the API security module at a time.
      *
-     * @return ModifyApisecAbnormalsResponse ModifyApisecAbnormalsResponse
+     * @param request - ModifyApisecAbnormalsRequest
+     * @returns ModifyApisecAbnormalsResponse
+     *
+     * @param ModifyApisecAbnormalsRequest $request
+     *
+     * @return ModifyApisecAbnormalsResponse
      */
     public function modifyApisecAbnormals($request)
     {
@@ -8397,40 +10469,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the annotations of APIs in the API security module.
-     *  *
-     * @param ModifyApisecApiResourceRequest $request ModifyApisecApiResourceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the annotations of APIs in the API security module.
      *
-     * @return ModifyApisecApiResourceResponse ModifyApisecApiResourceResponse
+     * @param request - ModifyApisecApiResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyApisecApiResourceResponse
+     *
+     * @param ModifyApisecApiResourceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyApisecApiResourceResponse
      */
     public function modifyApisecApiResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apiId)) {
-            $query['ApiId'] = $request->apiId;
+        if (null !== $request->apiId) {
+            @$query['ApiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->follow)) {
-            $query['Follow'] = $request->follow;
+
+        if (null !== $request->follow) {
+            @$query['Follow'] = $request->follow;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApisecApiResource',
@@ -8443,16 +10526,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyApisecApiResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyApisecApiResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyApisecApiResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the annotations of APIs in the API security module.
-     *  *
-     * @param ModifyApisecApiResourceRequest $request ModifyApisecApiResourceRequest
+     * Modifies the annotations of APIs in the API security module.
      *
-     * @return ModifyApisecApiResourceResponse ModifyApisecApiResourceResponse
+     * @param request - ModifyApisecApiResourceRequest
+     * @returns ModifyApisecApiResourceResponse
+     *
+     * @param ModifyApisecApiResourceRequest $request
+     *
+     * @return ModifyApisecApiResourceResponse
      */
     public function modifyApisecApiResource($request)
     {
@@ -8462,40 +10551,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the status of multiple security events detected by the API security module at a time.
-     *  *
-     * @param ModifyApisecEventsRequest $request ModifyApisecEventsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the status of multiple security events detected by the API security module at a time.
      *
-     * @return ModifyApisecEventsResponse ModifyApisecEventsResponse
+     * @param request - ModifyApisecEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyApisecEventsResponse
+     *
+     * @param ModifyApisecEventsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyApisecEventsResponse
      */
     public function modifyApisecEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->eventIds)) {
-            $query['EventIds'] = $request->eventIds;
+
+        if (null !== $request->eventIds) {
+            @$query['EventIds'] = $request->eventIds;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->note)) {
-            $query['Note'] = $request->note;
+
+        if (null !== $request->note) {
+            @$query['Note'] = $request->note;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->userStatus)) {
-            $query['UserStatus'] = $request->userStatus;
+
+        if (null !== $request->userStatus) {
+            @$query['UserStatus'] = $request->userStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApisecEvents',
@@ -8508,16 +10608,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyApisecEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the status of multiple security events detected by the API security module at a time.
-     *  *
-     * @param ModifyApisecEventsRequest $request ModifyApisecEventsRequest
+     * Modifies the status of multiple security events detected by the API security module at a time.
      *
-     * @return ModifyApisecEventsResponse ModifyApisecEventsResponse
+     * @param request - ModifyApisecEventsRequest
+     * @returns ModifyApisecEventsResponse
+     *
+     * @param ModifyApisecEventsRequest $request
+     *
+     * @return ModifyApisecEventsResponse
      */
     public function modifyApisecEvents($request)
     {
@@ -8527,40 +10633,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of API security log subscription.
-     *  *
-     * @param ModifyApisecLogDeliveryRequest $request ModifyApisecLogDeliveryRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of API security log subscription.
      *
-     * @return ModifyApisecLogDeliveryResponse ModifyApisecLogDeliveryResponse
+     * @param request - ModifyApisecLogDeliveryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyApisecLogDeliveryResponse
+     *
+     * @param ModifyApisecLogDeliveryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyApisecLogDeliveryResponse
      */
     public function modifyApisecLogDeliveryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->assertKey)) {
-            $query['AssertKey'] = $request->assertKey;
+        if (null !== $request->assertKey) {
+            @$query['AssertKey'] = $request->assertKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->logRegionId)) {
-            $query['LogRegionId'] = $request->logRegionId;
+
+        if (null !== $request->logRegionId) {
+            @$query['LogRegionId'] = $request->logRegionId;
         }
-        if (!Utils::isUnset($request->logStoreName)) {
-            $query['LogStoreName'] = $request->logStoreName;
+
+        if (null !== $request->logStoreName) {
+            @$query['LogStoreName'] = $request->logStoreName;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $query['ProjectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$query['ProjectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApisecLogDelivery',
@@ -8573,16 +10690,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyApisecLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyApisecLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyApisecLogDeliveryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of API security log subscription.
-     *  *
-     * @param ModifyApisecLogDeliveryRequest $request ModifyApisecLogDeliveryRequest
+     * Modifies the configurations of API security log subscription.
      *
-     * @return ModifyApisecLogDeliveryResponse ModifyApisecLogDeliveryResponse
+     * @param request - ModifyApisecLogDeliveryRequest
+     * @returns ModifyApisecLogDeliveryResponse
+     *
+     * @param ModifyApisecLogDeliveryRequest $request
+     *
+     * @return ModifyApisecLogDeliveryResponse
      */
     public function modifyApisecLogDelivery($request)
     {
@@ -8592,34 +10715,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the status of API security log subscription.
-     *  *
-     * @param ModifyApisecLogDeliveryStatusRequest $request ModifyApisecLogDeliveryStatusRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Modifies the status of API security log subscription.
      *
-     * @return ModifyApisecLogDeliveryStatusResponse ModifyApisecLogDeliveryStatusResponse
+     * @param request - ModifyApisecLogDeliveryStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyApisecLogDeliveryStatusResponse
+     *
+     * @param ModifyApisecLogDeliveryStatusRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ModifyApisecLogDeliveryStatusResponse
      */
     public function modifyApisecLogDeliveryStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->assertKey)) {
-            $query['AssertKey'] = $request->assertKey;
+        if (null !== $request->assertKey) {
+            @$query['AssertKey'] = $request->assertKey;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApisecLogDeliveryStatus',
@@ -8632,16 +10764,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyApisecLogDeliveryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyApisecLogDeliveryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyApisecLogDeliveryStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the status of API security log subscription.
-     *  *
-     * @param ModifyApisecLogDeliveryStatusRequest $request ModifyApisecLogDeliveryStatusRequest
+     * Modifies the status of API security log subscription.
      *
-     * @return ModifyApisecLogDeliveryStatusResponse ModifyApisecLogDeliveryStatusResponse
+     * @param request - ModifyApisecLogDeliveryStatusRequest
+     * @returns ModifyApisecLogDeliveryStatusResponse
+     *
+     * @param ModifyApisecLogDeliveryStatusRequest $request
+     *
+     * @return ModifyApisecLogDeliveryStatusResponse
      */
     public function modifyApisecLogDeliveryStatus($request)
     {
@@ -8651,40 +10789,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Changes the status of features in the API security module for protected objects or protected object groups.
-     *  *
-     * @param ModifyApisecModuleStatusRequest $request ModifyApisecModuleStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Changes the status of features in the API security module for protected objects or protected object groups.
      *
-     * @return ModifyApisecModuleStatusResponse ModifyApisecModuleStatusResponse
+     * @param request - ModifyApisecModuleStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyApisecModuleStatusResponse
+     *
+     * @param ModifyApisecModuleStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyApisecModuleStatusResponse
      */
     public function modifyApisecModuleStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->reportStatus)) {
-            $query['ReportStatus'] = $request->reportStatus;
+
+        if (null !== $request->reportStatus) {
+            @$query['ReportStatus'] = $request->reportStatus;
         }
-        if (!Utils::isUnset($request->resourceGroups)) {
-            $query['ResourceGroups'] = $request->resourceGroups;
+
+        if (null !== $request->resourceGroups) {
+            @$query['ResourceGroups'] = $request->resourceGroups;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
-        if (!Utils::isUnset($request->traceStatus)) {
-            $query['TraceStatus'] = $request->traceStatus;
+
+        if (null !== $request->traceStatus) {
+            @$query['TraceStatus'] = $request->traceStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApisecModuleStatus',
@@ -8697,16 +10846,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyApisecModuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyApisecModuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyApisecModuleStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the status of features in the API security module for protected objects or protected object groups.
-     *  *
-     * @param ModifyApisecModuleStatusRequest $request ModifyApisecModuleStatusRequest
+     * Changes the status of features in the API security module for protected objects or protected object groups.
      *
-     * @return ModifyApisecModuleStatusResponse ModifyApisecModuleStatusResponse
+     * @param request - ModifyApisecModuleStatusRequest
+     * @returns ModifyApisecModuleStatusResponse
+     *
+     * @param ModifyApisecModuleStatusRequest $request
+     *
+     * @return ModifyApisecModuleStatusResponse
      */
     public function modifyApisecModuleStatus($request)
     {
@@ -8716,37 +10871,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Changes the status of the API security module for protected objects or protected object groups.
-     *  *
-     * @param ModifyApisecStatusRequest $request ModifyApisecStatusRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Changes the status of the API security module for protected objects or protected object groups.
      *
-     * @return ModifyApisecStatusResponse ModifyApisecStatusResponse
+     * @param request - ModifyApisecStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyApisecStatusResponse
+     *
+     * @param ModifyApisecStatusRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyApisecStatusResponse
      */
     public function modifyApisecStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->apisecStatus)) {
-            $query['ApisecStatus'] = $request->apisecStatus;
+        if (null !== $request->apisecStatus) {
+            @$query['ApisecStatus'] = $request->apisecStatus;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroups)) {
-            $query['ResourceGroups'] = $request->resourceGroups;
+
+        if (null !== $request->resourceGroups) {
+            @$query['ResourceGroups'] = $request->resourceGroups;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyApisecStatus',
@@ -8759,16 +10924,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyApisecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyApisecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyApisecStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the status of the API security module for protected objects or protected object groups.
-     *  *
-     * @param ModifyApisecStatusRequest $request ModifyApisecStatusRequest
+     * Changes the status of the API security module for protected objects or protected object groups.
      *
-     * @return ModifyApisecStatusResponse ModifyApisecStatusResponse
+     * @param request - ModifyApisecStatusRequest
+     * @returns ModifyApisecStatusResponse
+     *
+     * @param ModifyApisecStatusRequest $request
+     *
+     * @return ModifyApisecStatusResponse
      */
     public function modifyApisecStatus($request)
     {
@@ -8778,42 +10949,53 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a service that is added to Web Application Firewall (WAF).
-     *  *
-     * @param ModifyCloudResourceRequest $tmpReq  ModifyCloudResourceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a service that is added to Web Application Firewall (WAF).
      *
-     * @return ModifyCloudResourceResponse ModifyCloudResourceResponse
+     * @param tmpReq - ModifyCloudResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyCloudResourceResponse
+     *
+     * @param ModifyCloudResourceRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyCloudResourceResponse
      */
     public function modifyCloudResourceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyCloudResourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listen)) {
-            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listen) {
+            $request->listenShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
         }
-        if (!Utils::isUnset($tmpReq->redirect)) {
-            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
+
+        if (null !== $tmpReq->redirect) {
+            $request->redirectShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->listenShrink)) {
-            $query['Listen'] = $request->listenShrink;
+
+        if (null !== $request->listenShrink) {
+            @$query['Listen'] = $request->listenShrink;
         }
-        if (!Utils::isUnset($request->redirectShrink)) {
-            $query['Redirect'] = $request->redirectShrink;
+
+        if (null !== $request->redirectShrink) {
+            @$query['Redirect'] = $request->redirectShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyCloudResource',
@@ -8826,16 +11008,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyCloudResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a service that is added to Web Application Firewall (WAF).
-     *  *
-     * @param ModifyCloudResourceRequest $request ModifyCloudResourceRequest
+     * Modifies the configurations of a service that is added to Web Application Firewall (WAF).
      *
-     * @return ModifyCloudResourceResponse ModifyCloudResourceResponse
+     * @param request - ModifyCloudResourceRequest
+     * @returns ModifyCloudResourceResponse
+     *
+     * @param ModifyCloudResourceRequest $request
+     *
+     * @return ModifyCloudResourceResponse
      */
     public function modifyCloudResource($request)
     {
@@ -8845,43 +11033,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
-     *  *
-     * @param ModifyDefaultHttpsRequest $request ModifyDefaultHttpsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
      *
-     * @return ModifyDefaultHttpsResponse ModifyDefaultHttpsResponse
+     * @param request - ModifyDefaultHttpsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDefaultHttpsResponse
+     *
+     * @param ModifyDefaultHttpsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyDefaultHttpsResponse
      */
     public function modifyDefaultHttpsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certId)) {
-            $query['CertId'] = $request->certId;
+        if (null !== $request->certId) {
+            @$query['CertId'] = $request->certId;
         }
-        if (!Utils::isUnset($request->cipherSuite)) {
-            $query['CipherSuite'] = $request->cipherSuite;
+
+        if (null !== $request->cipherSuite) {
+            @$query['CipherSuite'] = $request->cipherSuite;
         }
-        if (!Utils::isUnset($request->customCiphers)) {
-            $query['CustomCiphers'] = $request->customCiphers;
+
+        if (null !== $request->customCiphers) {
+            @$query['CustomCiphers'] = $request->customCiphers;
         }
-        if (!Utils::isUnset($request->enableTLSv3)) {
-            $query['EnableTLSv3'] = $request->enableTLSv3;
+
+        if (null !== $request->enableTLSv3) {
+            @$query['EnableTLSv3'] = $request->enableTLSv3;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->TLSVersion)) {
-            $query['TLSVersion'] = $request->TLSVersion;
+
+        if (null !== $request->TLSVersion) {
+            @$query['TLSVersion'] = $request->TLSVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefaultHttps',
@@ -8894,16 +11094,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDefaultHttpsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
-     *  *
-     * @param ModifyDefaultHttpsRequest $request ModifyDefaultHttpsRequest
+     * Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
      *
-     * @return ModifyDefaultHttpsResponse ModifyDefaultHttpsResponse
+     * @param request - ModifyDefaultHttpsRequest
+     * @returns ModifyDefaultHttpsResponse
+     *
+     * @param ModifyDefaultHttpsRequest $request
+     *
+     * @return ModifyDefaultHttpsResponse
      */
     public function modifyDefaultHttps($request)
     {
@@ -8913,40 +11119,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a protected object group.
-     *  *
-     * @param ModifyDefenseResourceGroupRequest $request ModifyDefenseResourceGroupRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a protected object group.
      *
-     * @return ModifyDefenseResourceGroupResponse ModifyDefenseResourceGroupResponse
+     * @param request - ModifyDefenseResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDefenseResourceGroupResponse
+     *
+     * @param ModifyDefenseResourceGroupRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDefenseResourceGroupResponse
      */
     public function modifyDefenseResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->addList)) {
-            $query['AddList'] = $request->addList;
+        if (null !== $request->addList) {
+            @$query['AddList'] = $request->addList;
         }
-        if (!Utils::isUnset($request->deleteList)) {
-            $query['DeleteList'] = $request->deleteList;
+
+        if (null !== $request->deleteList) {
+            @$query['DeleteList'] = $request->deleteList;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefenseResourceGroup',
@@ -8959,16 +11176,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDefenseResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a protected object group.
-     *  *
-     * @param ModifyDefenseResourceGroupRequest $request ModifyDefenseResourceGroupRequest
+     * Modifies the configurations of a protected object group.
      *
-     * @return ModifyDefenseResourceGroupResponse ModifyDefenseResourceGroupResponse
+     * @param request - ModifyDefenseResourceGroupRequest
+     * @returns ModifyDefenseResourceGroupResponse
+     *
+     * @param ModifyDefenseResourceGroupRequest $request
+     *
+     * @return ModifyDefenseResourceGroupResponse
      */
     public function modifyDefenseResourceGroup($request)
     {
@@ -8978,46 +11201,63 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
-     *  *
-     * @param ModifyDefenseResourceXffRequest $request ModifyDefenseResourceXffRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
      *
-     * @return ModifyDefenseResourceXffResponse ModifyDefenseResourceXffResponse
+     * @param request - ModifyDefenseResourceXffRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDefenseResourceXffResponse
+     *
+     * @param ModifyDefenseResourceXffRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDefenseResourceXffResponse
      */
     public function modifyDefenseResourceXffWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acwCookieStatus)) {
-            $query['AcwCookieStatus'] = $request->acwCookieStatus;
+        if (null !== $request->acwCookieStatus) {
+            @$query['AcwCookieStatus'] = $request->acwCookieStatus;
         }
-        if (!Utils::isUnset($request->acwSecureStatus)) {
-            $query['AcwSecureStatus'] = $request->acwSecureStatus;
+
+        if (null !== $request->acwSecureStatus) {
+            @$query['AcwSecureStatus'] = $request->acwSecureStatus;
         }
-        if (!Utils::isUnset($request->acwV3SecureStatus)) {
-            $query['AcwV3SecureStatus'] = $request->acwV3SecureStatus;
+
+        if (null !== $request->acwV3SecureStatus) {
+            @$query['AcwV3SecureStatus'] = $request->acwV3SecureStatus;
         }
-        if (!Utils::isUnset($request->customHeaders)) {
-            $query['CustomHeaders'] = $request->customHeaders;
+
+        if (null !== $request->customHeaders) {
+            @$query['CustomHeaders'] = $request->customHeaders;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->xffStatus)) {
-            $query['XffStatus'] = $request->xffStatus;
+
+        if (null !== $request->responseHeaders) {
+            @$query['ResponseHeaders'] = $request->responseHeaders;
         }
+
+        if (null !== $request->xffStatus) {
+            @$query['XffStatus'] = $request->xffStatus;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefenseResourceXff',
@@ -9030,16 +11270,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDefenseResourceXffResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDefenseResourceXffResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDefenseResourceXffResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
-     *  *
-     * @param ModifyDefenseResourceXffRequest $request ModifyDefenseResourceXffRequest
+     * Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
      *
-     * @return ModifyDefenseResourceXffResponse ModifyDefenseResourceXffResponse
+     * @param request - ModifyDefenseResourceXffRequest
+     * @returns ModifyDefenseResourceXffResponse
+     *
+     * @param ModifyDefenseResourceXffRequest $request
+     *
+     * @return ModifyDefenseResourceXffResponse
      */
     public function modifyDefenseResourceXff($request)
     {
@@ -9049,39 +11295,49 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a protection rule.
-     *  *
-     * @param ModifyDefenseRuleRequest $request ModifyDefenseRuleRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a protection rule.
      *
-     * @return ModifyDefenseRuleResponse ModifyDefenseRuleResponse
+     * @param request - ModifyDefenseRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDefenseRuleResponse
+     *
+     * @param ModifyDefenseRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ModifyDefenseRuleResponse
      */
     public function modifyDefenseRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defenseScene)) {
-            $query['DefenseScene'] = $request->defenseScene;
+        if (null !== $request->defenseScene) {
+            @$query['DefenseScene'] = $request->defenseScene;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->rules)) {
-            $body['Rules'] = $request->rules;
+        if (null !== $request->rules) {
+            @$body['Rules'] = $request->rules;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefenseRule',
@@ -9094,16 +11350,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDefenseRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a protection rule.
-     *  *
-     * @param ModifyDefenseRuleRequest $request ModifyDefenseRuleRequest
+     * Modifies the configurations of a protection rule.
      *
-     * @return ModifyDefenseRuleResponse ModifyDefenseRuleResponse
+     * @param request - ModifyDefenseRuleRequest
+     * @returns ModifyDefenseRuleResponse
+     *
+     * @param ModifyDefenseRuleRequest $request
+     *
+     * @return ModifyDefenseRuleResponse
      */
     public function modifyDefenseRule($request)
     {
@@ -9113,34 +11375,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Updates the cached page of a website that is protected based on a website tamper-proofing rule.
-     *  *
-     * @param ModifyDefenseRuleCacheRequest $request ModifyDefenseRuleCacheRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Updates the cached page of a website that is protected based on a website tamper-proofing rule.
      *
-     * @return ModifyDefenseRuleCacheResponse ModifyDefenseRuleCacheResponse
+     * @param request - ModifyDefenseRuleCacheRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDefenseRuleCacheResponse
+     *
+     * @param ModifyDefenseRuleCacheRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyDefenseRuleCacheResponse
      */
     public function modifyDefenseRuleCacheWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefenseRuleCache',
@@ -9153,16 +11424,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDefenseRuleCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDefenseRuleCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDefenseRuleCacheResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Updates the cached page of a website that is protected based on a website tamper-proofing rule.
-     *  *
-     * @param ModifyDefenseRuleCacheRequest $request ModifyDefenseRuleCacheRequest
+     * Updates the cached page of a website that is protected based on a website tamper-proofing rule.
      *
-     * @return ModifyDefenseRuleCacheResponse ModifyDefenseRuleCacheResponse
+     * @param request - ModifyDefenseRuleCacheRequest
+     * @returns ModifyDefenseRuleCacheResponse
+     *
+     * @param ModifyDefenseRuleCacheRequest $request
+     *
+     * @return ModifyDefenseRuleCacheResponse
      */
     public function modifyDefenseRuleCache($request)
     {
@@ -9172,37 +11449,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Changes the status of a protection rule.
-     *  *
-     * @param ModifyDefenseRuleStatusRequest $request ModifyDefenseRuleStatusRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Changes the status of a protection rule.
      *
-     * @return ModifyDefenseRuleStatusResponse ModifyDefenseRuleStatusResponse
+     * @param request - ModifyDefenseRuleStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDefenseRuleStatusResponse
+     *
+     * @param ModifyDefenseRuleStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyDefenseRuleStatusResponse
      */
     public function modifyDefenseRuleStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['RuleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleStatus) {
+            @$query['RuleStatus'] = $request->ruleStatus;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefenseRuleStatus',
@@ -9215,16 +11502,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDefenseRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDefenseRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDefenseRuleStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the status of a protection rule.
-     *  *
-     * @param ModifyDefenseRuleStatusRequest $request ModifyDefenseRuleStatusRequest
+     * Changes the status of a protection rule.
      *
-     * @return ModifyDefenseRuleStatusResponse ModifyDefenseRuleStatusResponse
+     * @param request - ModifyDefenseRuleStatusRequest
+     * @returns ModifyDefenseRuleStatusResponse
+     *
+     * @param ModifyDefenseRuleStatusRequest $request
+     *
+     * @return ModifyDefenseRuleStatusResponse
      */
     public function modifyDefenseRuleStatus($request)
     {
@@ -9234,37 +11527,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a protection rule template.
-     *  *
-     * @param ModifyDefenseTemplateRequest $request ModifyDefenseTemplateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a protection rule template.
      *
-     * @return ModifyDefenseTemplateResponse ModifyDefenseTemplateResponse
+     * @param request - ModifyDefenseTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDefenseTemplateResponse
+     *
+     * @param ModifyDefenseTemplateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyDefenseTemplateResponse
      */
     public function modifyDefenseTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefenseTemplate',
@@ -9277,16 +11580,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDefenseTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a protection rule template.
-     *  *
-     * @param ModifyDefenseTemplateRequest $request ModifyDefenseTemplateRequest
+     * Modifies the configurations of a protection rule template.
      *
-     * @return ModifyDefenseTemplateResponse ModifyDefenseTemplateResponse
+     * @param request - ModifyDefenseTemplateRequest
+     * @returns ModifyDefenseTemplateResponse
+     *
+     * @param ModifyDefenseTemplateRequest $request
+     *
+     * @return ModifyDefenseTemplateResponse
      */
     public function modifyDefenseTemplate($request)
     {
@@ -9296,34 +11605,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Changes the status of a protection rule template.
-     *  *
-     * @param ModifyDefenseTemplateStatusRequest $request ModifyDefenseTemplateStatusRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Changes the status of a protection rule template.
      *
-     * @return ModifyDefenseTemplateStatusResponse ModifyDefenseTemplateStatusResponse
+     * @param request - ModifyDefenseTemplateStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDefenseTemplateStatusResponse
+     *
+     * @param ModifyDefenseTemplateStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyDefenseTemplateStatusResponse
      */
     public function modifyDefenseTemplateStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateStatus)) {
-            $query['TemplateStatus'] = $request->templateStatus;
+
+        if (null !== $request->templateStatus) {
+            @$query['TemplateStatus'] = $request->templateStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDefenseTemplateStatus',
@@ -9336,16 +11654,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDefenseTemplateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDefenseTemplateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDefenseTemplateStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Changes the status of a protection rule template.
-     *  *
-     * @param ModifyDefenseTemplateStatusRequest $request ModifyDefenseTemplateStatusRequest
+     * Changes the status of a protection rule template.
      *
-     * @return ModifyDefenseTemplateStatusResponse ModifyDefenseTemplateStatusResponse
+     * @param request - ModifyDefenseTemplateStatusRequest
+     * @returns ModifyDefenseTemplateStatusResponse
+     *
+     * @param ModifyDefenseTemplateStatusRequest $request
+     *
+     * @return ModifyDefenseTemplateStatusResponse
      */
     public function modifyDefenseTemplateStatus($request)
     {
@@ -9355,45 +11679,57 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
-     *  *
-     * @param ModifyDomainRequest $tmpReq  ModifyDomainRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
      *
-     * @return ModifyDomainResponse ModifyDomainResponse
+     * @param tmpReq - ModifyDomainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDomainResponse
+     *
+     * @param ModifyDomainRequest $tmpReq
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ModifyDomainResponse
      */
     public function modifyDomainWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ModifyDomainShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->listen)) {
-            $request->listenShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->listen) {
+            $request->listenShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->listen, 'Listen', 'json');
         }
-        if (!Utils::isUnset($tmpReq->redirect)) {
-            $request->redirectShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
+
+        if (null !== $tmpReq->redirect) {
+            $request->redirectShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->redirect, 'Redirect', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accessType)) {
-            $query['AccessType'] = $request->accessType;
+        if (null !== $request->accessType) {
+            @$query['AccessType'] = $request->accessType;
         }
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->listenShrink)) {
-            $query['Listen'] = $request->listenShrink;
+
+        if (null !== $request->listenShrink) {
+            @$query['Listen'] = $request->listenShrink;
         }
-        if (!Utils::isUnset($request->redirectShrink)) {
-            $query['Redirect'] = $request->redirectShrink;
+
+        if (null !== $request->redirectShrink) {
+            @$query['Redirect'] = $request->redirectShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDomain',
@@ -9406,16 +11742,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
-     *  *
-     * @param ModifyDomainRequest $request ModifyDomainRequest
+     * Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
      *
-     * @return ModifyDomainResponse ModifyDomainResponse
+     * @param request - ModifyDomainRequest
+     * @returns ModifyDomainResponse
+     *
+     * @param ModifyDomainRequest $request
+     *
+     * @return ModifyDomainResponse
      */
     public function modifyDomain($request)
     {
@@ -9425,31 +11767,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
-     *  *
-     * @param ModifyDomainPunishStatusRequest $request ModifyDomainPunishStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
      *
-     * @return ModifyDomainPunishStatusResponse ModifyDomainPunishStatusResponse
+     * @param request - ModifyDomainPunishStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyDomainPunishStatusResponse
+     *
+     * @param ModifyDomainPunishStatusRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ModifyDomainPunishStatusResponse
      */
     public function modifyDomainPunishStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->domain)) {
-            $query['Domain'] = $request->domain;
+        if (null !== $request->domain) {
+            @$query['Domain'] = $request->domain;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyDomainPunishStatus',
@@ -9462,16 +11812,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyDomainPunishStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyDomainPunishStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDomainPunishStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
-     *  *
-     * @param ModifyDomainPunishStatusRequest $request ModifyDomainPunishStatusRequest
+     * Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
      *
-     * @return ModifyDomainPunishStatusResponse ModifyDomainPunishStatusResponse
+     * @param request - ModifyDomainPunishStatusRequest
+     * @returns ModifyDomainPunishStatusResponse
+     *
+     * @param ModifyDomainPunishStatusRequest $request
+     *
+     * @return ModifyDomainPunishStatusResponse
      */
     public function modifyDomainPunishStatus($request)
     {
@@ -9481,34 +11837,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
-     *  *
-     * @param ModifyHybridCloudClusterBypassStatusRequest $request ModifyHybridCloudClusterBypassStatusRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
      *
-     * @return ModifyHybridCloudClusterBypassStatusResponse ModifyHybridCloudClusterBypassStatusResponse
+     * @param request - ModifyHybridCloudClusterBypassStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHybridCloudClusterBypassStatusResponse
+     *
+     * @param ModifyHybridCloudClusterBypassStatusRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ModifyHybridCloudClusterBypassStatusResponse
      */
     public function modifyHybridCloudClusterBypassStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterResourceId)) {
-            $query['ClusterResourceId'] = $request->clusterResourceId;
+        if (null !== $request->clusterResourceId) {
+            @$query['ClusterResourceId'] = $request->clusterResourceId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['RuleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleStatus) {
+            @$query['RuleStatus'] = $request->ruleStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHybridCloudClusterBypassStatus',
@@ -9521,16 +11886,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHybridCloudClusterBypassStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHybridCloudClusterBypassStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHybridCloudClusterBypassStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
-     *  *
-     * @param ModifyHybridCloudClusterBypassStatusRequest $request ModifyHybridCloudClusterBypassStatusRequest
+     * Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
      *
-     * @return ModifyHybridCloudClusterBypassStatusResponse ModifyHybridCloudClusterBypassStatusResponse
+     * @param request - ModifyHybridCloudClusterBypassStatusRequest
+     * @returns ModifyHybridCloudClusterBypassStatusResponse
+     *
+     * @param ModifyHybridCloudClusterBypassStatusRequest $request
+     *
+     * @return ModifyHybridCloudClusterBypassStatusResponse
      */
     public function modifyHybridCloudClusterBypassStatus($request)
     {
@@ -9540,40 +11911,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the rule of a hybrid cloud cluster.
-     *  *
-     * @param ModifyHybridCloudClusterRuleRequest $request ModifyHybridCloudClusterRuleRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Modifies the rule of a hybrid cloud cluster.
      *
-     * @return ModifyHybridCloudClusterRuleResponse ModifyHybridCloudClusterRuleResponse
+     * @param request - ModifyHybridCloudClusterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHybridCloudClusterRuleResponse
+     *
+     * @param ModifyHybridCloudClusterRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyHybridCloudClusterRuleResponse
      */
     public function modifyHybridCloudClusterRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleConfig)) {
-            $query['RuleConfig'] = $request->ruleConfig;
+
+        if (null !== $request->ruleConfig) {
+            @$query['RuleConfig'] = $request->ruleConfig;
         }
-        if (!Utils::isUnset($request->ruleStatus)) {
-            $query['RuleStatus'] = $request->ruleStatus;
+
+        if (null !== $request->ruleStatus) {
+            @$query['RuleStatus'] = $request->ruleStatus;
         }
-        if (!Utils::isUnset($request->ruleType)) {
-            $query['RuleType'] = $request->ruleType;
+
+        if (null !== $request->ruleType) {
+            @$query['RuleType'] = $request->ruleType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHybridCloudClusterRule',
@@ -9586,16 +11968,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHybridCloudClusterRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the rule of a hybrid cloud cluster.
-     *  *
-     * @param ModifyHybridCloudClusterRuleRequest $request ModifyHybridCloudClusterRuleRequest
+     * Modifies the rule of a hybrid cloud cluster.
      *
-     * @return ModifyHybridCloudClusterRuleResponse ModifyHybridCloudClusterRuleResponse
+     * @param request - ModifyHybridCloudClusterRuleRequest
+     * @returns ModifyHybridCloudClusterRuleResponse
+     *
+     * @param ModifyHybridCloudClusterRuleRequest $request
+     *
+     * @return ModifyHybridCloudClusterRuleResponse
      */
     public function modifyHybridCloudClusterRule($request)
     {
@@ -9605,40 +11993,51 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a node group in a hybrid cloud cluster.
-     *  *
-     * @param ModifyHybridCloudGroupRequest $request ModifyHybridCloudGroupRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Modifies a node group in a hybrid cloud cluster.
      *
-     * @return ModifyHybridCloudGroupResponse ModifyHybridCloudGroupResponse
+     * @param request - ModifyHybridCloudGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHybridCloudGroupResponse
+     *
+     * @param ModifyHybridCloudGroupRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyHybridCloudGroupResponse
      */
     public function modifyHybridCloudGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
+
+        if (null !== $request->groupName) {
+            @$query['GroupName'] = $request->groupName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->remark)) {
-            $query['Remark'] = $request->remark;
+
+        if (null !== $request->remark) {
+            @$query['Remark'] = $request->remark;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHybridCloudGroup',
@@ -9651,16 +12050,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHybridCloudGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies a node group in a hybrid cloud cluster.
-     *  *
-     * @param ModifyHybridCloudGroupRequest $request ModifyHybridCloudGroupRequest
+     * Modifies a node group in a hybrid cloud cluster.
      *
-     * @return ModifyHybridCloudGroupResponse ModifyHybridCloudGroupResponse
+     * @param request - ModifyHybridCloudGroupRequest
+     * @returns ModifyHybridCloudGroupResponse
+     *
+     * @param ModifyHybridCloudGroupRequest $request
+     *
+     * @return ModifyHybridCloudGroupResponse
      */
     public function modifyHybridCloudGroup($request)
     {
@@ -9670,37 +12075,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds a node to a node group of a hybrid cloud cluster.
-     *  *
-     * @param ModifyHybridCloudGroupExpansionServerRequest $request ModifyHybridCloudGroupExpansionServerRequest
-     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     * Adds a node to a node group of a hybrid cloud cluster.
      *
-     * @return ModifyHybridCloudGroupExpansionServerResponse ModifyHybridCloudGroupExpansionServerResponse
+     * @param request - ModifyHybridCloudGroupExpansionServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHybridCloudGroupExpansionServerResponse
+     *
+     * @param ModifyHybridCloudGroupExpansionServerRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ModifyHybridCloudGroupExpansionServerResponse
      */
     public function modifyHybridCloudGroupExpansionServerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mids)) {
-            $query['Mids'] = $request->mids;
+
+        if (null !== $request->mids) {
+            @$query['Mids'] = $request->mids;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHybridCloudGroupExpansionServer',
@@ -9713,16 +12128,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHybridCloudGroupExpansionServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHybridCloudGroupExpansionServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHybridCloudGroupExpansionServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds a node to a node group of a hybrid cloud cluster.
-     *  *
-     * @param ModifyHybridCloudGroupExpansionServerRequest $request ModifyHybridCloudGroupExpansionServerRequest
+     * Adds a node to a node group of a hybrid cloud cluster.
      *
-     * @return ModifyHybridCloudGroupExpansionServerResponse ModifyHybridCloudGroupExpansionServerResponse
+     * @param request - ModifyHybridCloudGroupExpansionServerRequest
+     * @returns ModifyHybridCloudGroupExpansionServerResponse
+     *
+     * @param ModifyHybridCloudGroupExpansionServerRequest $request
+     *
+     * @return ModifyHybridCloudGroupExpansionServerResponse
      */
     public function modifyHybridCloudGroupExpansionServer($request)
     {
@@ -9732,37 +12153,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a node from a node group of a hybrid cloud cluster.
-     *  *
-     * @param ModifyHybridCloudGroupShrinkServerRequest $request ModifyHybridCloudGroupShrinkServerRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Deletes a node from a node group of a hybrid cloud cluster.
      *
-     * @return ModifyHybridCloudGroupShrinkServerResponse ModifyHybridCloudGroupShrinkServerResponse
+     * @param request - ModifyHybridCloudGroupShrinkServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHybridCloudGroupShrinkServerResponse
+     *
+     * @param ModifyHybridCloudGroupShrinkServerRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ModifyHybridCloudGroupShrinkServerResponse
      */
     public function modifyHybridCloudGroupShrinkServerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
+        if (null !== $request->clusterId) {
+            @$query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mids)) {
-            $query['Mids'] = $request->mids;
+
+        if (null !== $request->mids) {
+            @$query['Mids'] = $request->mids;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHybridCloudGroupShrinkServer',
@@ -9775,16 +12206,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHybridCloudGroupShrinkServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHybridCloudGroupShrinkServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHybridCloudGroupShrinkServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Deletes a node from a node group of a hybrid cloud cluster.
-     *  *
-     * @param ModifyHybridCloudGroupShrinkServerRequest $request ModifyHybridCloudGroupShrinkServerRequest
+     * Deletes a node from a node group of a hybrid cloud cluster.
      *
-     * @return ModifyHybridCloudGroupShrinkServerResponse ModifyHybridCloudGroupShrinkServerResponse
+     * @param request - ModifyHybridCloudGroupShrinkServerRequest
+     * @returns ModifyHybridCloudGroupShrinkServerResponse
+     *
+     * @param ModifyHybridCloudGroupShrinkServerRequest $request
+     *
+     * @return ModifyHybridCloudGroupShrinkServerResponse
      */
     public function modifyHybridCloudGroupShrinkServer($request)
     {
@@ -9794,28 +12231,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the traffic redirection status of a hybrid cloud cluster by using an SDK.
-     *  *
-     * @param ModifyHybridCloudSdkPullinStatusRequest $request ModifyHybridCloudSdkPullinStatusRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * Modifies the traffic redirection status of a hybrid cloud cluster by using an SDK.
      *
-     * @return ModifyHybridCloudSdkPullinStatusResponse ModifyHybridCloudSdkPullinStatusResponse
+     * @param request - ModifyHybridCloudSdkPullinStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHybridCloudSdkPullinStatusResponse
+     *
+     * @param ModifyHybridCloudSdkPullinStatusRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ModifyHybridCloudSdkPullinStatusResponse
      */
     public function modifyHybridCloudSdkPullinStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mid)) {
-            $query['Mid'] = $request->mid;
+
+        if (null !== $request->mid) {
+            @$query['Mid'] = $request->mid;
         }
-        if (!Utils::isUnset($request->pullinStatus)) {
-            $query['PullinStatus'] = $request->pullinStatus;
+
+        if (null !== $request->pullinStatus) {
+            @$query['PullinStatus'] = $request->pullinStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHybridCloudSdkPullinStatus',
@@ -9828,16 +12272,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHybridCloudSdkPullinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHybridCloudSdkPullinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHybridCloudSdkPullinStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the traffic redirection status of a hybrid cloud cluster by using an SDK.
-     *  *
-     * @param ModifyHybridCloudSdkPullinStatusRequest $request ModifyHybridCloudSdkPullinStatusRequest
+     * Modifies the traffic redirection status of a hybrid cloud cluster by using an SDK.
      *
-     * @return ModifyHybridCloudSdkPullinStatusResponse ModifyHybridCloudSdkPullinStatusResponse
+     * @param request - ModifyHybridCloudSdkPullinStatusRequest
+     * @returns ModifyHybridCloudSdkPullinStatusResponse
+     *
+     * @param ModifyHybridCloudSdkPullinStatusRequest $request
+     *
+     * @return ModifyHybridCloudSdkPullinStatusResponse
      */
     public function modifyHybridCloudSdkPullinStatus($request)
     {
@@ -9847,43 +12297,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about a hybrid cloud node.
-     *  *
-     * @param ModifyHybridCloudServerRequest $request ModifyHybridCloudServerRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about a hybrid cloud node.
      *
-     * @return ModifyHybridCloudServerResponse ModifyHybridCloudServerResponse
+     * @param request - ModifyHybridCloudServerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyHybridCloudServerResponse
+     *
+     * @param ModifyHybridCloudServerRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyHybridCloudServerResponse
      */
     public function modifyHybridCloudServerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->continents)) {
-            $query['Continents'] = $request->continents;
+        if (null !== $request->continents) {
+            @$query['Continents'] = $request->continents;
         }
-        if (!Utils::isUnset($request->customName)) {
-            $query['CustomName'] = $request->customName;
+
+        if (null !== $request->customName) {
+            @$query['CustomName'] = $request->customName;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mid)) {
-            $query['Mid'] = $request->mid;
+
+        if (null !== $request->mid) {
+            @$query['Mid'] = $request->mid;
         }
-        if (!Utils::isUnset($request->operator)) {
-            $query['Operator'] = $request->operator;
+
+        if (null !== $request->operator) {
+            @$query['Operator'] = $request->operator;
         }
-        if (!Utils::isUnset($request->regionCode)) {
-            $query['RegionCode'] = $request->regionCode;
+
+        if (null !== $request->regionCode) {
+            @$query['RegionCode'] = $request->regionCode;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyHybridCloudServer',
@@ -9896,16 +12358,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyHybridCloudServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyHybridCloudServerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyHybridCloudServerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about a hybrid cloud node.
-     *  *
-     * @param ModifyHybridCloudServerRequest $request ModifyHybridCloudServerRequest
+     * Modifies the information about a hybrid cloud node.
      *
-     * @return ModifyHybridCloudServerResponse ModifyHybridCloudServerResponse
+     * @param request - ModifyHybridCloudServerRequest
+     * @returns ModifyHybridCloudServerResponse
+     *
+     * @param ModifyHybridCloudServerRequest $request
+     *
+     * @return ModifyHybridCloudServerResponse
      */
     public function modifyHybridCloudServer($request)
     {
@@ -9915,43 +12383,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an IP address blacklist for major event protection.
-     *  *
-     * @param ModifyMajorProtectionBlackIpRequest $request ModifyMajorProtectionBlackIpRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Modifies an IP address blacklist for major event protection.
      *
-     * @return ModifyMajorProtectionBlackIpResponse ModifyMajorProtectionBlackIpResponse
+     * @param request - ModifyMajorProtectionBlackIpRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyMajorProtectionBlackIpResponse
+     *
+     * @param ModifyMajorProtectionBlackIpRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyMajorProtectionBlackIpResponse
      */
     public function modifyMajorProtectionBlackIpWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->expiredTime)) {
-            $query['ExpiredTime'] = $request->expiredTime;
+
+        if (null !== $request->expiredTime) {
+            @$query['ExpiredTime'] = $request->expiredTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ipList)) {
-            $query['IpList'] = $request->ipList;
+
+        if (null !== $request->ipList) {
+            @$query['IpList'] = $request->ipList;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyMajorProtectionBlackIp',
@@ -9964,16 +12444,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyMajorProtectionBlackIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies an IP address blacklist for major event protection.
-     *  *
-     * @param ModifyMajorProtectionBlackIpRequest $request ModifyMajorProtectionBlackIpRequest
+     * Modifies an IP address blacklist for major event protection.
      *
-     * @return ModifyMajorProtectionBlackIpResponse ModifyMajorProtectionBlackIpResponse
+     * @param request - ModifyMajorProtectionBlackIpRequest
+     * @returns ModifyMajorProtectionBlackIpResponse
+     *
+     * @param ModifyMajorProtectionBlackIpRequest $request
+     *
+     * @return ModifyMajorProtectionBlackIpResponse
      */
     public function modifyMajorProtectionBlackIp($request)
     {
@@ -9983,37 +12469,47 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the information about members that are added for multi-account management.
-     *  *
-     * @param ModifyMemberAccountRequest $request ModifyMemberAccountRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Modifies the information about members that are added for multi-account management.
      *
-     * @return ModifyMemberAccountResponse ModifyMemberAccountResponse
+     * @param request - ModifyMemberAccountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyMemberAccountResponse
+     *
+     * @param ModifyMemberAccountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyMemberAccountResponse
      */
     public function modifyMemberAccountWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->memberAccountId)) {
-            $query['MemberAccountId'] = $request->memberAccountId;
+
+        if (null !== $request->memberAccountId) {
+            @$query['MemberAccountId'] = $request->memberAccountId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
+
+        if (null !== $request->sourceIp) {
+            @$query['SourceIp'] = $request->sourceIp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyMemberAccount',
@@ -10026,16 +12522,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyMemberAccountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the information about members that are added for multi-account management.
-     *  *
-     * @param ModifyMemberAccountRequest $request ModifyMemberAccountRequest
+     * Modifies the information about members that are added for multi-account management.
      *
-     * @return ModifyMemberAccountResponse ModifyMemberAccountResponse
+     * @param request - ModifyMemberAccountRequest
+     * @returns ModifyMemberAccountResponse
+     *
+     * @param ModifyMemberAccountRequest $request
+     *
+     * @return ModifyMemberAccountResponse
      */
     public function modifyMemberAccount($request)
     {
@@ -10045,31 +12547,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the protection status of Web Application Firewall (WAF).
-     *  *
-     * @param ModifyPauseProtectionStatusRequest $request ModifyPauseProtectionStatusRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Modifies the protection status of Web Application Firewall (WAF).
      *
-     * @return ModifyPauseProtectionStatusResponse ModifyPauseProtectionStatusResponse
+     * @param request - ModifyPauseProtectionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyPauseProtectionStatusResponse
+     *
+     * @param ModifyPauseProtectionStatusRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyPauseProtectionStatusResponse
      */
     public function modifyPauseProtectionStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pauseStatus)) {
-            $query['PauseStatus'] = $request->pauseStatus;
+
+        if (null !== $request->pauseStatus) {
+            @$query['PauseStatus'] = $request->pauseStatus;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyPauseProtectionStatus',
@@ -10082,16 +12592,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyPauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyPauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyPauseProtectionStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Modifies the protection status of Web Application Firewall (WAF).
-     *  *
-     * @param ModifyPauseProtectionStatusRequest $request ModifyPauseProtectionStatusRequest
+     * Modifies the protection status of Web Application Firewall (WAF).
      *
-     * @return ModifyPauseProtectionStatusResponse ModifyPauseProtectionStatusResponse
+     * @param request - ModifyPauseProtectionStatusRequest
+     * @returns ModifyPauseProtectionStatusResponse
+     *
+     * @param ModifyPauseProtectionStatusRequest $request
+     *
+     * @return ModifyPauseProtectionStatusResponse
      */
     public function modifyPauseProtectionStatus($request)
     {
@@ -10101,34 +12617,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the log collection feature for a protected object.
-     *  *
-     * @param ModifyResourceLogStatusRequest $request ModifyResourceLogStatusRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Enables or disables the log collection feature for a protected object.
      *
-     * @return ModifyResourceLogStatusResponse ModifyResourceLogStatusResponse
+     * @param request - ModifyResourceLogStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyResourceLogStatusResponse
+     *
+     * @param ModifyResourceLogStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyResourceLogStatusResponse
      */
     public function modifyResourceLogStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resource)) {
-            $query['Resource'] = $request->resource;
+
+        if (null !== $request->resource) {
+            @$query['Resource'] = $request->resource;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyResourceLogStatus',
@@ -10141,16 +12666,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyResourceLogStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Enables or disables the log collection feature for a protected object.
-     *  *
-     * @param ModifyResourceLogStatusRequest $request ModifyResourceLogStatusRequest
+     * Enables or disables the log collection feature for a protected object.
      *
-     * @return ModifyResourceLogStatusResponse ModifyResourceLogStatusResponse
+     * @param request - ModifyResourceLogStatusRequest
+     * @returns ModifyResourceLogStatusResponse
+     *
+     * @param ModifyResourceLogStatusRequest $request
+     *
+     * @return ModifyResourceLogStatusResponse
      */
     public function modifyResourceLogStatus($request)
     {
@@ -10160,43 +12691,55 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Associates or disassociates a protected object or protected object group with or from a protection rule template.
-     *  *
-     * @param ModifyTemplateResourcesRequest $request ModifyTemplateResourcesRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Associates or disassociates a protected object or protected object group with or from a protection rule template.
      *
-     * @return ModifyTemplateResourcesResponse ModifyTemplateResourcesResponse
+     * @param request - ModifyTemplateResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyTemplateResourcesResponse
+     *
+     * @param ModifyTemplateResourcesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyTemplateResourcesResponse
      */
     public function modifyTemplateResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->bindResourceGroups)) {
-            $query['BindResourceGroups'] = $request->bindResourceGroups;
+        if (null !== $request->bindResourceGroups) {
+            @$query['BindResourceGroups'] = $request->bindResourceGroups;
         }
-        if (!Utils::isUnset($request->bindResources)) {
-            $query['BindResources'] = $request->bindResources;
+
+        if (null !== $request->bindResources) {
+            @$query['BindResources'] = $request->bindResources;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->unbindResourceGroups)) {
-            $query['UnbindResourceGroups'] = $request->unbindResourceGroups;
+
+        if (null !== $request->unbindResourceGroups) {
+            @$query['UnbindResourceGroups'] = $request->unbindResourceGroups;
         }
-        if (!Utils::isUnset($request->unbindResources)) {
-            $query['UnbindResources'] = $request->unbindResources;
+
+        if (null !== $request->unbindResources) {
+            @$query['UnbindResources'] = $request->unbindResources;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ModifyTemplateResources',
@@ -10209,16 +12752,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyTemplateResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Associates or disassociates a protected object or protected object group with or from a protection rule template.
-     *  *
-     * @param ModifyTemplateResourcesRequest $request ModifyTemplateResourcesRequest
+     * Associates or disassociates a protected object or protected object group with or from a protection rule template.
      *
-     * @return ModifyTemplateResourcesResponse ModifyTemplateResourcesResponse
+     * @param request - ModifyTemplateResourcesRequest
+     * @returns ModifyTemplateResourcesResponse
+     *
+     * @param ModifyTemplateResourcesRequest $request
+     *
+     * @return ModifyTemplateResourcesResponse
      */
     public function modifyTemplateResources($request)
     {
@@ -10228,28 +12777,35 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Releases a Web Application Firewall (WAF) 3.0 instance.
-     *  *
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Releases a Web Application Firewall (WAF) 3.0 instance.
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @param request - ReleaseInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ReleaseInstance',
@@ -10262,16 +12818,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Releases a Web Application Firewall (WAF) 3.0 instance.
-     *  *
-     * @param ReleaseInstanceRequest $request ReleaseInstanceRequest
+     * Releases a Web Application Firewall (WAF) 3.0 instance.
      *
-     * @return ReleaseInstanceResponse ReleaseInstanceResponse
+     * @param request - ReleaseInstanceRequest
+     * @returns ReleaseInstanceResponse
+     *
+     * @param ReleaseInstanceRequest $request
+     *
+     * @return ReleaseInstanceResponse
      */
     public function releaseInstance($request)
     {
@@ -10281,30 +12843,38 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
-     *  *
-     * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
-     *  *
-     * @param SyncProductInstanceRequest $request SyncProductInstanceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
      *
-     * @return SyncProductInstanceResponse SyncProductInstanceResponse
+     * @remarks
+     * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
+     *
+     * @param request - SyncProductInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SyncProductInstanceResponse
+     *
+     * @param SyncProductInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SyncProductInstanceResponse
      */
     public function syncProductInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
-            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SyncProductInstance',
@@ -10317,18 +12887,25 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SyncProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SyncProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SyncProductInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
-     *  *
-     * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
-     *  *
-     * @param SyncProductInstanceRequest $request SyncProductInstanceRequest
+     * Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
      *
-     * @return SyncProductInstanceResponse SyncProductInstanceResponse
+     * @remarks
+     * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
+     *
+     * @param request - SyncProductInstanceRequest
+     * @returns SyncProductInstanceResponse
+     *
+     * @param SyncProductInstanceRequest $request
+     *
+     * @return SyncProductInstanceResponse
      */
     public function syncProductInstance($request)
     {
@@ -10338,31 +12915,39 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -10375,16 +12960,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Adds tags to resources.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -10394,34 +12985,43 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources and then deletes the tags.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from resources and then deletes the tags.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -10434,16 +13034,22 @@ class Wafopenapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Removes tags from resources and then deletes the tags.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from resources and then deletes the tags.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {

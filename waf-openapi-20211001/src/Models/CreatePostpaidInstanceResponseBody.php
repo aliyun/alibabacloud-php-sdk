@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePostpaidInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the WAF instance.
-     *
-     * @example waf_v2_public_cn-x0r****gr1i
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 73A4E786-8235-50C0-9631-87C8****4A36
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreatePostpaidInstanceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreatePostpaidInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePostpaidInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

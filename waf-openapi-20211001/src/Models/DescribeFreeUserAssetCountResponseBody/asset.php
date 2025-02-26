@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeFreeUserAssetCountResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class asset extends Model
 {
     /**
-     * @description The number of active APIs.
-     *
-     * @example 34
-     *
      * @var int
      */
     public $assetActive;
-
     /**
-     * @description The total number of APIs.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $assetCount;
-
     /**
-     * @description The number of deactivated APIs.
-     *
-     * @example 13
-     *
      * @var int
      */
     public $assetOffline;
@@ -42,17 +28,20 @@ class asset extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetActive) {
             $res['AssetActive'] = $this->assetActive;
         }
+
         if (null !== $this->assetCount) {
             $res['AssetCount'] = $this->assetCount;
         }
+
         if (null !== $this->assetOffline) {
             $res['AssetOffline'] = $this->assetOffline;
         }
@@ -60,20 +49,22 @@ class asset extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return asset
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetActive'])) {
             $model->assetActive = $map['AssetActive'];
         }
+
         if (isset($map['AssetCount'])) {
             $model->assetCount = $map['AssetCount'];
         }
+
         if (isset($map['AssetOffline'])) {
             $model->assetOffline = $map['AssetOffline'];
         }

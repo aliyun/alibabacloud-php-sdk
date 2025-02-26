@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendResponseBody\flowChart;
-use AlibabaCloud\Tea\Model;
 
 class DescribePeakTrendResponseBody extends Model
 {
     /**
-     * @description An array of the QPS statistics of the WAF instance.
-     *
      * @var flowChart[]
      */
     public $flowChart;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 9D11AC3A-A10C-56E7-A342-E87EC892BAE2
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribePeakTrendResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->flowChart)) {
+            Model::validateArray($this->flowChart);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flowChart) {
-            $res['FlowChart'] = [];
-            if (null !== $this->flowChart && \is_array($this->flowChart)) {
-                $n = 0;
-                foreach ($this->flowChart as $item) {
-                    $res['FlowChart'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flowChart)) {
+                $res['FlowChart'] = [];
+                $n1               = 0;
+                foreach ($this->flowChart as $item1) {
+                    $res['FlowChart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribePeakTrendResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribePeakTrendResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlowChart'])) {
             if (!empty($map['FlowChart'])) {
                 $model->flowChart = [];
-                $n                = 0;
-                foreach ($map['FlowChart'] as $item) {
-                    $model->flowChart[$n++] = null !== $item ? flowChart::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['FlowChart'] as $item1) {
+                    $model->flowChart[$n1++] = flowChart::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

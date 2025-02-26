@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeWafSourceIpSegmentResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class wafSourceIp extends Model
 {
     /**
-     * @description An array of back-to-origin IPv4 CIDR blocks.
-     *
      * @var string[]
      */
     public $IPv4;
-
     /**
-     * @description An array of back-to-origin IPv6 CIDR blocks.
-     *
      * @var string[]
      */
     public $IPv6;
@@ -28,37 +23,66 @@ class wafSourceIp extends Model
 
     public function validate()
     {
+        if (\is_array($this->IPv4)) {
+            Model::validateArray($this->IPv4);
+        }
+        if (\is_array($this->IPv6)) {
+            Model::validateArray($this->IPv6);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->IPv4) {
-            $res['IPv4'] = $this->IPv4;
+            if (\is_array($this->IPv4)) {
+                $res['IPv4'] = [];
+                $n1          = 0;
+                foreach ($this->IPv4 as $item1) {
+                    $res['IPv4'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->IPv6) {
-            $res['IPv6'] = $this->IPv6;
+            if (\is_array($this->IPv6)) {
+                $res['IPv6'] = [];
+                $n1          = 0;
+                foreach ($this->IPv6 as $item1) {
+                    $res['IPv6'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return wafSourceIp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IPv4'])) {
             if (!empty($map['IPv4'])) {
-                $model->IPv4 = $map['IPv4'];
+                $model->IPv4 = [];
+                $n1          = 0;
+                foreach ($map['IPv4'] as $item1) {
+                    $model->IPv4[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['IPv6'])) {
             if (!empty($map['IPv6'])) {
-                $model->IPv6 = $map['IPv6'];
+                $model->IPv6 = [];
+                $n1          = 0;
+                foreach ($map['IPv6'] as $item1) {
+                    $model->IPv6[$n1++] = $item1;
+                }
             }
         }
 

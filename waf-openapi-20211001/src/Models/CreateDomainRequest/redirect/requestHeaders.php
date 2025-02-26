@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainRequest\redirect;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class requestHeaders extends Model
 {
     /**
-     * @description The custom header field.
-     *
-     * @example aaa
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The value of the custom header field.
-     *
-     * @example bbb
-     *
      * @var string
      */
     public $value;
@@ -32,14 +23,16 @@ class requestHeaders extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +40,18 @@ class requestHeaders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return requestHeaders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

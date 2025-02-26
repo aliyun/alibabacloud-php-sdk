@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopClientIpResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleHitsTopClientIp extends Model
 {
     /**
-     * @description The IP address of the service client.
-     *
-     * @example 3.3.XX.XX
-     *
      * @var string
      */
     public $clientIp;
-
     /**
-     * @description The number of attacks that are initiated from the IP address.
-     *
-     * @example 531
-     *
      * @var int
      */
     public $count;
@@ -32,14 +23,16 @@ class ruleHitsTopClientIp extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIp) {
             $res['ClientIp'] = $this->clientIp;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -47,17 +40,18 @@ class ruleHitsTopClientIp extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleHitsTopClientIp
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientIp'])) {
             $model->clientIp = $map['ClientIp'];
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }

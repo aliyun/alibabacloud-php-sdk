@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyHybridCloudGroupExpansionServerResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 7BD7F9A1-0E72-5BC1-8248-C629B4***B6
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyHybridCloudGroupExpansionServerResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyHybridCloudGroupExpansionServerResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyHybridCloudGroupExpansionServerResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

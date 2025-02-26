@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveApiStatisticResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveApiStatisticResponseBody\data\list_;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of personal information records involved in cross-border data transfer by domain name.
-     *
-     * @example 213
-     *
      * @var int
      */
     public $infoOutboundCount;
-
     /**
-     * @description The domain name-related APIs.
-     *
      * @var list_[]
      */
     public $list;
-
     /**
-     * @description The domain name or IP address.
-     *
-     * @example www.***.top
-     *
      * @var string
      */
     public $matchedHost;
-
     /**
-     * @description The number of sensitive personal information records involved in cross-border data transfer by domain name.
-     *
-     * @example 127
-     *
      * @var int
      */
     public $sensitiveOutboundCount;
@@ -51,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->list)) {
+            Model::validateArray($this->list);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->infoOutboundCount) {
             $res['InfoOutboundCount'] = $this->infoOutboundCount;
         }
+
         if (null !== $this->list) {
-            $res['List'] = [];
-            if (null !== $this->list && \is_array($this->list)) {
-                $n = 0;
-                foreach ($this->list as $item) {
-                    $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->list)) {
+                $res['List'] = [];
+                $n1          = 0;
+                foreach ($this->list as $item1) {
+                    $res['List'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->matchedHost) {
             $res['MatchedHost'] = $this->matchedHost;
         }
+
         if (null !== $this->sensitiveOutboundCount) {
             $res['SensitiveOutboundCount'] = $this->sensitiveOutboundCount;
         }
@@ -78,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InfoOutboundCount'])) {
             $model->infoOutboundCount = $map['InfoOutboundCount'];
         }
+
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n           = 0;
-                foreach ($map['List'] as $item) {
-                    $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['List'] as $item1) {
+                    $model->list[$n1++] = list_::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['MatchedHost'])) {
             $model->matchedHost = $map['MatchedHost'];
         }
+
         if (isset($map['SensitiveOutboundCount'])) {
             $model->sensitiveOutboundCount = $map['SensitiveOutboundCount'];
         }

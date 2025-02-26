@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDefenseResourceNamesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example C1823E96-EF4B-5BD2-9E02-1D18****3ED8
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The names of the protected objects.
-     *
      * @var string[]
      */
     public $resources;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 75
-     *
      * @var int
      */
     public $totalCount;
@@ -40,17 +28,29 @@ class DescribeDefenseResourceNamesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = $this->resources;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1               = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,22 +58,28 @@ class DescribeDefenseResourceNamesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDefenseResourceNamesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
-                $model->resources = $map['Resources'];
+                $model->resources = [];
+                $n1               = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

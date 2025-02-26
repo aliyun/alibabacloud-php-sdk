@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeUserSlsLogRegionsResponseBody extends Model
 {
     /**
-     * @description The region IDs.
-     *
      * @var string[]
      */
     public $logRegions;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9D11AC3A-A10C-56E7-A342-E87EC892****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,25 @@ class DescribeUserSlsLogRegionsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->logRegions)) {
+            Model::validateArray($this->logRegions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logRegions) {
-            $res['LogRegions'] = $this->logRegions;
+            if (\is_array($this->logRegions)) {
+                $res['LogRegions'] = [];
+                $n1                = 0;
+                foreach ($this->logRegions as $item1) {
+                    $res['LogRegions'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +49,24 @@ class DescribeUserSlsLogRegionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeUserSlsLogRegionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogRegions'])) {
             if (!empty($map['LogRegions'])) {
-                $model->logRegions = $map['LogRegions'];
+                $model->logRegions = [];
+                $n1                = 0;
+                foreach ($map['LogRegions'] as $item1) {
+                    $model->logRegions[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

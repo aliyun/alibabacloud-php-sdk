@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeWafSourceIpSegmentResponseBody\wafSourceIp;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWafSourceIpSegmentResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 9087ADDC-9047-4D02-82A7-33021B58083C
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The back-to-origin CIDR blocks that are used by the protection cluster.
-     *
      * @var wafSourceIp
      */
     public $wafSourceIp;
@@ -31,32 +24,38 @@ class DescribeWafSourceIpSegmentResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->wafSourceIp) {
+            $this->wafSourceIp->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->wafSourceIp) {
-            $res['WafSourceIp'] = null !== $this->wafSourceIp ? $this->wafSourceIp->toMap() : null;
+            $res['WafSourceIp'] = null !== $this->wafSourceIp ? $this->wafSourceIp->toArray($noStream) : $this->wafSourceIp;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWafSourceIpSegmentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WafSourceIp'])) {
             $model->wafSourceIp = wafSourceIp::fromMap($map['WafSourceIp']);
         }

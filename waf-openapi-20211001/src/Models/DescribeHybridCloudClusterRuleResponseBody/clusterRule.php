@@ -4,38 +4,19 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeHybridCloudClusterRuleResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class clusterRule extends Model
 {
     /**
-     * @description The configuration of the rule.
-     *
-     * @example {\\"check_mode\\":\\"all\\",\\"exclude\\":{\\"exact\\":[],\\"regex\\":[]}}
-     *
      * @var string
      */
     public $ruleConfig;
-
     /**
-     * @description The status of the rule. Valid values:
-     *
-     *   **on**: enabled.
-     *   **off**: disabled.
-     *
-     * @example on
-     *
      * @var string
      */
     public $ruleStatus;
-
     /**
-     * @description The type of the rule. Valid values:
-     *
-     *   **pullin**: The traffic redirection rule of the hybrid cloud cluster.
-     *
-     * @example pullin
-     *
      * @var string
      */
     public $ruleType;
@@ -47,17 +28,20 @@ class clusterRule extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleConfig) {
             $res['RuleConfig'] = $this->ruleConfig;
         }
+
         if (null !== $this->ruleStatus) {
             $res['RuleStatus'] = $this->ruleStatus;
         }
+
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
@@ -65,20 +49,22 @@ class clusterRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return clusterRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleConfig'])) {
             $model->ruleConfig = $map['RuleConfig'];
         }
+
         if (isset($map['RuleStatus'])) {
             $model->ruleStatus = $map['RuleStatus'];
         }
+
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }

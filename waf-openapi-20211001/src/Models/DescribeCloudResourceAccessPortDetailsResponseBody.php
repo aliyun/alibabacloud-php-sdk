@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeCloudResourceAccessPortDetailsResponseBody\accessPortDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
 {
     /**
-     * @description The details of the ports of cloud services that are added to WAF.
-     *
      * @var accessPortDetails[]
      */
     public $accessPortDetails;
-
     /**
-     * @description The request ID.
-     *
-     * @example 2EFCFE18-78F8-5079-B312-07***48B
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -41,23 +29,29 @@ class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->accessPortDetails)) {
+            Model::validateArray($this->accessPortDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessPortDetails) {
-            $res['AccessPortDetails'] = [];
-            if (null !== $this->accessPortDetails && \is_array($this->accessPortDetails)) {
-                $n = 0;
-                foreach ($this->accessPortDetails as $item) {
-                    $res['AccessPortDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accessPortDetails)) {
+                $res['AccessPortDetails'] = [];
+                $n1                       = 0;
+                foreach ($this->accessPortDetails as $item1) {
+                    $res['AccessPortDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +59,28 @@ class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudResourceAccessPortDetailsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessPortDetails'])) {
             if (!empty($map['AccessPortDetails'])) {
                 $model->accessPortDetails = [];
-                $n                        = 0;
-                foreach ($map['AccessPortDetails'] as $item) {
-                    $model->accessPortDetails[$n++] = null !== $item ? accessPortDetails::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['AccessPortDetails'] as $item1) {
+                    $model->accessPortDetails[$n1++] = accessPortDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
