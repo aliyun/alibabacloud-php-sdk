@@ -11,6 +11,10 @@ class StartAIAnalysisRequest extends Model
     /**
      * @var string
      */
+    public $analysisTool;
+    /**
+     * @var string
+     */
     public $channel;
     /**
      * @var string
@@ -33,12 +37,13 @@ class StartAIAnalysisRequest extends Model
      */
     public $timeout;
     protected $_name = [
-        'channel'  => 'channel',
-        'comms'    => 'comms',
-        'instance' => 'instance',
-        'pids'     => 'pids',
-        'region'   => 'region',
-        'timeout'  => 'timeout',
+        'analysisTool' => 'analysisTool',
+        'channel'      => 'channel',
+        'comms'        => 'comms',
+        'instance'     => 'instance',
+        'pids'         => 'pids',
+        'region'       => 'region',
+        'timeout'      => 'timeout',
     ];
 
     public function validate()
@@ -49,6 +54,10 @@ class StartAIAnalysisRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->analysisTool) {
+            $res['analysisTool'] = $this->analysisTool;
+        }
+
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
@@ -84,6 +93,10 @@ class StartAIAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['analysisTool'])) {
+            $model->analysisTool = $map['analysisTool'];
+        }
+
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }

@@ -76,10 +76,17 @@ use AlibabaCloud\SDK\SysOM\V20231230\Models\ListDiagnosisRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListDiagnosisResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstanceHealthRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstanceHealthResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstancesEcsInfoListRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstancesEcsInfoListResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstanceStatusRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstanceStatusResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstancesWithEcsInfoRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstancesWithEcsInfoResponse;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListInstancesWithEcsInfoShrinkRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListPluginsInstancesRequest;
+use AlibabaCloud\SDK\SysOM\V20231230\Models\ListPluginsInstancesResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListPodsOfInstanceRequest;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListPodsOfInstanceResponse;
 use AlibabaCloud\SDK\SysOM\V20231230\Models\ListRegionsResponse;
@@ -2871,6 +2878,294 @@ class SysOM extends OpenApiClient
     }
 
     /**
+     * 获取ecs信息的列表，如标签列表，公网ip列表等.
+     *
+     * @param request - ListInstancesEcsInfoListRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesEcsInfoListResponse
+     *
+     * @param ListInstancesEcsInfoListRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListInstancesEcsInfoListResponse
+     */
+    public function listInstancesEcsInfoListWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->infoType) {
+            @$query['info_type'] = $request->infoType;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instance_id'] = $request->instanceId;
+        }
+
+        if (null !== $request->managedType) {
+            @$query['managed_type'] = $request->managedType;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['plugin_id'] = $request->pluginId;
+        }
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstancesEcsInfoList',
+            'version'     => '2023-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/am/instance/listInstancesEcsInfoList',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesEcsInfoListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListInstancesEcsInfoListResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取ecs信息的列表，如标签列表，公网ip列表等.
+     *
+     * @param request - ListInstancesEcsInfoListRequest
+     * @returns ListInstancesEcsInfoListResponse
+     *
+     * @param ListInstancesEcsInfoListRequest $request
+     *
+     * @return ListInstancesEcsInfoListResponse
+     */
+    public function listInstancesEcsInfoList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstancesEcsInfoListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取已纳管/未纳管实例信息，信息中包含ECS信息.
+     *
+     * @param tmpReq - ListInstancesWithEcsInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListInstancesWithEcsInfoResponse
+     *
+     * @param ListInstancesWithEcsInfoRequest $tmpReq
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListInstancesWithEcsInfoResponse
+     */
+    public function listInstancesWithEcsInfoWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListInstancesWithEcsInfoShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->instanceTag) {
+            $request->instanceTagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->instanceTag, 'instance_tag', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
+        }
+
+        if (null !== $request->healthStatus) {
+            @$query['health_status'] = $request->healthStatus;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['instance_id'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceIdName) {
+            @$query['instance_id_name'] = $request->instanceIdName;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['instance_name'] = $request->instanceName;
+        }
+
+        if (null !== $request->instanceTagShrink) {
+            @$query['instance_tag'] = $request->instanceTagShrink;
+        }
+
+        if (null !== $request->isManaged) {
+            @$query['is_managed'] = $request->isManaged;
+        }
+
+        if (null !== $request->osName) {
+            @$query['os_name'] = $request->osName;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->privateIp) {
+            @$query['private_ip'] = $request->privateIp;
+        }
+
+        if (null !== $request->publicIp) {
+            @$query['public_ip'] = $request->publicIp;
+        }
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resource_group_id'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceGroupIdName) {
+            @$query['resource_group_id_name'] = $request->resourceGroupIdName;
+        }
+
+        if (null !== $request->resourceGroupName) {
+            @$query['resource_group_name'] = $request->resourceGroupName;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListInstancesWithEcsInfo',
+            'version'     => '2023-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/am/instance/listInstancesWithEcsInfo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstancesWithEcsInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListInstancesWithEcsInfoResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取已纳管/未纳管实例信息，信息中包含ECS信息.
+     *
+     * @param request - ListInstancesWithEcsInfoRequest
+     * @returns ListInstancesWithEcsInfoResponse
+     *
+     * @param ListInstancesWithEcsInfoRequest $request
+     *
+     * @return ListInstancesWithEcsInfoResponse
+     */
+    public function listInstancesWithEcsInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstancesWithEcsInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取插件的安装/更新/卸载实例列表.
+     *
+     * @param request - ListPluginsInstancesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListPluginsInstancesResponse
+     *
+     * @param ListPluginsInstancesRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListPluginsInstancesResponse
+     */
+    public function listPluginsInstancesWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->current) {
+            @$query['current'] = $request->current;
+        }
+
+        if (null !== $request->instanceIdName) {
+            @$query['instance_id_name'] = $request->instanceIdName;
+        }
+
+        if (null !== $request->instanceTag) {
+            @$query['instance_tag'] = $request->instanceTag;
+        }
+
+        if (null !== $request->operationType) {
+            @$query['operation_type'] = $request->operationType;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->pluginId) {
+            @$query['plugin_id'] = $request->pluginId;
+        }
+
+        if (null !== $request->region) {
+            @$query['region'] = $request->region;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPluginsInstances',
+            'version'     => '2023-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/am/agent/listPluginsInstances',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPluginsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListPluginsInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取插件的安装/更新/卸载实例列表.
+     *
+     * @param request - ListPluginsInstancesRequest
+     * @returns ListPluginsInstancesResponse
+     *
+     * @param ListPluginsInstancesRequest $request
+     *
+     * @return ListPluginsInstancesResponse
+     */
+    public function listPluginsInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listPluginsInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取实例中的pod列表.
      *
      * @param request - ListPodsOfInstanceRequest
@@ -3012,6 +3307,10 @@ class SysOM extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->analysisTool) {
+            @$body['analysisTool'] = $request->analysisTool;
+        }
+
         if (null !== $request->channel) {
             @$body['channel'] = $request->channel;
         }
